@@ -1,0 +1,95 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_ALLBINARYANDROIDGAMEINITIALIZATIONUTIL_CPP
+        #define ORG_ALLBINARY_ALLBINARYANDROIDGAMEINITIALIZATIONUTIL_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/AllBinaryAndroidGameInitializationUtil.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Integer.h"
+        
+#include <org/allbinary/business/init/LicenseInitInfoUtil.h>
+
+      
+#include <org/allbinary/data/resource/ResourceUtil.h>
+
+      
+#include <org/allbinary/logic/system/security/licensing/PartnerIdentifierFileUtil.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/AndroidResources.h"
+
+
+AllBinaryAndroidGameInitializationUtil::AllBinaryAndroidGameInitializationUtil() {
+        }
+        
+    auto AllBinaryAndroidGameInitializationUtil::init() -> void{
+
+    ResourceUtil* resourceUtil = ResourceUtil::getInstance();;
+    
+
+    AndroidResources* androidResources = AndroidResources::getInstance();;
+    
+
+    LicenseInitInfoUtil* licenseInitInfoUtil = LicenseInitInfoUtil::getInstance();;
+    
+resourceUtil->addResource(licenseInitInfoUtil->INITFILENAME, Integer.valueOf(androidResources->raw->licenseinitdata));
+    
+resourceUtil->addResource(PartnerIdentifierFileUtil::getInstance()->FILE_NAME, Integer.valueOf(androidResources->raw->partner));
+    
+resourceUtil->addResource(licenseInitInfoUtil->ABOUT, Integer.valueOf(androidResources->raw->about));
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_ALLBINARYANDROIDGAMEINITIALIZATIONUTIL_CPP

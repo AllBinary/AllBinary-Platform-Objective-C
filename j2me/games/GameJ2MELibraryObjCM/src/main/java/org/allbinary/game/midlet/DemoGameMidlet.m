@@ -1,0 +1,256 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GAME_MIDLET_DEMOGAMEMIDLET_CPP
+        #define ORG_ALLBINARY_GAME_MIDLET_DEMOGAMEMIDLET_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/game/midlet/DemoGameMidlet.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+#include <org/allbinary/game/displayable/canvas/GameCanvasRunnableInterface.h>
+
+      
+#include <org/allbinary/game/layer/AllBinaryGameLayerManager.h>
+
+      
+#include <org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h>
+
+      
+#include <org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.h>
+
+      
+#include <org/allbinary/logic/StdUtil.h>
+
+      
+#include <org/allbinary/logic/system/security/licensing/ClientInformationFactory.h>
+
+      
+#include <org/allbinary/thread/PrimaryThreadPool.h>
+
+      
+#include <org/allbinary/game/displayable/canvas/NullGameCanvasRunnable.h>
+
+      
+#include <org/allbinary/util/ABHashtable.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/game/midlet/GameMidlet.h"
+#include "org/allbinary/game/midlet/DemoRunnable.h"
+#include "org/allbinary/game/midlet/CreateGameRunnable.h"
+
+
+DemoGameMidlet::DemoGameMidlet(ClientInformationFactory* clientInformationFactory) : GameMidlet(clientInformationFactory){
+
+                        //super/this constructor call is in the constructor initializer list.
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto DemoGameMidlet::isContinue() -> bool{
+
+    ABHashtable<Object*, Object*>* hashtable = this->getStartStateHashtable();;
+    
+
+                        if(hashtable != 
+                                    nullptr
+                                 && hashtable->size() > 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    auto DemoGameMidlet::getHighestLevel() -> int32_t{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return 1;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto DemoGameMidlet::createDemoGameCanvasRunnableInterface() -> GameCanvasRunnableInterface*{
+this->logUtil->putF(this->commonStrings->NOT_IMPLEMENTED, this, this->commonStrings->CREATE);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return NullGameCanvasRunnable::NULL_GAME_CANVAS_RUNNABLE;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto DemoGameMidlet::createGameCanvasRunnable(AllBinaryGameLayerManager* allBinaryGameLayerManager) -> GameCanvasRunnableInterface*{
+
+
+
+                            throw Exception(this->commonStrings->NOT_IMPLEMENTED);
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto DemoGameMidlet::createGameCanvasRunnableInterface() -> GameCanvasRunnableInterface*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->createGameCanvasRunnable(this->createGameLayerManager());;
+    
+}
+
+
+    auto DemoGameMidlet::demoSetup() -> void{
+}
+
+
+    auto DemoGameMidlet::postDemoSetup() -> void{
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
+
+    auto DemoGameMidlet::setDemo() -> void{
+this->logUtil->putF(this->commonStrings->START, this, "setDemo");
+    
+
+    ProgressCanvas* progressCanvas = ProgressCanvasFactory::getInstance();;
+    
+progressCanvas->start();
+    
+PrimaryThreadPool::getInstance()->runTask(new DemoRunnable(this));
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
+
+    auto DemoGameMidlet::createGame() -> void{
+
+    std::string CREATE_GAME = "createGame";;
+    
+this->logUtil->putF(this->commonStrings->START, this, CREATE_GAME);
+    
+
+    ProgressCanvas* progressCanvas = ProgressCanvasFactory::getInstance();;
+    
+progressCanvas->start();
+    
+
+    ABHashtable<Object*, Object*>* hashtable = this->getStartStateHashtable();;
+    
+this->setStartStateHashtable(StdUtil::getInstance()->NULL_TABLE);
+    
+PrimaryThreadPool::getInstance()->runTask(new CreateGameRunnable(this, hashtable));
+    
+this->logUtil->putF(this->commonStrings->END, this, CREATE_GAME);
+    
+}
+
+
+    auto DemoGameMidlet::isReady() -> bool{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return true;
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_GAME_MIDLET_DEMOGAMEMIDLET_CPP

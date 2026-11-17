@@ -1,0 +1,144 @@
+
+        /*
+                *  
+                *  AllBinary Open License Version 1 
+                *  Copyright (c) 2007 AllBinary 
+                *   
+                *  By agreeing to this license you and any business entity you represent are 
+                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
+                *   
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+                *   
+                *  Created By: Travis Berthelot    
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_PREGAMESCROLLSELECTIONTOUCHBUTTONSBUILDER_CPP
+        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_PREGAMESCROLLSELECTIONTOUCHBUTTONSBUILDER_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/input/motion/button/PreGameScrollSelectionTouchButtonsBuilder.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Exception.h"
+        
+#include <org/allbinary/util/BasicArrayList.h>
+
+      
+#include <org/allbinary/util/BasicArrayListD.h>
+
+      
+#include <org/allbinary/util/BasicArrayListUtil.h>
+
+      
+#include <org/allbinary/logic/communication/log/LogUtil.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/input/motion/button/BaseTouchInput.h"
+#include "org/allbinary/input/motion/button/TouchButtonLocationHelper.h"
+#include "org/allbinary/input/motion/button/CommonButtons.h"
+#include "org/allbinary/input/motion/button/BasicTouchButtonCellPositionFactory.h"
+#include "org/allbinary/input/motion/button/TouchButton.h"
+#include "org/allbinary/input/motion/button/BasicTouchInputFactory.h"
+#include "org/allbinary/input/motion/button/TouchButtonStrafeLeftResource.h"
+#include "org/allbinary/input/motion/button/TouchButtonStrafeRightResource.h"
+#include "org/allbinary/input/motion/button/TouchButtonStartResource.h"
+
+
+PreGameScrollSelectionTouchButtonsBuilder::PreGameScrollSelectionTouchButtonsBuilder() : logUtil(LogUtil::getInstance()) {
+        }
+        
+    auto PreGameScrollSelectionTouchButtonsBuilder::getList() -> BasicArrayList*{
+
+        try {
+            this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->GET_LIST);
+    
+
+    BasicArrayList* list = new BasicArrayListD();;
+    
+
+    TouchButtonLocationHelper* touchButtonLocationHelper = new TouchButtonLocationHelper();;
+    
+
+    CommonButtons* commonButtons = CommonButtons::getInstance();;
+    
+
+    BasicTouchButtonCellPositionFactory* basicTouchButtonCellPositionFactory = new BasicTouchButtonCellPositionFactory();;
+    
+
+    TouchButton* LEFT = TouchButton::createButton(BasicTouchInputFactory::getInstance()->LEFT, TouchButtonStrafeLeftResource::getInstance(), commonButtons->NORMAL_BUTTON, basicTouchButtonCellPositionFactory->TOP_LEFT, touchButtonLocationHelper->getColumnsRemainderHalf(), touchButtonLocationHelper->getRowsRemainderHalf());;
+    
+
+    TouchButton* RIGHT = TouchButton::createButton(BasicTouchInputFactory::getInstance()->RIGHT, TouchButtonStrafeRightResource::getInstance(), commonButtons->NORMAL_BUTTON, basicTouchButtonCellPositionFactory->TOP_RIGHT, touchButtonLocationHelper->getColumnsRemainderHalf(), touchButtonLocationHelper->getRowsRemainderHalf());;
+    
+
+    TouchButton* START = TouchButton::createButton(BasicTouchInputFactory::getInstance()->SPECIAL_BUTTON_FIVE, TouchButtonStartResource::getInstance(), commonButtons->NORMAL_BUTTON, basicTouchButtonCellPositionFactory->BOTTOM_RIGHT, touchButtonLocationHelper->getColumnsRemainderHalf(), touchButtonLocationHelper->getRowsRemainderHalf());;
+    
+list->add(LEFT);
+    
+list->add(RIGHT);
+    
+list->add(START);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return list;
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->GET_LIST, &e);
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return BasicArrayListUtil::getInstance()->getImmutableInstance();;
+    
+}
+
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_PREGAMESCROLLSELECTIONTOUCHBUTTONSBUILDER_CPP

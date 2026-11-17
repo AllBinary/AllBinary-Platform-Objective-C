@@ -1,0 +1,145 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_BOTTOMLIMITER_CPP
+        #define ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_BOTTOMLIMITER_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/business/advertisement/BottomLimiter.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+#include <org/allbinary/game/GameAdState.h>
+
+      
+#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/business/advertisement/GameAdStateFactory.h"
+
+auto BottomLimiter::instance_owner() -> BottomLimiter* { static std::unique_ptr<BottomLimiter> value(new BottomLimiter()); return value.get(); }
+BottomLimiter* BottomLimiter::instance = BottomLimiter::instance_owner();
+
+    auto BottomLimiter::getInstance() -> BottomLimiter*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return BottomLimiter::instance;
+    
+}
+
+
+BottomLimiter::BottomLimiter(){
+}
+
+
+    auto BottomLimiter::init(int32_t lower, int32_t higher) -> void{
+this->lower= lower;
+    
+this->higher= higher;
+    
+}
+
+
+    auto BottomLimiter::update() -> void{
+
+    DisplayInfoSingleton* displayInfo = DisplayInfoSingleton::getInstance();;
+    
+
+    GameAdState* gameAdState = GameAdStateFactory::getInstance()->getCurrentInstance();;
+    
+
+                        if(gameAdState->isShowingAt())
+                        
+                                    {
+                                    this->deltaY= this->higher;
+    
+
+                                    }
+                                
+                        else {
+                            this->deltaY= this->lower;
+    
+
+                        }
+                            
+this->bottom= displayInfo->getLastHeight() -this->deltaY;
+    
+}
+
+
+    auto BottomLimiter::getDeltaY() -> int32_t{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->deltaY;
+    
+}
+
+
+    auto BottomLimiter::getBottom() -> int32_t{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->bottom;
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_BOTTOMLIMITER_CPP

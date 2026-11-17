@@ -1,0 +1,314 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GAME_LAYER_GEOGRAPHIC_MAP_MINIMAPLAYER_CPP
+        #define ORG_ALLBINARY_GAME_LAYER_GEOGRAPHIC_MAP_MINIMAPLAYER_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/game/layer/geographic/map/MiniMapLayer.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Exception.h"
+        
+#include <javax/microedition/lcdui/Graphics.h>
+
+      
+#include <org/allbinary/logic/string/StringUtil.h>
+
+      
+#include <org/allbinary/util/BasicArrayList.h>
+
+      
+#include <org/allbinary/util/BasicArrayListD.h>
+
+      
+#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
+
+      
+#include <org/allbinary/animation/vector/CircleFilledAnimation.h>
+
+      
+#include <org/allbinary/game/layer/AllBinaryTiledLayer.h>
+
+      
+#include <org/allbinary/graphics/GPoint.h>
+
+      
+#include <org/allbinary/graphics/PointFactory.h>
+
+      
+#include <org/allbinary/graphics/Rectangle.h>
+
+      
+#include <org/allbinary/graphics/color/BasicColor.h>
+
+      
+#include <org/allbinary/graphics/color/BasicColorFactory.h>
+
+      
+#include <org/allbinary/graphics/color/ColorCompositeInterface.h>
+
+      
+#include <org/allbinary/layer/AllBinaryLayer.h>
+
+      
+#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
+
+      
+#include <org/allbinary/logic/util/event/EventStrings.h>
+
+      
+#include <org/allbinary/media/graphics/geography/map/BasicGeographicMap.h>
+
+      
+#include <org/allbinary/media/graphics/geography/map/BasicGeographicMapCellPositionFactory.h>
+
+      
+#include <org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.h>
+
+      
+#include <org/allbinary/media/graphics/geography/map/event/GeographicMapCellPositionEvent.h>
+
+      
+#include <org/allbinary/media/graphics/geography/map/event/GeographicMapCellPositionEventHandler.h>
+
+      
+#include <org/allbinary/media/graphics/geography/map/event/GeographicMapCellPositionEventListenerInterface.h>
+
+      
+#include <org/allbinary/view/ViewPositionBase.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+
+MiniMapLayer::MiniMapLayer(BasicGeographicMap* geographicMapInterface, ViewPositionBase* viewPosition) : AllBinaryLayer(StringUtil::getInstance()->EMPTY_STRING, new Rectangle(PointFactory::getInstance()->createXY(0, viewPosition->getY()), geographicMapInterface->getAllBinaryTiledLayer()->getWidth(), geographicMapInterface->getAllBinaryTiledLayer()->getHeight()), viewPosition){
+
+                        //super/this constructor call is in the constructor initializer list.
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this->allBinaryTiledLayer= geographicMapInterface->getAllBinaryTiledLayer();
+    
+this->geographicMapCellPositionFactory= geographicMapInterface->getGeographicMapCellPositionFactory();
+    
+this->animationInterface= new CircleFilledAnimation(this->allBinaryTiledLayer->getCellWidth(), this->allBinaryTiledLayer->getCellHeight(), BasicColorFactory::getInstance()->WHITE);
+    
+this->list= new BasicArrayListD();
+    
+this->basicColorList= new BasicArrayListD();
+    
+this->positionList= new BasicArrayListD();
+    
+GeographicMapCellPositionEventHandler::getInstance()->addListener(this);
+    
+this->init();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto MiniMapLayer::init() -> void{
+this->allBinaryTiledLayer->setPosition(this->x, this->y, this->z);
+    
+}
+
+
+    auto MiniMapLayer::onEvent(AllBinaryEventObject* eventObject) -> void{
+ForcedLogUtil::log(EventStrings::getInstance()->PERFORMANCE_MESSAGE, this);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
+
+    auto MiniMapLayer::onRemoveGeographicMapCellPositionEvent(GeographicMapCellPositionEvent* geographicMapCellPositionEvent) -> void{
+
+    ColorCompositeInterface* colorCompositeInterface = dynamic_cast<ColorCompositeInterface*>(geographicMapCellPositionEvent->getSource());;
+    
+
+    int32_t index = this->list->indexOf(colorCompositeInterface);;
+    
+
+                        if(index >= 0)
+                        
+                                    {
+                                    this->list->removeAt(index);
+    
+this->basicColorList->removeAt(index);
+    
+this->positionList->removeAt(index);
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
+
+    auto MiniMapLayer::onGeographicMapCellPositionEvent(GeographicMapCellPositionEvent* geographicMapCellPositionEvent) -> void{
+
+    ColorCompositeInterface* colorCompositeInterface = dynamic_cast<ColorCompositeInterface*>(geographicMapCellPositionEvent->getSource());;
+    
+
+    int32_t layerIndex =  -1;;
+    
+
+    int32_t size = this->list->size();;
+    
+
+    ColorCompositeInterface* nextColorCompositeInterface;;
+    
+
+
+
+
+                        for (
+    int32_t index = 0;index < size; index++)
+        {
+nextColorCompositeInterface= dynamic_cast<ColorCompositeInterface*>(this->list->get(index));
+    
+
+                        if(nextColorCompositeInterface == colorCompositeInterface)
+                        
+                                    {
+                                    layerIndex= index;
+    
+break;
+
+                    
+
+                                    }
+                                
+}
+
+
+    GeographicMapCellPosition* geographicMapCellPosition = this->geographicMapCellPositionFactory->getInstance(geographicMapCellPositionEvent->getGeographicMapCellPosition());;
+    
+
+    GPoint* point = geographicMapCellPosition->getPoint();;
+    
+
+                        if(layerIndex ==  -1)
+                        
+                                    {
+                                    this->list->add(colorCompositeInterface);
+    
+
+    BasicColor* basicColor = colorCompositeInterface->getBasicColorP();;
+    
+this->basicColorList->add(basicColor);
+    
+this->positionList->add(point);
+    
+layerIndex= this->basicColorList->size() -1;
+    
+
+                                    }
+                                
+                        else {
+                            this->positionList->set(layerIndex, point);
+    
+
+                        }
+                            
+}
+
+
+    auto MiniMapLayer::paintDots(Graphics* graphics) -> void{
+
+    BasicArrayList* localPositionList = this->positionList;;
+    
+
+    BasicArrayList* localBasicColorList = this->basicColorList;;
+    
+
+    int32_t length = localPositionList->size();;
+    
+
+    GPoint* point;;
+    
+
+    BasicColor* basicColor;;
+    
+
+
+
+
+                        for (
+    int32_t index = length;--index >= 0; )
+        {
+point= dynamic_cast<GPoint*>(localPositionList->get(index));
+    
+basicColor= dynamic_cast<BasicColor*>(localBasicColorList->get(index));
+    
+graphics->setColor(basicColor->intValue());
+    
+this->animationInterface->setBasicColorP(basicColor);
+    
+this->animationInterface->paintXY(graphics, point->getX() +this->x, point->getY() +this->y);
+    
+}
+
+}
+
+
+    auto MiniMapLayer::paint(Graphics* graphics) -> void{
+this->allBinaryTiledLayer->paint(graphics);
+    
+this->paintDots(graphics);
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_GAME_LAYER_GEOGRAPHIC_MAP_MINIMAPLAYER_CPP

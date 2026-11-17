@@ -1,0 +1,103 @@
+
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H
+        #define ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H
+
+        
+        #pragma push_macro("JAVA_COMPLETE_TYPES")
+        #undef JAVA_COMPLETE_TYPES
+        
+
+            #include <vector>
+        
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+class Image;
+class DisposalUtil;
+#include <org/allbinary/platform/graphics/PlatformBitmapBase.h>
+class SwtImmutableImage;
+class SwtMutableImage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+                                
+        #pragma pop_macro("JAVA_COMPLETE_TYPES")
+
+        
+class OpenGLBitmap: public PlatformBitmapBase {
+
+    public: Image* image;
+
+public: OpenGLBitmap(Object* bitmap);
+public: OpenGLBitmap(const std::string& bitmap) : OpenGLBitmap(JavaString::box(bitmap)) { }
+public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> OpenGLBitmap(BoxValue bitmap) : OpenGLBitmap(JavaBoxes::toObject(bitmap)) { }
+public: template<typename BoxElement> OpenGLBitmap(const std::vector<BoxElement>& bitmap) : OpenGLBitmap(JavaBoxes::toObject(bitmap)) { }
+
+    public: Image* getImage();
+
+    public: int32_t getDepth();
+
+    public: void getPixels(std::vector<int32_t> pixels, int32_t offset, int32_t stride, int32_t x, int32_t y, int32_t width, int32_t height);
+
+    public: void setPixels(std::vector<int32_t> pixels, int32_t offset, int32_t stride, int32_t x, int32_t y, int32_t width, int32_t height);
+
+    public: int32_t getWidth();
+
+    public: int32_t getHeight();
+
+    public: void recycle();
+
+};
+
+            
+
+
+        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H
+
+        
+        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H_COMPLETE)
+        #define ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H_COMPLETE
+        #if __has_include(<javax/microedition/lcdui/Image.h>)
+#include <javax/microedition/lcdui/Image.h>
+#endif
+#if __has_include(<org/allbinary/DisposalUtil.h>)
+#include <org/allbinary/DisposalUtil.h>
+#endif
+#if __has_include(<org/allbinary/platform/graphics/PlatformBitmapBase.h>)
+#include <org/allbinary/platform/graphics/PlatformBitmapBase.h>
+#endif
+#if __has_include(<org/microemu/device/swt/SwtImmutableImage.h>)
+#include <org/microemu/device/swt/SwtImmutableImage.h>
+#endif
+#if __has_include(<org/microemu/device/swt/SwtMutableImage.h>)
+#include <org/microemu/device/swt/SwtMutableImage.h>
+#endif
+
+        #endif
+    

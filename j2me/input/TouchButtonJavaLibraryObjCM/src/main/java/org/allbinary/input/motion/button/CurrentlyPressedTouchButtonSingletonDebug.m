@@ -1,0 +1,219 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_CURRENTLYPRESSEDTOUCHBUTTONSINGLETONDEBUG_CPP
+        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_CURRENTLYPRESSEDTOUCHBUTTONSINGLETONDEBUG_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/input/motion/button/CurrentlyPressedTouchButtonSingletonDebug.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+#include <org/allbinary/graphics/GPoint.h>
+
+      
+#include <org/allbinary/logic/string/StringMaker.h>
+
+      
+#include <org/allbinary/logic/string/StringUtil.h>
+
+      
+#include <org/allbinary/string/CommonSeps.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/input/motion/button/CurrentlyPressedTouchButtonSingleton.h"
+#include "org/allbinary/input/motion/button/TouchButtonInput.h"
+
+
+CurrentlyPressedTouchButtonSingletonDebug::CurrentlyPressedTouchButtonSingletonDebug() : string(StringUtil::getInstance()->EMPTY_STRING), listString(StringUtil::getInstance()->EMPTY_STRING), appendText(StringUtil::getInstance()->EMPTY_STRING) {
+        }
+        auto CurrentlyPressedTouchButtonSingletonDebug::instanceC_owner() -> CurrentlyPressedTouchButtonSingletonDebug* { static std::unique_ptr<CurrentlyPressedTouchButtonSingletonDebug> value(new CurrentlyPressedTouchButtonSingletonDebug()); return value.get(); }
+CurrentlyPressedTouchButtonSingletonDebug* CurrentlyPressedTouchButtonSingletonDebug::instanceC = CurrentlyPressedTouchButtonSingletonDebug::instanceC_owner();
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::getInstance() -> CurrentlyPressedTouchButtonSingleton*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return CurrentlyPressedTouchButtonSingletonDebug::instanceC;
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::appendTouchButtonInput(std::string append, TouchButtonInput* touchButtonInput) -> void{
+
+    StringMaker* stringBuffer = new StringMaker();;
+    
+stringBuffer->append(JavaString::valueOf(touchButtonInput));
+    
+stringBuffer->append(CommonSeps::getInstance()->SPACE);
+    
+stringBuffer->append(append);
+    
+this->appendText= JavaString::valueOf(stringBuffer);
+    
+this->string= JavaString::valueOf((new StringMaker())->append(this->listString)->append(this->appendText));
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::append(std::string append) -> void{
+this->appendText= JavaString::valueOf((new StringMaker())->append(this->appendText)->append(append));
+    
+this->string= JavaString::valueOf((new StringMaker())->append(this->listString)->append(this->appendText));
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::clearLog(int32_t x, int32_t y) -> void{
+this->appendText= JavaString::valueOf((new StringMaker())->append(GPoint::toStringStatic(x, y, 0))->append(CommonSeps::getInstance()->SPACE));
+    
+this->string= JavaString::valueOf((new StringMaker())->append(this->listString)->append(this->appendText));
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::releaseAndNotFired() -> void{
+this->append(this->RELEASED_AND_NOT_FIRED);
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::releaseAndFired(TouchButtonInput* touchButtonInput) -> void{
+this->appendTouchButtonInput(this->RELEASED_AND_FIRED, touchButtonInput);
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::releaseAndFired2(TouchButtonInput* touchButtonInput) -> void{
+this->appendTouchButtonInput(this->RELEASED_AND_FIRED_2, touchButtonInput);
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::releaseAndFiredAssociated(TouchButtonInput* touchButtonInput) -> void{
+this->appendTouchButtonInput(this->ASSOCIATED_RELEASED_AND_FIRED, touchButtonInput);
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::pressedAndFired(TouchButtonInput* touchButtonInput) -> void{
+this->appendTouchButtonInput(this->PRESSED_AND_FIRED, touchButtonInput);
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::pressedAndNotFired(TouchButtonInput* touchButtonInput) -> void{
+this->appendTouchButtonInput(this->PRESSED_AND_NOT_FIRED, touchButtonInput);
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::removeAt(int32_t index) -> TouchButtonInput*{
+
+    TouchButtonInput* touchButtonInput = CurrentlyPressedTouchButtonSingleton::removeAt(index);;
+    
+this->listString= JavaString::valueOf(this->list);
+    
+this->string= JavaString::valueOf((new StringMaker())->append(this->listString)->append(this->appendText));
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return touchButtonInput;
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::remove(TouchButtonInput* touchButtonInput) -> bool{
+
+    bool isRemoved = CurrentlyPressedTouchButtonSingleton::remove(touchButtonInput);;
+    
+this->listString= JavaString::valueOf(this->list);
+    
+this->string= JavaString::valueOf((new StringMaker())->append(this->listString)->append(this->appendText));
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return isRemoved;
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::add(TouchButtonInput* touchButtonInput) -> void{
+CurrentlyPressedTouchButtonSingleton::add(touchButtonInput);
+    
+this->listString= JavaString::valueOf(this->list);
+    
+this->string= JavaString::valueOf((new StringMaker())->append(this->listString)->append(this->appendText));
+    
+}
+
+
+    auto CurrentlyPressedTouchButtonSingletonDebug::toString() -> std::string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->string;
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_CURRENTLYPRESSEDTOUCHBUTTONSINGLETONDEBUG_CPP

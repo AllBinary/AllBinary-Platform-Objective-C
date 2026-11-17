@@ -1,0 +1,125 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_LIMITCOMMANDSVISITOR_CPP
+        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_LIMITCOMMANDSVISITOR_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/graphics/form/item/LimitCommandsVisitor.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+#include <javax/microedition/lcdui/Command.h>
+
+      
+#include <org/allbinary/game/commands/GameCommandsFactory.h>
+
+      
+#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
+
+      
+#include <org/allbinary/graphics/form/ScreenInfo.h>
+
+      
+#include <org/allbinary/logic/java/bool/BooleanFactory.h>
+
+      
+#include <org/allbinary/logic/util/visitor/Visitor.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+
+LimitCommandsVisitor::LimitCommandsVisitor(){
+
+    DisplayInfoSingleton* displayInfo = DisplayInfoSingleton::getInstance();;
+    
+this->isNotSmallDisplay= (displayInfo->isPortrait() && displayInfo->getLastHeight() > ScreenInfo::getInstance()->SMALL_WIDTH) || (!displayInfo->isPortrait() && displayInfo->getLastHeight() > ScreenInfo::getInstance()->SMALL_HEIGHT);
+    
+}
+
+
+    auto LimitCommandsVisitor::visit(Object* anyType) -> Object*{
+
+    Command* command = dynamic_cast<Command*>(anyType);;
+    
+
+    BooleanFactory* booleanFactory = BooleanFactory::getInstance();;
+    
+
+                        if(this->isNotSmallDisplay || command->getPriority() == 1 || command == GameCommandsFactory::getInstance()->EXIT_COMMAND || command == GameCommandsFactory::getInstance()->EXIT_WITHOUT_PROGRESS_COMMAND)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return JavaBoxes::toObject(booleanFactory->TRUE);
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return JavaBoxes::toObject(booleanFactory->FALSE);
+    
+
+                        }
+                            
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_LIMITCOMMANDSVISITOR_CPP

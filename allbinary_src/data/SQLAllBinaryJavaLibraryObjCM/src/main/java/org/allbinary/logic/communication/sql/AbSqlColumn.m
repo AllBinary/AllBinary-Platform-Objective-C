@@ -1,0 +1,408 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_LOGIC_COMMUNICATION_SQL_ABSQLCOLUMN_CPP
+        #define ORG_ALLBINARY_LOGIC_COMMUNICATION_SQL_ABSQLCOLUMN_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/logic/communication/sql/AbSqlColumn.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Exception.h"
+        
+            #include "java/lang/Integer.h"
+        
+#include <java/sql/ResultSet.h>
+
+      
+#include <org/allbinary/util/BasicArrayList.h>
+
+      
+#include <org/allbinary/util/BasicArrayListD.h>
+
+      
+#include <org/allbinary/business/init/db/DbConnectionInfo.h>
+
+      
+#include <org/allbinary/logic/communication/log/LogUtil.h>
+
+      
+#include <org/allbinary/logic/string/StringMaker.h>
+
+      
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypes.h>
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h>
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypes.h>
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h>
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypes.h>
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h>
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypes.h>
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h>
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypes.h>
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h>
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypes.h>
+
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/logic/communication/sql/AbSqlTable.h"
+
+
+AbSqlColumn::AbSqlColumn(DbConnectionInfo* databaseConnectionInfoInterface) : AbSqlTable(databaseConnectionInfoInterface), logUtil(LogUtil::getInstance()){
+
+                        //super/this constructor call is in the constructor initializer list.
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+    auto AbSqlColumn::getLargestIntegerInColumnWhere(std::string columnName, std::string key, std::string value) -> std::string{
+
+    StringMaker* stringBuffer = new StringMaker();;
+    
+stringBuffer->append(this->sqlStrings->SELECT);
+    
+stringBuffer->append(columnName);
+    
+stringBuffer->append(this->sqlStrings->FROM);
+    
+stringBuffer->append(this->getTableName());
+    
+stringBuffer->append(this->sqlStrings->WHERE);
+    
+stringBuffer->append(key);
+    
+stringBuffer->append(this->sqlStrings->EQUAL_QUOTE);
+    
+stringBuffer->append(value);
+    
+stringBuffer->append(this->sqlStrings->CLOSE_QUOTE);
+    
+
+    std::string sqlStatement = JavaString::valueOf(stringBuffer);;
+    
+
+        try {
+            
+    int32_t largest = 0;;
+    
+
+    ResultSet* rset = executeSQLStatement(sqlStatement);;
+    
+
+        while(rset->next())
+        {
+
+    int32_t intValue = rset->getInt(columnName);;
+    
+
+                        if(intValue > largest)
+                        
+                                    {
+                                    largest= intValue;
+    
+
+                                    }
+                                
+}
+
+
+    std::string largestAsString = JavaString::valueOf((int32_t(largest)));;
+    
+
+                        if(LogConfigTypes::LOGGING->contains(LogConfigTypeFactory::getInstance()->SQLLOGGING))
+                        
+                                    {
+                                    stringBuffer->delete_(0, stringBuffer->length());
+    
+stringBuffer->append(this->sqlStrings->SQL_STATEMENT_LABEL);
+    
+stringBuffer->append(sqlStatement);
+    
+stringBuffer->append(this->LARGEST_INT_VALUE_IN_COLUMN);
+    
+stringBuffer->append(largestAsString);
+    
+this->logUtil->putF(JavaString::valueOf(stringBuffer), this, this->METHOD_GET_LARGETS_INTEGER_IN_COLUMN);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return largestAsString;
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+                        if(LogConfigTypes::LOGGING->contains(LogConfigTypeFactory::getInstance()->SQLLOGGINGERROR))
+                        
+                                    {
+                                    this->logUtil->put(JavaString::valueOf(this->FAILED_SQL_STATEMENT) +JavaString::valueOf(sqlStatement), this, METHOD_GET_LARGETS_INTEGER_IN_COLUMN, &e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->INVALID_RESULT;
+    
+}
+
+}
+
+
+    auto AbSqlColumn::getColumn(std::string columnName) -> BasicArrayList*{
+
+    BasicArrayList* column = new BasicArrayListD();;
+    
+
+    StringMaker* stringBuffer = new StringMaker();;
+    
+stringBuffer->append(this->sqlStrings->SELECT);
+    
+stringBuffer->append(columnName);
+    
+stringBuffer->append(this->sqlStrings->FROM);
+    
+stringBuffer->append(this->getTableName());
+    
+
+    std::string sqlStatement = JavaString::valueOf(stringBuffer);;
+    
+
+        try {
+            
+    ResultSet* rset = executeSQLStatement(sqlStatement);;
+    
+
+        while(rset->next())
+        {
+
+    std::string field = JavaString::valueOf(rset->getObject(columnName));;
+    
+column->add(field);
+    
+}
+
+
+                        if(LogConfigTypes::LOGGING->contains(LogConfigTypeFactory::getInstance()->SQLLOGGING))
+                        
+                                    {
+                                    stringBuffer->delete_(0, stringBuffer->length());
+    
+stringBuffer->append(this->sqlStrings->SQL_STATEMENT_LABEL);
+    
+stringBuffer->append(sqlStatement);
+    
+stringBuffer->append(this->sqlStrings->COLUMN_VALUE);
+    
+stringBuffer->append(JavaString::valueOf(column));
+    
+this->logUtil->putF(JavaString::valueOf(stringBuffer), this, this->METHOD_GET_COLUMN);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return column;
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+                        if(LogConfigTypes::LOGGING->contains(LogConfigTypeFactory::getInstance()->SQLLOGGINGERROR))
+                        
+                                    {
+                                    this->logUtil->put(JavaString::valueOf(this->FAILED_SQL_STATEMENT) +JavaString::valueOf(sqlStatement), this, METHOD_GET_COLUMN, &e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return column;
+    
+}
+
+}
+
+
+    auto AbSqlColumn::getColumnWhere(std::string columnName, std::string key, std::string value) -> BasicArrayList*{
+
+    StringMaker* stringBuffer = new StringMaker();;
+    
+stringBuffer->append(this->sqlStrings->SELECT);
+    
+stringBuffer->append(columnName);
+    
+stringBuffer->append(this->sqlStrings->FROM);
+    
+stringBuffer->append(this->getTableName());
+    
+stringBuffer->append(this->sqlStrings->WHERE);
+    
+stringBuffer->append(key);
+    
+stringBuffer->append(this->sqlStrings->EQUAL_QUOTE);
+    
+stringBuffer->append(value);
+    
+stringBuffer->append(this->sqlStrings->CLOSE_QUOTE);
+    
+
+    std::string sqlStatement = JavaString::valueOf(stringBuffer);;
+    
+
+    BasicArrayList* column = new BasicArrayListD();;
+    
+
+    ResultSet* rset;;
+    
+
+    std::string field;;
+    
+
+        try {
+            rset= executeSQLStatement(sqlStatement);
+    
+
+        while(rset->next())
+        {
+field= JavaString::valueOf(rset->getObject(columnName));
+    
+column->add(field);
+    
+}
+
+
+                        if(LogConfigTypes::LOGGING->contains(LogConfigTypeFactory::getInstance()->SQLLOGGING))
+                        
+                                    {
+                                    stringBuffer->delete_(0, stringBuffer->length());
+    
+stringBuffer->append(this->sqlStrings->SQL_STATEMENT_LABEL);
+    
+stringBuffer->append(sqlStatement);
+    
+stringBuffer->append(this->sqlStrings->COLUMN_VALUE);
+    
+stringBuffer->append(JavaString::valueOf(column));
+    
+this->logUtil->putF(JavaString::valueOf(stringBuffer), this, this->METHOD_GET_COLUMN_WHERE);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return column;
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+                        if(LogConfigTypes::LOGGING->contains(LogConfigTypeFactory::getInstance()->SQLLOGGINGERROR))
+                        
+                                    {
+                                    this->logUtil->put(JavaString::valueOf(this->FAILED_SQL_STATEMENT) +JavaString::valueOf(sqlStatement), this, this->METHOD_GET_COLUMN_WHERE, &e);
+    
+
+                                    }
+                                
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return column;
+    
+}
+
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_LOGIC_COMMUNICATION_SQL_ABSQLCOLUMN_CPP

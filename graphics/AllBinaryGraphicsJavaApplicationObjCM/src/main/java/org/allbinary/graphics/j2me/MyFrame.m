@@ -1,0 +1,1317 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GRAPHICS_J2ME_MYFRAME_CPP
+        #define ORG_ALLBINARY_GRAPHICS_J2ME_MYFRAME_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/graphics/j2me/MyFrame.h"
+        
+
+            #include <vector>
+        
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+            #include "java/lang/System.h"
+        
+            #include "java/lang/Integer.h"
+        
+            #include "java/lang/Thread.h"
+        
+            #include "java/lang/Runnable.h"
+        
+#include <java/awt.h>
+
+      
+#include <java/io/File.h>
+
+      
+#include <java/util/HashMap.h>
+
+      
+#include <javax/swing.h>
+
+      
+#include <org/allbinary/data/tree/dom/XslHelper.h>
+
+      
+#include <org/allbinary/dom/DomHelper.h>
+
+      
+#include <org/allbinary/graphics/j2me/dialog/NewWorkAreaJDialog.h>
+
+      
+#include <org/allbinary/graphics/j2me/dialog/RotateJDialog.h>
+
+      
+#include <org/allbinary/graphics/j2me/workarea/WorkAreaDom.h>
+
+      
+#include <org/allbinary/graphics/j2me/workarea/WorkAreaJPanel.h>
+
+      
+#include <org/allbinary/graphics/j2me/workarea/WorkAreaJPanelInterface.h>
+
+      
+#include <org/allbinary/graphics/j2me/workarea/canvas/event/MyCanvasEvent.h>
+
+      
+#include <org/allbinary/graphics/j2me/workarea/canvas/event/MyCanvasEventService.h>
+
+      
+#include <org/allbinary/graphics/j2me/workarea/canvas/event/MyCanvasEventSource.h>
+
+      
+#include <org/allbinary/gui/dialog/FileJDialog.h>
+
+      
+#include <org/allbinary/gui/dialog/FileJDialogListenerInterface.h>
+
+      
+#include <org/allbinary/gui/dialog/HashMapJDialogListenerInterface.h>
+
+      
+#include <org/allbinary/log/LOGGING.h>
+
+      
+#include <org/allbinary/logic/communication/log/GuiLog.h>
+
+      
+#include <org/allbinary/logic/communication/log/LogUtil.h>
+
+      
+#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
+
+      
+#include <org/allbinary/math/AngleFactory.h>
+
+      
+#include <org/allbinary/string/CommonLabels.h>
+
+      
+#include <org/allbinary/string/CommonStrings.h>
+
+      
+#include <org/w3c/dom/Document.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/graphics/j2me/JFrame.h"
+#include "org/allbinary/graphics/j2me/KeyListener.h"
+#include "org/allbinary/graphics/j2me/Dimension.h"
+#include "org/allbinary/graphics/j2me/JToolBar.h"
+#include "org/allbinary/graphics/j2me/JButton.h"
+#include "org/allbinary/graphics/j2me/JPanel.h"
+#include "org/allbinary/graphics/j2me/JTabbedPane.h"
+#include "org/allbinary/graphics/j2me/JLabel.h"
+#include "org/allbinary/graphics/j2me/JMenuBar.h"
+#include "org/allbinary/graphics/j2me/JMenu.h"
+#include "org/allbinary/graphics/j2me/JMenuItem.h"
+#include "org/allbinary/graphics/j2me/WindowAdapter.h"
+#include "org/allbinary/graphics/j2me/WindowEvent.h"
+#include "org/allbinary/graphics/j2me/ActionListener.h"
+#include "org/allbinary/graphics/j2me/ActionEvent.h"
+#include "org/allbinary/graphics/j2me/MouseAdapter.h"
+#include "org/allbinary/graphics/j2me/MouseEvent.h"
+#include "org/allbinary/graphics/j2me/GridLayout.h"
+#include "org/allbinary/graphics/j2me/ChangeListener.h"
+#include "org/allbinary/graphics/j2me/ChangeEvent.h"
+#include "org/allbinary/graphics/j2me/KeyEvent.h"
+
+const std::string MyFrame::SAVE_PATH = JavaString::valueOf(MyFrame::PATH) +JavaString::valueOf("/save");
+const std::string MyFrame::TEMPLATE_EXPORT_PATH = JavaString::valueOf(MyFrame::PATH) +JavaString::valueOf("/templates/export");
+
+MyFrame::MyFrame() : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), guiLog(GuiLog::getInstance()), xslHelper(XslHelper::getInstance()){
+this->initComponents();
+    
+this->setSize(new Dimension(550, 400));
+    
+this->mainJPanel->setSize(new Dimension(550, 400));
+    
+this->jTabbedPane->setSize(new Dimension(550, 400));
+    
+this->fileJDialog= new FileJDialog();
+    
+this->fileJDialog->addFinishedListener(this);
+    
+this->rotateJDialog= new RotateJDialog(this, false);
+    
+}
+
+
+    auto MyFrame::initComponents() -> void{
+jToolBar1= new javax::swing::JToolBar();
+    
+this->jButton2= new javax::swing::JButton();
+    
+this->saveJButton= new javax::swing::JButton();
+    
+this->jButton1= new javax::swing::JButton();
+    
+this->openJButton= new javax::swing::JButton();
+    
+this->jButton3= new javax::swing::JButton();
+    
+this->jButton4= new javax::swing::JButton();
+    
+this->jButton41= new javax::swing::JButton();
+    
+this->jButton5= new javax::swing::JButton();
+    
+this->animateJButton= new javax::swing::JButton();
+    
+this->playJButton= new javax::swing::JButton();
+    
+this->stopJjButton= new javax::swing::JButton();
+    
+this->jPanel1= new javax::swing::JPanel();
+    
+this->mainJPanel= new javax::swing::JPanel();
+    
+this->jTabbedPane= new javax::swing::JTabbedPane();
+    
+this->statusJPanel= new javax::swing::JPanel();
+    
+MyFrame::statusJLabel= new javax::swing::JLabel();
+    
+this->menuJMenuBar= new javax::swing::JMenuBar();
+    
+this->fileJMenu= new javax::swing::JMenu();
+    
+this->newJMenuItem= new javax::swing::JMenuItem();
+    
+this->openJMenuItem= new javax::swing::JMenuItem();
+    
+this->saveJMenuItem= new javax::swing::JMenuItem();
+    
+this->saveAsJMenuItem= new javax::swing::JMenuItem();
+    
+this->exportJMenuItem1= new javax::swing::JMenuItem();
+    
+this->exitJMenuItem= new javax::swing::JMenuItem();
+    
+this->viewJMenu= new javax::swing::JMenu();
+    
+this->zoomInJMenuItem= new javax::swing::JMenuItem();
+    
+this->zoomOutJMenuItem= new javax::swing::JMenuItem();
+    
+this->objectJMenu= new javax::swing::JMenu();
+    
+this->explodeAllJMenuItem= new javax::swing::JMenuItem();
+    
+this->frameJMenu= new javax::swing::JMenu();
+    
+this->previousFrameJMenuItem= new javax::swing::JMenuItem();
+    
+this->nextFrameJMenuItem= new javax::swing::JMenuItem();
+    
+this->removeJMenuItem= new javax::swing::JMenuItem();
+    
+this->copyJMenuItem1= new javax::swing::JMenuItem();
+    
+this->insertAfterJMenuItem= new javax::swing::JMenuItem();
+    
+this->insertBeforeJMenuItem= new javax::swing::JMenuItem();
+    
+this->generateJMenu= new javax::swing::JMenu();
+    
+this->centerJMenuItem= new javax::swing::JMenuItem();
+    
+this->autoDamageJMenuItem= new javax::swing::JMenuItem();
+    
+this->autoExplodeJMenuItem= new javax::swing::JMenuItem();
+    
+this->autoGrowJMenuItem= new javax::swing::JMenuItem();
+    
+this->jMenuItem1= new javax::swing::JMenuItem();
+    
+this->autoRotateGenerationJMenuItem= new javax::swing::JMenuItem();
+    
+this->autoSheildMenuItem= new javax::swing::JMenuItem();
+    
+this->autoShrinkJMenuItem= new javax::swing::JMenuItem();
+    
+this->jMenu1= new javax::swing::JMenu();
+    
+addWindowListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::WindowAdapter {
+    public:
+    using java::awt::event::WindowAdapter::WindowAdapter;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void windowClosing(java::awt::event::WindowEvent* evt){
+outer->exitForm(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->jButton2->setText("New");
+    
+this->jButton2->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->jButton2ActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->jToolBar1->add(this->jButton2);
+    
+this->saveJButton->setText("Save");
+    
+this->saveJButton->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->saveJButtonActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->jToolBar1->add(this->saveJButton);
+    
+this->jButton1->setText("Export");
+    
+this->jButton1->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->jButton1ActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->jToolBar1->add(this->jButton1);
+    
+this->openJButton->setText("Open");
+    
+this->openJButton->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->openJButtonActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->jToolBar1->add(this->openJButton);
+    
+this->jButton3->setText("Copy");
+    
+this->jToolBar1->add(this->jButton3);
+    
+this->jButton4->setText("Insert Before");
+    
+this->jToolBar1->add(this->jButton4);
+    
+this->jButton41->setText("Insert After");
+    
+this->jToolBar1->add(this->jButton41);
+    
+this->jButton5->setText("Delete");
+    
+this->jToolBar1->add(this->jButton5);
+    
+this->animateJButton->setText("AnimateEdit");
+    
+this->jToolBar1->add(this->animateJButton);
+    
+this->playJButton->setText("Play");
+    
+this->playJButton->addMouseListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::MouseAdapter {
+    public:
+    using java::awt::event::MouseAdapter::MouseAdapter;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void mousePressed(java::awt::event::MouseEvent* evt){
+outer->playJButtonMousePressed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->jToolBar1->add(this->playJButton);
+    
+this->stopJjButton->setText("Stop");
+    
+this->stopJjButton->addMouseListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::MouseAdapter {
+    public:
+    using java::awt::event::MouseAdapter::MouseAdapter;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void mousePressed(java::awt::event::MouseEvent* evt){
+outer->stopJjButtonMousePressed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->jToolBar1->add(this->stopJjButton);
+    
+getContentPane()->add(this->jToolBar1, BorderLayout::NORTH);
+    
+this->jPanel1->setLayout(new java::awt::GridLayout(1, 0));
+    
+this->mainJPanel->setLayout(new java::awt::GridLayout(1, 0));
+    
+this->jTabbedPane->setMinimumSize(new java::awt::Dimension(550, 400));
+    
+this->jTabbedPane->addChangeListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public javax::swing::event::ChangeListener {
+    public:
+    using javax::swing::event::ChangeListener::ChangeListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void stateChanged(javax::swing::event::ChangeEvent* evt){
+outer->jTabbedPaneStateChanged(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->mainJPanel->add(this->jTabbedPane);
+    
+this->jPanel1->add(this->mainJPanel);
+    
+getContentPane()->add(this->jPanel1, BorderLayout::CENTER);
+    
+this->statusJPanel->setLayout(new java::awt::GridLayout(1, 0));
+    
+MyFrame::statusJLabel->setText("Status Bar");
+    
+this->statusJPanel->add(MyFrame::statusJLabel);
+    
+getContentPane()->add(this->statusJPanel, BorderLayout::SOUTH);
+    
+this->fileJMenu->setText("File");
+    
+this->fileJMenu->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->fileJMenuActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->newJMenuItem->setText("New");
+    
+this->newJMenuItem->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->newJMenuItemActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->fileJMenu->add(this->newJMenuItem);
+    
+this->openJMenuItem->setText("Open");
+    
+this->openJMenuItem->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->openJMenuItemActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->fileJMenu->add(this->openJMenuItem);
+    
+this->saveJMenuItem->setText("Save");
+    
+this->saveJMenuItem->addMouseListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::MouseAdapter {
+    public:
+    using java::awt::event::MouseAdapter::MouseAdapter;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void mousePressed(java::awt::event::MouseEvent* evt){
+outer->saveJMenuItemMousePressed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->fileJMenu->add(this->saveJMenuItem);
+    
+this->saveAsJMenuItem->setText("SaveAs");
+    
+this->fileJMenu->add(this->saveAsJMenuItem);
+    
+this->exportJMenuItem1->setText("Export");
+    
+this->exportJMenuItem1->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->exportJMenuItem1ActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->fileJMenu->add(this->exportJMenuItem1);
+    
+this->exitJMenuItem->setText("Exit");
+    
+this->exitJMenuItem->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->exitJMenuItemActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->fileJMenu->add(this->exitJMenuItem);
+    
+this->menuJMenuBar->add(this->fileJMenu);
+    
+this->viewJMenu->setText("View");
+    
+this->zoomInJMenuItem->setText("Zoom In");
+    
+this->zoomInJMenuItem->addMouseListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::MouseAdapter {
+    public:
+    using java::awt::event::MouseAdapter::MouseAdapter;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void mousePressed(java::awt::event::MouseEvent* evt){
+outer->zoomInJMenuItemMousePressed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->viewJMenu->add(this->zoomInJMenuItem);
+    
+this->zoomOutJMenuItem->setText("Zoom Out");
+    
+this->zoomOutJMenuItem->addMouseListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::MouseAdapter {
+    public:
+    using java::awt::event::MouseAdapter::MouseAdapter;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void mousePressed(java::awt::event::MouseEvent* evt){
+outer->zoomOutJMenuItemMousePressed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->viewJMenu->add(this->zoomOutJMenuItem);
+    
+this->menuJMenuBar->add(this->viewJMenu);
+    
+this->objectJMenu->setText("Objects");
+    
+this->explodeAllJMenuItem->setText("Explode All");
+    
+this->explodeAllJMenuItem->addMouseListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::MouseAdapter {
+    public:
+    using java::awt::event::MouseAdapter::MouseAdapter;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void mousePressed(java::awt::event::MouseEvent* evt){
+outer->explodeAllJMenuItemMousePressed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->objectJMenu->add(this->explodeAllJMenuItem);
+    
+this->menuJMenuBar->add(this->objectJMenu);
+    
+this->frameJMenu->setText("Frame");
+    
+this->frameJMenu->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->frameJMenuActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->previousFrameJMenuItem->setText("Previous");
+    
+this->frameJMenu->add(this->previousFrameJMenuItem);
+    
+this->nextFrameJMenuItem->setText(CommonLabels::getInstance()->NEXT);
+    
+this->frameJMenu->add(this->nextFrameJMenuItem);
+    
+this->removeJMenuItem->setText("Remove");
+    
+this->frameJMenu->add(this->removeJMenuItem);
+    
+this->copyJMenuItem1->setText("Copy");
+    
+this->frameJMenu->add(this->copyJMenuItem1);
+    
+this->insertAfterJMenuItem->setText("Ins After");
+    
+this->frameJMenu->add(this->insertAfterJMenuItem);
+    
+this->insertBeforeJMenuItem->setText("Ins Before");
+    
+this->frameJMenu->add(this->insertBeforeJMenuItem);
+    
+this->menuJMenuBar->add(this->frameJMenu);
+    
+this->generateJMenu->setText("Generate");
+    
+this->centerJMenuItem->setText("Center");
+    
+this->centerJMenuItem->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->centerJMenuItemActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->generateJMenu->add(this->centerJMenuItem);
+    
+this->autoDamageJMenuItem->setText("Damage");
+    
+this->generateJMenu->add(this->autoDamageJMenuItem);
+    
+this->autoExplodeJMenuItem->setText("Explode");
+    
+this->autoExplodeJMenuItem->addMouseListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::MouseAdapter {
+    public:
+    using java::awt::event::MouseAdapter::MouseAdapter;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void mousePressed(java::awt::event::MouseEvent* evt){
+outer->autoExplodeJMenuItemMousePressed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->generateJMenu->add(this->autoExplodeJMenuItem);
+    
+this->autoGrowJMenuItem->setText("Grow");
+    
+this->generateJMenu->add(this->autoGrowJMenuItem);
+    
+this->jMenuItem1->setText("Mirror");
+    
+this->jMenuItem1->addActionListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::ActionListener {
+    public:
+    using java::awt::event::ActionListener::ActionListener;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void actionPerformed(java::awt::event::ActionEvent* evt){
+outer->jMenuItem1ActionPerformed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->generateJMenu->add(this->jMenuItem1);
+    
+this->autoRotateGenerationJMenuItem->setText("Rotate");
+    
+this->autoRotateGenerationJMenuItem->addMouseListener([&]() {
+    static thread_local MyFrame* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::MouseAdapter {
+    public:
+    using java::awt::event::MouseAdapter::MouseAdapter;
+    MyFrame* outer = anonymousOuter0;
+
+    public: void mousePressed(java::awt::event::MouseEvent* evt){
+outer->autoRotateGenerationJMenuItemMousePressed(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->generateJMenu->add(this->autoRotateGenerationJMenuItem);
+    
+this->autoSheildMenuItem->setText("Shield");
+    
+this->generateJMenu->add(this->autoSheildMenuItem);
+    
+this->autoShrinkJMenuItem->setText("Shrink");
+    
+this->generateJMenu->add(this->autoShrinkJMenuItem);
+    
+this->menuJMenuBar->add(this->generateJMenu);
+    
+this->jMenu1->setText("Help");
+    
+this->menuJMenuBar->add(this->jMenu1);
+    
+setJMenuBar(this->menuJMenuBar);
+    
+pack();
+    
+}
+
+
+    auto MyFrame::explodeAllJMenuItemMousePressed(java::awt::event::MouseEvent* evt) -> void{
+
+        try {
+            MyCanvasEventService::fire(new MyCanvasEvent(new MyCanvasEventSource(MyCanvasEventService::EXPLODE, 
+                            nullptr)));
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, "explodeAllJMenuItemMousePressed", &e);
+    
+}
+
+}
+
+
+    auto MyFrame::autoExplodeJMenuItemMousePressed(java::awt::event::MouseEvent* evt) -> void{
+
+        try {
+            MyCanvasEventService::fire(new MyCanvasEvent(new MyCanvasEventSource(MyCanvasEventService::AUTOEXPLODE, 
+                            nullptr)));
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, "autoExplodeJMenuItemMousePressed", &e);
+    
+}
+
+}
+
+
+    auto MyFrame::stopJjButtonMousePressed(java::awt::event::MouseEvent* evt) -> void{
+this->getSelectedWorkArea()->stop();
+    
+}
+
+
+    auto MyFrame::playJButtonMousePressed(java::awt::event::MouseEvent* evt) -> void{
+this->getSelectedWorkArea()->play();
+    
+}
+
+
+    auto MyFrame::autoRotateGenerationJMenuItemMousePressed(java::awt::event::MouseEvent* evt) -> void{
+this->rotateJDialog->setVisible(true);
+    
+}
+
+
+    auto MyFrame::zoomOutJMenuItemMousePressed(java::awt::event::MouseEvent* evt) -> void{
+this->getSelectedWorkArea()->changeZoom( -1);
+    
+}
+
+
+    auto MyFrame::zoomInJMenuItemMousePressed(java::awt::event::MouseEvent* evt) -> void{
+this->getSelectedWorkArea()->changeZoom(1);
+    
+}
+
+
+    auto MyFrame::openJMenuItemActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+this->openGraphics();
+    
+}
+
+
+    auto MyFrame::exportJMenuItem1ActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+this->export_();
+    
+}
+
+
+    auto MyFrame::saveJMenuItemMousePressed(java::awt::event::MouseEvent* evt) -> void{
+this->save();
+    
+}
+
+
+    auto MyFrame::jTabbedPaneStateChanged(javax::swing::event::ChangeEvent* evt) -> void{
+this->updateSelectedWorkArea();
+    
+}
+
+
+    auto MyFrame::frameJMenuActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+}
+
+
+    auto MyFrame::exitJMenuItemActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+System.exit(0);
+    
+}
+
+
+    auto MyFrame::newJMenuItemActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+this->newGraphics();
+    
+}
+
+
+    auto MyFrame::fileJMenuActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+}
+
+
+    auto MyFrame::exitForm(java::awt::event::WindowEvent* evt) -> void{
+System.exit(0);
+    
+}
+
+
+    auto MyFrame::openJButtonActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+this->openGraphics();
+    
+}
+
+
+    auto MyFrame::jButton2ActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+this->newGraphics();
+    
+}
+
+
+    auto MyFrame::centerJMenuItemActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+
+        try {
+            MyCanvasEventService::fire(new MyCanvasEvent(new MyCanvasEventSource(MyCanvasEventService::CENTER, 
+                            nullptr)));
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, "centerJMenuItemActionPerformed", &e);
+    
+}
+
+}
+
+
+    auto MyFrame::saveJButtonActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+this->save();
+    
+}
+
+
+    auto MyFrame::jButton1ActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+this->export_();
+    
+}
+
+
+    auto MyFrame::jMenuItem1ActionPerformed(java::awt::event::ActionEvent* evt) -> void{
+
+        try {
+            this->getSelectedWorkArea()->autoMirror();
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, "centerJMenuItemActionPerformed", &e);
+    
+}
+
+}
+
+
+    auto MyFrame::onFiles(std::vector<File*> files) -> void{
+
+        try {
+            this->logUtil->putF(JavaString::valueOf("Reading: ") +JavaString::valueOf(files), this, "onFiles");
+    
+
+
+
+
+                        for (
+    int32_t index = 0;index < files.size(); index++)
+        {
+
+    Document* document = DomHelper::getInstance()->createDocument(files[index]);;
+    
+
+    WorkAreaJPanel* workAreaJPanel = new WorkAreaJPanel(new WorkAreaDom(document), this->getSize());;
+    
+workAreaJPanel->setLayout(new GridLayout(1, 1));
+    
+this->add(dynamic_cast<WorkAreaJPanelInterface*>(workAreaJPanel));
+    
+}
+
+this->fileJDialog->setVisible(false);
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, "onFiles", &e);
+    
+}
+
+}
+
+
+    auto MyFrame::newGraphics() -> void{
+
+        try {
+            
+    std::string newName = JavaString::valueOf("graphic") +JavaString::valueOf(MyFrame::numberOfWorkAreas);;
+    
+
+    Dimension* dim = this->getSize();;
+    
+
+    NewWorkAreaJDialog* newDialog = new NewWorkAreaJDialog(this, false, dim, newName);;
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+                        if(LOGGING::contains(LOGGING::MENUEVENT))
+                        
+                                    {
+                                    this->guiLog->put(this->commonStrings->EXCEPTION, this, "newJMenuItemActionPerformed", &e);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+    auto MyFrame::openGraphics() -> void{
+
+        try {
+            this->logUtil->putF("Starting", this, "openImageJMenuItemActionPerformed");
+    
+this->fileJDialog->setVisible(true);
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+                        if(LOGGING::contains(LOGGING::MENUEVENT))
+                        
+                                    {
+                                    this->guiLog->put(this->commonStrings->EXCEPTION, this, "open", &e);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+    auto MyFrame::export_() -> void{
+
+        try {
+            
+    WorkAreaJPanelInterface* workAreaJPanel = dynamic_cast<WorkAreaJPanelInterface*>(this->jTabbedPane->getSelectedComponent());;
+    
+
+    File* file = new File(JavaString::valueOf(JavaString::valueOf(JavaString::valueOf(this->SAVE_PATH) +JavaString::valueOf("/")) +JavaString::valueOf(workAreaJPanel->getName())) +JavaString::valueOf(this->JAVAEXTENSION));;
+    
+
+    Document* document = workAreaJPanel->toDocument();;
+    
+this->logUtil->putF(JavaString::valueOf("Export: ") +JavaString::valueOf(DomHelper::getInstance()->toString(document)), this, "exportJMenuItem1ActionPerformed");
+    
+this->xslHelper->export_(file, JavaString::valueOf(JavaString::valueOf(MyFrame::TEMPLATE_EXPORT_PATH) +JavaString::valueOf("/")) +JavaString::valueOf(this->JAVA_TEMPLATE), document);
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+                        if(LOGGING::contains(LOGGING::MENUEVENT))
+                        
+                                    {
+                                    this->guiLog->put(this->commonStrings->EXCEPTION, this, "export", &e);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+    auto MyFrame::save() -> void{
+
+        try {
+            
+    WorkAreaJPanelInterface* workAreaJPanel = dynamic_cast<WorkAreaJPanelInterface*>(this->jTabbedPane->getSelectedComponent());;
+    
+DomHelper::getInstance()->save(new File(JavaString::valueOf(JavaString::valueOf(JavaString::valueOf(this->SAVE_PATH) +JavaString::valueOf("/")) +JavaString::valueOf(workAreaJPanel->getName())) +JavaString::valueOf(this->SAVEEXTENSION)), workAreaJPanel->toDocument());
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+                        if(LOGGING::contains(LOGGING::MENUEVENT))
+                        
+                                    {
+                                    this->guiLog->put(this->commonStrings->EXCEPTION, this, this->commonStrings->SAVE, &e);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto MyFrame::onHashMap(HashMap<Object*, Object*>* hashMap) -> void{
+
+    int32_t angleIncrementInteger = JavaBoxes::unbox<int32_t>(hashMap->get(Integer.valueOf(0)));;
+    
+
+    int32_t totalRotationInteger = JavaBoxes::unbox<int32_t>(hashMap->get(Integer.valueOf(1)));;
+    
+this->getSelectedWorkArea()->autoRotate(angleIncrementInteger, totalRotationInteger);
+    
+}
+
+
+    auto MyFrame::getSelectedWorkArea() -> WorkAreaJPanelInterface*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return dynamic_cast<WorkAreaJPanelInterface*>(this->jTabbedPane->getSelectedComponent());
+    
+}
+
+
+    auto MyFrame::updateSelectedWorkArea() -> void{
+
+    int32_t numberOfTabs = this->jTabbedPane->getTabCount();;
+    
+
+
+
+
+                        for (
+    int32_t index = 0;index < numberOfTabs; index++)
+        {
+
+    WorkAreaJPanelInterface* workAreaJPanel = dynamic_cast<WorkAreaJPanelInterface*>(this->jTabbedPane->getComponentAt(index));;
+    
+workAreaJPanel->deselect();
+    
+}
+
+
+    WorkAreaJPanelInterface* workAreaJPanel = dynamic_cast<WorkAreaJPanelInterface*>(this->jTabbedPane->getSelectedComponent());;
+    
+
+                        if(workAreaJPanel != 
+                                    nullptr
+                                )
+                        
+                                    {
+                                    workAreaJPanel->select();
+    
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto MyFrame::add(WorkAreaJPanelInterface* newCanvasInterface) -> void{
+
+        try {
+            this->numberOfWorkAreas++;
+    
+
+                        if(this->numberOfWorkAreas == MyFrame::MAXWORKAREAS)
+                        
+                                    {
+                                    
+
+
+                            throw Exception();
+                    
+
+                                    }
+                                
+this->jTabbedPane->addTab(newCanvasInterface->getName(), dynamic_cast<JPanel*>(newCanvasInterface));
+    
+this->jTabbedPane->setSelectedComponent(dynamic_cast<JPanel*>(newCanvasInterface));
+    
+
+    Thread* animationThread = new Thread(dynamic_cast<Runnable*>(newCanvasInterface));;
+    
+animationThread->start();
+    
+this->updateSelectedWorkArea();
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+                        if(LOGGING::contains(LOGGING::GRAPHICSCREATION))
+                        
+                                    {
+                                    this->guiLog->put(this->commonStrings->EXCEPTION, this, "addNewCanvas", &e);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+    auto MyFrame::keyPressed(java::awt::event::KeyEvent* keyEvent) -> void{
+this->getSelectedWorkArea()->keyPressed(keyEvent);
+    
+}
+
+
+    auto MyFrame::keyReleased(java::awt::event::KeyEvent* keyEvent) -> void{
+}
+
+
+    auto MyFrame::keyTyped(java::awt::event::KeyEvent* keyEvent) -> void{
+}
+
+
+    auto MyFrame::main(std::vector<std::string> args) -> void{
+
+        try {
+            AngleFactory::getInstance();
+    
+SmallIntegerSingletonFactory::getInstance()->init();
+    
+(new MyFrame())->show();
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+    LogUtil* logUtil = LogUtil::getInstance();;
+    
+logUtil->put(CommonStrings::getInstance()->EXCEPTION, 
+                            nullptr, "main", &e);
+    
+}
+
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_GRAPHICS_J2ME_MYFRAME_CPP

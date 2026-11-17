@@ -1,0 +1,121 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_JCEHELPER_KEYSPECFACTORY_H
+        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_JCEHELPER_KEYSPECFACTORY_H
+
+        
+        #pragma push_macro("JAVA_COMPLETE_TYPES")
+        #undef JAVA_COMPLETE_TYPES
+        
+
+            #include <vector>
+        
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+            #include "java/lang/RuntimeException.h"
+        
+#include <java/security/spec/KeySpec.h>
+#include <javax/crypto/spec/DESKeySpec.h>
+#include <javax/crypto/spec/DESedeKeySpec.h>
+class TsUtil;
+class PreLogUtil;
+class CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+                                
+        #pragma pop_macro("JAVA_COMPLETE_TYPES")
+
+        
+class KeySpecFactory
+            : public virtual Object
+         {
+
+    private: static KeySpecFactory* instance_owner();
+    private: static KeySpecFactory* instance;
+
+    public: static KeySpecFactory* getInstance();
+
+    public: const std::string DES = "DES";
+
+    public: const std::string DESEDE = "DESede";
+
+    public: const std::string BLOWFISH = "Blowfish";
+
+private: KeySpecFactory();
+
+    public: KeySpec* getInstance(std::string algorithm, std::vector<int8_t> keyData);
+
+};
+
+            
+
+
+        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_JCEHELPER_KEYSPECFACTORY_H
+
+        
+        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_JCEHELPER_KEYSPECFACTORY_H_COMPLETE)
+        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_JCEHELPER_KEYSPECFACTORY_H_COMPLETE
+        #if __has_include(<java/security/spec/KeySpec.h>)
+#include <java/security/spec/KeySpec.h>
+#endif
+#if __has_include(<javax/crypto/spec/DESKeySpec.h>)
+#include <javax/crypto/spec/DESKeySpec.h>
+#endif
+#if __has_include(<javax/crypto/spec/DESedeKeySpec.h>)
+#include <javax/crypto/spec/DESedeKeySpec.h>
+#endif
+#if __has_include(<org/allbinary/TsUtil.h>)
+#include <org/allbinary/TsUtil.h>
+#endif
+#if __has_include(<org/allbinary/logic/communication/log/PreLogUtil.h>)
+#include <org/allbinary/logic/communication/log/PreLogUtil.h>
+#endif
+#if __has_include(<org/allbinary/string/CommonStrings.h>)
+#include <org/allbinary/string/CommonStrings.h>
+#endif
+
+        #endif
+    

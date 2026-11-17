@@ -1,0 +1,99 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_MEDIA_IMAGE_COMPARISON_MOTION_MOTIONRECTANGLESRESULTSEVENT_H
+        #define ORG_ALLBINARY_MEDIA_IMAGE_COMPARISON_MOTION_MOTIONRECTANGLESRESULTSEVENT_H
+
+        
+        #pragma push_macro("JAVA_COMPLETE_TYPES")
+        #undef JAVA_COMPLETE_TYPES
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Long.h"
+        
+#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        class MotionRectangles;
+
+                                
+        #pragma pop_macro("JAVA_COMPLETE_TYPES")
+
+        
+class MotionRectanglesResultsEvent: public AllBinaryEventObject {
+
+    private: int64_t frame;
+
+    private: MotionRectangles* motionRectangles;
+
+public: MotionRectanglesResultsEvent(Object* anyType, int64_t frame, MotionRectangles* motionRectangles);
+public: MotionRectanglesResultsEvent(const std::string& anyType, int64_t frame, MotionRectangles* motionRectangles) : MotionRectanglesResultsEvent(JavaString::box(anyType), frame, motionRectangles) { }
+public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> MotionRectanglesResultsEvent(BoxValue anyType, int64_t frame, MotionRectangles* motionRectangles) : MotionRectanglesResultsEvent(JavaBoxes::toObject(anyType), frame, motionRectangles) { }
+public: template<typename BoxElement> MotionRectanglesResultsEvent(const std::vector<BoxElement>& anyType, int64_t frame, MotionRectangles* motionRectangles) : MotionRectanglesResultsEvent(JavaBoxes::toObject(anyType), frame, motionRectangles) { }
+
+    public: MotionRectangles* getMotionRectangles();
+
+    public: void setMotionRectangles(MotionRectangles* motionRectangles);
+
+    public: int64_t getFrame();
+
+};
+
+            
+
+
+        #endif //ORG_ALLBINARY_MEDIA_IMAGE_COMPARISON_MOTION_MOTIONRECTANGLESRESULTSEVENT_H
+
+        
+        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_MEDIA_IMAGE_COMPARISON_MOTION_MOTIONRECTANGLESRESULTSEVENT_H_COMPLETE)
+        #define ORG_ALLBINARY_MEDIA_IMAGE_COMPARISON_MOTION_MOTIONRECTANGLESRESULTSEVENT_H_COMPLETE
+        #if __has_include(<org/allbinary/logic/util/event/AllBinaryEventObject.h>)
+#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
+#endif
+#if __has_include("org/allbinary/media/image/comparison/motion/MotionRectangles.h")
+#include "org/allbinary/media/image/comparison/motion/MotionRectangles.h"
+#endif
+
+        #endif
+    

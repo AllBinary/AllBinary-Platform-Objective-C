@@ -1,0 +1,115 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_LOGIC_IO_BUFFEREDIOUTIL_CPP
+        #define ORG_ALLBINARY_LOGIC_IO_BUFFEREDIOUTIL_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/logic/io/BufferedIOUtil.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+#include <java/io/BufferedReader.h>
+
+      
+#include <java/io/BufferedWriter.h>
+
+      
+#include <java/io/FileReader.h>
+
+      
+#include <java/io/FileWriter.h>
+
+      
+#include <org/allbinary/logic/io/file/AbFile.h>
+
+      
+#include <org/allbinary/logic/io/file/AbFileNativeUtil.h>
+
+      
+#include <org/allbinary/logic/string/StringUtil.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+
+BufferedIOUtil::BufferedIOUtil() {
+        }
+        
+                //@Throws(Exception.constructor)
+            
+    auto BufferedIOUtil::copy(AbFile* backupFile, AbFile* backupFileBak) -> void{
+
+    std::string line = StringUtil::getInstance()->EMPTY_STRING;;
+    
+
+    BufferedWriter* tmpOut = new BufferedWriter(new FileWriter(AbFileNativeUtil::get(backupFileBak)));;
+    
+
+    BufferedReader* tmpIn = new BufferedReader(new FileReader(AbFileNativeUtil::get(backupFile)));;
+    
+
+        while(tmpIn->ready())
+        {
+line= tmpIn->readLine();
+    
+tmpOut->write(line, 0, line.size());
+    
+tmpOut->newLine();
+    
+}
+
+tmpOut->flush();
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_LOGIC_IO_BUFFEREDIOUTIL_CPP

@@ -1,0 +1,312 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GAME_INPUT_PREGAMESELECTIONGAMEINPUTPROCESSOR_CPP
+        #define ORG_ALLBINARY_GAME_INPUT_PREGAMESELECTIONGAMEINPUTPROCESSOR_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/game/input/PreGameSelectionGameInputProcessor.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+#include <javax/microedition/lcdui/Canvas.h>
+
+      
+#include <org/allbinary/util/BasicArrayList.h>
+
+      
+#include <org/allbinary/logic/system/security/licensing/LockedFeatureNotificationUtil.h>
+
+      
+#include <org/allbinary/logic/system/security/licensing/LockedUtil.h>
+
+      
+#include <org/allbinary/canvas/Processor.h>
+
+      
+#include <org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h>
+
+      
+#include <org/allbinary/game/displayable/canvas/PreGameSelectorPaintable.h>
+
+      
+#include <org/allbinary/game/input/event/GameKeyEventHandler.h>
+
+      
+#include <org/allbinary/game/input/event/GameKeyEventUtil.h>
+
+      
+#include <org/allbinary/game/state/GameState.h>
+
+      
+#include <org/allbinary/layer/AllBinaryLayerManager.h>
+
+      
+#include <org/allbinary/logic/communication/log/LogUtil.h>
+
+      
+#include <org/allbinary/string/CommonStrings.h>
+
+      
+#include <org/allbinary/media/audio/SecondaryPlayerQueueFactory.h>
+
+      
+#include <org/allbinary/media/audio/SelectSound.h>
+
+      
+#include <org/allbinary/thread/ABRunnable.h>
+
+      
+#include <org/allbinary/thread/ThreadObjectUtil.h>
+
+      
+#include <org/allbinary/time/TimeDelayHelper.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/game/input/GameInputProcessorInterface.h"
+#include "org/allbinary/game/input/PlayerGameInputCompositeInterface.h"
+#include "org/allbinary/game/input/PlayerGameInput.h"
+//#include "org/allbinary/game/input/PreGameSelectionRunnable.h"
+#include "org/allbinary/game/input/GameInputProcessorComposite.h"
+
+
+PreGameSelectionGameInputProcessor::PreGameSelectionRunnable::PreGameSelectionRunnable(PreGameSelectionGameInputProcessor* inputProcessor){
+this->inputProcessor= inputProcessor;
+    
+}
+
+
+    auto PreGameSelectionGameInputProcessor::PreGameSelectionRunnable::run() -> void{
+
+        try {
+            this->setRunning(true);
+    
+SecondaryPlayerQueueFactory::getInstance()->add(SelectSound::getInstance());
+    
+this->inputProcessor->gameCanvas->setGameState(this->inputProcessor->nextGameState);
+    
+GameKeyEventHandler::getInstance()->removeListener(this->inputProcessor->getPlayerGameInput());
+    
+this->setRunning(false);
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->setRunning(false);
+    
+
+    LogUtil* logUtil = LogUtil::getInstance();;
+    
+
+    CommonStrings* commonStrings = CommonStrings::getInstance();;
+    
+logUtil->put(commonStrings->EXCEPTION, this, commonStrings->RUN, &e);
+    
+}
+
+}
+
+
+PreGameSelectionGameInputProcessor::PreGameSelectionGameInputProcessor(AllBinaryGameCanvas* gameCanvas, PreGameSelectorPaintable* preGameSelectorPaintable, GameState* nextGameState, int32_t lockedIndex) : logUtil(LogUtil::getInstance()), inputTimeHelper(new TimeDelayHelper(650)), abRunnable(javaInner(new PreGameSelectionRunnable(this), this)){
+this->gameCanvas= gameCanvas;
+    
+this->preGameSelectorPaintable= preGameSelectorPaintable;
+    
+this->nextGameState= nextGameState;
+    
+this->playerGameInput= new GameInputProcessorComposite("Pre Game Selection", this);
+    
+this->lockedIndex= lockedIndex;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto PreGameSelectionGameInputProcessor::process() -> void{
+this->getPlayerGameInput()->update();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto PreGameSelectionGameInputProcessor::onInput(BasicArrayList* list) -> void{
+
+    int32_t size = list->size();;
+    
+
+
+
+
+                        for (
+    int32_t index = 0;index < size; index++)
+        {
+
+    Object* anyType = JavaBoxes::toObject(list->get(index));;
+    
+
+    int32_t key = GameKeyEventUtil::getKey(anyType);;
+    
+
+                        if(key == Canvas::LEFT || key == Canvas::RIGHT || key == Canvas::UP || key == Canvas::DOWN)
+                        
+                                    {
+                                    
+                        if(this->inputTimeHelper->isTimeTNT())
+                        
+                                    {
+                                    SecondaryPlayerQueueFactory::getInstance()->add(SelectSound::getInstance());
+    
+this->getPreGameSelectorPaintable()->getPreGameSelectionForm()->processInputKey(key);
+    
+break;
+
+                    
+
+                                    }
+                                
+
+                                    }
+                                
+                             else 
+                        if(key == Canvas::KEY_NUM0)
+                        
+                                    {
+                                    
+    int32_t selectedIndex = this->preGameSelectorPaintable->getPreGameSelectionForm()->getSelectedIndex();;
+    
+
+                        if(selectedIndex < this->lockedIndex || !LockedUtil::getInstance()->isLocked())
+                        
+                                    {
+                                    
+                        if(!abRunnable->isRunning())
+                        
+                                    {
+                                    abRunnable->setRunning(true);
+    
+ThreadObjectUtil::getInstance()->processThread(abRunnable);
+    
+
+                                    }
+                                
+break;
+
+                    
+
+                                    }
+                                
+                        else {
+                            LockedFeatureNotificationUtil::getInstance()->fire();
+    
+
+                        }
+                            
+
+                                    }
+                                
+}
+
+list->clear();
+    
+}
+
+
+    auto PreGameSelectionGameInputProcessor::getPreGameSelectorPaintable() -> PreGameSelectorPaintable*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->preGameSelectorPaintable;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto PreGameSelectionGameInputProcessor::processInput(AllBinaryLayerManager* layerManager) -> void{
+}
+
+
+    auto PreGameSelectionGameInputProcessor::initInputProcessors() -> void{
+}
+
+
+    auto PreGameSelectionGameInputProcessor::getName() -> std::string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return JavaString::valueOf(this);;
+    
+}
+
+
+    auto PreGameSelectionGameInputProcessor::getPlayerGameInput() -> PlayerGameInput*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->playerGameInput;
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_GAME_INPUT_PREGAMESELECTIONGAMEINPUTPROCESSOR_CPP

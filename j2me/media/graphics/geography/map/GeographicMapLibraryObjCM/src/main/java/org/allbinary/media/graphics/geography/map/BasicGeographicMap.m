@@ -1,0 +1,723 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_MEDIA_GRAPHICS_GEOGRAPHY_MAP_BASICGEOGRAPHICMAP_CPP
+        #define ORG_ALLBINARY_MEDIA_GRAPHICS_GEOGRAPHY_MAP_BASICGEOGRAPHICMAP_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/media/graphics/geography/map/BasicGeographicMap.h"
+        
+
+            #include <vector>
+        
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Exception.h"
+        
+            #include "java/lang/Integer.h"
+        
+#include <org/allbinary/game/layer/AllBinaryTiledLayer.h>
+
+      
+#include <org/allbinary/graphics/color/BasicColor.h>
+
+      
+#include <org/allbinary/layer/Layer.h>
+
+      
+#include <org/allbinary/logic/math/MathUtil.h>
+
+      
+#include <org/allbinary/util/BasicArrayList.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/media/graphics/geography/map/SimpleGeographicMap.h"
+#include "org/allbinary/media/graphics/geography/map/GeographicMapInterface.h"
+#include "org/allbinary/media/graphics/geography/map/BasicGeographicMapCellPositionFactory.h"
+#include "org/allbinary/media/graphics/geography/map/GeographicMapCellPositionFactoryInterface.h"
+#include "org/allbinary/media/graphics/geography/map/GeographicMapCellTypeFactory.h"
+#include "org/allbinary/media/graphics/geography/map/GeographicMapCellPositionBaseFactory.h"
+#include "org/allbinary/media/graphics/geography/map/GeographicMapCellPosition.h"
+#include "org/allbinary/media/graphics/geography/map/SimpleGeographicMapCellPositionFactory.h"
+#include "org/allbinary/media/graphics/geography/map/GeographicMapCellType.h"
+
+std::vector<BasicGeographicMap*> BasicGeographicMap::NULL_BASIC_GEOGRAPHIC_MAP_ARRAY = {};
+
+BasicGeographicMap::BasicGeographicMap(int32_t id, std::string name, std::vector<int32_t> cellTypeIdToGeographicMapCellType, AllBinaryTiledLayer* tiledLayer, BasicColor* foregroundBasicColor, BasicColor* backgroundBasicColor, GeographicMapCellPositionFactoryInterface* geographicMapCellPositionFactoryInterface, GeographicMapCellPositionBaseFactory* geographicMapCellPositionBaseFactory, GeographicMapCellTypeFactory* geographicMapCellTypeFactory) : SimpleGeographicMap(id, name, cellTypeIdToGeographicMapCellType, tiledLayer, foregroundBasicColor, backgroundBasicColor), mathUtil(MathUtil::getInstance()){
+
+                        //super/this constructor call is in the constructor initializer list.
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this->geographicMapCellPositionFactoryInterface= geographicMapCellPositionFactoryInterface;
+    
+this->geographicMapCellPositionFactory= geographicMapCellPositionBaseFactory->getInstance(this);
+    
+this->geographicMapCellTypeFactory= geographicMapCellTypeFactory;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto BasicGeographicMap::getCellPosition(int32_t direction, GeographicMapCellPosition* oldGeographicMapCellPosition) -> GeographicMapCellPosition*{
+
+
+
+        switch (direction) {
+            case 0: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactory->getAt(oldGeographicMapCellPosition->getColumn() -1, oldGeographicMapCellPosition->getRow());;
+    
+}
+case 1: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactory->getAt(oldGeographicMapCellPosition->getColumn() +1, oldGeographicMapCellPosition->getRow());;
+    
+}
+case 2: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactory->getAt(oldGeographicMapCellPosition->getColumn(), oldGeographicMapCellPosition->getRow() -1);;
+    
+}
+case 3: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactory->getAt(oldGeographicMapCellPosition->getColumn(), oldGeographicMapCellPosition->getRow() +1);;
+    
+}
+default: {
+
+
+                            throw Exception("Only Four Directions");
+                    
+}
+
+        }       
+        
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto BasicGeographicMap::getCellPositionNoThrow(int32_t direction, GeographicMapCellPosition* oldGeographicMapCellPosition) -> GeographicMapCellPosition*{
+
+
+
+        switch (direction) {
+            case 0: {
+                        if(oldGeographicMapCellPosition->getColumn() -1 >= 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactory->getAt(oldGeographicMapCellPosition->getColumn() -1, oldGeographicMapCellPosition->getRow());;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMapCellPositionFactory::NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+    
+
+                        }
+                            
+}
+case 1: {
+                        if(oldGeographicMapCellPosition->getColumn() +1 < this->getAllBinaryTiledLayer()->getColumns())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactory->getAt(oldGeographicMapCellPosition->getColumn() +1, oldGeographicMapCellPosition->getRow());;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMapCellPositionFactory::NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+    
+
+                        }
+                            
+}
+case 2: {
+                        if(oldGeographicMapCellPosition->getRow() -1 >= 0)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactory->getAt(oldGeographicMapCellPosition->getColumn(), oldGeographicMapCellPosition->getRow() -1);;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMapCellPositionFactory::NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+    
+
+                        }
+                            
+}
+case 3: {
+                        if(oldGeographicMapCellPosition->getRow() +1 < this->getAllBinaryTiledLayer()->getRows())
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactory->getAt(oldGeographicMapCellPosition->getColumn(), oldGeographicMapCellPosition->getRow() +1);;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMapCellPositionFactory::NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+    
+
+                        }
+                            
+}
+default: {
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMapCellPositionFactory::NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+    
+}
+
+        }       
+        
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto BasicGeographicMap::isOfFourDirections(GeographicMapCellPosition* oldGeographicMapCellPosition, GeographicMapCellPosition* newGeographicMapCellPosition) -> bool{
+
+
+
+
+                        for (
+    int32_t index = 0;index < 4; index++)
+        {
+
+                        if(newGeographicMapCellPosition == this->getCellPositionNoThrow(index, oldGeographicMapCellPosition))
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return true;
+    
+
+                                    }
+                                
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return false;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto BasicGeographicMap::getCellPositionAtXY(int32_t x, int32_t y) -> GeographicMapCellPosition*{
+
+    AllBinaryTiledLayer* allBinaryTiledLayer = this->getAllBinaryTiledLayer();;
+    
+
+    int32_t i_column = this->mathUtil->abs(x /allBinaryTiledLayer->getCellHeight());;
+    
+
+    int32_t i_row = this->mathUtil->abs(y /allBinaryTiledLayer->getCellWidth());;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactory->getAt(i_column, i_row);;
+    
+}
+
+
+    auto BasicGeographicMap::getCellPositionAtXYNoThrow(int32_t x, int32_t y) -> GeographicMapCellPosition*{
+
+    AllBinaryTiledLayer* allBinaryTiledLayer = this->getAllBinaryTiledLayer();;
+    
+
+    int32_t i_column = this->mathUtil->abs(x /allBinaryTiledLayer->getCellHeight());;
+    
+
+    int32_t i_row = this->mathUtil->abs(y /allBinaryTiledLayer->getCellWidth());;
+    
+
+                        if(allBinaryTiledLayer->getColumns() > i_column && allBinaryTiledLayer->getRows() > i_row)
+                        
+                                    {
+                                    
+        try {
+            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactory->getAt(i_column, i_row);;
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMapCellPositionFactory::NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+    
+}
+
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMapCellPositionFactory::NULL_GEOGRAPHIC_MAP_CELL_POSITION;
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto BasicGeographicMap::isOnMap(GeographicMapCellPosition* geographicMapCellPosition) -> bool{
+
+    AllBinaryTiledLayer* allBinaryTiledLayer = this->getAllBinaryTiledLayer();;
+    
+
+    int32_t i_column = geographicMapCellPosition->getColumn();;
+    
+
+    int32_t i_row = geographicMapCellPosition->getRow();;
+    
+
+                        if(allBinaryTiledLayer->getColumns() > i_column && allBinaryTiledLayer->getRows() > i_row)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto BasicGeographicMap::getCellPositionAtNoThrow(int32_t x, int32_t y, int32_t x2, int32_t y2, BasicArrayList* geographicMapCellPositionList) -> BasicArrayList*{
+geographicMapCellPositionList->clear();
+    
+
+    AllBinaryTiledLayer* allBinaryTiledLayer = this->getAllBinaryTiledLayer();;
+    
+
+    int32_t i_columnMin = this->mathUtil->abs(x /allBinaryTiledLayer->getCellHeight());;
+    
+
+    int32_t i_rowMin = this->mathUtil->abs(y /allBinaryTiledLayer->getCellWidth());;
+    
+
+    int32_t i_columnMax = this->mathUtil->abs(x2 /allBinaryTiledLayer->getCellHeight()) +1;;
+    
+
+    int32_t i_rowMax = this->mathUtil->abs(y2 /allBinaryTiledLayer->getCellWidth()) +1;;
+    
+
+
+
+
+                        for (
+    int32_t columnIndex = i_columnMin;columnIndex < i_columnMax; columnIndex++)
+        {
+
+
+
+
+                        for (
+    int32_t rowIndex = i_rowMin;rowIndex < i_rowMax; rowIndex++)
+        {
+
+                        if(allBinaryTiledLayer->getColumns() > columnIndex && allBinaryTiledLayer->getRows() > rowIndex)
+                        
+                                    {
+                                    geographicMapCellPositionList->add(this->geographicMapCellPositionFactory->getAt(columnIndex, rowIndex));
+    
+
+                                    }
+                                
+}
+
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return geographicMapCellPositionList;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto BasicGeographicMap::getCellPositionsAt(Layer* layer, std::vector<std::vector<GeographicMapCellPosition*>> currentCellPositionArray, std::vector<std::vector<GeographicMapCellPosition*>> cellPositionArray) -> bool{
+
+    bool hasChanged = false;;
+    
+
+    int32_t size = cellPositionArray.size();;
+    
+
+    int32_t size2 = cellPositionArray[0].size();;
+    
+
+    int32_t xPortion = layer->getXP() /(size -1);;
+    
+
+    int32_t yPortion = layer->getYP() /(size -1);;
+    
+
+
+
+
+                        for (
+    int32_t index = 0;index < size; index++)
+        {
+
+
+
+
+                        for (
+    int32_t index2 = 0;index2 < size2; index2++)
+        {
+
+    int32_t x = xPortion *index;;
+    
+
+    int32_t y = yPortion *index;;
+    
+cellPositionArray[index][index2]= this->getCellPositionAtXY(x, y);
+    
+
+                        if(currentCellPositionArray[index][index2] != cellPositionArray[index][index2])
+                        
+                                    {
+                                    hasChanged= true;
+    
+
+                                    }
+                                
+}
+
+}
+
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return hasChanged;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto BasicGeographicMap::getCellTypeAtXY(int32_t x, int32_t y) -> GeographicMapCellType*{
+
+    GeographicMapCellPosition* cellPosition = this->getCellPositionAtXY(x, y);;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->getCellTypeAt(cellPosition);;
+    
+}
+
+
+    auto BasicGeographicMap::getGeographicMapCellPositionFactory() -> BasicGeographicMapCellPositionFactory*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactory;
+    
+}
+
+
+    auto BasicGeographicMap::getGeographicMapCellPositionFactoryInterface() -> GeographicMapCellPositionFactoryInterface*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellPositionFactoryInterface;
+    
+}
+
+
+    auto BasicGeographicMap::getGeographicMapCellTypeFactory() -> GeographicMapCellTypeFactory*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->geographicMapCellTypeFactory;
+    
+}
+
+
+    auto BasicGeographicMap::getId() -> int32_t{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMap::getId();;
+    
+}
+
+
+    auto BasicGeographicMap::getName() -> std::string{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMap::getName();;
+    
+}
+
+
+    auto BasicGeographicMap::reset() -> void{
+SimpleGeographicMap::reset();
+    
+}
+
+
+    auto BasicGeographicMap::getAllBinaryTiledLayer() -> AllBinaryTiledLayer*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMap::getAllBinaryTiledLayer();;
+    
+}
+
+
+    auto BasicGeographicMap::getCellTypeFromMapCellTypeInt(int32_t cellTypeId) -> int32_t{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMap::getCellTypeFromMapCellTypeInt(cellTypeId);;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto BasicGeographicMap::getCellTypeAt(GeographicMapCellPosition* cellPosition) -> GeographicMapCellType*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMap::getCellTypeAt(cellPosition);;
+    
+}
+
+
+    auto BasicGeographicMap::getForegroundBasicColor() -> BasicColor*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMap::getForegroundBasicColor();;
+    
+}
+
+
+    auto BasicGeographicMap::getBackgroundBasicColor() -> BasicColor*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return SimpleGeographicMap::getBackgroundBasicColor();;
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_MEDIA_GRAPHICS_GEOGRAPHY_MAP_BASICGEOGRAPHICMAP_CPP

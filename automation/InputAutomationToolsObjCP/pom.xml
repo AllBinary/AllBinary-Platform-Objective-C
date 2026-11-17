@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>InputAutomationToolsObjC</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+    <name>InputAutomationToolsObjC</name>
+    <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <properties>
+        <buildLabel>${project.version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+        <!--
+        <module>../AllBinaryCoreJavaLibraryObjCM</module>        
+        -->
+
+        <module>../../replace_these_stub_projects/osgi/YourOSGIComponentLibraryObjCM</module>
+        <module>../../allbinary_src/AllBinaryOSGIJavaLibraryObjCM</module>
+
+        <module>../../graphics/ColorJavaLibraryObjCM</module>
+        <module>../../graphics/ImageJavaLibraryObjCM</module>
+        <module>../../graphics/ImageComparisonJavaLibraryObjCM</module>
+        <module>../../graphics/AdvancedImageJ2SEJavaLibraryObjCM</module>
+        
+        <module>../InputAutomationModuleJavaLibraryObjCM</module>
+        
+        <module>../InputAutomationActionScriptJavaLibraryObjCM</module>
+        <module>../InputAutomationGenericModuleJavaLibraryObjCM</module>
+        <module>../InputAutomationGeneric2ModuleJavaLibraryObjCM</module>
+
+        <module>../../allbinary_src/HelpJavaLibraryObjCM</module>
+        <module>../InputAutomationJavaLibraryObjCM</module>
+
+        <module>../InputAutomationJavaApplicationObjCM</module>
+        
+        <module>../../game/InputAutomationGameModulesJavaLibraryObjCM</module>
+        
+        <module>../AllBinaryCoreJavaLibraryObjCM</module>
+    </modules>
+
+</project>
+

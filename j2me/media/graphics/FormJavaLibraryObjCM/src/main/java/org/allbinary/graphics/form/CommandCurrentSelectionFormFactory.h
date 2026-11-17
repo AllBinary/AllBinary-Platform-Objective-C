@@ -1,0 +1,124 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_COMMANDCURRENTSELECTIONFORMFACTORY_H
+        #define ORG_ALLBINARY_GRAPHICS_FORM_COMMANDCURRENTSELECTIONFORMFACTORY_H
+
+        
+        #pragma push_macro("JAVA_COMPLETE_TYPES")
+        #undef JAVA_COMPLETE_TYPES
+        
+
+            #include <vector>
+        
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+class Features;
+class TouchFeatureFactory;
+class Rectangle;
+class BasicColor;
+class ABCustomItem;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        class ScrollSelectionFormNoneFactory;
+class CommandCurrentSelectionForm;
+class ScrollSelectionForm;
+class FormType;
+
+                                
+        #pragma pop_macro("JAVA_COMPLETE_TYPES")
+
+        
+class CommandCurrentSelectionFormFactory
+            : public virtual Object
+         {
+
+                //@Throws(Exception.constructor)
+            
+    public: static ScrollSelectionForm* getInstance(std::string title, std::vector<ABCustomItem*> items, Rectangle* rectangle, FormType* formType, int32_t border, bool moveForSmallScreen, BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor);
+
+
+            
+    public: CommandCurrentSelectionFormFactory();
+        
+};
+
+            
+
+
+        #endif //ORG_ALLBINARY_GRAPHICS_FORM_COMMANDCURRENTSELECTIONFORMFACTORY_H
+
+        
+        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_FORM_COMMANDCURRENTSELECTIONFORMFACTORY_H_COMPLETE)
+        #define ORG_ALLBINARY_GRAPHICS_FORM_COMMANDCURRENTSELECTIONFORMFACTORY_H_COMPLETE
+        #if __has_include(<org/allbinary/game/configuration/feature/Features.h>)
+#include <org/allbinary/game/configuration/feature/Features.h>
+#endif
+#if __has_include(<org/allbinary/game/configuration/feature/TouchFeatureFactory.h>)
+#include <org/allbinary/game/configuration/feature/TouchFeatureFactory.h>
+#endif
+#if __has_include(<org/allbinary/graphics/Rectangle.h>)
+#include <org/allbinary/graphics/Rectangle.h>
+#endif
+#if __has_include(<org/allbinary/graphics/color/BasicColor.h>)
+#include <org/allbinary/graphics/color/BasicColor.h>
+#endif
+#if __has_include(<org/allbinary/graphics/form/item/ABCustomItem.h>)
+#include <org/allbinary/graphics/form/item/ABCustomItem.h>
+#endif
+#if __has_include("org/allbinary/graphics/form/ScrollSelectionFormNoneFactory.h")
+#include "org/allbinary/graphics/form/ScrollSelectionFormNoneFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/CommandCurrentSelectionForm.h")
+#include "org/allbinary/graphics/form/CommandCurrentSelectionForm.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/ScrollSelectionForm.h")
+#include "org/allbinary/graphics/form/ScrollSelectionForm.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/FormType.h")
+#include "org/allbinary/graphics/form/FormType.h"
+#endif
+
+        #endif
+    

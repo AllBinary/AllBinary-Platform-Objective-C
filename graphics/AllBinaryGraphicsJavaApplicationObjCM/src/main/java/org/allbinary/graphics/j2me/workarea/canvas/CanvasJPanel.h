@@ -1,0 +1,430 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GRAPHICS_J2ME_WORKAREA_CANVAS_CANVASJPANEL_H
+        #define ORG_ALLBINARY_GRAPHICS_J2ME_WORKAREA_CANVAS_CANVASJPANEL_H
+
+        
+        #pragma push_macro("JAVA_COMPLETE_TYPES")
+        #undef JAVA_COMPLETE_TYPES
+        
+
+            #include <vector>
+        
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+            #include "java/lang/Integer.h"
+        
+            #include "java/lang/Double.h"
+        
+#include <java/awt.h>
+#include <java/util/HashMap.h>
+class DefaultMutableTreeNode;
+class MutableTreeNode;
+class VectorExplosionGenerator;
+class VectorMirrorGenerator;
+class VectorCenterGenerator;
+class GameInputStrings;
+class GPoint;
+class PointFactory;
+class BasicColorFactory;
+class GraphicsException;
+class StatusFactory;
+class WorkAreaJTreeJPanel;
+class GraphicItemFactory;
+class GraphicItemInterface;
+class LinesGraphicItem;
+class MouseStrings;
+class Points;
+class ToolFactory;
+class MyGraphicItemEvent;
+#include <org/allbinary/graphics/j2me/workarea/tools/event/MyGraphicItemEventListener.h>
+class MyGraphicItemEventService;
+class RandomRotationFactory;
+class LOGGING;
+class StdUtil;
+class GuiLog;
+class LogUtil;
+class StringMaker;
+class PositionStrings;
+class CommonSeps;
+class CommonStrings;
+class BasicArrayList;
+class BasicArrayListD;
+class Node;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/graphics/j2me/workarea/canvas/JPanel.h"
+#include "org/allbinary/graphics/j2me/workarea/canvas/MouseListener.h"
+#include "org/allbinary/graphics/j2me/workarea/canvas/MouseMotionListener.h"
+#include "org/allbinary/graphics/j2me/workarea/canvas/KeyListener.h"
+class IntegerDimension;
+class CanvasTreeLabel;
+class Color;
+class Grid;
+class Dimension;
+class CanvasDom;
+class GridLayout;
+class Graphics;
+class MouseEvent;
+class KeyEvent;
+
+                                
+        #pragma pop_macro("JAVA_COMPLETE_TYPES")
+
+        
+class CanvasJPanel: public javax::swing::JPanel, public virtual java::awt::event::MouseListener, public virtual java::awt::event::MouseMotionListener, public virtual java::awt::event::KeyListener, public virtual MyGraphicItemEventListener {
+
+    private: static inline int32_t frame = 0;
+
+    private: static Color* gridColor_owner();
+    private: static Color* gridColor;
+
+    private: static Color* backgroundColor_owner();
+    private: static Color* backgroundColor;
+
+    /*protected*/ public: LogUtil* logUtil;
+
+    private: GuiLog* guiLog;
+
+    private: GameInputStrings* gameInputStrings;
+
+    private: GraphicItemInterface* selectedTool = 
+                nullptr
+            ;
+
+    private: HashMap<Object*, Object*>* graphicItemHashMap;
+
+    private: IntegerDimension* canvasDimension;
+
+    private: double angle = 0;
+
+    private: DefaultMutableTreeNode* canvasTreeNode;
+
+    private: CanvasTreeLabel* frameLabel;
+
+    private: WorkAreaJTreeJPanel* workAreaJTreeJPanel;
+
+    private: Grid* grid;
+
+public: CanvasJPanel(WorkAreaJTreeJPanel* workAreaJTreeJPanel, Dimension* dimension, int32_t x, int32_t y);
+
+public: CanvasJPanel(WorkAreaJTreeJPanel* workAreaJTreeJPanel, Dimension* dimension, CanvasDom* canvasDom);
+
+                //@Throws(Exception.constructor)
+            
+    private: void initMyComponents();
+
+    public: MutableTreeNode* getTreeNode();
+
+    private: void initComponents();
+
+                //@Throws(Exception.constructor)
+            
+    public: void setCanvasSize(int32_t x, int32_t y);
+
+    public: void setGrid(GPoint* point);
+
+    public: void setGrid(int32_t xSize, int32_t ySize);
+
+                //@Throws(Exception.constructor)
+            
+    public: void setDefaultGrid();
+
+    public: double getAngle();
+
+    public: void setAngle(double angle);
+
+    public: void addAngle(double angle);
+
+    public: void explodeAll();
+
+                //@Throws(Exception.constructor)
+            
+    public: void explode(int32_t howMuch, int32_t explosionType);
+
+                //@Throws(Exception.constructor)
+            
+    public: void mirror();
+
+                //@Throws(Exception.constructor)
+            
+    public: void center();
+
+    public: void setNewTool();
+
+                //@Throws(Exception.constructor)
+            
+    public: void duplicateGraphicItem(GraphicItemInterface* graphicItem);
+
+                //@Throws(Exception.constructor)
+            
+    public: void duplicateGraphicItemHashMap(HashMap<Object*, Object*>* hashMap);
+
+    public: HashMap<Object*, Object*>* getGraphicItemHashMap();
+
+    public: int32_t getXPixelsPerWorkAreaPixel();
+
+    public: int32_t getYPixelsPerWorkAreaPixel();
+
+    public: GraphicItemInterface* getSelectedTool();
+
+    public: void drawItems(Graphics* graphics);
+
+    public: void drawGrid(Graphics* graphics);
+
+    public: void paint(Graphics* graphics);
+
+    public: void repaint();
+
+                //@Throws(Exception.constructor)
+            
+    public: Node* toDom();
+
+    public: void changed();
+
+    public: void mouseClicked(java::awt::event::MouseEvent* mouseEvent);
+
+    public: void mouseEntered(java::awt::event::MouseEvent* mouseEvent);
+
+    public: void mouseExited(java::awt::event::MouseEvent* mouseEvent);
+
+    public: void mousePressed(java::awt::event::MouseEvent* mouseEvent);
+
+    public: void mouseReleased(java::awt::event::MouseEvent* mouseEvent);
+
+    public: void mouseDragged(java::awt::event::MouseEvent* mouseEvent);
+
+    public: void mouseMoved(java::awt::event::MouseEvent* mouseEvent);
+
+    private: std::string logMouseEvent(java::awt::event::MouseEvent* mouseEvent);
+
+    public: void keyPressed(java::awt::event::KeyEvent* keyEvent);
+
+    public: void keyReleased(java::awt::event::KeyEvent* keyEvent);
+
+    public: void keyTyped(java::awt::event::KeyEvent* keyEvent);
+
+    public: void delete_(MyGraphicItemEvent* evt);
+
+    public: void deselect(MyGraphicItemEvent* evt);
+
+    public: void highlight(MyGraphicItemEvent* evt);
+
+                //@Throws(Exception.constructor)
+            
+    public: CanvasJPanel* duplicate();
+
+                //@Throws(Exception.constructor)
+            
+    public: void duplicate(MyGraphicItemEvent* event);
+
+    public: void rotate(MyGraphicItemEvent* event);
+
+    public: IntegerDimension* getCanvasDimension();
+
+    public: void setCanvasDimension(IntegerDimension* canvasDimension);
+
+    public: Grid* getGrid();
+
+};
+
+            
+
+
+        #endif //ORG_ALLBINARY_GRAPHICS_J2ME_WORKAREA_CANVAS_CANVASJPANEL_H
+
+        
+        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_J2ME_WORKAREA_CANVAS_CANVASJPANEL_H_COMPLETE)
+        #define ORG_ALLBINARY_GRAPHICS_J2ME_WORKAREA_CANVAS_CANVASJPANEL_H_COMPLETE
+        #if __has_include(<java/awt.h>)
+#include <java/awt.h>
+#endif
+#if __has_include(<java/util/HashMap.h>)
+#include <java/util/HashMap.h>
+#endif
+#if __has_include(<javax/swing/tree/DefaultMutableTreeNode.h>)
+#include <javax/swing/tree/DefaultMutableTreeNode.h>
+#endif
+#if __has_include(<javax/swing/tree/MutableTreeNode.h>)
+#include <javax/swing/tree/MutableTreeNode.h>
+#endif
+#if __has_include(<org/allbinary/animation/VectorExplosionGenerator.h>)
+#include <org/allbinary/animation/VectorExplosionGenerator.h>
+#endif
+#if __has_include(<org/allbinary/animation/VectorMirrorGenerator.h>)
+#include <org/allbinary/animation/VectorMirrorGenerator.h>
+#endif
+#if __has_include(<org/allbinary/animation/vector/VectorCenterGenerator.h>)
+#include <org/allbinary/animation/vector/VectorCenterGenerator.h>
+#endif
+#if __has_include(<org/allbinary/game/input/GameInputStrings.h>)
+#include <org/allbinary/game/input/GameInputStrings.h>
+#endif
+#if __has_include(<org/allbinary/graphics/GPoint.h>)
+#include <org/allbinary/graphics/GPoint.h>
+#endif
+#if __has_include(<org/allbinary/graphics/PointFactory.h>)
+#include <org/allbinary/graphics/PointFactory.h>
+#endif
+#if __has_include(<org/allbinary/graphics/color/BasicColorFactory.h>)
+#include <org/allbinary/graphics/color/BasicColorFactory.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/GraphicsException.h>)
+#include <org/allbinary/graphics/j2me/GraphicsException.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/StatusFactory.h>)
+#include <org/allbinary/graphics/j2me/StatusFactory.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/workarea/WorkAreaJTreeJPanel.h>)
+#include <org/allbinary/graphics/j2me/workarea/WorkAreaJTreeJPanel.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/workarea/tools/GraphicItemFactory.h>)
+#include <org/allbinary/graphics/j2me/workarea/tools/GraphicItemFactory.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/workarea/tools/GraphicItemInterface.h>)
+#include <org/allbinary/graphics/j2me/workarea/tools/GraphicItemInterface.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/workarea/tools/LinesGraphicItem.h>)
+#include <org/allbinary/graphics/j2me/workarea/tools/LinesGraphicItem.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/workarea/tools/MouseStrings.h>)
+#include <org/allbinary/graphics/j2me/workarea/tools/MouseStrings.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/workarea/tools/Points.h>)
+#include <org/allbinary/graphics/j2me/workarea/tools/Points.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/workarea/tools/ToolFactory.h>)
+#include <org/allbinary/graphics/j2me/workarea/tools/ToolFactory.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/workarea/tools/event/MyGraphicItemEvent.h>)
+#include <org/allbinary/graphics/j2me/workarea/tools/event/MyGraphicItemEvent.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/workarea/tools/event/MyGraphicItemEventListener.h>)
+#include <org/allbinary/graphics/j2me/workarea/tools/event/MyGraphicItemEventListener.h>
+#endif
+#if __has_include(<org/allbinary/graphics/j2me/workarea/tools/event/MyGraphicItemEventService.h>)
+#include <org/allbinary/graphics/j2me/workarea/tools/event/MyGraphicItemEventService.h>
+#endif
+#if __has_include(<org/allbinary/graphics/pipeline/RandomRotationFactory.h>)
+#include <org/allbinary/graphics/pipeline/RandomRotationFactory.h>
+#endif
+#if __has_include(<org/allbinary/log/LOGGING.h>)
+#include <org/allbinary/log/LOGGING.h>
+#endif
+#if __has_include(<org/allbinary/logic/StdUtil.h>)
+#include <org/allbinary/logic/StdUtil.h>
+#endif
+#if __has_include(<org/allbinary/logic/communication/log/GuiLog.h>)
+#include <org/allbinary/logic/communication/log/GuiLog.h>
+#endif
+#if __has_include(<org/allbinary/logic/communication/log/LogUtil.h>)
+#include <org/allbinary/logic/communication/log/LogUtil.h>
+#endif
+#if __has_include(<org/allbinary/logic/string/StringMaker.h>)
+#include <org/allbinary/logic/string/StringMaker.h>
+#endif
+#if __has_include(<org/allbinary/math/PositionStrings.h>)
+#include <org/allbinary/math/PositionStrings.h>
+#endif
+#if __has_include(<org/allbinary/string/CommonSeps.h>)
+#include <org/allbinary/string/CommonSeps.h>
+#endif
+#if __has_include(<org/allbinary/string/CommonStrings.h>)
+#include <org/allbinary/string/CommonStrings.h>
+#endif
+#if __has_include(<org/allbinary/util/BasicArrayList.h>)
+#include <org/allbinary/util/BasicArrayList.h>
+#endif
+#if __has_include(<org/allbinary/util/BasicArrayListD.h>)
+#include <org/allbinary/util/BasicArrayListD.h>
+#endif
+#if __has_include(<org/w3c/dom/Node.h>)
+#include <org/w3c/dom/Node.h>
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/JPanel.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/JPanel.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/MouseListener.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/MouseListener.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/MouseMotionListener.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/MouseMotionListener.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/KeyListener.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/KeyListener.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/IntegerDimension.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/IntegerDimension.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/CanvasTreeLabel.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/CanvasTreeLabel.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/Color.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/Color.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/Grid.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/Grid.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/Dimension.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/Dimension.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/CanvasDom.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/CanvasDom.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/GridLayout.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/GridLayout.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/Graphics.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/Graphics.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/MouseEvent.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/MouseEvent.h"
+#endif
+#if __has_include("org/allbinary/graphics/j2me/workarea/canvas/KeyEvent.h")
+#include "org/allbinary/graphics/j2me/workarea/canvas/KeyEvent.h"
+#endif
+
+        #endif
+    

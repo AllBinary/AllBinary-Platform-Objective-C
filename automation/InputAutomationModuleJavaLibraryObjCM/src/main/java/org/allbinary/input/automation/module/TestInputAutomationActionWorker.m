@@ -1,0 +1,156 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_INPUT_AUTOMATION_MODULE_TESTINPUTAUTOMATIONACTIONWORKER_CPP
+        #define ORG_ALLBINARY_INPUT_AUTOMATION_MODULE_TESTINPUTAUTOMATIONACTIONWORKER_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/input/automation/module/TestInputAutomationActionWorker.h"
+        
+
+            #include <vector>
+        
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+            #include "java/lang/Thread.h"
+        
+#include <java/util/Set.h>
+
+      
+#include <org/allbinary/input/automation/robot/InputRobotFactory.h>
+
+      
+#include <org/allbinary/input/automation/robot/InputRobotInterface.h>
+
+      
+#include <org/allbinary/logic/communication/log/LogUtil.h>
+
+      
+#include <org/allbinary/media/image/comparison/ImageComparatorConstraintsInterface.h>
+
+      
+#include <org/allbinary/media/image/comparison/motion/MotionRectangleConstraintsInterface.h>
+
+      
+#include <org/allbinary/util/ABHashtable.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/input/automation/module/AbstractInputAutomationWorker.h"
+#include "org/allbinary/input/automation/module/InputAutomationActionInterface.h"
+
+
+TestInputAutomationActionWorker::TestInputAutomationActionWorker(int32_t sleep, InputAutomationActionInterface* inputAutomationActionInterface, ImageComparatorConstraintsInterface* imageComparatorConstraintsInterface, MotionRectangleConstraintsInterface* motionRectangleConstraintsInterface) : AbstractInputAutomationWorker(inputAutomationActionInterface), logUtil(LogUtil::getInstance()){
+
+                        //super/this constructor call is in the constructor initializer list.
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this->logUtil->putF("BasicTestAttackWorder", this, this->commonStrings->CONSTRUCTOR);
+    
+this->sleep= sleep;
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto TestInputAutomationActionWorker::processBetweenWorkers() -> void{
+Thread::sleep(2000);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto TestInputAutomationActionWorker::process() -> void{
+this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->PROCESS);
+    
+
+    ABHashtable<Object*, Object*>* hashtable = InputRobotFactory::getInstance()->get();;
+    
+
+    Set* set = hashtable->keys();;
+    
+
+    std::vector<Object*> inputTypeNameArray = set->toArray();;
+    
+
+    int32_t size = inputTypeNameArray.size();;
+    
+
+
+
+
+                        for (
+    int32_t index = 0;index < size; index++)
+        {
+
+    std::string inputTypeNameString = JavaBoxes::unbox<std::string>(inputTypeNameArray[index]);;
+    
+
+    InputRobotInterface* robot = dynamic_cast<InputRobotInterface*>(hashtable->get(inputTypeNameString));;
+    
+
+                        if(this->sleep > 0)
+                        
+                                    {
+                                    Thread::sleep(this->sleep);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_INPUT_AUTOMATION_MODULE_TESTINPUTAUTOMATIONACTIONWORKER_CPP

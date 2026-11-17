@@ -1,0 +1,133 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_AREA_ADVERTISEMENTAREACONSTRAINTS_CPP
+        #define ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_AREA_ADVERTISEMENTAREACONSTRAINTS_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/business/advertisement/area/AdvertisementAreaConstraints.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+#include <org/allbinary/data/tree/dom/DomSearchHelper.h>
+
+      
+#include <org/allbinary/logic/control/contraints/display/browser/DisplayInBrowserContraints.h>
+
+      
+#include <org/allbinary/logic/control/contraints/display/browser/DisplayInBrowserContraintsInterface.h>
+
+      
+#include <org/allbinary/logic/control/contraints/size/TwoDimensionalConstraint.h>
+
+      
+#include <org/allbinary/logic/control/contraints/size/TwoDimensionalConstraintInterface.h>
+
+      
+#include <org/w3c/dom/Document.h>
+
+      
+#include <org/w3c/dom/Node.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/business/advertisement/area/AdvertisementAreaConstraintsInterface.h"
+#include "org/allbinary/business/advertisement/area/AdvertisementAreaData.h"
+
+
+AdvertisementAreaConstraints::AdvertisementAreaConstraints(Document* document){
+
+    Node* node = DomSearchHelper::getNode(AdvertisementAreaData::getInstance()->NAME, document->getChildNodes());;
+    
+this->displayInBrowserContraintsInterface= new DisplayInBrowserContraints(node);
+    
+this->twoDimensionConstraintsInterface= new TwoDimensionalConstraint(node);
+    
+}
+
+
+    auto AdvertisementAreaConstraints::setDisplayInBrowserContraints(DisplayInBrowserContraintsInterface* displayInBrowserContraintsInterface) -> void{
+this->displayInBrowserContraintsInterface= displayInBrowserContraintsInterface;
+    
+}
+
+
+    auto AdvertisementAreaConstraints::getTwoDimensionContraints(TwoDimensionalConstraintInterface* twoDimensionConstraintsInterface) -> void{
+this->twoDimensionConstraintsInterface= twoDimensionConstraintsInterface;
+    
+}
+
+
+    auto AdvertisementAreaConstraints::getDisplayInBrowserContraints() -> DisplayInBrowserContraintsInterface*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->displayInBrowserContraintsInterface;
+    
+}
+
+
+    auto AdvertisementAreaConstraints::getTwoDimensionContraints() -> TwoDimensionalConstraintInterface*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->twoDimensionConstraintsInterface;
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_AREA_ADVERTISEMENTAREACONSTRAINTS_CPP

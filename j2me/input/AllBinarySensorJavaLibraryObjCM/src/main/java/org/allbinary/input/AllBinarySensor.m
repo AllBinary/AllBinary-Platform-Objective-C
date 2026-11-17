@@ -1,0 +1,131 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_INPUT_ALLBINARYSENSOR_CPP
+        #define ORG_ALLBINARY_INPUT_ALLBINARYSENSOR_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/input/AllBinarySensor.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
+
+      
+#include <org/allbinary/logic/communication/log/LogUtil.h>
+
+      
+#include <org/allbinary/string/CommonStrings.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/input/AllBinarySensorListener.h"
+
+auto AllBinarySensor::NULL_ALLBINARY_SENSOR_owner() -> AllBinarySensor* { static std::unique_ptr<AllBinarySensor> value(new AllBinarySensor()); return value.get(); }
+AllBinarySensor* AllBinarySensor::NULL_ALLBINARY_SENSOR = AllBinarySensor::NULL_ALLBINARY_SENSOR_owner();
+
+AllBinarySensor::AllBinarySensor() : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()){
+}
+
+
+    auto AllBinarySensor::init() -> void{
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto AllBinarySensor::update() -> void{
+}
+
+
+    auto AllBinarySensor::setMax(int32_t max) -> void{
+AllBinarySensor::max= max;
+    
+}
+
+
+    auto AllBinarySensor::getMax() -> int32_t{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return AllBinarySensor::max;
+    
+}
+
+
+    auto AllBinarySensor::getId() -> int32_t{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return AllBinarySensor::getMax();;
+    
+}
+
+
+    auto AllBinarySensor::shutdown() -> void{
+this->logUtil->putF(this->commonStrings->START, this, "shutdown");
+    
+}
+
+
+    auto AllBinarySensor::onSensorChange() -> void{
+ForcedLogUtil::log(this->commonStrings->NOT_IMPLEMENTED, this);
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_INPUT_ALLBINARYSENSOR_CPP

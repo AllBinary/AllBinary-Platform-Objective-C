@@ -1,0 +1,748 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_ANDROIDBASICTITLEPROGRESSBAR_CPP
+        #define ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_ANDROIDBASICTITLEPROGRESSBAR_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/graphics/canvas/transition/progress/AndroidBasicTitleProgressBar.h"
+        
+
+            #include <vector>
+        
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Exception.h"
+        
+            #include "java/lang/IllegalArgumentException.h"
+        
+            #include "java/lang/Integer.h"
+        
+#include <javax/microedition/lcdui/Graphics.h>
+
+      
+#include <javax/microedition/lcdui/Image.h>
+
+      
+#include <javax/microedition/lcdui/NullImage.h>
+
+      
+#include <android/app/Activity.h>
+
+      
+#include <org/allbinary/AndroidUtil.h>
+
+      
+#include <org/allbinary/image/GameFeatureImageCacheFactory.h>
+
+      
+#include <org/allbinary/image/PreResourceImageUtil.h>
+
+      
+#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
+
+      
+#include <org/allbinary/logic/java/exception/ExceptionUtil.h>
+
+      
+#include <org/allbinary/animation/Animation.h>
+
+      
+#include <org/allbinary/animation/NullAnimationFactory.h>
+
+      
+#include <org/allbinary/game/configuration/feature/Features.h>
+
+      
+#include <org/allbinary/game/configuration/feature/MainFeatureFactory.h>
+
+      
+#include <org/allbinary/graphics/color/BasicColor.h>
+
+      
+#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
+
+      
+#include <org/allbinary/graphics/displayable/event/DisplayChangeEvent.h>
+
+      
+#include <org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h>
+
+      
+#include <org/allbinary/graphics/displayable/event/DisplayChangeEventListener.h>
+
+      
+#include <org/allbinary/image/ImageCacheFactory.h>
+
+      
+#include <org/allbinary/media/image/ImageScaleUtil.h>
+
+      
+#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
+
+      
+#include <org/allbinary/animation/AnimationBehavior.h>
+
+      
+#include <org/allbinary/animation/image/ImageAnimation.h>
+
+      
+#include <org/allbinary/data/resource/ResourceUtil.h>
+
+      
+#include <org/allbinary/logic/util/event/EventStrings.h>
+
+      
+#include <org/allbinary/thread/ARunnable.h>
+
+      
+#include <org/allbinary/thread/NullRunnable.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
+#include "org/allbinary/graphics/canvas/transition/progress/ShowTitleProgressBarRunnable.h"
+#include "org/allbinary/graphics/canvas/transition/progress/DismissTitleProgressBarRunnable.h"
+#include "org/allbinary/graphics/canvas/transition/progress/TitleProgressBarSetProgressRunnable.h"
+#include "org/allbinary/graphics/canvas/transition/progress/TitleProgressBarPortionSetProgressRunnable.h"
+
+
+AndroidBasicTitleProgressBar::AndroidBasicTitleProgressBar(std::string title, BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor) : ProgressCanvas(title, backgroundBasicColor, foregroundBasicColor), showTitleProgressBarRunnable(NullRunnable::getInstance()), dismissTitleProgressBarRunnable(NullRunnable::getInstance()), titleProgressDialogPortionSetProgressRunnable(NullRunnable::getInstance()), titleProgressDialogSetProgressRunnable(NullRunnable::getInstance()), midletActivity(AndroidUtil::NULL_ACTIVITY), IMAGE(std::vector<Image*>(4)), image(NullImage::NULL_IMAGE), animation(NullAnimationFactory::getFactoryInstance()->getInstance(0)){
+
+                        //super/this constructor call is in the constructor initializer list.
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this->init();
+    
+DisplayChangeEventHandler::getInstance()->addListenerInterface(this);
+    
+
+    int32_t size = this->IMAGE.size();;
+    
+
+
+
+
+                        for (
+    int32_t index = 0;index < size; index++)
+        {
+this->IMAGE[index]= NullImage::NULL_IMAGE;
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::init() -> void{
+
+        try {
+            
+                        if(AndroidBasicTitleProgressBar::background != 0)
+                        
+                                    {
+                                    ResourceUtil::getInstance()->addResource(AndroidBasicTitleProgressBar::RESOURCE, int32_t(AndroidBasicTitleProgressBar::background));
+    
+GameFeatureImageCacheFactory::init();
+    
+this->image= ImageCacheFactory::getInstance()->getWithKey(AndroidBasicTitleProgressBar::RESOURCE);
+    
+
+                                    }
+                                
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->INIT, &e);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::initActivity(Activity* activity) -> void{
+
+        try {
+            
+                        if(this->midletActivity != activity)
+                        
+                                    {
+                                    this->midletActivity= activity;
+    
+this->showTitleProgressBarRunnable= new ShowTitleProgressBarRunnable(this->midletActivity, this);
+    
+this->dismissTitleProgressBarRunnable= new DismissTitleProgressBarRunnable(this->midletActivity, this);
+    
+this->titleProgressDialogSetProgressRunnable= new TitleProgressBarSetProgressRunnable(this->midletActivity, this);
+    
+this->titleProgressDialogPortionSetProgressRunnable= new TitleProgressBarPortionSetProgressRunnable(this->midletActivity, this);
+    
+this->loadProgressImages();
+    
+
+                                    }
+                                
+this->updateCurrent();
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->INIT, &e);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::updateCurrent() -> void{
+
+        try {
+            
+                        if(!this->isBackground())
+                        
+                                    {
+                                    this->animation= NullAnimationFactory::getFactoryInstance()->getInstance(0);
+    
+
+                                    }
+                                
+                             else 
+                        if(AndroidBasicTitleProgressBar::background != 0)
+                        
+                                    {
+                                    
+    DisplayInfoSingleton* displayInfo = DisplayInfoSingleton::getInstance();;
+    
+
+    Image* currentImage;;
+    
+
+                        if(displayInfo->isPortrait())
+                        
+                                    {
+                                    currentImage= this->getImage(0);
+    
+
+                                    }
+                                
+                        else {
+                            currentImage= this->getImage(2);
+    
+
+                        }
+                            
+
+                        if(currentImage == 
+                                    nullptr
+                                )
+                        
+                                    {
+                                    this->animation= NullAnimationFactory::getFactoryInstance()->getInstance(0);
+    
+
+                                    }
+                                
+                        else {
+                            this->animation= new ImageAnimation(currentImage, AnimationBehavior::getInstance());
+    
+
+                        }
+                            
+
+                                    }
+                                
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->UPDATE, &e);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::onEvent(AllBinaryEventObject* eventObject) -> void{
+ForcedLogUtil::log(EventStrings::getInstance()->PERFORMANCE_MESSAGE, this);
+    
+}
+
+
+    auto AndroidBasicTitleProgressBar::onDisplayChangeEvent(DisplayChangeEvent* displayChangeEvent) -> void{
+
+        try {
+            this->loadProgressImages();
+    
+this->updateCurrent();
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->putF(this->commonStrings->EXCEPTION_LABEL +ExceptionUtil::getInstance()->getStackTrace(&e), this, this->canvasStrings->ON_DISPLAY_CHANGE_EVENT);
+    
+this->animation= NullAnimationFactory::getFactoryInstance()->getInstance(0);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::loadProgressImages() -> void{
+
+        try {
+            
+    DisplayInfoSingleton* displayInfo = DisplayInfoSingleton::getInstance();;
+    
+
+    int32_t lastWidth = displayInfo->getLastWidth();;
+    
+
+    int32_t lastHeight = displayInfo->getLastHeight();;
+    
+
+                        if(displayInfo->isPortraitWH(lastWidth, lastHeight))
+                        
+                                    {
+                                    this->setImages(0, lastWidth, lastHeight);
+    
+
+                                    }
+                                
+                        else {
+                            this->setImages(2, lastWidth, lastHeight);
+    
+
+                        }
+                            
+
+                //: 
+} catch(IllegalArgumentException& e) 
+            {
+this->logUtil->putF(JavaString::valueOf("IllegalArgumentException ") +JavaString::valueOf(ExceptionUtil::getInstance()->getStackTrace(&e)), this, "loadProgressImages");
+    
+this->animation= NullAnimationFactory::getFactoryInstance()->getInstance(0);
+    
+}
+
+                //: 
+ catch(Exception& e) 
+            {
+this->logUtil->putF(this->commonStrings->EXCEPTION_LABEL +ExceptionUtil::getInstance()->getStackTrace(&e), this, "loadProgressImages");
+    
+this->animation= NullAnimationFactory::getFactoryInstance()->getInstance(0);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::isInitialized() -> bool{
+
+                        if(this->midletActivity != AndroidUtil::NULL_ACTIVITY)
+                        
+                                    {
+                                    
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return true;
+    
+
+                                    }
+                                
+                        else {
+                            
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return false;
+    
+
+                        }
+                            
+}
+
+
+    auto AndroidBasicTitleProgressBar::start() -> void{
+
+        try {
+            this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->START_METHOD_NAME);
+    
+ProgressCanvas::start();
+    
+this->midletActivity->runOnUiThread(this->showTitleProgressBarRunnable);
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->START_METHOD_NAME, &e);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::end() -> void{
+
+        try {
+            this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->END_METHOD_NAME);
+    
+this->midletActivity->runOnUiThread(this->dismissTitleProgressBarRunnable);
+    
+ProgressCanvas::end();
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->END_METHOD_NAME, &e);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::addEarlyPortion(int32_t value, std::string text, int32_t index) -> void{
+
+        try {
+            this->portion= value;
+    
+ProgressCanvas::addEarlyPortion(value, text, index);
+    
+
+                        if(this->midletActivity != AndroidUtil::NULL_ACTIVITY)
+                        
+                                    {
+                                    this->midletActivity->runOnUiThread(this->titleProgressDialogPortionSetProgressRunnable);
+    
+
+                                    }
+                                
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, this->ADD_PORTION, &e);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::addPortion(int32_t value, std::string text, int32_t index) -> void{
+
+        try {
+            this->portion= value;
+    
+ProgressCanvas::addPortion(value, text, index);
+    
+this->midletActivity->runOnUiThread(this->titleProgressDialogPortionSetProgressRunnable);
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, this->ADD_PORTION, &e);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::addNormalPortion(int32_t value, std::string text) -> void{
+
+        try {
+            this->portion= value;
+    
+ProgressCanvas::addNormalPortion(value, text);
+    
+this->midletActivity->runOnUiThread(this->titleProgressDialogPortionSetProgressRunnable);
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, this->ADD_PORTION, &e);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::setValue(int32_t value) -> void{
+
+        try {
+            ProgressCanvas::setValue(value);
+    
+this->midletActivity->runOnUiThread(this->titleProgressDialogSetProgressRunnable);
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, "setValue", &e);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::waitUntilDisplayed() -> void{
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto AndroidBasicTitleProgressBar::setImages(int32_t index, int32_t lastWidth, int32_t lastHeight) -> void{
+
+    Image* image = this->image;;
+    
+
+                        if(image != NullImage::NULL_IMAGE)
+                        
+                                    {
+                                    
+                        if(Features::getInstance()->isFeature(MainFeatureFactory::getInstance()->FULL_SCREEN))
+                        
+                                    {
+                                    
+                        if(this->IMAGE[index] == NullImage::NULL_IMAGE)
+                        
+                                    {
+                                    this->IMAGE[index]= ImageScaleUtil::getInstance()->createImage2(ImageCacheFactory::getInstance(), image, lastWidth, image->getWidth(), lastHeight -20, image->getHeight(), false);
+    
+
+                                    }
+                                
+
+                                    }
+                                
+                        else {
+                            
+    int32_t nextIndex = index +1;;
+    
+
+                        if(this->IMAGE[nextIndex] == NullImage::NULL_IMAGE)
+                        
+                                    {
+                                    this->IMAGE[nextIndex]= ImageScaleUtil::getInstance()->createImage2(ImageCacheFactory::getInstance(), image, lastWidth, image->getWidth(), lastHeight -28, image->getHeight(), false);
+    
+
+                                    }
+                                
+
+                        }
+                            
+
+                                    }
+                                
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto AndroidBasicTitleProgressBar::initOpenGL(Graphics* graphics) -> void{
+this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->INIT);
+    
+this->image= GameFeatureImageCacheFactory::getInstance()->getWithKey(AndroidBasicTitleProgressBar::RESOURCE);
+    
+
+    PreResourceImageUtil* preResourceImageUtil = PreResourceImageUtil::getInstance();;
+    
+
+    int32_t size = this->IMAGE.size();;
+    
+
+
+
+
+                        for (
+    int32_t index = 0;index < size; index++)
+        {
+
+                        if(this->IMAGE[index] != NullImage::NULL_IMAGE)
+                        
+                                    {
+                                    this->IMAGE[index]= preResourceImageUtil->encapsulate(this->IMAGE[index]);
+    
+
+                                    }
+                                
+}
+
+this->updateCurrent();
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto AndroidBasicTitleProgressBar::update(Graphics* graphics) -> void{
+this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->UPDATE);
+    
+this->initOpenGL(graphics);
+    
+this->image= GameFeatureImageCacheFactory::getInstance()->getWithKey(AndroidBasicTitleProgressBar::RESOURCE);
+    
+
+    PreResourceImageUtil* preResourceImageUtil = PreResourceImageUtil::getInstance();;
+    
+
+    int32_t size = this->IMAGE.size();;
+    
+
+
+
+
+                        for (
+    int32_t index = 0;index < size; index++)
+        {
+
+                        if(this->IMAGE[index] != NullImage::NULL_IMAGE)
+                        
+                                    {
+                                    preResourceImageUtil->update(graphics, this->IMAGE[index]);
+    
+
+                                    }
+                                
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto AndroidBasicTitleProgressBar::getImage(int32_t index) -> Image*{
+
+    Image* image = NullImage::NULL_IMAGE;;
+    
+
+                        if(Features::getInstance()->isFeature(MainFeatureFactory::getInstance()->FULL_SCREEN))
+                        
+                                    {
+                                    image= this->IMAGE[index];
+    
+
+                                    }
+                                
+                        else {
+                            image= this->IMAGE[index +1];
+    
+
+                        }
+                            
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return image;
+    
+}
+
+
+    auto AndroidBasicTitleProgressBar::paint2(Graphics* graphics) -> void{
+
+        try {
+            this->animation->paintXY(graphics, 0, 20);
+    
+ProgressCanvas::paint2(graphics);
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+this->logUtil->put(this->commonStrings->EXCEPTION, this, this->canvasStrings->PAINT, &e);
+    
+}
+
+}
+
+
+    auto AndroidBasicTitleProgressBar::setBackgroundResource(int32_t background) -> void{
+AndroidBasicTitleProgressBar::background= background;
+    
+}
+
+
+    auto AndroidBasicTitleProgressBar::setBackground(bool background) -> void{
+ProgressCanvas::setBackground(background);
+    
+this->updateCurrent();
+    
+}
+
+
+    auto AndroidBasicTitleProgressBar::setPortion(int32_t portion) -> void{
+this->portion= portion;
+    
+}
+
+
+    auto AndroidBasicTitleProgressBar::getPortion() -> int32_t{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return this->portion;
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_ANDROIDBASICTITLEPROGRESSBAR_CPP

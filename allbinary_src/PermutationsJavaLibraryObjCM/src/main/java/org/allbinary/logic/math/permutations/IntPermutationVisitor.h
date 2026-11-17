@@ -1,0 +1,95 @@
+
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_LOGIC_MATH_PERMUTATIONS_INTPERMUTATIONVISITOR_H
+        #define ORG_ALLBINARY_LOGIC_MATH_PERMUTATIONS_INTPERMUTATIONVISITOR_H
+
+        
+        #pragma push_macro("JAVA_COMPLETE_TYPES")
+        #undef JAVA_COMPLETE_TYPES
+        
+
+            #include <vector>
+        
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/System.h"
+        
+class NullUtil;
+class StringMaker;
+#include <org/allbinary/logic/util/visitor/Visitor.h>
+class CommonSeps;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+                                
+        #pragma pop_macro("JAVA_COMPLETE_TYPES")
+
+        
+class IntPermutationVisitor: public Visitor {
+
+    /*protected*/ public: std::vector<int32_t> data;
+
+public: IntPermutationVisitor(std::vector<int32_t> data);
+
+    private: StringMaker* stringBuilder;
+
+    public: Object* visit(Object* anyType);
+    public: Object* visit(const std::string& anyType) { return visit(JavaString::box(anyType)); }
+    public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> Object* visit(BoxValue anyType) { return visit(JavaBoxes::toObject(anyType)); }
+    public: template<typename BoxElement> Object* visit(const std::vector<BoxElement>& anyType) { return visit(JavaBoxes::toObject(anyType)); }
+
+    public: void print(std::vector<int32_t> data);
+
+    public: void print(std::vector<int32_t> data, StringMaker* stringBuilder);
+
+};
+
+            
+
+
+        #endif //ORG_ALLBINARY_LOGIC_MATH_PERMUTATIONS_INTPERMUTATIONVISITOR_H
+
+        
+        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_LOGIC_MATH_PERMUTATIONS_INTPERMUTATIONVISITOR_H_COMPLETE)
+        #define ORG_ALLBINARY_LOGIC_MATH_PERMUTATIONS_INTPERMUTATIONVISITOR_H_COMPLETE
+        #if __has_include(<org/allbinary/logic/NullUtil.h>)
+#include <org/allbinary/logic/NullUtil.h>
+#endif
+#if __has_include(<org/allbinary/logic/string/StringMaker.h>)
+#include <org/allbinary/logic/string/StringMaker.h>
+#endif
+#if __has_include(<org/allbinary/logic/util/visitor/Visitor.h>)
+#include <org/allbinary/logic/util/visitor/Visitor.h>
+#endif
+#if __has_include(<org/allbinary/string/CommonSeps.h>)
+#include <org/allbinary/string/CommonSeps.h>
+#endif
+
+        #endif
+    

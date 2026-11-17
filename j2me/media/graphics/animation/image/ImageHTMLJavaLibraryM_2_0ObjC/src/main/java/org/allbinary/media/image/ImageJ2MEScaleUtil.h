@@ -1,0 +1,137 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2023 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_MEDIA_IMAGE_IMAGEJ2MESCALEUTIL_H
+        #define ORG_ALLBINARY_MEDIA_IMAGE_IMAGEJ2MESCALEUTIL_H
+
+        
+        #pragma push_macro("JAVA_COMPLETE_TYPES")
+        #undef JAVA_COMPLETE_TYPES
+        
+
+            #include <vector>
+        
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+class Image;
+class LogUtil;
+class PlaynImmutableImage;
+class PlaynMutableImage;
+class Canvas;
+class CoreImage;
+class ImageImpl;
+class PlayN;
+class HtmlGraphics;
+class HtmlImage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        
+                                
+        #pragma pop_macro("JAVA_COMPLETE_TYPES")
+
+        
+class ImageJ2MEScaleUtil
+            : public virtual Object
+         {
+
+    private: static ImageJ2MEScaleUtil* instance_owner();
+    private: static ImageJ2MEScaleUtil* instance;
+
+    public: static ImageJ2MEScaleUtil* getInstance();
+
+    /*protected*/ public: LogUtil* logUtil;
+
+private: ImageJ2MEScaleUtil();
+
+                //@Throws(Exception.constructor)
+            
+    public: std::vector<Image*> scaleArray(std::vector<Image*> images, int32_t width, int32_t height);
+
+                //@Throws(Exception.constructor)
+            
+    public: Image* scale(Image* image, int32_t width, int32_t height);
+
+};
+
+            
+
+
+        #endif //ORG_ALLBINARY_MEDIA_IMAGE_IMAGEJ2MESCALEUTIL_H
+
+        
+        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_MEDIA_IMAGE_IMAGEJ2MESCALEUTIL_H_COMPLETE)
+        #define ORG_ALLBINARY_MEDIA_IMAGE_IMAGEJ2MESCALEUTIL_H_COMPLETE
+        #if __has_include(<javax/microedition/lcdui/Image.h>)
+#include <javax/microedition/lcdui/Image.h>
+#endif
+#if __has_include(<org/allbinary/logic/communication/log/LogUtil.h>)
+#include <org/allbinary/logic/communication/log/LogUtil.h>
+#endif
+#if __has_include(<org/microemu/device/playn/PlaynImmutableImage.h>)
+#include <org/microemu/device/playn/PlaynImmutableImage.h>
+#endif
+#if __has_include(<org/microemu/device/playn/PlaynMutableImage.h>)
+#include <org/microemu/device/playn/PlaynMutableImage.h>
+#endif
+#if __has_include(<playn/core/Canvas.h>)
+#include <playn/core/Canvas.h>
+#endif
+#if __has_include(<playn/core/CoreImage.h>)
+#include <playn/core/CoreImage.h>
+#endif
+#if __has_include(<playn/core/ImageImpl.h>)
+#include <playn/core/ImageImpl.h>
+#endif
+#if __has_include(<playn/core/PlayN.h>)
+#include <playn/core/PlayN.h>
+#endif
+#if __has_include(<playn/html/HtmlGraphics.h>)
+#include <playn/html/HtmlGraphics.h>
+#endif
+#if __has_include(<playn/html/HtmlImage.h>)
+#include <playn/html/HtmlImage.h>
+#endif
+
+        #endif
+    

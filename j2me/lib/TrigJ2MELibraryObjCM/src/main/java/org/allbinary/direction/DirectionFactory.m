@@ -1,0 +1,109 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_DIRECTION_DIRECTIONFACTORY_CPP
+        #define ORG_ALLBINARY_DIRECTION_DIRECTIONFACTORY_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/direction/DirectionFactory.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+#include <org/allbinary/logic/string/StringMaker.h>
+
+      
+#include <org/allbinary/string/CommonPhoneStrings.h>
+
+      
+#include <org/allbinary/string/CommonSeps.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/direction/Direction.h"
+
+auto DirectionFactory::instance_owner() -> DirectionFactory* { static std::unique_ptr<DirectionFactory> value(new DirectionFactory()); return value.get(); }
+DirectionFactory* DirectionFactory::instance = DirectionFactory::instance_owner();
+
+    auto DirectionFactory::getInstance() -> DirectionFactory*{
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return DirectionFactory::instance;
+    
+}
+
+
+DirectionFactory::DirectionFactory() : LEFT(new Direction(CommonPhoneStrings::getInstance()->LEFT, "WEST", 0, 1)), RIGHT(new Direction(CommonPhoneStrings::getInstance()->RIGHT, "EAST", 1, 0)), DOWN(new Direction(CommonPhoneStrings::getInstance()->DOWN, "SOUTH", 2, 0)), UP(new Direction(CommonPhoneStrings::getInstance()->UP, "NORTH", 3, 0)), NOT_BORDERED_WITH(new Direction("NOT_BORDERED_WITH", "NOT_BORDERED_WITH", 8, 0)), NO_DIRECTION(new Direction("NO_DIRECTION", "NO_DIRECTION", 9, 0)), TOP(new Direction("TOP", "TOP", 10, 0)), BOTTOM(new Direction("BOTTOM", "BOTTOM", 11, 0)), ALL_DIRECTION(new Direction("ALL_DIRECTION", "ALL_DIRECTION", 12, 0)){
+
+    StringMaker* stringBuffer = new StringMaker();;
+    
+
+    CommonSeps* commonSeps = CommonSeps::getInstance();;
+    
+this->UP_LEFT= new Direction("UP LEFT", JavaString::valueOf(stringBuffer->append(this->UP->getOtherName())->append(commonSeps->SPACE)->append(this->LEFT->getOtherName())), 4, 0);
+    
+stringBuffer->delete_(0, stringBuffer->length());
+    
+this->UP_RIGHT= new Direction("UP RIGHT", JavaString::valueOf(stringBuffer->append(this->UP->getOtherName())->append(commonSeps->SPACE)->append(this->RIGHT->getOtherName())), 5, 0);
+    
+stringBuffer->delete_(0, stringBuffer->length());
+    
+this->DOWN_LEFT= new Direction("DOWN LEFT", JavaString::valueOf(stringBuffer->append(this->DOWN->getOtherName())->append(commonSeps->SPACE)->append(this->LEFT->getOtherName())), 6, 0);
+    
+stringBuffer->delete_(0, stringBuffer->length());
+    
+this->DOWN_RIGHT= new Direction("DOWN RIGHT", JavaString::valueOf(stringBuffer->append(this->DOWN->getOtherName())->append(commonSeps->SPACE)->append(this->RIGHT->getOtherName())), 7, 0);
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_DIRECTION_DIRECTIONFACTORY_CPP

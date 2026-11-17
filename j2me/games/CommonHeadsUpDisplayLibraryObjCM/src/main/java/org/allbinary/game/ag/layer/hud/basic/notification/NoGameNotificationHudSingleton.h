@@ -1,0 +1,113 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot   
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_NOGAMENOTIFICATIONHUDSINGLETON_H
+        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_NOGAMENOTIFICATIONHUDSINGLETON_H
+
+        
+        #pragma push_macro("JAVA_COMPLETE_TYPES")
+        #undef JAVA_COMPLETE_TYPES
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Object.h"
+        
+            #include "java/lang/Exception.h"
+        
+class BasicHudFactory;
+
+class LogUtil;
+class CommonStrings;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        class GameNotificationHud;
+class NoGameGameNotificationHud;
+
+                                
+        #pragma pop_macro("JAVA_COMPLETE_TYPES")
+
+        
+class NoGameNotificationHudSingleton
+            : public virtual Object
+         {
+
+    private: static NoGameNotificationHudSingleton* instance_owner();
+    private: static NoGameNotificationHudSingleton* instance;
+
+    public: static NoGameNotificationHudSingleton* getInstance();
+
+    /*protected*/ public: LogUtil* logUtil;
+
+    private: GameNotificationHud* gameNotificationHud;
+
+private: NoGameNotificationHudSingleton();
+
+    public: GameNotificationHud* getGameNotificationHud();
+
+};
+
+            
+
+
+        #endif //ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_NOGAMENOTIFICATIONHUDSINGLETON_H
+
+        
+        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_NOGAMENOTIFICATIONHUDSINGLETON_H_COMPLETE)
+        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_NOGAMENOTIFICATIONHUDSINGLETON_H_COMPLETE
+        #if __has_include(<org/allbinary/game/graphics/hud/BasicHudFactory.h>)
+#include <org/allbinary/game/graphics/hud/BasicHudFactory.h>
+#endif
+
+#if __has_include(<org/allbinary/logic/communication/log/LogUtil.h>)
+#include <org/allbinary/logic/communication/log/LogUtil.h>
+#endif
+#if __has_include(<org/allbinary/string/CommonStrings.h>)
+#include <org/allbinary/string/CommonStrings.h>
+#endif
+#if __has_include("org/allbinary/game/ag/layer/hud/basic/notification/GameNotificationHud.h")
+#include "org/allbinary/game/ag/layer/hud/basic/notification/GameNotificationHud.h"
+#endif
+#if __has_include("org/allbinary/game/ag/layer/hud/basic/notification/NoGameGameNotificationHud.h")
+#include "org/allbinary/game/ag/layer/hud/basic/notification/NoGameGameNotificationHud.h"
+#endif
+
+        #endif
+    

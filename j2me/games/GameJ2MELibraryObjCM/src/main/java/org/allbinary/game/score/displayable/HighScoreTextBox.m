@@ -1,0 +1,237 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GAME_SCORE_DISPLAYABLE_HIGHSCORETEXTBOX_CPP
+        #define ORG_ALLBINARY_GAME_SCORE_DISPLAYABLE_HIGHSCORETEXTBOX_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/game/score/displayable/HighScoreTextBox.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Exception.h"
+        
+#include <javax/microedition/lcdui/CommandListener.h>
+
+      
+#include <javax/microedition/lcdui/Font.h>
+
+      
+#include <javax/microedition/lcdui/Graphics.h>
+
+      
+#include <javax/microedition/lcdui/TextField.h>
+
+      
+#include <org/allbinary/PostGameCommandFactory.h>
+
+      
+#include <org/allbinary/game/GameInfo.h>
+
+      
+#include <org/allbinary/game/score/HighScore.h>
+
+      
+#include <org/allbinary/game/score/HighScoresHelperBaseInterface.h>
+
+      
+#include <org/allbinary/game/score/HighScoresFactoryInterface.h>
+
+      
+#include <org/allbinary/graphics/color/BasicColor.h>
+
+      
+#include <org/allbinary/graphics/color/BasicColorFactory.h>
+
+      
+#include <org/allbinary/graphics/form/item/CustomTextBox.h>
+
+      
+#include <org/allbinary/graphics/paint/NullPaintable.h>
+
+      
+#include <org/allbinary/graphics/paint/Paintable.h>
+
+      
+#include <org/allbinary/graphics/paint/SimpleTextPaintable.h>
+
+      
+#include <org/allbinary/input/event/VirtualKeyboardEventHandler.h>
+
+      
+#include <org/allbinary/logic/system/os/GenericOperatingSystem.h>
+
+      
+#include <org/allbinary/logic/system/os/OperatingSystemFactory.h>
+
+      
+#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
+
+      
+#include <org/allbinary/logic/system/security/licensing/InApplicationPurchaseFactory.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/game/score/displayable/HighScoreUtil.h"
+
+
+HighScoreTextBox::HighScoreTextBox(HighScoresFactoryInterface* highScoresFactoryInterface, HighScoresHelperBaseInterface* highScoresHelper, AbeClientInformationInterface* abeClientInformation, GameInfo* gameInfo, CommandListener* cmdListener, std::string name, HighScore* highScore, BasicColor* backgrounBasicColor, BasicColor* foregroundBasicColor) : CustomTextBox(cmdListener, "New High Score Enter Name:", name, 12, TextField::ANY, Font::getDefaultFont(), backgrounBasicColor, foregroundBasicColor), virtualKeyboardEventHandler(VirtualKeyboardEventHandler::getInstance()), pleaseWait(new SimpleTextPaintable(this->commonStrings->PLEASE_WAIT, BasicColorFactory::getInstance()->WHITE)), paintable(NullPaintable::getInstance()){
+
+                        //super/this constructor call is in the constructor initializer list.
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+this->highScoreUtil= new HighScoreUtil(highScoresFactoryInterface, highScoresHelper, abeClientInformation, gameInfo, cmdListener, name, highScore);
+    
+
+    GenericOperatingSystem* operatingSystemInterface = OperatingSystemFactory::getInstance()->getOperatingSystemInstance();;
+    
+
+                        if(operatingSystemInterface->isOverScan())
+                        
+                                    {
+                                    
+    std::string username = InApplicationPurchaseFactory::getInstance()->getUserName();;
+    
+this->getTextFieldItem()->setString(username);
+    
+
+                                    }
+                                
+}
+
+
+    auto HighScoreTextBox::initCommands(CommandListener* cmdListener) -> void{
+this->removeAllCommands();
+    
+PostGameCommandFactory::getInstance()->addCommands(this);
+    
+this->addCommand(HighScoreUtil::SUBMIT_TEXTBOX_COMMAND);
+    
+this->setCommandListener(cmdListener);
+    
+}
+
+
+    auto HighScoreTextBox::open() -> void{
+this->virtualKeyboardEventHandler->open();
+    
+this->paintable= NullPaintable::getInstance();
+    
+CustomTextBox::open();
+    
+}
+
+
+    auto HighScoreTextBox::close() -> void{
+this->virtualKeyboardEventHandler->close();
+    
+this->paintable= this->pleaseWait;
+    
+this->repaintBehavior->onChangeRepaint(this);
+    
+CustomTextBox::close();
+    
+this->removeCommand(HighScoreUtil::SUBMIT_TEXTBOX_COMMAND);
+    
+this->update();
+    
+
+                        if(this->submitted)
+                        
+                                    {
+                                    this->highScoreUtil->saveHighScore();
+    
+
+                                    }
+                                
+                        else {
+                            
+                        }
+                            
+this->paintable= NullPaintable::getInstance();
+    
+this->repaintBehavior->onChangeRepaint(this);
+    
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto HighScoreTextBox::update() -> void{
+
+    std::string name = this->getTextFieldItem()->getString();;
+    
+this->highScoreUtil->update(name);
+    
+CustomTextBox::update();
+    
+}
+
+
+    auto HighScoreTextBox::paint(Graphics* graphics) -> void{
+CustomTextBox::paint(graphics);
+    
+this->paintable->paint(graphics);
+    
+}
+
+
+    auto HighScoreTextBox::saveHighScore() -> void{
+this->highScoreUtil->saveHighScore();
+    
+}
+
+
+    auto HighScoreTextBox::submit() -> void{
+this->highScoreUtil->submit(this);
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_GAME_SCORE_DISPLAYABLE_HIGHSCORETEXTBOX_CPP

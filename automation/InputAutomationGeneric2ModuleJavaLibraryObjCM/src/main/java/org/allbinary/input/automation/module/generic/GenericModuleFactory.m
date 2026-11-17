@@ -1,0 +1,119 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_INPUT_AUTOMATION_MODULE_GENERIC_GENERICMODULEFACTORY_CPP
+        #define ORG_ALLBINARY_INPUT_AUTOMATION_MODULE_GENERIC_GENERICMODULEFACTORY_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/input/automation/module/generic/GenericModuleFactory.h"
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Exception.h"
+        
+#include <org/allbinary/input/automation/module/AbstractInputAutomationFactory.h>
+
+      
+#include <org/allbinary/input/automation/module/InputAutomationActionInterface.h>
+
+      
+#include <org/allbinary/input/automation/module/InputAutomationModuleData.h>
+
+      
+#include <org/allbinary/input/automation/module/generic/configuration/GenericModuleConfigurationJPanel.h>
+
+      
+#include <org/allbinary/input/automation/module/generic/configuration/profile/GenericProfile.h>
+
+      
+#include <org/allbinary/input/automation/module/generic/constraints/NoImageComparatorConstraints.h>
+
+      
+#include <org/allbinary/input/automation/module/generic/constraints/NoMotionRectangleConstraints.h>
+
+      
+#include <org/allbinary/thread/RunnableInterface.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/input/automation/module/generic/GenericInputAutomationAction.h"
+#include "org/allbinary/input/automation/module/generic/GenericInputAutomationWorker.h"
+
+std::string GenericModuleFactory::NAME = JavaString::valueOf("Generic") +JavaString::valueOf(InputAutomationModuleData::MODULE_NAME_END);
+
+GenericModuleFactory::GenericModuleFactory() : AbstractInputAutomationFactory(NAME, new GenericModuleConfigurationJPanel()){
+
+                        //super/this constructor call is in the constructor initializer list.
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+}
+
+
+                //@Throws(Exception.constructor)
+            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
+
+    auto GenericModuleFactory::getInstance() -> RunnableInterface*{
+
+    GenericProfile* genericProfile = (dynamic_cast<GenericModuleConfigurationJPanel*>(this->getConfigurationJPanel()))->getSelectedGenericProfile();;
+    
+
+    InputAutomationActionInterface* inputAutomationActionInterface = dynamic_cast<InputAutomationActionInterface*>(new GenericInputAutomationAction());;
+    
+
+
+
+                        //if statement needs to be on the same line and ternary does not work the same way.
+                        
+                        
+                        return dynamic_cast<RunnableInterface*>(new GenericInputAutomationWorker(inputAutomationActionInterface, genericProfile, new NoMotionRectangleConstraints(), new NoImageComparatorConstraints()));
+    
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_INPUT_AUTOMATION_MODULE_GENERIC_GENERICMODULEFACTORY_CPP

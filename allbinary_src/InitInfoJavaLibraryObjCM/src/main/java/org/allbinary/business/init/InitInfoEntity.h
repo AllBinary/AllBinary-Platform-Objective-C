@@ -1,0 +1,154 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_BUSINESS_INIT_INITINFOENTITY_H
+        #define ORG_ALLBINARY_BUSINESS_INIT_INITINFOENTITY_H
+
+        
+        #pragma push_macro("JAVA_COMPLETE_TYPES")
+        #undef JAVA_COMPLETE_TYPES
+        
+
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Exception.h"
+        
+#include <java/util/HashMap.h>
+class BasicArrayList;
+class BasicArrayListD;
+class UserDbInitInfo;
+class StdUtil;
+class PreLogUtil;
+class LogConfigTypeFactory;
+class LogConfigTypes;
+class AbPathData;
+class StringMaker;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/business/init/InitSql.h"
+class InitInfo;
+
+                                
+        #pragma pop_macro("JAVA_COMPLETE_TYPES")
+
+        
+class InitInfoEntity: public InitSql {
+
+    private: const std::string NAME = "InitInfoEntity";
+
+    private: const std::string NOTHING = "NOTHING";
+
+    private: const std::string tableName = "initdata";
+
+    private: std::string tableData;
+
+    private: const std::string NOT_IN_DB = "Not In DB";
+
+    private: const std::string METHOD_GET = "get()";
+
+    private: const std::string METHOD_IS = "is()";
+
+    private: const std::string METHOD_ADD = "add()";
+
+    private: const std::string CREATED_SUCCESS = " Created Successfully";
+
+    private: const std::string FAILED_TO_CREATE = "Failed to create ";
+
+public: InitInfoEntity();
+
+    public: bool get();
+
+    public: bool is();
+
+    public: void update();
+
+    public: void add();
+
+    public: std::string createTable();
+
+};
+
+            
+
+
+        #endif //ORG_ALLBINARY_BUSINESS_INIT_INITINFOENTITY_H
+
+        
+        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_BUSINESS_INIT_INITINFOENTITY_H_COMPLETE)
+        #define ORG_ALLBINARY_BUSINESS_INIT_INITINFOENTITY_H_COMPLETE
+        #if __has_include(<java/util/HashMap.h>)
+#include <java/util/HashMap.h>
+#endif
+#if __has_include(<org/allbinary/util/BasicArrayList.h>)
+#include <org/allbinary/util/BasicArrayList.h>
+#endif
+#if __has_include(<org/allbinary/util/BasicArrayListD.h>)
+#include <org/allbinary/util/BasicArrayListD.h>
+#endif
+#if __has_include(<org/allbinary/business/init/db/UserDbInitInfo.h>)
+#include <org/allbinary/business/init/db/UserDbInitInfo.h>
+#endif
+#if __has_include(<org/allbinary/logic/StdUtil.h>)
+#include <org/allbinary/logic/StdUtil.h>
+#endif
+#if __has_include(<org/allbinary/logic/communication/log/PreLogUtil.h>)
+#include <org/allbinary/logic/communication/log/PreLogUtil.h>
+#endif
+#if __has_include(<org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h>)
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h>
+#endif
+#if __has_include(<org/allbinary/logic/communication/log/config/type/LogConfigTypes.h>)
+#include <org/allbinary/logic/communication/log/config/type/LogConfigTypes.h>
+#endif
+#if __has_include(<org/allbinary/logic/io/path/AbPathData.h>)
+#include <org/allbinary/logic/io/path/AbPathData.h>
+#endif
+#if __has_include(<org/allbinary/logic/string/StringMaker.h>)
+#include <org/allbinary/logic/string/StringMaker.h>
+#endif
+#if __has_include("org/allbinary/business/init/InitSql.h")
+#include "org/allbinary/business/init/InitSql.h"
+#endif
+#if __has_include("org/allbinary/business/init/InitInfo.h")
+#include "org/allbinary/business/init/InitInfo.h"
+#endif
+
+        #endif
+    

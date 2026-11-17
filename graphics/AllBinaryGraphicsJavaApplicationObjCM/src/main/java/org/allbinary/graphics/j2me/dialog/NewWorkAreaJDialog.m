@@ -1,0 +1,272 @@
+
+        /*
+                * 
+                *  AllBinary Open License Version 1
+                *  Copyright (c) 2011 AllBinary
+                *  
+                *  By agreeing to this license you and any business entity you represent are
+                *  legally bound to the AllBinary Open License Version 1 legal agreement.
+                *  
+                *  You may obtain the AllBinary Open License Version 1 legal agreement from
+                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+                *  
+                *  Created By: Travis Berthelot  
+        */
+        
+        /* Generated Code Do Not Modify */
+        
+
+
+
+        #ifndef ORG_ALLBINARY_GRAPHICS_J2ME_DIALOG_NEWWORKAREAJDIALOG_CPP
+        #define ORG_ALLBINARY_GRAPHICS_J2ME_DIALOG_NEWWORKAREAJDIALOG_CPP
+
+        #ifndef JAVA_COMPLETE_TYPES
+        #define JAVA_COMPLETE_TYPES
+        #endif
+        
+        #include "org/allbinary/graphics/j2me/dialog/NewWorkAreaJDialog.h"
+        
+
+            #include <vector>
+        
+            #include <cstdint>
+            #include <memory>
+            #include <string>
+            #include "java/lang/String.h"
+
+        
+            #include "java/lang/Exception.h"
+        
+            #include "java/lang/Integer.h"
+        
+#include <java/awt.h>
+
+      
+#include <java/awt/event/ActionEvent.h>
+
+      
+#include <java/awt/event/ActionListener.h>
+
+      
+#include <javax/swing.h>
+
+      
+#include <org/allbinary/graphics/j2me/GraphicsException.h>
+
+      
+#include <org/allbinary/graphics/j2me/MyFrame.h>
+
+      
+#include <org/allbinary/graphics/j2me/workarea/WorkAreaJPanel.h>
+
+      
+#include <org/allbinary/graphics/j2me/workarea/WorkAreaJPanelInterface.h>
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+        //Current folder imports from return types, extended types, and scope (deduplicated)
+        #include "org/allbinary/graphics/j2me/dialog/JDialog.h"
+#include "org/allbinary/graphics/j2me/dialog/Dimension.h"
+#include "org/allbinary/graphics/j2me/dialog/JTextField.h"
+#include "org/allbinary/graphics/j2me/dialog/Frame.h"
+#include "org/allbinary/graphics/j2me/dialog/JButton.h"
+#include "org/allbinary/graphics/j2me/dialog/GridLayout.h"
+#include "org/allbinary/graphics/j2me/dialog/JLabel.h"
+#include "org/allbinary/graphics/j2me/dialog/WindowAdapter.h"
+#include "org/allbinary/graphics/j2me/dialog/WindowEvent.h"
+
+
+NewWorkAreaJDialog::NewWorkAreaJDialog(MyFrame* parent, bool modal, Dimension* dimension, std::string newName) : javax::swing::JDialog(dynamic_cast<java::awt::Frame*>(parent), modal){
+
+                        //super/this constructor call is in the constructor initializer list.
+                    
+
+                            //For kotlin this is before the body of the constructor.
+                    
+
+        try {
+            this->initComponents();
+    
+this->parent= parent;
+    
+this->xSizeJTextField= new JTextField("12");
+    
+this->ySizeJTextField= new JTextField("12");
+    
+this->nameJTextField= new JTextField(newName);
+    
+this->dimension= dimension;
+    
+
+    JButton* submitButton = new JButton("Ok");;
+    
+submitButton->addActionListener([&]() {
+    static thread_local NewWorkAreaJDialog* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public ActionListener {
+    public:
+    using ActionListener::ActionListener;
+    NewWorkAreaJDialog* outer = anonymousOuter0;
+
+    public: void actionPerformed(ActionEvent* evt){
+
+        try {
+            outer->disposeNewDialog();
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+}
+
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+this->setSize(150, 100);
+    
+this->getContentPane()->setLayout(new GridLayout(5, 2));
+    
+this->getContentPane()->add(new JLabel("Please enter"));
+    
+this->getContentPane()->add(new JLabel(" the size."));
+    
+this->getContentPane()->add(new JLabel("Name:"));
+    
+this->getContentPane()->add(this->nameJTextField);
+    
+this->getContentPane()->add(new JLabel("X: "));
+    
+this->getContentPane()->add(this->xSizeJTextField);
+    
+this->getContentPane()->add(new JLabel("Y: "));
+    
+this->getContentPane()->add(this->ySizeJTextField);
+    
+this->getContentPane()->add(submitButton);
+    
+this->show();
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+
+
+                            throw e;
+                    
+}
+
+}
+
+
+                //@Throws(Exception.constructor)
+            
+    auto NewWorkAreaJDialog::disposeNewDialog() -> void{
+
+        try {
+            
+    int32_t canvasWidth = int32_t(this->xSizeJTextField->getText());;
+    
+
+    int32_t canvasHeight = int32_t(this->ySizeJTextField->getText());;
+    
+
+    std::string newName = this->nameJTextField->getText();;
+    
+
+                        if(false)
+                        
+                                    throw GraphicsException("No Name", this, "disposeNewDialog");
+                                
+
+    WorkAreaJPanel* workAreaJPanel = new WorkAreaJPanel(newName, this->dimension, canvasWidth, canvasHeight);;
+    
+workAreaJPanel->setLayout(new GridLayout(1, 1));
+    
+this->parent->add(dynamic_cast<WorkAreaJPanelInterface*>(workAreaJPanel));
+    
+this->dispose();
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+
+
+
+                            throw e;
+                    
+}
+
+}
+
+
+    auto NewWorkAreaJDialog::initComponents() -> void{
+addWindowListener([&]() {
+    static thread_local NewWorkAreaJDialog* anonymousOuter0 = nullptr;
+    anonymousOuter0 = this;
+    class Anonymous0 : public java::awt::event::WindowAdapter {
+    public:
+    using java::awt::event::WindowAdapter::WindowAdapter;
+    NewWorkAreaJDialog* outer = anonymousOuter0;
+
+    public: void windowClosing(java::awt::event::WindowEvent* evt){
+outer->closeDialog(evt);
+    
+}
+
+    };
+    return new Anonymous0();
+}());
+    
+pack();
+    
+}
+
+
+    auto NewWorkAreaJDialog::closeDialog(java::awt::event::WindowEvent* evt) -> void{
+setVisible(false);
+    
+dispose();
+    
+}
+
+
+    auto NewWorkAreaJDialog::main(std::vector<std::string> args) -> void{
+
+        try {
+            (new NewWorkAreaJDialog(new MyFrame(), true, new Dimension(100, 100), "testing"))->show();
+    
+
+                //: 
+} catch(Exception& e) 
+            {
+}
+
+}
+
+
+
+
+        #endif //ORG_ALLBINARY_GRAPHICS_J2ME_DIALOG_NEWWORKAREAJDIALOG_CPP
