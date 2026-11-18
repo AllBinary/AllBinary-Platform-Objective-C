@@ -1,148 +1,58 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/ai/UpDownVectorAI.h"
+#include "org/allbinary/game/input/GameInput.h"
+#include "org/allbinary/game/physics/velocity/BasicVelocityProperties.h"
+#include "org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/logic/math/BasicDecimal.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_AI_UPDOWNVECTORAI_CPP
-        #define ORG_ALLBINARY_GAME_AG_AI_UPDOWNVECTORAI_CPP
+void UpDownVectorAI_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/ai/UpDownVectorAI.h"
-        
+@implementation UpDownVectorAI
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/ai/BasicAI.h>
-
-      
-#include <org/allbinary/game/input/GameInput.h>
-
-      
-#include <org/allbinary/game/physics/velocity/BasicVelocityProperties.h>
-
-      
-#include <org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/logic/math/BasicDecimal.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-UpDownVectorAI::UpDownVectorAI(AllBinaryLayer* ownerLayerInterface, GameInput* gameInput) : BasicAI(ownerLayerInterface, gameInput){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-
-    VelocityInterfaceCompositeInterface* velocityInterfaceCompositeInterface = dynamic_cast<VelocityInterfaceCompositeInterface*>(this->getOwnerLayerInterface());;
+- (void) initFields {
     
-this->velocityInterface= velocityInterfaceCompositeInterface->getVelocityProperties();
-    
-this->velocityInterface->getVelocityYBasicDecimalP()->setint(0);
-    
+    self->index = 0;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto UpDownVectorAI::processAI(AllBinaryLayerManager* allBinaryLayerManager) -> void{
-
-    int32_t y = this->getOwnerLayerInterface()->getHeight() *270;;
-    
-
-                        if(this->index < 5)
-                        
-                                    {
-                                    
-    BasicDecimal* basicDecimal = this->velocityInterface->getVelocityYBasicDecimalP();;
-    
-basicDecimal->setint(0);
-    
-basicDecimal->addint(y);
-    
-this->index++;
-    
-
-                                    }
-                                
-                             else 
-                        if(this->index < 10)
-                        
-                                    {
-                                    
-    BasicDecimal* basicDecimal = this->velocityInterface->getVelocityYBasicDecimalP();;
-    
-basicDecimal->setint(0);
-    
-basicDecimal->subtractint(y);
-    
-this->index++;
-    
-
-                                    }
-                                
-                        else {
-                            this->index= 0;
-    
-this->processAI(allBinaryLayerManager);
-    
-
-                        }
-                            
+- (instancetype) init:(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
+        self = [super init:ownerLayerInterface :gameInput];
+        [self initFields];
+        VelocityInterfaceCompositeInterface* velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
+        self->velocityInterface = [velocityInterfaceCompositeInterface getVelocityProperties];
+        [[self->velocityInterface getVelocityYBasicDecimalP] setint:0];
+    return self;
 }
 
 
+// throws Exception
+- (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager {
+        int32_t y = [[self getOwnerLayerInterface] getHeight] * 270;
+        if (self->index < 5) {
+            BasicDecimal* basicDecimal = [self->velocityInterface getVelocityYBasicDecimalP];
+            [basicDecimal setint:0];
+            [basicDecimal addint:y];
+            self->index++;
+        } else if (self->index < 10) {
+            BasicDecimal* basicDecimal = [self->velocityInterface getVelocityYBasicDecimalP];
+            [basicDecimal setint:0];
+            [basicDecimal subtractint:y];
+            self->index++;
+        } else {
+            self->index = 0;
+            [self processAI:allBinaryLayerManager];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_AI_UPDOWNVECTORAI_CPP

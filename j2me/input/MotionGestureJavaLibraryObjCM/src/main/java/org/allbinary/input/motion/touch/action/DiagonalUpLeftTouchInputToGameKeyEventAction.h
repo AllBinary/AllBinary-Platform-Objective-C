@@ -1,96 +1,49 @@
+#ifndef ORG_ALLBINARY_INPUT_MOTION_TOUCH_ACTION_DIAGONALUPLEFTTOUCHINPUTTOGAMEKEYEVENTACTION_H
+#define ORG_ALLBINARY_INPUT_MOTION_TOUCH_ACTION_DIAGONALUPLEFTTOUCHINPUTTOGAMEKEYEVENTACTION_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.input.motion.touch.action
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class DiagonalUpLeftTouchInputToGameKeyEventAction;
+@class PlatformInputMappingFactory;
+@class GameKeyCompleteMotionGestureInputEvent;
+@class TouchMotionGestureFactory;
+@class NullUtil;
+#include "org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.h"
 
+@interface DiagonalUpLeftTouchInputToGameKeyEventAction : GameKeyCompleteMotionGestureInputEvent {
+@public
+}
+- (instancetype) init;
++ (GameKeyCompleteMotionGestureInputEvent*) getInstance;
+@end
 
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void DiagonalUpLeftTouchInputToGameKeyEventAction_staticInit(void);
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_TOUCH_ACTION_DIAGONALUPLEFTTOUCHINPUTTOGAMEKEYEVENTACTION_H
-        #define ORG_ALLBINARY_INPUT_MOTION_TOUCH_ACTION_DIAGONALUPLEFTTOUCHINPUTTOGAMEKEYEVENTACTION_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class PlatformInputMappingFactory;
-#include <org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.h>
-class TouchMotionGestureFactory;
-class NullUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class DiagonalUpLeftTouchInputToGameKeyEventAction: public GameKeyCompleteMotionGestureInputEvent {
-
-    private: static Object* instance;
-
-    public: static GameKeyCompleteMotionGestureInputEvent* getInstance();
-
-private: DiagonalUpLeftTouchInputToGameKeyEventAction();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_INPUT_MOTION_TOUCH_ACTION_DIAGONALUPLEFTTOUCHINPUTTOGAMEKEYEVENTACTION_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_INPUT_MOTION_TOUCH_ACTION_DIAGONALUPLEFTTOUCHINPUTTOGAMEKEYEVENTACTION_H_COMPLETE)
-        #define ORG_ALLBINARY_INPUT_MOTION_TOUCH_ACTION_DIAGONALUPLEFTTOUCHINPUTTOGAMEKEYEVENTACTION_H_COMPLETE
-        #if __has_include(<org/allbinary/game/input/PlatformInputMappingFactory.h>)
-#include <org/allbinary/game/input/PlatformInputMappingFactory.h>
-#endif
-#if __has_include(<org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.h>)
-#include <org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.h>
-#endif
-#if __has_include(<org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h>)
-#include <org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h>
-#endif
-#if __has_include(<org/allbinary/logic/NullUtil.h>)
-#include <org/allbinary/logic/NullUtil.h>
+#if __has_include("org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.h")
+#include "org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_INPUT_MOTION_TOUCH_ACTION_DIAGONALUPLEFTTOUCHINPUTTOGAMEKEYEVENTACTION_H

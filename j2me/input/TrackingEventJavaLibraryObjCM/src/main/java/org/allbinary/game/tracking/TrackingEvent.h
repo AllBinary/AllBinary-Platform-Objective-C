@@ -1,110 +1,58 @@
+#ifndef ORG_ALLBINARY_GAME_TRACKING_TRACKINGEVENT_H
+#define ORG_ALLBINARY_GAME_TRACKING_TRACKINGEVENT_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.tracking
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_TRACKING_TRACKINGEVENT_H
-        #define ORG_ALLBINARY_GAME_TRACKING_TRACKINGEVENT_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class AllBinaryLayer;
-class StringMaker;
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class TrackingEventHandler;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class TrackingEvent: public AllBinaryEventObject {
-
-    private: AllBinaryLayer* layerInterface;
-
-public: TrackingEvent(Object* allBinaryLayerInterface);
-public: TrackingEvent(const std::string& allBinaryLayerInterface) : TrackingEvent(JavaString::box(allBinaryLayerInterface)) { }
-public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> TrackingEvent(BoxValue allBinaryLayerInterface) : TrackingEvent(JavaBoxes::toObject(allBinaryLayerInterface)) { }
-public: template<typename BoxElement> TrackingEvent(const std::vector<BoxElement>& allBinaryLayerInterface) : TrackingEvent(JavaBoxes::toObject(allBinaryLayerInterface)) { }
-
-    public: void init(Object* anyType);
-    public: void init(const std::string& anyType) { return init(JavaString::box(anyType)); }
-    public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> void init(BoxValue anyType) { return init(JavaBoxes::toObject(anyType)); }
-    public: template<typename BoxElement> void init(const std::vector<BoxElement>& anyType) { return init(JavaBoxes::toObject(anyType)); }
-
-    public: AllBinaryLayer* getLayerInterface();
-
-    private: void setLayerInterface(AllBinaryLayer* layerInterface);
-
-    public: void setLayerInterfaceForCircularStaticPool(AllBinaryLayer* layerInterface);
-
-    public: std::string toString();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_TRACKING_TRACKINGEVENT_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_TRACKING_TRACKINGEVENT_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_TRACKING_TRACKINGEVENT_H_COMPLETE
-        #if __has_include(<org/allbinary/layer/AllBinaryLayer.h>)
-#include <org/allbinary/layer/AllBinaryLayer.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class TrackingEvent;
+@class AllBinaryLayer;
+@class StringMaker;
+@class AllBinaryEventObject;
+@class TrackingEventHandler;
+#if __has_include("org/allbinary/layer/AllBinaryLayer.h")
+#include "org/allbinary/layer/AllBinaryLayer.h"
 #endif
-#if __has_include(<org/allbinary/logic/string/StringMaker.h>)
-#include <org/allbinary/logic/string/StringMaker.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/AllBinaryEventObject.h>)
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-#endif
-#if __has_include("org/allbinary/game/tracking/TrackingEventHandler.h")
-#include "org/allbinary/game/tracking/TrackingEventHandler.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+
+@interface TrackingEvent : AllBinaryEventObject {
+@public
+    AllBinaryLayer* layerInterface;
+}
+- (instancetype) init:(id)allBinaryLayerInterface;
+- (void) initFields;
+- (void) init_:(id)anyType;
+- (AllBinaryLayer*) getLayerInterface;
+- (void) setLayerInterface:(AllBinaryLayer*)layerInterface;
+- (void) setLayerInterfaceForCircularStaticPool:(AllBinaryLayer*)layerInterface;
+- (const char*) toString;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void TrackingEvent_staticInit(void);
+
+#if __has_include("org/allbinary/layer/AllBinaryLayer.h")
+#include "org/allbinary/layer/AllBinaryLayer.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_TRACKING_TRACKINGEVENT_H

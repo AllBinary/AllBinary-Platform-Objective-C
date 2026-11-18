@@ -1,99 +1,42 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/persistance/PlatformRecordIdUtil.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
 
 
+static PlatformRecordIdUtil* PlatformRecordIdUtil_instance;
 
-        #ifndef ORG_ALLBINARY_PERSISTANCE_PLATFORMRECORDIDUTIL_CPP
-        #define ORG_ALLBINARY_PERSISTANCE_PLATFORMRECORDIDUTIL_CPP
+void PlatformRecordIdUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PlatformRecordIdUtil_instance = [((PlatformRecordIdUtil*) [PlatformRecordIdUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/persistance/PlatformRecordIdUtil.h"
-        
+@implementation PlatformRecordIdUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->PLATFORM_SHORT_NAME = "AVN";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-PlatformRecordIdUtil::PlatformRecordIdUtil() {
-        }
-        auto PlatformRecordIdUtil::instance_owner() -> PlatformRecordIdUtil* { static std::unique_ptr<PlatformRecordIdUtil> value(new PlatformRecordIdUtil()); return value.get(); }
-PlatformRecordIdUtil* PlatformRecordIdUtil::instance = PlatformRecordIdUtil::instance_owner();
-
-    auto PlatformRecordIdUtil::getInstance() -> PlatformRecordIdUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PlatformRecordIdUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto PlatformRecordIdUtil::getRecordId(AbeClientInformationInterface* abeClientInformation, std::string baseRecordId) -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf((new StringMaker())->append(abeClientInformation->toShortString())->append(CommonSeps::getInstance()->UNDERSCORE)->append(this->PLATFORM_SHORT_NAME)->append(baseRecordId));;
-    
++ (PlatformRecordIdUtil*) getInstance {
+        return (PlatformRecordIdUtil_staticInit(), PlatformRecordIdUtil_instance);
 }
 
 
+- (const char*) getRecordId:(AbeClientInformationInterface*)abeClientInformation :(const char*)baseRecordId {
+        return [[[[[[((StringMaker*) [StringMaker alloc]) init] append:[abeClientInformation toShortString]] append:[CommonSeps getInstance]->UNDERSCORE] append:self->PLATFORM_SHORT_NAME] append:baseRecordId] toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_PERSISTANCE_PLATFORMRECORDIDUTIL_CPP

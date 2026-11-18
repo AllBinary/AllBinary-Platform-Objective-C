@@ -1,281 +1,110 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/TsUtil.h"
+#include "javax/microedition/lcdui/Displayable.h"
+#include "javax/microedition/lcdui/Form.h"
+#include "javax/microedition/rms/InvalidRecordIDException.h"
+#include "javax/microedition/rms/RecordStore.h"
+#include "javax/microedition/rms/RecordStoreException.h"
+#include "javax/microedition/rms/RecordStoreNotOpenException.h"
+#include "org/allbinary/logic/NullUtil.h"
 
 
+static TsUtil* TsUtil_instance;
 
-        #ifndef ORG_ALLBINARY_TSUTIL_CPP
-        #define ORG_ALLBINARY_TSUTIL_CPP
+void TsUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TsUtil_instance = [((TsUtil*) [TsUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/TsUtil.h"
-        
+@implementation TsUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/InterruptedException.h"
-        
-            #include "java/lang/System.h"
-        
-#include <javax/microedition/lcdui/Displayable.h>
-
-      
-#include <javax/microedition/lcdui/Form.h>
-
-      
-#include <javax/microedition/rms/InvalidRecordIDException.h>
-
-      
-#include <javax/microedition/rms/RecordStore.h>
-
-      
-#include <javax/microedition/rms/RecordStoreException.h>
-
-      
-#include <javax/microedition/rms/RecordStoreNotOpenException.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
 
++ (TsUtil*) getInstance {
+        return (TsUtil_staticInit(), TsUtil_instance);
+}
 
 
+- (int32_t) hashCode:(id)anyType {
+        return [anyType hashCode];
+}
 
 
+// throws InterruptedException
+- (void) waitFor:(id)any :(int64_t)timeoutMillis {
+        id anyType = ((id) any);
+        [anyType wait:timeoutMillis];
+}
 
 
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //J2ME
-
-TsUtil::TsUtil() {
+// throws RecordStoreNotOpenException, InvalidRecordIDException, RecordStoreException
+- (int8_t*) getRecord:(id)anyType :(int32_t)recordId {
+        RecordStore* recordStore = ((RecordStore*) anyType);
+        int8_t* data = nullptr;
+        java_monitor_enter(self);
+        {
+            data = ((int8_t*) java_array_new(sizeof(int8_t), [recordStore getRecordSize:recordId]));
+            [recordStore getRecord:recordId :data :0];
         }
-        auto TsUtil::instance_owner() -> TsUtil* { static std::unique_ptr<TsUtil> value(new TsUtil()); return value.get(); }
-TsUtil* TsUtil::instance = TsUtil::instance_owner();
-
-    auto TsUtil::getInstance() -> TsUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TsUtil::instance;
-    
+        java_monitor_exit(self);
+        return (java_array_length(data) < 1 ? [NullUtil getInstance]->NULL_BYTE_ARRAY : data);
 }
 
 
-    auto TsUtil::hashCode(Object* anyType) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return anyType->hashCode();;
-    
+- (int32_t) compareTo:(const char*)a :(const char*)b {
+        return strcmp(a, b);
 }
 
 
-                //@Throws(InterruptedException.constructor)
-            
-    auto TsUtil::waitFor(Object* any, int64_t timeoutMillis) -> void{
-
-    Object* anyType = any;;
-    
-anyType->wait(timeoutMillis);
-    
+- (bool) equalIgnoreCase:(const char*)a :(const char*)b {
+        return (strcasecmp(a, b) == 0);
 }
 
 
-                //@Throws(RecordStoreNotOpenException.constructor, InvalidRecordIDException.constructor, RecordStoreException.constructor)
-            
-    auto TsUtil::getRecord(Object* anyType, int32_t recordId) -> std::vector<int8_t>{
-
-    RecordStore* recordStore = dynamic_cast<RecordStore*>(anyType);;
-    
-
-    std::vector<int8_t> data;;
-    
-
-        
-        //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-        //synchronized(this) 
-
-        //mutex.withLock
-        
-data= std::vector<int8_t>(recordStore->getRecordSize(recordId));
-    
-recordStore->getRecord(recordId, data, 0);
-    
-
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return data.size() < 1
-                        ?       
-                                NullUtil::getInstance()->NULL_BYTE_ARRAY
-                                :
-
-                            data;;
-    
+- (bool) equalsNotstring:(id)anyType :(id)object2 {
+        return [anyType equals:object2];
 }
 
 
-    auto TsUtil::compareTo(std::string a, std::string b) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return a.compare(b);;
-    
+- (int32_t) toNumberFromChar:(uint16_t)value {
+        return ((int32_t) value);
 }
 
 
-    auto TsUtil::equalIgnoreCase(std::string a, std::string b) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::equalsIgnoreCase(a, b);;
-    
+- (int32_t) toNumber:(int32_t)value {
+        return value;
 }
 
 
-    auto TsUtil::equalsNotstring(Object* anyType, Object* object2) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaObjects::equals(anyType, object2);;
-    
+- (int8_t*) getByteArray:(const char*)string {
+        return java_string_getBytes(string);
 }
 
 
-    auto TsUtil::toNumberFromChar(char value) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return static_cast<int32_t>(value);
-    
+- (bool) isItemListener:(Displayable*)owner {
+        if (java_objc_instanceof(owner, [Form class])) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 
-    auto TsUtil::toNumber(int32_t value) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return value;
-    
+- (void) printAvailableMethods:(id)anyType {
 }
 
 
-    auto TsUtil::getByteArray(std::string string) -> std::vector<int8_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::getBytes(string);;
-    
+- (void) gc {
+        ((void) 0);
 }
 
+@end
 
-    auto TsUtil::isItemListener(Displayable* owner) -> bool{
-
-                        if(
-                                        (dynamic_cast<const Form*>(owner) != nullptr)
-                                    )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
-}
-
-
-    auto TsUtil::printAvailableMethods(Object* anyType) -> void{
-}
-
-
-    auto TsUtil::gc() -> void{
-System.gc();
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_TSUTIL_CPP

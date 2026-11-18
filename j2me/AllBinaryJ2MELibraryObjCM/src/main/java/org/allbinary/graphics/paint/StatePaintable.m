@@ -1,71 +1,28 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/paint/StatePaintable.h"
+#include "org/allbinary/graphics/paint/Paintable.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_PAINT_STATEPAINTABLE_CPP
-        #define ORG_ALLBINARY_GRAPHICS_PAINT_STATEPAINTABLE_CPP
+void StatePaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/paint/StatePaintable.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/graphics/displayable/StateControlledInterface.h>
-
-      
+@implementation StatePaintable
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/paint/Paintable.h"
-
-
-StatePaintable::StatePaintable(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto StatePaintable::setState(int32_t state) -> void{
+- (void) setState:(int32_t)state {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_PAINT_STATEPAINTABLE_CPP

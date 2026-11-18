@@ -1,147 +1,57 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/ai/BasicProbabilityAIDataFactory.h"
+#include "javax/microedition/lcdui/Canvas.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/time/NoTimeDelayHelper.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/game/ag/ai/InputProbability.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_AI_BASICPROBABILITYAIDATAFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_AG_AI_BASICPROBABILITYAIDATAFACTORY_CPP
+void BasicProbabilityAIDataFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/ai/BasicProbabilityAIDataFactory.h"
-        
+@implementation BasicProbabilityAIDataFactory
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <javax/microedition/lcdui/Canvas.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/time/NoTimeDelayHelper.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/ag/ai/InputProbability.h"
-
-
-BasicProbabilityAIDataFactory::BasicProbabilityAIDataFactory() {
-        }
-        
-    auto BasicProbabilityAIDataFactory::getInstance() -> ABHashtable<Object*, Object*>*{
-
-    std::vector<std::vector<int32_t>> likelyhoodIntegerArray = std::vector<std::vector<int32_t>>(Canvas::KEY_NUM9 +1, std::vector<int32_t>(2));;
-    
-
-    SmallIntegerSingletonFactory* smallIntegerSingletonFactory = SmallIntegerSingletonFactory::getInstance();;
-    
-likelyhoodIntegerArray[Canvas::UP][0]= smallIntegerSingletonFactory->getAt(0);
-    
-likelyhoodIntegerArray[Canvas::UP][1]= smallIntegerSingletonFactory->getAt(10);
-    
-likelyhoodIntegerArray[Canvas::DOWN][0]= smallIntegerSingletonFactory->getAt(10);
-    
-likelyhoodIntegerArray[Canvas::DOWN][1]= smallIntegerSingletonFactory->getAt(14);
-    
-likelyhoodIntegerArray[Canvas::LEFT][0]= smallIntegerSingletonFactory->getAt(14);
-    
-likelyhoodIntegerArray[Canvas::LEFT][1]= smallIntegerSingletonFactory->getAt(18);
-    
-likelyhoodIntegerArray[Canvas::RIGHT][0]= smallIntegerSingletonFactory->getAt(18);
-    
-likelyhoodIntegerArray[Canvas::RIGHT][1]= smallIntegerSingletonFactory->getAt(22);
-    
-likelyhoodIntegerArray[Canvas::KEY_NUM7][0]= smallIntegerSingletonFactory->getAt(22);
-    
-likelyhoodIntegerArray[Canvas::KEY_NUM7][1]= smallIntegerSingletonFactory->getAt(26);
-    
-likelyhoodIntegerArray[Canvas::KEY_NUM9][0]= smallIntegerSingletonFactory->getAt(26);
-    
-likelyhoodIntegerArray[Canvas::KEY_NUM9][1]= smallIntegerSingletonFactory->getAt(30);
-    
-likelyhoodIntegerArray[Canvas::KEY_NUM1][0]= smallIntegerSingletonFactory->getAt(30);
-    
-likelyhoodIntegerArray[Canvas::KEY_NUM1][1]= smallIntegerSingletonFactory->getAt(40);
-    
-
-    std::vector<int32_t> repeatLikelyhoodIntegerArray = std::vector<int32_t>(Canvas::KEY_NUM9 +1);;
-    
-repeatLikelyhoodIntegerArray[Canvas::UP]= smallIntegerSingletonFactory->getAt(0);
-    
-repeatLikelyhoodIntegerArray[Canvas::DOWN]= smallIntegerSingletonFactory->getAt(0);
-    
-repeatLikelyhoodIntegerArray[Canvas::LEFT]= smallIntegerSingletonFactory->getAt(0);
-    
-repeatLikelyhoodIntegerArray[Canvas::RIGHT]= smallIntegerSingletonFactory->getAt(0);
-    
-repeatLikelyhoodIntegerArray[Canvas::KEY_NUM7]= smallIntegerSingletonFactory->getAt(0);
-    
-repeatLikelyhoodIntegerArray[Canvas::KEY_NUM9]= smallIntegerSingletonFactory->getAt(0);
-    
-repeatLikelyhoodIntegerArray[Canvas::KEY_NUM1]= smallIntegerSingletonFactory->getAt(10);
-    
-
-    InputProbability* inputProbability = new InputProbability(likelyhoodIntegerArray, repeatLikelyhoodIntegerArray, 42, NoTimeDelayHelper::SINGLETON);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return inputProbability->toHashtable();;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+- (ABHashtable*) getInstance {
+        int32_t** likelyhoodIntegerArray = ((int32_t**) java_array_new2(sizeof(int32_t), (Canvas_staticInit(), Canvas_KEY_NUM9) + 1, 2));
+        SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_UP)][0] = [smallIntegerSingletonFactory getAt:0];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_UP)][1] = [smallIntegerSingletonFactory getAt:10];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_DOWN)][0] = [smallIntegerSingletonFactory getAt:10];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_DOWN)][1] = [smallIntegerSingletonFactory getAt:14];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_LEFT)][0] = [smallIntegerSingletonFactory getAt:14];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_LEFT)][1] = [smallIntegerSingletonFactory getAt:18];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_RIGHT)][0] = [smallIntegerSingletonFactory getAt:18];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_RIGHT)][1] = [smallIntegerSingletonFactory getAt:22];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM7)][0] = [smallIntegerSingletonFactory getAt:22];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM7)][1] = [smallIntegerSingletonFactory getAt:26];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM9)][0] = [smallIntegerSingletonFactory getAt:26];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM9)][1] = [smallIntegerSingletonFactory getAt:30];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM1)][0] = [smallIntegerSingletonFactory getAt:30];
+        likelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM1)][1] = [smallIntegerSingletonFactory getAt:40];
+        int32_t* repeatLikelyhoodIntegerArray = ((int32_t*) java_array_new(sizeof(int32_t), (Canvas_staticInit(), Canvas_KEY_NUM9) + 1));
+        repeatLikelyhoodIntegerArray[(Canvas_staticInit(), Canvas_UP)] = [smallIntegerSingletonFactory getAt:0];
+        repeatLikelyhoodIntegerArray[(Canvas_staticInit(), Canvas_DOWN)] = [smallIntegerSingletonFactory getAt:0];
+        repeatLikelyhoodIntegerArray[(Canvas_staticInit(), Canvas_LEFT)] = [smallIntegerSingletonFactory getAt:0];
+        repeatLikelyhoodIntegerArray[(Canvas_staticInit(), Canvas_RIGHT)] = [smallIntegerSingletonFactory getAt:0];
+        repeatLikelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM7)] = [smallIntegerSingletonFactory getAt:0];
+        repeatLikelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM9)] = [smallIntegerSingletonFactory getAt:0];
+        repeatLikelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM1)] = [smallIntegerSingletonFactory getAt:10];
+        InputProbability* inputProbability = [((InputProbability*) [InputProbability alloc]) init:likelyhoodIntegerArray :repeatLikelyhoodIntegerArray :42 :(NoTimeDelayHelper_staticInit(), NoTimeDelayHelper_SINGLETON)];
+        return [inputProbability toHashtable];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_AI_BASICPROBABILITYAIDATAFACTORY_CPP

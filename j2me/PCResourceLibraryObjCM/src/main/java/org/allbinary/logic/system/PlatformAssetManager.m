@@ -1,106 +1,38 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/system/PlatformAssetManager.h"
+#include "org/allbinary/data/resource/ResourceUtil.h"
 
 
+static PlatformAssetManager* PlatformAssetManager_instance;
 
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_PLATFORMASSETMANAGER_CPP
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_PLATFORMASSETMANAGER_CPP
+void PlatformAssetManager_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PlatformAssetManager_instance = [((PlatformAssetManager*) [PlatformAssetManager alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/system/PlatformAssetManager.h"
-        
+@implementation PlatformAssetManager
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <java/io/InputStream.h>
-
-      
-#include <org/allbinary/data/resource/ResourceUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-PlatformAssetManager::PlatformAssetManager() {
-        }
-        auto PlatformAssetManager::instance_owner() -> PlatformAssetManager* { static std::unique_ptr<PlatformAssetManager> value(new PlatformAssetManager()); return value.get(); }
-PlatformAssetManager* PlatformAssetManager::instance = PlatformAssetManager::instance_owner();
-
-    auto PlatformAssetManager::getInstance() -> PlatformAssetManager*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PlatformAssetManager::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto PlatformAssetManager::getResourceAsStream(std::string resource) -> InputStream*{
-
-    ResourceUtil* resourceUtil = ResourceUtil::getInstance();;
-    
-
-    InputStream* inputStream = resourceUtil->getResourceAsStream(resource);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return inputStream;
-    
++ (PlatformAssetManager*) getInstance {
+        return (PlatformAssetManager_staticInit(), PlatformAssetManager_instance);
 }
 
 
+// throws Exception
+- (InputStream*) getResourceAsStream:(const char*)resource {
+        ResourceUtil* resourceUtil = [ResourceUtil getInstance];
+        InputStream* inputStream = [resourceUtil getResourceAsStream:resource];
+        return inputStream;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_PLATFORMASSETMANAGER_CPP

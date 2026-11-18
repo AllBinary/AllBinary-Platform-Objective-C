@@ -1,155 +1,60 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/init/crypt/jcehelper/BasicCryptUtil.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/init/crypt/jcehelper/CryptInterface.h"
 
 
+static BasicCryptUtil* BasicCryptUtil_instance;
 
-        #ifndef ORG_ALLBINARY_INIT_CRYPT_JCEHELPER_BASICCRYPTUTIL_CPP
-        #define ORG_ALLBINARY_INIT_CRYPT_JCEHELPER_BASICCRYPTUTIL_CPP
+void BasicCryptUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    BasicCryptUtil_instance = [((BasicCryptUtil*) [BasicCryptUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/init/crypt/jcehelper/BasicCryptUtil.h"
-        
+@implementation BasicCryptUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->tsUtil = [TsUtil getInstance];
+    self->XML_START = "<?xml";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <java/io/ByteArrayInputStream.h>
-
-      
-#include <java/io/ByteArrayOutputStream.h>
-
-      
-#include <java/io/InputStream.h>
-
-      
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (BasicCryptUtil*) getInstance {
+        return (BasicCryptUtil_staticInit(), BasicCryptUtil_instance);
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/init/crypt/jcehelper/CryptInterface.h"
-
-
-BasicCryptUtil::BasicCryptUtil() : logUtil(LogUtil::getInstance()), tsUtil(TsUtil::getInstance()) {
+// throws Exception
+- (InputStream*) getDecryptedInputStream:(InputStream*)inputStream :(CryptInterface*)cryptInterface {
+        ByteArrayOutputStream* buffer = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init];
+        int32_t ch = 0;
+        while (true) {
+            ch = [inputStream read];
+            if (ch == -1) {
+                break;
+            }
+            [buffer write:ch];
         }
-        auto BasicCryptUtil::instance_owner() -> BasicCryptUtil* { static std::unique_ptr<BasicCryptUtil> value(new BasicCryptUtil()); return value.get(); }
-BasicCryptUtil* BasicCryptUtil::instance = BasicCryptUtil::instance_owner();
-
-    auto BasicCryptUtil::getInstance() -> BasicCryptUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return BasicCryptUtil::instance;
-    
+        int8_t* decrypted = [cryptInterface decrypt:[buffer toByteArray]];
+        const char* decryptedString = java_string_new(decrypted);
+        int32_t index = java_string_indexOf(decryptedString, self->XML_START);
+        if (index > 0) {
+            decryptedString = java_substring(decryptedString, index, (int32_t) strlen(decryptedString));
+        }
+        return [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:[self->tsUtil getByteArray:decryptedString]];
 }
 
+@end
 
-                //@Throws(Exception.constructor)
-            
-    auto BasicCryptUtil::getDecryptedInputStream(InputStream* inputStream, CryptInterface* cryptInterface) -> InputStream*{
-
-    ByteArrayOutputStream* buffer = new ByteArrayOutputStream();;
-    
-
-    int32_t ch= 0;;
-    
-
-        while(true)
-        {
-ch= inputStream->read();
-    
-
-                        if(ch ==  -1)
-                        
-                                    {
-                                    break;
-
-                    
-
-                                    }
-                                
-buffer->write(ch);
-    
-}
-
-
-    std::vector<int8_t> decrypted = cryptInterface->decrypt(buffer->toByteArray());;
-    
-
-    std::string decryptedString = JavaString::fromChars(decrypted);;
-    
-
-    int32_t index = JavaString::indexOf(decryptedString, this->XML_START);;
-    
-
-                        if(index > 0)
-                        
-                                    {
-                                    decryptedString= JavaString::substring(decryptedString, index);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new ByteArrayInputStream(this->tsUtil->getByteArray(decryptedString));
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_INIT_CRYPT_JCEHELPER_BASICCRYPTUTIL_CPP

@@ -1,97 +1,45 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/device/OpenGLESGraphicsCompositeFactory.h"
+#include "org/allbinary/device/OpenGLESGraphicsFactory.h"
 
 
+static OpenGLESGraphicsCompositeFactory* OpenGLESGraphicsCompositeFactory_instance;
 
-        #ifndef ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICSCOMPOSITEFACTORY_CPP
-        #define ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICSCOMPOSITEFACTORY_CPP
+void OpenGLESGraphicsCompositeFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    OpenGLESGraphicsCompositeFactory_instance = [((OpenGLESGraphicsCompositeFactory*) [OpenGLESGraphicsCompositeFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/device/OpenGLESGraphicsCompositeFactory.h"
-        
+@implementation OpenGLESGraphicsCompositeFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->openGLESGraphicsFactory = [((OpenGLESGraphicsFactory*) [OpenGLESGraphicsFactory alloc]) init];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/device/OpenGLESGraphicsFactory.h"
-
-
-OpenGLESGraphicsCompositeFactory::OpenGLESGraphicsCompositeFactory() : openGLESGraphicsFactory(new OpenGLESGraphicsFactory()) {
-        }
-        auto OpenGLESGraphicsCompositeFactory::instance_owner() -> OpenGLESGraphicsCompositeFactory* { static std::unique_ptr<OpenGLESGraphicsCompositeFactory> value(new OpenGLESGraphicsCompositeFactory()); return value.get(); }
-OpenGLESGraphicsCompositeFactory* OpenGLESGraphicsCompositeFactory::instance = OpenGLESGraphicsCompositeFactory::instance_owner();
-
-    auto OpenGLESGraphicsCompositeFactory::getInstance() -> OpenGLESGraphicsCompositeFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return OpenGLESGraphicsCompositeFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto OpenGLESGraphicsCompositeFactory::set(OpenGLESGraphicsFactory* openGLESGraphicsFactory) -> void{
-this->openGLESGraphicsFactory= openGLESGraphicsFactory;
-    
++ (OpenGLESGraphicsCompositeFactory*) getInstance {
+        return (OpenGLESGraphicsCompositeFactory_staticInit(), OpenGLESGraphicsCompositeFactory_instance);
 }
 
 
-    auto OpenGLESGraphicsCompositeFactory::get() -> OpenGLESGraphicsFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->openGLESGraphicsFactory;
-    
+- (void) set:(OpenGLESGraphicsFactory*)openGLESGraphicsFactory {
+        self->openGLESGraphicsFactory = openGLESGraphicsFactory;
 }
 
 
+- (OpenGLESGraphicsFactory*) get {
+        return self->openGLESGraphicsFactory;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICSCOMPOSITEFACTORY_CPP

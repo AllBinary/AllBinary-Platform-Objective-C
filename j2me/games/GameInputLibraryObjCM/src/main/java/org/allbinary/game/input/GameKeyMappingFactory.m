@@ -1,164 +1,77 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_GAMEKEYMAPPINGFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_GAMEKEYMAPPINGFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/GameKeyMappingFactory.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/InputFactory.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/GameKeyMappingFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/game/input/GameKey.h"
+#include "org/allbinary/game/input/InputFactory.h"
 #include "org/allbinary/game/input/GameKeyFactory.h"
 
-Object* GameKeyMappingFactory::instance = NullUtil::getInstance()->NULL_OBJECT;
 
-    auto GameKeyMappingFactory::getInstance() -> GameKeyMappingFactory*{
+static id GameKeyMappingFactory_instance;
 
-                        if(GameKeyMappingFactory::instance == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    GameKeyMappingFactory::instance= new GameKeyMappingFactory();
-    
+void GameKeyMappingFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameKeyMappingFactory_instance = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-                                    }
-                                
+@implementation GameKeyMappingFactory
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<GameKeyMappingFactory*>(GameKeyMappingFactory::instance);
-    
+- (void) initFields {
+    self->intKeyToGameKey = ((GameKey**) java_array_new(sizeof(GameKey*), [InputFactory getInstance]->MAX));
 }
 
 
-GameKeyMappingFactory::GameKeyMappingFactory() : intKeyToGameKey(std::vector<GameKey*>(InputFactory::getInstance()->MAX)){
-
-    GameKeyFactory* gameKeyFactory = GameKeyFactory::getInstance();;
-    
-this->setGameKey(gameKeyFactory->NONE);
-    
-this->setGameKey(gameKeyFactory->UP);
-    
-this->setGameKey(gameKeyFactory->DOWN);
-    
-this->setGameKey(gameKeyFactory->LEFT);
-    
-this->setGameKey(gameKeyFactory->RIGHT);
-    
-this->setGameKey(gameKeyFactory->KEY_POUND);
-    
-this->setGameKey(gameKeyFactory->KEY_STAR);
-    
-this->setGameKey(gameKeyFactory->KEY_NUM0);
-    
-this->setGameKey(gameKeyFactory->KEY_NUM1);
-    
-this->setGameKey(gameKeyFactory->KEY_NUM2);
-    
-this->setGameKey(gameKeyFactory->KEY_NUM3);
-    
-this->setGameKey(gameKeyFactory->KEY_NUM4);
-    
-this->setGameKey(gameKeyFactory->KEY_NUM5);
-    
-this->setGameKey(gameKeyFactory->KEY_NUM6);
-    
-this->setGameKey(gameKeyFactory->KEY_NUM7);
-    
-this->setGameKey(gameKeyFactory->KEY_NUM8);
-    
-this->setGameKey(gameKeyFactory->KEY_NUM9);
-    
-this->setGameKey(gameKeyFactory->GAME_A);
-    
-this->setGameKey(gameKeyFactory->GAME_B);
-    
-this->setGameKey(gameKeyFactory->GAME_C);
-    
-this->setGameKey(gameKeyFactory->GAME_D);
-    
-this->setGameKey(gameKeyFactory->FIRE);
-    
-this->setGameKey(gameKeyFactory->LEVEL_DOWN);
-    
-this->setGameKey(gameKeyFactory->LEVEL_UP);
-    
++ (GameKeyMappingFactory*) getInstance {
+        if ((GameKeyMappingFactory_staticInit(), GameKeyMappingFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
+            GameKeyMappingFactory_instance = [((GameKeyMappingFactory*) [GameKeyMappingFactory alloc]) init];
+        }
+        return ((GameKeyMappingFactory*) (GameKeyMappingFactory_staticInit(), GameKeyMappingFactory_instance));
 }
 
 
-    auto GameKeyMappingFactory::getGameKey(int32_t key) -> GameKey*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->intKeyToGameKey[key];
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        GameKeyFactory* gameKeyFactory = [GameKeyFactory getInstance];
+        [self setGameKey:gameKeyFactory->NONE];
+        [self setGameKey:gameKeyFactory->UP];
+        [self setGameKey:gameKeyFactory->DOWN];
+        [self setGameKey:gameKeyFactory->LEFT];
+        [self setGameKey:gameKeyFactory->RIGHT];
+        [self setGameKey:gameKeyFactory->KEY_POUND];
+        [self setGameKey:gameKeyFactory->KEY_STAR];
+        [self setGameKey:gameKeyFactory->KEY_NUM0];
+        [self setGameKey:gameKeyFactory->KEY_NUM1];
+        [self setGameKey:gameKeyFactory->KEY_NUM2];
+        [self setGameKey:gameKeyFactory->KEY_NUM3];
+        [self setGameKey:gameKeyFactory->KEY_NUM4];
+        [self setGameKey:gameKeyFactory->KEY_NUM5];
+        [self setGameKey:gameKeyFactory->KEY_NUM6];
+        [self setGameKey:gameKeyFactory->KEY_NUM7];
+        [self setGameKey:gameKeyFactory->KEY_NUM8];
+        [self setGameKey:gameKeyFactory->KEY_NUM9];
+        [self setGameKey:gameKeyFactory->GAME_A];
+        [self setGameKey:gameKeyFactory->GAME_B];
+        [self setGameKey:gameKeyFactory->GAME_C];
+        [self setGameKey:gameKeyFactory->GAME_D];
+        [self setGameKey:gameKeyFactory->FIRE];
+        [self setGameKey:gameKeyFactory->LEVEL_DOWN];
+        [self setGameKey:gameKeyFactory->LEVEL_UP];
+    return self;
 }
 
 
-    auto GameKeyMappingFactory::setGameKey(GameKey* gameKey) -> void{
-this->intKeyToGameKey[gameKey->getId()]= gameKey;
-    
+- (GameKey*) getGameKey:(int32_t)key {
+        return self->intKeyToGameKey[key];
 }
 
 
+- (void) setGameKey:(GameKey*)gameKey {
+        self->intKeyToGameKey[[gameKey getId]] = gameKey;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_GAMEKEYMAPPINGFACTORY_CPP

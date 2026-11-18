@@ -1,80 +1,39 @@
+#ifndef ORG_ALLBINARY_VECTOR_VECTORINTERFACE_H
+#define ORG_ALLBINARY_VECTOR_VECTORINTERFACE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.vector
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class VectorInterface;
 
+@protocol VectorInterface
+- (int32_t**) getPoints:(int32_t)frame;
+- (void) setPoints:(int32_t***)currentPoints;
+@end
 
-
-        #ifndef ORG_ALLBINARY_VECTOR_VECTORINTERFACE_H
-        #define ORG_ALLBINARY_VECTOR_VECTORINTERFACE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void VectorInterface_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class VectorInterface
-            : public virtual Object
-         {
-
-    public: virtual std::vector<std::vector<int32_t>> getPoints(int32_t frame) = 0;
-
-    public: virtual void setPoints(std::vector<std::vector<std::vector<int32_t>>> currentPoints) = 0;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_VECTOR_VECTORINTERFACE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_VECTOR_VECTORINTERFACE_H_COMPLETE)
-        #define ORG_ALLBINARY_VECTOR_VECTORINTERFACE_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_VECTOR_VECTORINTERFACE_H

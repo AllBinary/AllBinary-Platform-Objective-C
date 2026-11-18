@@ -1,95 +1,35 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/shader/ModelViewProjection.h"
+#include "org/allbinary/logic/NullUtil.h"
 
 
+static ModelViewProjection* ModelViewProjection_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_MODELVIEWPROJECTION_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_MODELVIEWPROJECTION_CPP
+void ModelViewProjection_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ModelViewProjection_instance = [((ModelViewProjection*) [ModelViewProjection alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/shader/ModelViewProjection.h"
-        
+@implementation ModelViewProjection
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ModelViewProjection::ModelViewProjection() {
-        }
-        auto ModelViewProjection::instance_owner() -> ModelViewProjection* { static std::unique_ptr<ModelViewProjection> value(new ModelViewProjection()); return value.get(); }
-ModelViewProjection* ModelViewProjection::instance = ModelViewProjection::instance_owner();
-
-    auto ModelViewProjection::getInstance() -> ModelViewProjection*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ModelViewProjection::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto ModelViewProjection::get() -> std::vector<float>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullUtil::getInstance()->NULL_FLOAT_ARRAY;
-    
++ (ModelViewProjection*) getInstance {
+        return (ModelViewProjection_staticInit(), ModelViewProjection_instance);
 }
 
 
+- (float*) get {
+        return [NullUtil getInstance]->NULL_FLOAT_ARRAY;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_MODELVIEWPROJECTION_CPP

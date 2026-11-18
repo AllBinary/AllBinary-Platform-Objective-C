@@ -1,118 +1,58 @@
-
-        /* Generated Code Do Not Modify */
-        
-
+// Generated Code Do Not Modify
+#include "org/allbinary/game/BasicGameInfoFactory.h"
 
 
-        #ifndef ORG_ALLBINARY_GAME_BASICGAMEINFOFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_BASICGAMEINFOFACTORY_CPP
+static BasicGameInfoFactory* BasicGameInfoFactory_SINGLETON;
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/BasicGameInfoFactory.h"
-        
+void BasicGameInfoFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    BasicGameInfoFactory_SINGLETON = [((BasicGameInfoFactory*) [BasicGameInfoFactory alloc]) init];
+}
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+@implementation BasicGameInfoFactory
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto BasicGameInfoFactory::SINGLETON_owner() -> BasicGameInfoFactory* { static std::unique_ptr<BasicGameInfoFactory> value(new BasicGameInfoFactory()); return value.get(); }
-BasicGameInfoFactory* BasicGameInfoFactory::SINGLETON = BasicGameInfoFactory::SINGLETON_owner();
-
-    auto BasicGameInfoFactory::getInstance() -> BasicGameInfoFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return BasicGameInfoFactory::SINGLETON;
-    
+- (void) initFields {
+    self->currentReleaseIndex = 0;
+    self->currentDestroyIndex = 0;
+    self->total = 0;
 }
 
 
-BasicGameInfoFactory::BasicGameInfoFactory(){
++ (BasicGameInfoFactory*) getInstance {
+        return (BasicGameInfoFactory_staticInit(), BasicGameInfoFactory_SINGLETON);
 }
 
 
-    auto BasicGameInfoFactory::init(int32_t total) -> void{
-this->currentReleaseIndex= 0;
-    
-this->currentDestroyIndex= 0;
-    
-this->total= total;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto BasicGameInfoFactory::isPeaked() -> bool{
-
-                        if(this->currentDestroyIndex >= this->total)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+- (void) init_:(int32_t)total {
+        self->currentReleaseIndex = 0;
+        self->currentDestroyIndex = 0;
+        self->total = total;
 }
 
 
-    auto BasicGameInfoFactory::howManyLeft() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->total -this->currentDestroyIndex;
-    
+- (bool) isPeaked {
+        if (self->currentDestroyIndex >= self->total) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 
+- (int32_t) howManyLeft {
+        return self->total - self->currentDestroyIndex;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_BASICGAMEINFOFACTORY_CPP

@@ -1,328 +1,131 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/draw/DrawVerticalStringUtil.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/AndroidUtil.h"
+#include "org/allbinary/J2MEUtil.h"
+#include "org/allbinary/graphics/Anchor.h"
+#include "org/allbinary/graphics/opengles/OpenGLFeatureUtil.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/PreLogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
 
 
+static DrawVerticalStringUtil* DrawVerticalStringUtil_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_DRAW_DRAWVERTICALSTRINGUTIL_CPP
-        #define ORG_ALLBINARY_GRAPHICS_DRAW_DRAWVERTICALSTRINGUTIL_CPP
+void DrawVerticalStringUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    DrawVerticalStringUtil_instance = [((DrawVerticalStringUtil*) [DrawVerticalStringUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/draw/DrawVerticalStringUtil.h"
-        
+@implementation DrawVerticalStringUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->EMPTY_STRING = [StringUtil getInstance]->EMPTY_STRING;
+    self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
+    self->charHeight = 0;
+    self->offsetY = 0;
+    self->offsetXArray = [NullUtil getInstance]->NULL_INT_ARRAY;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/AndroidUtil.h>
-
-      
-#include <org/allbinary/J2MEUtil.h>
-
-      
-#include <org/allbinary/graphics/Anchor.h>
-
-      
-#include <org/allbinary/graphics/opengles/OpenGLFeatureUtil.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/PreLogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (DrawVerticalStringUtil*) getInstance {
+        return (DrawVerticalStringUtil_staticInit(), DrawVerticalStringUtil_instance);
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-DrawVerticalStringUtil::DrawVerticalStringUtil() : EMPTY_STRING(StringUtil::getInstance()->EMPTY_STRING), anchor(Anchor::TOP_LEFT), offsetXArray(NullUtil::getInstance()->NULL_INT_ARRAY) {
+- (void) updateMeasurement:(Graphics*)graphics :(const char*)string {
+        OpenGLFeatureUtil* openGLFeatureUtil = [OpenGLFeatureUtil getInstance];
+        Font* font = [graphics getFont];
+        self->charHeight = [font getHeight];
+        self->offsetY = 0;
+        if ([J2MEUtil isHTML]) {
+            self->charHeight += 1;
+        } else if ([openGLFeatureUtil isAnyThreed]) {
+            self->charHeight += 2;
+            if ([AndroidUtil isAndroid]) {
+            } else {
+                self->offsetY = 2 + (self->charHeight * 2 / 3);
+            }
         }
-        auto DrawVerticalStringUtil::instance_owner() -> DrawVerticalStringUtil* { static std::unique_ptr<DrawVerticalStringUtil> value(new DrawVerticalStringUtil()); return value.get(); }
-DrawVerticalStringUtil* DrawVerticalStringUtil::instance = DrawVerticalStringUtil::instance_owner();
-
-    auto DrawVerticalStringUtil::getInstance() -> DrawVerticalStringUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return DrawVerticalStringUtil::instance;
-    
+        int32_t size = ((int32_t) strlen(string));
+        uint16_t aChar = 0;
+        int32_t* offsetXArray = ((int32_t*) java_array_new(sizeof(int32_t), size));
+        for (int32_t index = size - 1; index >= 0; index--) {
+            aChar = ((uint16_t) string[index]);
+            if ([openGLFeatureUtil isAnyThreed]) {
+                offsetXArray[index] = [font charWidth:aChar] / 2;
+            }
+        }
+        self->offsetXArray = offsetXArray;
 }
 
 
-    auto DrawVerticalStringUtil::updateMeasurement(Graphics* graphics, std::string string) -> void{
+- (void) paintVerticle:(Graphics*)graphics :(const char*)string :(int32_t)x :(int32_t)y :(int32_t)anchor {
+        int32_t size = ((int32_t) strlen(string));
+        uint16_t aChar = 0;
+        for (int32_t index = size - 1; index >= 0; index--) {
+            aChar = ((uint16_t) string[index]);
+            [graphics drawChar:aChar :x + self->offsetXArray[index] :y + (self->charHeight * index) + self->offsetY :anchor];
+        }
+}
 
-    OpenGLFeatureUtil* openGLFeatureUtil = OpenGLFeatureUtil::getInstance();;
-    
 
-    Font* font = graphics->getFont();;
-    
-this->charHeight= font->getHeight();
-    
-this->offsetY= 0;
-    
+- (void) drawCenterString:(Graphics*)graphics :(const char*)string :(int32_t)offset :(int32_t)length :(int32_t)x :(int32_t)y {
+        int32_t width = ([[graphics getFont] substringWidth:string :offset :length] >> 1);
+        JAVA_TRY {
+            [graphics drawSubstring:string :offset :length :x - width :y :self->anchor];
+        } JAVA_CATCH(Exception, e) {
+            [PreLogUtil put:[[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:"Exception: stringLength: "] appendint:((int32_t) strlen(string))] append:" offset: "] appendint:offset] append:" currentLength: "] appendint:length] toString] :self :"drawCenterString"];
+        } JAVA_END_TRY;
+}
 
-                        if(J2MEUtil::isHTML())
-                        
-                                    {
-                                    this->charHeight += 1;
-    
 
-                                    }
-                                
-                             else 
-                        if(openGLFeatureUtil->isAnyThreed())
-                        
-                                    {
-                                    this->charHeight += 2;
-    
-
-                        if(AndroidUtil::isAndroid())
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            this->offsetY= 2 +(this->charHeight *2 /3);
-    
-
+- (void) drawCenterStrings:(Graphics*)graphics :(const char**)stringArray :(int32_t)maxWidth :(int32_t)x :(int32_t)y {
+        int32_t extraLines = 0;
+        for (int32_t index = 0; index < java_array_length(stringArray); index++) {
+            const char* string = stringArray[index];
+            if (string != self->EMPTY_STRING) {
+                int32_t width = [[graphics getFont] stringWidth:string];
+                int32_t minTotalLines = 1;
+                if (width > maxWidth) {
+                    minTotalLines = (width / maxWidth) + 1;
+                }
+                int32_t linePortion = ((int32_t) strlen(string)) / minTotalLines;
+                int32_t offset = 0;
+                int32_t currentLength = linePortion;
+                int32_t size = ((int32_t) strlen(string));
+                while (offset < size) {
+                    if (offset + currentLength > size) {
+                        currentLength = size - offset;
+                    }
+                    if (offset + currentLength != size) {
+                        while (currentLength > 0 && [stringArray[index] charAt:offset + currentLength] != u' ') {
+                            currentLength--;
                         }
-                            
-
-                                    }
-                                
-
-    int32_t size = string.size();;
-    
-
-    char aChar;;
-    
-
-    std::vector<int32_t> offsetXArray = std::vector<int32_t>(size);;
-    
-
-
-
-
-                        for (
-    int32_t index = size -1;index >= 0; index--)
-        {
-aChar= string[index];
-    
-
-                        if(openGLFeatureUtil->isAnyThreed())
-                        
-                                    {
-                                    offsetXArray[index]= font->charWidth(aChar) /2;
-    
-
-                                    }
-                                
+                        if (currentLength <= 4) {
+                            currentLength = linePortion;
+                        }
+                    }
+                    [self drawCenterString:graphics :string :offset :currentLength :x :y + ((index + extraLines++) * self->charHeight)];
+                    offset = offset + currentLength;
+                    currentLength = linePortion;
+                }
+                extraLines--;
+            }
+        }
 }
 
-this->offsetXArray= offsetXArray;
-    
-}
+@end
 
-
-    auto DrawVerticalStringUtil::paintVerticle(Graphics* graphics, std::string string, int32_t x, int32_t y, int32_t anchor) -> void{
-
-    int32_t size = string.size();;
-    
-
-    char aChar;;
-    
-
-
-
-
-                        for (
-    int32_t index = size -1;index >= 0; index--)
-        {
-aChar= string[index];
-    
-graphics->drawChar(aChar, x +this->offsetXArray[index], y +(this->charHeight *index) +this->offsetY, anchor);
-    
-}
-
-}
-
-
-    auto DrawVerticalStringUtil::drawCenterString(Graphics* graphics, std::string string, int32_t offset, int32_t length, int32_t x, int32_t y) -> void{
-
-    int32_t width = (graphics->getFont()->substringWidth(string, offset, length)>>1);;
-    
-
-        try {
-            graphics->drawSubstring(string, offset, length, x -width, y, this->anchor);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-PreLogUtil::put(JavaString::valueOf((new StringMaker())->append("Exception: stringLength: ")->appendint(string.size())->append(" offset: ")->appendint(offset)->append(" currentLength: ")->appendint(length)), this, "drawCenterString");
-    
-}
-
-}
-
-
-    auto DrawVerticalStringUtil::drawCenterStrings(Graphics* graphics, std::vector<std::string> stringArray, int32_t maxWidth, int32_t x, int32_t y) -> void{
-
-    int32_t extraLines = 0;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < stringArray.size(); index++)
-        {
-
-    std::string string = stringArray[index];;
-    
-
-                        if(string != this->EMPTY_STRING)
-                        
-                                    {
-                                    
-    int32_t width = graphics->getFont()->stringWidth(string);;
-    
-
-    int32_t minTotalLines = 1;;
-    
-
-                        if(width > maxWidth)
-                        
-                                    {
-                                    minTotalLines= (width /maxWidth) +1;
-    
-
-                                    }
-                                
-
-    int32_t linePortion = string.size() /minTotalLines;;
-    
-
-    int32_t offset = 0;;
-    
-
-    int32_t currentLength = linePortion;;
-    
-
-    int32_t size = string.size();;
-    
-
-        while(offset < size)
-        {
-
-                        if(offset +currentLength > size)
-                        
-                                    {
-                                    currentLength= size -offset;
-    
-
-                                    }
-                                
-
-                        if(offset +currentLength != size)
-                        
-                                    {
-                                    
-        while(currentLength > 0 && stringArray[index][offset +currentLength] != ' ')
-        {
-currentLength--;
-    
-}
-
-
-                        if(currentLength <= 4)
-                        
-                                    {
-                                    currentLength= linePortion;
-    
-
-                                    }
-                                
-
-                                    }
-                                
-this->drawCenterString(graphics, string, offset, currentLength, x, y +((index +extraLines++) *this->charHeight));
-    
-offset= offset +currentLength;
-    
-currentLength= linePortion;
-    
-}
-
-extraLines--;
-    
-
-                                    }
-                                
-}
-
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_DRAW_DRAWVERTICALSTRINGUTIL_CPP

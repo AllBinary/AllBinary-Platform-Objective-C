@@ -1,79 +1,37 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABCUSTOMIMAGEITEM_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABCUSTOMIMAGEITEM_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/item/ABCustomImageItem.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <javax/microedition/lcdui/NullImage.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/item/ABCustomImageItem.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "javax/microedition/lcdui/NullImage.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/form/item/ABCustomItem.h"
 
 
 
+void ABCustomImageItem_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation ABCustomImageItem
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/item/ABCustomItem.h"
-
-
-ABCustomImageItem::ABCustomImageItem(std::string label, Image* image, int32_t layout, std::string altText, BasicColor* basicColor, int32_t yOffset) : ABCustomItem(label, basicColor, basicColor){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (void) initFields {
+    self->yOffset = 0;
 }
 
 
-    auto ABCustomImageItem::getImage() -> Image*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullImage::NULL_IMAGE;
-    
+- (instancetype) init:(const char*)label :(Image*)image :(int32_t)layout :(const char*)altText :(BasicColor*)basicColor :(int32_t)yOffset {
+        self = [super init:label :basicColor :basicColor];
+        [self initFields];
+    return self;
 }
 
 
+- (Image*) getImage {
+        return (NullImage_staticInit(), NullImage_NULL_IMAGE);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABCUSTOMIMAGEITEM_CPP

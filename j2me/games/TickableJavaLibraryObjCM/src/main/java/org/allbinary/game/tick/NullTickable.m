@@ -1,102 +1,46 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/tick/NullTickable.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/game/tick/TickableInterface.h"
 
 
+static NullTickable* NullTickable_SINGLETON;
 
-        #ifndef ORG_ALLBINARY_GAME_TICK_NULLTICKABLE_CPP
-        #define ORG_ALLBINARY_GAME_TICK_NULLTICKABLE_CPP
+void NullTickable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NullTickable_SINGLETON = [((NullTickable*) [NullTickable alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/tick/NullTickable.h"
-        
+@implementation NullTickable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->NAME = "NulLTickable";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/tick/TickableInterface.h"
-
-
-NullTickable::NullTickable() {
-        }
-        auto NullTickable::SINGLETON_owner() -> NullTickable* { static std::unique_ptr<NullTickable> value(new NullTickable()); return value.get(); }
-NullTickable* NullTickable::SINGLETON = NullTickable::SINGLETON_owner();
-
-    auto NullTickable::getInstance() -> NullTickable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullTickable::SINGLETON;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto NullTickable::processTick(AllBinaryLayerManager* allBinaryLayerManager) -> void{
++ (NullTickable*) getInstance {
+        return (NullTickable_staticInit(), NullTickable_SINGLETON);
 }
 
 
-    auto NullTickable::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->NAME;
-    
+// throws Exception
+- (void) processTick:(AllBinaryLayerManager*)allBinaryLayerManager {
 }
 
 
+- (const char*) getName {
+        return self->NAME;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_TICK_NULLTICKABLE_CPP

@@ -1,109 +1,38 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_AG_AI_SCROLLER_RANDOMPATROLFLOCKINGFIRINGAIFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_AG_AI_SCROLLER_RANDOMPATROLFLOCKINGFIRINGAIFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/ai/scroller/RandomPatrolFlockingFiringAIFactory.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/ai/ArtificialIntelligenceInterface.h>
-
-      
-#include <org/allbinary/game/ag/ai/ArrayAI.h>
-
-      
-#include <org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.h>
-
-      
-#include <org/allbinary/game/input/GameInput.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/ag/ai/scroller/RandomPatrolAI.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/ai/scroller/RandomPatrolFlockingFiringAIFactory.h"
+#include "org/allbinary/ai/ArtificialIntelligenceInterface.h"
+#include "org/allbinary/game/ag/ai/ArrayAI.h"
+#include "org/allbinary/game/input/GameInput.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/game/ag/ai/scroller/RandomPatrolAI.h"
 #include "org/allbinary/game/ag/ai/scroller/TimedFireAI.h"
 
 
-RandomPatrolFlockingFiringAIFactory::RandomPatrolFlockingFiringAIFactory() {
-        }
-        
-                //@Throws(Exception.constructor)
-            
-    auto RandomPatrolFlockingFiringAIFactory::getInstance(ABHashtable<Object*, Object*>* hashtable, AllBinaryLayer* ownerLayerInterface, GameInput* gameInput) -> ArtificialIntelligenceInterface*{
 
-    std::vector<ArtificialIntelligenceInterface*> artificialIntelligenceInterface = std::vector<ArtificialIntelligenceInterface*>(2);;
-    
-artificialIntelligenceInterface[0]= new RandomPatrolAI(hashtable, ownerLayerInterface, gameInput);
-    
-artificialIntelligenceInterface[1]= new TimedFireAI(1800, ownerLayerInterface, gameInput);
-    
+void RandomPatrolFlockingFiringAIFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation RandomPatrolFlockingFiringAIFactory
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new ArrayAI(artificialIntelligenceInterface, ownerLayerInterface, gameInput);
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+// throws Exception
+- (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
+        ArtificialIntelligenceInterface** artificialIntelligenceInterface = ((ArtificialIntelligenceInterface**) java_array_new(sizeof(ArtificialIntelligenceInterface*), 2));
+        artificialIntelligenceInterface[0] = [((RandomPatrolAI*) [RandomPatrolAI alloc]) init:hashtable :ownerLayerInterface :gameInput];
+        artificialIntelligenceInterface[1] = [((TimedFireAI*) [TimedFireAI alloc]) init:1800 :ownerLayerInterface :gameInput];
+        return [((ArrayAI*) [ArrayAI alloc]) init:artificialIntelligenceInterface :ownerLayerInterface :gameInput];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_AI_SCROLLER_RANDOMPATROLFLOCKINGFIRINGAIFACTORY_CPP

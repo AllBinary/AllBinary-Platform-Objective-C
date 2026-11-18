@@ -1,220 +1,117 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_ALLBINARYMEDIAMANAGER_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_ALLBINARYMEDIAMANAGER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/AllBinaryMediaManager.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <java/io/InputStream.h>
-
-      
-#include <javax/microedition/media/Player.h>
-
-      
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/Sounds.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/AllBinaryMediaManager.h"
+#include "javax/microedition/media/Player.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/media/audio/Sounds.h"
 #include "org/allbinary/media/audio/SoundsFactoryInterface.h"
 #include "org/allbinary/media/audio/NoPlayer.h"
-//NotDeviceSpecificNoMediaMIDP1Library
+#if __has_include("org/allbinary/media/audio/ProgressCanvas.h")
+#include "org/allbinary/media/audio/ProgressCanvas.h"
+#endif
+#if __has_include("javax/microedition/media/ProgressCanvas.h")
+#include "javax/microedition/media/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/ProgressCanvas.h")
+#include "org/allbinary/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h")
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/ProgressCanvas.h")
+#include "org/allbinary/logic/communication/log/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/logic/string/ProgressCanvas.h")
+#include "org/allbinary/logic/string/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/string/ProgressCanvas.h")
+#include "org/allbinary/string/ProgressCanvas.h"
+#endif
 
-AllBinaryMediaManager::AllBinaryMediaManager(){
+
+static const char* AllBinaryMediaManager_THIS = "AllBinaryMediaManagerNoMediaMIDP1";
+
+void AllBinaryMediaManager_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation AllBinaryMediaManager
+
+
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto AllBinaryMediaManager::isMuted() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
++ (bool) isMuted {
+        return false;
 }
 
 
-    auto AllBinaryMediaManager::setMuted(bool aMuted) -> void{
++ (void) setMuted:(bool)aMuted {
 }
 
 
-    auto AllBinaryMediaManager::update() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
++ (bool) update {
+        return true;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllBinaryMediaManager::init(SoundsFactoryInterface* soundsFactoryInterface) -> void{
-
-    LogUtil* logUtil = LogUtil::getInstance();;
-    
-
-    CommonStrings* commonString = CommonStrings::getInstance();;
-    
-logUtil->putF(commonString->START, AllBinaryMediaManager::THIS, commonString->INIT);
-    
-ProgressCanvasFactory::getInstance()->addNormalPortion(50, "Media Manager");
-    
-(new Sounds(soundsFactoryInterface))->init();
-    
+// throws Exception
++ (void) init_:(SoundsFactoryInterface*)soundsFactoryInterface {
+        LogUtil* logUtil = [LogUtil getInstance];
+        CommonStrings* commonString = [CommonStrings getInstance];
+        [logUtil putF:commonString->START :AllBinaryMediaManager_THIS :commonString->INIT];
+        [[ProgressCanvasFactory getInstance] addNormalPortion:50 :"Media Manager"];
+        [[((Sounds*) [Sounds alloc]) init:soundsFactoryInterface] init_];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllBinaryMediaManager::shutdown(SoundsFactoryInterface* soundsFactoryInterface) -> void{
-(new Sounds(soundsFactoryInterface))->stopAll();
-    
-(new Sounds(soundsFactoryInterface))->closeAll();
-    
-TsUtil::getInstance()->gc();
-    
+// throws Exception
++ (void) shutdown:(SoundsFactoryInterface*)soundsFactoryInterface {
+        [[((Sounds*) [Sounds alloc]) init:soundsFactoryInterface] stopAll];
+        [[((Sounds*) [Sounds alloc]) init:soundsFactoryInterface] closeAll];
+        [[TsUtil getInstance] gc];
 }
 
 
-    auto AllBinaryMediaManager::createPlayerFromInputStream(InputStream* stream, std::string type) -> Player*{
-
-    LogUtil* logUtil = LogUtil::getInstance();;
-    
-
-    CommonStrings* commonString = CommonStrings::getInstance();;
-    
-logUtil->putF(commonString->START, AllBinaryMediaManager::THIS, "creatPlayer(InputStream)");
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<Player*>(NoPlayer::NO_PLAYER);
-    
++ (Player*) createPlayerFromInputStream:(InputStream*)stream :(const char*)type {
+        LogUtil* logUtil = [LogUtil getInstance];
+        CommonStrings* commonString = [CommonStrings getInstance];
+        [logUtil putF:commonString->START :AllBinaryMediaManager_THIS :"creatPlayer(InputStream)"];
+        return ((Player*) (NoPlayer_staticInit(), NoPlayer_NO_PLAYER));
 }
 
 
-    auto AllBinaryMediaManager::createPlayer(std::string locator) -> Player*{
-
-    LogUtil* logUtil = LogUtil::getInstance();;
-    
-
-    CommonStrings* commonString = CommonStrings::getInstance();;
-    
-logUtil->putF(commonString->START, AllBinaryMediaManager::THIS, "creatPlayer(locator)");
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<Player*>(NoPlayer::NO_PLAYER);
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto AllBinaryMediaManager::playTone(int32_t frequency, int32_t time, int32_t volume) -> void{
++ (Player*) createPlayer:(const char*)locator {
+        LogUtil* logUtil = [LogUtil getInstance];
+        CommonStrings* commonString = [CommonStrings getInstance];
+        [logUtil putF:commonString->START :AllBinaryMediaManager_THIS :"creatPlayer(locator)"];
+        return ((Player*) (NoPlayer_staticInit(), NoPlayer_NO_PLAYER));
 }
 
 
-    auto AllBinaryMediaManager::getSupportedContentTypes(std::string protocol) -> std::vector<std::string>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->getArrayInstance();;
-    
+// synchronized
++ (void) playTone:(int32_t)frequency :(int32_t)time :(int32_t)volume {
 }
 
 
-    auto AllBinaryMediaManager::getSupportedProtocols(std::string content_type) -> std::vector<std::string>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->getArrayInstance();;
-    
++ (const char**) getSupportedContentTypes:(const char*)protocol {
+        return [[StringUtil getInstance] getArrayInstance];
 }
 
 
++ (const char**) getSupportedProtocols:(const char*)content_type {
+        return [[StringUtil getInstance] getArrayInstance];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_ALLBINARYMEDIAMANAGER_CPP

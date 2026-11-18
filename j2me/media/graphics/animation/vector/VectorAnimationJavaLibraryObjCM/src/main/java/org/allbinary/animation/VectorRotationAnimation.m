@@ -1,127 +1,76 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_VECTORROTATIONANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_VECTORROTATIONANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/VectorRotationAnimation.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/direction/Direction.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/math/Angle.h>
-
-      
-#include <org/allbinary/math/AngleFactory.h>
-
-      
-#include <org/allbinary/math/AngleInfo.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/VectorBaseRotationAnimation.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/VectorRotationAnimation.h"
+#include "org/allbinary/direction/Direction.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/math/Angle.h"
+#include "org/allbinary/math/AngleFactory.h"
+#include "org/allbinary/math/AngleInfo.h"
+#include "org/allbinary/animation/VectorBaseRotationAnimation.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
+#if __has_include("org/allbinary/animation/AngleIncrementInfo.h")
+#include "org/allbinary/animation/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/direction/AngleIncrementInfo.h")
+#include "org/allbinary/direction/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/AngleIncrementInfo.h")
+#include "org/allbinary/graphics/color/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
 
 
-VectorRotationAnimation::VectorRotationAnimation(std::vector<std::vector<std::vector<int32_t>>> currentPoints, BasicColor* basicColor, AnimationBehavior* animationBehavior) : VectorBaseRotationAnimation(AngleInfo::getInstance((AngleFactory::getInstance()->TOTAL_ANGLE /currentPoints.size())), currentPoints, basicColor, animationBehavior){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void VectorRotationAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
-this->angleInfo->adjustAngle(this->getFrame());
-    
+@implementation VectorRotationAnimation
+
+
+- (instancetype) init:(int32_t***)currentPoints :(BasicColor*)basicColor :(AnimationBehavior*)animationBehavior {
+        self = [super init:[AngleInfo getInstance:((int16_t) (((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE) / java_array_length(currentPoints)))] :currentPoints :basicColor :animationBehavior];
+        [self->angleInfo adjustAngle:[self getFrame]];
+    return self;
 }
 
 
-    auto VectorRotationAnimation::setFrameByDirection(Direction* direction) -> void{
-
-    Angle* angle = this->directionUtil->getFrameAngle(direction);;
-    
-this->adjustFrameToAngle(angle);
-    
+- (void) setFrameByDirection:(Direction*)direction {
+        Angle* angle = [self->directionUtil getFrameAngle:direction];
+        [self adjustFrameToAngle:angle];
 }
 
 
-    auto VectorRotationAnimation::setFrameToAngle(Angle* angle) -> void{
-this->adjustFrameToAngle(angle);
-    
+- (void) setFrameToAngle:(Angle*)angle {
+        [self adjustFrameToAngle:angle];
 }
 
 
-    auto VectorRotationAnimation::setFrame(int32_t index) -> void{
-VectorBaseRotationAnimation::setFrame(index);
-    
-this->angleInfo->adjustAngle(this->getFrame());
-    
+- (void) setFrame:(int32_t)index {
+        [super setFrame:index];
+        [self->angleInfo adjustAngle:[self getFrame]];
 }
 
 
-    auto VectorRotationAnimation::adjustFrame(int16_t newAngle) -> void{
-this->setFrame(this->frameUtil->getFrameForAngle(newAngle, static_cast<int32_t>(this->angleInfo->getAngleIncrementInfo()->getAngleIncrement())));
-    
+- (void) adjustFrame:(int16_t)newAngle {
+        [self setFrame:[self->frameUtil getFrameForAngle:newAngle :((int32_t) [[self->angleInfo getAngleIncrementInfo] getAngleIncrement])]];
 }
 
 
-    auto VectorRotationAnimation::adjustFrameToAngle(Angle* newAngle) -> void{
-this->adjustFrame(newAngle->getValue());
-    
+- (void) adjustFrameToAngle:(Angle*)newAngle {
+        [self adjustFrame:[newAngle getValue]];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_VECTORROTATIONANIMATION_CPP

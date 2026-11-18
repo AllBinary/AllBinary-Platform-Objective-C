@@ -1,81 +1,31 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/platform/graphics/PlatformBitmapBaseFactory.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/platform/graphics/PlatformBitmapBase.h"
 
 
+PlatformBitmapBaseFactory* PlatformBitmapBaseFactory_NULL_PLATFORM_BITMAP_BASE_FACTORY;
 
-        #ifndef ORG_ALLBINARY_PLATFORM_GRAPHICS_PLATFORMBITMAPBASEFACTORY_CPP
-        #define ORG_ALLBINARY_PLATFORM_GRAPHICS_PLATFORMBITMAPBASEFACTORY_CPP
+void PlatformBitmapBaseFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PlatformBitmapBaseFactory_NULL_PLATFORM_BITMAP_BASE_FACTORY = [((PlatformBitmapBaseFactory*) [PlatformBitmapBaseFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/platform/graphics/PlatformBitmapBaseFactory.h"
-        
+@implementation PlatformBitmapBaseFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/platform/graphics/PlatformBitmapBase.h"
-
-
-PlatformBitmapBaseFactory::PlatformBitmapBaseFactory() {
-        }
-        auto PlatformBitmapBaseFactory::NULL_PLATFORM_BITMAP_BASE_FACTORY_owner() -> PlatformBitmapBaseFactory* { static std::unique_ptr<PlatformBitmapBaseFactory> value(new PlatformBitmapBaseFactory()); return value.get(); }
-PlatformBitmapBaseFactory* PlatformBitmapBaseFactory::NULL_PLATFORM_BITMAP_BASE_FACTORY = PlatformBitmapBaseFactory::NULL_PLATFORM_BITMAP_BASE_FACTORY_owner();
-
-    auto PlatformBitmapBaseFactory::createBitmap(Image* image) -> PlatformBitmapBase*{
-
-
-
-                            throw RuntimeException();
-                    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+- (PlatformBitmapBase*) createBitmap:(Image*)image {
+        java_throw(java_exception_new("RuntimeException", ""));
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_PLATFORM_GRAPHICS_PLATFORMBITMAPBASEFACTORY_CPP

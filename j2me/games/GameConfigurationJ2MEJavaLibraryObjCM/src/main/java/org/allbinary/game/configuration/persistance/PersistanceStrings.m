@@ -1,78 +1,44 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/persistance/PersistanceStrings.h"
 
 
+static PersistanceStrings* PersistanceStrings_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_PERSISTANCESTRINGS_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_PERSISTANCESTRINGS_CPP
+void PersistanceStrings_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PersistanceStrings_instance = [((PersistanceStrings*) [PersistanceStrings alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/persistance/PersistanceStrings.h"
-        
+@implementation PersistanceStrings
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->SAVING = "Saving: ";
+    self->NUMBER_OF_RECORDS = "Number of records: ";
+    self->LOADING_ID = "Loading data with id: ";
+    self->LOAD_ALL = "loadAll";
+    self->DELETING_WITH_ID = "Deleting data with id: ";
+    self->CLOSING_RECORDSTORE = "Closing RecordStore";
+    self->NOT_SAVING = "Not Saving: ";
+    self->ERROR_LOADING = "Error Loading gameActionInput: ";
+    self->ERROR_LOADING_ID = "Error Loading id: ";
+    self->ID = " id: ";
+    self->GAME_ACTION_INPUT = " GameActionInput: ";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-PersistanceStrings::PersistanceStrings() {
-        }
-        auto PersistanceStrings::instance_owner() -> PersistanceStrings* { static std::unique_ptr<PersistanceStrings> value(new PersistanceStrings()); return value.get(); }
-PersistanceStrings* PersistanceStrings::instance = PersistanceStrings::instance_owner();
-
-    auto PersistanceStrings::getInstance() -> PersistanceStrings*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PersistanceStrings::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (PersistanceStrings*) getInstance {
+        return (PersistanceStrings_staticInit(), PersistanceStrings_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_PERSISTANCESTRINGS_CPP

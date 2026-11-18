@@ -1,75 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/paint/StringLocationPaintable.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/paint/LocationPaintable.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_PAINT_STRINGLOCATIONPAINTABLE_CPP
-        #define ORG_ALLBINARY_GRAPHICS_PAINT_STRINGLOCATIONPAINTABLE_CPP
+void StringLocationPaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/paint/StringLocationPaintable.h"
-        
+@implementation StringLocationPaintable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/paint/LocationPaintable.h"
-
-
-StringLocationPaintable::StringLocationPaintable(std::string value){
-this->value= value;
+- (void) initFields {
     
 }
 
 
-    auto StringLocationPaintable::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-graphics->drawString(this->value, x, y, 0);
-    
+- (instancetype) init:(const char*)value {
+    self = [super init];
+    [self initFields];
+        self->value = value;
+    return self;
 }
 
 
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [graphics drawString:self->value :x :y :0];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_PAINT_STRINGLOCATIONPAINTABLE_CPP

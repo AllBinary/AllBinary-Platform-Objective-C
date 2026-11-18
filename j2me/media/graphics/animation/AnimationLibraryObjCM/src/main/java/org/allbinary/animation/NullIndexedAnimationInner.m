@@ -1,78 +1,30 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                * 
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                * 
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                * 
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_NULLINDEXEDANIMATIONINNER_CPP
-        #define ORG_ALLBINARY_ANIMATION_NULLINDEXEDANIMATIONINNER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/NullIndexedAnimationInner.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/NullIndexedAnimation.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/NullIndexedAnimationInner.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/NullIndexedAnimation.h"
 #include "org/allbinary/animation/IndexedAnimationBehavior.h"
 
 
-NullIndexedAnimationInner::NullIndexedAnimationInner() : NullIndexedAnimation(new IndexedAnimationBehavior(1, 250)){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void NullIndexedAnimationInner_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
+@implementation NullIndexedAnimationInner
+
+
+- (instancetype) init {
+        self = [super init:[((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:1 :250]];
+    return self;
 }
 
 
-    auto NullIndexedAnimationInner::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_NULLINDEXEDANIMATIONINNER_CPP

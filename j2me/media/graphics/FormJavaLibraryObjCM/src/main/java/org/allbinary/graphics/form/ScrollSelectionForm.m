@@ -1,109 +1,21 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_SCROLLSELECTIONFORM_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_SCROLLSELECTIONFORM_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/ScrollSelectionForm.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Canvas.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/GPoint.h>
-
-      
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/form/item/ABCustomItem.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/math/RectangleCollisionUtil.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/PaintableForm.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/ScrollSelectionForm.h"
+#include "javax/microedition/lcdui/Canvas.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/GPoint.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/graphics/form/item/ABCustomItem.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/math/RectangleCollisionUtil.h"
+#include "org/allbinary/string/CommonLabels.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/graphics/form/PaintableForm.h"
 #include "org/allbinary/graphics/form/ItemPaintableFactory.h"
 #include "org/allbinary/graphics/form/ItemIndexPaintable.h"
 #include "org/allbinary/graphics/form/ItemIndexDx.h"
@@ -118,794 +30,310 @@
 #include "org/allbinary/graphics/form/FormType.h"
 
 
-    auto ScrollSelectionForm::createForm(std::string title, std::vector<ABCustomItem*> items, ItemPaintableFactory* formPaintableFactory, int32_t border, BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor) -> PaintableForm*{
+static id ScrollSelectionForm_NULL_SCROLL_SELECTION_FORM;
+static id ScrollSelectionForm_NULL_SCROLL_SELECTION_HORIZONTAL_FORM;
+static const char* ScrollSelectionForm_INSIDE_FORM = " inside form";
+static const char* ScrollSelectionForm_IS_IN_FORM = "isInForm";
+static const char* ScrollSelectionForm_GET_SELECTED_INDEX = "getSelectedIndexForPoint";
 
-        try {
-            
-                        if(formPaintableFactory == ItemPaintableFactory::getInstance())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new ScrollSelectionForm(title, items, formPaintableFactory, border,  -3, backgroundBasicColor, foregroundBasicColor);
-    
-
-                                    }
-                                
-                        else {
-                            
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-
-    LogUtil* logUtil = LogUtil::getInstance();;
-    
-logUtil->putF(commonStrings->EXCEPTION, logUtil, commonStrings->EXCEPTION);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PaintableForm::getNullPaintableForm();;
-    
-
-                        }
-                            
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-
-    LogUtil* logUtil = LogUtil::getInstance();;
-    
-logUtil->put(commonStrings->EXCEPTION, logUtil, commonStrings->EXCEPTION, &e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PaintableForm::getNullPaintableForm();;
-    
+void ScrollSelectionForm_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ScrollSelectionForm_NULL_SCROLL_SELECTION_FORM = [NullUtil getInstance]->NULL_OBJECT;
+    ScrollSelectionForm_NULL_SCROLL_SELECTION_HORIZONTAL_FORM = [NullUtil getInstance]->NULL_OBJECT;
 }
 
-}
+@implementation ScrollSelectionForm
 
-Object* ScrollSelectionForm::NULL_SCROLL_SELECTION_FORM = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto ScrollSelectionForm::getNullScrollSelectionForm() -> ScrollSelectionForm*{
-
-                        if(ScrollSelectionForm::NULL_SCROLL_SELECTION_FORM == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    ScrollSelectionForm::NULL_SCROLL_SELECTION_FORM= ScrollSelectionForm::createForm(StringUtil::getInstance()->EMPTY_STRING, {}, ItemPaintableFactory::getInstance(), 0, BasicColorFactory::getInstance()->BLACK, BasicColorFactory::getInstance()->WHITE);
+- (void) initFields {
+    self->rectangleCollisionUtil = [RectangleCollisionUtil getInstance];
     
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<ScrollSelectionForm*>(ScrollSelectionForm::NULL_SCROLL_SELECTION_FORM);
     
-}
-
-Object* ScrollSelectionForm::NULL_SCROLL_SELECTION_HORIZONTAL_FORM = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto ScrollSelectionForm::getNullScrollSelectionFormHorizontal() -> ScrollSelectionForm*{
-
-                        if(ScrollSelectionForm::NULL_SCROLL_SELECTION_HORIZONTAL_FORM == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    ScrollSelectionForm::NULL_SCROLL_SELECTION_HORIZONTAL_FORM= ScrollSelectionForm::createForm(StringUtil::getInstance()->EMPTY_STRING, {}, ItemPaintableFactory::getInstance(), 0, BasicColorFactory::getInstance()->BLACK, BasicColorFactory::getInstance()->WHITE);
     
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<ScrollSelectionForm*>(ScrollSelectionForm::NULL_SCROLL_SELECTION_HORIZONTAL_FORM);
+    self->scrollSelectionFormFormTypeItemIndexPaintable = [ItemIndexPaintable getInstance];
+    self->formTypeItemIndexDx = [ItemIndexDx getInstance];
+    self->paintable = [ItemPaintableFactory getInstance];
     
 }
 
 
-ScrollSelectionForm::ScrollSelectionForm(std::string title, std::vector<ABCustomItem*> items, ItemPaintableFactory* formPaintableFactory, int32_t border, int32_t adjustedExtraBorder, BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor) : PaintableForm(title, items, backgroundBasicColor, foregroundBasicColor), rectangleCollisionUtil(RectangleCollisionUtil::getInstance()), scrollSelectionFormFormTypeItemIndexPaintable(ItemIndexPaintable::getInstance()), formTypeItemIndexDx(ItemIndexDx::getInstance()), paintable(ItemPaintableFactory::getInstance()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->adjustedExtraBorder= adjustedExtraBorder;
-    
-this->buttonBasicColor= foregroundBasicColor;
-    
-this->border= border;
-    
-this->halfBorder= (border>>1);
-    
-this->paintable= formPaintableFactory->getInstanceItemPaintable(this);
-    
++ (PaintableForm*) createForm:(const char*)title :(ABCustomItem**)items :(ItemPaintableFactory*)formPaintableFactory :(int32_t)border :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor {
+        JAVA_TRY {
+            if (formPaintableFactory == [ItemPaintableFactory getInstance]) {
+                return [((ScrollSelectionForm*) [ScrollSelectionForm alloc]) init:title :items :formPaintableFactory :border :-3 :backgroundBasicColor :foregroundBasicColor];
+            } else {
+                CommonStrings* commonStrings = [CommonStrings getInstance];
+                LogUtil* logUtil = [LogUtil getInstance];
+                [logUtil putF:commonStrings->EXCEPTION :logUtil :commonStrings->EXCEPTION];
+                return [PaintableForm getNullPaintableForm];
+            }
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            LogUtil* logUtil = [LogUtil getInstance];
+            [logUtil put:commonStrings->EXCEPTION :logUtil :commonStrings->EXCEPTION :e];
+            return [PaintableForm getNullPaintableForm];
+        } JAVA_END_TRY;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ScrollSelectionForm::init(Rectangle* rectangle, FormType* formType) -> void{
-PaintableForm::init(rectangle, formType);
-    
-
-    FormTypeFactory* formTypeFactory = FormTypeFactory::getInstance();;
-    
-
-                        if(formType == formTypeFactory->HORIZONTAL_FORM)
-                        
-                                    {
-                                    this->scrollSelectionFormFormTypeItemIndexPaintable= new ScrollSelectionFormHorizontalPaintable(this);
-    
-this->formTypeItemIndexDx= new ScrollSelectionFormHorizontalDx(this);
-    
-
-                                    }
-                                
-                             else 
-                        if(formType == formTypeFactory->VERTICAL_CENTER_FORM)
-                        
-                                    {
-                                    this->scrollSelectionFormFormTypeItemIndexPaintable= new ScrollSelectionFormVerticalPaintable(this);
-    
-this->formTypeItemIndexDx= new ScrollSelectionFormVericalDx(this);
-    
-
-                                    }
-                                
-                             else 
-                        if(formType == formTypeFactory->TEMP_HORIZONTAL_FORM)
-                        
-                                    {
-                                    this->scrollSelectionFormFormTypeItemIndexPaintable= new ScrollSelectionFormTempHorizontalPaintable(this);
-    
-this->formTypeItemIndexDx= new ScrollSelectionFormTempHorizontalDx(this);
-    
-
-                                    }
-                                
-                             else 
-                        if(formType == formTypeFactory->NULL_FORM_TYPE)
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw Exception(formTypeFactory->UNK);
-                    
-
-                        }
-                            
++ (ScrollSelectionForm*) getNullScrollSelectionForm {
+        if ((ScrollSelectionForm_staticInit(), ScrollSelectionForm_NULL_SCROLL_SELECTION_FORM) == [NullUtil getInstance]->NULL_OBJECT) {
+            ScrollSelectionForm_NULL_SCROLL_SELECTION_FORM = [ScrollSelectionForm createForm:[StringUtil getInstance]->EMPTY_STRING :((ABCustomItem**) java_array_new(sizeof(ABCustomItem*), 0)) :[ItemPaintableFactory getInstance] :0 :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE];
+        }
+        return ((ScrollSelectionForm*) (ScrollSelectionForm_staticInit(), ScrollSelectionForm_NULL_SCROLL_SELECTION_FORM));
 }
 
 
-    auto ScrollSelectionForm::paintItemHorizontal(Graphics* graphics, int32_t index, ABCustomItem* item, int32_t x, int32_t y) -> int32_t{
-
-    int32_t width = item->getMinimumWidth();;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return x +width +this->border;
-    
++ (ScrollSelectionForm*) getNullScrollSelectionFormHorizontal {
+        if ((ScrollSelectionForm_staticInit(), ScrollSelectionForm_NULL_SCROLL_SELECTION_HORIZONTAL_FORM) == [NullUtil getInstance]->NULL_OBJECT) {
+            ScrollSelectionForm_NULL_SCROLL_SELECTION_HORIZONTAL_FORM = [ScrollSelectionForm createForm:[StringUtil getInstance]->EMPTY_STRING :((ABCustomItem**) java_array_new(sizeof(ABCustomItem*), 0)) :[ItemPaintableFactory getInstance] :0 :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE];
+        }
+        return ((ScrollSelectionForm*) (ScrollSelectionForm_staticInit(), ScrollSelectionForm_NULL_SCROLL_SELECTION_HORIZONTAL_FORM));
 }
 
 
-    auto ScrollSelectionForm::paintItemVertical(Graphics* graphics, int32_t index, ABCustomItem* item, int32_t x, int32_t y) -> int32_t{
-
-    int32_t height = item->getMinimumHeight();;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return y +height +this->border;
-    
+- (instancetype) init:(const char*)title :(ABCustomItem**)items :(ItemPaintableFactory*)formPaintableFactory :(int32_t)border :(int32_t)adjustedExtraBorder :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor {
+        self = [super init:title :items :backgroundBasicColor :foregroundBasicColor];
+        [self initFields];
+        self->adjustedExtraBorder = adjustedExtraBorder;
+        self->buttonBasicColor = foregroundBasicColor;
+        self->border = border;
+        self->halfBorder = (border >> 1);
+        self->paintable = [formPaintableFactory getInstanceItemPaintable:self];
+    return self;
 }
 
 
-    auto ScrollSelectionForm::paintItemTempHorizontal(Graphics* graphics, int32_t index, ABCustomItem* item, int32_t x, int32_t y) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+// throws Exception
+- (void) init_:(Rectangle*)rectangle :(FormType*)formType {
+        [super init_:rectangle :formType];
+        FormTypeFactory* formTypeFactory = [FormTypeFactory getInstance];
+        if (formType == formTypeFactory->HORIZONTAL_FORM) {
+            self->scrollSelectionFormFormTypeItemIndexPaintable = [((ScrollSelectionFormHorizontalPaintable*) [ScrollSelectionFormHorizontalPaintable alloc]) init:self];
+            self->formTypeItemIndexDx = [((ScrollSelectionFormHorizontalDx*) [ScrollSelectionFormHorizontalDx alloc]) init:self];
+        } else if (formType == formTypeFactory->VERTICAL_CENTER_FORM) {
+            self->scrollSelectionFormFormTypeItemIndexPaintable = [((ScrollSelectionFormVerticalPaintable*) [ScrollSelectionFormVerticalPaintable alloc]) init:self];
+            self->formTypeItemIndexDx = [((ScrollSelectionFormVericalDx*) [ScrollSelectionFormVericalDx alloc]) init:self];
+        } else if (formType == formTypeFactory->TEMP_HORIZONTAL_FORM) {
+            self->scrollSelectionFormFormTypeItemIndexPaintable = [((ScrollSelectionFormTempHorizontalPaintable*) [ScrollSelectionFormTempHorizontalPaintable alloc]) init:self];
+            self->formTypeItemIndexDx = [((ScrollSelectionFormTempHorizontalDx*) [ScrollSelectionFormTempHorizontalDx alloc]) init:self];
+        } else if (formType == formTypeFactory->NULL_FORM_TYPE) {
+        } else {
+            java_throw(java_exception_new("Exception", formTypeFactory->UNK));
+        }
 }
 
 
-    auto ScrollSelectionForm::getSelectedIndexForPointHorizontalDx(int32_t index, ABCustomItem* item, int32_t dx, int32_t dy) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dx -this->halfBorder;
-    
+- (int32_t) paintItemHorizontal:(Graphics*)graphics :(int32_t)index :(ABCustomItem*)item :(int32_t)x :(int32_t)y {
+        int32_t width = [item getMinimumWidth];
+        return x + width + self->border;
 }
 
 
-    auto ScrollSelectionForm::getSelectedIndexForPointVerticalDx(int32_t index, ABCustomItem* item, int32_t dx, int32_t dy) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dx +this->getDiffX(item);
-    
+- (int32_t) paintItemVertical:(Graphics*)graphics :(int32_t)index :(ABCustomItem*)item :(int32_t)x :(int32_t)y {
+        int32_t height = [item getMinimumHeight];
+        return y + height + self->border;
 }
 
 
-    auto ScrollSelectionForm::getSelectedIndexForPointTempHorizontalDx(int32_t index, ABCustomItem* item, int32_t dx, int32_t dy) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dx +this->getDiffX(item);
-    
+- (int32_t) paintItemTempHorizontal:(Graphics*)graphics :(int32_t)index :(ABCustomItem*)item :(int32_t)x :(int32_t)y {
+        return 0;
 }
 
 
-    auto ScrollSelectionForm::append(ABCustomItem* item) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PaintableForm::append(item);;
-    
+- (int32_t) getSelectedIndexForPointHorizontalDx:(int32_t)index :(ABCustomItem*)item :(int32_t)dx :(int32_t)dy {
+        return dx - self->halfBorder;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ScrollSelectionForm::getSelectedItem(GPoint* point) -> ABCustomItem*{
-
-    int32_t index = this->getSelectedIndexForPoint(point);;
-    
-
-                        if(index !=  -1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->get(index);;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ABCustomItem::getNullInstance();;
-    
-
-                        }
-                            
+- (int32_t) getSelectedIndexForPointVerticalDx:(int32_t)index :(ABCustomItem*)item :(int32_t)dx :(int32_t)dy {
+        return dx + [self getDiffX:item];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ScrollSelectionForm::getItemIndex(ABCustomItem* item) -> int32_t{
-
-    ABCustomItem* nextItem;;
-    
-
-    int32_t size = this->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-nextItem= dynamic_cast<ABCustomItem*>(this->get(index));
-    
-
-                        if(nextItem == item)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return index;
-    
-
-                                    }
-                                
+- (int32_t) getSelectedIndexForPointTempHorizontalDx:(int32_t)index :(ABCustomItem*)item :(int32_t)dx :(int32_t)dy {
+        return dx + [self getDiffX:item];
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+- (int32_t) append:(ABCustomItem*)item {
+        return [super append:item];
 }
 
 
-    auto ScrollSelectionForm::getStartIndex() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+// throws Exception
+- (ABCustomItem*) getSelectedItem:(GPoint*)point {
+        int32_t index = [self getSelectedIndexForPoint:point];
+        if (index != -1) {
+            return [self get:index];
+        } else {
+            return [ABCustomItem getNullInstance];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ScrollSelectionForm::getSelectedIndexForPoint(GPoint* point) -> int32_t{
-
-    int32_t start = this->getStartIndex();;
-    
-
-    int32_t size = this->size();;
-    
-
-    int32_t dx = this->getDx();;
-    
-
-    int32_t dy = this->getDy();;
-    
-
-    FormTypeFactory* formTypeFactory = FormTypeFactory::getInstance();;
-    
-
-    CommonLabels* commonLabels = CommonLabels::getInstance();;
-    
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append(commonLabels->START_LABEL);
-    
-stringBuffer->appendint(start);
-    
-stringBuffer->append(CommonSeps::getInstance()->SPACE);
-    
-stringBuffer->append(commonLabels->TOTAL_LABEL);
-    
-stringBuffer->appendint(size);
-    
-this->logUtil->putF(JavaString::valueOf(stringBuffer), this, ScrollSelectionForm::GET_SELECTED_INDEX);
-    
-
-    ABCustomItem* item;;
-    
-
-    int32_t width= 0;;
-    
-
-    int32_t height= 0;;
-    
-
-    int32_t diffX= 0;;
-    
-
-
-
-
-                        for (
-    int32_t index = start;index < size; index++)
-        {
-item= this->get(index);
-    
-width= item->getMinimumWidth();
-    
-height= item->getMinimumHeight();
-    
-diffX= this->formTypeItemIndexDx->getDx(index, item, dx, dy);
-    
-
-                        if(this->rectangleCollisionUtil->isInside(diffX, dy -this->halfBorder, diffX +width +this->border, dy +height +this->halfBorder +1, point->getX(), point->getY()))
-                        
-                                    {
-                                    stringBuffer->delete_(0, stringBuffer->length());
-    
-stringBuffer->append(commonLabels->ITEM_LABEL);
-    
-stringBuffer->append(item->getLabel());
-    
-stringBuffer->append(CommonSeps::getInstance()->SPACE);
-    
-stringBuffer->append(commonLabels->INDEX_LABEL);
-    
-stringBuffer->appendint(index);
-    
-this->logUtil->putF(JavaString::valueOf(stringBuffer), this, ScrollSelectionForm::GET_SELECTED_INDEX);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return index;
-    
-
-                                    }
-                                
-
-                        if(this->formType == formTypeFactory->HORIZONTAL_FORM)
-                        
-                                    {
-                                    dx= dx +width +this->border;
-    
-
-                        if(dx > this->rectangle->getMaxX())
-                        
-                                    {
-                                    break;
-
-                    
-
-                                    }
-                                
-
-                                    }
-                                
-                             else 
-                        if(this->formType == formTypeFactory->VERTICAL_CENTER_FORM)
-                        
-                                    {
-                                    dy= dy +height +this->border;
-    
-
-                        if(dy > this->rectangle->getMaxY())
-                        
-                                    {
-                                    break;
-
-                    
-
-                                    }
-                                
-
-                                    }
-                                
-                             else 
-                        if(this->formType == formTypeFactory->NULL_FORM_TYPE)
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw Exception(formTypeFactory->UNK);
-                    
-
-                        }
-                            
+// throws Exception
+- (int32_t) getItemIndex:(ABCustomItem*)item {
+        ABCustomItem* nextItem = nullptr;
+        int32_t size = [self size];
+        for (int32_t index = 0; index < size; index++) {
+            nextItem = ((ABCustomItem*) [self get:index]);
+            if (nextItem == item) {
+                return index;
+            }
+        }
+        return -1;
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+- (int32_t) getStartIndex {
+        return 0;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ScrollSelectionForm::processInputKey(int32_t gameKeyCode) -> int32_t{
-
-    FormTypeFactory* formTypeFactory = FormTypeFactory::getInstance();;
-    
-
-                        if(this->size() == 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
-
-                                    }
-                                
-
-    int32_t index = this->getSelectedIndex();;
-    
-
-                        if(this->formType == formTypeFactory->HORIZONTAL_FORM || this->formType == formTypeFactory->TEMP_HORIZONTAL_FORM)
-                        
-                                    {
-                                    
-                        if(gameKeyCode == Canvas::RIGHT)
-                        
-                                    {
-                                    index++;
-    
-
-                                    }
-                                
-                             else 
-                        if(gameKeyCode == Canvas::LEFT)
-                        
-                                    {
-                                    index--;
-    
-
-                                    }
-                                
-
-                                    }
-                                
-                             else 
-                        if(this->formType == formTypeFactory->VERTICAL_CENTER_FORM)
-                        
-                                    {
-                                    
-                        if(gameKeyCode == Canvas::DOWN)
-                        
-                                    {
-                                    index++;
-    
-
-                                    }
-                                
-                             else 
-                        if(gameKeyCode == Canvas::UP)
-                        
-                                    {
-                                    index--;
-    
-
-                                    }
-                                
-
-                                    }
-                                
-                             else 
-                        if(this->formType == formTypeFactory->NULL_FORM_TYPE)
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw Exception(formTypeFactory->UNK);
-                    
-
-                        }
-                            
-
-    int32_t max = this->size() -1;;
-    
-
-                        if(index < 0)
-                        
-                                    {
-                                    this->setSelectedIndex(0);
-    
-
-                                    }
-                                
-                             else 
-                        if(index > max)
-                        
-                                    {
-                                    this->setSelectedIndex(max);
-    
-
-                                    }
-                                
-                        else {
-                            this->setSelectedIndex(index);
-    
-
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+// throws Exception
+- (int32_t) getSelectedIndexForPoint:(GPoint*)point {
+        int32_t start = [self getStartIndex];
+        int32_t size = [self size];
+        int32_t dx = [self getDx];
+        int32_t dy = [self getDy];
+        FormTypeFactory* formTypeFactory = [FormTypeFactory getInstance];
+        CommonLabels* commonLabels = [CommonLabels getInstance];
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:commonLabels->START_LABEL];
+        [stringBuffer appendint:start];
+        [stringBuffer append:[CommonSeps getInstance]->SPACE];
+        [stringBuffer append:commonLabels->TOTAL_LABEL];
+        [stringBuffer appendint:size];
+        [self->logUtil putF:[stringBuffer toString] :self :ScrollSelectionForm_GET_SELECTED_INDEX];
+        ABCustomItem* item = nullptr;
+        int32_t width = 0;
+        int32_t height = 0;
+        int32_t diffX = 0;
+        for (int32_t index = start; index < size; index++) {
+            item = [self get:index];
+            width = [item getMinimumWidth];
+            height = [item getMinimumHeight];
+            diffX = [self->formTypeItemIndexDx getDx:index :item :dx :dy];
+            if ([self->rectangleCollisionUtil isInside:diffX :dy - self->halfBorder :diffX + width + self->border :dy + height + self->halfBorder + 1 :[point getX] :[point getY]]) {
+                [stringBuffer delete:0 :[stringBuffer length]];
+                [stringBuffer append:commonLabels->ITEM_LABEL];
+                [stringBuffer append:[item getLabel]];
+                [stringBuffer append:[CommonSeps getInstance]->SPACE];
+                [stringBuffer append:commonLabels->INDEX_LABEL];
+                [stringBuffer appendint:index];
+                [self->logUtil putF:[stringBuffer toString] :self :ScrollSelectionForm_GET_SELECTED_INDEX];
+                return index;
+            }
+            if (self->formType == formTypeFactory->HORIZONTAL_FORM) {
+                dx = dx + width + self->border;
+                if (dx > [self->rectangle getMaxX]) {
+                    break;
+                }
+            } else if (self->formType == formTypeFactory->VERTICAL_CENTER_FORM) {
+                dy = dy + height + self->border;
+                if (dy > [self->rectangle getMaxY]) {
+                    break;
+                }
+            } else if (self->formType == formTypeFactory->NULL_FORM_TYPE) {
+            } else {
+                java_throw(java_exception_new("Exception", formTypeFactory->UNK));
+            }
+        }
+        return -1;
 }
 
 
-    auto ScrollSelectionForm::isInForm(GPoint* point) -> bool{
-
-                        if(this->rectangleCollisionUtil->isInside(this->x, this->y -this->halfBorder, this->rectangle->getMaxX() +this->border, this->rectangle->getMaxY() +this->border, point->getX(), point->getY()))
-                        
-                                    {
-                                    this->logUtil->putF(JavaString::valueOf((new StringMaker())->append(StringUtil::getInstance()->toString(point))->append(ScrollSelectionForm::INSIDE_FORM)), this, ScrollSelectionForm::IS_IN_FORM);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+// throws Exception
+- (int32_t) processInputKey:(int32_t)gameKeyCode {
+        FormTypeFactory* formTypeFactory = [FormTypeFactory getInstance];
+        if ([self size] == 0) {
+            return -1;
+        }
+        int32_t index = [self getSelectedIndex];
+        if (self->formType == formTypeFactory->HORIZONTAL_FORM || self->formType == formTypeFactory->TEMP_HORIZONTAL_FORM) {
+            if (gameKeyCode == (Canvas_staticInit(), Canvas_RIGHT)) {
+                index++;
+            } else if (gameKeyCode == (Canvas_staticInit(), Canvas_LEFT)) {
+                index--;
+            }
+        } else if (self->formType == formTypeFactory->VERTICAL_CENTER_FORM) {
+            if (gameKeyCode == (Canvas_staticInit(), Canvas_DOWN)) {
+                index++;
+            } else if (gameKeyCode == (Canvas_staticInit(), Canvas_UP)) {
+                index--;
+            }
+        } else if (self->formType == formTypeFactory->NULL_FORM_TYPE) {
+        } else {
+            java_throw(java_exception_new("Exception", formTypeFactory->UNK));
+        }
+        int32_t max = [self size] - 1;
+        if (index < 0) {
+            [self setSelectedIndex:0];
+        } else if (index > max) {
+            [self setSelectedIndex:max];
+        } else {
+            [self setSelectedIndex:index];
+        }
+        return -1;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ScrollSelectionForm::paintItem(Graphics* graphics, int32_t index, ABCustomItem* item, int32_t x, int32_t y) -> int32_t{
-item->paintXY(graphics, x, y);
-    
-
-    int32_t width = item->getMinimumWidth();;
-    
-
-    int32_t height = item->getMinimumHeight();;
-    
-graphics->setColor(JavaBoxes::value<int32_t>(this->getButtonBasicColor()));
-    
-
-    int32_t adjustedBorder = 3;;
-    
-graphics->drawRect(x -this->halfBorder -adjustedBorder, y -this->halfBorder -adjustedBorder, width +this->border +this->adjustedExtraBorder, height +this->border +this->adjustedExtraBorder);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->scrollSelectionFormFormTypeItemIndexPaintable->paint(graphics, index, item, x, y);;
-    
+- (bool) isInForm:(GPoint*)point {
+        if ([self->rectangleCollisionUtil isInside:self->x :self->y - self->halfBorder :[self->rectangle getMaxX] + self->border :[self->rectangle getMaxY] + self->border :[point getX] :[point getY]]) {
+            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[[StringUtil getInstance] toString:point]] append:ScrollSelectionForm_INSIDE_FORM] toString] :self :ScrollSelectionForm_IS_IN_FORM];
+            return true;
+        }
+        return false;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ScrollSelectionForm::paintUnselectedItem(Graphics* graphics, int32_t index, ABCustomItem* item, int32_t x, int32_t y) -> int32_t{
-graphics->setColor(JavaBoxes::value<int32_t>(this->getButtonBasicColor()));
-    
-item->paintUnselected(graphics, x, y);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->scrollSelectionFormFormTypeItemIndexPaintable->paint(graphics, index, item, x, y);;
-    
+// throws Exception
+- (int32_t) paintItem:(Graphics*)graphics :(int32_t)index :(ABCustomItem*)item :(int32_t)x :(int32_t)y {
+        [item paintXY:graphics :x :y];
+        int32_t width = [item getMinimumWidth];
+        int32_t height = [item getMinimumHeight];
+        [graphics setColor:[[self getButtonBasicColor] intValue]];
+        int32_t adjustedBorder = 3;
+        [graphics drawRect:x - self->halfBorder - adjustedBorder :y - self->halfBorder - adjustedBorder :width + self->border + self->adjustedExtraBorder :height + self->border + self->adjustedExtraBorder];
+        return [self->scrollSelectionFormFormTypeItemIndexPaintable paint:graphics :index :item :x :y];
 }
 
 
-    auto ScrollSelectionForm::getDiffX(ABCustomItem* item) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+// throws Exception
+- (int32_t) paintUnselectedItem:(Graphics*)graphics :(int32_t)index :(ABCustomItem*)item :(int32_t)x :(int32_t)y {
+        [graphics setColor:[[self getButtonBasicColor] intValue]];
+        [item paintUnselected:graphics :x :y];
+        return [self->scrollSelectionFormFormTypeItemIndexPaintable paint:graphics :index :item :x :y];
 }
 
 
-    auto ScrollSelectionForm::getDx() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->x;
-    
+- (int32_t) getDiffX:(ABCustomItem*)item {
+        return 0;
 }
 
 
-    auto ScrollSelectionForm::getDy() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->y;
-    
+- (int32_t) getDx {
+        return self->x;
 }
 
 
-    auto ScrollSelectionForm::setButtonBasicColor(BasicColor* buttonBasicColor) -> void{
-this->buttonBasicColor= buttonBasicColor;
-    
+- (int32_t) getDy {
+        return self->y;
 }
 
 
-    auto ScrollSelectionForm::getButtonBasicColor() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->buttonBasicColor;
-    
+- (void) setButtonBasicColor:(BasicColor*)buttonBasicColor {
+        self->buttonBasicColor = buttonBasicColor;
 }
 
 
+- (BasicColor*) getButtonBasicColor {
+        return self->buttonBasicColor;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_SCROLLSELECTIONFORM_CPP

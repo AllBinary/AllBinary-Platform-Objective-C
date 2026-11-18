@@ -1,111 +1,49 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/math/vector/Vertex.h"
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/math/PositionStrings.h"
+#include "org/allbinary/string/CommonSeps.h"
 
 
 
-        #ifndef ORG_ALLBINARY_LOGIC_MATH_VECTOR_VERTEX_CPP
-        #define ORG_ALLBINARY_LOGIC_MATH_VECTOR_VERTEX_CPP
+void Vertex_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/math/vector/Vertex.h"
-        
+@implementation Vertex
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/math/BasicDecimal.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/math/PositionStrings.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-Vertex::Vertex() : x(new BasicDecimal(0)), y(new BasicDecimal(0)), z(new BasicDecimal(0)){
+- (void) initFields {
+    self->x = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
+    self->y = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
+    self->z = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
 }
 
 
-    auto Vertex::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-
-    PositionStrings* positionStrings = PositionStrings::getInstance();;
-    
-stringBuffer->append(positionStrings->X_LABEL);
-    
-stringBuffer->append(JavaString::valueOf(this->x));
-    
-stringBuffer->append(CommonSeps::getInstance()->SPACE);
-    
-stringBuffer->append(positionStrings->Y_LABEL);
-    
-stringBuffer->append(JavaString::valueOf(this->y));
-    
-stringBuffer->append(CommonSeps::getInstance()->SPACE);
-    
-stringBuffer->append(positionStrings->Z_LABEL);
-    
-stringBuffer->append(JavaString::valueOf(this->z));
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        PositionStrings* positionStrings = [PositionStrings getInstance];
+        [stringBuffer append:positionStrings->X_LABEL];
+        [stringBuffer append:[self->x toString]];
+        [stringBuffer append:[CommonSeps getInstance]->SPACE];
+        [stringBuffer append:positionStrings->Y_LABEL];
+        [stringBuffer append:[self->y toString]];
+        [stringBuffer append:[CommonSeps getInstance]->SPACE];
+        [stringBuffer append:positionStrings->Z_LABEL];
+        [stringBuffer append:[self->z toString]];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_MATH_VECTOR_VERTEX_CPP

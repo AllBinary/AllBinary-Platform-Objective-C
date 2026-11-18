@@ -1,272 +1,158 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATION_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/GameConfiguration.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-            #include "java/lang/Boolean.h"
-        
-#include <org/allbinary/game/configuration/event/GameFeatureEvent.h>
-
-      
-#include <org/allbinary/game/configuration/event/GameFeatureEventHandler.h>
-
-      
-#include <org/allbinary/logic/java/bool/BooleanFactory.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/GameConfiguration.h"
+#include "org/allbinary/game/configuration/event/GameFeatureEvent.h"
+#include "org/allbinary/game/configuration/event/GameFeatureEventHandler.h"
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/game/configuration/GameConfigurationSingleton.h"
+#if __has_include("org/allbinary/game/configuration/ABHashtable.h")
+#include "org/allbinary/game/configuration/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/ABHashtable.h")
+#include "org/allbinary/game/configuration/event/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/ABHashtable.h")
+#include "org/allbinary/game/configuration/event/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/ABHashtable.h")
+#include "org/allbinary/logic/java/bool/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/logic/math/ABHashtable.h")
+#include "org/allbinary/logic/math/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/logic/string/ABHashtable.h")
+#include "org/allbinary/logic/string/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/logic/string/ABHashtable.h")
+#include "org/allbinary/logic/string/ABHashtable.h"
+#endif
 
 
+static int32_t GameConfiguration_MIN_VALUE;
 
+void GameConfiguration_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameConfiguration_MIN_VALUE = (Integer_staticInit(), Integer_MIN_VALUE);
+}
 
+@implementation GameConfiguration
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/configuration/GameConfigurationSingleton.h"
-
-int32_t GameConfiguration::MIN_VALUE = int32_t(Integer.MIN_VALUE);
-
-GameConfiguration::GameConfiguration(std::string name, int32_t defaultValue, int32_t minValue, int32_t maxValue) : name(StringUtil::getInstance()->EMPTY_STRING), defaultValue(SmallIntegerSingletonFactory::getInstance()->getAt(0)), value(GameConfiguration::MIN_VALUE), minValue(this->defaultValue), maxValue(this->defaultValue), modifiable(BooleanFactory::getInstance()->TRUE){
-this->setName(name);
-    
-this->setDefaultValue(defaultValue);
-    
-this->value= this->getDefaultValue();
-    
-this->setMinValue(minValue);
-    
-this->setMaxValue(maxValue);
-    
-GameConfigurationSingleton::getInstance()->getHashtable()->put(this->getName(), this);
-    
+- (void) initFields {
+    self->name = [StringUtil getInstance]->EMPTY_STRING;
+    self->defaultValue = [[SmallIntegerSingletonFactory getInstance] getAt:0];
+    self->value = (GameConfiguration_staticInit(), GameConfiguration_MIN_VALUE);
+    self->minValue = self->defaultValue;
+    self->maxValue = self->defaultValue;
+    self->modifiable = [BooleanFactory getInstance]->TRUE;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GameConfiguration::setValue(int32_t value) -> void{
-
-                        if(this->value != value)
-                        
-                                    {
-                                    
-    int32_t oldValue = this->value;;
-    
-this->value= value;
-    
-GameFeatureEventHandler::getInstance()->fireEvent(new GameFeatureEvent(this, JavaString::valueOf((new StringMaker())->append(this->name)->append(" value: from: ")->appendint(oldValue)->append(" to ")->appendint(this->value))));
-    
-
-                                    }
-                                
+- (instancetype) init:(const char*)name :(int32_t)defaultValue :(int32_t)minValue :(int32_t)maxValue {
+    self = [super init];
+    [self initFields];
+        [self setName:name];
+        [self setDefaultValue:defaultValue];
+        self->value = [self getDefaultValue];
+        [self setMinValue:minValue];
+        [self setMaxValue:maxValue];
+        [[[GameConfigurationSingleton getInstance] getHashtable] put:JAVA_BOX([self getName]) :JAVA_BOX(self)];
+    return self;
 }
 
 
-    auto GameConfiguration::getValue() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->value;
-    
+// throws Exception
+- (void) setValue:(int32_t)value {
+        if (self->value != value) {
+            int32_t oldValue = self->value;
+            self->value = value;
+            [[GameFeatureEventHandler getInstance] fireEvent:[((GameFeatureEvent*) [GameFeatureEvent alloc]) init:self :[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->name] append:" value: from: "] appendint:((int32_t) ((int32_t) (oldValue)))] append:" to "] appendint:((int32_t) ((int32_t) (self->value)))] toString]]];
+        }
 }
 
 
-    auto GameConfiguration::setMaxValue(int32_t maxValue) -> void{
-this->maxValue= maxValue;
-    
+- (int32_t) getValue {
+        return self->value;
 }
 
 
-    auto GameConfiguration::getMaxValue() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->maxValue;
-    
+- (void) setMaxValue:(int32_t)maxValue {
+        self->maxValue = maxValue;
 }
 
 
-    auto GameConfiguration::setMinValue(int32_t minValue) -> void{
-this->minValue= minValue;
-    
+- (int32_t) getMaxValue {
+        return self->maxValue;
 }
 
 
-    auto GameConfiguration::getMinValue() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->minValue;
-    
+- (void) setMinValue:(int32_t)minValue {
+        self->minValue = minValue;
 }
 
 
-    auto GameConfiguration::setName(std::string name) -> void{
-this->name= name;
-    
+- (int32_t) getMinValue {
+        return self->minValue;
 }
 
 
-    auto GameConfiguration::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->name;
-    
+- (void) setName:(const char*)name {
+        self->name = name;
 }
 
 
-    auto GameConfiguration::setDefaultValue(int32_t defaultValue) -> void{
-this->defaultValue= defaultValue;
-    
+- (const char*) getName {
+        return self->name;
 }
 
 
-    auto GameConfiguration::getDefaultValue() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->defaultValue;
-    
+- (void) setDefaultValue:(int32_t)defaultValue {
+        self->defaultValue = defaultValue;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GameConfiguration::setDefault() -> void{
-this->setValue(this->getDefaultValue());
-    
+- (int32_t) getDefaultValue {
+        return self->defaultValue;
 }
 
 
-    auto GameConfiguration::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("Name: ");
-    
-stringBuffer->append(this->name);
-    
-stringBuffer->append(" Min: ");
-    
-stringBuffer->appendint(this->getMinValue());
-    
-stringBuffer->append(" Max: ");
-    
-stringBuffer->appendint(this->getMaxValue());
-    
-stringBuffer->append(" Value: ");
-    
-stringBuffer->appendint(this->getValue());
-    
-stringBuffer->append(" Default: ");
-    
-stringBuffer->appendint(this->getDefaultValue());
-    
-stringBuffer->append(" Modifiable: ");
-    
-stringBuffer->appendboolean(this->isModifiable());
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+// throws Exception
+- (void) setDefault {
+        [self setValue:[self getDefaultValue]];
 }
 
 
-    auto GameConfiguration::setModifiable(bool modifiable) -> void{
-this->modifiable= modifiable;
-    
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:"Name: "];
+        [stringBuffer append:self->name];
+        [stringBuffer append:" Min: "];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self getMinValue])))];
+        [stringBuffer append:" Max: "];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self getMaxValue])))];
+        [stringBuffer append:" Value: "];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self getValue])))];
+        [stringBuffer append:" Default: "];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self getDefaultValue])))];
+        [stringBuffer append:" Modifiable: "];
+        [stringBuffer appendboolean:((bool) ([self isModifiable]))];
+        return [stringBuffer toString];
 }
 
 
-    auto GameConfiguration::isModifiable() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->modifiable;
-    
+- (void) setModifiable:(bool)modifiable {
+        self->modifiable = modifiable;
 }
 
 
+- (bool) isModifiable {
+        return self->modifiable;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATION_CPP

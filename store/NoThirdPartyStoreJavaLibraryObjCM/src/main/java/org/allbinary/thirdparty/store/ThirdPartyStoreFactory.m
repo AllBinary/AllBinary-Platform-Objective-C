@@ -1,81 +1,32 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTOREFACTORY_CPP
-        #define ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTOREFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/thirdparty/store/ThirdPartyStoreFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/thirdparty/store/NoThirdPartyStore.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/thirdparty/store/ThirdPartyStoreFactory.h"
+#include "org/allbinary/thirdparty/store/NoThirdPartyStore.h"
 #include "org/allbinary/thirdparty/store/ThirdPartyStore.h"
 
-auto ThirdPartyStoreFactory::instance_owner() -> NoThirdPartyStore* { static std::unique_ptr<NoThirdPartyStore> value(new NoThirdPartyStore()); return value.get(); }
-NoThirdPartyStore* ThirdPartyStoreFactory::instance = ThirdPartyStoreFactory::instance_owner();
 
-    auto ThirdPartyStoreFactory::getInstance() -> ThirdPartyStore*{
+static NoThirdPartyStore* ThirdPartyStoreFactory_instance;
+
+void ThirdPartyStoreFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ThirdPartyStoreFactory_instance = [((NoThirdPartyStore*) [NoThirdPartyStore alloc]) init];
+}
+
+@implementation ThirdPartyStoreFactory
 
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ThirdPartyStoreFactory::instance;
-    
++ (ThirdPartyStore*) getInstance {
+        return (ThirdPartyStoreFactory_staticInit(), ThirdPartyStoreFactory_instance);
 }
 
 
-ThirdPartyStoreFactory::ThirdPartyStoreFactory(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTOREFACTORY_CPP

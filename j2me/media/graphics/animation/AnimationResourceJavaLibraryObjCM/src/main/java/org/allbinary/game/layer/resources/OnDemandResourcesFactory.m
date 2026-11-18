@@ -1,89 +1,33 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/resources/OnDemandResourcesFactory.h"
+#include "org/allbinary/game/layer/resources/OnDemandResources.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_RESOURCES_ONDEMANDRESOURCESFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_RESOURCES_ONDEMANDRESOURCESFACTORY_CPP
+void OnDemandResourcesFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/resources/OnDemandResourcesFactory.h"
-        
+@implementation OnDemandResourcesFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/resources/OnDemandResources.h"
-
-
-OnDemandResourcesFactory::OnDemandResourcesFactory() {
-        }
-        
-    auto OnDemandResourcesFactory::size() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto OnDemandResourcesFactory::remove(int32_t layerId) -> OnDemandResources*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return OnDemandResources::NULL_ON_DEMAND_RESOURCES;
-    
+- (int32_t) size {
+        return 0;
 }
 
 
+- (OnDemandResources*) remove:(int32_t)layerId {
+        return (OnDemandResources_staticInit(), OnDemandResources_NULL_ON_DEMAND_RESOURCES);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_RESOURCES_ONDEMANDRESOURCESFACTORY_CPP

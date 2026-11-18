@@ -1,161 +1,66 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORESHELPER_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORESHELPER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/HighScoresHelper.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/util/CircularIndexUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/score/HighScoresHelperBase.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/HighScoresHelper.h"
+#include "org/allbinary/util/CircularIndexUtil.h"
+#include "org/allbinary/game/score/HighScoresHelperBase.h"
 #include "org/allbinary/game/score/HighScores.h"
 
 
-HighScoresHelper::HighScoresHelper() : circularIndexUtil(CircularIndexUtil::createInstanceAt(0, 0)) {
+
+void HighScoresHelper_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation HighScoresHelper
+
+- (void) initFields {
+    self->circularIndexUtil = [CircularIndexUtil createInstanceAt:0 :0];
+    self->lastIndex = -1;
+}
+
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
+
+
+- (void) setHighScoresArray:(HighScores**)highScoresArrayP {
+        [super setHighScoresArray:highScoresArrayP];
+        [self->circularIndexUtil setSize:java_array_length(self->highScoresArrayP)];
+}
+
+
+- (HighScores*) getNextHighScores {
+        HighScores* highScores = self->highScoresArrayP[[self->circularIndexUtil getIndex]];
+        int32_t index = 0;
+        while (([highScores getTotal] < 1 || self->lastIndex == [self->circularIndexUtil getIndex]) && index < java_array_length(self->highScoresArrayP)) {
+            [self->circularIndexUtil next];
+            highScores = self->highScoresArrayP[[self->circularIndexUtil getIndex]];
+            index++;
         }
-        
-    auto HighScoresHelper::setHighScoresArray(std::vector<HighScores*> highScoresArrayP) -> void{
-HighScoresHelperBase::setHighScoresArray(highScoresArrayP);
-    
-this->circularIndexUtil->setSize(this->highScoresArrayP.size());
-    
+        self->lastIndex = [self->circularIndexUtil getIndex];
+        return highScores;
 }
 
 
-    auto HighScoresHelper::getNextHighScores() -> HighScores*{
-
-    HighScores* highScores = this->highScoresArrayP[this->circularIndexUtil->getIndex()];;
-    
-
-    int32_t index = 0;;
-    
-
-        while((highScores->getTotal() < 1 || this->lastIndex == this->circularIndexUtil->getIndex()) && index < this->highScoresArrayP.size())
-        {
-this->circularIndexUtil->next();
-    
-highScores= this->highScoresArrayP[this->circularIndexUtil->getIndex()];
-    
-index++;
-    
+- (bool) isAnyHighScores {
+        if (java_array_length(self->highScoresArrayP) < 1) {
+            return false;
+        }
+        bool anyScores = false;
+        HighScores* highScores = nullptr;
+        for (int32_t index = java_array_length(self->highScoresArrayP) - 1; index >= 0; index--) {
+            highScores = self->highScoresArrayP[index];
+            if ([highScores getTotal] > 0) {
+                anyScores = true;
+            }
+        }
+        return anyScores;
 }
 
-this->lastIndex= this->circularIndexUtil->getIndex();
-    
+@end
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return highScores;
-    
-}
-
-
-    auto HighScoresHelper::isAnyHighScores() -> bool{
-
-                        if(this->highScoresArrayP.size() < 1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                                    }
-                                
-
-    bool anyScores = false;;
-    
-
-    HighScores* highScores;;
-    
-
-
-
-
-                        for (
-    int32_t index = this->highScoresArrayP.size() -1;index >= 0; index--)
-        {
-highScores= this->highScoresArrayP[index];
-    
-
-                        if(highScores->getTotal() > 0)
-                        
-                                    {
-                                    anyScores= true;
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return anyScores;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_SCORE_HIGHSCORESHELPER_CPP

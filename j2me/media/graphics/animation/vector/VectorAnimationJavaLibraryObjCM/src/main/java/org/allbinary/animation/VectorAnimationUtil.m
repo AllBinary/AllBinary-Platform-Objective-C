@@ -1,223 +1,79 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/VectorAnimationUtil.h"
+#include "org/allbinary/graphics/GPoint.h"
+#include "org/allbinary/util/BasicArrayList.h"
 
 
+static VectorAnimationUtil* VectorAnimationUtil_instance;
 
-        #ifndef ORG_ALLBINARY_ANIMATION_VECTORANIMATIONUTIL_CPP
-        #define ORG_ALLBINARY_ANIMATION_VECTORANIMATIONUTIL_CPP
+void VectorAnimationUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    VectorAnimationUtil_instance = [((VectorAnimationUtil*) [VectorAnimationUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/VectorAnimationUtil.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/graphics/GPoint.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
+@implementation VectorAnimationUtil
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto VectorAnimationUtil::instance_owner() -> VectorAnimationUtil* { static std::unique_ptr<VectorAnimationUtil> value(new VectorAnimationUtil()); return value.get(); }
-VectorAnimationUtil* VectorAnimationUtil::instance = VectorAnimationUtil::instance_owner();
-
-    auto VectorAnimationUtil::getInstance() -> VectorAnimationUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return VectorAnimationUtil::instance;
-    
++ (VectorAnimationUtil*) getInstance {
+        return (VectorAnimationUtil_staticInit(), VectorAnimationUtil_instance);
 }
 
 
-VectorAnimationUtil::VectorAnimationUtil(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto VectorAnimationUtil::toAnimationArrayFromListOfPointListWithPointsPerFrame(BasicArrayList* vector, int32_t pointsPerFrame) -> std::vector<std::vector<std::vector<int32_t>>>{
-
-    int32_t size = vector->size();;
-    
-
-    std::vector<std::vector<std::vector<int32_t>>> points = std::vector<std::vector<std::vector<int32_t>>>(size, std::vector<std::vector<int32_t>>(pointsPerFrame, std::vector<int32_t>(2)));;
-    
-
-    BasicArrayList* nextBasicArrayList;;
-    
-
-    std::vector<std::vector<int32_t>> framePoints;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-nextBasicArrayList= dynamic_cast<BasicArrayList*>(vector->objectArray[index]);
-    
-framePoints= this->toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
-    
-
-
-
-
-                        for (
-    int32_t pointIndex = 0;pointIndex < framePoints.size(); pointIndex++)
-        {
-points[index][pointIndex][0]= framePoints[pointIndex][0];
-    
-points[index][pointIndex][1]= framePoints[pointIndex][1];
-    
-}
-
+- (int32_t***) toAnimationArrayFromListOfPointListWithPointsPerFrame:(BasicArrayList*)vector :(int32_t)pointsPerFrame {
+        int32_t size = [vector size];
+        int32_t*** points = ((int32_t***) java_array_new3(sizeof(int32_t), size, pointsPerFrame, 2));
+        BasicArrayList* nextBasicArrayList = nullptr;
+        int32_t** framePoints = nullptr;
+        for (int32_t index = 0; index < size; index++) {
+            nextBasicArrayList = ((BasicArrayList*) vector->objectArray[index]);
+            framePoints = [self toFrameArrayFromPointBasicArrayList:nextBasicArrayList];
+            for (int32_t pointIndex = 0; pointIndex < java_array_length(framePoints); pointIndex++) {
+                points[index][pointIndex][0] = framePoints[pointIndex][0];
+                points[index][pointIndex][1] = framePoints[pointIndex][1];
+            }
+        }
+        return points;
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return points;
-    
+- (int32_t***) toAnimationArrayFromListOfPointList:(BasicArrayList*)vector {
+        int32_t size = [vector size];
+        int32_t*** points = ((int32_t***) java_array_new3(sizeof(int32_t), size, 0, 0));
+        BasicArrayList* nextBasicArrayList = nullptr;
+        int32_t** framePoints = nullptr;
+        for (int32_t index = 0; index < size; index++) {
+            nextBasicArrayList = ((BasicArrayList*) vector->objectArray[index]);
+            framePoints = [self toFrameArrayFromPointBasicArrayList:nextBasicArrayList];
+            points[index] = ((int32_t**) java_array_new2(sizeof(int32_t), java_array_length(framePoints), 2));
+            for (int32_t pointIndex = 0; pointIndex < java_array_length(framePoints); pointIndex++) {
+                points[index][pointIndex][0] = framePoints[pointIndex][0];
+                points[index][pointIndex][1] = framePoints[pointIndex][1];
+            }
+        }
+        return points;
 }
 
 
-    auto VectorAnimationUtil::toAnimationArrayFromListOfPointList(BasicArrayList* vector) -> std::vector<std::vector<std::vector<int32_t>>>{
-
-    int32_t size = vector->size();;
-    
-
-    std::vector<std::vector<std::vector<int32_t>>> points = std::vector<std::vector<std::vector<int32_t>>>(size, std::vector<std::vector<int32_t>>(0, std::vector<int32_t>(0)));;
-    
-
-    BasicArrayList* nextBasicArrayList;;
-    
-
-    std::vector<std::vector<int32_t>> framePoints;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-nextBasicArrayList= dynamic_cast<BasicArrayList*>(vector->objectArray[index]);
-    
-framePoints= this->toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
-    
-points[index]= std::vector<std::vector<int32_t>>(framePoints.size(), std::vector<int32_t>(2));
-    
-
-
-
-
-                        for (
-    int32_t pointIndex = 0;pointIndex < framePoints.size(); pointIndex++)
-        {
-points[index][pointIndex][0]= framePoints[pointIndex][0];
-    
-points[index][pointIndex][1]= framePoints[pointIndex][1];
-    
+- (int32_t**) toFrameArrayFromPointBasicArrayList:(BasicArrayList*)list {
+        int32_t** points = ((int32_t**) java_array_new2(sizeof(int32_t), [list size], 2));
+        int32_t size = [list size];
+        for (int32_t index = 0; index < size; index++) {
+            GPoint* nextPoint = ((GPoint*) list->objectArray[index]);
+            points[index][0] = [nextPoint getX];
+            points[index][1] = [nextPoint getY];
+        }
+        return points;
 }
 
-}
+@end
 
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return points;
-    
-}
-
-
-    auto VectorAnimationUtil::toFrameArrayFromPointBasicArrayList(BasicArrayList* list) -> std::vector<std::vector<int32_t>>{
-
-    std::vector<std::vector<int32_t>> points = std::vector<std::vector<int32_t>>(list->size(), std::vector<int32_t>(2));;
-    
-
-    int32_t size = list->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-
-    GPoint* nextPoint = dynamic_cast<GPoint*>(list->objectArray[index]);;
-    
-points[index][0]= nextPoint->getX();
-    
-points[index][1]= nextPoint->getY();
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return points;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_VECTORANIMATIONUTIL_CPP

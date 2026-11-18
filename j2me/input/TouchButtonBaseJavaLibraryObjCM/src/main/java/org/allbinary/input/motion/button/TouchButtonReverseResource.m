@@ -1,83 +1,31 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/TouchButtonReverseResource.h"
+#include "org/allbinary/input/motion/button/TouchButtonResource.h"
 
 
+static TouchButtonResource* TouchButtonReverseResource_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONREVERSERESOURCE_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONREVERSERESOURCE_CPP
+void TouchButtonReverseResource_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TouchButtonReverseResource_instance = [((TouchButtonReverseResource*) [TouchButtonReverseResource alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/TouchButtonReverseResource.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
+@implementation TouchButtonReverseResource
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/button/TouchButtonResource.h"
-
-TouchButtonResource* TouchButtonReverseResource::instance = new TouchButtonReverseResource();
-
-    auto TouchButtonReverseResource::getInstance() -> TouchButtonResource*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TouchButtonReverseResource::instance;
-    
++ (TouchButtonResource*) getInstance {
+        return (TouchButtonReverseResource_staticInit(), TouchButtonReverseResource_instance);
 }
 
 
-TouchButtonReverseResource::TouchButtonReverseResource() : TouchButtonResource("/touch_button_reverse_64_by_64.png", "/touch_button_reverse_hint_64_by_64.png"){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init {
+        self = [super init:"/touch_button_reverse_64_by_64.png" :"/touch_button_reverse_hint_64_by_64.png"];
+    return self;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONREVERSERESOURCE_CPP

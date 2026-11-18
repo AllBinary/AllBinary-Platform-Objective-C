@@ -1,79 +1,35 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/io/AbFileLocalInputStream.h"
+#include "org/allbinary/logic/io/file/AbFile.h"
+#include "org/allbinary/logic/io/file/AbFileNativeUtil.h"
+#include "org/allbinary/logic/io/AbFileInputStream.h"
+#if __has_include("org/allbinary/logic/io/File.h")
+#include "org/allbinary/logic/io/File.h"
+#endif
+#if __has_include("org/allbinary/logic/io/file/File.h")
+#include "org/allbinary/logic/io/file/File.h"
+#endif
+#if __has_include("org/allbinary/logic/io/file/File.h")
+#include "org/allbinary/logic/io/file/File.h"
+#endif
 
 
 
-        #ifndef ORG_ALLBINARY_LOGIC_IO_ABFILELOCALINPUTSTREAM_CPP
-        #define ORG_ALLBINARY_LOGIC_IO_ABFILELOCALINPUTSTREAM_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/io/AbFileLocalInputStream.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <java/io/FileNotFoundException.h>
-
-      
-#include <org/allbinary/logic/io/file/AbFile.h>
-
-      
-#include <org/allbinary/logic/io/file/AbFileNativeUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/logic/io/AbFileInputStream.h"
-
-
-AbFileLocalInputStream::AbFileLocalInputStream(AbFile* file) : AbFileInputStream(AbFileNativeUtil::get(file)->getPath()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+void AbFileLocalInputStream_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
 }
 
+@implementation AbFileLocalInputStream
 
 
+- (instancetype) init:(AbFile*)file {
+        self = [super init:[[AbFileNativeUtil get:file] getPath]];
+    return self;
+}
 
-        #endif //ORG_ALLBINARY_LOGIC_IO_ABFILELOCALINPUTSTREAM_CPP
+@end
+

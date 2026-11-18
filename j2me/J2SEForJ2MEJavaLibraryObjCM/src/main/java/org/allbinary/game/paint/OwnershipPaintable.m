@@ -1,157 +1,78 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/paint/OwnershipPaintable.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/Anchor.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#include "org/allbinary/graphics/font/MyFontProcessor.h"
+#include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_PAINT_OWNERSHIPPAINTABLE_CPP
-        #define ORG_ALLBINARY_GAME_PAINT_OWNERSHIPPAINTABLE_CPP
+void OwnershipPaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/paint/OwnershipPaintable.h"
-        
+@implementation OwnershipPaintable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/Anchor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
-
-      
-#include <org/allbinary/graphics/font/MyFontProcessor.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontInterface.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontProcessor.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //J2SEForJ2ME
-
-    auto OwnershipPaintable::getInstance() -> OwnershipPaintable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new OwnershipPaintable();
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->displayInfo = [DisplayInfoSingleton getInstance];
+    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->COPYRIGHT = "AllBinary Copyright (c) 2011";
+    self->basicColor = [BasicColorFactory getInstance]->WHITE;
+    self->color = [self->basicColor intValue];
+    self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
+    self->COPYRIGHT_Y = 0;
+    self->beginWidth = 0;
 }
 
 
-OwnershipPaintable::OwnershipPaintable() : logUtil(LogUtil::getInstance()), displayInfo(DisplayInfoSingleton::getInstance()), myFontProcessor(new UpdateMyFontProcessor(this)), basicColor(BasicColorFactory::getInstance()->WHITE), color(this->basicColor->intValue()), anchor(Anchor::TOP_LEFT){
++ (OwnershipPaintable*) getInstance {
+        return [((OwnershipPaintable*) [OwnershipPaintable alloc]) init];
 }
 
 
-    auto OwnershipPaintable::updateMeasurement(Graphics* graphics) -> void{
-
-    Font* font = graphics->getFont();;
-    
-this->COPYRIGHT_Y= 2 *font->getHeight();
-    
-this->beginWidth= (font->stringWidth(this->COPYRIGHT)>>1);
-    
-this->myFontProcessor= MyFontProcessor::getInstance();
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto OwnershipPaintable::setBasicColorP(BasicColor* basicColor) -> void{
-this->basicColor= basicColor;
-    
-this->color= basicColor->intValue();
-    
+- (void) updateMeasurement:(Graphics*)graphics {
+        Font* font = [graphics getFont];
+        self->COPYRIGHT_Y = 2 * [font getHeight];
+        self->beginWidth = ([font stringWidth:self->COPYRIGHT] >> 1);
+        self->myFontProcessor = [MyFontProcessor getInstance];
 }
 
 
-    auto OwnershipPaintable::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->basicColor;
-    
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        self->basicColor = basicColor;
+        self->color = [basicColor intValue];
 }
 
 
-    auto OwnershipPaintable::paint(Graphics* graphics) -> void{
-this->myFontProcessor->process(graphics);
-    
-graphics->setColor(this->color);
-    
-
-    int32_t halfWidth = this->displayInfo->getLastHalfWidth();;
-    
-
-    int32_t height = this->displayInfo->getLastHeight();;
-    
-graphics->drawString(this->COPYRIGHT, halfWidth -this->beginWidth, height -this->COPYRIGHT_Y, this->anchor);
-    
+- (BasicColor*) getBasicColorP {
+        return self->basicColor;
 }
 
 
+- (void) paint:(Graphics*)graphics {
+        [self->myFontProcessor process:graphics];
+        [graphics setColor:self->color];
+        int32_t halfWidth = [self->displayInfo getLastHalfWidth];
+        int32_t height = [self->displayInfo getLastHeight];
+        [graphics drawString:self->COPYRIGHT :halfWidth - self->beginWidth :height - self->COPYRIGHT_Y :self->anchor];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_PAINT_OWNERSHIPPAINTABLE_CPP

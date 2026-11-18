@@ -1,79 +1,30 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/PrimaryPlayerQueueFactory.h"
+#include "org/allbinary/media/audio/PlayerQueue.h"
 
 
+static PlayerQueue* PrimaryPlayerQueueFactory_SINGLETON;
 
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_PRIMARYPLAYERQUEUEFACTORY_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_PRIMARYPLAYERQUEUEFACTORY_CPP
+void PrimaryPlayerQueueFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PrimaryPlayerQueueFactory_SINGLETON = [((PlayerQueue*) [PlayerQueue alloc]) init:4];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/PrimaryPlayerQueueFactory.h"
-        
+@implementation PrimaryPlayerQueueFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/PlayerQueue.h"
-
-
-PrimaryPlayerQueueFactory::PrimaryPlayerQueueFactory() {
-        }
-        auto PrimaryPlayerQueueFactory::SINGLETON_owner() -> PlayerQueue* { static std::unique_ptr<PlayerQueue> value(new PlayerQueue(4)); return value.get(); }
-PlayerQueue* PrimaryPlayerQueueFactory::SINGLETON = PrimaryPlayerQueueFactory::SINGLETON_owner();
-
-    auto PrimaryPlayerQueueFactory::getInstance() -> PlayerQueue*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimaryPlayerQueueFactory::SINGLETON;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
++ (PlayerQueue*) getInstance {
+        return (PrimaryPlayerQueueFactory_staticInit(), PrimaryPlayerQueueFactory_SINGLETON);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_PRIMARYPLAYERQUEUEFACTORY_CPP

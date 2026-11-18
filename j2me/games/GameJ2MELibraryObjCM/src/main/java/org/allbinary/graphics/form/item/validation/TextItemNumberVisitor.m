@@ -1,156 +1,54 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/item/validation/TextItemNumberVisitor.h"
+#include "org/allbinary/game/input/TextNotificationUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#include "org/allbinary/logic/string/StringValidationUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_TEXTITEMNUMBERVISITOR_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_TEXTITEMNUMBERVISITOR_CPP
+void TextItemNumberVisitor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/item/validation/TextItemNumberVisitor.h"
-        
+@implementation TextItemNumberVisitor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/input/TextNotificationUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/java/bool/BooleanFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringValidationUtil.h>
-
-      
-#include <org/allbinary/logic/util/visitor/Visitor.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-TextItemNumberVisitor::TextItemNumberVisitor() : logUtil(LogUtil::getInstance()){
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
 }
 
 
-    auto TextItemNumberVisitor::visit(Object* anyType) -> Object*{
-
-    std::string value = JavaBoxes::unbox<std::string>(anyType);;
-    
-
-                        if(value.size() < 2)
-                        
-                                    {
-                                    
-    StringValidationUtil* stringValidationUtil = StringValidationUtil::getInstance();;
-    
-
-                        if(stringValidationUtil->isNumber(value))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::toObject(BooleanFactory::getInstance()->TRUE);
-    
-
-                                    }
-                                
-                        else {
-                            
-        try {
-            TextNotificationUtil::getInstance()->fireError("Numbers Only");
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, commonStrings->VISIT, &e);
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::toObject(BooleanFactory::getInstance()->FALSE);
-    
-
-                        }
-                            
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::toObject(BooleanFactory::getInstance()->FALSE);
-    
-
-                        }
-                            
+- (id) visit:(id)anyType {
+        const char* value = ((const char*) anyType);
+        if (((int32_t) strlen(value)) < 2) {
+            StringValidationUtil* stringValidationUtil = [StringValidationUtil getInstance];
+            if ([stringValidationUtil isNumber:value]) {
+                return [BooleanFactory getInstance]->TRUE;
+            } else {
+                JAVA_TRY {
+                    [[TextNotificationUtil getInstance] fireError:"Numbers Only"];
+                } JAVA_CATCH(Exception, e) {
+                    CommonStrings* commonStrings = [CommonStrings getInstance];
+                    [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->VISIT :e];
+                } JAVA_END_TRY;
+                return [BooleanFactory getInstance]->FALSE;
+            }
+        } else {
+            return [BooleanFactory getInstance]->FALSE;
+        }
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_TEXTITEMNUMBERVISITOR_CPP

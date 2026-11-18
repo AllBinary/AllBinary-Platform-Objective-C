@@ -1,101 +1,41 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_EVENT_LASTDISPLAYCHANGEEVENTHANDLER_CPP
-        #define ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_EVENT_LASTDISPLAYCHANGEEVENTHANDLER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/displayable/event/LastDisplayChangeEventHandler.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/displayable/event/DisplayChangeEventListener.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/displayable/event/LastDisplayChangeEventHandler.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/graphics/displayable/event/DisplayChangeEventListener.h"
 #include "org/allbinary/graphics/displayable/event/DisplayChangeEvent.h"
 
-auto LastDisplayChangeEventHandler::SINGLETON_owner() -> LastDisplayChangeEventHandler* { static std::unique_ptr<LastDisplayChangeEventHandler> value(new LastDisplayChangeEventHandler()); return value.get(); }
-LastDisplayChangeEventHandler* LastDisplayChangeEventHandler::SINGLETON = LastDisplayChangeEventHandler::SINGLETON_owner();
 
-    auto LastDisplayChangeEventHandler::getInstance() -> LastDisplayChangeEventHandler*{
+static LastDisplayChangeEventHandler* LastDisplayChangeEventHandler_SINGLETON;
+
+void LastDisplayChangeEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    LastDisplayChangeEventHandler_SINGLETON = [((LastDisplayChangeEventHandler*) [LastDisplayChangeEventHandler alloc]) init];
+}
+
+@implementation LastDisplayChangeEventHandler
 
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return LastDisplayChangeEventHandler::SINGLETON;
-    
++ (LastDisplayChangeEventHandler*) getInstance {
+        return (LastDisplayChangeEventHandler_staticInit(), LastDisplayChangeEventHandler_SINGLETON);
 }
 
 
-LastDisplayChangeEventHandler::LastDisplayChangeEventHandler(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto LastDisplayChangeEventHandler::process(AllBinaryEventObject* eventObject, EventListenerInterface* eventListenerInterface) -> void{
-
-    DisplayChangeEventListener* displayChangeEventListener = (dynamic_cast<DisplayChangeEventListener*>(eventListenerInterface));;
-    
-displayChangeEventListener->onDisplayChangeEvent(dynamic_cast<DisplayChangeEvent*>(eventObject));
-    
+// throws Exception
+- (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
+        DisplayChangeEventListener* displayChangeEventListener = (((DisplayChangeEventListener*) eventListenerInterface));
+        [displayChangeEventListener onDisplayChangeEvent:((DisplayChangeEvent*) eventObject)];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_EVENT_LASTDISPLAYCHANGEEVENTHANDLER_CPP

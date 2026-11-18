@@ -1,256 +1,112 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/compound/SimultaneousCompoundIndexAnimation.h"
+#include "javax/microedition/khronos/opengles/GL.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDINDEXANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDINDEXANIMATION_CPP
+void SimultaneousCompoundIndexAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/compound/SimultaneousCompoundIndexAnimation.h"
-        
+@implementation SimultaneousCompoundIndexAnimation
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/khronos/opengles/GL.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/animation/IndexedAnimation.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-SimultaneousCompoundIndexAnimation::SimultaneousCompoundIndexAnimation(std::vector<IndexedAnimation*> animationInterfaceArray, AnimationBehavior* animationBehavior) : IndexedAnimation(animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->animationInterfaceArray= animationInterfaceArray;
+- (void) initFields {
     
 }
 
 
-    auto SimultaneousCompoundIndexAnimation::setFrame(int32_t frameIndex) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->setFrame(frameIndex);
-    
-}
-
+- (instancetype) init:(IndexedAnimation**)animationInterfaceArray :(AnimationBehavior*)animationBehavior {
+        self = [super init:animationBehavior];
+        [self initFields];
+        self->animationInterfaceArray = animationInterfaceArray;
+    return self;
 }
 
 
-    auto SimultaneousCompoundIndexAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[0]->getFrame();;
-    
+- (void) setFrame:(int32_t)frameIndex {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] setFrame:frameIndex];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto SimultaneousCompoundIndexAnimation::getAnimationSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[0]->getAnimationSize();;
-    
+- (int32_t) getFrame {
+        return [self->animationInterfaceArray[0] getFrame];
 }
 
 
-    auto SimultaneousCompoundIndexAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[0]->getSize();;
-    
+// throws Exception
+- (int32_t) getAnimationSize {
+        return [self->animationInterfaceArray[0] getAnimationSize];
 }
 
 
-    auto SimultaneousCompoundIndexAnimation::previousFrame() -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->previousFrame();
-    
-}
-
+- (int32_t) getSize {
+        return [self->animationInterfaceArray[0] getSize];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto SimultaneousCompoundIndexAnimation::nextFrame() -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->nextFrame();
-    
-}
-
+- (void) previousFrame {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] previousFrame];
+        }
 }
 
 
-    auto SimultaneousCompoundIndexAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+// throws Exception
+- (void) nextFrame {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] nextFrame];
+        }
 }
 
 
-    auto SimultaneousCompoundIndexAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
-    auto SimultaneousCompoundIndexAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->paintXY(graphics, x, y);
-    
-}
-
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
 }
 
 
-    auto SimultaneousCompoundIndexAnimation::paintThreedXYZ(Graphics* graphics, int32_t x, int32_t y, int32_t z) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->paintThreedXYZ(graphics, x, y, z);
-    
-}
-
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] paintXY:graphics :x :y];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto SimultaneousCompoundIndexAnimation::set(GL* gl) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->set(gl);
-    
-}
-
+- (void) paintThreedXYZ:(Graphics*)graphics :(int32_t)x :(int32_t)y :(int32_t)z {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] paintThreedXYZ:graphics :x :y :z];
+        }
 }
 
 
-    auto SimultaneousCompoundIndexAnimation::getAnimationInterfaceArray() -> std::vector<IndexedAnimation*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray;
-    
+// throws Exception
+- (void) set:(GL*)gl {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] set:gl];
+        }
 }
 
 
-    auto SimultaneousCompoundIndexAnimation::setAnimationInterfaceArray(std::vector<IndexedAnimation*> animationInterfaceArray) -> void{
-this->animationInterfaceArray= animationInterfaceArray;
-    
+- (IndexedAnimation**) getAnimationInterfaceArray {
+        return self->animationInterfaceArray;
 }
 
 
+- (void) setAnimationInterfaceArray:(IndexedAnimation**)animationInterfaceArray {
+        self->animationInterfaceArray = animationInterfaceArray;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDINDEXANIMATION_CPP

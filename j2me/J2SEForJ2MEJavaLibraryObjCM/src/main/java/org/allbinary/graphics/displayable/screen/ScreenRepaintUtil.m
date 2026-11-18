@@ -1,71 +1,27 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/displayable/screen/ScreenRepaintUtil.h"
+#include "javax/microedition/lcdui/Displayable.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_SCREENREPAINTUTIL_CPP
-        #define ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_SCREENREPAINTUTIL_CPP
+void ScreenRepaintUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/displayable/screen/ScreenRepaintUtil.h"
-        
+@implementation ScreenRepaintUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Displayable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ScreenRepaintUtil::ScreenRepaintUtil() {
-        }
-        
-    auto ScreenRepaintUtil::repaint(Displayable* displayable) -> void{
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
++ (void) repaint:(Displayable*)displayable {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_SCREENREPAINTUTIL_CPP

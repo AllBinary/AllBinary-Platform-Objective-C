@@ -1,92 +1,45 @@
+#ifndef ORG_ALLBINARY_MEDIA_AUDIO_COMPOSITESOUND_H
+#define ORG_ALLBINARY_MEDIA_AUDIO_COMPOSITESOUND_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.media.audio
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_COMPOSITESOUND_H
-        #define ORG_ALLBINARY_MEDIA_AUDIO_COMPOSITESOUND_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/Sound.h"
-class PlayerComposite;
-class AllBinaryMediaManager;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class CompositeSound: public Sound {
-
-/*protected*/ public: CompositeSound(std::string resource);
-
-                //@Throws(Exception.constructor)
-            
-    public: void init();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_COMPOSITESOUND_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_MEDIA_AUDIO_COMPOSITESOUND_H_COMPLETE)
-        #define ORG_ALLBINARY_MEDIA_AUDIO_COMPOSITESOUND_H_COMPLETE
-        #if __has_include("org/allbinary/media/audio/Sound.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class CompositeSound;
+@class Sound;
+@class PlayerComposite;
+@class AllBinaryMediaManager;
 #include "org/allbinary/media/audio/Sound.h"
-#endif
-#if __has_include("org/allbinary/media/audio/PlayerComposite.h")
-#include "org/allbinary/media/audio/PlayerComposite.h"
-#endif
-#if __has_include("org/allbinary/media/audio/AllBinaryMediaManager.h")
-#include "org/allbinary/media/audio/AllBinaryMediaManager.h"
-#endif
 
-        #endif
-    
+@interface CompositeSound : Sound {
+@public
+}
+- (instancetype) init:(const char*)resource;
+- (void) init_;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void CompositeSound_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_MEDIA_AUDIO_COMPOSITESOUND_H

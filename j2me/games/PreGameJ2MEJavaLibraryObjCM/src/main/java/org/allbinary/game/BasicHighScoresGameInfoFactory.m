@@ -1,82 +1,39 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_BASICHIGHSCORESGAMEINFOFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_BASICHIGHSCORESGAMEINFOFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/BasicHighScoresGameInfoFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/GameInfo.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/BasicHighScoresGameInfoFactory.h"
+#include "org/allbinary/game/GameInfo.h"
 #include "org/allbinary/game/GameTypeFactory.h"
 #include "org/allbinary/game/GameMode.h"
 #include "org/allbinary/game/PlayerTypesFactory.h"
 
 
-BasicHighScoresGameInfoFactory::BasicHighScoresGameInfoFactory() : MULTI_PLAYER_SERVER(new GameInfo(GameTypeFactory::getInstance()->MULTI_PLAYER, GameMode::SERVER, PlayerTypesFactory::getInstance()->PLAYER_TYPE_ONE, 0, 0)), SINGLE_PLAYER_SERVER(new GameInfo(GameTypeFactory::getInstance()->SINGLE_PLAYER, GameMode::SERVER, PlayerTypesFactory::getInstance()->PLAYER_TYPE_ONE, 0, 0)) {
-        }
-        auto BasicHighScoresGameInfoFactory::SINGLETON_owner() -> BasicHighScoresGameInfoFactory* { static std::unique_ptr<BasicHighScoresGameInfoFactory> value(new BasicHighScoresGameInfoFactory()); return value.get(); }
-BasicHighScoresGameInfoFactory* BasicHighScoresGameInfoFactory::SINGLETON = BasicHighScoresGameInfoFactory::SINGLETON_owner();
+static BasicHighScoresGameInfoFactory* BasicHighScoresGameInfoFactory_SINGLETON;
 
-    auto BasicHighScoresGameInfoFactory::getInstance() -> BasicHighScoresGameInfoFactory*{
+void BasicHighScoresGameInfoFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    BasicHighScoresGameInfoFactory_SINGLETON = [((BasicHighScoresGameInfoFactory*) [BasicHighScoresGameInfoFactory alloc]) init];
+}
 
+@implementation BasicHighScoresGameInfoFactory
 
+- (void) initFields {
+    self->MULTI_PLAYER_SERVER = [((GameInfo*) [GameInfo alloc]) init:[GameTypeFactory getInstance]->MULTI_PLAYER :(GameMode_staticInit(), GameMode_SERVER) :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :0 :0];
+    self->SINGLE_PLAYER_SERVER = [((GameInfo*) [GameInfo alloc]) init:[GameTypeFactory getInstance]->SINGLE_PLAYER :(GameMode_staticInit(), GameMode_SERVER) :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :0 :0];
+}
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return BasicHighScoresGameInfoFactory::SINGLETON;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (BasicHighScoresGameInfoFactory*) getInstance {
+        return (BasicHighScoresGameInfoFactory_staticInit(), BasicHighScoresGameInfoFactory_SINGLETON);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_BASICHIGHSCORESGAMEINFOFACTORY_CPP

@@ -1,98 +1,51 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_FORM_SCROLLSELECTIONFORMHORIZONTALPAINTABLE_H
+#define ORG_ALLBINARY_GRAPHICS_FORM_SCROLLSELECTIONFORMHORIZONTALPAINTABLE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.form
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_SCROLLSELECTIONFORMHORIZONTALPAINTABLE_H
-        #define ORG_ALLBINARY_GRAPHICS_FORM_SCROLLSELECTIONFORMHORIZONTALPAINTABLE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class Graphics;
-class ABCustomItem;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/ItemIndexPaintable.h"
-class ScrollSelectionForm;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ScrollSelectionFormHorizontalPaintable: public ItemIndexPaintable {
-
-    private: ScrollSelectionForm* scrollSelectionForm;
-
-public: ScrollSelectionFormHorizontalPaintable(ScrollSelectionForm* scrollSelectionForm);
-
-                //@Throws(Exception.constructor)
-            
-    public: int32_t paint(Graphics* graphics, int32_t index, ABCustomItem* item, int32_t dx, int32_t dy);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_SCROLLSELECTIONFORMHORIZONTALPAINTABLE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_FORM_SCROLLSELECTIONFORMHORIZONTALPAINTABLE_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_FORM_SCROLLSELECTIONFORMHORIZONTALPAINTABLE_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Graphics.h>)
-#include <javax/microedition/lcdui/Graphics.h>
-#endif
-#if __has_include(<org/allbinary/graphics/form/item/ABCustomItem.h>)
-#include <org/allbinary/graphics/form/item/ABCustomItem.h>
-#endif
-#if __has_include("org/allbinary/graphics/form/ItemIndexPaintable.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ScrollSelectionFormHorizontalPaintable;
+@class Graphics;
+@class ABCustomItem;
+@class ItemIndexPaintable;
+@class ScrollSelectionForm;
 #include "org/allbinary/graphics/form/ItemIndexPaintable.h"
-#endif
 #if __has_include("org/allbinary/graphics/form/ScrollSelectionForm.h")
 #include "org/allbinary/graphics/form/ScrollSelectionForm.h"
 #endif
 
-        #endif
-    
+@interface ScrollSelectionFormHorizontalPaintable : ItemIndexPaintable {
+@public
+    ScrollSelectionForm* scrollSelectionForm;
+}
+- (instancetype) init:(ScrollSelectionForm*)scrollSelectionForm;
+- (void) initFields;
+- (int32_t) paint:(Graphics*)graphics :(int32_t)index :(ABCustomItem*)item :(int32_t)dx :(int32_t)dy;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ScrollSelectionFormHorizontalPaintable_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GRAPHICS_FORM_SCROLLSELECTIONFORMHORIZONTALPAINTABLE_H

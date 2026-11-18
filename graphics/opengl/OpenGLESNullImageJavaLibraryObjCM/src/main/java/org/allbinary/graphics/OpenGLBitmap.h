@@ -1,79 +1,33 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H
+#define ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H
+// Generated Code Do Not Modify
+// package org.allbinary.graphics
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class OpenGLBitmap;
+@class PlatformBitmapBase;
+#include "org/allbinary/platform/graphics/PlatformBitmapBase.h"
 
+@interface OpenGLBitmap : PlatformBitmapBase {
+@public
+    id bitmap;
+}
+- (instancetype) init:(id)bitmap;
+- (void) initFields;
+- (void) getPixels:(int32_t*)pixels :(int32_t)offset :(int32_t)stride :(int32_t)x :(int32_t)y :(int32_t)width :(int32_t)height;
+- (void) setPixels:(int32_t*)pixels :(int32_t)offset :(int32_t)stride :(int32_t)x :(int32_t)y :(int32_t)width :(int32_t)height;
+- (void) recycle;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/platform/graphics/PlatformBitmapBase.h>
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void OpenGLBitmap_staticInit(void);
 
 
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class OpenGLBitmap: public PlatformBitmapBase {
-
-    public: Object* bitmap;
-
-public: OpenGLBitmap(Object* bitmap);
-public: OpenGLBitmap(const std::string& bitmap) : OpenGLBitmap(JavaString::box(bitmap)) { }
-public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> OpenGLBitmap(BoxValue bitmap) : OpenGLBitmap(JavaBoxes::toObject(bitmap)) { }
-public: template<typename BoxElement> OpenGLBitmap(const std::vector<BoxElement>& bitmap) : OpenGLBitmap(JavaBoxes::toObject(bitmap)) { }
-
-    public: void getPixels(std::vector<int32_t> pixels, int32_t offset, int32_t stride, int32_t x, int32_t y, int32_t width, int32_t height);
-
-    public: void setPixels(std::vector<int32_t> pixels, int32_t offset, int32_t stride, int32_t x, int32_t y, int32_t width, int32_t height);
-
-    public: void recycle();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H_COMPLETE
-        #if __has_include(<org/allbinary/platform/graphics/PlatformBitmapBase.h>)
-#include <org/allbinary/platform/graphics/PlatformBitmapBase.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_H

@@ -1,125 +1,43 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_COMMANDCURRENTSELECTIONFORMFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_COMMANDCURRENTSELECTIONFORMFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/CommandCurrentSelectionFormFactory.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/configuration/feature/Features.h>
-
-      
-#include <org/allbinary/game/configuration/feature/TouchFeatureFactory.h>
-
-      
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/form/item/ABCustomItem.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/ScrollSelectionFormNoneFactory.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/CommandCurrentSelectionFormFactory.h"
+#include "org/allbinary/game/configuration/feature/Features.h"
+#include "org/allbinary/game/configuration/feature/TouchFeatureFactory.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/form/item/ABCustomItem.h"
+#include "org/allbinary/graphics/form/ScrollSelectionFormNoneFactory.h"
 #include "org/allbinary/graphics/form/CommandCurrentSelectionForm.h"
 #include "org/allbinary/graphics/form/ScrollSelectionForm.h"
 #include "org/allbinary/graphics/form/FormType.h"
 
 
-CommandCurrentSelectionFormFactory::CommandCurrentSelectionFormFactory() {
-        }
-        
-                //@Throws(Exception.constructor)
-            
-    auto CommandCurrentSelectionFormFactory::getInstance(std::string title, std::vector<ABCustomItem*> items, Rectangle* rectangle, FormType* formType, int32_t border, bool moveForSmallScreen, BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor) -> ScrollSelectionForm*{
 
-                        if(Features::getInstance()->isFeature(TouchFeatureFactory::getInstance()->TOUCH_ENABLED))
-                        
-                                    {
-                                    
-    ScrollSelectionForm* scrollSelectionForm = new CommandCurrentSelectionForm(title, items, border, moveForSmallScreen, backgroundBasicColor, foregroundBasicColor);;
-    
-scrollSelectionForm->init(rectangle, formType);
-    
+void CommandCurrentSelectionFormFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation CommandCurrentSelectionFormFactory
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return scrollSelectionForm;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ScrollSelectionFormNoneFactory::getInstance();;
-    
-
-                        }
-                            
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+// throws Exception
++ (ScrollSelectionForm*) getInstance:(const char*)title :(ABCustomItem**)items :(Rectangle*)rectangle :(FormType*)formType :(int32_t)border :(bool)moveForSmallScreen :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor {
+        if ([[Features getInstance] isFeature:[TouchFeatureFactory getInstance]->TOUCH_ENABLED]) {
+            ScrollSelectionForm* scrollSelectionForm = [((CommandCurrentSelectionForm*) [CommandCurrentSelectionForm alloc]) init:title :items :border :moveForSmallScreen :backgroundBasicColor :foregroundBasicColor];
+            [scrollSelectionForm init_:rectangle :formType];
+            return scrollSelectionForm;
+        } else {
+            return [ScrollSelectionFormNoneFactory getInstance];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_COMMANDCURRENTSELECTIONFORMFACTORY_CPP

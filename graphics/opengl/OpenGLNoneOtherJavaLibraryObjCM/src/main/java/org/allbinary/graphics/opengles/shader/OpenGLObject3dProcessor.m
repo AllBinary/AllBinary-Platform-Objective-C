@@ -1,64 +1,37 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_OPENGLOBJECT3DPROCESSOR_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_OPENGLOBJECT3DPROCESSOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/shader/OpenGLObject3dProcessor.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/khronos/opengles/GL10.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/shader/OpenGLObject3dProcessor.h"
+#include "javax/microedition/khronos/opengles/GL10.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
 
+void OpenGLObject3dProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation OpenGLObject3dProcessor
 
+- (void) initFields {
+    self->commonStrings = [CommonStrings getInstance];
+}
 
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-OpenGLObject3dProcessor::OpenGLObject3dProcessor() : commonStrings(CommonStrings::getInstance()) {
-        }
-        
-    auto OpenGLObject3dProcessor::process(GL10* gl, Object* object3d) -> void{
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto OpenGLObject3dProcessor::process(GL10* gl, Object* object3d, int32_t index) -> void{
+- (void) process:(GL10*)gl :(id)object3d {
 }
 
 
+- (void) process:(GL10*)gl :(id)object3d :(int32_t)index {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_OPENGLOBJECT3DPROCESSOR_CPP

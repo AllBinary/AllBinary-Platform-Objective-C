@@ -1,195 +1,69 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/vector/PointsUtil.h"
 
 
+static PointsUtil* PointsUtil_instance;
 
-        #ifndef ORG_ALLBINARY_VECTOR_POINTSUTIL_CPP
-        #define ORG_ALLBINARY_VECTOR_POINTSUTIL_CPP
+void PointsUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PointsUtil_instance = [((PointsUtil*) [PointsUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/vector/PointsUtil.h"
-        
+@implementation PointsUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
 
++ (PointsUtil*) getInstance {
+        return (PointsUtil_staticInit(), PointsUtil_instance);
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-PointsUtil::PointsUtil() {
+- (int32_t***) adjustXY:(int32_t***)points :(int32_t)x :(int32_t)y {
+        int32_t size = java_array_length(points);
+        int32_t*** newPoints = ((int32_t***) java_array_new3(sizeof(int32_t), size, 0, 0));
+        for (int32_t index = 0; index < size; index++) {
+            int32_t size2 = java_array_length(points[index]);
+            newPoints[index] = ((int32_t**) java_array_new2(sizeof(int32_t), size2, 2));
+            for (int32_t index2 = 0; index2 < size2; index2++) {
+                if (points[index][index2][0] != 1000) {
+                    newPoints[index][index2][0] = points[index][index2][0] + x;
+                    newPoints[index][index2][1] = points[index][index2][1] + y;
+                } else {
+                    newPoints[index][index2][0] = 1000;
+                    newPoints[index][index2][1] = 1000;
+                }
+            }
         }
-        auto PointsUtil::instance_owner() -> PointsUtil* { static std::unique_ptr<PointsUtil> value(new PointsUtil()); return value.get(); }
-PointsUtil* PointsUtil::instance = PointsUtil::instance_owner();
-
-    auto PointsUtil::getInstance() -> PointsUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PointsUtil::instance;
-    
+        return newPoints;
 }
 
 
-    auto PointsUtil::adjustXY(std::vector<std::vector<std::vector<int32_t>>> points, int32_t x, int32_t y) -> std::vector<std::vector<std::vector<int32_t>>>{
-
-    int32_t size = points.size();;
-    
-
-    std::vector<std::vector<std::vector<int32_t>>> newPoints = std::vector<std::vector<std::vector<int32_t>>>(size, std::vector<std::vector<int32_t>>(0, std::vector<int32_t>(0)));;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-
-    int32_t size2 = points[index].size();;
-    
-newPoints[index]= std::vector<std::vector<int32_t>>(size2, std::vector<int32_t>(2));
-    
-
-
-
-
-                        for (
-    int32_t index2 = 0;index2 < size2; index2++)
-        {
-
-                        if(points[index][index2][0] != 1000)
-                        
-                                    {
-                                    newPoints[index][index2][0]= points[index][index2][0] +x;
-    
-newPoints[index][index2][1]= points[index][index2][1] +y;
-    
-
-                                    }
-                                
-                        else {
-                            newPoints[index][index2][0]= 1000;
-    
-newPoints[index][index2][1]= 1000;
-    
-
-                        }
-                            
-}
-
+- (int32_t**) adjust:(int32_t**)points :(int32_t)both {
+        return [self adjust:points :both :both];
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return newPoints;
-    
+- (int32_t**) adjust:(int32_t**)points :(int32_t)x :(int32_t)y {
+        int32_t** newPoints = ((int32_t**) java_array_new2(sizeof(int32_t), java_array_length(points), 2));
+        for (int32_t index2 = 0; index2 < java_array_length(points); index2++) {
+            if (points[index2][0] != 1000) {
+                newPoints[index2][0] = points[index2][0] + x;
+                newPoints[index2][1] = points[index2][1] + y;
+            } else {
+                newPoints[index2][0] = 1000;
+                newPoints[index2][1] = 1000;
+            }
+        }
+        return newPoints;
 }
 
+@end
 
-    auto PointsUtil::adjust(std::vector<std::vector<int32_t>> points, int32_t both) -> std::vector<std::vector<int32_t>>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->adjust(points, both, both);;
-    
-}
-
-
-    auto PointsUtil::adjust(std::vector<std::vector<int32_t>> points, int32_t x, int32_t y) -> std::vector<std::vector<int32_t>>{
-
-    std::vector<std::vector<int32_t>> newPoints = std::vector<std::vector<int32_t>>(points.size(), std::vector<int32_t>(2));;
-    
-
-
-
-
-                        for (
-    int32_t index2 = 0;index2 < points.size(); index2++)
-        {
-
-                        if(points[index2][0] != 1000)
-                        
-                                    {
-                                    newPoints[index2][0]= points[index2][0] +x;
-    
-newPoints[index2][1]= points[index2][1] +y;
-    
-
-                                    }
-                                
-                        else {
-                            newPoints[index2][0]= 1000;
-    
-newPoints[index2][1]= 1000;
-    
-
-                        }
-                            
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return newPoints;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_VECTOR_POINTSUTIL_CPP

@@ -1,50 +1,22 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABIMAGESTRINGITEM_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABIMAGESTRINGITEM_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/item/ABImageStringItem.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/item/ABImageStringItem.h"
 
 
 
+void ABImageStringItem_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation ABImageStringItem
 
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
+@end
 
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ABImageStringItem::ABImageStringItem() {
-        }
-        
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABIMAGESTRINGITEM_CPP

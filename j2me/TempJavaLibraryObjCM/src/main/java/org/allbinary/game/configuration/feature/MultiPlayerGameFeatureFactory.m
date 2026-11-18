@@ -1,69 +1,34 @@
-
-        /* Generated Code Do Not Modify */
-        
-
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/feature/MultiPlayerGameFeatureFactory.h"
 
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_MULTIPLAYERGAMEFEATUREFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_MULTIPLAYERGAMEFEATUREFACTORY_CPP
+static MultiPlayerGameFeatureFactory* MultiPlayerGameFeatureFactory_instance;
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/feature/MultiPlayerGameFeatureFactory.h"
-        
+void MultiPlayerGameFeatureFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    MultiPlayerGameFeatureFactory_instance = [((MultiPlayerGameFeatureFactory*) [MultiPlayerGameFeatureFactory alloc]) init];
+}
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
+@implementation MultiPlayerGameFeatureFactory
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto MultiPlayerGameFeatureFactory::instance_owner() -> MultiPlayerGameFeatureFactory* { static std::unique_ptr<MultiPlayerGameFeatureFactory> value(new MultiPlayerGameFeatureFactory()); return value.get(); }
-MultiPlayerGameFeatureFactory* MultiPlayerGameFeatureFactory::instance = MultiPlayerGameFeatureFactory::instance_owner();
-
-    auto MultiPlayerGameFeatureFactory::getInstance() -> MultiPlayerGameFeatureFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return MultiPlayerGameFeatureFactory::instance;
-    
++ (MultiPlayerGameFeatureFactory*) getInstance {
+        return (MultiPlayerGameFeatureFactory_staticInit(), MultiPlayerGameFeatureFactory_instance);
 }
 
 
-MultiPlayerGameFeatureFactory::MultiPlayerGameFeatureFactory(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto MultiPlayerGameFeatureFactory::addCommands(Object* anyType) -> void{
+- (void) addCommands:(id)anyType {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_MULTIPLAYERGAMEFEATUREFACTORY_CPP

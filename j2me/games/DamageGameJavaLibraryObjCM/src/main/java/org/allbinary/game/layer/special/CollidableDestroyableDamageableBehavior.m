@@ -1,150 +1,61 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/special/CollidableDestroyableDamageableBehavior.h"
+#include "org/allbinary/game/collision/CollidableInterfaceCompositeInterface.h"
+#include "org/allbinary/game/combat/damage/DamageUtil.h"
+#include "org/allbinary/game/layer/CollidableCompositeLayer.h"
+#include "org/allbinary/logic/communication/log/ForcedLogUtil.h"
+#include "org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_SPECIAL_COLLIDABLEDESTROYABLEDAMAGEABLEBEHAVIOR_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_SPECIAL_COLLIDABLEDESTROYABLEDAMAGEABLEBEHAVIOR_CPP
+void CollidableDestroyableDamageableBehavior_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/special/CollidableDestroyableDamageableBehavior.h"
-        
+@implementation CollidableDestroyableDamageableBehavior
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/collision/CollidableBaseBehavior.h>
-
-      
-#include <org/allbinary/game/collision/CollidableInterfaceCompositeInterface.h>
-
-      
-#include <org/allbinary/game/combat/damage/DamageUtil.h>
-
-      
-#include <org/allbinary/game/layer/CollidableCompositeLayer.h>
-
-      
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.h"
-
-
-CollidableDestroyableDamageableBehavior::CollidableDestroyableDamageableBehavior(bool collidable) : CollidableBaseBehavior(collidable), damageUtil(DamageUtil::getInstance()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (void) initFields {
+    self->damageUtil = [DamageUtil getInstance];
 }
 
 
-    auto CollidableDestroyableDamageableBehavior::isCollision(CollidableCompositeLayer* ownerLayer, CollidableCompositeLayer* collisionLayer) -> bool{
-
-                        if(ownerLayer->getGroupInterface()[0] != collisionLayer->getGroupInterface()[0])
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CollidableBaseBehavior::isCollision(ownerLayer, collisionLayer);;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (instancetype) init:(bool)collidable {
+        self = [super init:collidable];
+        [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableBehavior::collide(CollidableCompositeLayer* ownerLayer, CollidableCompositeLayer* collidableInterfaceCompositeInterface) -> void{
-
-    CollidableDestroyableDamageableLayer* ownerCollidableDestroyableDamageableLayer = dynamic_cast<CollidableDestroyableDamageableLayer*>(ownerLayer);;
-    
-
-    CollidableDestroyableDamageableLayer* collidableDestroyableDamageableLayer = dynamic_cast<CollidableDestroyableDamageableLayer*>(collidableInterfaceCompositeInterface);;
-    
-ownerCollidableDestroyableDamageableLayer->damage(collidableDestroyableDamageableLayer->getDamage(0), 0);
-    
+- (bool) isCollision:(CollidableCompositeLayer*)ownerLayer :(CollidableCompositeLayer*)collisionLayer {
+        if ([ownerLayer getGroupInterface][0] != [collisionLayer getGroupInterface][0]) {
+            return [super isCollision:ownerLayer :collisionLayer];
+        }
+        return false;
 }
 
 
-    auto CollidableDestroyableDamageableBehavior::isCollisionInterface(CollidableCompositeLayer* ownerLayer, CollidableInterfaceCompositeInterface* collidableInterfaceCompositeInterface) -> bool{
-ForcedLogUtil::log("No Longer Used", this);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+// throws Exception
+- (void) collide:(CollidableCompositeLayer*)ownerLayer :(CollidableCompositeLayer*)collidableInterfaceCompositeInterface {
+        CollidableDestroyableDamageableLayer* ownerCollidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer*) ownerLayer);
+        CollidableDestroyableDamageableLayer* collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer*) collidableInterfaceCompositeInterface);
+        [ownerCollidableDestroyableDamageableLayer damage:[collidableDestroyableDamageableLayer getDamage:0] :0];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableBehavior::collideInterface(CollidableCompositeLayer* ownerLayer, CollidableInterfaceCompositeInterface* collidableInterfaceCompositeInterface) -> void{
-ForcedLogUtil::log("No Longer Used", this);
-    
+- (bool) isCollisionInterface:(CollidableCompositeLayer*)ownerLayer :(CollidableInterfaceCompositeInterface*)collidableInterfaceCompositeInterface {
+        [ForcedLogUtil log:"No Longer Used" :self];
+        return false;
 }
 
 
+// throws Exception
+- (void) collideInterface:(CollidableCompositeLayer*)ownerLayer :(CollidableInterfaceCompositeInterface*)collidableInterfaceCompositeInterface {
+        [ForcedLogUtil log:"No Longer Used" :self];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_SPECIAL_COLLIDABLEDESTROYABLEDAMAGEABLEBEHAVIOR_CPP

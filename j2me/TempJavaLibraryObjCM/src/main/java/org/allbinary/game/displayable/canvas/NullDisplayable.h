@@ -1,75 +1,32 @@
+#ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLDISPLAYABLE_H
+#define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLDISPLAYABLE_H
+// Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class NullDisplayable;
+@class Canvas;
+@class Graphics;
+#include "javax/microedition/lcdui/Canvas.h"
 
+//Temp should not be in any build
+@interface NullDisplayable : Canvas {
+@public
+}
+- (instancetype) init;
++ (NullDisplayable*) getInstance;
+- (void) paint:(Graphics*)graphics;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLDISPLAYABLE_H
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLDISPLAYABLE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Canvas.h>
-class Graphics;
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void NullDisplayable_staticInit(void);
 
 
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        //Temp should not be in any build
-class NullDisplayable: public Canvas {
-
-    private: static NullDisplayable* SINGLETON_owner();
-    private: static NullDisplayable* SINGLETON;
-
-    public: static NullDisplayable* getInstance();
-
-private: NullDisplayable();
-
-    public: void paint(Graphics* graphics);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLDISPLAYABLE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLDISPLAYABLE_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLDISPLAYABLE_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Canvas.h>)
-#include <javax/microedition/lcdui/Canvas.h>
-#endif
-#if __has_include(<javax/microedition/lcdui/Graphics.h>)
-#include <javax/microedition/lcdui/Graphics.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLDISPLAYABLE_H

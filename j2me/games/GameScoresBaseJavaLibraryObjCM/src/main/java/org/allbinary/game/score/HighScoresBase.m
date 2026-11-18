@@ -1,103 +1,48 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORESBASE_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORESBASE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/HighScoresBase.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-#include <org/allbinary/game/GameInfo.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/score/HighScoresFactoryInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/HighScoresBase.h"
+#include "org/allbinary/game/GameInfo.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/game/score/HighScoresFactoryInterface.h"
 #include "org/allbinary/game/score/HighScoresResultsListener.h"
 #include "org/allbinary/game/score/HighScoresHelperBaseInterface.h"
 
 
-HighScoresBase::HighScoresBase() : commonStrings(CommonStrings::getInstance()){
+
+void HighScoresBase_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation HighScoresBase
+
+- (void) initFields {
+    self->commonStrings = [CommonStrings getInstance];
 }
 
 
-    auto HighScoresBase::fetchHighScores(GameInfo* gameInfo, HighScoresResultsListener* highScoresResultsListener) -> void{
-
-
-
-                            throw RuntimeException();
-                    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto HighScoresBase::fetchHighScoresPreload(GameInfo* gameInfo, HighScoresResultsListener* highScoresResultsListener, bool preload) -> void{
-
-
-
-                            throw RuntimeException();
-                    
+- (void) fetchHighScores:(GameInfo*)gameInfo :(HighScoresResultsListener*)highScoresResultsListener {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-    auto HighScoresBase::createHighScoresHelper() -> HighScoresHelperBaseInterface*{
-
-
-
-                            throw RuntimeException();
-                    
+- (void) fetchHighScoresPreload:(GameInfo*)gameInfo :(HighScoresResultsListener*)highScoresResultsListener :(bool)preload {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
+- (HighScoresHelperBaseInterface*) createHighScoresHelper {
+        java_throw(java_exception_new("RuntimeException", ""));
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_SCORE_HIGHSCORESBASE_CPP

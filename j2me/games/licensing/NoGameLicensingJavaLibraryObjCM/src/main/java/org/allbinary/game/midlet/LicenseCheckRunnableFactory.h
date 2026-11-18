@@ -1,94 +1,47 @@
+#ifndef ORG_ALLBINARY_GAME_MIDLET_LICENSECHECKRUNNABLEFACTORY_H
+#define ORG_ALLBINARY_GAME_MIDLET_LICENSECHECKRUNNABLEFACTORY_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.midlet
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class LicenseCheckRunnableFactory;
+@class ABRunnable;
+@class NullABRunnable;
+@class SpecialDemoGameMidlet;
 
+@interface LicenseCheckRunnableFactory : ABObject {
+@public
+}
+- (instancetype) init;
+- (ABRunnable*) getInstance:(SpecialDemoGameMidlet*)specialDemoGameMidlet;
+@end
 
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void LicenseCheckRunnableFactory_staticInit(void);
 
-        #ifndef ORG_ALLBINARY_GAME_MIDLET_LICENSECHECKRUNNABLEFACTORY_H
-        #define ORG_ALLBINARY_GAME_MIDLET_LICENSECHECKRUNNABLEFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class ABRunnable;
-class NullABRunnable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class SpecialDemoGameMidlet;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class LicenseCheckRunnableFactory
-            : public virtual Object
-         {
-
-
-            
-    public: LicenseCheckRunnableFactory();
-        
-    public: ABRunnable* getInstance(SpecialDemoGameMidlet* specialDemoGameMidlet);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_MIDLET_LICENSECHECKRUNNABLEFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_MIDLET_LICENSECHECKRUNNABLEFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_MIDLET_LICENSECHECKRUNNABLEFACTORY_H_COMPLETE
-        #if __has_include(<org/allbinary/thread/ABRunnable.h>)
-#include <org/allbinary/thread/ABRunnable.h>
-#endif
-#if __has_include(<org/allbinary/thread/NullABRunnable.h>)
-#include <org/allbinary/thread/NullABRunnable.h>
-#endif
-#if __has_include("org/allbinary/game/midlet/SpecialDemoGameMidlet.h")
-#include "org/allbinary/game/midlet/SpecialDemoGameMidlet.h"
+#if __has_include("org/allbinary/thread/ABRunnable.h")
+#include "org/allbinary/thread/ABRunnable.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_MIDLET_LICENSECHECKRUNNABLEFACTORY_H

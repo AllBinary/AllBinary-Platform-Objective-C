@@ -1,88 +1,31 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/ag/weapon/media/audio/ExplosionBasicSound.h"
+#include "org/allbinary/media/audio/Sound.h"
 
 
+static Sound* ExplosionBasicSound_soundInterface;
 
-        #ifndef ORG_ALLBINARY_AG_WEAPON_MEDIA_AUDIO_EXPLOSIONBASICSOUND_CPP
-        #define ORG_ALLBINARY_AG_WEAPON_MEDIA_AUDIO_EXPLOSIONBASICSOUND_CPP
+void ExplosionBasicSound_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ExplosionBasicSound_soundInterface = [((ExplosionBasicSound*) [ExplosionBasicSound alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/ag/weapon/media/audio/ExplosionBasicSound.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/media/audio/CompositeSound.h>
-
-      
-#include <org/allbinary/media/audio/Sound.h>
-
-      
+@implementation ExplosionBasicSound
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-Sound* ExplosionBasicSound::soundInterface = new ExplosionBasicSound();
-
-ExplosionBasicSound::ExplosionBasicSound() : CompositeSound("resource:/wav/explosion.wav"){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init {
+        self = [super init:"resource:/wav/explosion.wav"];
+    return self;
 }
 
 
-    auto ExplosionBasicSound::getInstance() -> Sound*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ExplosionBasicSound::soundInterface;
-    
++ (Sound*) getInstance {
+        return (ExplosionBasicSound_staticInit(), ExplosionBasicSound_soundInterface);
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_AG_WEAPON_MEDIA_AUDIO_EXPLOSIONBASICSOUND_CPP

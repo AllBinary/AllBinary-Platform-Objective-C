@@ -1,64 +1,36 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/image/opengles/OpenGLESImageProperties.h"
 
 
 
-        #ifndef ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGEPROPERTIES_CPP
-        #define ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGEPROPERTIES_CPP
+void OpenGLESImageProperties_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/image/opengles/OpenGLESImageProperties.h"
-        
+@implementation OpenGLESImageProperties
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->textureID = -1;
+    self->scaleX = 1.0f;
+    self->scaleY = 1.0f;
+    self->scaleX2 = 1.0f;
+    self->scaleY2 = 1.0f;
+    self->angle = 0;
+    self->redf = 1.0f;
+    self->greenf = 1.0f;
+    self->bluef = 1.0f;
+    self->alphaf = 1.0f;
+}
 
-        
-            #include "java/lang/Object.h"
-        
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
+@end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-OpenGLESImageProperties::OpenGLESImageProperties() {
-        }
-        
-
-
-        #endif //ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGEPROPERTIES_CPP

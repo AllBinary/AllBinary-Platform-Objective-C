@@ -1,89 +1,33 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/GameInfoCopyFactory.h"
+#include "org/allbinary/game/GameInfo.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_GAMEINFOCOPYFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_GAMEINFOCOPYFACTORY_CPP
+void GameInfoCopyFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/GameInfoCopyFactory.h"
-        
+@implementation GameInfoCopyFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/GameInfo.h"
-
-
-GameInfoCopyFactory::GameInfoCopyFactory() {
-        }
-        
-    auto GameInfoCopyFactory::getInstanceMaxLevel(GameInfo* gameInfo, int32_t maxLevel) -> GameInfo*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new GameInfo(gameInfo->getGameType(), gameInfo->getGameMode(), gameInfo->getPlayerType(), maxLevel, gameInfo->getCurrentLevel());
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto GameInfoCopyFactory::getInstance(GameInfo* gameInfo) -> GameInfo*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new GameInfo(gameInfo->getGameType(), gameInfo->getGameMode(), gameInfo->getPlayerType(), gameInfo->getHighestLevel(), gameInfo->getCurrentLevel());
-    
++ (GameInfo*) getInstanceMaxLevel:(GameInfo*)gameInfo :(int32_t)maxLevel {
+        return [((GameInfo*) [GameInfo alloc]) init:[gameInfo getGameType] :[gameInfo getGameMode] :[gameInfo getPlayerType] :maxLevel :[gameInfo getCurrentLevel]];
 }
 
 
++ (GameInfo*) getInstance:(GameInfo*)gameInfo {
+        return [((GameInfo*) [GameInfo alloc]) init:[gameInfo getGameType] :[gameInfo getGameMode] :[gameInfo getPlayerType] :[gameInfo getHighestLevel] :[gameInfo getCurrentLevel]];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_GAMEINFOCOPYFACTORY_CPP

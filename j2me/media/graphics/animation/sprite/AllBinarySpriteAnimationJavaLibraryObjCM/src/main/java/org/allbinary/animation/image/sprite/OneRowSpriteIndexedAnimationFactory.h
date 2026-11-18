@@ -1,144 +1,66 @@
+#ifndef ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ONEROWSPRITEINDEXEDANIMATIONFACTORY_H
+#define ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ONEROWSPRITEINDEXEDANIMATIONFACTORY_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.animation.image.sprite
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ONEROWSPRITEINDEXEDANIMATIONFACTORY_H
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ONEROWSPRITEINDEXEDANIMATIONFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class Image;
-class Sprite;
-class Animation;
-class AnimationBehaviorFactory;
-#include <org/allbinary/animation/image/BaseImageAnimationFactory.h>
-class BasicColorUtil;
-class AnimationFactorySpriteScaleUtil;
-class PrimitiveIntUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class SpriteIndexedAnimation;
-class AdjustedSpriteIndexedAnimation;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class OneRowSpriteIndexedAnimationFactory: public BaseImageAnimationFactory {
-
-                //@Throws(Exception.constructor)
-            
-    public: static OneRowSpriteIndexedAnimationFactory* createFactoryDX(Image* image, int32_t dx, AnimationBehaviorFactory* animationBehaviorFactory);
-
-                //@Throws(Exception.constructor)
-            
-    public: static OneRowSpriteIndexedAnimationFactory* createFactoryDXY(Image* image, int32_t dx, int32_t dy, AnimationBehaviorFactory* animationBehaviorFactory);
-
-                //@Throws(Exception.constructor)
-            
-    public: static OneRowSpriteIndexedAnimationFactory* createFactoryWH(Image* image, int32_t width, int32_t height, AnimationBehaviorFactory* animationBehaviorFactory);
-
-                //@Throws(Exception.constructor)
-            
-    public: static OneRowSpriteIndexedAnimationFactory* createFactory(Image* image, AnimationBehaviorFactory* animationBehaviorFactory);
-
-    private: AnimationFactorySpriteScaleUtil* animationFactorySpriteScaleUtil;
-
-public: OneRowSpriteIndexedAnimationFactory(Image* image, std::vector<int32_t> sequenceArray, int32_t width, int32_t height, int32_t dx, int32_t dy, AnimationBehaviorFactory* animationBehaviorFactory);
-
-    public: void init(int32_t dx, int32_t dy);
-
-    public: void initW(int32_t dx);
-
-                //@Throws(Exception.constructor)
-            
-    public: Animation* getInstance(int32_t instanceId);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ONEROWSPRITEINDEXEDANIMATIONFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ONEROWSPRITEINDEXEDANIMATIONFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ONEROWSPRITEINDEXEDANIMATIONFACTORY_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Image.h>)
-#include <javax/microedition/lcdui/Image.h>
-#endif
-#if __has_include(<javax/microedition/lcdui/game/Sprite.h>)
-#include <javax/microedition/lcdui/game/Sprite.h>
-#endif
-#if __has_include(<org/allbinary/animation/Animation.h>)
-#include <org/allbinary/animation/Animation.h>
-#endif
-#if __has_include(<org/allbinary/animation/AnimationBehaviorFactory.h>)
-#include <org/allbinary/animation/AnimationBehaviorFactory.h>
-#endif
-#if __has_include(<org/allbinary/animation/image/BaseImageAnimationFactory.h>)
-#include <org/allbinary/animation/image/BaseImageAnimationFactory.h>
-#endif
-#if __has_include(<org/allbinary/graphics/color/BasicColorUtil.h>)
-#include <org/allbinary/graphics/color/BasicColorUtil.h>
-#endif
-#if __has_include(<org/allbinary/image/sprite/AnimationFactorySpriteScaleUtil.h>)
-#include <org/allbinary/image/sprite/AnimationFactorySpriteScaleUtil.h>
-#endif
-#if __has_include(<org/allbinary/logic/math/PrimitiveIntUtil.h>)
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-#endif
-#if __has_include("org/allbinary/animation/image/sprite/SpriteIndexedAnimation.h")
-#include "org/allbinary/animation/image/sprite/SpriteIndexedAnimation.h"
-#endif
-#if __has_include("org/allbinary/animation/image/sprite/AdjustedSpriteIndexedAnimation.h")
-#include "org/allbinary/animation/image/sprite/AdjustedSpriteIndexedAnimation.h"
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class OneRowSpriteIndexedAnimationFactory;
+@class Image;
+@class Sprite;
+@class Animation;
+@class AnimationBehaviorFactory;
+@class BaseImageAnimationFactory;
+@class BasicColorUtil;
+@class AnimationFactorySpriteScaleUtil;
+@class PrimitiveIntUtil;
+@class SpriteIndexedAnimation;
+@class AdjustedSpriteIndexedAnimation;
+#include "org/allbinary/animation/image/BaseImageAnimationFactory.h"
+#if __has_include("org/allbinary/image/sprite/AnimationFactorySpriteScaleUtil.h")
+#include "org/allbinary/image/sprite/AnimationFactorySpriteScaleUtil.h"
 #endif
 
-        #endif
-    
+@interface OneRowSpriteIndexedAnimationFactory : BaseImageAnimationFactory {
+@public
+    AnimationFactorySpriteScaleUtil* animationFactorySpriteScaleUtil;
+}
+- (instancetype) init:(Image*)image :(int32_t*)sequenceArray :(int32_t)width :(int32_t)height :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory;
+- (void) initFields;
++ (OneRowSpriteIndexedAnimationFactory*) createFactoryDX:(Image*)image :(int32_t)dx :(AnimationBehaviorFactory*)animationBehaviorFactory;
++ (OneRowSpriteIndexedAnimationFactory*) createFactoryDXY:(Image*)image :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory;
++ (OneRowSpriteIndexedAnimationFactory*) createFactoryWH:(Image*)image :(int32_t)width :(int32_t)height :(AnimationBehaviorFactory*)animationBehaviorFactory;
++ (OneRowSpriteIndexedAnimationFactory*) createFactory:(Image*)image :(AnimationBehaviorFactory*)animationBehaviorFactory;
+- (void) init_:(int32_t)dx :(int32_t)dy;
+- (void) initW:(int32_t)dx;
+- (Animation*) getInstance:(int32_t)instanceId;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void OneRowSpriteIndexedAnimationFactory_staticInit(void);
+
+#if __has_include("org/allbinary/animation/Animation.h")
+#include "org/allbinary/animation/Animation.h"
+#endif
+
+#endif // ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ONEROWSPRITEINDEXEDANIMATIONFACTORY_H

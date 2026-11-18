@@ -1,156 +1,82 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/paint/SimpleTextPaintable.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/Anchor.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#include "org/allbinary/graphics/font/MyFontProcessor.h"
+#include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
+#include "org/allbinary/graphics/paint/Paintable.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_PAINT_SIMPLETEXTPAINTABLE_CPP
-        #define ORG_ALLBINARY_GRAPHICS_PAINT_SIMPLETEXTPAINTABLE_CPP
+void SimpleTextPaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/paint/SimpleTextPaintable.h"
-        
+@implementation SimpleTextPaintable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/Anchor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
-
-      
-#include <org/allbinary/graphics/font/MyFontProcessor.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontInterface.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontProcessor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/paint/Paintable.h"
-
-
-SimpleTextPaintable::SimpleTextPaintable(std::string text, BasicColor* basicColor) : displayInfoSingleton(DisplayInfoSingleton::getInstance()), updateMyFontProcessor(new UpdateMyFontProcessor(this)), myFontProcessor(this->updateMyFontProcessor), anchor(Anchor::TOP_LEFT){
-this->text= text;
+- (void) initFields {
+    self->displayInfoSingleton = [DisplayInfoSingleton getInstance];
+    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = self->updateMyFontProcessor;
     
-this->basicColor= basicColor;
     
+    self->topScoresWidth = 0;
+    self->fontHeight = 0;
+    self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
 }
 
 
-    auto SimpleTextPaintable::updateMeasurement(Graphics* graphics) -> void{
-
-    Font* font = graphics->getFont();;
-    
-this->topScoresWidth= (font->stringWidth(this->text)>>1);
-    
-this->fontHeight= font->getHeight();
-    
-this->myFontProcessor= MyFontProcessor::getInstance();
-    
+- (instancetype) init:(const char*)text :(BasicColor*)basicColor {
+    self = [super init];
+    [self initFields];
+        self->text = text;
+        self->basicColor = basicColor;
+    return self;
 }
 
 
-    auto SimpleTextPaintable::paint(Graphics* graphics) -> void{
-this->myFontProcessor->process(graphics);
-    
-
-    int32_t width = this->displayInfoSingleton->getLast()[this->displayInfoSingleton->WIDTH];;
-    
-graphics->setColor(JavaBoxes::value<int32_t>(this->getBasicColorP()));
-    
-graphics->drawString(this->text, (width>>1) -this->topScoresWidth, this->fontHeight, this->anchor);
-    
+- (void) updateMeasurement:(Graphics*)graphics {
+        Font* font = [graphics getFont];
+        self->topScoresWidth = ([font stringWidth:self->text] >> 1);
+        self->fontHeight = [font getHeight];
+        self->myFontProcessor = [MyFontProcessor getInstance];
 }
 
 
-    auto SimpleTextPaintable::setBasicColorP(BasicColor* basicColor) -> void{
-this->basicColor= basicColor;
-    
+- (void) paint:(Graphics*)graphics {
+        [self->myFontProcessor process:graphics];
+        int32_t width = [self->displayInfoSingleton getLast][self->displayInfoSingleton->WIDTH];
+        [graphics setColor:[[self getBasicColorP] intValue]];
+        [graphics drawString:self->text :(width >> 1) - self->topScoresWidth :self->fontHeight :self->anchor];
 }
 
 
-    auto SimpleTextPaintable::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->basicColor;
-    
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        self->basicColor = basicColor;
 }
 
 
-    auto SimpleTextPaintable::setText(std::string text) -> void{
-this->text= text;
-    
-this->myFontProcessor= this->updateMyFontProcessor;
-    
+- (BasicColor*) getBasicColorP {
+        return self->basicColor;
 }
 
 
-    auto SimpleTextPaintable::getText() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->text;
-    
+- (void) setText:(const char*)text {
+        self->text = text;
+        self->myFontProcessor = self->updateMyFontProcessor;
 }
 
 
+- (const char*) getText {
+        return self->text;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_PAINT_SIMPLETEXTPAINTABLE_CPP

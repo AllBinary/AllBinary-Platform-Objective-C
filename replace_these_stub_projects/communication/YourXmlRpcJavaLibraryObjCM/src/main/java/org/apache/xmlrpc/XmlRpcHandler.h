@@ -1,74 +1,27 @@
+#ifndef ORG_APACHE_XMLRPC_XMLRPCHANDLER_H
+#define ORG_APACHE_XMLRPC_XMLRPCHANDLER_H
+// Generated Code Do Not Modify
+// package org.apache.xmlrpc
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class XmlRpcHandler;
+@class BasicArrayList;
+@class BasicArrayListD;
+// #include "org/allbinary/util/BasicArrayListD.h"
 
+@protocol XmlRpcHandler
+- (id) execute:(const char*)method :(BasicArrayList*)params;
+@end
 
-
-        #ifndef ORG_APACHE_XMLRPC_XMLRPCHANDLER_H
-        #define ORG_APACHE_XMLRPC_XMLRPCHANDLER_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-class BasicArrayList;
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void XmlRpcHandler_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class XmlRpcHandler
-            : public virtual Object
-         {
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual Object* execute(std::string method, BasicArrayList* params) = 0;
-
-};
-
-            
-
-
-        #endif //ORG_APACHE_XMLRPC_XMLRPCHANDLER_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_APACHE_XMLRPC_XMLRPCHANDLER_H_COMPLETE)
-        #define ORG_APACHE_XMLRPC_XMLRPCHANDLER_H_COMPLETE
-        #if __has_include(<org/allbinary/util/BasicArrayList.h>)
-#include <org/allbinary/util/BasicArrayList.h>
-#endif
-
-
-        #endif
-    
+#endif // ORG_APACHE_XMLRPC_XMLRPCHANDLER_H

@@ -1,224 +1,93 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/CellPositionFactory.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/graphics/CellPosition.h"
 
 
+static CellPositionFactory* CellPositionFactory_SINGLETON;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_CELLPOSITIONFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_CELLPOSITIONFACTORY_CPP
+void CellPositionFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CellPositionFactory_SINGLETON = [((CellPositionFactory*) [CellPositionFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/CellPositionFactory.h"
-        
+@implementation CellPositionFactory
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/CellPosition.h"
-
-auto CellPositionFactory::SINGLETON_owner() -> CellPositionFactory* { static std::unique_ptr<CellPositionFactory> value(new CellPositionFactory()); return value.get(); }
-CellPositionFactory* CellPositionFactory::SINGLETON = CellPositionFactory::SINGLETON_owner();
-
-    auto CellPositionFactory::getInstance() -> CellPositionFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CellPositionFactory::SINGLETON;
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->NONE = [((CellPosition*) [CellPosition alloc]) init:-1 :-1 :-1 :-1];
+    self->cellPositionArray = ((CellPosition***) java_array_new2(sizeof(CellPosition*), 0, 0));
+    self->columns = 0;
+    self->rows = 0;
 }
 
 
-CellPositionFactory::CellPositionFactory() : logUtil(LogUtil::getInstance()), NONE(new CellPosition( -1,  -1,  -1,  -1)), cellPositionArray(std::vector<std::vector<CellPosition*>>(0, std::vector<CellPosition*>(0))){
++ (CellPositionFactory*) getInstance {
+        return (CellPositionFactory_staticInit(), CellPositionFactory_SINGLETON);
 }
 
 
-    auto CellPositionFactory::init(int32_t columns, int32_t rows) -> void{
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("Init: columns: ");
-    
-stringBuffer->appendint(columns);
-    
-stringBuffer->append(" rows: ");
-    
-stringBuffer->appendint(rows);
-    
-this->logUtil->putF(JavaString::valueOf(stringBuffer), this, commonStrings->INIT);
-    
-this->cellPositionArray= std::vector<std::vector<CellPosition*>>(columns, std::vector<CellPosition*>(rows));
-    
-this->columns= columns;
-    
-this->rows= rows;
-    
-
-
-
-
-                        for (
-    int32_t column = 0;column < columns; column++)
-        {
-
-
-
-
-                        for (
-    int32_t row = 0;row < rows; row++)
-        {
-this->createInstance(column, row);
-    
-}
-
-}
-
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto CellPositionFactory::getInstanceColRow(int32_t i_column, int32_t i_row) -> CellPosition*{
-
-        try {
-            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->cellPositionArray[i_column][i_row];
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(JavaString::valueOf((new StringMaker())->append("columns: ")->appendint(this->getColumns())->append(" rows: ")->appendint(this->getRows())->append(" col: ")->appendint(i_column)->append(" row: ")->appendint(i_row)), this, commonStrings->GET_INSTANCE, &e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->NONE;
-    
-}
-
+- (void) init_:(int32_t)columns :(int32_t)rows {
+        CommonStrings* commonStrings = [CommonStrings getInstance];
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:"Init: columns: "];
+        [stringBuffer appendint:columns];
+        [stringBuffer append:" rows: "];
+        [stringBuffer appendint:rows];
+        [self->logUtil putF:[stringBuffer toString] :self :commonStrings->INIT];
+        self->cellPositionArray = ((CellPosition***) java_array_new2(sizeof(CellPosition*), columns, rows));
+        self->columns = columns;
+        self->rows = rows;
+        for (int32_t column = 0; column < columns; column++) {
+            for (int32_t row = 0; row < rows; row++) {
+                [self createInstance:column :row];
+            }
+        }
 }
 
 
-    auto CellPositionFactory::createInstance(int32_t i_column, int32_t i_row) -> CellPosition*{
-
-    CellPosition* cellPositionCanBeNull = this->cellPositionArray[i_column][i_row];;
-    
-
-                        if(cellPositionCanBeNull == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    cellPositionCanBeNull= new CellPosition(i_column, i_row, this->columns, this->rows);
-    
-this->cellPositionArray[i_column][i_row]= cellPositionCanBeNull;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return cellPositionCanBeNull;
-    
+- (CellPosition*) getInstanceColRow:(int32_t)i_column :(int32_t)i_row {
+        JAVA_TRY {
+            return self->cellPositionArray[i_column][i_row];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:[[[[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:"columns: "] appendint:[self getColumns]] append:" rows: "] appendint:[self getRows]] append:" col: "] appendint:i_column] append:" row: "] appendint:i_row] toString] :self :commonStrings->GET_INSTANCE :e];
+            return self->NONE;
+        } JAVA_END_TRY;
 }
 
 
-    auto CellPositionFactory::getColumns() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->columns;
-    
+- (CellPosition*) createInstance:(int32_t)i_column :(int32_t)i_row {
+        CellPosition* cellPositionCanBeNull = self->cellPositionArray[i_column][i_row];
+        if (cellPositionCanBeNull == nil) {
+            cellPositionCanBeNull = [((CellPosition*) [CellPosition alloc]) init:i_column :i_row :self->columns :self->rows];
+            self->cellPositionArray[i_column][i_row] = cellPositionCanBeNull;
+        }
+        return cellPositionCanBeNull;
 }
 
 
-    auto CellPositionFactory::getRows() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->rows;
-    
+- (int32_t) getColumns {
+        return self->columns;
 }
 
 
+- (int32_t) getRows {
+        return self->rows;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_CELLPOSITIONFACTORY_CPP

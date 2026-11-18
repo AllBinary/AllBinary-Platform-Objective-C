@@ -1,137 +1,100 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_EVENT_GAMEKEYEVENTHANDLER_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_EVENT_GAMEKEYEVENTHANDLER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/event/GameKeyEventHandler.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/event/PressGameKeyEventHandler.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/event/GameKeyEventHandler.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/game/input/event/PressGameKeyEventHandler.h"
 #include "org/allbinary/game/input/event/UpGameKeyEventHandler.h"
 #include "org/allbinary/game/input/event/DownGameKeyEventHandler.h"
+#if __has_include("org/allbinary/game/input/event/UpGameKeyEventHandlerBase.h")
+#include "org/allbinary/game/input/event/UpGameKeyEventHandlerBase.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/UpGameKeyEventHandlerBase.h")
+#include "org/allbinary/logic/communication/log/UpGameKeyEventHandlerBase.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/UpGameKeyEventHandlerBase.h")
+#include "org/allbinary/logic/util/event/UpGameKeyEventHandlerBase.h"
+#endif
+#if __has_include("org/allbinary/string/UpGameKeyEventHandlerBase.h")
+#include "org/allbinary/string/UpGameKeyEventHandlerBase.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/DownGameKeyEventHandlerBase.h")
+#include "org/allbinary/game/input/event/DownGameKeyEventHandlerBase.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/DownGameKeyEventHandlerBase.h")
+#include "org/allbinary/logic/communication/log/DownGameKeyEventHandlerBase.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/DownGameKeyEventHandlerBase.h")
+#include "org/allbinary/logic/util/event/DownGameKeyEventHandlerBase.h"
+#endif
+#if __has_include("org/allbinary/string/DownGameKeyEventHandlerBase.h")
+#include "org/allbinary/string/DownGameKeyEventHandlerBase.h"
+#endif
 
 
-GameKeyEventHandler::GameKeyEventHandler() : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), pressGameKeyEventHandler(PressGameKeyEventHandler::getInstance()), upGameKeyEventHandler(UpGameKeyEventHandler::getInstance()), downGameKeyEventHandler(DownGameKeyEventHandler::getInstance()) {
-        }
-        auto GameKeyEventHandler::instance_owner() -> GameKeyEventHandler* { static std::unique_ptr<GameKeyEventHandler> value(new GameKeyEventHandler()); return value.get(); }
-GameKeyEventHandler* GameKeyEventHandler::instance = GameKeyEventHandler::instance_owner();
+static GameKeyEventHandler* GameKeyEventHandler_instance;
 
-    auto GameKeyEventHandler::getInstance() -> GameKeyEventHandler*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameKeyEventHandler::instance;
-    
+void GameKeyEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameKeyEventHandler_instance = [((GameKeyEventHandler*) [GameKeyEventHandler alloc]) init];
 }
 
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
+@implementation GameKeyEventHandler
 
-    auto GameKeyEventHandler::removeAllListeners() -> void{
-this->pressGameKeyEventHandler->removeAllListeners();
-    
-this->upGameKeyEventHandler->removeAllListeners();
-    
-this->downGameKeyEventHandler->removeAllListeners();
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+    self->pressGameKeyEventHandler = [PressGameKeyEventHandler getInstance];
+    self->upGameKeyEventHandler = [UpGameKeyEventHandler getInstance];
+    self->downGameKeyEventHandler = [DownGameKeyEventHandler getInstance];
 }
 
-
-    auto GameKeyEventHandler::addListenerForPlayer(EventListenerInterface* eventListenerInterface, int32_t playerInputId) -> void{
-this->logUtil->putF(JavaString::valueOf(eventListenerInterface), this, this->commonStrings->ADD_LISTENER);
-    
-this->pressGameKeyEventHandler->addListenerSingleThreaded(eventListenerInterface);
-    
-this->upGameKeyEventHandler->getInstanceForPlayer(playerInputId)->addListenerSingleThreaded(eventListenerInterface);
-    
-this->downGameKeyEventHandler->getInstanceForPlayer(playerInputId)->addListenerSingleThreaded(eventListenerInterface);
-    
-}
-
-
-    auto GameKeyEventHandler::addListener(EventListenerInterface* eventListenerInterface) -> void{
-this->logUtil->putF(JavaString::valueOf(eventListenerInterface), this, this->commonStrings->ADD_LISTENER);
-    
-this->pressGameKeyEventHandler->addListenerSingleThreaded(eventListenerInterface);
-    
-this->upGameKeyEventHandler->addListenerSingleThreaded(eventListenerInterface);
-    
-this->downGameKeyEventHandler->addListenerSingleThreaded(eventListenerInterface);
-    
-}
-
-
-    auto GameKeyEventHandler::removeListener(EventListenerInterface* eventListenerInterface) -> void{
-this->logUtil->putF(JavaString::valueOf(eventListenerInterface), this, this->commonStrings->REMOVE_LISTENER);
-    
-this->pressGameKeyEventHandler->removeListenerSingleThreaded(eventListenerInterface);
-    
-this->upGameKeyEventHandler->removeListenerSingleThreaded(eventListenerInterface);
-    
-this->downGameKeyEventHandler->removeListenerSingleThreaded(eventListenerInterface);
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (GameKeyEventHandler*) getInstance {
+        return (GameKeyEventHandler_staticInit(), GameKeyEventHandler_instance);
+}
 
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_EVENT_GAMEKEYEVENTHANDLER_CPP
+// synchronized
+- (void) removeAllListeners {
+        [self->pressGameKeyEventHandler removeAllListeners];
+        [self->upGameKeyEventHandler removeAllListeners];
+        [self->downGameKeyEventHandler removeAllListeners];
+}
+
+
+- (void) addListenerForPlayer:(EventListenerInterface*)eventListenerInterface :(int32_t)playerInputId {
+        [self->logUtil putF:[eventListenerInterface toString] :self :self->commonStrings->ADD_LISTENER];
+        [self->pressGameKeyEventHandler addListenerSingleThreaded:eventListenerInterface];
+        [[self->upGameKeyEventHandler getInstanceForPlayer:playerInputId] addListenerSingleThreaded:eventListenerInterface];
+        [[self->downGameKeyEventHandler getInstanceForPlayer:playerInputId] addListenerSingleThreaded:eventListenerInterface];
+}
+
+
+- (void) addListener:(EventListenerInterface*)eventListenerInterface {
+        [self->logUtil putF:[eventListenerInterface toString] :self :self->commonStrings->ADD_LISTENER];
+        [self->pressGameKeyEventHandler addListenerSingleThreaded:eventListenerInterface];
+        [self->upGameKeyEventHandler addListenerSingleThreaded:eventListenerInterface];
+        [self->downGameKeyEventHandler addListenerSingleThreaded:eventListenerInterface];
+}
+
+
+- (void) removeListener:(EventListenerInterface*)eventListenerInterface {
+        [self->logUtil putF:[eventListenerInterface toString] :self :self->commonStrings->REMOVE_LISTENER];
+        [self->pressGameKeyEventHandler removeListenerSingleThreaded:eventListenerInterface];
+        [self->upGameKeyEventHandler removeListenerSingleThreaded:eventListenerInterface];
+        [self->downGameKeyEventHandler removeListenerSingleThreaded:eventListenerInterface];
+}
+
+@end
+

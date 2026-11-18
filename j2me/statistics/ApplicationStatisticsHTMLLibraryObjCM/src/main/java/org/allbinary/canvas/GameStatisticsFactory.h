@@ -1,95 +1,52 @@
+#ifndef ORG_ALLBINARY_CANVAS_GAMESTATISTICSFACTORY_H
+#define ORG_ALLBINARY_CANVAS_GAMESTATISTICSFACTORY_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.canvas
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_CANVAS_GAMESTATISTICSFACTORY_H
-        #define ORG_ALLBINARY_CANVAS_GAMESTATISTICSFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class StringMaker;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/canvas/BaseGameStatistics.h"
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        //ActualPlatform
-/*actual*/ class GameStatisticsFactory: public BaseGameStatistics {
-
-    private: static GameStatisticsFactory* instance_owner();
-    private: static GameStatisticsFactory* instance;
-
-    /*actual*/ public: static GameStatisticsFactory* getInstance();
-
-
-            
-    public: GameStatisticsFactory();
-        
-    private: StringMaker* stringBuffer;
-
-    public: void add(std::string string);
-
-    /*actual*/ public: std::string toString();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_CANVAS_GAMESTATISTICSFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_CANVAS_GAMESTATISTICSFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_CANVAS_GAMESTATISTICSFACTORY_H_COMPLETE
-        #if __has_include(<org/allbinary/logic/string/StringMaker.h>)
-#include <org/allbinary/logic/string/StringMaker.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class GameStatisticsFactory;
+@class StringMaker;
+@class BaseGameStatistics;
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
 #endif
-#if __has_include("org/allbinary/canvas/BaseGameStatistics.h")
 #include "org/allbinary/canvas/BaseGameStatistics.h"
-#endif
 
-        #endif
-    
+//ActualPlatform
+@interface GameStatisticsFactory : BaseGameStatistics {
+@public
+    StringMaker* stringBuffer;
+}
+- (instancetype) init;
+- (void) initFields;
++ (GameStatisticsFactory*) getInstance;
+- (void) add:(const char*)string;
+- (const char*) toString;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void GameStatisticsFactory_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_CANVAS_GAMESTATISTICSFACTORY_H

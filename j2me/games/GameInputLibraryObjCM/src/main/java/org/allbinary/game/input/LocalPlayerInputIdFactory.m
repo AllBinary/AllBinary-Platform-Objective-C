@@ -1,279 +1,113 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/LocalPlayerInputIdFactory.h"
+#include "org/allbinary/game/input/analog/AnalogLocationInputFactory.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
 
 
+static LocalPlayerInputIdFactory* LocalPlayerInputIdFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_LOCALPLAYERINPUTIDFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_LOCALPLAYERINPUTIDFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/LocalPlayerInputIdFactory.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/input/analog/AnalogLocationInputFactory.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto LocalPlayerInputIdFactory::instance_owner() -> LocalPlayerInputIdFactory* { static std::unique_ptr<LocalPlayerInputIdFactory> value(new LocalPlayerInputIdFactory()); return value.get(); }
-LocalPlayerInputIdFactory* LocalPlayerInputIdFactory::instance = LocalPlayerInputIdFactory::instance_owner();
-
-LocalPlayerInputIdFactory::LocalPlayerInputIdFactory() : logUtil(LogUtil::getInstance()), deviceIdToplayerId(std::vector<int32_t>(this->MAX_FAST_DEVICEID)), playerIdToDeviceId(std::vector<int32_t>(this->MAX_NUMBER_OF_PLAYERS)), playersInPlay(std::vector<bool>(this->MAX_NUMBER_OF_PLAYERS)){
-
-
-
-
-                        for (
-    int32_t index = this->deviceIdToplayerId.size() -1;index >= 0; index--)
-        {
-this->deviceIdToplayerId[index]=  -1;
-    
+void LocalPlayerInputIdFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    LocalPlayerInputIdFactory_instance = [((LocalPlayerInputIdFactory*) [LocalPlayerInputIdFactory alloc]) init];
 }
 
+@implementation LocalPlayerInputIdFactory
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->MAX_NUMBER_OF_PLAYERS = 6;
+    self->MAX_FAST_DEVICEID = 65;
+    self->deviceIdToplayerId = ((int32_t*) java_array_new(sizeof(int32_t), self->MAX_FAST_DEVICEID));
+    self->playerIdToDeviceId = ((int32_t*) java_array_new(sizeof(int32_t), self->MAX_NUMBER_OF_PLAYERS));
+    self->playersInPlay = ((bool*) java_array_new(sizeof(bool), self->MAX_NUMBER_OF_PLAYERS));
+    self->totalDevicesMapped = 0;
 }
 
 
-    auto LocalPlayerInputIdFactory::getInstance() -> LocalPlayerInputIdFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return LocalPlayerInputIdFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        for (int32_t index = java_array_length(self->deviceIdToplayerId) - 1; index >= 0; index--) {
+            self->deviceIdToplayerId[index] = -1;
+        }
+    return self;
 }
 
 
-    auto LocalPlayerInputIdFactory::getDeviceId(int32_t playerInputId) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->playerIdToDeviceId[playerInputId];
-    
++ (LocalPlayerInputIdFactory*) getInstance {
+        return (LocalPlayerInputIdFactory_staticInit(), LocalPlayerInputIdFactory_instance);
 }
 
 
-    auto LocalPlayerInputIdFactory::getPlayerForDevice(int32_t deviceId) -> int32_t{
-
-    int32_t index= 0;;
-    
-
-                        if(deviceId < this->MAX_FAST_DEVICEID)
-                        
-                                    {
-                                    
-    int32_t playerInputId = this->deviceIdToplayerId[deviceId];;
-    
-
-                        if(playerInputId !=  -1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return playerInputId;
-    
-
-                                    }
-                                
-
-                                    }
-                                
-                        else {
-                            
-
-
-
-                        for (
-    index= this->totalDevicesMapped -1; index >= 0; index--)
-        {
-
-                        if(this->playerIdToDeviceId[index] == deviceId)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return index;
-    
-
-                                    }
-                                
+- (int32_t) getDeviceId:(int32_t)playerInputId {
+        return self->playerIdToDeviceId[playerInputId];
 }
 
 
-                        }
-                            
-index= this->totalDevicesMapped;
-    
-
-                        if(deviceId < this->MAX_FAST_DEVICEID)
-                        
-                                    {
-                                    this->deviceIdToplayerId[deviceId]= index;
-    
-
-                                    }
-                                
-                        else {
-                            this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("Added DeviceId: ")->appendint(deviceId)->append(" beyond fast Id list")), this, "getPlayerForDevice");
-    
-
-                        }
-                            
-this->playerIdToDeviceId[index]= deviceId;
-    
-AnalogLocationInputFactory::getInstance()->addPlayer(this->totalDevicesMapped);
-    
-this->totalDevicesMapped++;
-    
-this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("Added DeviceId: ")->appendint(deviceId)->append(" at: ")->appendint(index)->append(" Total: ")->appendint(this->totalDevicesMapped)), this, "getPlayerForDevice");
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return index;
-    
+- (int32_t) getPlayerForDevice:(int32_t)deviceId {
+        int32_t index = 0;
+        if (deviceId < self->MAX_FAST_DEVICEID) {
+            int32_t playerInputId = self->deviceIdToplayerId[deviceId];
+            if (playerInputId != -1) {
+                return playerInputId;
+            }
+        } else {
+            for (index = self->totalDevicesMapped - 1; index >= 0; index--) {
+                if (self->playerIdToDeviceId[index] == deviceId) {
+                    return index;
+                }
+            }
+        }
+        index = self->totalDevicesMapped;
+        if (deviceId < self->MAX_FAST_DEVICEID) {
+            self->deviceIdToplayerId[deviceId] = index;
+        } else {
+            [self->logUtil putF:[[[[[((StringMaker*) [StringMaker alloc]) init] append:"Added DeviceId: "] appendint:deviceId] append:" beyond fast Id list"] toString] :self :"getPlayerForDevice"];
+        }
+        self->playerIdToDeviceId[index] = deviceId;
+        [[AnalogLocationInputFactory getInstance] addPlayer:self->totalDevicesMapped];
+        self->totalDevicesMapped++;
+        [self->logUtil putF:[[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:"Added DeviceId: "] appendint:deviceId] append:" at: "] appendint:index] append:" Total: "] appendint:self->totalDevicesMapped] toString] :self :"getPlayerForDevice"];
+        return index;
 }
 
 
-    auto LocalPlayerInputIdFactory::getTotalDevicesInPlay() -> int32_t{
-
-    int32_t total = 0;;
-    
-
-
-
-
-                        for (
-    int32_t index = this->totalDevicesMapped -1;index >= 0; index--)
-        {
-
-                        if(this->playersInPlay[index] == true)
-                        
-                                    {
-                                    total++;
-    
-
-                                    }
-                                
+- (int32_t) getTotalDevicesInPlay {
+        int32_t total = 0;
+        for (int32_t index = self->totalDevicesMapped - 1; index >= 0; index--) {
+            if (self->playersInPlay[index] == true) {
+                total++;
+            }
+        }
+        return total;
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return total;
-    
+- (bool) isPlayerInPlay:(int32_t)playerInputId {
+        return self->playersInPlay[playerInputId];
 }
 
 
-    auto LocalPlayerInputIdFactory::isPlayerInPlay(int32_t playerInputId) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->playersInPlay[playerInputId];
-    
+- (void) setPlayerInPlay:(int32_t)playerInputId {
+        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Setting PlayerInPlay with playerInputId: "] appendint:playerInputId] toString] :self :"setPlayerInPlay"];
+        self->playersInPlay[playerInputId] = true;
 }
 
 
-    auto LocalPlayerInputIdFactory::setPlayerInPlay(int32_t playerInputId) -> void{
-this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("Setting PlayerInPlay with playerInputId: ")->appendint(playerInputId)), this, "setPlayerInPlay");
-    
-this->playersInPlay[playerInputId]= true;
-    
+- (void) setPlayerOutOfPlay:(int32_t)playerInputId {
+        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Setting PlayerOutOfPlay with playerInputId: "] appendint:playerInputId] toString] :self :"setPlayerOutOfPlay"];
+        self->playersInPlay[playerInputId] = false;
 }
 
 
-    auto LocalPlayerInputIdFactory::setPlayerOutOfPlay(int32_t playerInputId) -> void{
-this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("Setting PlayerOutOfPlay with playerInputId: ")->appendint(playerInputId)), this, "setPlayerOutOfPlay");
-    
-this->playersInPlay[playerInputId]= false;
-    
+- (bool*) getPlayersInPlay {
+        return self->playersInPlay;
 }
 
+@end
 
-    auto LocalPlayerInputIdFactory::getPlayersInPlay() -> std::vector<bool>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->playersInPlay;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_LOCALPLAYERINPUTIDFACTORY_CPP

@@ -1,66 +1,26 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_TEXTFIELDITEMHELPER_H
+#define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_TEXTFIELDITEMHELPER_H
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class TextFieldItemHelper;
 
+@interface TextFieldItemHelper : ABObject {
+@public
+}
+- (instancetype) init;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_TEXTFIELDITEMHELPER_H
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_TEXTFIELDITEMHELPER_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void TextFieldItemHelper_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class TextFieldItemHelper
-            : public virtual Object
-         {
-
-
-            
-    public: TextFieldItemHelper();
-        
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_TEXTFIELDITEMHELPER_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_FORM_ITEM_TEXTFIELDITEMHELPER_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_TEXTFIELDITEMHELPER_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_FORM_ITEM_TEXTFIELDITEMHELPER_H

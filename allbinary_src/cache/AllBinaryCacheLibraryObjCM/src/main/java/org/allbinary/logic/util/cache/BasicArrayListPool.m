@@ -1,173 +1,66 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LOGIC_UTIL_CACHE_BASICARRAYLISTPOOL_CPP
-        #define ORG_ALLBINARY_LOGIC_UTIL_CACHE_BASICARRAYLISTPOOL_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/util/cache/BasicArrayListPool.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/logic/util/cache/AbstractArrayListPool.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/util/cache/BasicArrayListPool.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/logic/util/cache/AbstractArrayListPool.h"
 #include "org/allbinary/logic/util/cache/CacheableInterfaceFactoryInterface.h"
 #include "org/allbinary/logic/util/cache/CacheableInterface.h"
 #include "org/allbinary/logic/util/cache/BasicArrayListCacheable.h"
 
 
-BasicArrayListPool::BasicArrayListPool(CacheableInterfaceFactoryInterface* cacheableInterfaceFactoryInterface) : AbstractArrayListPool(cacheableInterfaceFactoryInterface){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void BasicArrayListPool_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
+@implementation BasicArrayListPool
+
+
+- (instancetype) init:(CacheableInterfaceFactoryInterface*)cacheableInterfaceFactoryInterface {
+        self = [super init:cacheableInterfaceFactoryInterface];
+    return self;
 }
 
 
-    auto BasicArrayListPool::clear() -> void{
-this->buffers->clear();
-    
+- (void) clear {
+        [self->buffers clear];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BasicArrayListPool::remove(Object* key) -> CacheableInterface*{
-
-    int32_t size = this->buffers->size();;
-    
-
-                        if(size > 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<CacheableInterface*>(this->buffers->removeAt(size -1));
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->cacheableInterfaceFactoryInterface->getInstance(key);;
-    
-
-                        }
-                            
+// throws Exception
+- (CacheableInterface*) remove:(id)key {
+        int32_t size = [self->buffers size];
+        if (size > 0) {
+            return ((CacheableInterface*) [self->buffers removeAt:size - 1]);
+        } else {
+            return [self->cacheableInterfaceFactoryInterface getInstance:key];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BasicArrayListPool::addAll(BasicArrayList* usedList) -> void{
-
-
-
-
-                        for (
-    int32_t index = usedList->size();--index >= 0; )
-        {
-
-    CacheableInterface* anyType = dynamic_cast<CacheableInterface*>(usedList->objectArray[index]);;
-    
-this->add(anyType);
-    
-}
-
-usedList->clear();
-    
+// throws Exception
+- (void) addAll:(BasicArrayList*)usedList {
+        for (int32_t index = [usedList size]; --index >= 0; ) {
+            CacheableInterface* anyType = ((CacheableInterface*) usedList->objectArray[index]);
+            [self add:anyType];
+        }
+        [usedList clear];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BasicArrayListPool::releaseUsedBackToPool(BasicArrayList* usedList) -> void{
-
-
-
-
-                        for (
-    int32_t index = usedList->size();--index >= 0; )
-        {
-
-    BasicArrayListCacheable* list = dynamic_cast<BasicArrayListCacheable*>(usedList->objectArray[index]);;
-    
-
-                        if(list->size() == 0)
-                        
-                                    {
-                                    usedList->removeAt(index);
-    
-this->add(list);
-    
-
-                                    }
-                                
+// throws Exception
+- (void) releaseUsedBackToPool:(BasicArrayList*)usedList {
+        for (int32_t index = [usedList size]; --index >= 0; ) {
+            BasicArrayListCacheable* list = ((BasicArrayListCacheable*) usedList->objectArray[index]);
+            if ([list size] == 0) {
+                [usedList removeAt:index];
+                [self add:list];
+            }
+        }
 }
 
-}
+@end
 
-
-
-
-        #endif //ORG_ALLBINARY_LOGIC_UTIL_CACHE_BASICARRAYLISTPOOL_CPP

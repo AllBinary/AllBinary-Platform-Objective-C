@@ -1,78 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/thirdparty/store/ThirdPartyMessageFactory.h"
 
 
+static ThirdPartyMessageFactory* ThirdPartyMessageFactory_instance;
 
-        #ifndef ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYMESSAGEFACTORY_CPP
-        #define ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYMESSAGEFACTORY_CPP
+void ThirdPartyMessageFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ThirdPartyMessageFactory_instance = [((ThirdPartyMessageFactory*) [ThirdPartyMessageFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/thirdparty/store/ThirdPartyMessageFactory.h"
-        
+@implementation ThirdPartyMessageFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->AUTHORIZED = "Authorized";
+    self->NOT_AUTHORIZED = "Not Authorized";
+    self->LINKAGE_ERROR = "Linkage Error";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ThirdPartyMessageFactory::ThirdPartyMessageFactory() {
-        }
-        auto ThirdPartyMessageFactory::instance_owner() -> ThirdPartyMessageFactory* { static std::unique_ptr<ThirdPartyMessageFactory> value(new ThirdPartyMessageFactory()); return value.get(); }
-ThirdPartyMessageFactory* ThirdPartyMessageFactory::instance = ThirdPartyMessageFactory::instance_owner();
-
-    auto ThirdPartyMessageFactory::getInstance() -> ThirdPartyMessageFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ThirdPartyMessageFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (ThirdPartyMessageFactory*) getInstance {
+        return (ThirdPartyMessageFactory_staticInit(), ThirdPartyMessageFactory_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYMESSAGEFACTORY_CPP

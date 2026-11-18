@@ -1,165 +1,81 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/business/init/LicenseInitInfo.h"
+#include "org/allbinary/debug/DebugFactory.h"
+#include "org/allbinary/debug/NoDebug.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
 
-        #ifndef ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFO_CPP
-        #define ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFO_CPP
+void LicenseInitInfo_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/business/init/LicenseInitInfo.h"
-        
+@implementation LicenseInitInfo
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/debug/DebugFactory.h>
-
-      
-#include <org/allbinary/debug/NoDebug.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-LicenseInitInfo::LicenseInitInfo() : id(StringUtil::getInstance()->EMPTY_STRING), serverList(new BasicArrayListD()){
+- (void) initFields {
+    self->id_ = [StringUtil getInstance]->EMPTY_STRING;
+    self->serverList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-    auto LicenseInitInfo::getLicenseId() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->id;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto LicenseInitInfo::getServer(int32_t index) -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::unbox<std::string>(this->serverList->get(index));
-    
+- (const char*) getLicenseId {
+        return self->id_;
 }
 
 
-    auto LicenseInitInfo::getNumberOfServers() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->serverList->size();;
-    
+- (const char*) getServer:(int32_t)index {
+        return ((const char*) [self->serverList get:index]);
 }
 
 
-    auto LicenseInitInfo::setLicenseId(std::string value) -> void{
-this->id= value;
-    
+- (int32_t) getNumberOfServers {
+        return [self->serverList size];
 }
 
 
-    auto LicenseInitInfo::clearServers() -> void{
-this->serverList->clear();
-    
+- (void) setLicenseId:(const char*)value {
+        self->id_ = value;
 }
 
 
-    auto LicenseInitInfo::setServer(std::string value, int32_t index) -> void{
-this->serverList->addAt(index, value);
-    
+- (void) clearServers {
+        [self->serverList clear];
 }
 
 
-    auto LicenseInitInfo::addServer(std::string value) -> void{
-this->serverList->add(value);
-    
+- (void) setServer:(const char*)value :(int32_t)index {
+        [self->serverList addAt:index :value];
 }
 
 
-    auto LicenseInitInfo::getServerList() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->serverList;
-    
+- (void) addServer:(const char*)value {
+        [self->serverList add:value];
 }
 
 
-    auto LicenseInitInfo::setServerList(BasicArrayList* servers) -> void{
-
-                        if(DebugFactory::getInstance() == NoDebug::getInstance())
-                        
-                                    {
-                                    this->serverList= servers;
-    
-
-                                    }
-                                
+- (BasicArrayList*) getServerList {
+        return self->serverList;
 }
 
 
+- (void) setServerList:(BasicArrayList*)servers {
+        if ([DebugFactory getInstance] == [NoDebug getInstance]) {
+            self->serverList = servers;
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFO_CPP

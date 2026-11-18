@@ -1,169 +1,76 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/event/DownGameKeyEventHandler.h"
+#include "org/allbinary/game/input/LocalPlayerInputIdFactory.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/game/input/event/DownGameKeyEventHandlerBase.h"
 
 
+static DownGameKeyEventHandler* DownGameKeyEventHandler_instance;
+static DownGameKeyEventHandlerBase** DownGameKeyEventHandler_instanceArray;
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_EVENT_DOWNGAMEKEYEVENTHANDLER_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_EVENT_DOWNGAMEKEYEVENTHANDLER_CPP
+void DownGameKeyEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    DownGameKeyEventHandler_instance = [((DownGameKeyEventHandler*) [DownGameKeyEventHandler alloc]) init];
+    DownGameKeyEventHandler_instanceArray = ((DownGameKeyEventHandlerBase**) java_array_from(sizeof(DownGameKeyEventHandlerBase*), sizeof((DownGameKeyEventHandlerBase*[]){ [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init], [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init], [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init], [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init], [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init], [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init] }) / sizeof(DownGameKeyEventHandlerBase*), (DownGameKeyEventHandlerBase*[]){ [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init], [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init], [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init], [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init], [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init], [((DownGameKeyEventHandlerBase*) [DownGameKeyEventHandlerBase alloc]) init] }));
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/event/DownGameKeyEventHandler.h"
-        
+@implementation DownGameKeyEventHandler
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/game/input/LocalPlayerInputIdFactory.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/event/DownGameKeyEventHandlerBase.h"
-
-auto DownGameKeyEventHandler::instance_owner() -> DownGameKeyEventHandler* { static std::unique_ptr<DownGameKeyEventHandler> value(new DownGameKeyEventHandler()); return value.get(); }
-DownGameKeyEventHandler* DownGameKeyEventHandler::instance = DownGameKeyEventHandler::instance_owner();
-std::vector<DownGameKeyEventHandlerBase*> DownGameKeyEventHandler::instanceArray = 
-                                                        {
-                                                            new DownGameKeyEventHandlerBase(),new DownGameKeyEventHandlerBase(),new DownGameKeyEventHandlerBase(),new DownGameKeyEventHandlerBase(),new DownGameKeyEventHandlerBase(),new DownGameKeyEventHandlerBase()
-                                                        };
-
-    auto DownGameKeyEventHandler::getInstance() -> DownGameKeyEventHandler*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return DownGameKeyEventHandler::instance;
-    
+- (void) initFields {
+    self->playerInputIdFactory = [LocalPlayerInputIdFactory getInstance];
 }
 
 
-    auto DownGameKeyEventHandler::getInstanceForDevice(int32_t deviceId) -> DownGameKeyEventHandlerBase*{
-
-    int32_t playerInputId = this->playerInputIdFactory->getPlayerForDevice(deviceId);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return DownGameKeyEventHandler::instanceArray[playerInputId];
-    
++ (DownGameKeyEventHandler*) getInstance {
+        return (DownGameKeyEventHandler_staticInit(), DownGameKeyEventHandler_instance);
 }
 
 
-    auto DownGameKeyEventHandler::getInstanceForPlayer(int32_t playerInputId) -> DownGameKeyEventHandlerBase*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return DownGameKeyEventHandler::instanceArray[playerInputId];
-    
+- (DownGameKeyEventHandlerBase*) getInstanceForDevice:(int32_t)deviceId {
+        int32_t playerInputId = [self->playerInputIdFactory getPlayerForDevice:deviceId];
+        return (DownGameKeyEventHandler_staticInit(), DownGameKeyEventHandler_instanceArray)[playerInputId];
 }
 
 
-DownGameKeyEventHandler::DownGameKeyEventHandler() : playerInputIdFactory(LocalPlayerInputIdFactory::getInstance()){
+- (DownGameKeyEventHandlerBase*) getInstanceForPlayer:(int32_t)playerInputId {
+        return (DownGameKeyEventHandler_staticInit(), DownGameKeyEventHandler_instanceArray)[playerInputId];
 }
 
 
-    auto DownGameKeyEventHandler::removeAllListeners() -> void{
-DownGameKeyEventHandlerBase::removeAllListeners();
-    
-
-
-
-
-                        for (
-    int32_t index = DownGameKeyEventHandler::instanceArray.size() -1;index >= 0; index--)
-        {
-DownGameKeyEventHandler::instanceArray[index]->removeAllListeners();
-    
-}
-
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto DownGameKeyEventHandler::removeListenerSingleThreaded(EventListenerInterface* eventListenerInterface) -> void{
-DownGameKeyEventHandlerBase::removeListenerSingleThreaded(eventListenerInterface);
-    
-
-
-
-
-                        for (
-    int32_t index = DownGameKeyEventHandler::instanceArray.size() -1;index >= 0; index--)
-        {
-DownGameKeyEventHandler::instanceArray[index]->removeListenerSingleThreaded(eventListenerInterface);
-    
-}
-
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto DownGameKeyEventHandler::removeListener(EventListenerInterface* eventListenerInterface) -> void{
-DownGameKeyEventHandlerBase::removeListener(eventListenerInterface);
-    
-
-
-
-
-                        for (
-    int32_t index = DownGameKeyEventHandler::instanceArray.size() -1;index >= 0; index--)
-        {
-DownGameKeyEventHandler::instanceArray[index]->removeListener(eventListenerInterface);
-    
-}
-
+- (void) removeAllListeners {
+        [super removeAllListeners];
+        for (int32_t index = java_array_length((DownGameKeyEventHandler_staticInit(), DownGameKeyEventHandler_instanceArray)) - 1; index >= 0; index--) {
+            [(DownGameKeyEventHandler_staticInit(), DownGameKeyEventHandler_instanceArray)[index] removeAllListeners];
+        }
 }
 
 
+- (void) removeListenerSingleThreaded:(EventListenerInterface*)eventListenerInterface {
+        [super removeListenerSingleThreaded:eventListenerInterface];
+        for (int32_t index = java_array_length((DownGameKeyEventHandler_staticInit(), DownGameKeyEventHandler_instanceArray)) - 1; index >= 0; index--) {
+            [(DownGameKeyEventHandler_staticInit(), DownGameKeyEventHandler_instanceArray)[index] removeListenerSingleThreaded:eventListenerInterface];
+        }
+}
 
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_EVENT_DOWNGAMEKEYEVENTHANDLER_CPP
+// synchronized
+- (void) removeListener:(EventListenerInterface*)eventListenerInterface {
+        [super removeListener:eventListenerInterface];
+        for (int32_t index = java_array_length((DownGameKeyEventHandler_staticInit(), DownGameKeyEventHandler_instanceArray)) - 1; index >= 0; index--) {
+            [(DownGameKeyEventHandler_staticInit(), DownGameKeyEventHandler_instanceArray)[index] removeListener:eventListenerInterface];
+        }
+}
+
+@end
+

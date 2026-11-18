@@ -1,159 +1,78 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/hud/basic/time/TimeHudWidget.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/font/MyFontProcessor.h"
+#include "org/allbinary/logic/math/PrimitiveLongSingleton.h"
+#include "org/allbinary/game/ag/layer/hud/basic/time/HudTimer.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_TIME_TIMEHUDWIDGET_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_TIME_TIMEHUDWIDGET_CPP
+void TimeHudWidget_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/hud/basic/time/TimeHudWidget.h"
-        
+@implementation TimeHudWidget
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/game/graphics/hud/BasicHud.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/font/MyFontProcessor.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveLongSingleton.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/ag/layer/hud/basic/time/HudTimer.h"
-
-
-                //@Throws(Exception.constructor)
-            
-    auto TimeHudWidget::getInstance(int32_t location, int32_t direction, BasicColor* basicColor, HudTimer* timer) -> TimeHudWidget*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new TimeHudWidget(location, direction, 2, basicColor, timer);
+- (void) initFields {
+    self->TIME_STRING = "Time ";
+    self->TIME_CHAR_ARRAY = ((uint16_t*) java_array_from(sizeof(uint16_t), sizeof((uint16_t[]){ u'T', u'i', u'm', u'e', u' ' }) / sizeof(uint16_t), (uint16_t[]){ u'T', u'i', u'm', u'e', u' ' }));
+    self->offset = 0;
+    self->string = [PrimitiveLongSingleton getInstance]->ZERO;
+    self->totalDigits = 1;
     
 }
 
 
-TimeHudWidget::TimeHudWidget(int32_t location, int32_t direction, int32_t bufferZone, BasicColor* basicColor, HudTimer* timer) : BasicHud(location, direction, bufferZone, basicColor), TIME_CHAR_ARRAY({'T','i','m','e',' '}), string(PrimitiveLongSingleton::getInstance()->ZERO){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->timer= timer;
-    
-this->set();
-    
-this->updateMaxHeight= 14;
-    
+// throws Exception
++ (TimeHudWidget*) getInstance:(int32_t)location :(int32_t)direction :(BasicColor*)basicColor :(HudTimer*)timer {
+        return [((TimeHudWidget*) [TimeHudWidget alloc]) init:location :direction :2 :basicColor :timer];
 }
 
 
-    auto TimeHudWidget::updateMeasurement(Graphics* graphics) -> void{
-
-    Font* font = graphics->getFont();;
-    
-this->updateMaxWidth= font->getSize() *5;
-    
-this->offset= font->stringWidth(this->TIME_STRING) +MyFontProcessor::defaultStringWidth(font, 3);
-    
-BasicHud::updateMeasurement(graphics);
-    
+- (instancetype) init:(int32_t)location :(int32_t)direction :(int32_t)bufferZone :(BasicColor*)basicColor :(HudTimer*)timer {
+        self = [super init:location :direction :bufferZone :basicColor];
+        [self initFields];
+        self->timer = timer;
+        [self set];
+        self->updateMaxHeight = 14;
+    return self;
 }
 
 
-    auto TimeHudWidget::update() -> void{
-this->timer->update();
-    
-this->set();
-    
+- (void) updateMeasurement:(Graphics*)graphics {
+        Font* font = [graphics getFont];
+        self->updateMaxWidth = [font getSize] * 5;
+        self->offset = [font stringWidth:self->TIME_STRING] + [MyFontProcessor defaultStringWidth:font :3];
+        [super updateMeasurement:graphics];
 }
 
 
-    auto TimeHudWidget::set() -> void{
-this->string= this->timer->getTimeChars();
-    
-this->totalDigits= this->timer->getCurrentTotalDigits();
-    
+- (void) update {
+        [self->timer update];
+        [self set];
 }
 
 
-    auto TimeHudWidget::getTimer() -> HudTimer*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->timer;
-    
+- (void) set {
+        self->string = [self->timer getTimeChars];
+        self->totalDigits = [self->timer getCurrentTotalDigits];
 }
 
 
-    auto TimeHudWidget::paint(Graphics* graphics) -> void{
-BasicHud::paintDX(graphics, this->TIME_CHAR_ARRAY, 0, this->TIME_CHAR_ARRAY.size(), this->string, 0, this->totalDigits, this->offset);
-    
+- (HudTimer*) getTimer {
+        return self->timer;
 }
 
 
+- (void) paint:(Graphics*)graphics {
+        [super paintDX:graphics :self->TIME_CHAR_ARRAY :0 :java_array_length(self->TIME_CHAR_ARRAY) :self->string :0 :self->totalDigits :self->offset];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_TIME_TIMEHUDWIDGET_CPP

@@ -1,79 +1,40 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/GameInfoData.h"
 
 
+static GameInfoData* GameInfoData_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_GAMEINFODATA_CPP
-        #define ORG_ALLBINARY_GAME_GAMEINFODATA_CPP
+void GameInfoData_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameInfoData_instance = [((GameInfoData*) [GameInfoData alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/GameInfoData.h"
-        
+@implementation GameInfoData
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto GameInfoData::instance_owner() -> GameInfoData* { static std::unique_ptr<GameInfoData> value(new GameInfoData()); return value.get(); }
-GameInfoData* GameInfoData::instance = GameInfoData::instance_owner();
-
-    auto GameInfoData::getInstance() -> GameInfoData*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameInfoData::instance;
-    
+- (void) initFields {
+    self->GAME_TYPE = "GAME_TYPE";
+    self->GAME_MODE = "GAME_MODE";
+    self->PLAYER_TYPE = "PLAYER_TYPE";
+    self->HIGHEST_LEVEL = "HIGHEST_LEVEL";
+    self->CURRENT_LEVEL = "CURRENT_LEVEL";
+    self->SOFTWARE_INFORMATION = "SOFTWARE_INFORMATION";
 }
 
 
-GameInfoData::GameInfoData(){
++ (GameInfoData*) getInstance {
+        return (GameInfoData_staticInit(), GameInfoData_instance);
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_GAMEINFODATA_CPP

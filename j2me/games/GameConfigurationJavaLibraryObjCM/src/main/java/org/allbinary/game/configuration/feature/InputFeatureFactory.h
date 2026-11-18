@@ -1,103 +1,53 @@
+#ifndef ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_INPUTFEATUREFACTORY_H
+#define ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_INPUTFEATUREFACTORY_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.configuration.feature
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_INPUTFEATUREFACTORY_H
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_INPUTFEATUREFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class InputFeature;
-class Features;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class InputFeatureFactory
-            : public virtual Object
-         {
-
-    private: static InputFeatureFactory* instance_owner();
-    private: static InputFeatureFactory* instance;
-
-    public: static InputFeatureFactory* getInstance();
-
-private: InputFeatureFactory();
-
-    public: InputFeature* REMOVE_DUPLICATE_KEY_PRESSES;
-
-    public: InputFeature* INPUT_MAPPING;
-
-    public: InputFeature* MULTI_KEY_PRESS;
-
-    public: InputFeature* SINGLE_KEY_REPEAT_PRESS;
-
-    public: InputFeature* SINGLE_KEY_PRESS;
-
-    public: bool isSingleKeyProcessing();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_INPUTFEATUREFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_INPUTFEATUREFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_INPUTFEATUREFACTORY_H_COMPLETE
-        #if __has_include("org/allbinary/game/configuration/feature/InputFeature.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class InputFeatureFactory;
+@class InputFeature;
+@class Features;
+#if __has_include("org/allbinary/game/configuration/feature/InputFeature.h")
 #include "org/allbinary/game/configuration/feature/InputFeature.h"
 #endif
-#if __has_include("org/allbinary/game/configuration/feature/Features.h")
-#include "org/allbinary/game/configuration/feature/Features.h"
-#endif
 
-        #endif
-    
+@interface InputFeatureFactory : ABObject {
+@public
+    InputFeature* REMOVE_DUPLICATE_KEY_PRESSES;
+    InputFeature* INPUT_MAPPING;
+    InputFeature* MULTI_KEY_PRESS;
+    InputFeature* SINGLE_KEY_REPEAT_PRESS;
+    InputFeature* SINGLE_KEY_PRESS;
+}
+- (instancetype) init;
+- (void) initFields;
++ (InputFeatureFactory*) getInstance;
+- (bool) isSingleKeyProcessing;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void InputFeatureFactory_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_INPUTFEATUREFACTORY_H

@@ -1,147 +1,61 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/SaveGameForm.h"
+#include "javax/microedition/lcdui/CommandListener.h"
+#include "javax/microedition/lcdui/TextField.h"
+#include "org/allbinary/MIDPUtil.h"
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/logic/ABSystemWrapper.h"
 
 
+static CommandForm* SaveGameForm_FORM;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_SAVEGAMEFORM_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_SAVEGAMEFORM_CPP
+void SaveGameForm_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    SaveGameForm_FORM = [CommandForm getNullCommandForm];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/SaveGameForm.h"
-        
+@implementation SaveGameForm
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Long.h"
-        
-#include <javax/microedition/lcdui/CommandListener.h>
-
-      
-#include <javax/microedition/lcdui/TextField.h>
-
-      
-#include <org/allbinary/MIDPUtil.h>
-
-      
-#include <org/allbinary/game/commands/GameCommandsFactory.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/displayable/screen/CommandForm.h>
-
-      
-#include <org/allbinary/logic/ABSystemWrapper.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-CommandForm* SaveGameForm::FORM = CommandForm::getNullCommandForm();
-
-                //@Throws(Exception.constructor)
-            
-    auto SaveGameForm::createForm(CommandListener* commandListener, std::string title, BasicColor* backgrounBasicColor, BasicColor* foregroundBasicColor) -> CommandForm*{
-SaveGameForm::FORM= new SaveGameForm(commandListener, title, backgrounBasicColor, foregroundBasicColor);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return SaveGameForm::FORM;
-    
+- (void) initFields {
+    self->meUtil = [MIDPUtil getInstance];
 }
 
 
-    auto SaveGameForm::getInstance() -> CommandForm*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return SaveGameForm::FORM;
-    
+// throws Exception
++ (CommandForm*) createForm:(CommandListener*)commandListener :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor {
+        SaveGameForm_FORM = [((SaveGameForm*) [SaveGameForm alloc]) init:commandListener :title :backgrounBasicColor :foregroundBasicColor];
+        return (SaveGameForm_staticInit(), SaveGameForm_FORM);
 }
 
 
-SaveGameForm::SaveGameForm(CommandListener* commandListener, std::string title, BasicColor* backgrounBasicColor, BasicColor* foregroundBasicColor) : CommandForm(commandListener, title, backgrounBasicColor, foregroundBasicColor), meUtil(MIDPUtil::getInstance()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->CONSTRUCTOR);
-    
-
-    std::string timeString = std::to_string(ABSystemWrapper::getInstance()->currentTimeMillis());;
-    
-this->meUtil->appendItem(this, new TextField("Name: ", timeString, 30, TextField::ANY));
-    
-this->initCommands(commandListener);
-    
++ (CommandForm*) getInstance {
+        return (SaveGameForm_staticInit(), SaveGameForm_FORM);
 }
 
 
-    auto SaveGameForm::initCommands(CommandListener* cmdListener) -> void{
-
-    GameCommandsFactory* gameCommandsFactory = GameCommandsFactory::getInstance();;
-    
-this->removeAllCommands();
-    
-this->addCommand(gameCommandsFactory->SAVE);
-    
-this->addCommand(gameCommandsFactory->CLOSE_AND_SHOW_GAME_CANVAS);
-    
-this->setCommandListener(cmdListener);
-    
+- (instancetype) init:(CommandListener*)commandListener :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor {
+        self = [super init:commandListener :title :backgrounBasicColor :foregroundBasicColor];
+        [self initFields];
+        [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->CONSTRUCTOR];
+        const char* timeString = java_string_of([[ABSystemWrapper getInstance] currentTimeMillis]);
+        [self->meUtil appendItem:self :[((TextField*) [TextField alloc]) init:"Name: " :timeString :30 :(TextField_staticInit(), TextField_ANY)]];
+        [self initCommands:commandListener];
+    return self;
 }
 
 
+- (void) initCommands:(CommandListener*)cmdListener {
+        GameCommandsFactory* gameCommandsFactory = [GameCommandsFactory getInstance];
+        [self removeAllCommands];
+        [self addCommand:gameCommandsFactory->SAVE];
+        [self addCommand:gameCommandsFactory->CLOSE_AND_SHOW_GAME_CANVAS];
+        [self setCommandListener:cmdListener];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_SAVEGAMEFORM_CPP

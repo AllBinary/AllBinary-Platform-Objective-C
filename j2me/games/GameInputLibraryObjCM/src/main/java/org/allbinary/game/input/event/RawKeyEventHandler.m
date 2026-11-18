@@ -1,276 +1,134 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/event/RawKeyEventHandler.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/game/input/event/RawKeyEventListener.h"
 
 
+static RawKeyEventHandler* RawKeyEventHandler_instance;
+static const char* RawKeyEventHandler_TOTAL_LISTENERS = "Total Listeners: ";
+static const char* RawKeyEventHandler_LISTENER_LABEL = " Listener: ";
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_EVENT_RAWKEYEVENTHANDLER_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_EVENT_RAWKEYEVENTHANDLER_CPP
+void RawKeyEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    RawKeyEventHandler_instance = [((RawKeyEventHandler*) [RawKeyEventHandler alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/event/RawKeyEventHandler.h"
-        
+@implementation RawKeyEventHandler
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/event/RawKeyEventListener.h"
-
-auto RawKeyEventHandler::instance_owner() -> RawKeyEventHandler* { static std::unique_ptr<RawKeyEventHandler> value(new RawKeyEventHandler()); return value.get(); }
-RawKeyEventHandler* RawKeyEventHandler::instance = RawKeyEventHandler::instance_owner();
-
-    auto RawKeyEventHandler::getInstance() -> RawKeyEventHandler*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return RawKeyEventHandler::instance;
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
     
 }
 
 
-RawKeyEventHandler::RawKeyEventHandler() : logUtil(LogUtil::getInstance()){
-this->eventListenerInterfaceList= new BasicArrayListD();
-    
++ (RawKeyEventHandler*) getInstance {
+        return (RawKeyEventHandler_staticInit(), RawKeyEventHandler_instance);
 }
 
 
-    auto RawKeyEventHandler::removeAllListeners() -> void{
-this->eventListenerInterfaceList= new BasicArrayListD();
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        self->eventListenerInterfaceList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    return self;
 }
 
 
-    auto RawKeyEventHandler::addListeners(BasicArrayList* vector) -> void{
-
-    RawKeyEventListener* eventListenerInterface;;
-    
-
-    int32_t size = vector->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-eventListenerInterface= dynamic_cast<RawKeyEventListener*>(vector->get(index));
-    
-this->addListener(eventListenerInterface);
-    
-}
-
+- (void) removeAllListeners {
+        self->eventListenerInterfaceList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-    auto RawKeyEventHandler::addListenerSingleThreaded(RawKeyEventListener* eventListenerInterface) -> void{
-
-                        if(!this->eventListenerInterfaceList->contains(eventListenerInterface))
-                        
-                                    {
-                                    this->eventListenerInterfaceList->add(eventListenerInterface);
-    
-
-                                    }
-                                
+- (void) addListeners:(BasicArrayList*)vector {
+        RawKeyEventListener* eventListenerInterface = nullptr;
+        int32_t size = [vector size];
+        for (int32_t index = 0; index < size; index++) {
+            eventListenerInterface = ((RawKeyEventListener*) [vector get:index]);
+            [self addListener:eventListenerInterface];
+        }
 }
 
 
-    auto RawKeyEventHandler::addListener(RawKeyEventListener* eventListenerInterface) -> void{
-
-                        if(!this->eventListenerInterfaceList->contains(eventListenerInterface))
-                        
-                                    {
-                                    this->eventListenerInterfaceList->add(eventListenerInterface);
-    
-
-                                    }
-                                
+- (void) addListenerSingleThreaded:(RawKeyEventListener*)eventListenerInterface {
+        if (![self->eventListenerInterfaceList contains:eventListenerInterface]) {
+            [self->eventListenerInterfaceList add:eventListenerInterface];
+        }
 }
 
 
-    auto RawKeyEventHandler::removeListenerSingleThreaded(RawKeyEventListener* eventListenerInterface) -> void{
-this->eventListenerInterfaceList->remove(eventListenerInterface);
-    
+- (void) addListener:(RawKeyEventListener*)eventListenerInterface {
+        if (![self->eventListenerInterfaceList contains:eventListenerInterface]) {
+            [self->eventListenerInterfaceList add:eventListenerInterface];
+        }
 }
 
 
-    auto RawKeyEventHandler::removeListener(RawKeyEventListener* eventListenerInterface) -> void{
-this->eventListenerInterfaceList->remove(eventListenerInterface);
-    
+- (void) removeListenerSingleThreaded:(RawKeyEventListener*)eventListenerInterface {
+        [self->eventListenerInterfaceList remove:eventListenerInterface];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto RawKeyEventHandler::fireEvent(int32_t keyCode, int32_t deviceId, bool repeated) -> void{
-
-    RawKeyEventListener* eventListenerInterface;;
-    
-
-    int32_t index = 0;;
-    
-
-        while(index < this->eventListenerInterfaceList->size())
-        {
-
-        try {
-            eventListenerInterface= dynamic_cast<RawKeyEventListener*>(this->eventListenerInterfaceList->get(index));
-    
-this->process(keyCode, deviceId, repeated, eventListenerInterface);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, EventStrings::getInstance()->FIRE_EVENT, &e);
-    
-}
-
-index++;
-    
-}
-
+- (void) removeListener:(RawKeyEventListener*)eventListenerInterface {
+        [self->eventListenerInterfaceList remove:eventListenerInterface];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto RawKeyEventHandler::process(int32_t keyCode, int32_t deviceId, bool repeated, RawKeyEventListener* eventListenerInterface) -> void{
-eventListenerInterface->onEventRaw(keyCode, deviceId, repeated);
-    
+// throws Exception
+- (void) fireEvent:(int32_t)keyCode :(int32_t)deviceId :(bool)repeated {
+        RawKeyEventListener* eventListenerInterface = nullptr;
+        int32_t index = 0;
+        while (index < [self->eventListenerInterfaceList size]) {
+            JAVA_TRY {
+                eventListenerInterface = ((RawKeyEventListener*) [self->eventListenerInterfaceList get:index]);
+                [self process:keyCode :deviceId :repeated :eventListenerInterface];
+            } JAVA_CATCH(Exception, e) {
+                CommonStrings* commonStrings = [CommonStrings getInstance];
+                [self->logUtil put:commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
+            } JAVA_END_TRY;
+            index++;
+        }
 }
 
 
-    auto RawKeyEventHandler::getEventListenerInterfaceListP() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->eventListenerInterfaceList;
-    
+// throws Exception
+- (void) process:(int32_t)keyCode :(int32_t)deviceId :(bool)repeated :(RawKeyEventListener*)eventListenerInterface {
+        [eventListenerInterface onEventRaw:keyCode :deviceId :repeated];
 }
 
 
-    auto RawKeyEventHandler::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append(RawKeyEventHandler::TOTAL_LISTENERS);
-    
-stringBuffer->appendint(this->eventListenerInterfaceList->size());
-    
-
-    RawKeyEventListener* eventListenerInterface;;
-    
-
-    int32_t index = 0;;
-    
-
-        while(index < this->eventListenerInterfaceList->size())
-        {
-
-        try {
-            eventListenerInterface= dynamic_cast<RawKeyEventListener*>(this->eventListenerInterfaceList->get(index));
-    
-stringBuffer->append(RawKeyEventHandler::LISTENER_LABEL);
-    
-stringBuffer->append(JavaString::valueOf(eventListenerInterface));
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, commonStrings->TOSTRING, &e);
-    
-}
-
-index++;
-    
+- (BasicArrayList*) getEventListenerInterfaceListP {
+        return self->eventListenerInterfaceList;
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:RawKeyEventHandler_TOTAL_LISTENERS];
+        [stringBuffer appendint:[self->eventListenerInterfaceList size]];
+        RawKeyEventListener* eventListenerInterface = nullptr;
+        int32_t index = 0;
+        while (index < [self->eventListenerInterfaceList size]) {
+            JAVA_TRY {
+                eventListenerInterface = ((RawKeyEventListener*) [self->eventListenerInterfaceList get:index]);
+                [stringBuffer append:RawKeyEventHandler_LISTENER_LABEL];
+                [stringBuffer append:[eventListenerInterface toString]];
+            } JAVA_CATCH(Exception, e) {
+                CommonStrings* commonStrings = [CommonStrings getInstance];
+                [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->TOSTRING :e];
+            } JAVA_END_TRY;
+            index++;
+        }
+        return [stringBuffer toString];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_EVENT_RAWKEYEVENTHANDLER_CPP

@@ -1,135 +1,62 @@
+#ifndef ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLERBASE_H
+#define ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLERBASE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.input.event
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLERBASE_H
-        #define ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLERBASE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-class PlayerGameInput;
-class StringMaker;
-class EventListenerInterface;
-class EventStrings;
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-class BasicArrayList;
-class BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class UpKeyEventListenerInterface;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class UpKeyEventHandlerBase: public BasicEventHandler {
-
-    private: static inline const std::string TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
-
-    private: static inline const std::string LISTENER_LABEL = " PlayerGameInput Listener: ";
-
-    private: BasicArrayList* list;
-
-public: UpKeyEventHandlerBase();
-
-    public: void addListener(PlayerGameInput* playerGameInput);
-
-    public: void removeAllListeners();
-
-    public: void removeListenerSingleThreaded(EventListenerInterface* eventListenerInterface);
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    public: void removeListener(EventListenerInterface* eventListenerInterface);
-
-                //@Throws(Exception.constructor)
-            
-    public: void fireEventForInteger(int32_t eventObject);
-
-                //@Throws(Exception.constructor)
-            
-    /*protected*/ public: void processForInteger(int32_t eventObject, EventListenerInterface* eventListenerInterface);
-
-    public: std::string toString();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLERBASE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLERBASE_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLERBASE_H_COMPLETE
-        #if __has_include(<org/allbinary/game/input/PlayerGameInput.h>)
-#include <org/allbinary/game/input/PlayerGameInput.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class UpKeyEventHandlerBase;
+@class PlayerGameInput;
+@class StringMaker;
+@class EventListenerInterface;
+@class EventStrings;
+@class BasicEventHandler;
+@class BasicArrayList;
+@class BasicArrayListD;
+@class UpKeyEventListenerInterface;
+#include "org/allbinary/logic/util/event/handler/BasicEventHandler.h"
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
 #endif
-#if __has_include(<org/allbinary/logic/string/StringMaker.h>)
-#include <org/allbinary/logic/string/StringMaker.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/EventListenerInterface.h>)
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/EventStrings.h>)
-#include <org/allbinary/logic/util/event/EventStrings.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/handler/BasicEventHandler.h>)
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-#endif
-#if __has_include(<org/allbinary/util/BasicArrayList.h>)
-#include <org/allbinary/util/BasicArrayList.h>
-#endif
-#if __has_include(<org/allbinary/util/BasicArrayListD.h>)
-#include <org/allbinary/util/BasicArrayListD.h>
-#endif
-#if __has_include("org/allbinary/game/input/event/UpKeyEventListenerInterface.h")
-#include "org/allbinary/game/input/event/UpKeyEventListenerInterface.h"
-#endif
+#include "java/lang/Integer.h"
 
-        #endif
-    
+@interface UpKeyEventHandlerBase : BasicEventHandler {
+@public
+    BasicArrayList* list;
+}
+- (instancetype) init;
+- (void) initFields;
+- (void) addListener:(PlayerGameInput*)playerGameInput;
+- (void) removeAllListeners;
+- (void) removeListenerSingleThreaded:(EventListenerInterface*)eventListenerInterface;
+- (void) removeListener:(EventListenerInterface*)eventListenerInterface;
+- (void) fireEventForInteger:(int32_t)eventObject;
+- (void) processForInteger:(int32_t)eventObject :(EventListenerInterface*)eventListenerInterface;
+- (const char*) toString;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void UpKeyEventHandlerBase_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLERBASE_H

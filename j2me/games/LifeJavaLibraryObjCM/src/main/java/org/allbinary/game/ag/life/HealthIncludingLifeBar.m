@@ -1,134 +1,65 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/life/HealthIncludingLifeBar.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/game/health/Health.h"
+#include "org/allbinary/game/health/HealthBarAnimation.h"
+#include "org/allbinary/game/health/HealthBarTwodAnimation.h"
+#include "org/allbinary/game/health/HealthInterface.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/game/ag/life/Life.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LIFE_HEALTHINCLUDINGLIFEBAR_CPP
-        #define ORG_ALLBINARY_GAME_AG_LIFE_HEALTHINCLUDINGLIFEBAR_CPP
+void HealthIncludingLifeBar_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/life/HealthIncludingLifeBar.h"
-        
+@implementation HealthIncludingLifeBar
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/game/health/Health.h>
-
-      
-#include <org/allbinary/game/health/HealthBarAnimation.h>
-
-      
-#include <org/allbinary/game/health/HealthBarTwodAnimation.h>
-
-      
-#include <org/allbinary/game/health/HealthInterface.h>
-
-      
-#include <org/allbinary/game/health/HealthListenerInterface.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/ag/life/Life.h"
-
-
-                //@Throws(Exception.constructor)
-            
-    auto HealthIncludingLifeBar::createHealthIncludingLifeBar(AllBinaryLayer* layerInterface, Life* life, Health* healthInterface, int32_t location, int32_t direction) -> HealthIncludingLifeBar*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new HealthIncludingLifeBar(layerInterface, life, healthInterface, new HealthBarTwodAnimation(layerInterface, location), direction);
+- (void) initFields {
+    
+    
+    
     
 }
 
 
-HealthIncludingLifeBar::HealthIncludingLifeBar(AllBinaryLayer* layerInterface, Life* life, Health* healthInterface, HealthBarAnimation* animationInterface, int32_t direction){
-this->allbinaryLayer= layerInterface;
-    
-this->animationInterface= animationInterface;
-    
-this->life= life;
-    
-this->healthInterface= healthInterface;
-    
-this->healthInterface->addListener(this);
-    
-this->onHealthChange();
-    
+// throws Exception
++ (HealthIncludingLifeBar*) createHealthIncludingLifeBar:(AllBinaryLayer*)layerInterface :(Life*)life :(Health*)healthInterface :(int32_t)location :(int32_t)direction {
+        return [((HealthIncludingLifeBar*) [HealthIncludingLifeBar alloc]) init:layerInterface :life :healthInterface :[((HealthBarTwodAnimation*) [HealthBarTwodAnimation alloc]) init:layerInterface :location] :direction];
 }
 
 
-    auto HealthIncludingLifeBar::onHealthChange() -> void{
-this->animationInterface->onHealthChange(((this->healthInterface->getHealth() +(this->healthInterface->getMaxHealth() *this->life->get())) *this->allbinaryLayer->getWidth()) /(this->healthInterface->getMaxHealth() +(this->healthInterface->getMaxHealth() *this->life->getStartLives())));
-    
+- (instancetype) init:(AllBinaryLayer*)layerInterface :(Life*)life :(Health*)healthInterface :(HealthBarAnimation*)animationInterface :(int32_t)direction {
+    self = [super init];
+    [self initFields];
+        self->allbinaryLayer = layerInterface;
+        self->animationInterface = animationInterface;
+        self->life = life;
+        self->healthInterface = healthInterface;
+        [self->healthInterface addListener:self];
+        [self onHealthChange];
+    return self;
 }
 
 
-    auto HealthIncludingLifeBar::paint(Graphics* graphics) -> void{
-this->animationInterface->paintXY(graphics, 0, 0);
-    
+- (void) onHealthChange {
+        [self->animationInterface onHealthChange:(([self->healthInterface getHealth] + ([self->healthInterface getMaxHealth] * ((int32_t) [self->life get]))) * [self->allbinaryLayer getWidth]) / ([self->healthInterface getMaxHealth] + ([self->healthInterface getMaxHealth] * ((int32_t) [self->life getStartLives])))];
 }
 
 
-    auto HealthIncludingLifeBar::paintThreed(Graphics* graphics) -> void{
-this->animationInterface->paintThreedXYZ(graphics, 0, 0, 0);
-    
+- (void) paint:(Graphics*)graphics {
+        [self->animationInterface paintXY:graphics :0 :0];
 }
 
 
+- (void) paintThreed:(Graphics*)graphics {
+        [self->animationInterface paintThreedXYZ:graphics :0 :0 :0];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_LIFE_HEALTHINCLUDINGLIFEBAR_CPP

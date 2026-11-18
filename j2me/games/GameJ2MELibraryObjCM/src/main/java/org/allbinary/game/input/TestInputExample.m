@@ -1,104 +1,63 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/TestInputExample.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/game/input/TestInputInterface.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_TESTINPUTEXAMPLE_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_TESTINPUTEXAMPLE_CPP
+void TestInputExample_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/TestInputExample.h"
-        
+@implementation TestInputExample
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->testValue = 0;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/TestInputInterface.h"
-
-
-TestInputExample::TestInputExample() {
-        }
-        
-    auto TestInputExample::up() -> void{
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto TestInputExample::down() -> void{
+- (void) up {
 }
 
 
-    auto TestInputExample::left() -> void{
-this->testValue++;
-    
+- (void) down {
 }
 
 
-    auto TestInputExample::right() -> void{
-this->testValue--;
-    
+- (void) left {
+        self->testValue++;
 }
 
 
-    auto TestInputExample::strafeLeft() -> void{
+- (void) right {
+        self->testValue--;
 }
 
 
-    auto TestInputExample::strafeRight() -> void{
+- (void) strafeLeft {
 }
 
 
-    auto TestInputExample::paint(Graphics* graphics) -> void{
+- (void) strafeRight {
 }
 
 
-    auto TestInputExample::paintThreed(Graphics* graphics) -> void{
+- (void) paint:(Graphics*)graphics {
 }
 
 
+- (void) paintThreed:(Graphics*)graphics {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_TESTINPUTEXAMPLE_CPP

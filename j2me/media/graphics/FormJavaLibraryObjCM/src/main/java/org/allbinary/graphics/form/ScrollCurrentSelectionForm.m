@@ -1,86 +1,13 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_SCROLLCURRENTSELECTIONFORM_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_SCROLLCURRENTSELECTIONFORM_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/ScrollCurrentSelectionForm.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/canvas/Processor.h>
-
-      
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/font/MyFontProcessor.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontInterface.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontProcessor.h>
-
-      
-#include <org/allbinary/graphics/form/item/ABCustomItem.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/ScrollSelectionForm.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/ScrollCurrentSelectionForm.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/canvas/Processor.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/font/MyFontProcessor.h"
+#include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
+#include "org/allbinary/graphics/form/item/ABCustomItem.h"
+#include "org/allbinary/graphics/form/ScrollSelectionForm.h"
 #include "org/allbinary/graphics/form/ItemIndexDx.h"
 #include "org/allbinary/graphics/form/ItemPaintableFactory.h"
 #include "org/allbinary/graphics/form/FormTypeFactory.h"
@@ -93,384 +20,176 @@
 #include "org/allbinary/graphics/form/FormType.h"
 
 
-ScrollCurrentSelectionForm::ScrollCurrentSelectionForm(std::string title, std::vector<ABCustomItem*> items, ItemPaintableFactory* formPaintableFactory, int32_t border, int32_t adjustedExtraBorder, bool moveForSmallScreen, BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor) : ScrollSelectionForm(title, items, formPaintableFactory, border, adjustedExtraBorder, backgroundBasicColor, foregroundBasicColor), updateMyFontProcessor(new UpdateMyFontProcessor(this)), myFontProcessor(this->updateMyFontProcessor), processor(Processor::getInstance()), preItemIndexDx(ItemIndexDx::getInstance()){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void ScrollCurrentSelectionForm_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
-this->moveForSmallScreen= moveForSmallScreen;
+@implementation ScrollCurrentSelectionForm
+
+- (void) initFields {
     
+    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = self->updateMyFontProcessor;
+    self->processor = [Processor getInstance];
+    self->preItemIndexDx = [ItemIndexDx getInstance];
+    self->dx = 0;
+    self->dy = 0;
+    self->maxWidth = 0;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ScrollCurrentSelectionForm::init(Rectangle* rectangle, FormType* formType) -> void{
-ScrollSelectionForm::init(rectangle, formType);
-    
-
-    FormTypeFactory* formTypeFactory = FormTypeFactory::getInstance();;
-    
-
-                        if(formType == formTypeFactory->TEMP_HORIZONTAL_FORM)
-                        
-                                    {
-                                    this->processor= new TempHorizontalFormProcessor(this);
-    
-this->preItemIndexDx= new TempHorizontalItemIndexDx(this);
-    
-
-                                    }
-                                
-                             else 
-                        if(formType == formTypeFactory->HORIZONTAL_FORM)
-                        
-                                    {
-                                    this->processor= new HorizontalFormProcessor(this);
-    
-this->preItemIndexDx= new HorizontalItemIndexDx(this);
-    
-
-                                    }
-                                
-                             else 
-                        if(formType == formTypeFactory->VERTICAL_CENTER_FORM)
-                        
-                                    {
-                                    this->processor= new VerticalFormProcessor(this);
-    
-this->preItemIndexDx= new VerticalItemIndexDx(this);
-    
-
-                                    }
-                                
-                             else 
-                        if(formType == formTypeFactory->NULL_FORM_TYPE)
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            this->logUtil->putF(formTypeFactory->UNK, this, this->commonStrings->INIT);
-    
-
-                        }
-                            
-this->myFontProcessor= this->updateMyFontProcessor;
-    
+- (instancetype) init:(const char*)title :(ABCustomItem**)items :(ItemPaintableFactory*)formPaintableFactory :(int32_t)border :(int32_t)adjustedExtraBorder :(bool)moveForSmallScreen :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor {
+        self = [super init:title :items :formPaintableFactory :border :adjustedExtraBorder :backgroundBasicColor :foregroundBasicColor];
+        [self initFields];
+        self->moveForSmallScreen = moveForSmallScreen;
+    return self;
 }
 
 
-    auto ScrollCurrentSelectionForm::updateMeasurement(Graphics* graphics) -> void{
-this->myFontProcessor= MyFontProcessor::getInstance();
-    
+// throws Exception
+- (void) init_:(Rectangle*)rectangle :(FormType*)formType {
+        [super init_:rectangle :formType];
+        FormTypeFactory* formTypeFactory = [FormTypeFactory getInstance];
+        if (formType == formTypeFactory->TEMP_HORIZONTAL_FORM) {
+            self->processor = [((TempHorizontalFormProcessor*) [TempHorizontalFormProcessor alloc]) init:self];
+            self->preItemIndexDx = [((TempHorizontalItemIndexDx*) [TempHorizontalItemIndexDx alloc]) init:self];
+        } else if (formType == formTypeFactory->HORIZONTAL_FORM) {
+            self->processor = [((HorizontalFormProcessor*) [HorizontalFormProcessor alloc]) init:self];
+            self->preItemIndexDx = [((HorizontalItemIndexDx*) [HorizontalItemIndexDx alloc]) init:self];
+        } else if (formType == formTypeFactory->VERTICAL_CENTER_FORM) {
+            self->processor = [((VerticalFormProcessor*) [VerticalFormProcessor alloc]) init:self];
+            self->preItemIndexDx = [((VerticalItemIndexDx*) [VerticalItemIndexDx alloc]) init:self];
+        } else if (formType == formTypeFactory->NULL_FORM_TYPE) {
+        } else {
+            [self->logUtil putF:formTypeFactory->UNK :self :self->commonStrings->INIT];
+        }
+        self->myFontProcessor = self->updateMyFontProcessor;
 }
 
 
-    auto ScrollCurrentSelectionForm::processTempHorizontalForm() -> void{
-this->dx= this->x -30 +(this->rectangle->getWidth()>>1);
-    
-this->dy= this->y;
-    
+- (void) updateMeasurement:(Graphics*)graphics {
+        self->myFontProcessor = [MyFontProcessor getInstance];
 }
 
 
-    auto ScrollCurrentSelectionForm::processHorizontalForm() -> void{
-
-    int32_t size = this->size();;
-    
-
-    int32_t totalWidth = 0;;
-    
-
-    ABCustomItem* item;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-item= this->get(index);
-    
-totalWidth += item->getMinimumWidth() +this->border;
-    
-}
-
-this->dx= this->x +(this->rectangle->getWidth()>>1) -(totalWidth>>1);
-    
-this->dy= this->y +(this->rectangle->getHeight()>>1);
-    
-
-                        if(this->moveForSmallScreen)
-                        
-                                    {
-                                    
-    int32_t maxTitleHeight = 175;;
-    
-
-                        if(this->dy < maxTitleHeight)
-                        
-                                    {
-                                    this->dy= maxTitleHeight;
-    
-
-                                    }
-                                
-
-                                    }
-                                
+- (void) processTempHorizontalForm {
+        self->dx = self->x - 30 + ([self->rectangle getWidth] >> 1);
+        self->dy = self->y;
 }
 
 
-    auto ScrollCurrentSelectionForm::processVerticalForm() -> void{
-
-    int32_t totalHeight = 0;;
-    
-
-    int32_t size = this->size();;
-    
-
-    ABCustomItem* item2;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-item2= this->get(index);
-    
-
-                        if(this->maxWidth < item2->getMinimumWidth())
-                        
-                                    {
-                                    this->maxWidth= item2->getMinimumWidth();
-    
-
-                                    }
-                                
-totalHeight += item2->getMinimumHeight() +this->border;
-    
-}
-
-this->dx= ((this->rectangle->getWidth() -this->maxWidth) /2);
-    
-
-                        if(this->size() > 0)
-                        
-                                    {
-                                    this->dy= this->y +((this->rectangle->getHeight() -totalHeight) /2);
-    
-
-                        if(this->moveForSmallScreen)
-                        
-                                    {
-                                    
-    int32_t maxTitleHeight = 175;;
-    
-
-                        if(this->dy < maxTitleHeight)
-                        
-                                    {
-                                    this->dy= maxTitleHeight;
-    
-
-                                    }
-                                
-
-                                    }
-                                
-
-                                    }
-                                
-                        else {
-                            this->dy= this->y;
-    
-
-                        }
-                            
+- (void) processHorizontalForm {
+        int32_t size = [self size];
+        int32_t totalWidth = 0;
+        ABCustomItem* item = nullptr;
+        for (int32_t index = 0; index < size; index++) {
+            item = [self get:index];
+            totalWidth += [item getMinimumWidth] + self->border;
+        }
+        self->dx = self->x + ([self->rectangle getWidth] >> 1) - (totalWidth >> 1);
+        self->dy = self->y + ([self->rectangle getHeight] >> 1);
+        if (self->moveForSmallScreen) {
+            int32_t maxTitleHeight = 175;
+            if (self->dy < maxTitleHeight) {
+                self->dy = maxTitleHeight;
+            }
+        }
 }
 
 
-    auto ScrollCurrentSelectionForm::getXTempHorizontalForm(int32_t index, ABCustomItem* item, int32_t dx, int32_t dy) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getDiffX(item);;
-    
+- (void) processVerticalForm {
+        int32_t totalHeight = 0;
+        int32_t size = [self size];
+        ABCustomItem* item2 = nullptr;
+        for (int32_t index = 0; index < size; index++) {
+            item2 = [self get:index];
+            if (self->maxWidth < [item2 getMinimumWidth]) {
+                self->maxWidth = [item2 getMinimumWidth];
+            }
+            totalHeight += [item2 getMinimumHeight] + self->border;
+        }
+        self->dx = (([self->rectangle getWidth] - self->maxWidth) / 2);
+        if ([self size] > 0) {
+            self->dy = self->y + (([self->rectangle getHeight] - totalHeight) / 2);
+            if (self->moveForSmallScreen) {
+                int32_t maxTitleHeight = 175;
+                if (self->dy < maxTitleHeight) {
+                    self->dy = maxTitleHeight;
+                }
+            }
+        } else {
+            self->dy = self->y;
+        }
 }
 
 
-    auto ScrollCurrentSelectionForm::getXHorizontalForm(int32_t index, ABCustomItem* item, int32_t dx, int32_t dy) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (int32_t) getXTempHorizontalForm:(int32_t)index :(ABCustomItem*)item :(int32_t)dx :(int32_t)dy {
+        return [self getDiffX:item];
 }
 
 
-    auto ScrollCurrentSelectionForm::getXVerticalForm(int32_t index, ABCustomItem* item, int32_t dx, int32_t dy) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getDiffX(item) +this->halfBorder;
-    
+- (int32_t) getXHorizontalForm:(int32_t)index :(ABCustomItem*)item :(int32_t)dx :(int32_t)dy {
+        return 0;
 }
 
 
-    auto ScrollCurrentSelectionForm::getDiffX(ABCustomItem* item) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ((this->maxWidth -item->getMinimumWidth())>>1);
-    
+- (int32_t) getXVerticalForm:(int32_t)index :(ABCustomItem*)item :(int32_t)dx :(int32_t)dy {
+        return [self getDiffX:item] + self->halfBorder;
 }
 
 
-    auto ScrollCurrentSelectionForm::getDx() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->dx;
-    
+- (int32_t) getDiffX:(ABCustomItem*)item {
+        return ((self->maxWidth - [item getMinimumWidth]) >> 1);
 }
 
 
-    auto ScrollCurrentSelectionForm::getDy() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->dy;
-    
+- (int32_t) getDx {
+        return self->dx;
 }
 
 
-    auto ScrollCurrentSelectionForm::paint(Graphics* graphics) -> void{
-
-        try {
-            this->processor->process();
-    
-
-    int32_t delta = 0;;
-    
-
-    int32_t deltaX = this->getDx();;
-    
-
-    int32_t deltaY = this->getDy();;
-    
-
-    int32_t size = this->size();;
-    
-
-    FormTypeFactory* formTypeFactory = FormTypeFactory::getInstance();;
-    
-
-    ABCustomItem* item;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-item= this->get(index);
-    
-
-    int32_t diffX = this->preItemIndexDx->getDx(index, item, this->dx, this->dy);;
-    
-
-                        if(index == this->getSelectedIndex())
-                        
-                                    {
-                                    delta= this->paintItem(graphics, index, item, deltaX +diffX, deltaY);
-    
-this->paintable->paint(graphics, index, deltaX +diffX, deltaY);
-    
-
-                                    }
-                                
-                        else {
-                            delta= this->paintUnselectedItem(graphics, index, item, deltaX +diffX, deltaY);
-    
-this->paintable->paint(graphics, index, deltaX +diffX, deltaY);
-    
-
-                        }
-                            
-
-                        if(this->formType == formTypeFactory->TEMP_HORIZONTAL_FORM)
-                        
-                                    {
-                                    
-                                    }
-                                
-                             else 
-                        if(this->formType == formTypeFactory->HORIZONTAL_FORM)
-                        
-                                    {
-                                    deltaX= delta;
-    
-
-                                    }
-                                
-                             else 
-                        if(this->formType == formTypeFactory->VERTICAL_CENTER_FORM)
-                        
-                                    {
-                                    deltaY= delta;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw Exception(formTypeFactory->UNK);
-                    
-
-                        }
-                            
+- (int32_t) getDy {
+        return self->dy;
 }
 
 
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->canvasStrings->PAINT, &e);
-    
+- (void) paint:(Graphics*)graphics {
+        JAVA_TRY {
+            [self->processor process];
+            int32_t delta = 0;
+            int32_t deltaX = [self getDx];
+            int32_t deltaY = [self getDy];
+            int32_t size = [self size];
+            FormTypeFactory* formTypeFactory = [FormTypeFactory getInstance];
+            ABCustomItem* item = nullptr;
+            for (int32_t index = 0; index < size; index++) {
+                item = [self get:index];
+                int32_t diffX = [self->preItemIndexDx getDx:index :item :self->dx :self->dy];
+                if (index == [self getSelectedIndex]) {
+                    delta = [self paintItem:graphics :index :item :deltaX + diffX :deltaY];
+                    [self->paintable paint:graphics :index :deltaX + diffX :deltaY];
+                } else {
+                    delta = [self paintUnselectedItem:graphics :index :item :deltaX + diffX :deltaY];
+                    [self->paintable paint:graphics :index :deltaX + diffX :deltaY];
+                }
+                if (self->formType == formTypeFactory->TEMP_HORIZONTAL_FORM) {
+                } else if (self->formType == formTypeFactory->HORIZONTAL_FORM) {
+                    deltaX = delta;
+                } else if (self->formType == formTypeFactory->VERTICAL_CENTER_FORM) {
+                    deltaY = delta;
+                } else {
+                    java_throw(java_exception_new("Exception", formTypeFactory->UNK));
+                }
+            }
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->canvasStrings->PAINT :e];
+        } JAVA_END_TRY;
 }
 
-}
+@end
 
-
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_SCROLLCURRENTSELECTIONFORM_CPP

@@ -1,151 +1,59 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/LevelLayersFinder.h"
+#include "org/allbinary/layer/Layer.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/util/EnumerationUtil.h"
 
 
+static LevelLayersFinder* LevelLayersFinder_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_LEVELLAYERSFINDER_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_LEVELLAYERSFINDER_CPP
+void LevelLayersFinder_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    LevelLayersFinder_instance = [((LevelLayersFinder*) [LevelLayersFinder alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/LevelLayersFinder.h"
-        
+@implementation LevelLayersFinder
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->enumerationUtil = [EnumerationUtil getInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <java/util/Enumeration.h>
-
-      
-#include <org/allbinary/layer/Layer.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-#include <org/allbinary/util/EnumerationUtil.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (LevelLayersFinder*) getInstance {
+        return (LevelLayersFinder_staticInit(), LevelLayersFinder_instance);
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-LevelLayersFinder::LevelLayersFinder() : enumerationUtil(EnumerationUtil::getInstance()) {
+- (BasicArrayList*) get:(ABHashtable*)hashtable {
+        SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
+        BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        Enumeration* enumeration = [hashtable keys];
+        ABHashtable* layerHashtableCanBeNull = nullptr;
+        int32_t integerCanBeNull = 0;
+        int32_t cachedIntegerCanBeNull = 0;
+        while ([self->enumerationUtil hasMoreElements:enumeration]) {
+            layerHashtableCanBeNull = ((ABHashtable*) [hashtable get:JAVA_BOX(((id) [self->enumerationUtil nextElement:enumeration]))]);
+            integerCanBeNull = ((int32_t) [layerHashtableCanBeNull get:JAVA_BOX(((id) (Layer_staticInit(), Layer_ID)))]);
+            cachedIntegerCanBeNull = [smallIntegerSingletonFactory getAt:((int32_t) (integerCanBeNull))];
+            if (![list contains:cachedIntegerCanBeNull]) {
+                [list add:cachedIntegerCanBeNull];
+            }
         }
-        auto LevelLayersFinder::instance_owner() -> LevelLayersFinder* { static std::unique_ptr<LevelLayersFinder> value(new LevelLayersFinder()); return value.get(); }
-LevelLayersFinder* LevelLayersFinder::instance = LevelLayersFinder::instance_owner();
-
-    auto LevelLayersFinder::getInstance() -> LevelLayersFinder*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return LevelLayersFinder::instance;
-    
+        return list;
 }
 
+@end
 
-    auto LevelLayersFinder::get(ABHashtable<Object*, Object*>* hashtable) -> BasicArrayList*{
-
-    SmallIntegerSingletonFactory* smallIntegerSingletonFactory = SmallIntegerSingletonFactory::getInstance();;
-    
-
-    BasicArrayList* list = new BasicArrayListD();;
-    
-
-    Enumeration<Object*>* enumeration = hashtable->keys();;
-    
-
-    ABHashtable<Object*, Object*>* layerHashtableCanBeNull;;
-    
-
-    int32_t integerCanBeNull;;
-    
-
-    int32_t cachedIntegerCanBeNull;;
-    
-
-        while(this->enumerationUtil->hasMoreElements(enumeration))
-        {
-layerHashtableCanBeNull= dynamic_cast<ABHashtable<Object*, Object*>*>(hashtable->get(this->enumerationUtil->nextElement(enumeration)));
-    
-integerCanBeNull= JavaBoxes::unbox<int32_t>(layerHashtableCanBeNull->get(Layer::ID));
-    
-cachedIntegerCanBeNull= smallIntegerSingletonFactory->getAt(integerCanBeNull);
-    
-
-                        if(!list->contains(cachedIntegerCanBeNull))
-                        
-                                    {
-                                    list->add(cachedIntegerCanBeNull);
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return list;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_LAYER_LEVELLAYERSFINDER_CPP

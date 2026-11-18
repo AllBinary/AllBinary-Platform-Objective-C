@@ -1,70 +1,41 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/OpenGLBitmap.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/platform/graphics/PlatformBitmapBase.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/OpenGLBitmap.h"
 
 
 
+void OpenGLBitmap_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation OpenGLBitmap
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-OpenGLBitmap::OpenGLBitmap(Object* bitmap){
-this->bitmap= bitmap;
+- (void) initFields {
     
 }
 
 
-    auto OpenGLBitmap::getPixels(std::vector<int32_t> pixels, int32_t offset, int32_t stride, int32_t x, int32_t y, int32_t width, int32_t height) -> void{
+- (instancetype) init:(id)bitmap {
+    self = [super init];
+    [self initFields];
+        self->bitmap = bitmap;
+    return self;
 }
 
 
-    auto OpenGLBitmap::setPixels(std::vector<int32_t> pixels, int32_t offset, int32_t stride, int32_t x, int32_t y, int32_t width, int32_t height) -> void{
+- (void) getPixels:(int32_t*)pixels :(int32_t)offset :(int32_t)stride :(int32_t)x :(int32_t)y :(int32_t)width :(int32_t)height {
 }
 
 
-    auto OpenGLBitmap::recycle() -> void{
+- (void) setPixels:(int32_t*)pixels :(int32_t)offset :(int32_t)stride :(int32_t)x :(int32_t)y :(int32_t)width :(int32_t)height {
 }
 
 
+- (void) recycle {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLBITMAP_CPP

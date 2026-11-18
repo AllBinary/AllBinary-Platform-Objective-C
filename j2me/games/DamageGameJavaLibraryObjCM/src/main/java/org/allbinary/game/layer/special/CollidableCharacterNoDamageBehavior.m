@@ -1,127 +1,91 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_LAYER_SPECIAL_COLLIDABLECHARACTERNODAMAGEBEHAVIOR_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_SPECIAL_COLLIDABLECHARACTERNODAMAGEBEHAVIOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/special/CollidableCharacterNoDamageBehavior.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/collision/CollidableInterfaceCompositeInterface.h>
-
-      
-#include <org/allbinary/game/collision/CollisionType.h>
-
-      
-#include <org/allbinary/game/collision/CollisionTypeFactory.h>
-
-      
-#include <org/allbinary/game/layer/CollidableCompositeLayer.h>
-
-      
-#include <org/allbinary/game/layer/pickup/PickedUpLayerInterface.h>
-
-      
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/special/CollidableDestroyableDamageableBehavior.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/special/CollidableCharacterNoDamageBehavior.h"
+#include "org/allbinary/game/collision/CollidableInterfaceCompositeInterface.h"
+#include "org/allbinary/game/collision/CollisionType.h"
+#include "org/allbinary/game/collision/CollisionTypeFactory.h"
+#include "org/allbinary/game/layer/CollidableCompositeLayer.h"
+#include "org/allbinary/game/layer/pickup/PickedUpLayerInterface.h"
+#include "org/allbinary/logic/communication/log/ForcedLogUtil.h"
+#include "org/allbinary/game/layer/special/CollidableDestroyableDamageableBehavior.h"
 #include "org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.h"
+#if __has_include("org/allbinary/game/layer/special/CollidableBaseBehavior.h")
+#include "org/allbinary/game/layer/special/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/collision/CollidableBaseBehavior.h")
+#include "org/allbinary/game/collision/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/collision/CollidableBaseBehavior.h")
+#include "org/allbinary/game/collision/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/collision/CollidableBaseBehavior.h")
+#include "org/allbinary/game/collision/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/layer/CollidableBaseBehavior.h")
+#include "org/allbinary/game/layer/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/CollidableBaseBehavior.h")
+#include "org/allbinary/game/layer/pickup/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/CollidableBaseBehavior.h")
+#include "org/allbinary/logic/communication/log/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/layer/special/PickupBehavior.h")
+#include "org/allbinary/game/layer/special/PickupBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/collision/PickupBehavior.h")
+#include "org/allbinary/game/collision/PickupBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/collision/PickupBehavior.h")
+#include "org/allbinary/game/collision/PickupBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/collision/PickupBehavior.h")
+#include "org/allbinary/game/collision/PickupBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/layer/PickupBehavior.h")
+#include "org/allbinary/game/layer/PickupBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/PickupBehavior.h")
+#include "org/allbinary/game/layer/pickup/PickupBehavior.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/PickupBehavior.h")
+#include "org/allbinary/logic/communication/log/PickupBehavior.h"
+#endif
 
 
-CollidableCharacterNoDamageBehavior::CollidableCharacterNoDamageBehavior(bool collidable) : CollidableDestroyableDamageableBehavior(collidable){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void CollidableCharacterNoDamageBehavior_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
+@implementation CollidableCharacterNoDamageBehavior
+
+
+- (instancetype) init:(bool)collidable {
+        self = [super init:collidable];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableCharacterNoDamageBehavior::collide(CollidableCompositeLayer* ownerLayer, CollidableCompositeLayer* collidableInterfaceCompositeInterface) -> void{
-
-    CollisionTypeFactory* collisionTypeFactory = CollisionTypeFactory::getInstance();;
-    
-
-    CollisionType* collisionType = collidableInterfaceCompositeInterface->getCollidableInferface()->getCollisionTypeWith(ownerLayer);;
-    
-
-                        if(collisionType == collisionTypeFactory->PICKUP)
-                        
-                                    {
-                                    
-    CollidableDestroyableDamageableLayer* collidableDestroyableDamageableLayer = dynamic_cast<CollidableDestroyableDamageableLayer*>(ownerLayer);;
-    
-collidableDestroyableDamageableLayer->getPickupBehavior()->doPickupLayer(dynamic_cast<PickedUpLayerInterface*>(collidableInterfaceCompositeInterface));
-    
-
-                                    }
-                                
-                        else {
-                            
-                        }
-                            
+// throws Exception
+- (void) collide:(CollidableCompositeLayer*)ownerLayer :(CollidableCompositeLayer*)collidableInterfaceCompositeInterface {
+        CollisionTypeFactory* collisionTypeFactory = [CollisionTypeFactory getInstance];
+        CollisionType* collisionType = [[collidableInterfaceCompositeInterface getCollidableInferface] getCollisionTypeWith:ownerLayer];
+        if (collisionType == collisionTypeFactory->PICKUP) {
+            CollidableDestroyableDamageableLayer* collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer*) ownerLayer);
+            [[collidableDestroyableDamageableLayer getPickupBehavior] doPickupLayer:((PickedUpLayerInterface*) collidableInterfaceCompositeInterface)];
+        } else {
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableCharacterNoDamageBehavior::collideInterface(CollidableCompositeLayer* ownerLayer, CollidableInterfaceCompositeInterface* collidableInterfaceCompositeInterface) -> void{
-ForcedLogUtil::log(this->commonStrings->NOT_IMPLEMENTED, this);
-    
+// throws Exception
+- (void) collideInterface:(CollidableCompositeLayer*)ownerLayer :(CollidableInterfaceCompositeInterface*)collidableInterfaceCompositeInterface {
+        [ForcedLogUtil log:self->commonStrings->NOT_IMPLEMENTED :self];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_LAYER_SPECIAL_COLLIDABLECHARACTERNODAMAGEBEHAVIOR_CPP

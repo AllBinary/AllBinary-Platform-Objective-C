@@ -1,122 +1,58 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LOGIC_MATH_PERMUTATIONS_OBJECTPERMUTATIONVISITOR_CPP
-        #define ORG_ALLBINARY_LOGIC_MATH_PERMUTATIONS_OBJECTPERMUTATIONVISITOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/math/permutations/ObjectPermutationVisitor.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/System.h"
-        
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/util/visitor/Visitor.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/math/permutations/ObjectPermutationVisitor.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonSeps.h"
 
 
 
+void ObjectPermutationVisitor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation ObjectPermutationVisitor
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ObjectPermutationVisitor::ObjectPermutationVisitor(std::vector<Object*> data) : stringBuilder(new StringMaker()){
-this->data= data;
+- (void) initFields {
     
+    self->stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
 }
 
 
-    auto ObjectPermutationVisitor::visit(Object* anyType) -> Object*{
-this->stringBuilder->delete_(0, stringBuilder->length());
-    
-this->print(this->data, stringBuilder);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::toObject(NullUtil::getInstance()->NULL_OBJECT);
-    
+- (instancetype) init:(id*)data {
+    self = [super init];
+    [self initFields];
+        self->data = data;
+    return self;
 }
 
 
-    auto ObjectPermutationVisitor::print(std::vector<Object*> data) -> void{
-
-    StringMaker* stringBuilder = new StringMaker();;
-    
-this->print(data, stringBuilder);
-    
+- (id) visit:(id)anyType {
+        [self->stringBuilder delete:0 :[self->stringBuilder length]];
+        [self print:self->data :self->stringBuilder];
+        return [NullUtil getInstance]->NULL_OBJECT;
 }
 
 
-    auto ObjectPermutationVisitor::print(std::vector<Object*> data, StringMaker* stringBuilder) -> void{
-
-    TsUtil* tsUtil = TsUtil::getInstance();;
-    
-
-    int32_t size = data.size();;
-    
-
-
-
-
-                        for (
-    int32_t i = 0;i < size; i++)
-        {
-stringBuilder->appendint(tsUtil->hashCode(data[i]));
-    
-stringBuilder->append(CommonSeps::getInstance()->SPACE);
-    
-}
-
-System.out.println(JavaString::valueOf(stringBuilder));
-    
+- (void) print:(id*)data {
+        StringMaker* stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
+        [self print:data :stringBuilder];
 }
 
 
+- (void) print:(id*)data :(StringMaker*)stringBuilder {
+        TsUtil* tsUtil = [TsUtil getInstance];
+        int32_t size = java_array_length(data);
+        for (int32_t i = 0; i < size; i++) {
+            [stringBuilder appendint:[tsUtil hashCode:data[i]]];
+            [stringBuilder append:[CommonSeps getInstance]->SPACE];
+        }
+        puts(java_string_of([stringBuilder toString]));
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_MATH_PERMUTATIONS_OBJECTPERMUTATIONVISITOR_CPP

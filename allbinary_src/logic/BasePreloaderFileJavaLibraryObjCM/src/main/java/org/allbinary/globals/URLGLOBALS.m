@@ -1,125 +1,52 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GLOBALS_URLGLOBALS_CPP
-        #define ORG_ALLBINARY_GLOBALS_URLGLOBALS_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/globals/URLGLOBALS.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/globals/AppUrlGlobals.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/globals/URLGLOBALS.h"
+#include "org/allbinary/globals/AppUrlGlobals.h"
 #include "org/allbinary/globals/UrlGlobalsInterface.h"
 
 
-URLGLOBALS::URLGLOBALS() {
-        }
-        UrlGlobalsInterface* URLGLOBALS::urlGlobalsInterface = AppUrlGlobals::NULL_APP_URL_GLOBALS;
+static UrlGlobalsInterface* URLGLOBALS_urlGlobalsInterface;
 
-    auto URLGLOBALS::init(UrlGlobalsInterface* urlGlobalsInterface) -> void{
-URLGLOBALS::urlGlobalsInterface= urlGlobalsInterface;
-    
+void URLGLOBALS_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    URLGLOBALS_urlGlobalsInterface = (AppUrlGlobals_staticInit(), AppUrlGlobals_NULL_APP_URL_GLOBALS);
+}
+
+@implementation URLGLOBALS
+
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto URLGLOBALS::isTestingMode() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return URLGLOBALS::urlGlobalsInterface->isTestingMode();;
-    
++ (void) init_:(UrlGlobalsInterface*)urlGlobalsInterface {
+        URLGLOBALS_urlGlobalsInterface = urlGlobalsInterface;
 }
 
 
-    auto URLGLOBALS::getWebappPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return URLGLOBALS::urlGlobalsInterface->getWebappPath();;
-    
++ (bool) isTestingMode {
+        return [(URLGLOBALS_staticInit(), URLGLOBALS_urlGlobalsInterface) isTestingMode];
 }
 
 
-    auto URLGLOBALS::getTestHtmlPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return URLGLOBALS::urlGlobalsInterface->getTestHtmlPath();;
-    
++ (const char*) getWebappPath {
+        return [(URLGLOBALS_staticInit(), URLGLOBALS_urlGlobalsInterface) getWebappPath];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto URLGLOBALS::getMainPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return URLGLOBALS::urlGlobalsInterface->getMainPath();;
-    
++ (const char*) getTestHtmlPath {
+        return [(URLGLOBALS_staticInit(), URLGLOBALS_urlGlobalsInterface) getTestHtmlPath];
 }
 
 
+// throws Exception
++ (const char*) getMainPath {
+        return [(URLGLOBALS_staticInit(), URLGLOBALS_urlGlobalsInterface) getMainPath];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GLOBALS_URLGLOBALS_CPP

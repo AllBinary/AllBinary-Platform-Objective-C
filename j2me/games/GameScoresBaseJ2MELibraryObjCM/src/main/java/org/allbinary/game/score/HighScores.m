@@ -1,213 +1,99 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORES_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORES_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/HighScores.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/score/HighScoresInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/HighScores.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonLabels.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/game/score/HighScoresInterface.h"
 #include "org/allbinary/game/score/HighScore.h"
 
 
-HighScores::HighScores(std::string name, std::string heading, std::string columnTwoHeading) : orderedHighScoresList(new BasicArrayListD()){
-this->name= name;
+
+void HighScores_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation HighScores
+
+- (void) initFields {
+    self->orderedHighScoresList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
     
-this->heading= heading;
     
-this->columnTwoHeading= columnTwoHeading;
+    self->columnOneHeading = "Name";
     
 }
 
 
-    auto HighScores::setList(BasicArrayList* orderedHighScoresList) -> void{
-this->orderedHighScoresList= orderedHighScoresList;
-    
+- (instancetype) init:(const char*)name :(const char*)heading :(const char*)columnTwoHeading {
+    self = [super init];
+    [self initFields];
+        self->name = name;
+        self->heading = heading;
+        self->columnTwoHeading = columnTwoHeading;
+    return self;
 }
 
 
-    auto HighScores::getList() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->orderedHighScoresList;
-    
+- (void) setList:(BasicArrayList*)orderedHighScoresList {
+        self->orderedHighScoresList = orderedHighScoresList;
 }
 
 
-    auto HighScores::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->name;
-    
+- (BasicArrayList*) getList {
+        return self->orderedHighScoresList;
 }
 
 
-    auto HighScores::getTotal() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getList()->size();;
-    
+- (const char*) getName {
+        return self->name;
 }
 
 
-    auto HighScores::addHighScore(HighScore* newHighScore) -> void{
-this->orderedHighScoresList->add(newHighScore);
-    
+- (int32_t) getTotal {
+        return [[self getList] size];
 }
 
 
-    auto HighScores::getHeading() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->heading;
-    
+- (void) addHighScore:(HighScore*)newHighScore {
+        [self->orderedHighScoresList add:newHighScore];
 }
 
 
-    auto HighScores::getColumnOneHeading() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->columnOneHeading;
-    
+- (const char*) getHeading {
+        return self->heading;
 }
 
 
-    auto HighScores::getColumnTwoHeading() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->columnTwoHeading;
-    
+- (const char*) getColumnOneHeading {
+        return self->columnOneHeading;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto HighScores::isBestScore(HighScore* newHighScore) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (const char*) getColumnTwoHeading {
+        return self->columnTwoHeading;
 }
 
 
-    auto HighScores::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("HighScores: ");
-    
-stringBuffer->append(this->heading);
-    
-stringBuffer->append(CommonSeps::getInstance()->SPACE);
-    
-stringBuffer->append(CommonLabels::getInstance()->TOTAL_LABEL);
-    
-stringBuffer->appendint(this->orderedHighScoresList->size());
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+// throws Exception
+- (bool) isBestScore:(HighScore*)newHighScore {
+        return false;
 }
 
 
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:"HighScores: "];
+        [stringBuffer append:self->heading];
+        [stringBuffer append:[CommonSeps getInstance]->SPACE];
+        [stringBuffer append:[CommonLabels getInstance]->TOTAL_LABEL];
+        [stringBuffer appendint:[self->orderedHighScoresList size]];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_SCORE_HIGHSCORES_CPP

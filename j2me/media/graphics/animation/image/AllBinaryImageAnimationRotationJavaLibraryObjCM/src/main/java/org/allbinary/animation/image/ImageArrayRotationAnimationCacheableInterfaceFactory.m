@@ -1,90 +1,31 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/ImageArrayRotationAnimationCacheableInterfaceFactory.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/logic/util/cache/CacheableInterface.h"
+#include "org/allbinary/animation/image/ImageArrayRotationAnimationCacheable.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEARRAYROTATIONANIMATIONCACHEABLEINTERFACEFACTORY_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEARRAYROTATIONANIMATIONCACHEABLEINTERFACEFACTORY_CPP
+void ImageArrayRotationAnimationCacheableInterfaceFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/ImageArrayRotationAnimationCacheableInterfaceFactory.h"
-        
+@implementation ImageArrayRotationAnimationCacheableInterfaceFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/logic/util/cache/CacheableInterface.h>
-
-      
-#include <org/allbinary/logic/util/cache/CacheableInterfaceFactoryInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/ImageArrayRotationAnimationCacheable.h"
-
-
-ImageArrayRotationAnimationCacheableInterfaceFactory::ImageArrayRotationAnimationCacheableInterfaceFactory() {
-        }
-        
-                //@Throws(Exception.constructor)
-            
-    auto ImageArrayRotationAnimationCacheableInterfaceFactory::getInstance(Object* key) -> CacheableInterface*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new ImageArrayRotationAnimationCacheable(key, AnimationBehavior::getInstance());
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+// throws Exception
+- (CacheableInterface*) getInstance:(id)key {
+        return [((ImageArrayRotationAnimationCacheable*) [ImageArrayRotationAnimationCacheable alloc]) init:key :[AnimationBehavior getInstance]];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEARRAYROTATIONANIMATIONCACHEABLEINTERFACEFACTORY_CPP

@@ -1,298 +1,106 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/resources/GameGraphicsResourceUtil.h"
+#include "org/allbinary/game/configuration/feature/Features.h"
+#include "org/allbinary/game/configuration/feature/GraphicsFeature.h"
+#include "org/allbinary/game/configuration/feature/GraphicsFeatureFactory.h"
+#include "org/allbinary/graphics/displayable/CanvasStrings.h"
+#include "org/allbinary/graphics/opengles/OpenGLFeatureUtil.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
+static id GameGraphicsResourceUtil_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_RESOURCES_GAMEGRAPHICSRESOURCEUTIL_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_RESOURCES_GAMEGRAPHICSRESOURCEUTIL_CPP
+void GameGraphicsResourceUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameGraphicsResourceUtil_instance = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/resources/GameGraphicsResourceUtil.h"
-        
+@implementation GameGraphicsResourceUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/configuration/feature/Features.h>
-
-      
-#include <org/allbinary/game/configuration/feature/GraphicsFeature.h>
-
-      
-#include <org/allbinary/game/configuration/feature/GraphicsFeatureFactory.h>
-
-      
-#include <org/allbinary/graphics/displayable/CanvasStrings.h>
-
-      
-#include <org/allbinary/graphics/opengles/OpenGLFeatureUtil.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-Object* GameGraphicsResourceUtil::instance = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto GameGraphicsResourceUtil::getInstance() -> GameGraphicsResourceUtil*{
-
-                        if(GameGraphicsResourceUtil::instance == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    GameGraphicsResourceUtil::instance= new GameGraphicsResourceUtil();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<GameGraphicsResourceUtil*>(GameGraphicsResourceUtil::instance);
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->SPRITE = "_sprite";
+    self->QUARTER = "_quarter";
+    self->name = [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-GameGraphicsResourceUtil::GameGraphicsResourceUtil() : logUtil(LogUtil::getInstance()), name(StringUtil::getInstance()->EMPTY_STRING){
-
-        try {
-            this->name= this->getString();
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, commonStrings->CONSTRUCTOR, &e);
-    
-}
-
++ (GameGraphicsResourceUtil*) getInstance {
+        if ((GameGraphicsResourceUtil_staticInit(), GameGraphicsResourceUtil_instance) == [NullUtil getInstance]->NULL_OBJECT) {
+            GameGraphicsResourceUtil_instance = [((GameGraphicsResourceUtil*) [GameGraphicsResourceUtil alloc]) init];
+        }
+        return ((GameGraphicsResourceUtil*) (GameGraphicsResourceUtil_staticInit(), GameGraphicsResourceUtil_instance));
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GameGraphicsResourceUtil::getString() -> std::string{
-
-    GraphicsFeatureFactory* graphicsFeatureFactory = GraphicsFeatureFactory::getInstance();;
-    
-
-    GraphicsFeature* graphicsFeature = graphicsFeatureFactory->NONE;;
-    
-
-    Features* features = Features::getInstance();;
-    
-
-                        if(features->isFeature(graphicsFeatureFactory->IMAGE_TO_ARRAY_GRAPHICS))
-                        
-                                    {
-                                    graphicsFeature= graphicsFeatureFactory->IMAGE_TO_ARRAY_GRAPHICS;
-    
-
-                                    }
-                                
-                             else 
-                        if(features->isFeature(graphicsFeatureFactory->SPRITE_FULL_GRAPHICS))
-                        
-                                    {
-                                    graphicsFeature= graphicsFeatureFactory->SPRITE_FULL_GRAPHICS;
-    
-
-                                    }
-                                
-                             else 
-                        if(features->isFeature(graphicsFeatureFactory->SPRITE_QUARTER_ROTATION_GRAPHICS))
-                        
-                                    {
-                                    graphicsFeature= graphicsFeatureFactory->SPRITE_QUARTER_ROTATION_GRAPHICS;
-    
-
-                                    }
-                                
-                             else 
-                        if(features->isFeature(graphicsFeatureFactory->IMAGE_ROTATION_ON_THE_FLY))
-                        
-                                    {
-                                    graphicsFeature= graphicsFeatureFactory->IMAGE_ROTATION_ON_THE_FLY;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getStringForFeature(graphicsFeature);;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        JAVA_TRY {
+            self->name = [self getString];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->CONSTRUCTOR :e];
+        } JAVA_END_TRY;
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GameGraphicsResourceUtil::getStringForFeature(GraphicsFeature* graphicsFeature) -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-
-    GraphicsFeatureFactory* graphicsFeatureFactory = GraphicsFeatureFactory::getInstance();;
-    
-stringBuffer->delete_(0, stringBuffer->length());
-    
-
-    Features* features = Features::getInstance();;
-    
-
-                        if(features->isFeature(graphicsFeatureFactory->VECTOR_GRAPHICS))
-                        
-                                    {
-                                    
-                                    }
-                                
-                             else 
-                        if(features->isFeature(graphicsFeatureFactory->IMAGE_GRAPHICS))
-                        
-                                    {
-                                    
-                        if(graphicsFeature == graphicsFeatureFactory->IMAGE_TO_ARRAY_GRAPHICS || graphicsFeature == graphicsFeatureFactory->IMAGE_ROTATION_ON_THE_FLY)
-                        
-                                    {
-                                    
-                                    }
-                                
-                             else 
-                        if(graphicsFeature == graphicsFeatureFactory->SPRITE_FULL_GRAPHICS)
-                        
-                                    {
-                                    stringBuffer->append(this->SPRITE);
-    
-
-                                    }
-                                
-                             else 
-                        if(graphicsFeature == graphicsFeatureFactory->SPRITE_QUARTER_ROTATION_GRAPHICS)
-                        
-                                    {
-                                    stringBuffer->append(this->QUARTER);
-    
-stringBuffer->append(this->SPRITE);
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw Exception("None/Unknown Sub Image Resource Type Specified");
-                    
-
-                        }
-                            
-
-                                    }
-                                
-                             else 
-                        if(OpenGLFeatureUtil::getInstance()->isAnyThreed())
-                        
-                                    {
-                                    stringBuffer->append(CanvasStrings::getInstance()->OBJ_MODEL);
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw Exception("None/Unknown Main Image Resource Type Specified");
-                    
-
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+// throws Exception
+- (const char*) getString {
+        GraphicsFeatureFactory* graphicsFeatureFactory = [GraphicsFeatureFactory getInstance];
+        GraphicsFeature* graphicsFeature = graphicsFeatureFactory->NONE;
+        Features* features = [Features getInstance];
+        if ([features isFeature:graphicsFeatureFactory->IMAGE_TO_ARRAY_GRAPHICS]) {
+            graphicsFeature = graphicsFeatureFactory->IMAGE_TO_ARRAY_GRAPHICS;
+        } else if ([features isFeature:graphicsFeatureFactory->SPRITE_FULL_GRAPHICS]) {
+            graphicsFeature = graphicsFeatureFactory->SPRITE_FULL_GRAPHICS;
+        } else if ([features isFeature:graphicsFeatureFactory->SPRITE_QUARTER_ROTATION_GRAPHICS]) {
+            graphicsFeature = graphicsFeatureFactory->SPRITE_QUARTER_ROTATION_GRAPHICS;
+        } else if ([features isFeature:graphicsFeatureFactory->IMAGE_ROTATION_ON_THE_FLY]) {
+            graphicsFeature = graphicsFeatureFactory->IMAGE_ROTATION_ON_THE_FLY;
+        }
+        return [self getStringForFeature:graphicsFeature];
 }
 
 
-    auto GameGraphicsResourceUtil::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->name;
-    
+// throws Exception
+- (const char*) getStringForFeature:(GraphicsFeature*)graphicsFeature {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        GraphicsFeatureFactory* graphicsFeatureFactory = [GraphicsFeatureFactory getInstance];
+        [stringBuffer delete:0 :[stringBuffer length]];
+        Features* features = [Features getInstance];
+        if ([features isFeature:graphicsFeatureFactory->VECTOR_GRAPHICS]) {
+        } else if ([features isFeature:graphicsFeatureFactory->IMAGE_GRAPHICS]) {
+            if (graphicsFeature == graphicsFeatureFactory->IMAGE_TO_ARRAY_GRAPHICS || graphicsFeature == graphicsFeatureFactory->IMAGE_ROTATION_ON_THE_FLY) {
+            } else if (graphicsFeature == graphicsFeatureFactory->SPRITE_FULL_GRAPHICS) {
+                [stringBuffer append:self->SPRITE];
+            } else if (graphicsFeature == graphicsFeatureFactory->SPRITE_QUARTER_ROTATION_GRAPHICS) {
+                [stringBuffer append:self->QUARTER];
+                [stringBuffer append:self->SPRITE];
+            } else {
+                java_throw(java_exception_new("Exception", "None/Unknown Sub Image Resource Type Specified"));
+            }
+        } else if ([[OpenGLFeatureUtil getInstance] isAnyThreed]) {
+            [stringBuffer append:[CanvasStrings getInstance]->OBJ_MODEL];
+        } else {
+            java_throw(java_exception_new("Exception", "None/Unknown Main Image Resource Type Specified"));
+        }
+        return [stringBuffer toString];
 }
 
 
+- (const char*) getName {
+        return self->name;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_RESOURCES_GAMEGRAPHICSRESOURCEUTIL_CPP

@@ -1,123 +1,64 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/vector/RectangleFilledAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_VECTOR_RECTANGLEFILLEDANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_VECTOR_RECTANGLEFILLEDANIMATION_CPP
+void RectangleFilledAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/vector/RectangleFilledAnimation.h"
-        
+@implementation RectangleFilledAnimation
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/ColorCompositeInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-RectangleFilledAnimation::RectangleFilledAnimation(int32_t width, int32_t height, BasicColor* basicColor){
-this->widthP= width;
+- (void) initFields {
     
-this->heightP= height;
-    
-this->setBasicColorP(basicColor);
     
 }
 
 
-    auto RectangleFilledAnimation::nextFrame() -> void{
+- (instancetype) init:(int32_t)width :(int32_t)height :(BasicColor*)basicColor {
+    self = [super init];
+    [self initFields];
+        self->widthP = width;
+        self->heightP = height;
+        [self setBasicColorP:basicColor];
+    return self;
 }
 
 
-    auto RectangleFilledAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-this->basicSetColorUtil->setBasicColorP3(graphics, this->getBasicColorP(), this->getColor());
-    
-graphics->fillRect(x, y, this->widthP, this->heightP);
-    
+- (void) nextFrame {
 }
 
 
-    auto RectangleFilledAnimation::setWidth(int32_t width) -> void{
-this->widthP= width;
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [self->basicSetColorUtil setBasicColorP3:graphics :[self getBasicColorP] :[self getColor]];
+        [graphics fillRect:x :y :self->widthP :self->heightP];
 }
 
 
-    auto RectangleFilledAnimation::setHeight(int32_t height) -> void{
-this->heightP= height;
-    
+- (void) setWidth:(int32_t)width {
+        self->widthP = width;
 }
 
 
-    auto RectangleFilledAnimation::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Animation::getBasicColorP();;
-    
+- (void) setHeight:(int32_t)height {
+        self->heightP = height;
 }
 
 
-    auto RectangleFilledAnimation::setBasicColorP(BasicColor* basicColor) -> void{
-Animation::setBasicColorP(basicColor);
-    
+- (BasicColor*) getBasicColorP {
+        return [super getBasicColorP];
 }
 
 
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        [super setBasicColorP:basicColor];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_VECTOR_RECTANGLEFILLEDANIMATION_CPP

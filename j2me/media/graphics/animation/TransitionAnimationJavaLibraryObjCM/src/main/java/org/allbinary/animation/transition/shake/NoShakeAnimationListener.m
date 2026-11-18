@@ -1,64 +1,25 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/transition/shake/NoShakeAnimationListener.h"
+#include "org/allbinary/animation/transition/shake/ShakeAnimationListener.h"
 
 
+ShakeAnimationListener* NoShakeAnimationListener_NO_SHAKE_ANIMATION_LISTENER;
 
-        #ifndef ORG_ALLBINARY_ANIMATION_TRANSITION_SHAKE_NOSHAKEANIMATIONLISTENER_CPP
-        #define ORG_ALLBINARY_ANIMATION_TRANSITION_SHAKE_NOSHAKEANIMATIONLISTENER_CPP
+void NoShakeAnimationListener_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NoShakeAnimationListener_NO_SHAKE_ANIMATION_LISTENER = [((NoShakeAnimationListener*) [NoShakeAnimationListener alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/transition/shake/NoShakeAnimationListener.h"
-        
+@implementation NoShakeAnimationListener
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
-        
+@end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/transition/shake/ShakeAnimationListener.h"
-
-
-NoShakeAnimationListener::NoShakeAnimationListener() {
-        }
-        ShakeAnimationListener* NoShakeAnimationListener::NO_SHAKE_ANIMATION_LISTENER = new NoShakeAnimationListener();
-
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_TRANSITION_SHAKE_NOSHAKEANIMATIONLISTENER_CPP

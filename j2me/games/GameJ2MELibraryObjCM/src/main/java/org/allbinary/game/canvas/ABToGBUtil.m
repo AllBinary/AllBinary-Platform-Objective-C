@@ -1,87 +1,38 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/canvas/ABToGBUtil.h"
+#include "javax/microedition/lcdui/Canvas.h"
+#include "javax/microedition/lcdui/NullCanvas.h"
+#include "org/allbinary/game/layer/AllBinaryGameLayerManager.h"
 
 
+static ABToGBUtil* ABToGBUtil_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_CANVAS_ABTOGBUTIL_CPP
-        #define ORG_ALLBINARY_GAME_CANVAS_ABTOGBUTIL_CPP
+void ABToGBUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ABToGBUtil_instance = [((ABToGBUtil*) [ABToGBUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/canvas/ABToGBUtil.h"
-        
+@implementation ABToGBUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->abCanvas = (NullCanvas_staticInit(), NullCanvas_NULL_CANVAS);
+    self->allBinaryGameLayerManager = [AllBinaryGameLayerManager getNullInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Canvas.h>
-
-      
-#include <javax/microedition/lcdui/NullCanvas.h>
-
-      
-#include <org/allbinary/game/layer/AllBinaryGameLayerManager.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ABToGBUtil::ABToGBUtil() : abCanvas(NullCanvas::NULL_CANVAS), allBinaryGameLayerManager(AllBinaryGameLayerManager::getNullInstance()) {
-        }
-        auto ABToGBUtil::instance_owner() -> ABToGBUtil* { static std::unique_ptr<ABToGBUtil> value(new ABToGBUtil()); return value.get(); }
-ABToGBUtil* ABToGBUtil::instance = ABToGBUtil::instance_owner();
-
-    auto ABToGBUtil::getInstance() -> ABToGBUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ABToGBUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (ABToGBUtil*) getInstance {
+        return (ABToGBUtil_staticInit(), ABToGBUtil_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CANVAS_ABTOGBUTIL_CPP

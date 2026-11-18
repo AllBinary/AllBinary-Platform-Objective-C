@@ -1,120 +1,57 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_GAMEADSTATEFACTORY_CPP
-        #define ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_GAMEADSTATEFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/business/advertisement/GameAdStateFactory.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/GameAdState.h>
-
-      
-#include <org/allbinary/logic/system/SoftwareInformation.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/business/advertisement/GameAdStateFactoryInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/business/advertisement/GameAdStateFactory.h"
+#include "org/allbinary/game/GameAdState.h"
+#include "org/allbinary/logic/system/SoftwareInformation.h"
+#include "org/allbinary/business/advertisement/GameAdStateFactoryInterface.h"
 #include "org/allbinary/business/advertisement/AppNameLicensingAdConfiguration.h"
 #include "org/allbinary/business/advertisement/GameAdStateBase.h"
 
 
-GameAdStateFactory::GameAdStateFactory() : gameAdStateArray(
-                                                        {
-                                                            new GameAdState(new AppNameLicensingAdConfiguration())
-                                                        }), gameAdState(this->gameAdStateArray[0]) {
-        }
-        auto GameAdStateFactory::instance_owner() -> GameAdStateFactory* { static std::unique_ptr<GameAdStateFactory> value(new GameAdStateFactory()); return value.get(); }
-GameAdStateFactory* GameAdStateFactory::instance = GameAdStateFactory::instance_owner();
+static GameAdStateFactory* GameAdStateFactory_instance;
 
-    auto GameAdStateFactory::getInstance() -> GameAdStateFactory*{
+void GameAdStateFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameAdStateFactory_instance = [((GameAdStateFactory*) [GameAdStateFactory alloc]) init];
+}
 
+@implementation GameAdStateFactory
 
+- (void) initFields {
+    self->gameAdStateArray = ((GameAdState**) java_array_from(sizeof(GameAdState*), sizeof((GameAdState*[]){ [((GameAdState*) [GameAdState alloc]) init:[((AppNameLicensingAdConfiguration*) [AppNameLicensingAdConfiguration alloc]) init]] }) / sizeof(GameAdState*), (GameAdState*[]){ [((GameAdState*) [GameAdState alloc]) init:[((AppNameLicensingAdConfiguration*) [AppNameLicensingAdConfiguration alloc]) init]] }));
+    self->gameAdState = self->gameAdStateArray[0];
+}
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameAdStateFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto GameAdStateFactory::getCurrentInstance() -> GameAdState*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gameAdState;
-    
++ (GameAdStateFactory*) getInstance {
+        return (GameAdStateFactory_staticInit(), GameAdStateFactory_instance);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GameAdStateFactory::getInstanceForApp(SoftwareInformation* softwareInformation) -> GameAdStateBase*{
-this->gameAdState= this->gameAdStateArray[0];
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gameAdStateArray[0];
-    
+- (GameAdState*) getCurrentInstance {
+        return self->gameAdState;
 }
 
 
-    auto GameAdStateFactory::isEnabled() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+// throws Exception
+- (GameAdStateBase*) getInstanceForApp:(SoftwareInformation*)softwareInformation {
+        self->gameAdState = self->gameAdStateArray[0];
+        return self->gameAdStateArray[0];
 }
 
 
+- (bool) isEnabled {
+        return false;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_GAMEADSTATEFACTORY_CPP

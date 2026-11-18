@@ -1,196 +1,94 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonLabels.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/graphics/GPoint.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_RECTANGLE_CPP
-        #define ORG_ALLBINARY_GRAPHICS_RECTANGLE_CPP
+void Rectangle_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/Rectangle.h"
-        
+@implementation Rectangle
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/GPoint.h"
-
-
-Rectangle::Rectangle(GPoint* point, int32_t width, int32_t height){
-this->point= point;
+- (void) initFields {
     
-this->width= width;
     
-this->height= height;
     
 }
 
 
-    auto Rectangle::getPoint() -> GPoint*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->point;
-    
+- (instancetype) init:(GPoint*)point :(int32_t)width :(int32_t)height {
+    self = [super init];
+    [self initFields];
+        self->point = point;
+        self->width = width;
+        self->height = height;
+    return self;
 }
 
 
-    auto Rectangle::setPoint(GPoint* point) -> void{
-this->point= point;
-    
+- (GPoint*) getPoint {
+        return self->point;
 }
 
 
-    auto Rectangle::getMaxX() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->point->getX() +this->width;
-    
+- (void) setPoint:(GPoint*)point {
+        self->point = point;
 }
 
 
-    auto Rectangle::getMaxY() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->point->getY() +this->height;
-    
+- (int32_t) getMaxX {
+        return [self->point getX] + self->width;
 }
 
 
-    auto Rectangle::getWidth() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->width;
-    
+- (int32_t) getMaxY {
+        return [self->point getY] + self->height;
 }
 
 
-    auto Rectangle::setWidth(int32_t width) -> void{
-this->width= width;
-    
+- (int32_t) getWidth {
+        return self->width;
 }
 
 
-    auto Rectangle::getHeight() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->height;
-    
+- (void) setWidth:(int32_t)width {
+        self->width = width;
 }
 
 
-    auto Rectangle::setHeight(int32_t height) -> void{
-this->height= height;
-    
+- (int32_t) getHeight {
+        return self->height;
 }
 
 
-    auto Rectangle::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append(JavaString::valueOf(this->getPoint()));
-    
-stringBuffer->append(CommonSeps::getInstance()->SPACE);
-    
-stringBuffer->append(CommonLabels::getInstance()->WIDTH_LABEL);
-    
-stringBuffer->appendint(this->getWidth());
-    
-stringBuffer->append(CommonSeps::getInstance()->SPACE);
-    
-stringBuffer->append(CommonLabels::getInstance()->HEIGHT_LABEL);
-    
-stringBuffer->appendint(this->getHeight());
-    
-stringBuffer->append(" MaxX: ");
-    
-stringBuffer->appendint(this->getMaxX());
-    
-stringBuffer->append(" MaxY: ");
-    
-stringBuffer->appendint(this->getMaxY());
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (void) setHeight:(int32_t)height {
+        self->height = height;
 }
 
 
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:[[self getPoint] toString]];
+        [stringBuffer append:[CommonSeps getInstance]->SPACE];
+        [stringBuffer append:[CommonLabels getInstance]->WIDTH_LABEL];
+        [stringBuffer appendint:[self getWidth]];
+        [stringBuffer append:[CommonSeps getInstance]->SPACE];
+        [stringBuffer append:[CommonLabels getInstance]->HEIGHT_LABEL];
+        [stringBuffer appendint:[self getHeight]];
+        [stringBuffer append:" MaxX: "];
+        [stringBuffer appendint:[self getMaxX]];
+        [stringBuffer append:" MaxY: "];
+        [stringBuffer appendint:[self getMaxY]];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_RECTANGLE_CPP

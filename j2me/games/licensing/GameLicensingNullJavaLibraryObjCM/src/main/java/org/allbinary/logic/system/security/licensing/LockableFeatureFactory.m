@@ -1,96 +1,41 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/system/security/licensing/LockableFeatureFactory.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
+static LockableFeatureFactory* LockableFeatureFactory_instance;
 
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_LOCKABLEFEATUREFACTORY_CPP
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_LOCKABLEFEATUREFACTORY_CPP
+void LockableFeatureFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    LockableFeatureFactory_instance = [((LockableFeatureFactory*) [LockableFeatureFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/system/security/licensing/LockableFeatureFactory.h"
-        
+@implementation LockableFeatureFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-LockableFeatureFactory::LockableFeatureFactory() : list(new BasicArrayListD()) {
-        }
-        auto LockableFeatureFactory::instance_owner() -> LockableFeatureFactory* { static std::unique_ptr<LockableFeatureFactory> value(new LockableFeatureFactory()); return value.get(); }
-LockableFeatureFactory* LockableFeatureFactory::instance = LockableFeatureFactory::instance_owner();
-
-    auto LockableFeatureFactory::getInstance() -> LockableFeatureFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return LockableFeatureFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto LockableFeatureFactory::getList() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list;
-    
++ (LockableFeatureFactory*) getInstance {
+        return (LockableFeatureFactory_staticInit(), LockableFeatureFactory_instance);
 }
 
 
+- (BasicArrayList*) getList {
+        return self->list;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_LOCKABLEFEATUREFACTORY_CPP

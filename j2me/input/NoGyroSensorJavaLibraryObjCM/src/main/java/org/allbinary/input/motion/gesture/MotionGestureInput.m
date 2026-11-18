@@ -1,80 +1,26 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
+#include "org/allbinary/game/input/InputFactory.h"
 
 
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_GESTURE_MOTIONGESTUREINPUT_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_GESTURE_MOTIONGESTUREINPUT_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/game/input/Input.h>
-
-      
-#include <org/allbinary/game/input/InputFactory.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-MotionGestureInput::MotionGestureInput(int32_t id, std::string name) : Input(id, name){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-
-    InputFactory* inputFactory = InputFactory::getInstance();;
-    
-inputFactory->add(this->getId(), this);
-    
+void MotionGestureInput_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
 }
 
+@implementation MotionGestureInput
 
 
+- (instancetype) init:(int32_t)id_ :(const char*)name {
+        self = [super init:id_ :name];
+        InputFactory* inputFactory = [InputFactory getInstance];
+        [inputFactory add:[self getId] :self];
+    return self;
+}
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_GESTURE_MOTIONGESTUREINPUT_CPP
+@end
+

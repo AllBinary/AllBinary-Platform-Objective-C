@@ -1,191 +1,97 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABCUSTOMITEM_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABCUSTOMITEM_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/item/ABCustomItem.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Screen.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/item/ABCustomItem.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Screen.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/string/StringUtil.h"
 
 
+id ABCustomItem_NULL_CUSTOM_ITEM;
+
+void ABCustomItem_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ABCustomItem_NULL_CUSTOM_ITEM = [NullUtil getInstance]->NULL_OBJECT;
+}
+
+@implementation ABCustomItem
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-Object* ABCustomItem::NULL_CUSTOM_ITEM = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto ABCustomItem::getNullInstance() -> ABCustomItem*{
-
-                        if(ABCustomItem::NULL_CUSTOM_ITEM == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    ABCustomItem::NULL_CUSTOM_ITEM= new ABCustomItem(StringUtil::getInstance()->EMPTY_STRING, BasicColorFactory::getInstance()->BLACK, BasicColorFactory::getInstance()->WHITE);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<ABCustomItem*>(ABCustomItem::NULL_CUSTOM_ITEM);
-    
++ (ABCustomItem*) getNullInstance {
+        if ((ABCustomItem_staticInit(), ABCustomItem_NULL_CUSTOM_ITEM) == [NullUtil getInstance]->NULL_OBJECT) {
+            ABCustomItem_NULL_CUSTOM_ITEM = [((ABCustomItem*) [ABCustomItem alloc]) init:[StringUtil getInstance]->EMPTY_STRING :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE];
+        }
+        return ((ABCustomItem*) (ABCustomItem_staticInit(), ABCustomItem_NULL_CUSTOM_ITEM));
 }
 
 
-ABCustomItem::ABCustomItem(std::string label, BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor){
+- (instancetype) init:(const char*)label :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor {
+    self = [super init];
+    return self;
 }
 
 
-    auto ABCustomItem::setOwner(Screen* owner) -> void{
+- (void) setOwner:(Screen*)owner {
 }
 
 
-    auto ABCustomItem::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
 }
 
 
-    auto ABCustomItem::paintUnselected(Graphics* graphics, int32_t x, int32_t y) -> void{
+- (void) paintUnselected:(Graphics*)graphics :(int32_t)x :(int32_t)y {
 }
 
 
-    auto ABCustomItem::isFocusable() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isFocusable {
+        return false;
 }
 
 
-    auto ABCustomItem::getLabel() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->EMPTY_STRING;
-    
+- (const char*) getLabel {
+        return [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-    auto ABCustomItem::setLabel(std::string label) -> void{
+- (void) setLabel:(const char*)label {
 }
 
 
-    auto ABCustomItem::getHeight() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (int32_t) getHeight {
+        return 0;
 }
 
 
-    auto ABCustomItem::setHeight(int32_t height) -> void{
+- (void) setHeight:(int32_t)height {
 }
 
 
-    auto ABCustomItem::getValue() -> float{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0.0;
-    
+- (float) getValue {
+        return 0.0f;
 }
 
 
-    auto ABCustomItem::setValue(float value) -> void{
+- (void) setValue:(float)value {
 }
 
 
-    auto ABCustomItem::getMinimumWidth() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (int32_t) getMinimumWidth {
+        return 0;
 }
 
 
-    auto ABCustomItem::getMinimumHeight() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (int32_t) getMinimumHeight {
+        return 0;
 }
 
 
-    auto ABCustomItem::preMeasurement(Graphics* graphics) -> void{
+- (void) preMeasurement:(Graphics*)graphics {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABCUSTOMITEM_CPP

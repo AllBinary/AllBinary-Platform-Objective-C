@@ -1,385 +1,161 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LOGIC_IO_PATH_ABPATH_CPP
-        #define ORG_ALLBINARY_LOGIC_IO_PATH_ABPATH_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/io/path/AbPath.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-#include <org/allbinary/logic/io/file/FilePathData.h>
-
-      
-#include <org/allbinary/logic/io/file/FilePathUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringValidationUtil.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/logic/io/path/AbPathData.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/io/path/AbPath.h"
+#include "org/allbinary/logic/io/file/FilePathData.h"
+#include "org/allbinary/logic/io/file/FilePathUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/logic/string/StringValidationUtil.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/logic/io/path/AbPathData.h"
 #include "org/allbinary/logic/io/path/PathUtil.h"
 
 
-    auto AbPath::createAbPath() -> AbPath*{
+static const char* AbPath_NETWORK_SEP = ":/";
 
-        try {
-            
-    std::string EMPTY_STRING = StringUtil::getInstance()->EMPTY_STRING;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AbPath(EMPTY_STRING, EMPTY_STRING);
-    
-
-                //: 
-} catch(Exception& ex) 
-            {
-
-
-
-                            throw RuntimeException();
-                    
+void AbPath_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
 }
 
+@implementation AbPath
+
+- (void) initFields {
+    self->commonSeps = [CommonSeps getInstance];
+    self->abPathData = [AbPathData getInstance];
+    self->abPathUtil = [PathUtil getInstance];
+    self->EMPTY_STRING = [StringUtil getInstance]->EMPTY_STRING;
+    self->schema = self->EMPTY_STRING;
+    self->path = self->EMPTY_STRING;
+    self->nameP = self->EMPTY_STRING;
+    self->hasSchemaP = false;
+    self->numberOfSeps = 0;
 }
 
 
-AbPath::AbPath(std::string aPath, std::string name) : commonSeps(CommonSeps::getInstance()), abPathData(AbPathData::getInstance()), abPathUtil(PathUtil::getInstance()), EMPTY_STRING(StringUtil::getInstance()->EMPTY_STRING), schema(this->EMPTY_STRING), path(this->EMPTY_STRING), nameP(this->EMPTY_STRING){
-
-    StringValidationUtil* stringValidationUtil = StringValidationUtil::getInstance();;
-    
-
-                        if(!stringValidationUtil->isEmpty(aPath))
-                        
-                                    {
-                                    this->schema= this->getSchema(aPath);
-    
-this->nameP= name;
-    
-this->path= this->abPathUtil->adjustEnd(this->abPathUtil->adjust(this->getPathFromPath(aPath)));
-    
-
-                                    }
-                                
-                        else {
-                            this->init();
-    
-
-                        if(!stringValidationUtil->isEmpty(name))
-                        
-                                    {
-                                    this->nameP= name;
-    
-
-                                    }
-                                
-
-                        }
-                            
++ (AbPath*) createAbPath {
+        JAVA_TRY {
+            const char* EMPTY_STRING = [StringUtil getInstance]->EMPTY_STRING;
+            return [((AbPath*) [AbPath alloc]) init:EMPTY_STRING :EMPTY_STRING];
+        } JAVA_CATCH(Exception, ex) {
+            java_throw(java_exception_new("RuntimeException", ""));
+        } JAVA_END_TRY;
 }
 
 
-    auto AbPath::init() -> void{
-this->schema= this->EMPTY_STRING;
-    
-this->setPath(this->abPathData->SEPARATOR);
-    
-this->nameP= this->EMPTY_STRING;
-    
+- (instancetype) init:(const char*)aPath :(const char*)name {
+    self = [super init];
+    [self initFields];
+        StringValidationUtil* stringValidationUtil = [StringValidationUtil getInstance];
+        if (![stringValidationUtil isEmpty:aPath]) {
+            self->schema = [self getSchema:aPath];
+            self->nameP = name;
+            self->path = [self->abPathUtil adjustEnd:[self->abPathUtil adjust:[self getPathFromPath:aPath]]];
+        } else {
+            [self init_];
+            if (![stringValidationUtil isEmpty:name]) {
+                self->nameP = name;
+            }
+        }
+    return self;
 }
 
 
-    auto AbPath::getSchema(std::string aPath) -> std::string{
-
-    int32_t beginIndex = JavaString::indexOf(aPath, this->commonSeps->COLON);;
-    
-
-                        if(beginIndex >= 0)
-                        
-                                    {
-                                    this->hasSchemaP= true;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::substring(aPath, 0, beginIndex);;
-    
-
-                                    }
-                                
-this->hasSchemaP= false;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->EMPTY_STRING;
-    
+- (void) init_ {
+        self->schema = self->EMPTY_STRING;
+        [self setPath:self->abPathData->SEPARATOR];
+        self->nameP = self->EMPTY_STRING;
 }
 
 
-    auto AbPath::hasSchema() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->hasSchemaP;
-    
+- (const char*) getSchema:(const char*)aPath {
+        int32_t beginIndex = java_string_indexOf(aPath, self->commonSeps->COLON);
+        if (beginIndex >= 0) {
+            self->hasSchemaP = true;
+            return java_substring(aPath, 0, beginIndex);
+        }
+        self->hasSchemaP = false;
+        return self->EMPTY_STRING;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AbPath::getPathFromPath(std::string aPath) -> std::string{
-
-    FilePathData* filePathData = FilePathData::getInstance();;
-    
-
-    std::string tempPath = aPath;;
-    
-
-                        if(!this->hasSchema())
-                        
-                                    {
-                                    tempPath= this->abPathUtil->adjustStart(tempPath);
-    
-
-                                    }
-                                
-                        else {
-                            
-    int32_t beginIndex = JavaString::indexOf(tempPath, this->commonSeps->COLON);;
-    
-
-                        if(beginIndex >= 0)
-                        
-                                    {
-                                    beginIndex++;
-    
-
-        while(tempPath[beginIndex] == this->abPathData->SEPARATORCHAR || tempPath[beginIndex] == filePathData->SEPARATORCHAR)
-        {
-beginIndex++;
-    
-this->numberOfSeps++;
-    
-
-                        if(this->numberOfSeps > 2)
-                        
-                                    {
-                                    
-
-
-                            throw Exception("Should Not Have More Than Two Seps");
-                    
-
-                                    }
-                                
-}
-
-tempPath= JavaString::substring(tempPath, beginIndex, tempPath.size());
-    
-
-                                    }
-                                
-
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return tempPath;
-    
+- (bool) hasSchema {
+        return self->hasSchemaP;
 }
 
 
-    auto AbPath::setName(std::string name) -> void{
-this->nameP= name;
-    
+// throws Exception
+- (const char*) getPathFromPath:(const char*)aPath {
+        FilePathData* filePathData = [FilePathData getInstance];
+        const char* tempPath = aPath;
+        if (![self hasSchema]) {
+            tempPath = [self->abPathUtil adjustStart:tempPath];
+        } else {
+            int32_t beginIndex = java_string_indexOf(tempPath, self->commonSeps->COLON);
+            if (beginIndex >= 0) {
+                beginIndex++;
+                while (((uint16_t) tempPath[beginIndex]) == self->abPathData->SEPARATORCHAR || ((uint16_t) tempPath[beginIndex]) == filePathData->SEPARATORCHAR) {
+                    beginIndex++;
+                    self->numberOfSeps++;
+                    if (self->numberOfSeps > 2) {
+                        java_throw(java_exception_new("Exception", "Should Not Have More Than Two Seps"));
+                    }
+                }
+                tempPath = java_substring(tempPath, beginIndex, ((int32_t) strlen(tempPath)));
+            }
+        }
+        return tempPath;
 }
 
 
-    auto AbPath::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->nameP;
-    
+- (void) setName:(const char*)name {
+        self->nameP = name;
 }
 
 
-    auto AbPath::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-
-                        if(this->hasSchema())
-                        
-                                    {
-                                    stringBuffer->append(this->schema);
-    
-stringBuffer->append(AbPath::NETWORK_SEP);
-    
-
-                                    }
-                                
-stringBuffer->append(this->getPath());
-    
-stringBuffer->append(this->nameP);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (const char*) getName {
+        return self->nameP;
 }
 
 
-    auto AbPath::toFileSystemString() -> std::string{
-
-                        if(this->hasSchema())
-                        
-                                    {
-                                    
-    FilePathData* filePathData = FilePathData::getInstance();;
-    
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append(this->schema);
-    
-stringBuffer->append(this->commonSeps->COLON);
-    
-stringBuffer->append(filePathData->PATH_START);
-    
-stringBuffer->append(FilePathUtil::adjust(this->getPath()));
-    
-stringBuffer->append(this->nameP);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return FilePathUtil::adjust(this->getPath()) +this->nameP;
-    
-
-                        }
-                            
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        if ([self hasSchema]) {
+            [stringBuffer append:self->schema];
+            [stringBuffer append:AbPath_NETWORK_SEP];
+        }
+        [stringBuffer append:[self getPath]];
+        [stringBuffer append:self->nameP];
+        return [stringBuffer toString];
 }
 
 
-    auto AbPath::getPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->path;
-    
+- (const char*) toFileSystemString {
+        if ([self hasSchema]) {
+            FilePathData* filePathData = [FilePathData getInstance];
+            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            [stringBuffer append:self->schema];
+            [stringBuffer append:self->commonSeps->COLON];
+            [stringBuffer append:filePathData->PATH_START];
+            [stringBuffer append:[FilePathUtil adjust:[self getPath]]];
+            [stringBuffer append:self->nameP];
+            return [stringBuffer toString];
+        } else {
+            return java_concat([FilePathUtil adjust:[self getPath]], self->nameP);
+        }
 }
 
 
-    auto AbPath::setPath(std::string path) -> void{
-this->path= path;
-    
+- (const char*) getPath {
+        return self->path;
 }
 
 
+- (void) setPath:(const char*)path {
+        self->path = path;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_IO_PATH_ABPATH_CPP

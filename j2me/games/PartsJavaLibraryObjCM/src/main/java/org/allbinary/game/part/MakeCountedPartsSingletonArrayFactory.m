@@ -1,190 +1,74 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_PART_MAKECOUNTEDPARTSSINGLETONARRAYFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_PART_MAKECOUNTEDPARTSSINGLETONARRAYFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/part/MakeCountedPartsSingletonArrayFactory.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.h>
-
-      
-#include <org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactoryPool.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-#include <org/allbinary/util/BasicArrayListUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/part/CountedLayerInterfaceFactoryPart.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/part/MakeCountedPartsSingletonArrayFactory.h"
+#include "org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.h"
+#include "org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactoryPool.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#include "org/allbinary/game/part/CountedLayerInterfaceFactoryPart.h"
 #include "org/allbinary/game/part/PartInterface.h"
 
 
-MakeCountedPartsSingletonArrayFactory::MakeCountedPartsSingletonArrayFactory() : logUtil(LogUtil::getInstance()), list(BasicArrayListUtil::getInstance()->getImmutableInstance()) {
+static MakeCountedPartsSingletonArrayFactory* MakeCountedPartsSingletonArrayFactory_instance;
+
+void MakeCountedPartsSingletonArrayFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    MakeCountedPartsSingletonArrayFactory_instance = [((MakeCountedPartsSingletonArrayFactory*) [MakeCountedPartsSingletonArrayFactory alloc]) init];
+}
+
+@implementation MakeCountedPartsSingletonArrayFactory
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->list = [[BasicArrayListUtil getInstance] getImmutableInstance];
+}
+
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
+
+
++ (MakeCountedPartsSingletonArrayFactory*) getInstance {
+        return (MakeCountedPartsSingletonArrayFactory_staticInit(), MakeCountedPartsSingletonArrayFactory_instance);
+}
+
+
+// throws Exception
+- (PartInterface**) getUpdated:(PartInterface**)partInterfaceArray {
+        self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        for (int32_t index = 0; index < java_array_length(partInterfaceArray); index++) {
+            [self->list add:partInterfaceArray[index]];
         }
-        auto MakeCountedPartsSingletonArrayFactory::instance_owner() -> MakeCountedPartsSingletonArrayFactory* { static std::unique_ptr<MakeCountedPartsSingletonArrayFactory> value(new MakeCountedPartsSingletonArrayFactory()); return value.get(); }
-MakeCountedPartsSingletonArrayFactory* MakeCountedPartsSingletonArrayFactory::instance = MakeCountedPartsSingletonArrayFactory::instance_owner();
-
-    auto MakeCountedPartsSingletonArrayFactory::getInstance() -> MakeCountedPartsSingletonArrayFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return MakeCountedPartsSingletonArrayFactory::instance;
-    
+        BasicArrayList* countedBasicArrayList = [[CountedPickedUpLayerInterfaceFactoryPool getInstance] getList];
+        CountedPickedUpLayerInterfaceFactory* layerInterfaceFactoryInterface = nullptr;
+        int32_t size = [countedBasicArrayList size];
+        for (int32_t index = 0; index < size; index++) {
+            layerInterfaceFactoryInterface = ((CountedPickedUpLayerInterfaceFactory*) countedBasicArrayList->objectArray[index]);
+            [self->list add:[((CountedLayerInterfaceFactoryPart*) [CountedLayerInterfaceFactoryPart alloc]) init:0 :layerInterfaceFactoryInterface]];
+        }
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:"Total Parts: "];
+        [stringBuffer appendint:[self->list size]];
+        [stringBuffer append:" Counted: "];
+        [stringBuffer appendint:[countedBasicArrayList size]];
+        CommonStrings* commonStrings = [CommonStrings getInstance];
+        [self->logUtil putF:[stringBuffer toString] :self :commonStrings->GET_INSTANCE];
+        PartInterface** newPartInterfaceArray = ((PartInterface**) java_array_new(sizeof(PartInterface*), [self->list size]));
+        int32_t newSize = java_array_length(newPartInterfaceArray);
+        for (int32_t index = 0; index < newSize; index++) {
+            newPartInterfaceArray[index] = ((PartInterface*) [self->list get:index]);
+        }
+        return newPartInterfaceArray;
 }
 
+@end
 
-                //@Throws(Exception.constructor)
-            
-    auto MakeCountedPartsSingletonArrayFactory::getUpdated(std::vector<PartInterface*> partInterfaceArray) -> std::vector<PartInterface*>{
-this->list= new BasicArrayListD();
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < partInterfaceArray.size(); index++)
-        {
-this->list->add(partInterfaceArray[index]);
-    
-}
-
-
-    BasicArrayList* countedBasicArrayList = CountedPickedUpLayerInterfaceFactoryPool::getInstance()->getList();;
-    
-
-    CountedPickedUpLayerInterfaceFactory* layerInterfaceFactoryInterface;;
-    
-
-    int32_t size = countedBasicArrayList->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-layerInterfaceFactoryInterface= dynamic_cast<CountedPickedUpLayerInterfaceFactory*>(countedBasicArrayList->objectArray[index]);
-    
-this->list->add(new CountedLayerInterfaceFactoryPart(0, layerInterfaceFactoryInterface));
-    
-}
-
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("Total Parts: ");
-    
-stringBuffer->appendint(this->list->size());
-    
-stringBuffer->append(" Counted: ");
-    
-stringBuffer->appendint(countedBasicArrayList->size());
-    
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->putF(JavaString::valueOf(stringBuffer), this, commonStrings->GET_INSTANCE);
-    
-
-    std::vector<PartInterface*> newPartInterfaceArray = std::vector<PartInterface*>(this->list->size());;
-    
-
-    int32_t newSize = newPartInterfaceArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < newSize; index++)
-        {
-newPartInterfaceArray[index]= dynamic_cast<PartInterface*>(this->list->get(index));
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return newPartInterfaceArray;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_PART_MAKECOUNTEDPARTSSINGLETONARRAYFACTORY_CPP

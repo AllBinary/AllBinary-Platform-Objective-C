@@ -1,96 +1,44 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/emulator/InitEmulatorFactory.h"
 
 
+static InitEmulatorFactory* InitEmulatorFactory_instance;
 
-        #ifndef ORG_ALLBINARY_EMULATOR_INITEMULATORFACTORY_CPP
-        #define ORG_ALLBINARY_EMULATOR_INITEMULATORFACTORY_CPP
+void InitEmulatorFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    InitEmulatorFactory_instance = [((InitEmulatorFactory*) [InitEmulatorFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/emulator/InitEmulatorFactory.h"
-        
+@implementation InitEmulatorFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->initEmulator = false;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-InitEmulatorFactory::InitEmulatorFactory() {
-        }
-        auto InitEmulatorFactory::instance_owner() -> InitEmulatorFactory* { static std::unique_ptr<InitEmulatorFactory> value(new InitEmulatorFactory()); return value.get(); }
-InitEmulatorFactory* InitEmulatorFactory::instance = InitEmulatorFactory::instance_owner();
-
-    auto InitEmulatorFactory::getInstance() -> InitEmulatorFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return InitEmulatorFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto InitEmulatorFactory::setInitEmulator(bool initEmulator) -> void{
-this->initEmulator= initEmulator;
-    
++ (InitEmulatorFactory*) getInstance {
+        return (InitEmulatorFactory_staticInit(), InitEmulatorFactory_instance);
 }
 
 
-    auto InitEmulatorFactory::isInitEmulator() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->initEmulator;
-    
+- (void) setInitEmulator:(bool)initEmulator {
+        self->initEmulator = initEmulator;
 }
 
 
+- (bool) isInitEmulator {
+        return self->initEmulator;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_EMULATOR_INITEMULATORFACTORY_CPP

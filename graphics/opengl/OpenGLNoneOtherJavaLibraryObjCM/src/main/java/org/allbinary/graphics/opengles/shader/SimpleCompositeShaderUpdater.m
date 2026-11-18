@@ -1,72 +1,24 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/shader/SimpleCompositeShaderUpdater.h"
+#include "org/allbinary/graphics/opengles/shader/CompositeShaderUpdater.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SIMPLECOMPOSITESHADERUPDATER_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SIMPLECOMPOSITESHADERUPDATER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/shader/SimpleCompositeShaderUpdater.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/opengles/shader/CompositeShaderUpdater.h"
-
-
-SimpleCompositeShaderUpdater::SimpleCompositeShaderUpdater(std::vector<std::string> uniformBlockArray, std::vector<std::string> uniformArray, std::vector<std::string> attributeArray, std::vector<int32_t> attributeHandleArray) : CompositeShaderUpdater(uniformBlockArray, uniformArray, attributeArray, attributeHandleArray){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+void SimpleCompositeShaderUpdater_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
 }
 
+@implementation SimpleCompositeShaderUpdater
 
 
+- (instancetype) init:(const char**)uniformBlockArray :(const char**)uniformArray :(const char**)attributeArray :(int32_t*)attributeHandleArray {
+        self = [super init:uniformBlockArray :uniformArray :attributeArray :attributeHandleArray];
+    return self;
+}
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SIMPLECOMPOSITESHADERUPDATER_CPP
+@end
+

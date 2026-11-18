@@ -1,93 +1,38 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/weapon/mine/MineLayerFactory.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/view/ViewPositionFactoryInterface.h"
+#include "org/allbinary/game/ag/layer/weapon/mine/MineLayer.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_WEAPON_MINE_MINELAYERFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_WEAPON_MINE_MINELAYERFACTORY_CPP
+void MineLayerFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/weapon/mine/MineLayerFactory.h"
-        
+@implementation MineLayerFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerFactoryInterface.h>
-
-      
-#include <org/allbinary/view/ViewPositionFactoryInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/ag/layer/weapon/mine/MineLayer.h"
-
-
-MineLayerFactory::MineLayerFactory(ViewPositionFactoryInterface* viewPositionFactoryInterface){
-this->viewPositionFactoryInterface= viewPositionFactoryInterface;
+- (void) initFields {
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto MineLayerFactory::getInstance() -> AllBinaryLayer*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new MineLayer(this->viewPositionFactoryInterface->getInstance());
-    
+- (instancetype) init:(ViewPositionFactoryInterface*)viewPositionFactoryInterface {
+    self = [super init];
+    [self initFields];
+        self->viewPositionFactoryInterface = viewPositionFactoryInterface;
+    return self;
 }
 
 
+// throws Exception
+- (AllBinaryLayer*) getInstance {
+        return [((MineLayer*) [MineLayer alloc]) init:[self->viewPositionFactoryInterface getInstance]];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_WEAPON_MINE_MINELAYERFACTORY_CPP

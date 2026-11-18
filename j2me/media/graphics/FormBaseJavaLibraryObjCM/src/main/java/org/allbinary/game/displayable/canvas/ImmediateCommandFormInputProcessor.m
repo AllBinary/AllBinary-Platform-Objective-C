@@ -1,201 +1,92 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_IMMEDIATECOMMANDFORMINPUTPROCESSOR_CPP
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_IMMEDIATECOMMANDFORMINPUTPROCESSOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/displayable/canvas/ImmediateCommandFormInputProcessor.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/input/event/GameKeyEvent.h>
-
-      
-#include <org/allbinary/graphics/form/ScrollSelectionForm.h>
-
-      
-#include <org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h>
-
-      
-#include <org/allbinary/time/TimeDelayHelper.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/displayable/canvas/CommandFormInputProcessor.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/displayable/canvas/ImmediateCommandFormInputProcessor.h"
+#include "org/allbinary/game/input/event/GameKeyEvent.h"
+#include "org/allbinary/graphics/form/ScrollSelectionForm.h"
+#include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
+#include "org/allbinary/time/TimeDelayHelper.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/game/displayable/canvas/CommandFormInputProcessor.h"
 #include "org/allbinary/game/displayable/canvas/GameCommandCanvas.h"
 
 
-ImmediateCommandFormInputProcessor::ImmediateCommandFormInputProcessor(BasicArrayList* gameKeyEventList, int32_t playerInputId, GameCommandCanvas* gameCommandCanvas, ScrollSelectionForm* form) : CommandFormInputProcessor(gameKeyEventList, playerInputId, gameCommandCanvas, form), timeHelper(new TimeDelayHelper(25)){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void ImmediateCommandFormInputProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
-this->gameCommandCanvas= gameCommandCanvas;
+@implementation ImmediateCommandFormInputProcessor
+
+- (void) initFields {
+    self->timeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:25];
     
 }
 
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
 
-    auto ImmediateCommandFormInputProcessor::onPressGameKeyEvent(GameKeyEvent* gameKeyEvent) -> void{
-
-        try {
-            CommandFormInputProcessor::onPressGameKeyEvent(gameKeyEvent);
-    
-
-                        if(this->timeHelper->isTimeTNT())
-                        
-                                    {
-                                    this->processInputList();
-    
-this->gameCommandCanvas->repaintBehavior->onChangeRepaint(this->getCanvas());
-    
-
-                                    }
-                                
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->gameInputStrings->ON_PRESS_GAME_KEY, &e);
-    
-}
-
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto ImmediateCommandFormInputProcessor::onDownGameKeyEvent(GameKeyEvent* gameKeyEvent) -> void{
-
-        try {
-            CommandFormInputProcessor::onDownGameKeyEvent(gameKeyEvent);
-    
-
-                        if(this->timeHelper->isTimeTNT())
-                        
-                                    {
-                                    this->processInputList();
-    
-this->gameCommandCanvas->repaintBehavior->onChangeRepaint(this->getCanvas());
-    
-
-                                    }
-                                
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->gameInputStrings->ON_DOWN_GAME_KEY, &e);
-    
-}
-
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto ImmediateCommandFormInputProcessor::onUpGameKeyEvent(GameKeyEvent* gameKeyEvent) -> void{
-
-        try {
-            CommandFormInputProcessor::onUpGameKeyEvent(gameKeyEvent);
-    
-
-                        if(this->timeHelper->isTimeTNT())
-                        
-                                    {
-                                    this->processInputList();
-    
-this->gameCommandCanvas->repaintBehavior->onChangeRepaint(this->getCanvas());
-    
-
-                                    }
-                                
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->gameInputStrings->ON_UP_GAME_KEY, &e);
-    
-}
-
+- (instancetype) init:(BasicArrayList*)gameKeyEventList :(int32_t)playerInputId :(GameCommandCanvas*)gameCommandCanvas :(ScrollSelectionForm*)form {
+        self = [super init:gameKeyEventList :playerInputId :gameCommandCanvas :form];
+        [self initFields];
+        self->gameCommandCanvas = gameCommandCanvas;
+    return self;
 }
 
 
-    auto ImmediateCommandFormInputProcessor::onMotionGestureEvent(MotionGestureEvent* motionGestureEvent) -> void{
-
-        try {
-            CommandFormInputProcessor::onMotionGestureEvent(motionGestureEvent);
-    
-
-                        if(this->timeHelper->isTimeTNT())
-                        
-                                    {
-                                    this->processInputList();
-    
-this->gameCommandCanvas->repaintBehavior->onChangeRepaint(this->getCanvas());
-    
-
-                                    }
-                                
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, "onMotionGestureEvent", &e);
-    
-}
-
+// synchronized
+- (void) onPressGameKeyEvent:(GameKeyEvent*)gameKeyEvent {
+        JAVA_TRY {
+            [super onPressGameKeyEvent:gameKeyEvent];
+            if ([self->timeHelper isTimeTNT]) {
+                [self processInputList];
+                [self->gameCommandCanvas->repaintBehavior onChangeRepaint:[self getCanvas]];
+            }
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->gameInputStrings->ON_PRESS_GAME_KEY :e];
+        } JAVA_END_TRY;
 }
 
 
+// synchronized
+- (void) onDownGameKeyEvent:(GameKeyEvent*)gameKeyEvent {
+        JAVA_TRY {
+            [super onDownGameKeyEvent:gameKeyEvent];
+            if ([self->timeHelper isTimeTNT]) {
+                [self processInputList];
+                [self->gameCommandCanvas->repaintBehavior onChangeRepaint:[self getCanvas]];
+            }
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->gameInputStrings->ON_DOWN_GAME_KEY :e];
+        } JAVA_END_TRY;
+}
 
 
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_IMMEDIATECOMMANDFORMINPUTPROCESSOR_CPP
+// synchronized
+- (void) onUpGameKeyEvent:(GameKeyEvent*)gameKeyEvent {
+        JAVA_TRY {
+            [super onUpGameKeyEvent:gameKeyEvent];
+            if ([self->timeHelper isTimeTNT]) {
+                [self processInputList];
+                [self->gameCommandCanvas->repaintBehavior onChangeRepaint:[self getCanvas]];
+            }
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->gameInputStrings->ON_UP_GAME_KEY :e];
+        } JAVA_END_TRY;
+}
+
+
+- (void) onMotionGestureEvent:(MotionGestureEvent*)motionGestureEvent {
+        JAVA_TRY {
+            [super onMotionGestureEvent:motionGestureEvent];
+            if ([self->timeHelper isTimeTNT]) {
+                [self processInputList];
+                [self->gameCommandCanvas->repaintBehavior onChangeRepaint:[self getCanvas]];
+            }
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :"onMotionGestureEvent" :e];
+        } JAVA_END_TRY;
+}
+
+@end
+

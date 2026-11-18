@@ -1,149 +1,153 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_TEXTNOTIFICATIONUTIL_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_TEXTNOTIFICATIONUTIL_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/TextNotificationUtil.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-            #include "java/lang/Boolean.h"
-        
-#include <org/allbinary/game/layer/hud/event/GameNotificationEvent.h>
-
-      
-#include <org/allbinary/game/layer/hud/event/GameNotificationEventHandler.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/logic/java/bool/BooleanFactory.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/media/audio/ErrorSound.h>
-
-      
-#include <org/allbinary/media/audio/PrimaryPlayerQueueFactory.h>
-
-      
-#include <org/allbinary/media/audio/SelectSound.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-TextNotificationUtil::TextNotificationUtil() : TWO(SmallIntegerSingletonFactory::getInstance()->getAt(2)), FALSE(BooleanFactory::getInstance()->FALSE), gameNotificationEventHandler(GameNotificationEventHandler::getInstance()) {
-        }
-        auto TextNotificationUtil::instance_owner() -> TextNotificationUtil* { static std::unique_ptr<TextNotificationUtil> value(new TextNotificationUtil()); return value.get(); }
-TextNotificationUtil* TextNotificationUtil::instance = TextNotificationUtil::instance_owner();
-
-    auto TextNotificationUtil::getInstance() -> TextNotificationUtil*{
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/TextNotificationUtil.h"
+#include "org/allbinary/game/layer/hud/event/GameNotificationEvent.h"
+#include "org/allbinary/game/layer/hud/event/GameNotificationEventHandler.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/media/audio/ErrorSound.h"
+#include "org/allbinary/media/audio/PrimaryPlayerQueueFactory.h"
+#include "org/allbinary/media/audio/SelectSound.h"
+#if __has_include("org/allbinary/game/input/PlayerQueue.h")
+#include "org/allbinary/game/input/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/layer/hud/event/PlayerQueue.h")
+#include "org/allbinary/game/layer/hud/event/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/layer/hud/event/PlayerQueue.h")
+#include "org/allbinary/game/layer/hud/event/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/PlayerQueue.h")
+#include "org/allbinary/graphics/color/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/PlayerQueue.h")
+#include "org/allbinary/logic/java/bool/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/logic/math/PlayerQueue.h")
+#include "org/allbinary/logic/math/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/input/PlayerQueue.h")
+#include "org/allbinary/game/input/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/layer/hud/event/PlayerQueue.h")
+#include "org/allbinary/game/layer/hud/event/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/layer/hud/event/PlayerQueue.h")
+#include "org/allbinary/game/layer/hud/event/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/PlayerQueue.h")
+#include "org/allbinary/graphics/color/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/PlayerQueue.h")
+#include "org/allbinary/logic/java/bool/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/logic/math/PlayerQueue.h")
+#include "org/allbinary/logic/math/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/input/PlayerQueue.h")
+#include "org/allbinary/game/input/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/layer/hud/event/PlayerQueue.h")
+#include "org/allbinary/game/layer/hud/event/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/layer/hud/event/PlayerQueue.h")
+#include "org/allbinary/game/layer/hud/event/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/PlayerQueue.h")
+#include "org/allbinary/graphics/color/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/PlayerQueue.h")
+#include "org/allbinary/logic/java/bool/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/logic/math/PlayerQueue.h")
+#include "org/allbinary/logic/math/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#endif
 
 
+static TextNotificationUtil* TextNotificationUtil_instance;
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TextNotificationUtil::instance;
-    
+void TextNotificationUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TextNotificationUtil_instance = [((TextNotificationUtil*) [TextNotificationUtil alloc]) init];
+}
+
+@implementation TextNotificationUtil
+
+- (void) initFields {
+    self->TWO = [[SmallIntegerSingletonFactory getInstance] getAt:2];
+    self->FALSE = [BooleanFactory getInstance]->FALSE;
+    self->gameNotificationEventHandler = [GameNotificationEventHandler getInstance];
+}
+
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto TextNotificationUtil::fireError(std::string message) -> void{
-PrimaryPlayerQueueFactory::getInstance()->add(ErrorSound::getInstance());
-    
-this->fire(message);
-    
++ (TextNotificationUtil*) getInstance {
+        return (TextNotificationUtil_staticInit(), TextNotificationUtil_instance);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto TextNotificationUtil::fireNew(std::string message) -> void{
-PrimaryPlayerQueueFactory::getInstance()->add(SelectSound::getInstance());
-    
-this->fire(message);
-    
+// throws Exception
+- (void) fireError:(const char*)message {
+        [[PrimaryPlayerQueueFactory getInstance] add:[ErrorSound getInstance]];
+        [self fire:message];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto TextNotificationUtil::fireSuccess(std::string message) -> void{
-PrimaryPlayerQueueFactory::getInstance()->add(SelectSound::getInstance());
-    
-this->fire(message);
-    
+// throws Exception
+- (void) fireNew:(const char*)message {
+        [[PrimaryPlayerQueueFactory getInstance] add:[SelectSound getInstance]];
+        [self fire:message];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto TextNotificationUtil::fire(std::string message) -> void{
-
-    GameNotificationEvent* gameNotificationEvent = new GameNotificationEvent(this, message, this->TWO, BasicColorFactory::getInstance()->RED, this->FALSE);;
-    
-this->gameNotificationEventHandler->fireEvent(gameNotificationEvent);
-    
+// throws Exception
+- (void) fireSuccess:(const char*)message {
+        [[PrimaryPlayerQueueFactory getInstance] add:[SelectSound getInstance]];
+        [self fire:message];
 }
 
 
+// throws Exception
+- (void) fire:(const char*)message {
+        GameNotificationEvent* gameNotificationEvent = [((GameNotificationEvent*) [GameNotificationEvent alloc]) init:self :message :self->TWO :[BasicColorFactory getInstance]->RED :self->FALSE];
+        [self->gameNotificationEventHandler fireEvent:gameNotificationEvent];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_TEXTNOTIFICATIONUTIL_CPP

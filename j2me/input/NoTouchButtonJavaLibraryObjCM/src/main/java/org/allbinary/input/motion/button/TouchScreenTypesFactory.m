@@ -1,79 +1,38 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/TouchScreenTypesFactory.h"
+#include "org/allbinary/input/motion/button/TouchScreenType.h"
 
 
+static TouchScreenTypesFactory* TouchScreenTypesFactory_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHSCREENTYPESFACTORY_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHSCREENTYPESFACTORY_CPP
+void TouchScreenTypesFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TouchScreenTypesFactory_instance = [((TouchScreenTypesFactory*) [TouchScreenTypesFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/TouchScreenTypesFactory.h"
-        
+@implementation TouchScreenTypesFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->FINGER = [((TouchScreenType*) [TouchScreenType alloc]) init:"Finger"];
+    self->NOTOUCH = [((TouchScreenType*) [TouchScreenType alloc]) init:"No Touch"];
+    self->STYLUS = [((TouchScreenType*) [TouchScreenType alloc]) init:"Stylus"];
+    self->UNDEFINED = [((TouchScreenType*) [TouchScreenType alloc]) init:"Undefined"];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/button/TouchScreenType.h"
-
-
-TouchScreenTypesFactory::TouchScreenTypesFactory() : FINGER(new TouchScreenType("Finger")), NOTOUCH(new TouchScreenType("No Touch")), STYLUS(new TouchScreenType("Stylus")), UNDEFINED(new TouchScreenType("Undefined")) {
-        }
-        auto TouchScreenTypesFactory::instance_owner() -> TouchScreenTypesFactory* { static std::unique_ptr<TouchScreenTypesFactory> value(new TouchScreenTypesFactory()); return value.get(); }
-TouchScreenTypesFactory* TouchScreenTypesFactory::instance = TouchScreenTypesFactory::instance_owner();
-
-    auto TouchScreenTypesFactory::getInstance() -> TouchScreenTypesFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TouchScreenTypesFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (TouchScreenTypesFactory*) getInstance {
+        return (TouchScreenTypesFactory_staticInit(), TouchScreenTypesFactory_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHSCREENTYPESFACTORY_CPP

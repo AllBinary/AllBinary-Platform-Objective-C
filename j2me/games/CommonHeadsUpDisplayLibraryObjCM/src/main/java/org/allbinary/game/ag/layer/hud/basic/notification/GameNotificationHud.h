@@ -1,147 +1,68 @@
+#ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATIONHUD_H
+#define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATIONHUD_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.hud.basic.notification
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATIONHUD_H
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATIONHUD_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-            #include "java/lang/Boolean.h"
-        
-class Graphics;
-#include <org/allbinary/game/graphics/hud/BasicHud.h>
-class BasicHudFactory;
-class GameNotificationEvent;
-#include <org/allbinary/game/layer/hud/event/GameNotificationListenerInterface.h>
-class BasicColor;
-class BasicColorFactory;
-class ForcedLogUtil;
-class AllBinaryEventObject;
-class EventStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class GameNotification;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class GameNotificationHud: public BasicHud, public virtual GameNotificationListenerInterface {
-
-    private: static GameNotificationHud* NULL_GAME_NOTIFICATION_owner();
-    public: static GameNotificationHud* NULL_GAME_NOTIFICATION;
-
-public: GameNotificationHud(int32_t location, int32_t direction, int32_t bufferZone, BasicColor* basicColor);
-
-    public: void onEvent(AllBinaryEventObject* eventObject);
-
-    private: const std::string METHOD_NAME = "onGameNotificationEvent";
-
-    private: GameNotificationEvent* lastGameNotificationEvent;
-
-                //@Throws(Exception.constructor)
-            
-    public: void onGameNotificationEvent(GameNotificationEvent* gameNotificationEvent);
-
-    /*protected*/ public: void add(std::string string, int32_t seconds, BasicColor* basicColor, bool permanent);
-
-                //@Throws(Exception.constructor)
-            
-    public: void processTick();
-
-    public: void paint(Graphics* graphics);
-
-    public: void clear();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATIONHUD_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATIONHUD_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATIONHUD_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Graphics.h>)
-#include <javax/microedition/lcdui/Graphics.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class GameNotificationHud;
+@class Graphics;
+@class BasicHud;
+@class BasicHudFactory;
+@class GameNotificationEvent;
+@class GameNotificationListenerInterface;
+@class BasicColor;
+@class BasicColorFactory;
+@class ForcedLogUtil;
+@class AllBinaryEventObject;
+@class EventStrings;
+@class GameNotification;
+#include "org/allbinary/game/graphics/hud/BasicHud.h"
+#if __has_include("org/allbinary/game/layer/hud/event/GameNotificationEvent.h")
+#include "org/allbinary/game/layer/hud/event/GameNotificationEvent.h"
 #endif
-#if __has_include(<org/allbinary/game/graphics/hud/BasicHud.h>)
-#include <org/allbinary/game/graphics/hud/BasicHud.h>
-#endif
-#if __has_include(<org/allbinary/game/graphics/hud/BasicHudFactory.h>)
-#include <org/allbinary/game/graphics/hud/BasicHudFactory.h>
-#endif
-#if __has_include(<org/allbinary/game/layer/hud/event/GameNotificationEvent.h>)
-#include <org/allbinary/game/layer/hud/event/GameNotificationEvent.h>
-#endif
-#if __has_include(<org/allbinary/game/layer/hud/event/GameNotificationListenerInterface.h>)
-#include <org/allbinary/game/layer/hud/event/GameNotificationListenerInterface.h>
-#endif
-#if __has_include(<org/allbinary/graphics/color/BasicColor.h>)
-#include <org/allbinary/graphics/color/BasicColor.h>
-#endif
-#if __has_include(<org/allbinary/graphics/color/BasicColorFactory.h>)
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-#endif
-#if __has_include(<org/allbinary/logic/communication/log/ForcedLogUtil.h>)
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/AllBinaryEventObject.h>)
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/EventStrings.h>)
-#include <org/allbinary/logic/util/event/EventStrings.h>
-#endif
-#if __has_include("org/allbinary/game/ag/layer/hud/basic/notification/GameNotification.h")
-#include "org/allbinary/game/ag/layer/hud/basic/notification/GameNotification.h"
-#endif
+#include "org/allbinary/game/layer/hud/event/GameNotificationListenerInterface.h"
+#include "java/lang/Integer.h"
+#include "java/lang/Boolean.h"
 
-        #endif
-    
+@interface GameNotificationHud : BasicHud <GameNotificationListenerInterface> {
+@public
+    const char* METHOD_NAME;
+    GameNotificationEvent* lastGameNotificationEvent;
+}
+- (instancetype) init:(int32_t)location :(int32_t)direction :(int32_t)bufferZone :(BasicColor*)basicColor;
+- (void) initFields;
+- (void) onEvent:(AllBinaryEventObject*)eventObject;
+- (void) onGameNotificationEvent:(GameNotificationEvent*)gameNotificationEvent;
+- (void) add:(const char*)string :(int32_t)seconds :(BasicColor*)basicColor :(bool)permanent;
+- (void) processTick;
+- (void) paint:(Graphics*)graphics;
+- (void) clear;
+@end
+
+extern GameNotificationHud* GameNotificationHud_NULL_GAME_NOTIFICATION;
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void GameNotificationHud_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATIONHUD_H

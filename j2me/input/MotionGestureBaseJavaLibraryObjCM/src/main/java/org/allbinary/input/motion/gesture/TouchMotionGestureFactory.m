@@ -1,125 +1,69 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#include "org/allbinary/game/input/InputFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
 
 
+static id TouchMotionGestureFactory_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_GESTURE_TOUCHMOTIONGESTUREFACTORY_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_GESTURE_TOUCHMOTIONGESTUREFACTORY_CPP
+void TouchMotionGestureFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TouchMotionGestureFactory_instance = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
-        
+@implementation TouchMotionGestureFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/input/InputFactory.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
-
-Object* TouchMotionGestureFactory::instance = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto TouchMotionGestureFactory::getInstance() -> TouchMotionGestureFactory*{
-
-                        if(TouchMotionGestureFactory::instance == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    TouchMotionGestureFactory::instance= new TouchMotionGestureFactory();
+- (void) initFields {
     
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<TouchMotionGestureFactory*>(TouchMotionGestureFactory::instance);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
 
 
-TouchMotionGestureFactory::TouchMotionGestureFactory(){
-
-    int32_t MAX = InputFactory::getInstance()->MAX;;
-    
-this->LEFT= new MotionGestureInput(MAX -3, "Left Touch");
-    
-this->RIGHT= new MotionGestureInput(MAX -4, "Right Touch");
-    
-this->UP= new MotionGestureInput(MAX -5, "Up Touch");
-    
-this->DOWN= new MotionGestureInput(MAX -6, "Down Touch");
-    
-this->PRESSED= new MotionGestureInput(MAX -7, "Screen Press");
-    
-this->RELEASED= new MotionGestureInput(MAX -8, "Released");
-    
-this->DIAGONAL_DOWN_RIGHT= new MotionGestureInput(MAX -9, "Diagonal Dn R");
-    
-this->DIAGONAL_DOWN_LEFT= new MotionGestureInput(MAX -10, "Diagonal Dn L");
-    
-this->DIAGONAL_UP_RIGHT= new MotionGestureInput(MAX -11, "Diagonal Up R");
-    
-this->DIAGONAL_UP_LEFT= new MotionGestureInput(MAX -12, "Diagonal Up L");
-    
-this->SCROLL_UP= new MotionGestureInput(MAX -13, "Scroll Up");
-    
-this->SCROLL_DOWN= new MotionGestureInput(MAX -14, "Scroll Down");
-    
-this->NO_MOTION= new MotionGestureInput(MAX -2, "No Motion");
-    
-this->LAST_MOTION= new MotionGestureInput(MAX -19, "Last Motion");
-    
++ (TouchMotionGestureFactory*) getInstance {
+        if ((TouchMotionGestureFactory_staticInit(), TouchMotionGestureFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
+            TouchMotionGestureFactory_instance = [((TouchMotionGestureFactory*) [TouchMotionGestureFactory alloc]) init];
+        }
+        return ((TouchMotionGestureFactory*) (TouchMotionGestureFactory_staticInit(), TouchMotionGestureFactory_instance));
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        int32_t MAX = [InputFactory getInstance]->MAX;
+        self->LEFT = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 3 :"Left Touch"];
+        self->RIGHT = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 4 :"Right Touch"];
+        self->UP = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 5 :"Up Touch"];
+        self->DOWN = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 6 :"Down Touch"];
+        self->PRESSED = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 7 :"Screen Press"];
+        self->RELEASED = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 8 :"Released"];
+        self->DIAGONAL_DOWN_RIGHT = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 9 :"Diagonal Dn R"];
+        self->DIAGONAL_DOWN_LEFT = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 10 :"Diagonal Dn L"];
+        self->DIAGONAL_UP_RIGHT = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 11 :"Diagonal Up R"];
+        self->DIAGONAL_UP_LEFT = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 12 :"Diagonal Up L"];
+        self->SCROLL_UP = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 13 :"Scroll Up"];
+        self->SCROLL_DOWN = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 14 :"Scroll Down"];
+        self->NO_MOTION = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 2 :"No Motion"];
+        self->LAST_MOTION = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 19 :"Last Motion"];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_GESTURE_TOUCHMOTIONGESTUREFACTORY_CPP

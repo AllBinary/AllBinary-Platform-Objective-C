@@ -1,90 +1,45 @@
+#ifndef ORG_ALLBINARY_GAME_HEALTH_HEALTHBARTWODANIMATION_H
+#define ORG_ALLBINARY_GAME_HEALTH_HEALTHBARTWODANIMATION_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.health
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_HEALTH_HEALTHBARTWODANIMATION_H
-        #define ORG_ALLBINARY_GAME_HEALTH_HEALTHBARTWODANIMATION_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class Graphics;
-class AllBinaryLayer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/health/HealthBarAnimation.h"
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class HealthBarTwodAnimation: public HealthBarAnimation {
-
-public: HealthBarTwodAnimation(AllBinaryLayer* layerInterface, int32_t location);
-
-    public: void paintXY(Graphics* graphics, int32_t x, int32_t y);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_HEALTH_HEALTHBARTWODANIMATION_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_HEALTH_HEALTHBARTWODANIMATION_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_HEALTH_HEALTHBARTWODANIMATION_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Graphics.h>)
-#include <javax/microedition/lcdui/Graphics.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayer.h>)
-#include <org/allbinary/layer/AllBinaryLayer.h>
-#endif
-#if __has_include("org/allbinary/game/health/HealthBarAnimation.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class HealthBarTwodAnimation;
+@class Graphics;
+@class AllBinaryLayer;
+@class HealthBarAnimation;
 #include "org/allbinary/game/health/HealthBarAnimation.h"
-#endif
 
-        #endif
-    
+@interface HealthBarTwodAnimation : HealthBarAnimation {
+@public
+}
+- (instancetype) init:(AllBinaryLayer*)layerInterface :(int32_t)location;
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void HealthBarTwodAnimation_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GAME_HEALTH_HEALTHBARTWODANIMATION_H

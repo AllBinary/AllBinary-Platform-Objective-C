@@ -1,251 +1,152 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_CAPTION_CAPTIONINDEXEDANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_CAPTION_CAPTIONINDEXEDANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/caption/CaptionIndexedAnimation.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/media/Player.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/animation/AnimationEventHandler.h>
-
-      
-#include <org/allbinary/animation/IndexedAnimation.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/time/GameTickTimeDelayHelperFactory.h>
-
-      
-#include <org/allbinary/time/TimeDelayHelper.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/caption/CaptionIndexedAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/media/Player.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/animation/AnimationEventHandler.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/time/GameTickTimeDelayHelperFactory.h"
+#include "org/allbinary/time/TimeDelayHelper.h"
+#if __has_include("org/allbinary/animation/caption/GameTickTimeDelayHelper.h")
+#include "org/allbinary/animation/caption/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("javax/microedition/lcdui/GameTickTimeDelayHelper.h")
+#include "javax/microedition/lcdui/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("javax/microedition/media/GameTickTimeDelayHelper.h")
+#include "javax/microedition/media/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/animation/GameTickTimeDelayHelper.h")
+#include "org/allbinary/animation/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/animation/GameTickTimeDelayHelper.h")
+#include "org/allbinary/animation/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/animation/GameTickTimeDelayHelper.h")
+#include "org/allbinary/animation/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/animation/GameTickTimeDelayHelper.h")
+#include "org/allbinary/animation/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/logic/math/GameTickTimeDelayHelper.h")
+#include "org/allbinary/logic/math/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/GameTickTimeDelayHelper.h")
+#include "org/allbinary/logic/util/event/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/time/GameTickTimeDelayHelper.h")
+#include "org/allbinary/time/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/time/GameTickTimeDelayHelper.h")
+#include "org/allbinary/time/GameTickTimeDelayHelper.h"
+#endif
 
 
 
+void CaptionIndexedAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation CaptionIndexedAnimation
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CaptionIndexedAnimation::CaptionIndexedAnimation(Animation* animationInterface, IndexedAnimation* movieIndexedAnimationInterface, Player* player, int32_t captionDx, int32_t captionDy, int32_t dx, int32_t dy, int32_t time, AnimationBehavior* animationBehavior) : IndexedAnimation(animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->animationInterface= animationInterface;
+- (void) initFields {
     
-this->movieIndexedAnimationInterface= movieIndexedAnimationInterface;
     
-this->captionDx= captionDx;
     
-this->captionDy= captionDy;
     
-this->dx= dx;
     
-this->dy= dy;
     
-this->time= time;
     
-this->END_EVENT= new AllBinaryEventObject(this);
     
-
-    int32_t timePerFrame = this->time /this->getSize();;
     
-this->timeDelayHelper= new TimeDelayHelper(timePerFrame);
-    
-this->player= player;
-    
-this->player->start();
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CaptionIndexedAnimation::nextFrame() -> void{
-
-                        if(this->timeDelayHelper->isTime(GameTickTimeDelayHelperFactory::getInstance()->startTime))
-                        
-                                    {
-                                    this->movieIndexedAnimationInterface->nextFrame();
-    
-
-                                    }
-                                
-
-                        if(this->isLastFrame())
-                        
-                                    {
-                                    AnimationEventHandler::getInstance()->fireEvent(this->END_EVENT);
-    
-
-                                    }
-                                
+- (instancetype) init:(Animation*)animationInterface :(IndexedAnimation*)movieIndexedAnimationInterface :(Player*)player :(int32_t)captionDx :(int32_t)captionDy :(int32_t)dx :(int32_t)dy :(int32_t)time :(AnimationBehavior*)animationBehavior {
+        self = [super init:animationBehavior];
+        [self initFields];
+        self->animationInterface = animationInterface;
+        self->movieIndexedAnimationInterface = movieIndexedAnimationInterface;
+        self->captionDx = captionDx;
+        self->captionDy = captionDy;
+        self->dx = dx;
+        self->dy = dy;
+        self->time = time;
+        self->END_EVENT = [((AllBinaryEventObject*) [AllBinaryEventObject alloc]) init:self];
+        int32_t timePerFrame = self->time / [self getSize];
+        self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:timePerFrame];
+        self->player = player;
+        [self->player start];
+    return self;
 }
 
 
-    auto CaptionIndexedAnimation::isLastFrame() -> bool{
-
-                        if(this->movieIndexedAnimationInterface->getFrame() == this->getSize() -1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+// throws Exception
+- (void) nextFrame {
+        if ([self->timeDelayHelper isTime:[GameTickTimeDelayHelperFactory getInstance]->startTime]) {
+            [self->movieIndexedAnimationInterface nextFrame];
+        }
+        if ([self isLastFrame]) {
+            [[AnimationEventHandler getInstance] fireEvent:self->END_EVENT];
+        }
 }
 
 
-    auto CaptionIndexedAnimation::previousFrame() -> void{
-this->movieIndexedAnimationInterface->previousFrame();
-    
+- (bool) isLastFrame {
+        if ([self->movieIndexedAnimationInterface getFrame] == [self getSize] - 1) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 
-    auto CaptionIndexedAnimation::setFrame(int32_t index) -> void{
-this->movieIndexedAnimationInterface->setFrame(index);
-    
+- (void) previousFrame {
+        [self->movieIndexedAnimationInterface previousFrame];
 }
 
 
-    auto CaptionIndexedAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->movieIndexedAnimationInterface->getFrame();;
-    
+- (void) setFrame:(int32_t)index {
+        [self->movieIndexedAnimationInterface setFrame:index];
 }
 
 
-    auto CaptionIndexedAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->movieIndexedAnimationInterface->getSize();;
-    
+- (int32_t) getFrame {
+        return [self->movieIndexedAnimationInterface getFrame];
 }
 
 
-    auto CaptionIndexedAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+- (int32_t) getSize {
+        return [self->movieIndexedAnimationInterface getSize];
 }
 
 
-    auto CaptionIndexedAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
-    auto CaptionIndexedAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-this->animationInterface->paintXY(graphics, x +this->captionDx, y +this->captionDy);
-    
-this->movieIndexedAnimationInterface->paintXY(graphics, x +this->captionDx +this->dx, y +this->captionDy +this->dy);
-    
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
 }
 
 
-    auto CaptionIndexedAnimation::paintThreedXYZ(Graphics* graphics, int32_t x, int32_t y, int32_t z) -> void{
-this->animationInterface->paintThreedXYZ(graphics, x +this->captionDx, y +this->captionDy, z);
-    
-this->movieIndexedAnimationInterface->paintThreedXYZ(graphics, x +this->captionDx +this->dx, y +this->captionDy +this->dy, z);
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [self->animationInterface paintXY:graphics :x + self->captionDx :y + self->captionDy];
+        [self->movieIndexedAnimationInterface paintXY:graphics :x + self->captionDx + self->dx :y + self->captionDy + self->dy];
 }
 
 
+- (void) paintThreedXYZ:(Graphics*)graphics :(int32_t)x :(int32_t)y :(int32_t)z {
+        [self->animationInterface paintThreedXYZ:graphics :x + self->captionDx :y + self->captionDy :z];
+        [self->movieIndexedAnimationInterface paintThreedXYZ:graphics :x + self->captionDx + self->dx :y + self->captionDy + self->dy :z];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_CAPTION_CAPTIONINDEXEDANIMATION_CPP

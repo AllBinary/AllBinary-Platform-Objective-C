@@ -1,80 +1,57 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
+#include "org/allbinary/graphics/opengles/OpenGLFeature.h"
 
 
+static OpenGLFeatureFactory* OpenGLFeatureFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLFEATUREFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLFEATUREFACTORY_CPP
+void OpenGLFeatureFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    OpenGLFeatureFactory_instance = [((OpenGLFeatureFactory*) [OpenGLFeatureFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
-        
+@implementation OpenGLFeatureFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/opengles/OpenGLFeature.h"
-
-auto OpenGLFeatureFactory::instance_owner() -> OpenGLFeatureFactory* { static std::unique_ptr<OpenGLFeatureFactory> value(new OpenGLFeatureFactory()); return value.get(); }
-OpenGLFeatureFactory* OpenGLFeatureFactory::instance = OpenGLFeatureFactory::instance_owner();
-
-    auto OpenGLFeatureFactory::getInstance() -> OpenGLFeatureFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return OpenGLFeatureFactory::instance;
-    
+- (void) initFields {
+    self->OPENGL_OPTIONS = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"OpenGL Options"];
+    self->OPENGL = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"OpenGL"];
+    self->OPENGL_SURFACE_VIEW = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"GLSurfaceView"];
+    self->OPENGL_2D = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"OpenGL 2D"];
+    self->OPENGL_3D = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"OpenGL 3D"];
+    self->OPENGL_2D_AND_3D = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"OpenGL 2D/3D"];
+    self->OPENGL_AUTO_SELECT = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"Auto Select"];
+    self->OPENGL_MINIMUM = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"Minimum"];
+    self->OPENGL_AS_GAME_THREAD = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"As game thread"];
+    self->OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"As different threads"];
+    self->IMAGE_COLOR_DEPTH_4444 = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"4444"];
+    self->IMAGE_COLOR_DEPTH_8888 = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"8888"];
+    self->IMAGE_COLOR_DEPTH_565 = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"565"];
+    self->OPENGL_COLOR_DEPTH_4444 = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"4444"];
+    self->OPENGL_COLOR_DEPTH_8888 = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"8888"];
+    self->OPENGL_COLOR_DEPTH_565 = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"565"];
+    self->OPENGL_DRAW_TEXTURE = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"GL_OES_draw_texture"];
+    self->OPENGL_VERTEX_BUFFER_OBJECT = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"vertex_buffer_object"];
+    self->OPENGL_SIMPLE_OBJECT3D_PROCESSOR = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"Simple Object3d Processor"];
+    self->OPENGL_COMPLEX_OBJECT3D_PROCESSOR = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"Complex Object3d Processor"];
+    self->OPENGL_SIMPLE_TEXTURE_PROCESSOR = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"Simple Texture Processor"];
+    self->OPENGL_COMPLEX_TEXTURE_PROCESSOR = [((OpenGLFeature*) [OpenGLFeature alloc]) init:"Complex Texture Processor"];
 }
 
 
-OpenGLFeatureFactory::OpenGLFeatureFactory() : OPENGL_OPTIONS(new OpenGLFeature("OpenGL Options")), OPENGL(new OpenGLFeature("OpenGL")), OPENGL_SURFACE_VIEW(new OpenGLFeature("GLSurfaceView")), OPENGL_2D(new OpenGLFeature("OpenGL 2D")), OPENGL_3D(new OpenGLFeature("OpenGL 3D")), OPENGL_2D_AND_3D(new OpenGLFeature("OpenGL 2D/3D")), OPENGL_AUTO_SELECT(new OpenGLFeature("Auto Select")), OPENGL_MINIMUM(new OpenGLFeature("Minimum")), OPENGL_AS_GAME_THREAD(new OpenGLFeature("As game thread")), OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS(new OpenGLFeature("As different threads")), IMAGE_COLOR_DEPTH_4444(new OpenGLFeature("4444")), IMAGE_COLOR_DEPTH_8888(new OpenGLFeature("8888")), IMAGE_COLOR_DEPTH_565(new OpenGLFeature("565")), OPENGL_COLOR_DEPTH_4444(new OpenGLFeature("4444")), OPENGL_COLOR_DEPTH_8888(new OpenGLFeature("8888")), OPENGL_COLOR_DEPTH_565(new OpenGLFeature("565")), OPENGL_DRAW_TEXTURE(new OpenGLFeature("GL_OES_draw_texture")), OPENGL_VERTEX_BUFFER_OBJECT(new OpenGLFeature("vertex_buffer_object")), OPENGL_SIMPLE_OBJECT3D_PROCESSOR(new OpenGLFeature("Simple Object3d Processor")), OPENGL_COMPLEX_OBJECT3D_PROCESSOR(new OpenGLFeature("Complex Object3d Processor")), OPENGL_SIMPLE_TEXTURE_PROCESSOR(new OpenGLFeature("Simple Texture Processor")), OPENGL_COMPLEX_TEXTURE_PROCESSOR(new OpenGLFeature("Complex Texture Processor")){
++ (OpenGLFeatureFactory*) getInstance {
+        return (OpenGLFeatureFactory_staticInit(), OpenGLFeatureFactory_instance);
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLFEATUREFACTORY_CPP

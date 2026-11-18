@@ -1,140 +1,71 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/HighScoresCanvasInputProcessor.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/game/input/event/GameKeyEvent.h"
+#include "org/allbinary/game/score/displayable/HighScoresCanvas.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORESCANVASINPUTPROCESSOR_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORESCANVASINPUTPROCESSOR_CPP
+void HighScoresCanvasInputProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/HighScoresCanvasInputProcessor.h"
-        
+@implementation HighScoresCanvasInputProcessor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/game/input/PlayerGameInput.h>
-
-      
-#include <org/allbinary/game/input/event/GameKeyEvent.h>
-
-      
-#include <org/allbinary/game/score/displayable/HighScoresCanvas.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-HighScoresCanvasInputProcessor::HighScoresCanvasInputProcessor(HighScoresCanvas* highScoresCanvas) : PlayerGameInput(new BasicArrayListD(), new BasicArrayListD(),  -1){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->highScoresCanvas= highScoresCanvas;
+- (void) initFields {
     
 }
 
 
-    auto HighScoresCanvasInputProcessor::open() -> void{
+- (instancetype) init:(HighScoresCanvas*)highScoresCanvas {
+        self = [super init:[((BasicArrayListD*) [BasicArrayListD alloc]) init] :[((BasicArrayListD*) [BasicArrayListD alloc]) init] :-1];
+        [self initFields];
+        self->highScoresCanvas = highScoresCanvas;
+    return self;
 }
 
 
-    auto HighScoresCanvasInputProcessor::close() -> void{
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto HighScoresCanvasInputProcessor::onPressGameKeyEvent(GameKeyEvent* gameKeyEvent) -> void{
-PlayerGameInput::onPressGameKeyEvent(gameKeyEvent);
-    
-this->update();
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto HighScoresCanvasInputProcessor::onDownGameKeyEvent(GameKeyEvent* gameKeyEvent) -> void{
-PlayerGameInput::onDownGameKeyEvent(gameKeyEvent);
-    
-this->update();
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto HighScoresCanvasInputProcessor::onUpGameKeyEvent(GameKeyEvent* gameKeyEvent) -> void{
-PlayerGameInput::onUpGameKeyEvent(gameKeyEvent);
-    
-this->update();
-    
+- (void) open {
 }
 
 
-    auto HighScoresCanvasInputProcessor::paint(Graphics* graphics) -> void{
+- (void) close {
 }
 
 
-    auto HighScoresCanvasInputProcessor::getHighScoresCanvas() -> HighScoresCanvas*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->highScoresCanvas;
-    
+// synchronized
+- (void) onPressGameKeyEvent:(GameKeyEvent*)gameKeyEvent {
+        [super onPressGameKeyEvent:gameKeyEvent];
+        [self update];
 }
 
 
+// synchronized
+- (void) onDownGameKeyEvent:(GameKeyEvent*)gameKeyEvent {
+        [super onDownGameKeyEvent:gameKeyEvent];
+        [self update];
+}
 
 
-        #endif //ORG_ALLBINARY_GAME_SCORE_HIGHSCORESCANVASINPUTPROCESSOR_CPP
+// synchronized
+- (void) onUpGameKeyEvent:(GameKeyEvent*)gameKeyEvent {
+        [super onUpGameKeyEvent:gameKeyEvent];
+        [self update];
+}
+
+
+- (void) paint:(Graphics*)graphics {
+}
+
+
+- (HighScoresCanvas*) getHighScoresCanvas {
+        return self->highScoresCanvas;
+}
+
+@end
+

@@ -1,364 +1,162 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/compound/SimultaneousCompoundRotationAnimation.h"
+#include "javax/microedition/khronos/opengles/GL.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/direction/Direction.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/math/Angle.h"
+#include "org/allbinary/math/AngleFactory.h"
+#include "org/allbinary/math/AngleInfo.h"
+#include "org/allbinary/util/CircularIndexUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDROTATIONANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDROTATIONANIMATION_CPP
+void SimultaneousCompoundRotationAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/compound/SimultaneousCompoundRotationAnimation.h"
-        
+@implementation SimultaneousCompoundRotationAnimation
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/khronos/opengles/GL.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/animation/RotationAnimation.h>
-
-      
-#include <org/allbinary/direction/Direction.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-#include <org/allbinary/math/Angle.h>
-
-      
-#include <org/allbinary/math/AngleFactory.h>
-
-      
-#include <org/allbinary/math/AngleInfo.h>
-
-      
-#include <org/allbinary/util/CircularIndexUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-SimultaneousCompoundRotationAnimation::SimultaneousCompoundRotationAnimation(std::vector<RotationAnimation*> animationInterfaceArray, AnimationBehavior* animationBehavior) : RotationAnimation(AngleInfo::getInstance(AngleFactory::getInstance()->QUARTER_TOTAL_ANGLE), CircularIndexUtil::createInstance(4), animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->animationInterfaceArray= animationInterfaceArray;
+- (void) initFields {
     
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::setFrame(int32_t frameIndex) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->setFrame(frameIndex);
-    
-}
-
+- (instancetype) init:(RotationAnimation**)animationInterfaceArray :(AnimationBehavior*)animationBehavior {
+        self = [super init:[AngleInfo getInstance:[AngleFactory getInstance]->QUARTER_TOTAL_ANGLE] :[CircularIndexUtil createInstance:4] :animationBehavior];
+        [self initFields];
+        self->animationInterfaceArray = animationInterfaceArray;
+    return self;
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[0]->getFrame();;
-    
+- (void) setFrame:(int32_t)frameIndex {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] setFrame:frameIndex];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto SimultaneousCompoundRotationAnimation::getAnimationSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[0]->getAnimationSize();;
-    
+- (int32_t) getFrame {
+        return [self->animationInterfaceArray[0] getFrame];
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[0]->getSize();;
-    
+// throws Exception
+- (int32_t) getAnimationSize {
+        return [self->animationInterfaceArray[0] getAnimationSize];
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::previousFrame() -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->previousFrame();
-    
-}
-
+- (int32_t) getSize {
+        return [self->animationInterfaceArray[0] getSize];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto SimultaneousCompoundRotationAnimation::nextFrame() -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->nextFrame();
-    
-}
-
+- (void) previousFrame {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] previousFrame];
+        }
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::previousRotation() -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->previousRotation();
-    
-}
-
+// throws Exception
+- (void) nextFrame {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] nextFrame];
+        }
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::nextRotation() -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->nextRotation();
-    
-}
-
+- (void) previousRotation {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] previousRotation];
+        }
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+- (void) nextRotation {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] nextRotation];
+        }
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->paintXY(graphics, x, y);
-    
-}
-
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::paintThreedXYZ(Graphics* graphics, int32_t x, int32_t y, int32_t z) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->paintThreedXYZ(graphics, x, y, z);
-    
-}
-
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] paintXY:graphics :x :y];
+        }
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::setFrameByDirection(Direction* direction) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->setFrameByDirection(direction);
-    
-}
-
+- (void) paintThreedXYZ:(Graphics*)graphics :(int32_t)x :(int32_t)y :(int32_t)z {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] paintThreedXYZ:graphics :x :y :z];
+        }
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::setFrameToAngle(Angle* angle) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->setFrameToAngle(angle);
-    
-}
-
+- (void) setFrameByDirection:(Direction*)direction {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] setFrameByDirection:direction];
+        }
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::adjustFrameToAngle(Angle* newAngle) -> void{
-this->adjustFrame(newAngle->getValue());
-    
+- (void) setFrameToAngle:(Angle*)angle {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] setFrameToAngle:angle];
+        }
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::adjustFrame(int16_t angle) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->adjustFrame(angle);
-    
-}
-
+- (void) adjustFrameToAngle:(Angle*)newAngle {
+        [self adjustFrame:[newAngle getValue]];
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::getAngleInfoP() -> AngleInfo*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[0]->getAngleInfoP();;
-    
+- (void) adjustFrame:(int16_t)angle {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] adjustFrame:angle];
+        }
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::getAnimationInterfaceArray() -> std::vector<RotationAnimation*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray;
-    
+- (AngleInfo*) getAngleInfoP {
+        return [self->animationInterfaceArray[0] getAngleInfoP];
 }
 
 
-    auto SimultaneousCompoundRotationAnimation::setAnimationInterfaceArray(std::vector<RotationAnimation*> animationInterfaceArray) -> void{
-this->animationInterfaceArray= animationInterfaceArray;
-    
+- (RotationAnimation**) getAnimationInterfaceArray {
+        return self->animationInterfaceArray;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto SimultaneousCompoundRotationAnimation::set(GL* gl) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->set(gl);
-    
-}
-
+- (void) setAnimationInterfaceArray:(RotationAnimation**)animationInterfaceArray {
+        self->animationInterfaceArray = animationInterfaceArray;
 }
 
 
+// throws Exception
+- (void) set:(GL*)gl {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] set:gl];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDROTATIONANIMATION_CPP

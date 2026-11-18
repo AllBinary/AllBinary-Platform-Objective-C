@@ -1,113 +1,60 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_LAYER_DROP_PLACEDLAYERFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_DROP_PLACEDLAYERFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/drop/PlacedLayerFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/layer/AllBinaryLayerFactoryInterface.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-#include <org/allbinary/util/BasicArrayListUtil.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/drop/PlacedLayerFactory.h"
+#include "org/allbinary/layer/AllBinaryLayerFactoryInterface.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/util/BasicArrayListUtil.h"
 
 
+static PlacedLayerFactory* PlacedLayerFactory_instance;
 
+void PlacedLayerFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PlacedLayerFactory_instance = [((PlacedLayerFactory*) [PlacedLayerFactory alloc]) init];
+}
 
+@implementation PlacedLayerFactory
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto PlacedLayerFactory::instance_owner() -> PlacedLayerFactory* { static std::unique_ptr<PlacedLayerFactory> value(new PlacedLayerFactory()); return value.get(); }
-PlacedLayerFactory* PlacedLayerFactory::instance = PlacedLayerFactory::instance_owner();
-
-PlacedLayerFactory::PlacedLayerFactory() : list(new BasicArrayListD()), basicArrayListUtil(BasicArrayListUtil::getInstance()){
+- (void) initFields {
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->basicArrayListUtil = [BasicArrayListUtil getInstance];
 }
 
 
-    auto PlacedLayerFactory::clear() -> void{
-this->list->clear();
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto PlacedLayerFactory::getInstance() -> PlacedLayerFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PlacedLayerFactory::instance;
-    
+- (void) clear {
+        [self->list clear];
 }
 
 
-    auto PlacedLayerFactory::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list->size();;
-    
++ (PlacedLayerFactory*) getInstance {
+        return (PlacedLayerFactory_staticInit(), PlacedLayerFactory_instance);
 }
 
 
-    auto PlacedLayerFactory::getRandomInstance() -> AllBinaryLayerFactoryInterface*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<AllBinaryLayerFactoryInterface*>(this->basicArrayListUtil->getRandom(this->list));
-    
+- (int32_t) getSize {
+        return [self->list size];
 }
 
 
-    auto PlacedLayerFactory::add(AllBinaryLayerFactoryInterface* layerInterfaceFactoryInterface) -> void{
-this->list->add(layerInterfaceFactoryInterface);
-    
+- (AllBinaryLayerFactoryInterface*) getRandomInstance {
+        return ((AllBinaryLayerFactoryInterface*) [self->basicArrayListUtil getRandom:self->list]);
 }
 
 
+- (void) add:(AllBinaryLayerFactoryInterface*)layerInterfaceFactoryInterface {
+        [self->list add:layerInterfaceFactoryInterface];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_DROP_PLACEDLAYERFACTORY_CPP

@@ -1,76 +1,34 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/init/Init.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/init/InitInterface.h"
 
 
 
-        #ifndef ORG_ALLBINARY_INIT_INIT_CPP
-        #define ORG_ALLBINARY_INIT_INIT_CPP
+void Init_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/init/Init.h"
-        
+@implementation Init
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->commonStrings = [CommonStrings getInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/init/InitInterface.h"
-
-
-Init::Init() : commonStrings(CommonStrings::getInstance()) {
-        }
-        
-                //@Throws(Exception.constructor)
-            
-    auto Init::init() -> void{
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
+// throws Exception
+- (void) init_ {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INIT_INIT_CPP

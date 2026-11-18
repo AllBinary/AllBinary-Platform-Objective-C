@@ -1,110 +1,69 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_DEMOGAMERUNNABLE_CPP
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_DEMOGAMERUNNABLE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/displayable/canvas/DemoGameRunnable.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/time/GameTickTimeDelayHelper.h>
-
-      
-#include <org/allbinary/time/GameTickTimeDelayHelperFactory.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/displayable/canvas/GameRunnable.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/displayable/canvas/DemoGameRunnable.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/time/GameTickTimeDelayHelper.h"
+#include "org/allbinary/time/GameTickTimeDelayHelperFactory.h"
+#include "org/allbinary/game/displayable/canvas/GameRunnable.h"
 #include "org/allbinary/game/displayable/canvas/DemoCanvas.h"
+#if __has_include("org/allbinary/game/displayable/canvas/TimeDelayHelper.h")
+#include "org/allbinary/game/displayable/canvas/TimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/TimeDelayHelper.h")
+#include "org/allbinary/logic/communication/log/TimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/string/TimeDelayHelper.h")
+#include "org/allbinary/string/TimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/time/TimeDelayHelper.h")
+#include "org/allbinary/time/TimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/time/TimeDelayHelper.h")
+#include "org/allbinary/time/TimeDelayHelper.h"
+#endif
 
 
-DemoGameRunnable::DemoGameRunnable(DemoCanvas* demoCanvas) : logUtil(LogUtil::getInstance()), gameTickTimeDelayHelper(GameTickTimeDelayHelperFactory::getInstance()){
-this->demoCanvas= demoCanvas;
+
+void DemoGameRunnable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation DemoGameRunnable
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
     
+    self->gameTickTimeDelayHelper = [GameTickTimeDelayHelperFactory getInstance];
 }
 
 
-    auto DemoGameRunnable::run() -> void{
-
-        try {
-            this->demoCanvas->getLoopTimeHelperP()->setStartTime(this->gameTickTimeDelayHelper->setStartTime());
-    
-this->demoCanvas->processGame();
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, commonStrings->RUN, &e);
-    
-}
-
+- (instancetype) init:(DemoCanvas*)demoCanvas {
+    self = [super init];
+    [self initFields];
+        self->demoCanvas = demoCanvas;
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto DemoGameRunnable::processLoopSleep() -> void{
-this->demoCanvas->processLoopSleep();
-    
+- (void) run {
+        JAVA_TRY {
+            [[self->demoCanvas getLoopTimeHelperP] setStartTime:[self->gameTickTimeDelayHelper setStartTime]];
+            [self->demoCanvas processGame];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->RUN :e];
+        } JAVA_END_TRY;
 }
 
 
+// throws Exception
+- (void) processLoopSleep {
+        [self->demoCanvas processLoopSleep];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_DEMOGAMERUNNABLE_CPP

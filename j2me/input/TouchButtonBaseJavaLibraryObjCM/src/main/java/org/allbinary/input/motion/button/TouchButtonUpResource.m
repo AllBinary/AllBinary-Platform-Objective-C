@@ -1,83 +1,31 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/TouchButtonUpResource.h"
+#include "org/allbinary/input/motion/button/TouchButtonResource.h"
 
 
+static TouchButtonResource* TouchButtonUpResource_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONUPRESOURCE_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONUPRESOURCE_CPP
+void TouchButtonUpResource_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TouchButtonUpResource_instance = [((TouchButtonUpResource*) [TouchButtonUpResource alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/TouchButtonUpResource.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
+@implementation TouchButtonUpResource
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/button/TouchButtonResource.h"
-
-TouchButtonResource* TouchButtonUpResource::instance = new TouchButtonUpResource();
-
-    auto TouchButtonUpResource::getInstance() -> TouchButtonResource*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TouchButtonUpResource::instance;
-    
++ (TouchButtonResource*) getInstance {
+        return (TouchButtonUpResource_staticInit(), TouchButtonUpResource_instance);
 }
 
 
-TouchButtonUpResource::TouchButtonUpResource() : TouchButtonResource("/touch_button_up_arrow_64_by_64.png", "/touch_button_up_arrow_hint_64_by_64.png"){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init {
+        self = [super init:"/touch_button_up_arrow_64_by_64.png" :"/touch_button_up_arrow_hint_64_by_64.png"];
+    return self;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONUPRESOURCE_CPP

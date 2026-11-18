@@ -1,107 +1,45 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/image/PreResourceImageUtil.h"
+#include "javax/microedition/khronos/opengles/GL.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
 
 
+static PreResourceImageUtil* PreResourceImageUtil_instance;
 
-        #ifndef ORG_ALLBINARY_IMAGE_PRERESOURCEIMAGEUTIL_CPP
-        #define ORG_ALLBINARY_IMAGE_PRERESOURCEIMAGEUTIL_CPP
+void PreResourceImageUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PreResourceImageUtil_instance = [((PreResourceImageUtil*) [PreResourceImageUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/image/PreResourceImageUtil.h"
-        
+@implementation PreResourceImageUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/khronos/opengles/GL.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-PreResourceImageUtil::PreResourceImageUtil() {
-        }
-        auto PreResourceImageUtil::instance_owner() -> PreResourceImageUtil* { static std::unique_ptr<PreResourceImageUtil> value(new PreResourceImageUtil()); return value.get(); }
-PreResourceImageUtil* PreResourceImageUtil::instance = PreResourceImageUtil::instance_owner();
-
-    auto PreResourceImageUtil::getInstance() -> PreResourceImageUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PreResourceImageUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto PreResourceImageUtil::encapsulate(Image* image) -> Image*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return image;
-    
++ (PreResourceImageUtil*) getInstance {
+        return (PreResourceImageUtil_staticInit(), PreResourceImageUtil_instance);
 }
 
 
-    auto PreResourceImageUtil::updateGL(GL* gl, Image* image) -> void{
+- (Image*) encapsulate:(Image*)image {
+        return image;
 }
 
 
-    auto PreResourceImageUtil::update(Graphics* graphics, Image* image) -> void{
+- (void) updateGL:(GL*)gl :(Image*)image {
 }
 
 
+- (void) update:(Graphics*)graphics :(Image*)image {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_IMAGE_PRERESOURCEIMAGEUTIL_CPP

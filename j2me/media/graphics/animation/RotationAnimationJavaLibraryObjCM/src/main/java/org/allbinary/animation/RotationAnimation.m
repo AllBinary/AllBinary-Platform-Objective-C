@@ -1,211 +1,141 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_ROTATIONANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_ROTATIONANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/RotationAnimation.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/direction/Direction.h>
-
-      
-#include <org/allbinary/direction/DirectionUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/math/Angle.h>
-
-      
-#include <org/allbinary/math/AngleInfo.h>
-
-      
-#include <org/allbinary/math/FrameUtil.h>
-
-      
-#include <org/allbinary/util/CircularIndexUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/IndexedAnimation.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/RotationAnimation.h"
+#include "org/allbinary/direction/Direction.h"
+#include "org/allbinary/direction/DirectionUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/math/Angle.h"
+#include "org/allbinary/math/AngleInfo.h"
+#include "org/allbinary/math/FrameUtil.h"
+#include "org/allbinary/util/CircularIndexUtil.h"
+#include "org/allbinary/animation/IndexedAnimation.h"
 #include "org/allbinary/animation/RotationAnimationInterface.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
+#if __has_include("org/allbinary/animation/AngleIncrementInfo.h")
+#include "org/allbinary/animation/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/direction/AngleIncrementInfo.h")
+#include "org/allbinary/direction/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/direction/AngleIncrementInfo.h")
+#include "org/allbinary/direction/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/logic/string/AngleIncrementInfo.h")
+#include "org/allbinary/logic/string/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/util/AngleIncrementInfo.h")
+#include "org/allbinary/util/AngleIncrementInfo.h"
+#endif
 
 
-RotationAnimation::RotationAnimation(AngleInfo* angleInfo, CircularIndexUtil* circularIndexUtil, AnimationBehavior* animationBehavior) : IndexedAnimation(animationBehavior), frameUtil(FrameUtil::getInstance()), directionUtil(DirectionUtil::getInstance()){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void RotationAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
-this->angleInfo= angleInfo;
+@implementation RotationAnimation
+
+- (void) initFields {
+    self->frameUtil = [FrameUtil getInstance];
+    self->directionUtil = [DirectionUtil getInstance];
     
-this->circularIndexUtil= circularIndexUtil;
-    
-}
-
-
-    auto RotationAnimation::nextRotationX() -> void{
-}
-
-
-    auto RotationAnimation::previousRotationX() -> void{
-}
-
-
-    auto RotationAnimation::nextRotation() -> void{
-this->angleInfo->adjustAngle(this->circularIndexUtil->next());
-    
-}
-
-
-    auto RotationAnimation::previousRotation() -> void{
-this->angleInfo->adjustAngle(this->circularIndexUtil->previous());
-    
-}
-
-
-    auto RotationAnimation::nextRotationZ() -> void{
-}
-
-
-    auto RotationAnimation::previousRotationZ() -> void{
-}
-
-
-    auto RotationAnimation::setFrame(int32_t index) -> void{
-this->circularIndexUtil->setIndex(index);
-    
-
-    int32_t newFrame = this->circularIndexUtil->getIndex();;
-    
-this->angleInfo->adjustAngle(newFrame);
     
 }
 
 
-    auto RotationAnimation::setFrameByDirection(Direction* direction) -> void{
-
-    Angle* angle = this->directionUtil->getFrameAngle(direction);;
-    
-this->adjustFrameToAngle(angle);
-    
+- (instancetype) init:(AngleInfo*)angleInfo :(CircularIndexUtil*)circularIndexUtil :(AnimationBehavior*)animationBehavior {
+        self = [super init:animationBehavior];
+        [self initFields];
+        self->angleInfo = angleInfo;
+        self->circularIndexUtil = circularIndexUtil;
+    return self;
 }
 
 
-    auto RotationAnimation::setFrameToAngle(Angle* angle) -> void{
-this->adjustFrameToAngle(angle);
-    
+- (void) nextRotationX {
 }
 
 
-    auto RotationAnimation::adjustFrameToAngle(Angle* angle) -> void{
-this->adjustFrame(angle->getValue());
-    
+- (void) previousRotationX {
 }
 
 
-    auto RotationAnimation::adjustFrame(int16_t angle) -> void{
-this->setFrame(this->frameUtil->getFrameForAngle(angle, static_cast<int32_t>(this->angleInfo->getAngleIncrementInfo()->getAngleIncrement())));
-    
+- (void) nextRotation {
+        [self->angleInfo adjustAngle:[self->circularIndexUtil next]];
 }
 
 
-    auto RotationAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->circularIndexUtil->getIndex();;
-    
+- (void) previousRotation {
+        [self->angleInfo adjustAngle:[self->circularIndexUtil previous]];
 }
 
 
-    auto RotationAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->circularIndexUtil->getSize();;
-    
+- (void) nextRotationZ {
 }
 
 
-    auto RotationAnimation::getAngleInfoP() -> AngleInfo*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->angleInfo;
-    
+- (void) previousRotationZ {
 }
 
 
-    auto RotationAnimation::toString() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf((new StringMaker())->append(IndexedAnimation::toString())->append("circularIndexUtil: ")->append(JavaString::valueOf(this->circularIndexUtil))->append("angleInfo: ")->append(JavaString::valueOf(this->angleInfo)));;
-    
+- (void) setFrame:(int32_t)index {
+        [self->circularIndexUtil setIndex:index];
+        int32_t newFrame = [self->circularIndexUtil getIndex];
+        [self->angleInfo adjustAngle:newFrame];
 }
 
 
+- (void) setFrameByDirection:(Direction*)direction {
+        Angle* angle = [self->directionUtil getFrameAngle:direction];
+        [self adjustFrameToAngle:angle];
+}
 
 
-        #endif //ORG_ALLBINARY_ANIMATION_ROTATIONANIMATION_CPP
+- (void) setFrameToAngle:(Angle*)angle {
+        [self adjustFrameToAngle:angle];
+}
+
+
+- (void) adjustFrameToAngle:(Angle*)angle {
+        [self adjustFrame:[angle getValue]];
+}
+
+
+- (void) adjustFrame:(int16_t)angle {
+        [self setFrame:[self->frameUtil getFrameForAngle:angle :((int32_t) [[self->angleInfo getAngleIncrementInfo] getAngleIncrement])]];
+}
+
+
+- (int32_t) getFrame {
+        return [self->circularIndexUtil getIndex];
+}
+
+
+- (int32_t) getSize {
+        return [self->circularIndexUtil getSize];
+}
+
+
+- (AngleInfo*) getAngleInfoP {
+        return self->angleInfo;
+}
+
+
+- (const char*) toString {
+        return [[[[[[[((StringMaker*) [StringMaker alloc]) init] append:[super toString]] append:"circularIndexUtil: "] append:[self->circularIndexUtil toString]] append:"angleInfo: "] append:[self->angleInfo toString]] toString];
+}
+
+@end
+

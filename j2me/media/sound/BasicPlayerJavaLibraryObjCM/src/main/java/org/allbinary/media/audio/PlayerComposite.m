@@ -1,325 +1,157 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/PlayerComposite.h"
+#include "javax/microedition/media/Control.h"
+#include "javax/microedition/media/PlayerListener.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/time/GameTickTimeDelayHelper.h"
+#include "org/allbinary/time/GameTickTimeDelayHelperFactory.h"
+#include "org/allbinary/time/TimeDelayHelper.h"
+#include "org/allbinary/media/audio/Controllable2.h"
 
 
 
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_PLAYERCOMPOSITE_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_PLAYERCOMPOSITE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/PlayerComposite.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-#include <javax/microedition/media/Control.h>
-
-      
-#include <javax/microedition/media/Controllable.h>
-
-      
-#include <javax/microedition/media/Player.h>
-
-      
-#include <javax/microedition/media/PlayerListener.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/time/GameTickTimeDelayHelper.h>
-
-      
-#include <org/allbinary/time/GameTickTimeDelayHelperFactory.h>
-
-      
-#include <org/allbinary/time/TimeDelayHelper.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/Controllable2.h"
-//BasicPlayer
-
-PlayerComposite::PlayerComposite(Player* player, int32_t repeatTime) : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), timeElapsedHelper(new TimeDelayHelper(0)), gameTickTimeDelayHelper(GameTickTimeDelayHelperFactory::getInstance()){
-this->player= player;
-    
-this->timeElapsedHelper->delay= repeatTime;
-    
+void PlayerComposite_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
 }
 
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
+@implementation PlayerComposite
 
-    auto PlayerComposite::addPlayerListener(PlayerListener* playerListener) -> void{
-this->player->addPlayerListener(playerListener);
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
     
+    self->timeElapsedHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
+    self->gameTickTimeDelayHelper = [GameTickTimeDelayHelperFactory getInstance];
 }
 
 
-    auto PlayerComposite::removePlayerListener(PlayerListener* playerListener) -> void{
-this->player->removePlayerListener(playerListener);
-    
+- (instancetype) init:(Player*)player :(int32_t)repeatTime {
+    self = [super init];
+    [self initFields];
+        self->player = player;
+        self->timeElapsedHelper->delay = repeatTime;
+    return self;
 }
 
 
-    auto PlayerComposite::close() -> void{
-this->player->close();
-    
+// synchronized
+- (void) addPlayerListener:(PlayerListener*)playerListener {
+        [self->player addPlayerListener:playerListener];
 }
 
 
-    auto PlayerComposite::deallocate() -> void{
-this->player->deallocate();
-    
+- (void) removePlayerListener:(PlayerListener*)playerListener {
+        [self->player removePlayerListener:playerListener];
 }
 
 
-    auto PlayerComposite::getContentType() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->player->getContentType();;
-    
+- (void) close {
+        [self->player close];
 }
 
 
-    auto PlayerComposite::getDuration() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->player->getDuration();;
-    
+- (void) deallocate {
+        [self->player deallocate];
 }
 
 
-    auto PlayerComposite::getMediaTime() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->player->getMediaTime();;
-    
+- (const char*) getContentType {
+        return [self->player getContentType];
 }
 
 
-    auto PlayerComposite::prefetch() -> void{
-
-        try {
-            this->player->prefetch();
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, "prefetch", &e);
-    
-}
-
+- (int64_t) getDuration {
+        return [self->player getDuration];
 }
 
 
-    auto PlayerComposite::realize() -> void{
-
-        try {
-            this->player->realize();
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, "realize", &e);
-    
-}
-
+- (int64_t) getMediaTime {
+        return [self->player getMediaTime];
 }
 
 
-    auto PlayerComposite::getState() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->player->getState();;
-    
+- (void) prefetch {
+        JAVA_TRY {
+            [self->player prefetch];
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :"prefetch" :e];
+        } JAVA_END_TRY;
 }
 
 
-    auto PlayerComposite::setLoopCount(int32_t count) -> void{
-this->player->setLoopCount(count);
-    
+- (void) realize {
+        JAVA_TRY {
+            [self->player realize];
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :"realize" :e];
+        } JAVA_END_TRY;
 }
 
 
-    auto PlayerComposite::setMediaTime(int64_t now) -> int64_t{
-
-        try {
-            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->player->setMediaTime(now);;
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, "setMediaTime", &e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
-}
-
+- (int32_t) getState {
+        return [self->player getState];
 }
 
 
-    auto PlayerComposite::start() -> void{
-
-        try {
-            
-                        if(this->timeElapsedHelper->isTime(this->gameTickTimeDelayHelper->startTime))
-                        
-                                    {
-                                    this->player->start();
-    
-
-                                    }
-                                
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->START_METHOD_NAME, &e);
-    
-}
-
+- (void) setLoopCount:(int32_t)count {
+        [self->player setLoopCount:count];
 }
 
 
-    auto PlayerComposite::stop() -> void{
-
-        try {
-            this->player->stop();
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, "stop", &e);
-    
-}
-
+- (int64_t) setMediaTime:(int64_t)now {
+        JAVA_TRY {
+            return [self->player setMediaTime:now];
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :"setMediaTime" :e];
+            return ((int64_t) (-1));
+        } JAVA_END_TRY;
 }
 
 
-    auto PlayerComposite::getControl(std::string controlType) -> Control*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->player->getControl(controlType);;
-    
+- (void) start {
+        JAVA_TRY {
+            if ([self->timeElapsedHelper isTime:self->gameTickTimeDelayHelper->startTime]) {
+                [self->player start];
+            }
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->START_METHOD_NAME :e];
+        } JAVA_END_TRY;
 }
 
 
-    auto PlayerComposite::getControls() -> std::vector<Control*>{
-
-
-
-                            throw RuntimeException();
-                    
+- (void) stop {
+        JAVA_TRY {
+            [self->player stop];
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :"stop" :e];
+        } JAVA_END_TRY;
 }
 
 
-    auto PlayerComposite::setVolume(int32_t leftVolume, int32_t rightVolume) -> void{
-
-    Controllable2* controllable2 = (dynamic_cast<Controllable2*>(this->player));;
-    
-controllable2->setVolume(leftVolume, rightVolume);
-    
+- (Control*) getControl:(const char*)controlType {
+        return [self->player getControl:controlType];
 }
 
 
-    auto PlayerComposite::getPlayerP() -> Player*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->player;
-    
+- (Control**) getControls {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
+- (void) setVolume:(int32_t)leftVolume :(int32_t)rightVolume {
+        Controllable2* controllable2 = (((Controllable2*) self->player));
+        [controllable2 setVolume:leftVolume :rightVolume];
+}
 
 
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_PLAYERCOMPOSITE_CPP
+- (Player*) getPlayerP {
+        return self->player;
+}
+
+@end
+

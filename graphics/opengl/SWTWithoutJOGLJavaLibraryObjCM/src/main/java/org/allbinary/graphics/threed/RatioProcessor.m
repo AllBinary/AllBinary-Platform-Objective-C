@@ -1,68 +1,26 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/threed/RatioProcessor.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_THREED_RATIOPROCESSOR_CPP
-        #define ORG_ALLBINARY_GRAPHICS_THREED_RATIOPROCESSOR_CPP
+void RatioProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/threed/RatioProcessor.h"
-        
+@implementation RatioProcessor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-RatioProcessor::RatioProcessor() {
-        }
-        
-    auto RatioProcessor::setCustom(int32_t width, int32_t height, float ratio) -> void{
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+- (void) setCustom:(int32_t)width :(int32_t)height :(float)ratio {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_THREED_RATIOPROCESSOR_CPP

@@ -1,134 +1,63 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/Input.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_INPUT_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_INPUT_CPP
+void Input_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/Input.h"
-        
+@implementation Input
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-Input::Input(int32_t id, std::string name) : name(StringUtil::getInstance()->EMPTY_STRING){
-this->setId(id);
-    
-this->setName(name);
-    
+- (void) initFields {
+    self->id_ = 0;
+    self->name = [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-    auto Input::getId() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->id;
-    
+- (instancetype) init:(int32_t)id_ :(const char*)name {
+    self = [super init];
+    [self initFields];
+        [self setId:id_];
+        [self setName:name];
+    return self;
 }
 
 
-    auto Input::setId(int32_t key) -> void{
-this->id= key;
-    
+- (int32_t) getId {
+        return self->id_;
 }
 
 
-    auto Input::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->name;
-    
+- (void) setId:(int32_t)key {
+        self->id_ = key;
 }
 
 
-    auto Input::setName(std::string keyName) -> void{
-this->name= keyName;
-    
+- (const char*) getName {
+        return self->name;
 }
 
 
-    auto Input::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("Name: ");
-    
-stringBuffer->append(this->getName());
-    
-stringBuffer->append(" Id: ");
-    
-stringBuffer->appendint(this->getId());
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (void) setName:(const char*)keyName {
+        self->name = keyName;
 }
 
 
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:"Name: "];
+        [stringBuffer append:[self getName]];
+        [stringBuffer append:" Id: "];
+        [stringBuffer appendint:[self getId]];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_INPUT_CPP

@@ -1,101 +1,53 @@
+#ifndef ORG_ALLBINARY_GAME_CANVAS_ABTOGBUTIL_H
+#define ORG_ALLBINARY_GAME_CANVAS_ABTOGBUTIL_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.canvas
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_CANVAS_ABTOGBUTIL_H
-        #define ORG_ALLBINARY_GAME_CANVAS_ABTOGBUTIL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class Canvas;
-class NullCanvas;
-class AllBinaryGameLayerManager;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ABToGBUtil
-            : public virtual Object
-         {
-
-    private: static ABToGBUtil* instance_owner();
-    private: static ABToGBUtil* instance;
-
-    public: static ABToGBUtil* getInstance();
-
-
-            
-    public: ABToGBUtil();
-        
-    public: Canvas* abCanvas;
-
-    public: AllBinaryGameLayerManager* allBinaryGameLayerManager;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_CANVAS_ABTOGBUTIL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_CANVAS_ABTOGBUTIL_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_CANVAS_ABTOGBUTIL_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Canvas.h>)
-#include <javax/microedition/lcdui/Canvas.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ABToGBUtil;
+@class Canvas;
+@class NullCanvas;
+@class AllBinaryGameLayerManager;
+#if __has_include("javax/microedition/lcdui/Canvas.h")
+#include "javax/microedition/lcdui/Canvas.h"
 #endif
-#if __has_include(<javax/microedition/lcdui/NullCanvas.h>)
-#include <javax/microedition/lcdui/NullCanvas.h>
-#endif
-#if __has_include(<org/allbinary/game/layer/AllBinaryGameLayerManager.h>)
-#include <org/allbinary/game/layer/AllBinaryGameLayerManager.h>
+#if __has_include("org/allbinary/game/layer/AllBinaryGameLayerManager.h")
+#include "org/allbinary/game/layer/AllBinaryGameLayerManager.h"
 #endif
 
-        #endif
-    
+@interface ABToGBUtil : ABObject {
+@public
+    Canvas* abCanvas;
+    AllBinaryGameLayerManager* allBinaryGameLayerManager;
+}
+- (instancetype) init;
+- (void) initFields;
++ (ABToGBUtil*) getInstance;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ABToGBUtil_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GAME_CANVAS_ABTOGBUTIL_H

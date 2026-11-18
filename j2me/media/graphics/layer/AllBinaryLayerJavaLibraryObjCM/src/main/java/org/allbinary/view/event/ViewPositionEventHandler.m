@@ -1,174 +1,83 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_VIEW_EVENT_VIEWPOSITIONEVENTHANDLER_CPP
-        #define ORG_ALLBINARY_VIEW_EVENT_VIEWPOSITIONEVENTHANDLER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/view/event/ViewPositionEventHandler.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/view/event/ViewPositionEvent.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/view/event/ViewPositionEventHandler.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/view/event/ViewPositionEvent.h"
 #include "org/allbinary/view/event/ViewPositionEventListenerInterface.h"
 
-auto ViewPositionEventHandler::SINGLETON_owner() -> ViewPositionEventHandler* { static std::unique_ptr<ViewPositionEventHandler> value(new ViewPositionEventHandler()); return value.get(); }
-ViewPositionEventHandler* ViewPositionEventHandler::SINGLETON = ViewPositionEventHandler::SINGLETON_owner();
 
-    auto ViewPositionEventHandler::getInstance() -> ViewPositionEventHandler*{
+static ViewPositionEventHandler* ViewPositionEventHandler_SINGLETON;
 
+void ViewPositionEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ViewPositionEventHandler_SINGLETON = [((ViewPositionEventHandler*) [ViewPositionEventHandler alloc]) init];
+}
 
+@implementation ViewPositionEventHandler
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ViewPositionEventHandler::SINGLETON;
-    
+- (void) initFields {
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-ViewPositionEventHandler::ViewPositionEventHandler() : list(new BasicArrayListD()){
++ (ViewPositionEventHandler*) getInstance {
+        return (ViewPositionEventHandler_staticInit(), ViewPositionEventHandler_SINGLETON);
 }
 
 
-    auto ViewPositionEventHandler::addListener(AllBinaryLayer* layerInterface) -> void{
-
-                        if(!this->list->contains(layerInterface))
-                        
-                                    {
-                                    this->list->add(layerInterface);
-    
-
-                                    }
-                                
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto ViewPositionEventHandler::removeAllListeners() -> void{
-this->list->clear();
-    
-BasicEventHandler::removeAllListeners();
-    
+- (void) addListener:(AllBinaryLayer*)layerInterface {
+        if (![self->list contains:layerInterface]) {
+            [self->list add:layerInterface];
+        }
 }
 
 
-    auto ViewPositionEventHandler::removeListener(EventListenerInterface* eventListenerInterface) -> void{
-this->list->remove(eventListenerInterface);
-    
-BasicEventHandler::removeListener(eventListenerInterface);
-    
+- (void) removeAllListeners {
+        [self->list clear];
+        [super removeAllListeners];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ViewPositionEventHandler::fireEvent(AllBinaryEventObject* eventObject) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->list->size();--index >= 0; )
-        {
-
-        try {
-            
-    AllBinaryLayer* layerInterface = dynamic_cast<AllBinaryLayer*>(this->list->objectArray[index]);;
-    
-layerInterface->onChangeEvent(dynamic_cast<ViewPositionEvent*>(eventObject));
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, EventStrings::getInstance()->FIRE_EVENT, &e);
-    
-}
-
-}
-
-BasicEventHandler::fireEvent(eventObject);
-    
+- (void) removeListener:(EventListenerInterface*)eventListenerInterface {
+        [self->list remove:eventListenerInterface];
+        [super removeListener:eventListenerInterface];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ViewPositionEventHandler::process(AllBinaryEventObject* eventObject, EventListenerInterface* eventListenerInterface) -> void{
-
-    ViewPositionEventListenerInterface* viewPositionEventListenerInterface = (dynamic_cast<ViewPositionEventListenerInterface*>(eventListenerInterface));;
-    
-viewPositionEventListenerInterface->onChangeEvent(dynamic_cast<ViewPositionEvent*>(eventObject));
-    
+// throws Exception
+- (void) fireEvent:(AllBinaryEventObject*)eventObject {
+        for (int32_t index = [self->list size]; --index >= 0; ) {
+            JAVA_TRY {
+                AllBinaryLayer* layerInterface = ((AllBinaryLayer*) self->list->objectArray[index]);
+                [layerInterface onChangeEvent:((ViewPositionEvent*) eventObject)];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
+            } JAVA_END_TRY;
+        }
+        [super fireEvent:eventObject];
 }
 
 
+// throws Exception
+- (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
+        ViewPositionEventListenerInterface* viewPositionEventListenerInterface = (((ViewPositionEventListenerInterface*) eventListenerInterface));
+        [viewPositionEventListenerInterface onChangeEvent:((ViewPositionEvent*) eventObject)];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_VIEW_EVENT_VIEWPOSITIONEVENTHANDLER_CPP

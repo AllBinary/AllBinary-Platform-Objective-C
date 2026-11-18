@@ -1,101 +1,42 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/DisposalUtil.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/eclipse/swt/graphics/Resource.h"
 
 
+static DisposalUtil* DisposalUtil_instance;
 
-        #ifndef ORG_ALLBINARY_DISPOSALUTIL_CPP
-        #define ORG_ALLBINARY_DISPOSALUTIL_CPP
+void DisposalUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    DisposalUtil_instance = [((DisposalUtil*) [DisposalUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/DisposalUtil.h"
-        
+@implementation DisposalUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/eclipse/swt/graphics/Resource.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
 
++ (DisposalUtil*) getInstance {
+        return (DisposalUtil_staticInit(), DisposalUtil_instance);
+}
 
 
+- (void) disposeImage:(Image*)image {
+}
 
 
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-DisposalUtil::DisposalUtil() {
+- (void) disposeResource:(Resource*)resource {
+        if (![resource isDisposed]) {
+            [resource dispose];
         }
-        auto DisposalUtil::instance_owner() -> DisposalUtil* { static std::unique_ptr<DisposalUtil> value(new DisposalUtil()); return value.get(); }
-DisposalUtil* DisposalUtil::instance = DisposalUtil::instance_owner();
-
-    auto DisposalUtil::getInstance() -> DisposalUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return DisposalUtil::instance;
-    
 }
 
+@end
 
-    auto DisposalUtil::disposeImage(Image* image) -> void{
-}
-
-
-    auto DisposalUtil::disposeResource(Resource* resource) -> void{
-
-                        if(!resource->isDisposed())
-                        
-                                    {
-                                    resource->dispose();
-    
-
-                                    }
-                                
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_DISPOSALUTIL_CPP

@@ -1,177 +1,95 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ABCUSTOMFORM_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ABCUSTOMFORM_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/ABCustomForm.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/RuntimeException.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/form/item/ABCustomItem.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/ABCustomForm.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/form/item/ABCustomItem.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/graphics/form/CustomScreen.h"
 
 
 
+void ABCustomForm_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation ABCustomForm
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/CustomScreen.h"
-
-
-ABCustomForm::ABCustomForm(std::string title, std::vector<ABCustomItem*> items, BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor) : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()){
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
 }
 
 
-    auto ABCustomForm::getAllitems() -> std::vector<ABCustomItem*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return {};
-    
+- (instancetype) init:(const char*)title :(ABCustomItem**)items :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto ABCustomForm::size() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (ABCustomItem**) getAllitems {
+        return ((ABCustomItem**) java_array_new(sizeof(ABCustomItem*), 0));
 }
 
 
-    auto ABCustomForm::setSelectedIndex(int32_t index) -> void{
+- (int32_t) size {
+        return 0;
 }
 
 
-    auto ABCustomForm::getSelectedIndex() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (void) setSelectedIndex:(int32_t)index {
 }
 
 
-    auto ABCustomForm::deleteAll() -> void{
+- (int32_t) getSelectedIndex {
+        return 0;
 }
 
 
-    auto ABCustomForm::delete_(int32_t itemNum) -> void{
+- (void) deleteAll {
 }
 
 
-    auto ABCustomForm::append(ABCustomItem* item) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+- (void) delete:(int32_t)itemNum {
 }
 
 
-    auto ABCustomForm::insert(int32_t itemNum, ABCustomItem* item) -> void{
+- (int32_t) append:(ABCustomItem*)item {
+        return -1;
 }
 
 
-    auto ABCustomForm::set(int32_t itemNum, ABCustomItem* item) -> void{
+- (void) insert:(int32_t)itemNum :(ABCustomItem*)item {
 }
 
 
-    auto ABCustomForm::get(int32_t itemNum) -> ABCustomItem*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ABCustomItem::getNullInstance();;
-    
+- (void) set:(int32_t)itemNum :(ABCustomItem*)item {
 }
 
 
-    auto ABCustomForm::getWidth() -> int32_t{
-
-
-
-                            throw RuntimeException();
-                    
+- (ABCustomItem*) get:(int32_t)itemNum {
+        return [ABCustomItem getNullInstance];
 }
 
 
-    auto ABCustomForm::paint(Graphics* graphics) -> void{
+- (int32_t) getWidth {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-    auto ABCustomForm::getTitle() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->EMPTY_STRING;
-    
+- (void) paint:(Graphics*)graphics {
 }
 
 
+- (const char*) getTitle {
+        return [StringUtil getInstance]->EMPTY_STRING;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ABCUSTOMFORM_CPP

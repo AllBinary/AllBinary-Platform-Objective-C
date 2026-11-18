@@ -1,141 +1,63 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/tracking/TrackingEvent.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/game/tracking/TrackingEventHandler.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_TRACKING_TRACKINGEVENT_CPP
-        #define ORG_ALLBINARY_GAME_TRACKING_TRACKINGEVENT_CPP
+void TrackingEvent_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/tracking/TrackingEvent.h"
-        
+@implementation TrackingEvent
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/tracking/TrackingEventHandler.h"
-
-
-TrackingEvent::TrackingEvent(Object* allBinaryLayerInterface) : AllBinaryEventObject(allBinaryLayerInterface), layerInterface(AllBinaryLayer::NULL_ALLBINARY_LAYER){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-
-                        if(allBinaryLayerInterface != TrackingEventHandler::getInstance())
-                        
-                                    {
-                                    this->setLayerInterface(dynamic_cast<AllBinaryLayer*>(allBinaryLayerInterface));
-    
-
-                                    }
-                                
+- (void) initFields {
+    self->layerInterface = (AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER);
 }
 
 
-    auto TrackingEvent::init(Object* anyType) -> void{
-this->setSource(anyType);
-    
+- (instancetype) init:(id)allBinaryLayerInterface {
+        self = [super init:allBinaryLayerInterface];
+        [self initFields];
+        if (allBinaryLayerInterface != [TrackingEventHandler getInstance]) {
+            [self setLayerInterface:((AllBinaryLayer*) allBinaryLayerInterface)];
+        }
+    return self;
 }
 
 
-    auto TrackingEvent::getLayerInterface() -> AllBinaryLayer*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->layerInterface;
-    
+- (void) init_:(id)anyType {
+        [self setSource:anyType];
 }
 
 
-    auto TrackingEvent::setLayerInterface(AllBinaryLayer* layerInterface) -> void{
-this->layerInterface= layerInterface;
-    
+- (AllBinaryLayer*) getLayerInterface {
+        return self->layerInterface;
 }
 
 
-    auto TrackingEvent::setLayerInterfaceForCircularStaticPool(AllBinaryLayer* layerInterface) -> void{
-this->layerInterface= layerInterface;
-    
+- (void) setLayerInterface:(AllBinaryLayer*)layerInterface {
+        self->layerInterface = layerInterface;
 }
 
 
-    auto TrackingEvent::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("TrackingEvent: \n");
-    
-stringBuffer->append("LayerInterface: ");
-    
-stringBuffer->append(JavaString::valueOf(this->layerInterface));
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (void) setLayerInterfaceForCircularStaticPool:(AllBinaryLayer*)layerInterface {
+        self->layerInterface = layerInterface;
 }
 
 
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:"TrackingEvent: \n"];
+        [stringBuffer append:"LayerInterface: "];
+        [stringBuffer append:[self->layerInterface toString]];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_TRACKING_TRACKINGEVENT_CPP

@@ -1,113 +1,46 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/combat/damage/DamageableBaseBehavior.h"
+#include "org/allbinary/game/combat/damage/DamageableInterface.h"
 
 
+static DamageableBaseBehavior* DamageableBaseBehavior_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_COMBAT_DAMAGE_DAMAGEABLEBASEBEHAVIOR_CPP
-        #define ORG_ALLBINARY_GAME_COMBAT_DAMAGE_DAMAGEABLEBASEBEHAVIOR_CPP
+void DamageableBaseBehavior_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    DamageableBaseBehavior_instance = [((DamageableBaseBehavior*) [DamageableBaseBehavior alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/combat/damage/DamageableBaseBehavior.h"
-        
+@implementation DamageableBaseBehavior
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/combat/damage/DamageableInterface.h"
-
-
-DamageableBaseBehavior::DamageableBaseBehavior() {
-        }
-        auto DamageableBaseBehavior::instance_owner() -> DamageableBaseBehavior* { static std::unique_ptr<DamageableBaseBehavior> value(new DamageableBaseBehavior()); return value.get(); }
-DamageableBaseBehavior* DamageableBaseBehavior::instance = DamageableBaseBehavior::instance_owner();
-
-    auto DamageableBaseBehavior::getInstance() -> DamageableBaseBehavior*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return DamageableBaseBehavior::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto DamageableBaseBehavior::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getClass()->getName();;
-    
++ (DamageableBaseBehavior*) getInstance {
+        return (DamageableBaseBehavior_staticInit(), DamageableBaseBehavior_instance);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto DamageableBaseBehavior::damage(int32_t damage, int32_t damageType) -> void{
+- (const char*) getName {
+        return java_objc_class_name(self);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto DamageableBaseBehavior::getDamage(int32_t damageType) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 6000;
-    
+// throws Exception
+- (void) damage:(int32_t)damage :(int32_t)damageType {
 }
 
 
+// throws Exception
+- (int32_t) getDamage:(int32_t)damageType {
+        return 6000;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_COMBAT_DAMAGE_DAMAGEABLEBASEBEHAVIOR_CPP

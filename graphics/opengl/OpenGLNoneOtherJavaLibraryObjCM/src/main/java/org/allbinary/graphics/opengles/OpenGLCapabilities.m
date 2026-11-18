@@ -1,146 +1,76 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/OpenGLCapabilities.h"
+#include "org/allbinary/logic/string/StringUtil.h"
 
 
+static OpenGLCapabilities* OpenGLCapabilities_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLCAPABILITIES_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLCAPABILITIES_CPP
+void OpenGLCapabilities_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    OpenGLCapabilities_instance = [((OpenGLCapabilities*) [OpenGLCapabilities alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/OpenGLCapabilities.h"
-        
+@implementation OpenGLCapabilities
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto OpenGLCapabilities::instance_owner() -> OpenGLCapabilities* { static std::unique_ptr<OpenGLCapabilities> value(new OpenGLCapabilities()); return value.get(); }
-OpenGLCapabilities* OpenGLCapabilities::instance = OpenGLCapabilities::instance_owner();
-
-    auto OpenGLCapabilities::getInstance() -> OpenGLCapabilities*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return OpenGLCapabilities::instance;
-    
+- (void) initFields {
+    self->CUSTOM_GL_SURFACE_VIEW = true;
+    self->VERSION_1_0 = "1.0";
+    self->VERSION_1_1 = "1.1";
+    self->VERSION_2_0 = "2.0";
+    self->VERSION_3_0 = "3.0";
+    self->VERSION_3_1 = "3.1";
+    self->VERSION_3_2 = "3.2";
+    self->VERSION_HIGHER_THAN_EXISTS = "999.999";
+    self->glVersion = [StringUtil getInstance]->EMPTY_STRING;
+    self->shaderVersion = 0;
+    self->glInstanceVersion = [StringUtil getInstance]->EMPTY_STRING;
+    self->maxTextureSize = 64;
 }
 
 
-OpenGLCapabilities::OpenGLCapabilities() : glVersion(StringUtil::getInstance()->EMPTY_STRING), glInstanceVersion(StringUtil::getInstance()->EMPTY_STRING){
++ (OpenGLCapabilities*) getInstance {
+        return (OpenGLCapabilities_staticInit(), OpenGLCapabilities_instance);
 }
 
 
-    auto OpenGLCapabilities::isInitialized() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto OpenGLCapabilities::initCapabilities(Object* gl) -> void{
+- (bool) isInitialized {
+        return true;
 }
 
 
-    auto OpenGLCapabilities::isGlExtensionDrawTexture() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (void) initCapabilities:(id)gl {
 }
 
 
-    auto OpenGLCapabilities::getGlVersion() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->glVersion;
-    
+- (bool) isGlExtensionDrawTexture {
+        return false;
 }
 
 
-    auto OpenGLCapabilities::isVertexBufferObjectSupport() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (const char*) getGlVersion {
+        return self->glVersion;
 }
 
 
-    auto OpenGLCapabilities::isTextureSizeValid(int32_t widthAndHeight) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
+- (bool) isVertexBufferObjectSupport {
+        return false;
 }
 
 
+- (bool) isTextureSizeValid:(int32_t)widthAndHeight {
+        return true;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLCAPABILITIES_CPP

@@ -1,94 +1,48 @@
+#ifndef ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTORE_H
+#define ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTORE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.thirdparty.store
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ThirdPartyStore;
+@class AbeClientInformationInterface;
 
+@interface ThirdPartyStore : ABObject {
+@public
+    bool authorized;
+    const char* name;
+}
+- (instancetype) init:(const char*)name;
+- (void) initFields;
+- (void) authorize:(AbeClientInformationInterface*)clientInformationInterface;
+- (bool) isAuthorized;
+- (void) setAuthorized:(bool)authorized;
+- (const char*) getName;
+@end
 
-
-        #ifndef ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTORE_H
-        #define ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTORE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class AbeClientInformationInterface;
-
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ThirdPartyStore_staticInit(void);
 
 
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ThirdPartyStore
-            : public virtual Object
-         {
-
-    private: bool authorized= false;
-
-    private: std::string name;
-
-public: ThirdPartyStore(std::string name);
-
-    public: void authorize(AbeClientInformationInterface* clientInformationInterface);
-
-    public: bool isAuthorized();
-
-    /*protected*/ public: void setAuthorized(bool authorized);
-
-    public: std::string getName();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTORE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTORE_H_COMPLETE)
-        #define ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTORE_H_COMPLETE
-        #if __has_include(<org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>)
-#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTORE_H

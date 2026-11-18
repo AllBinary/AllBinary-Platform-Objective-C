@@ -1,81 +1,34 @@
+#ifndef ORG_ALLBINARY_GAME_BASICGAMEINFOFACTORY_H
+#define ORG_ALLBINARY_GAME_BASICGAMEINFOFACTORY_H
+// Generated Code Do Not Modify
+// package org.allbinary.game
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class BasicGameInfoFactory;
 
+@interface BasicGameInfoFactory : ABObject {
+@public
+    int32_t currentReleaseIndex;
+    int32_t currentDestroyIndex;
+    int32_t total;
+}
+- (instancetype) init;
+- (void) initFields;
++ (BasicGameInfoFactory*) getInstance;
+- (void) init_:(int32_t)total;
+- (bool) isPeaked;
+- (int32_t) howManyLeft;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_BASICGAMEINFOFACTORY_H
-        #define ORG_ALLBINARY_GAME_BASICGAMEINFOFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void BasicGameInfoFactory_staticInit(void);
 
 
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class BasicGameInfoFactory
-            : public virtual Object
-         {
-
-    private: static BasicGameInfoFactory* SINGLETON_owner();
-    private: static BasicGameInfoFactory* SINGLETON;
-
-    public: static BasicGameInfoFactory* getInstance();
-
-    public: int32_t currentReleaseIndex= 0;
-
-    public: int32_t currentDestroyIndex= 0;
-
-    public: int32_t total= 0;
-
-private: BasicGameInfoFactory();
-
-    public: void init(int32_t total);
-
-    public: bool isPeaked();
-
-    public: int32_t howManyLeft();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_BASICGAMEINFOFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_BASICGAMEINFOFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_BASICGAMEINFOFACTORY_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_BASICGAMEINFOFACTORY_H

@@ -1,78 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                * 
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                * 
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                * 
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressPaintable.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSPAINTABLE_CPP
-        #define ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSPAINTABLE_CPP
+void ProgressPaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/canvas/transition/progress/ProgressPaintable.h"
-        
+@implementation ProgressPaintable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
-
-
-ProgressPaintable::ProgressPaintable(ProgressCanvas* progressCanvas){
-this->progressCanvas= progressCanvas;
+- (void) initFields {
     
 }
 
 
-    auto ProgressPaintable::paint(Graphics* graphics) -> void{
-this->progressCanvas->paint2(graphics);
-    
+- (instancetype) init:(ProgressCanvas*)progressCanvas {
+    self = [super init];
+    [self initFields];
+        self->progressCanvas = progressCanvas;
+    return self;
 }
 
 
+- (void) paint:(Graphics*)graphics {
+        [self->progressCanvas paint2:graphics];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSPAINTABLE_CPP

@@ -1,137 +1,66 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/AdjustedImageArrayAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/animation/image/ImageArrayAnimation.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_ADJUSTEDIMAGEARRAYANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_ADJUSTEDIMAGEARRAYANIMATION_CPP
+void AdjustedImageArrayAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/AdjustedImageArrayAnimation.h"
-        
+@implementation AdjustedImageArrayAnimation
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/ImageArrayAnimation.h"
-
-
-AdjustedImageArrayAnimation::AdjustedImageArrayAnimation(std::vector<Image*> imageArray, int32_t dx, int32_t dy, AnimationBehavior* animationBehavior) : ImageArrayAnimation(imageArray, animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->init(dx, dy);
-    
+- (void) initFields {
+    self->dx = 0;
+    self->dy = 0;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AdjustedImageArrayAnimation::init(int32_t dx, int32_t dy) -> void{
-this->setDx(dx);
-    
-this->setDy(dy);
-    
+- (instancetype) init:(Image**)imageArray :(int32_t)dx :(int32_t)dy :(AnimationBehavior*)animationBehavior {
+        self = [super init:imageArray :animationBehavior];
+        [self initFields];
+        [self init_:dx :dy];
+    return self;
 }
 
 
-    auto AdjustedImageArrayAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-ImageArrayAnimation::paintXY(graphics, x +this->dx, y +this->dy);
-    
+// throws Exception
+- (void) init_:(int32_t)dx :(int32_t)dy {
+        [self setDx:dx];
+        [self setDy:dy];
 }
 
 
-    auto AdjustedImageArrayAnimation::setDx(int32_t dx) -> void{
-this->dx= dx;
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [super paintXY:graphics :x + self->dx :y + self->dy];
 }
 
 
-    auto AdjustedImageArrayAnimation::getDx() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->dx;
-    
+- (void) setDx:(int32_t)dx {
+        self->dx = dx;
 }
 
 
-    auto AdjustedImageArrayAnimation::setDy(int32_t dy) -> void{
-this->dy= dy;
-    
+- (int32_t) getDx {
+        return self->dx;
 }
 
 
-    auto AdjustedImageArrayAnimation::getDy() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->dy;
-    
+- (void) setDy:(int32_t)dy {
+        self->dy = dy;
 }
 
 
+- (int32_t) getDy {
+        return self->dy;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_ADJUSTEDIMAGEARRAYANIMATION_CPP

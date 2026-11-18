@@ -1,80 +1,41 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/audio/AudioContentTypeDataFactory.h"
+#include "org/allbinary/audio/AudioContentTypeData.h"
 
 
+static AudioContentTypeDataFactory* AudioContentTypeDataFactory_instance;
 
-        #ifndef ORG_ALLBINARY_AUDIO_AUDIOCONTENTTYPEDATAFACTORY_CPP
-        #define ORG_ALLBINARY_AUDIO_AUDIOCONTENTTYPEDATAFACTORY_CPP
+void AudioContentTypeDataFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AudioContentTypeDataFactory_instance = [((AudioContentTypeDataFactory*) [AudioContentTypeDataFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/audio/AudioContentTypeDataFactory.h"
-        
+@implementation AudioContentTypeDataFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/audio/AudioContentTypeData.h"
-
-auto AudioContentTypeDataFactory::instance_owner() -> AudioContentTypeDataFactory* { static std::unique_ptr<AudioContentTypeDataFactory> value(new AudioContentTypeDataFactory()); return value.get(); }
-AudioContentTypeDataFactory* AudioContentTypeDataFactory::instance = AudioContentTypeDataFactory::instance_owner();
-
-    auto AudioContentTypeDataFactory::getInstance() -> AudioContentTypeDataFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AudioContentTypeDataFactory::instance;
-    
+- (void) initFields {
+    self->MIME_AUDIO_TONE = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/x-tone-seq"];
+    self->MIME_AUDIO_AMR = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/amr"];
+    self->MIME_AUDIO_AMR_WB = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/amr-wb"];
+    self->MIME_AUDIO_WAV = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/x-wav"];
+    self->MIME_AUDIO_MIDI = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/midi"];
+    self->MIME_AUDIO_SP_MIDI = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/sp-midi"];
 }
 
 
-AudioContentTypeDataFactory::AudioContentTypeDataFactory() : MIME_AUDIO_TONE(new AudioContentTypeData("audio/x-tone-seq")), MIME_AUDIO_AMR(new AudioContentTypeData("audio/amr")), MIME_AUDIO_AMR_WB(new AudioContentTypeData("audio/amr-wb")), MIME_AUDIO_WAV(new AudioContentTypeData("audio/x-wav")), MIME_AUDIO_MIDI(new AudioContentTypeData("audio/midi")), MIME_AUDIO_SP_MIDI(new AudioContentTypeData("audio/sp-midi")){
++ (AudioContentTypeDataFactory*) getInstance {
+        return (AudioContentTypeDataFactory_staticInit(), AudioContentTypeDataFactory_instance);
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_AUDIO_AUDIOCONTENTTYPEDATAFACTORY_CPP

@@ -1,116 +1,41 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/pickup/FallingPickupLayer.h"
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#include "org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.h"
+#include "org/allbinary/game/multiplayer/layer/RemoteInfo.h"
+#include "org/allbinary/graphics/PointFactory.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/view/ViewPosition.h"
 
 
+static const char* FallingPickupLayer_NAME = "FallingPickupLayer";
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_FALLINGPICKUPLAYER_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_FALLINGPICKUPLAYER_CPP
+void FallingPickupLayer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/pickup/FallingPickupLayer.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/animation/NullAnimationFactory.h>
-
-      
-#include <org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.h>
-
-      
-#include <org/allbinary/game/layer/pickup/PickupLayer.h>
-
-      
-#include <org/allbinary/game/multiplayer/layer/RemoteInfo.h>
-
-      
-#include <org/allbinary/game/tick/TickableInterface.h>
-
-      
-#include <org/allbinary/graphics/PointFactory.h>
-
-      
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/view/ViewPosition.h>
-
-      
+@implementation FallingPickupLayer
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-FallingPickupLayer::FallingPickupLayer(RemoteInfo* remoteInfo) : PickupLayer(FallingPickupLayer::NAME, remoteInfo, 0, CountedPickedUpLayerInterfaceFactory::NULL_COUNTED_PICKUP_LAYER_FACTORY, NullAnimationFactory::getFactoryInstance()->getInstance(0), new Rectangle(PointFactory::getInstance()->ZERO_ZERO, 0, 0), ViewPosition::getInstanceD()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init:(RemoteInfo*)remoteInfo {
+        self = [super init:FallingPickupLayer_NAME :remoteInfo :0 :(CountedPickedUpLayerInterfaceFactory_staticInit(), CountedPickedUpLayerInterfaceFactory_NULL_COUNTED_PICKUP_LAYER_FACTORY) :[[NullAnimationFactory getFactoryInstance] getInstance:0] :[((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :0 :0] :[ViewPosition getInstanceD]];
+    return self;
 }
 
 
-    auto FallingPickupLayer::processTick(AllBinaryLayerManager* allBinaryLayerManager) -> void{
-this->setPosition(this->x, this->y +1, this->z);
-    
+- (void) processTick:(AllBinaryLayerManager*)allBinaryLayerManager {
+        [self setPosition:self->x :self->y + 1 :self->z];
 }
 
 
-    auto FallingPickupLayer::implmentsTickableInterface() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
+- (bool) implmentsTickableInterface {
+        return true;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_FALLINGPICKUPLAYER_CPP

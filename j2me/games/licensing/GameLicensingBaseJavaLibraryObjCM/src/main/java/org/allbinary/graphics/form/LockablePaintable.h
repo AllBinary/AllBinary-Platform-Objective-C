@@ -1,110 +1,59 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_FORM_LOCKABLEPAINTABLE_H
+#define ORG_ALLBINARY_GRAPHICS_FORM_LOCKABLEPAINTABLE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.form
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_LOCKABLEPAINTABLE_H
-        #define ORG_ALLBINARY_GRAPHICS_FORM_LOCKABLEPAINTABLE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class Graphics;
-class Animation;
-class FeaturedAnimationInterfaceFactoryInterfaceFactory;
-class LockedResources;
-class LockedUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/ItemPaintable.h"
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class LockablePaintable: public ItemPaintable {
-
-    private: Animation* animation;
-
-    private: int32_t lockedIndex;
-
-public: LockablePaintable(int32_t lockedIndex);
-
-    public: void paint(Graphics* graphics, int32_t currentIndex, int32_t x, int32_t y);
-
-    /*protected*/ public: int32_t getLockedIndex();
-
-    /*protected*/ public: Animation* getAnimation();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_LOCKABLEPAINTABLE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_FORM_LOCKABLEPAINTABLE_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_FORM_LOCKABLEPAINTABLE_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Graphics.h>)
-#include <javax/microedition/lcdui/Graphics.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class LockablePaintable;
+@class Graphics;
+@class Animation;
+@class FeaturedAnimationInterfaceFactoryInterfaceFactory;
+@class LockedResources;
+@class LockedUtil;
+@class ItemPaintable;
+#if __has_include("org/allbinary/animation/Animation.h")
+#include "org/allbinary/animation/Animation.h"
 #endif
-#if __has_include(<org/allbinary/animation/Animation.h>)
-#include <org/allbinary/animation/Animation.h>
-#endif
-#if __has_include(<org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h>)
-#include <org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h>
-#endif
-#if __has_include(<org/allbinary/logic/system/security/licensing/LockedResources.h>)
-#include <org/allbinary/logic/system/security/licensing/LockedResources.h>
-#endif
-#if __has_include(<org/allbinary/logic/system/security/licensing/LockedUtil.h>)
-#include <org/allbinary/logic/system/security/licensing/LockedUtil.h>
-#endif
-#if __has_include("org/allbinary/graphics/form/ItemPaintable.h")
 #include "org/allbinary/graphics/form/ItemPaintable.h"
+
+@interface LockablePaintable : ItemPaintable {
+@public
+    Animation* animation;
+    int32_t lockedIndex;
+}
+- (instancetype) init:(int32_t)lockedIndex;
+- (void) initFields;
+- (void) paint:(Graphics*)graphics :(int32_t)currentIndex :(int32_t)x :(int32_t)y;
+- (int32_t) getLockedIndex;
+- (Animation*) getAnimation;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void LockablePaintable_staticInit(void);
+
+#if __has_include("org/allbinary/animation/Animation.h")
+#include "org/allbinary/animation/Animation.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_FORM_LOCKABLEPAINTABLE_H

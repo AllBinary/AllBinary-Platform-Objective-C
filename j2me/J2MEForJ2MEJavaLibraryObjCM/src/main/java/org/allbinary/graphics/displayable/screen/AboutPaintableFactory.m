@@ -1,110 +1,42 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2022 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/displayable/screen/AboutPaintableFactory.h"
+#include "org/allbinary/game/paint/AboutPaintable.h"
+#include "org/allbinary/graphics/paint/NullPaintable.h"
+#include "org/allbinary/graphics/paint/Paintable.h"
+#include "org/allbinary/logic/string/StringUtil.h"
 
 
+static AboutPaintableFactory* AboutPaintableFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_ABOUTPAINTABLEFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_ABOUTPAINTABLEFACTORY_CPP
+void AboutPaintableFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AboutPaintableFactory_instance = [((AboutPaintableFactory*) [AboutPaintableFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/displayable/screen/AboutPaintableFactory.h"
-        
+@implementation AboutPaintableFactory
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/paint/AboutPaintable.h>
-
-      
-#include <org/allbinary/graphics/paint/NullPaintable.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto AboutPaintableFactory::instance_owner() -> AboutPaintableFactory* { static std::unique_ptr<AboutPaintableFactory> value(new AboutPaintableFactory()); return value.get(); }
-AboutPaintableFactory* AboutPaintableFactory::instance = AboutPaintableFactory::instance_owner();
-
-    auto AboutPaintableFactory::getInstance() -> AboutPaintableFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AboutPaintableFactory::instance;
-    
+- (void) initFields {
+    self->paintableArray = ((Paintable**) java_array_from(sizeof(Paintable*), sizeof((Paintable*[]){ [NullPaintable getInstance] }) / sizeof(Paintable*), (Paintable*[]){ [NullPaintable getInstance] }));
 }
 
 
-AboutPaintableFactory::AboutPaintableFactory() : paintableArray(
-                                                {
-                                                    NullPaintable::getInstance()
-                                                }){
-
-    std::vector<std::string> INFO = 
-                                                        {
-                                                            "Built with the","AllBinary Platform",StringUtil::getInstance()->EMPTY_STRING,"Comments or Questions:","support@allbinary.com"
-                                                        };;
-    
-
-    std::vector<std::string> DEVELOPERS = 
-                                                        {
-                                                            "Developed By:","Travis Berthelot"
-                                                        };;
-    
-this->paintableArray= AboutPaintable::getInstance(INFO, DEVELOPERS)->getPaintableArrayInstance();
-    
++ (AboutPaintableFactory*) getInstance {
+        return (AboutPaintableFactory_staticInit(), AboutPaintableFactory_instance);
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        const char** INFO = ((const char**) java_array_from(sizeof(const char*), sizeof((const char*[]){ "Built with the", "AllBinary Platform", [StringUtil getInstance]->EMPTY_STRING, "Comments or Questions:", "support@allbinary.com" }) / sizeof(const char*), (const char*[]){ "Built with the", "AllBinary Platform", [StringUtil getInstance]->EMPTY_STRING, "Comments or Questions:", "support@allbinary.com" }));
+        const char** DEVELOPERS = ((const char**) java_array_from(sizeof(const char*), sizeof((const char*[]){ "Developed By:", "Travis Berthelot" }) / sizeof(const char*), (const char*[]){ "Developed By:", "Travis Berthelot" }));
+        self->paintableArray = [[AboutPaintable getInstance:INFO :DEVELOPERS] getPaintableArrayInstance];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_ABOUTPAINTABLEFACTORY_CPP

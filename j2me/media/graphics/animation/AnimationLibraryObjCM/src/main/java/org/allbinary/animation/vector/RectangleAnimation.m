@@ -1,123 +1,64 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/vector/RectangleAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_VECTOR_RECTANGLEANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_VECTOR_RECTANGLEANIMATION_CPP
+void RectangleAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/vector/RectangleAnimation.h"
-        
+@implementation RectangleAnimation
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/ColorCompositeInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-RectangleAnimation::RectangleAnimation(int32_t width, int32_t height, BasicColor* basicColor){
-this->width= width;
+- (void) initFields {
     
-this->height= height;
-    
-this->setBasicColorP(basicColor);
     
 }
 
 
-    auto RectangleAnimation::nextFrame() -> void{
+- (instancetype) init:(int32_t)width :(int32_t)height :(BasicColor*)basicColor {
+    self = [super init];
+    [self initFields];
+        self->width = width;
+        self->height = height;
+        [self setBasicColorP:basicColor];
+    return self;
 }
 
 
-    auto RectangleAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-this->basicSetColorUtil->setBasicColorP3(graphics, this->getBasicColorP(), this->getColor());
-    
-graphics->drawRect(x, y, this->width, this->height);
-    
+- (void) nextFrame {
 }
 
 
-    auto RectangleAnimation::setWidth(int32_t width) -> void{
-this->width= width;
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [self->basicSetColorUtil setBasicColorP3:graphics :[self getBasicColorP] :[self getColor]];
+        [graphics drawRect:x :y :self->width :self->height];
 }
 
 
-    auto RectangleAnimation::setHeight(int32_t height) -> void{
-this->height= height;
-    
+- (void) setWidth:(int32_t)width {
+        self->width = width;
 }
 
 
-    auto RectangleAnimation::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Animation::getBasicColorP();;
-    
+- (void) setHeight:(int32_t)height {
+        self->height = height;
 }
 
 
-    auto RectangleAnimation::setBasicColorP(BasicColor* basicColor) -> void{
-Animation::setBasicColorP(basicColor);
-    
+- (BasicColor*) getBasicColorP {
+        return [super getBasicColorP];
 }
 
 
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        [super setBasicColorP:basicColor];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_VECTOR_RECTANGLEANIMATION_CPP

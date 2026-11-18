@@ -1,89 +1,35 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/media/image/ImageCompleteUtil.h"
+#include "javax/microedition/lcdui/Image.h"
 
 
+static ImageCompleteUtil* ImageCompleteUtil_instance;
 
-        #ifndef ORG_ALLBINARY_MEDIA_IMAGE_IMAGECOMPLETEUTIL_CPP
-        #define ORG_ALLBINARY_MEDIA_IMAGE_IMAGECOMPLETEUTIL_CPP
+void ImageCompleteUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ImageCompleteUtil_instance = [((ImageCompleteUtil*) [ImageCompleteUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/image/ImageCompleteUtil.h"
-        
+@implementation ImageCompleteUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ImageCompleteUtil::ImageCompleteUtil() {
-        }
-        auto ImageCompleteUtil::instance_owner() -> ImageCompleteUtil* { static std::unique_ptr<ImageCompleteUtil> value(new ImageCompleteUtil()); return value.get(); }
-ImageCompleteUtil* ImageCompleteUtil::instance = ImageCompleteUtil::instance_owner();
-
-    auto ImageCompleteUtil::getInstance() -> ImageCompleteUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ImageCompleteUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageCompleteUtil::waitForImage(Image* image, std::string name) -> void{
++ (ImageCompleteUtil*) getInstance {
+        return (ImageCompleteUtil_staticInit(), ImageCompleteUtil_instance);
 }
 
 
+// throws Exception
+- (void) waitForImage:(Image*)image :(const char*)name {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MEDIA_IMAGE_IMAGECOMPLETEUTIL_CPP

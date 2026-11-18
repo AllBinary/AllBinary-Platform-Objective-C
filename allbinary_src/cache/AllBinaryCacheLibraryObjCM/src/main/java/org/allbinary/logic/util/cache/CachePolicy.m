@@ -1,119 +1,58 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/util/cache/CachePolicy.h"
 
 
 
-        #ifndef ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHEPOLICY_CPP
-        #define ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHEPOLICY_CPP
+void CachePolicy_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/util/cache/CachePolicy.h"
-        
+@implementation CachePolicy
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CachePolicy::CachePolicy(std::string name, int64_t maxTime, int64_t maxSize){
-this->name= name;
+- (void) initFields {
     
-this->setMaxTime(maxTime);
-    
-this->setMaxSize(maxSize);
-    
+    self->maxTime = 0;
+    self->maxSize = 0;
 }
 
 
-    auto CachePolicy::getMaxTime() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->maxTime;
-    
+- (instancetype) init:(const char*)name :(int64_t)maxTime :(int64_t)maxSize {
+    self = [super init];
+    [self initFields];
+        self->name = name;
+        [self setMaxTime:maxTime];
+        [self setMaxSize:maxSize];
+    return self;
 }
 
 
-    auto CachePolicy::setMaxTime(int64_t maxTime) -> void{
-this->maxTime= maxTime;
-    
+- (int64_t) getMaxTime {
+        return self->maxTime;
 }
 
 
-    auto CachePolicy::getMaxSize() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->maxSize;
-    
+- (void) setMaxTime:(int64_t)maxTime {
+        self->maxTime = maxTime;
 }
 
 
-    auto CachePolicy::setMaxSize(int64_t maxSize) -> void{
-this->maxSize= maxSize;
-    
+- (int64_t) getMaxSize {
+        return self->maxSize;
 }
 
 
-    auto CachePolicy::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->name;
-    
+- (void) setMaxSize:(int64_t)maxSize {
+        self->maxSize = maxSize;
 }
 
 
+- (const char*) getName {
+        return self->name;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHEPOLICY_CPP

@@ -1,78 +1,37 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/persistance/GamePersistanceStrings.h"
 
 
+static GamePersistanceStrings* GamePersistanceStrings_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_GAMEPERSISTANCESTRINGS_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_GAMEPERSISTANCESTRINGS_CPP
+void GamePersistanceStrings_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GamePersistanceStrings_instance = [((GamePersistanceStrings*) [GamePersistanceStrings alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/persistance/GamePersistanceStrings.h"
-        
+@implementation GamePersistanceStrings
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->SAVED_GAME_RECORD_ID = "_SG";
+    self->SAVED_GAME_CONFIGURATION_RECORD_ID = "_SGC";
+    self->DEFAULT_INPUT_MAPPING_RECORD_ID = "_DIM";
+    self->SAVED_INPUT_CONFIGURATION_RECORD_ID = "_SIC";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GamePersistanceStrings::GamePersistanceStrings() {
-        }
-        auto GamePersistanceStrings::instance_owner() -> GamePersistanceStrings* { static std::unique_ptr<GamePersistanceStrings> value(new GamePersistanceStrings()); return value.get(); }
-GamePersistanceStrings* GamePersistanceStrings::instance = GamePersistanceStrings::instance_owner();
-
-    auto GamePersistanceStrings::getInstance() -> GamePersistanceStrings*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GamePersistanceStrings::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (GamePersistanceStrings*) getInstance {
+        return (GamePersistanceStrings_staticInit(), GamePersistanceStrings_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_GAMEPERSISTANCESTRINGS_CPP

@@ -1,237 +1,240 @@
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/displayable/HighScoreTextBox.h"
+#include "javax/microedition/lcdui/CommandListener.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/TextField.h"
+#include "org/allbinary/PostGameCommandFactory.h"
+#include "org/allbinary/game/GameInfo.h"
+#include "org/allbinary/game/score/HighScore.h"
+#include "org/allbinary/game/score/HighScoresHelperBaseInterface.h"
+#include "org/allbinary/game/score/HighScoresFactoryInterface.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/graphics/paint/NullPaintable.h"
+#include "org/allbinary/graphics/paint/Paintable.h"
+#include "org/allbinary/graphics/paint/SimpleTextPaintable.h"
+#include "org/allbinary/input/event/VirtualKeyboardEventHandler.h"
+#include "org/allbinary/logic/system/os/GenericOperatingSystem.h"
+#include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
+#include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
+#include "org/allbinary/logic/system/security/licensing/InApplicationPurchaseFactory.h"
+#include "org/allbinary/game/score/displayable/HighScoreUtil.h"
+#if __has_include("org/allbinary/game/score/displayable/ABTextFieldItem.h")
+#include "org/allbinary/game/score/displayable/ABTextFieldItem.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ABTextFieldItem.h")
+#include "javax/microedition/lcdui/ABTextFieldItem.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ABTextFieldItem.h")
+#include "javax/microedition/lcdui/ABTextFieldItem.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ABTextFieldItem.h")
+#include "javax/microedition/lcdui/ABTextFieldItem.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ABTextFieldItem.h")
+#include "javax/microedition/lcdui/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/ABTextFieldItem.h")
+#include "org/allbinary/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/game/ABTextFieldItem.h")
+#include "org/allbinary/game/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/game/score/ABTextFieldItem.h")
+#include "org/allbinary/game/score/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/game/score/ABTextFieldItem.h")
+#include "org/allbinary/game/score/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/game/score/ABTextFieldItem.h")
+#include "org/allbinary/game/score/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/ABTextFieldItem.h")
+#include "org/allbinary/graphics/color/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/ABTextFieldItem.h")
+#include "org/allbinary/graphics/color/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/item/ABTextFieldItem.h")
+#include "org/allbinary/graphics/form/item/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/paint/ABTextFieldItem.h")
+#include "org/allbinary/graphics/paint/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/paint/ABTextFieldItem.h")
+#include "org/allbinary/graphics/paint/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/paint/ABTextFieldItem.h")
+#include "org/allbinary/graphics/paint/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/input/event/ABTextFieldItem.h")
+#include "org/allbinary/input/event/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/ABTextFieldItem.h")
+#include "org/allbinary/logic/system/os/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/ABTextFieldItem.h")
+#include "org/allbinary/logic/system/os/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/ABTextFieldItem.h")
+#include "org/allbinary/logic/system/security/licensing/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/ABTextFieldItem.h")
+#include "org/allbinary/logic/system/security/licensing/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/game/score/displayable/ABTextFieldItem.h")
+#include "org/allbinary/game/score/displayable/ABTextFieldItem.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ABTextFieldItem.h")
+#include "javax/microedition/lcdui/ABTextFieldItem.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ABTextFieldItem.h")
+#include "javax/microedition/lcdui/ABTextFieldItem.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ABTextFieldItem.h")
+#include "javax/microedition/lcdui/ABTextFieldItem.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ABTextFieldItem.h")
+#include "javax/microedition/lcdui/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/ABTextFieldItem.h")
+#include "org/allbinary/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/game/ABTextFieldItem.h")
+#include "org/allbinary/game/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/game/score/ABTextFieldItem.h")
+#include "org/allbinary/game/score/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/game/score/ABTextFieldItem.h")
+#include "org/allbinary/game/score/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/game/score/ABTextFieldItem.h")
+#include "org/allbinary/game/score/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/ABTextFieldItem.h")
+#include "org/allbinary/graphics/color/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/ABTextFieldItem.h")
+#include "org/allbinary/graphics/color/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/item/ABTextFieldItem.h")
+#include "org/allbinary/graphics/form/item/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/paint/ABTextFieldItem.h")
+#include "org/allbinary/graphics/paint/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/paint/ABTextFieldItem.h")
+#include "org/allbinary/graphics/paint/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/paint/ABTextFieldItem.h")
+#include "org/allbinary/graphics/paint/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/input/event/ABTextFieldItem.h")
+#include "org/allbinary/input/event/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/ABTextFieldItem.h")
+#include "org/allbinary/logic/system/os/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/ABTextFieldItem.h")
+#include "org/allbinary/logic/system/os/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/ABTextFieldItem.h")
+#include "org/allbinary/logic/system/security/licensing/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/ABTextFieldItem.h")
+#include "org/allbinary/logic/system/security/licensing/ABTextFieldItem.h"
+#endif
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
 
 
+void HighScoreTextBox_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef ORG_ALLBINARY_GAME_SCORE_DISPLAYABLE_HIGHSCORETEXTBOX_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_DISPLAYABLE_HIGHSCORETEXTBOX_CPP
+@implementation HighScoreTextBox
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/displayable/HighScoreTextBox.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/CommandListener.h>
-
-      
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/TextField.h>
-
-      
-#include <org/allbinary/PostGameCommandFactory.h>
-
-      
-#include <org/allbinary/game/GameInfo.h>
-
-      
-#include <org/allbinary/game/score/HighScore.h>
-
-      
-#include <org/allbinary/game/score/HighScoresHelperBaseInterface.h>
-
-      
-#include <org/allbinary/game/score/HighScoresFactoryInterface.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/form/item/CustomTextBox.h>
-
-      
-#include <org/allbinary/graphics/paint/NullPaintable.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-#include <org/allbinary/graphics/paint/SimpleTextPaintable.h>
-
-      
-#include <org/allbinary/input/event/VirtualKeyboardEventHandler.h>
-
-      
-#include <org/allbinary/logic/system/os/GenericOperatingSystem.h>
-
-      
-#include <org/allbinary/logic/system/os/OperatingSystemFactory.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/InApplicationPurchaseFactory.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/score/displayable/HighScoreUtil.h"
-
-
-HighScoreTextBox::HighScoreTextBox(HighScoresFactoryInterface* highScoresFactoryInterface, HighScoresHelperBaseInterface* highScoresHelper, AbeClientInformationInterface* abeClientInformation, GameInfo* gameInfo, CommandListener* cmdListener, std::string name, HighScore* highScore, BasicColor* backgrounBasicColor, BasicColor* foregroundBasicColor) : CustomTextBox(cmdListener, "New High Score Enter Name:", name, 12, TextField::ANY, Font::getDefaultFont(), backgrounBasicColor, foregroundBasicColor), virtualKeyboardEventHandler(VirtualKeyboardEventHandler::getInstance()), pleaseWait(new SimpleTextPaintable(this->commonStrings->PLEASE_WAIT, BasicColorFactory::getInstance()->WHITE)), paintable(NullPaintable::getInstance()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->highScoreUtil= new HighScoreUtil(highScoresFactoryInterface, highScoresHelper, abeClientInformation, gameInfo, cmdListener, name, highScore);
+- (void) initFields {
+    self->virtualKeyboardEventHandler = [VirtualKeyboardEventHandler getInstance];
     
-
-    GenericOperatingSystem* operatingSystemInterface = OperatingSystemFactory::getInstance()->getOperatingSystemInstance();;
-    
-
-                        if(operatingSystemInterface->isOverScan())
-                        
-                                    {
-                                    
-    std::string username = InApplicationPurchaseFactory::getInstance()->getUserName();;
-    
-this->getTextFieldItem()->setString(username);
-    
-
-                                    }
-                                
+    self->pleaseWait = [((SimpleTextPaintable*) [SimpleTextPaintable alloc]) init:self->commonStrings->PLEASE_WAIT :[BasicColorFactory getInstance]->WHITE];
+    self->paintable = [NullPaintable getInstance];
+    self->submitted = false;
 }
 
 
-    auto HighScoreTextBox::initCommands(CommandListener* cmdListener) -> void{
-this->removeAllCommands();
-    
-PostGameCommandFactory::getInstance()->addCommands(this);
-    
-this->addCommand(HighScoreUtil::SUBMIT_TEXTBOX_COMMAND);
-    
-this->setCommandListener(cmdListener);
-    
+- (instancetype) init:(HighScoresFactoryInterface*)highScoresFactoryInterface :(HighScoresHelperBaseInterface*)highScoresHelper :(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo :(CommandListener*)cmdListener :(const char*)name :(HighScore*)highScore :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor {
+        self = [super init:cmdListener :"New High Score Enter Name:" :name :12 :(TextField_staticInit(), TextField_ANY) :[Font getDefaultFont] :backgrounBasicColor :foregroundBasicColor];
+        [self initFields];
+        self->highScoreUtil = [((HighScoreUtil*) [HighScoreUtil alloc]) init:highScoresFactoryInterface :highScoresHelper :abeClientInformation :gameInfo :cmdListener :name :highScore];
+        GenericOperatingSystem* operatingSystemInterface = [[OperatingSystemFactory getInstance] getOperatingSystemInstance];
+        if ([operatingSystemInterface isOverScan]) {
+            const char* username = [[InApplicationPurchaseFactory getInstance] getUserName];
+            [[self getTextFieldItem] setString:username];
+        }
+    return self;
 }
 
 
-    auto HighScoreTextBox::open() -> void{
-this->virtualKeyboardEventHandler->open();
-    
-this->paintable= NullPaintable::getInstance();
-    
-CustomTextBox::open();
-    
+- (void) initCommands:(CommandListener*)cmdListener {
+        [self removeAllCommands];
+        [[PostGameCommandFactory getInstance] addCommands:self];
+        [self addCommand:(HighScoreUtil_staticInit(), HighScoreUtil_SUBMIT_TEXTBOX_COMMAND)];
+        [self setCommandListener:cmdListener];
 }
 
 
-    auto HighScoreTextBox::close() -> void{
-this->virtualKeyboardEventHandler->close();
-    
-this->paintable= this->pleaseWait;
-    
-this->repaintBehavior->onChangeRepaint(this);
-    
-CustomTextBox::close();
-    
-this->removeCommand(HighScoreUtil::SUBMIT_TEXTBOX_COMMAND);
-    
-this->update();
-    
-
-                        if(this->submitted)
-                        
-                                    {
-                                    this->highScoreUtil->saveHighScore();
-    
-
-                                    }
-                                
-                        else {
-                            
-                        }
-                            
-this->paintable= NullPaintable::getInstance();
-    
-this->repaintBehavior->onChangeRepaint(this);
-    
+- (void) open {
+        [self->virtualKeyboardEventHandler open];
+        self->paintable = [NullPaintable getInstance];
+        [super open];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto HighScoreTextBox::update() -> void{
-
-    std::string name = this->getTextFieldItem()->getString();;
-    
-this->highScoreUtil->update(name);
-    
-CustomTextBox::update();
-    
+// throws Exception
+- (void) close {
+        [self->virtualKeyboardEventHandler close];
+        self->paintable = self->pleaseWait;
+        [self->repaintBehavior onChangeRepaint:self];
+        [super close];
+        [self removeCommand:(HighScoreUtil_staticInit(), HighScoreUtil_SUBMIT_TEXTBOX_COMMAND)];
+        [self update];
+        if (self->submitted) {
+            [self->highScoreUtil saveHighScore];
+        } else {
+        }
+        self->paintable = [NullPaintable getInstance];
+        [self->repaintBehavior onChangeRepaint:self];
 }
 
 
-    auto HighScoreTextBox::paint(Graphics* graphics) -> void{
-CustomTextBox::paint(graphics);
-    
-this->paintable->paint(graphics);
-    
+// throws Exception
+- (void) update {
+        const char* name = [[self getTextFieldItem] getString];
+        [self->highScoreUtil update:name];
+        [super update];
 }
 
 
-    auto HighScoreTextBox::saveHighScore() -> void{
-this->highScoreUtil->saveHighScore();
-    
+- (void) paint:(Graphics*)graphics {
+        [super paint:graphics];
+        [self->paintable paint:graphics];
 }
 
 
-    auto HighScoreTextBox::submit() -> void{
-this->highScoreUtil->submit(this);
-    
+- (void) saveHighScore {
+        [self->highScoreUtil saveHighScore];
 }
 
 
+- (void) submit {
+        [self->highScoreUtil submit:self];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_SCORE_DISPLAYABLE_HIGHSCORETEXTBOX_CPP

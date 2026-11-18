@@ -1,168 +1,75 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/event/UpKeyEventHandler.h"
+#include "org/allbinary/game/input/LocalPlayerInputIdFactory.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/game/input/event/UpKeyEventHandlerBase.h"
 
 
+static UpKeyEventHandler* UpKeyEventHandler_instance;
+static UpKeyEventHandlerBase** UpKeyEventHandler_instanceArray;
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLER_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLER_CPP
+void UpKeyEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    UpKeyEventHandler_instance = [((UpKeyEventHandler*) [UpKeyEventHandler alloc]) init];
+    UpKeyEventHandler_instanceArray = ((UpKeyEventHandlerBase**) java_array_from(sizeof(UpKeyEventHandlerBase*), sizeof((UpKeyEventHandlerBase*[]){ [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init], [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init], [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init], [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init], [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init], [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init] }) / sizeof(UpKeyEventHandlerBase*), (UpKeyEventHandlerBase*[]){ [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init], [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init], [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init], [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init], [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init], [((UpKeyEventHandlerBase*) [UpKeyEventHandlerBase alloc]) init] }));
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/event/UpKeyEventHandler.h"
-        
+@implementation UpKeyEventHandler
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/game/input/LocalPlayerInputIdFactory.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/event/UpKeyEventHandlerBase.h"
-
-auto UpKeyEventHandler::instance_owner() -> UpKeyEventHandler* { static std::unique_ptr<UpKeyEventHandler> value(new UpKeyEventHandler()); return value.get(); }
-UpKeyEventHandler* UpKeyEventHandler::instance = UpKeyEventHandler::instance_owner();
-std::vector<UpKeyEventHandlerBase*> UpKeyEventHandler::instanceArray = 
-                                                        {
-                                                            new UpKeyEventHandlerBase(),new UpKeyEventHandlerBase(),new UpKeyEventHandlerBase(),new UpKeyEventHandlerBase(),new UpKeyEventHandlerBase(),new UpKeyEventHandlerBase()
-                                                        };
-
-    auto UpKeyEventHandler::getInstance() -> UpKeyEventHandler*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return UpKeyEventHandler::instance;
-    
+- (void) initFields {
+    self->playerInputIdFactory = [LocalPlayerInputIdFactory getInstance];
 }
 
 
-    auto UpKeyEventHandler::getInstanceForDevice(int32_t deviceId) -> UpKeyEventHandlerBase*{
-
-    int32_t playerInputId = this->playerInputIdFactory->getPlayerForDevice(deviceId);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return UpKeyEventHandler::instanceArray[playerInputId];
-    
++ (UpKeyEventHandler*) getInstance {
+        return (UpKeyEventHandler_staticInit(), UpKeyEventHandler_instance);
 }
 
 
-    auto UpKeyEventHandler::getInstanceForPlayer(int32_t playerInputId) -> UpKeyEventHandlerBase*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return UpKeyEventHandler::instanceArray[playerInputId];
-    
+- (UpKeyEventHandlerBase*) getInstanceForDevice:(int32_t)deviceId {
+        int32_t playerInputId = [self->playerInputIdFactory getPlayerForDevice:deviceId];
+        return (UpKeyEventHandler_staticInit(), UpKeyEventHandler_instanceArray)[playerInputId];
 }
 
 
-UpKeyEventHandler::UpKeyEventHandler() : playerInputIdFactory(LocalPlayerInputIdFactory::getInstance()){
+- (UpKeyEventHandlerBase*) getInstanceForPlayer:(int32_t)playerInputId {
+        return (UpKeyEventHandler_staticInit(), UpKeyEventHandler_instanceArray)[playerInputId];
 }
 
 
-    auto UpKeyEventHandler::removeAllListeners() -> void{
-UpKeyEventHandlerBase::removeAllListeners();
-    
-
-
-
-
-                        for (
-    int32_t index = UpKeyEventHandler::instanceArray.size() -1;index >= 0; index--)
-        {
-UpKeyEventHandler::instanceArray[index]->removeAllListeners();
-    
-}
-
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto UpKeyEventHandler::removeListenerSingleThreaded(EventListenerInterface* eventListenerInterface) -> void{
-UpKeyEventHandlerBase::removeListenerSingleThreaded(eventListenerInterface);
-    
-
-
-
-
-                        for (
-    int32_t index = UpKeyEventHandler::instanceArray.size() -1;index >= 0; index--)
-        {
-UpKeyEventHandler::instanceArray[index]->removeListenerSingleThreaded(eventListenerInterface);
-    
-}
-
+- (void) removeAllListeners {
+        [super removeAllListeners];
+        for (int32_t index = java_array_length((UpKeyEventHandler_staticInit(), UpKeyEventHandler_instanceArray)) - 1; index >= 0; index--) {
+            [(UpKeyEventHandler_staticInit(), UpKeyEventHandler_instanceArray)[index] removeAllListeners];
+        }
 }
 
 
-    auto UpKeyEventHandler::removeListener(EventListenerInterface* eventListenerInterface) -> void{
-UpKeyEventHandlerBase::removeListener(eventListenerInterface);
-    
-
-
-
-
-                        for (
-    int32_t index = UpKeyEventHandler::instanceArray.size() -1;index >= 0; index--)
-        {
-UpKeyEventHandler::instanceArray[index]->removeListener(eventListenerInterface);
-    
-}
-
+- (void) removeListenerSingleThreaded:(EventListenerInterface*)eventListenerInterface {
+        [super removeListenerSingleThreaded:eventListenerInterface];
+        for (int32_t index = java_array_length((UpKeyEventHandler_staticInit(), UpKeyEventHandler_instanceArray)) - 1; index >= 0; index--) {
+            [(UpKeyEventHandler_staticInit(), UpKeyEventHandler_instanceArray)[index] removeListenerSingleThreaded:eventListenerInterface];
+        }
 }
 
 
+- (void) removeListener:(EventListenerInterface*)eventListenerInterface {
+        [super removeListener:eventListenerInterface];
+        for (int32_t index = java_array_length((UpKeyEventHandler_staticInit(), UpKeyEventHandler_instanceArray)) - 1; index >= 0; index--) {
+            [(UpKeyEventHandler_staticInit(), UpKeyEventHandler_instanceArray)[index] removeListener:eventListenerInterface];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLER_CPP

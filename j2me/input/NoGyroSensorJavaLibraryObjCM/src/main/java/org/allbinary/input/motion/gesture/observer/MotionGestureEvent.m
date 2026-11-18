@@ -1,200 +1,93 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
+#include "org/allbinary/graphics/GPoint.h"
+#include "org/allbinary/graphics/PointFactory.h"
+#include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonLabels.h"
 
 
+static const char* MotionGestureEvent_PREVIOUS = " Previous: ";
+static const char* MotionGestureEvent_HASHCODE = " hashcode: ";
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONGESTUREEVENT_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONGESTUREEVENT_CPP
+void MotionGestureEvent_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
-        
+@implementation MotionGestureEvent
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/graphics/GPoint.h>
-
-      
-#include <org/allbinary/graphics/PointFactory.h>
-
-      
-#include <org/allbinary/input/motion/gesture/MotionGestureInput.h>
-
-      
-#include <org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h>
-
-      
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-MotionGestureEvent::MotionGestureEvent(Object* source, int32_t id, MotionGestureInput* motionGesture) : AllBinaryEventObject(source), motionGesture(TouchMotionGestureFactory::getInstance()->NO_MOTION), previousPoint(PointFactory::getInstance()->ZERO_ZERO), currentPoint(PointFactory::getInstance()->ZERO_ZERO), commonLabels(CommonLabels::getInstance()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->id= id;
+- (void) initFields {
+    self->motionGesture = [TouchMotionGestureFactory getInstance]->NO_MOTION;
     
-this->setMotionGesture(motionGesture);
-    
+    self->previousPoint = [PointFactory getInstance]->ZERO_ZERO;
+    self->currentPoint = [PointFactory getInstance]->ZERO_ZERO;
+    self->commonLabels = [CommonLabels getInstance];
 }
 
 
-    auto MotionGestureEvent::getMotionGesture() -> MotionGestureInput*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->motionGesture;
-    
+- (instancetype) init:(id)source :(int32_t)id_ :(MotionGestureInput*)motionGesture {
+        self = [super init:source];
+        [self initFields];
+        self->id_ = id_;
+        [self setMotionGesture:motionGesture];
+    return self;
 }
 
 
-    auto MotionGestureEvent::setMotionGesture(MotionGestureInput* motionGesture) -> void{
-this->motionGesture= motionGesture;
-    
+- (MotionGestureInput*) getMotionGesture {
+        return self->motionGesture;
 }
 
 
-    auto MotionGestureEvent::getPreviousPoint() -> GPoint*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->previousPoint;
-    
+- (void) setMotionGesture:(MotionGestureInput*)motionGesture {
+        self->motionGesture = motionGesture;
 }
 
 
-    auto MotionGestureEvent::setPreviousPoint(GPoint* previousPoint) -> void{
-this->previousPoint= previousPoint;
-    
+- (GPoint*) getPreviousPoint {
+        return self->previousPoint;
 }
 
 
-    auto MotionGestureEvent::getCurrentPoint() -> GPoint*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->currentPoint;
-    
+- (void) setPreviousPoint:(GPoint*)previousPoint {
+        self->previousPoint = previousPoint;
 }
 
 
-    auto MotionGestureEvent::setCurrentPoint(GPoint* currentPoint) -> void{
-this->currentPoint= currentPoint;
-    
+- (GPoint*) getCurrentPoint {
+        return self->currentPoint;
 }
 
 
-    auto MotionGestureEvent::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-
-    StringUtil* stringUtil = StringUtil::getInstance();;
-    
-stringBuffer->append(stringUtil->toString(this->motionGesture));
-    
-stringBuffer->append(this->commonLabels->CURRENT);
-    
-stringBuffer->append(stringUtil->toString(this->currentPoint));
-    
-stringBuffer->append(MotionGestureEvent::PREVIOUS);
-    
-stringBuffer->append(stringUtil->toString(this->previousPoint));
-    
-stringBuffer->append(MotionGestureEvent::HASHCODE);
-    
-stringBuffer->appendint(TsUtil::getInstance()->hashCode(this));
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (void) setCurrentPoint:(GPoint*)currentPoint {
+        self->currentPoint = currentPoint;
 }
 
 
-    auto MotionGestureEvent::getId() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->id;
-    
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringUtil* stringUtil = [StringUtil getInstance];
+        [stringBuffer append:[stringUtil toString:self->motionGesture]];
+        [stringBuffer append:self->commonLabels->CURRENT];
+        [stringBuffer append:[stringUtil toString:self->currentPoint]];
+        [stringBuffer append:MotionGestureEvent_PREVIOUS];
+        [stringBuffer append:[stringUtil toString:self->previousPoint]];
+        [stringBuffer append:MotionGestureEvent_HASHCODE];
+        [stringBuffer appendint:[[TsUtil getInstance] hashCode:self]];
+        return [stringBuffer toString];
 }
 
 
+- (int32_t) getId {
+        return self->id_;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONGESTUREEVENT_CPP

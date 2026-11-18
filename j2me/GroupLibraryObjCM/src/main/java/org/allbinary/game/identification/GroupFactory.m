@@ -1,181 +1,79 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/identification/GroupFactory.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/game/identification/Group.h"
 
 
+static GroupFactory* GroupFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_IDENTIFICATION_GROUPFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_IDENTIFICATION_GROUPFACTORY_CPP
+void GroupFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GroupFactory_instance = [((GroupFactory*) [GroupFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/identification/GroupFactory.h"
-        
+@implementation GroupFactory
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->NULL_GROUP_ARRAY = ((Group**) java_array_new(sizeof(Group*), 0));
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->index = 0;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (GroupFactory*) getInstance {
+        return (GroupFactory_staticInit(), GroupFactory_instance);
+}
 
 
+- (Group*) getNextGroup {
+        Group* group = ((Group*) self->list->objectArray[self->index]);
+        self->index++;
+        return group;
+}
 
 
+- (Group*) getNextGroupByName:(const char*)name {
+        Group* group = [self getNextGroup];
+        [group setName:name];
+        return group;
+}
 
 
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/identification/Group.h"
-
-
-GroupFactory::GroupFactory() : logUtil(LogUtil::getInstance()), NULL_GROUP_ARRAY({}), list(new BasicArrayListD()) {
+- (void) init_:(int16_t)groups :(const char**)nameArray {
+        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringUtil* stringUtil = [StringUtil getInstance];
+        const char* TEAM = "Team ";
+        [self->list clear];
+        self->index = 0;
+        int32_t size = [self->list size];
+        const char* name = nullptr;
+        while (size < ((int32_t) groups)) {
+            name = stringUtil->EMPTY_STRING;
+            if (size < java_array_length(nameArray)) {
+                name = nameArray[size];
+            } else {
+                [stringMaker delete:0 :[stringMaker length]];
+                name = [[[stringMaker append:TEAM] appendint:size] toString];
+            }
+            [self->list add:[((Group*) [Group alloc]) init:name :((int16_t) (size + 3))]];
+            size++;
         }
-        auto GroupFactory::instance_owner() -> GroupFactory* { static std::unique_ptr<GroupFactory> value(new GroupFactory()); return value.get(); }
-GroupFactory* GroupFactory::instance = GroupFactory::instance_owner();
-
-    auto GroupFactory::getInstance() -> GroupFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GroupFactory::instance;
-    
 }
 
+@end
 
-    auto GroupFactory::getNextGroup() -> Group*{
-
-    Group* group = dynamic_cast<Group*>(this->list->objectArray[this->index]);;
-    
-this->index++;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return group;
-    
-}
-
-
-    auto GroupFactory::getNextGroupByName(std::string name) -> Group*{
-
-    Group* group = this->getNextGroup();;
-    
-group->setName(name);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return group;
-    
-}
-
-
-    auto GroupFactory::init(int16_t groups, std::vector<std::string> nameArray) -> void{
-
-    StringMaker* stringMaker = new StringMaker();;
-    
-
-    StringUtil* stringUtil = StringUtil::getInstance();;
-    
-
-    std::string TEAM = "Team ";;
-    
-this->list->clear();
-    
-this->index= 0;
-    
-
-    int32_t size = this->list->size();;
-    
-
-    std::string name;;
-    
-
-        while(size < groups)
-        {
-name= stringUtil->EMPTY_STRING;
-    
-
-                        if(size < nameArray.size())
-                        
-                                    {
-                                    name= nameArray[size];
-    
-
-                                    }
-                                
-                        else {
-                            stringMaker->delete_(0, stringMaker->length());
-    
-name= JavaString::valueOf(stringMaker->append(TEAM)->appendint(size));
-    
-
-                        }
-                            
-this->list->add(new Group(name, (size +3)));
-    
-size++;
-    
-}
-
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_IDENTIFICATION_GROUPFACTORY_CPP

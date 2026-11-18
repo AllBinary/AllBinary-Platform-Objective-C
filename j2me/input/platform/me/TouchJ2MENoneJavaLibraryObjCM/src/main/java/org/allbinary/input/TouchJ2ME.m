@@ -1,77 +1,35 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/TouchJ2ME.h"
 
 
 
-        #ifndef ORG_ALLBINARY_INPUT_TOUCHJ2ME_CPP
-        #define ORG_ALLBINARY_INPUT_TOUCHJ2ME_CPP
+void TouchJ2ME_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/TouchJ2ME.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
+@implementation TouchJ2ME
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //TouchJ2MENone
-
-TouchJ2ME::TouchJ2ME(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto TouchJ2ME::pointerDragged(int32_t x, int32_t y) -> void{
+- (void) pointerDragged:(int32_t)x :(int32_t)y {
 }
 
 
-    auto TouchJ2ME::pointerPressed(int32_t x, int32_t y) -> void{
+- (void) pointerPressed:(int32_t)x :(int32_t)y {
 }
 
 
-    auto TouchJ2ME::pointerReleased(int32_t x, int32_t y) -> void{
+- (void) pointerReleased:(int32_t)x :(int32_t)y {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_INPUT_TOUCHJ2ME_CPP

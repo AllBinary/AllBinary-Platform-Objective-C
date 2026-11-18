@@ -1,105 +1,57 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/caption/CaptionAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_CAPTION_CAPTIONANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_CAPTION_CAPTIONANIMATION_CPP
+void CaptionAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/caption/CaptionAnimation.h"
-        
+@implementation CaptionAnimation
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CaptionAnimation::CaptionAnimation(Animation* animationInterface, Animation* overlayAnimationInterface, int32_t captionDx, int32_t captionDy, int32_t dx, int32_t dy){
-this->animationInterface= animationInterface;
+- (void) initFields {
     
-this->overlayAnimationInterface= overlayAnimationInterface;
     
-this->captionDx= captionDx;
     
-this->captionDy= captionDy;
     
-this->dx= dx;
     
-this->dy= dy;
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CaptionAnimation::nextFrame() -> void{
+- (instancetype) init:(Animation*)animationInterface :(Animation*)overlayAnimationInterface :(int32_t)captionDx :(int32_t)captionDy :(int32_t)dx :(int32_t)dy {
+    self = [super init];
+    [self initFields];
+        self->animationInterface = animationInterface;
+        self->overlayAnimationInterface = overlayAnimationInterface;
+        self->captionDx = captionDx;
+        self->captionDy = captionDy;
+        self->dx = dx;
+        self->dy = dy;
+    return self;
 }
 
 
-    auto CaptionAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-this->animationInterface->paintXY(graphics, x +this->captionDx, y +this->captionDy);
-    
-this->overlayAnimationInterface->paintXY(graphics, x +this->captionDx +this->dx, y +this->captionDy +this->dy);
-    
+// throws Exception
+- (void) nextFrame {
 }
 
 
-    auto CaptionAnimation::paintThreedXYZ(Graphics* graphics, int32_t x, int32_t y, int32_t z) -> void{
-this->animationInterface->paintThreedXYZ(graphics, x +this->captionDx, y +this->captionDy, z);
-    
-this->overlayAnimationInterface->paintThreedXYZ(graphics, x +this->captionDx +this->dx, y +this->captionDy +this->dy, z);
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [self->animationInterface paintXY:graphics :x + self->captionDx :y + self->captionDy];
+        [self->overlayAnimationInterface paintXY:graphics :x + self->captionDx + self->dx :y + self->captionDy + self->dy];
 }
 
 
+- (void) paintThreedXYZ:(Graphics*)graphics :(int32_t)x :(int32_t)y :(int32_t)z {
+        [self->animationInterface paintThreedXYZ:graphics :x + self->captionDx :y + self->captionDy :z];
+        [self->overlayAnimationInterface paintThreedXYZ:graphics :x + self->captionDx + self->dx :y + self->captionDy + self->dy :z];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_CAPTION_CAPTIONANIMATION_CPP

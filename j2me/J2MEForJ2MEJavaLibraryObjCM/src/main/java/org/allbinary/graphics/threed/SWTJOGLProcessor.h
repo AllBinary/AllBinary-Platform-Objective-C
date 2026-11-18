@@ -1,150 +1,66 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_THREED_SWTJOGLPROCESSOR_H
+#define ORG_ALLBINARY_GRAPHICS_THREED_SWTJOGLPROCESSOR_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.threed
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class SWTJOGLProcessor;
+@class Font;
+@class MIDlet;
+@class RatioProcessor;
+#include "java/lang/Runnable.h"
 
+//OpenGLNone
+@interface SWTJOGLProcessor : ABObject <Runnable> {
+@public
+}
+- (instancetype) init;
++ (SWTJOGLProcessor*) getInstance;
+- (void) init_:(id)display :(id)comp;
+- (bool) isHolderCreated;
+- (void) setRenderer:(id)renderer;
+- (bool) isJOGL;
+- (void) createSurface;
+- (void) onSurfaceCreated;
+- (void) onSurfaceChangedForEvent:(id)event;
+- (void) onSurfaceChanged;
+- (void) onSurfaceChangedWH:(int32_t)width :(int32_t)height;
+- (void) addListener;
+- (void) addListeners:(MIDlet*)midlet;
+- (void) run;
+- (void) clear;
+- (void) setCustom:(int32_t)width :(int32_t)height :(float)ratio;
+- (void) setRatioProcessor:(RatioProcessor*)ratioProcessor;
+- (bool) isPortraitRatioProcessor;
+- (int32_t) charWidth:(Font*)font :(uint16_t)ch;
+- (int32_t) charsWidth:(Font*)font :(uint16_t*)ch :(int32_t)offset :(int32_t)length;
+- (int32_t) stringWidth:(Font*)font :(const char*)str;
+- (int32_t) substringWidth:(Font*)font :(const char*)str :(int32_t)offset :(int32_t)len;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_THREED_SWTJOGLPROCESSOR_H
-        #define ORG_ALLBINARY_GRAPHICS_THREED_SWTJOGLPROCESSOR_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-            #include "java/lang/Runnable.h"
-        
-class Font;
-class MIDlet;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class RatioProcessor;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        //OpenGLNone
-class SWTJOGLProcessor
-            : public virtual Object
-        , public virtual Runnable {
-
-    private: static SWTJOGLProcessor* instance_owner();
-    private: static SWTJOGLProcessor* instance;
-
-    public: static SWTJOGLProcessor* getInstance();
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void SWTJOGLProcessor_staticInit(void);
 
 
-            
-    public: SWTJOGLProcessor();
-        
-    public: void init(Object* display, Object* comp);
-    public: void init(const std::string& display, Object* comp) { return init(JavaString::box(display), comp); }
-
-    public: bool isHolderCreated();
-
-    public: void setRenderer(Object* renderer);
-    public: void setRenderer(const std::string& renderer) { return setRenderer(JavaString::box(renderer)); }
-    public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> void setRenderer(BoxValue renderer) { return setRenderer(JavaBoxes::toObject(renderer)); }
-    public: template<typename BoxElement> void setRenderer(const std::vector<BoxElement>& renderer) { return setRenderer(JavaBoxes::toObject(renderer)); }
-
-    public: bool isJOGL();
-
-    public: void createSurface();
-
-    public: void onSurfaceCreated();
-
-    public: void onSurfaceChangedForEvent(Object* event);
-    public: void onSurfaceChangedForEvent(const std::string& event) { return onSurfaceChangedForEvent(JavaString::box(event)); }
-    public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> void onSurfaceChangedForEvent(BoxValue event) { return onSurfaceChangedForEvent(JavaBoxes::toObject(event)); }
-    public: template<typename BoxElement> void onSurfaceChangedForEvent(const std::vector<BoxElement>& event) { return onSurfaceChangedForEvent(JavaBoxes::toObject(event)); }
-
-    public: void onSurfaceChanged();
-
-    public: void onSurfaceChangedWH(int32_t width, int32_t height);
-
-    public: void addListener();
-
-    public: void addListeners(MIDlet* midlet);
-
-    public: void run();
-
-    public: void clear();
-
-    public: void setCustom(int32_t width, int32_t height, float ratio);
-
-    public: void setRatioProcessor(RatioProcessor* ratioProcessor);
-
-    public: bool isPortraitRatioProcessor();
-
-    public: int32_t charWidth(Font* font, char ch);
-
-    public: int32_t charsWidth(Font* font, std::vector<char> ch, int32_t offset, int32_t length);
-
-    public: int32_t stringWidth(Font* font, std::string str);
-
-    public: int32_t substringWidth(Font* font, std::string str, int32_t offset, int32_t len);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_THREED_SWTJOGLPROCESSOR_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_THREED_SWTJOGLPROCESSOR_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_THREED_SWTJOGLPROCESSOR_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Font.h>)
-#include <javax/microedition/lcdui/Font.h>
-#endif
-#if __has_include(<javax/microedition/midlet/MIDlet.h>)
-#include <javax/microedition/midlet/MIDlet.h>
-#endif
-#if __has_include("org/allbinary/graphics/threed/RatioProcessor.h")
-#include "org/allbinary/graphics/threed/RatioProcessor.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_THREED_SWTJOGLPROCESSOR_H

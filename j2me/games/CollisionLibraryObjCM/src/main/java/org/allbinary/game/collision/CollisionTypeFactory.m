@@ -1,79 +1,38 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/collision/CollisionTypeFactory.h"
+#include "org/allbinary/game/collision/CollisionType.h"
 
 
+static CollisionTypeFactory* CollisionTypeFactory_SINGLETON;
 
-        #ifndef ORG_ALLBINARY_GAME_COLLISION_COLLISIONTYPEFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_COLLISION_COLLISIONTYPEFACTORY_CPP
+void CollisionTypeFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CollisionTypeFactory_SINGLETON = [((CollisionTypeFactory*) [CollisionTypeFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/collision/CollisionTypeFactory.h"
-        
+@implementation CollisionTypeFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->NONE = [((CollisionType*) [CollisionType alloc]) init:"None"];
+    self->DAMAGE = [((CollisionType*) [CollisionType alloc]) init:"Damage"];
+    self->PICKUP = [((CollisionType*) [CollisionType alloc]) init:"Pickup"];
+    self->COLLISION = [((CollisionType*) [CollisionType alloc]) init:"Collision"];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/collision/CollisionType.h"
-
-
-CollisionTypeFactory::CollisionTypeFactory() : NONE(new CollisionType("None")), DAMAGE(new CollisionType("Damage")), PICKUP(new CollisionType("Pickup")), COLLISION(new CollisionType("Collision")) {
-        }
-        auto CollisionTypeFactory::SINGLETON_owner() -> CollisionTypeFactory* { static std::unique_ptr<CollisionTypeFactory> value(new CollisionTypeFactory()); return value.get(); }
-CollisionTypeFactory* CollisionTypeFactory::SINGLETON = CollisionTypeFactory::SINGLETON_owner();
-
-    auto CollisionTypeFactory::getInstance() -> CollisionTypeFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CollisionTypeFactory::SINGLETON;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (CollisionTypeFactory*) getInstance {
+        return (CollisionTypeFactory_staticInit(), CollisionTypeFactory_SINGLETON);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_COLLISION_COLLISIONTYPEFACTORY_CPP

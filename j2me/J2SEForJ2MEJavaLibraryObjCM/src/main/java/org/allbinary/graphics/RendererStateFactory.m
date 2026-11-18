@@ -1,114 +1,55 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/RendererStateFactory.h"
 
 
+static RendererStateFactory* RendererStateFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_RENDERERSTATEFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_RENDERERSTATEFACTORY_CPP
+void RendererStateFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    RendererStateFactory_instance = [((RendererStateFactory*) [RendererStateFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/RendererStateFactory.h"
-        
+@implementation RendererStateFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->loaded = false;
+    self->surfaceChanged = false;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-RendererStateFactory::RendererStateFactory() {
-        }
-        auto RendererStateFactory::instance_owner() -> RendererStateFactory* { static std::unique_ptr<RendererStateFactory> value(new RendererStateFactory()); return value.get(); }
-RendererStateFactory* RendererStateFactory::instance = RendererStateFactory::instance_owner();
-
-    auto RendererStateFactory::getInstance() -> RendererStateFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return RendererStateFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto RendererStateFactory::setLoaded(bool loaded) -> void{
-this->loaded= loaded;
-    
++ (RendererStateFactory*) getInstance {
+        return (RendererStateFactory_staticInit(), RendererStateFactory_instance);
 }
 
 
-    auto RendererStateFactory::isLoaded() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->loaded;
-    
+- (void) setLoaded:(bool)loaded {
+        self->loaded = loaded;
 }
 
 
-    auto RendererStateFactory::setSurfaceChanged(bool initialized) -> void{
-this->surfaceChanged= initialized;
-    
+- (bool) isLoaded {
+        return self->loaded;
 }
 
 
-    auto RendererStateFactory::isSurfaceChanged() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->surfaceChanged;
-    
+- (void) setSurfaceChanged:(bool)initialized {
+        self->surfaceChanged = initialized;
 }
 
 
+- (bool) isSurfaceChanged {
+        return self->surfaceChanged;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_RENDERERSTATEFACTORY_CPP

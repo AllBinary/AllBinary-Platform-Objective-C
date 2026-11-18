@@ -1,195 +1,122 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_HACKROTATIONSPRITEINDEXEDANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_HACKROTATIONSPRITEINDEXEDANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/sprite/HackRotationSpriteIndexedAnimation.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <javax/microedition/lcdui/game/Sprite.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/animation/RotationAnimation.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-#include <org/allbinary/math/AngleInfo.h>
-
-      
-#include <org/allbinary/util/CircularIndexUtil.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/sprite/HackRotationSpriteIndexedAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "javax/microedition/lcdui/game/Sprite.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/math/AngleInfo.h"
+#include "org/allbinary/util/CircularIndexUtil.h"
+#if __has_include("org/allbinary/animation/image/sprite/AngleIncrementInfo.h")
+#include "org/allbinary/animation/image/sprite/AngleIncrementInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AngleIncrementInfo.h")
+#include "javax/microedition/lcdui/AngleIncrementInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AngleIncrementInfo.h")
+#include "javax/microedition/lcdui/AngleIncrementInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/game/AngleIncrementInfo.h")
+#include "javax/microedition/lcdui/game/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleIncrementInfo.h")
+#include "org/allbinary/animation/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleIncrementInfo.h")
+#include "org/allbinary/animation/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/logic/math/AngleIncrementInfo.h")
+#include "org/allbinary/logic/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/util/AngleIncrementInfo.h")
+#include "org/allbinary/util/AngleIncrementInfo.h"
+#endif
 
 
 
+void HackRotationSpriteIndexedAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation HackRotationSpriteIndexedAnimation
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-HackRotationSpriteIndexedAnimation::HackRotationSpriteIndexedAnimation(Sprite* sprite, Image* image, AngleInfo* angleInfo, AnimationBehavior* animationBehavior) : RotationAnimation(angleInfo, CircularIndexUtil::createInstance(360 /angleInfo->getAngleIncrementInfo()->getAngleIncrement()), animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->sprite= sprite;
+- (void) initFields {
     
-this->image= image;
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto HackRotationSpriteIndexedAnimation::getAnimationSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getSize();;
-    
+- (instancetype) init:(Sprite*)sprite :(Image*)image :(AngleInfo*)angleInfo :(AnimationBehavior*)animationBehavior {
+        self = [super init:angleInfo :[CircularIndexUtil createInstance:360 / ((int32_t) [[angleInfo getAngleIncrementInfo] getAngleIncrement])] :animationBehavior];
+        [self initFields];
+        self->sprite = sprite;
+        self->image = image;
+    return self;
 }
 
 
-    auto HackRotationSpriteIndexedAnimation::paintFrame(Graphics* g, int32_t frame, int32_t x, int32_t y) -> void{
-this->setFrame(frame);
-    
-this->paintXY(g, x, y);
-    
+// throws Exception
+- (int32_t) getAnimationSize {
+        return [self getSize];
 }
 
 
-    auto HackRotationSpriteIndexedAnimation::paintXY(Graphics* g, int32_t x, int32_t y) -> void{
-this->sprite->setPosition(x, y);
-    
-this->paint(g);
-    
+- (void) paintFrame:(Graphics*)g :(int32_t)frame :(int32_t)x :(int32_t)y {
+        [self setFrame:frame];
+        [self paintXY:g :x :y];
 }
 
 
-    auto HackRotationSpriteIndexedAnimation::paint(Graphics* g) -> void{
-this->sprite->paint(g);
-    
+- (void) paintXY:(Graphics*)g :(int32_t)x :(int32_t)y {
+        [self->sprite setPosition:x :y];
+        [self paint:g];
 }
 
 
-    auto HackRotationSpriteIndexedAnimation::nextRotation() -> void{
-this->sprite->nextFrame();
-    
+- (void) paint:(Graphics*)g {
+        [self->sprite paint:g];
 }
 
 
-    auto HackRotationSpriteIndexedAnimation::previousRotation() -> void{
-this->sprite->prevFrame();
-    
+- (void) nextRotation {
+        [self->sprite nextFrame];
 }
 
 
-    auto HackRotationSpriteIndexedAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->sprite->getRawFrameCount();;
-    
+- (void) previousRotation {
+        [self->sprite prevFrame];
 }
 
 
-    auto HackRotationSpriteIndexedAnimation::setFrame(int32_t frame) -> void{
-this->sprite->setFrame(frame);
-    
+- (int32_t) getSize {
+        return [self->sprite getRawFrameCount];
 }
 
 
-    auto HackRotationSpriteIndexedAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->sprite->getFrame();;
-    
+- (void) setFrame:(int32_t)frame {
+        [self->sprite setFrame:frame];
 }
 
 
-    auto HackRotationSpriteIndexedAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+- (int32_t) getFrame {
+        return [self->sprite getFrame];
 }
 
 
-    auto HackRotationSpriteIndexedAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_HACKROTATIONSPRITEINDEXEDANIMATION_CPP

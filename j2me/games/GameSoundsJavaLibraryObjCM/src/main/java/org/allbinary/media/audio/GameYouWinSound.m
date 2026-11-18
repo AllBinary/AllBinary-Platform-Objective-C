@@ -1,84 +1,32 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_GAMEYOUWINSOUND_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_GAMEYOUWINSOUND_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/GameYouWinSound.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/CompositeSound.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/GameYouWinSound.h"
+#include "org/allbinary/media/audio/CompositeSound.h"
 #include "org/allbinary/media/audio/Sound.h"
-//Use 8hz16bitmono for most J2ME
-Sound* GameYouWinSound::soundInterface = new GameYouWinSound();
 
-GameYouWinSound::GameYouWinSound() : CompositeSound("resource:/wav/youwin.wav"){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+static Sound* GameYouWinSound_soundInterface;
 
-                            //For kotlin this is before the body of the constructor.
-                    
+void GameYouWinSound_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameYouWinSound_soundInterface = [((GameYouWinSound*) [GameYouWinSound alloc]) init];
+}
+
+@implementation GameYouWinSound
+
+
+- (instancetype) init {
+        self = [super init:"resource:/wav/youwin.wav"];
+    return self;
 }
 
 
-    auto GameYouWinSound::getInstance() -> Sound*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameYouWinSound::soundInterface;
-    
++ (Sound*) getInstance {
+        return (GameYouWinSound_staticInit(), GameYouWinSound_soundInterface);
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_GAMEYOUWINSOUND_CPP

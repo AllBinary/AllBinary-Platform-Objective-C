@@ -1,218 +1,105 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/hud/basic/level/LevelHudWidget.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/math/PrimitiveLongUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_LEVEL_LEVELHUDWIDGET_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_LEVEL_LEVELHUDWIDGET_CPP
+void LevelHudWidget_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/hud/basic/level/LevelHudWidget.h"
-        
+@implementation LevelHudWidget
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/game/graphics/hud/BasicHud.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/paint/PaintableInterface.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveLongUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-                //@Throws(Exception.constructor)
-            
-    auto LevelHudWidget::createHud(int32_t maxlevel, int32_t location, int32_t direction) -> LevelHudWidget*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new LevelHudWidget(maxlevel, location, direction);
+- (void) initFields {
+    
+    
+    
+    self->levelNumberCharArray = [NullUtil getInstance]->NULL_CHAR_ARRAY;
+    self->levelNumberTotalDigits = 0;
+    self->offset = 0;
     
 }
 
 
-LevelHudWidget::LevelHudWidget(int32_t maxlevel, int32_t location, int32_t direction) : BasicHud(location, direction, 2, BasicColorFactory::getInstance()->GREY), levelNumberCharArray(NullUtil::getInstance()->NULL_CHAR_ARRAY){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->primitiveLongUtil= PrimitiveLongUtil::createPowerOfTen(1000);
-    
-
-    std::string LEVEL = "Lv ";;
-    
-this->levelString= JavaString::toCharArray(LEVEL);
-    
-this->maxlevel= maxlevel;
-    
-this->level= maxlevel;
-    
-this->update();
-    
-this->updateMaxHeight= 14;
-    
+// throws Exception
++ (LevelHudWidget*) createHud:(int32_t)maxlevel :(int32_t)location :(int32_t)direction {
+        return [((LevelHudWidget*) [LevelHudWidget alloc]) init:maxlevel :location :direction];
 }
 
 
-    auto LevelHudWidget::updateMeasurement(Graphics* graphics) -> void{
-
-    Font* font = graphics->getFont();;
-    
-this->updateMaxWidth= font->getSize() *4;
-    
-this->offset= font->charsWidth(this->levelString, 0, this->levelString.size()) +font->getSize();
-    
-BasicHud::updateMeasurement(graphics);
-    
+- (instancetype) init:(int32_t)maxlevel :(int32_t)location :(int32_t)direction {
+        self = [super init:location :direction :2 :[BasicColorFactory getInstance]->GREY];
+        [self initFields];
+        self->primitiveLongUtil = [PrimitiveLongUtil createPowerOfTen:1000];
+        const char* LEVEL = "Lv ";
+        self->levelString = java_string_toCharArray(LEVEL);
+        self->maxlevel = maxlevel;
+        self->level = maxlevel;
+        [self update];
+        self->updateMaxHeight = 14;
+    return self;
 }
 
 
-    auto LevelHudWidget::update() -> void{
-this->levelNumberCharArray= this->primitiveLongUtil->getCharArray(this->level);
-    
-this->levelNumberTotalDigits= this->primitiveLongUtil->getCurrentTotalDigits();
-    
+- (void) updateMeasurement:(Graphics*)graphics {
+        Font* font = [graphics getFont];
+        self->updateMaxWidth = [font getSize] * 4;
+        self->offset = [font charsWidth:self->levelString :0 :java_array_length(self->levelString)] + [font getSize];
+        [super updateMeasurement:graphics];
 }
 
 
-    auto LevelHudWidget::setLevel(int32_t level) -> void{
-this->level= level;
-    
-this->update();
-    
+- (void) update {
+        self->levelNumberCharArray = [self->primitiveLongUtil getCharArray:self->level];
+        self->levelNumberTotalDigits = [self->primitiveLongUtil getCurrentTotalDigits];
 }
 
 
-    auto LevelHudWidget::nextLevel() -> void{
-this->level++;
-    
-this->update();
-    
+- (void) setLevel:(int32_t)level {
+        self->level = level;
+        [self update];
 }
 
 
-    auto LevelHudWidget::previousLevel() -> void{
-this->level--;
-    
-
-                        if(this->level < 0)
-                        
-                                    {
-                                    this->level= 0;
-    
-
-                                    }
-                                
-this->update();
-    
+- (void) nextLevel {
+        self->level++;
+        [self update];
 }
 
 
-    auto LevelHudWidget::isComplete() -> bool{
-
-                        if(this->level <= this->maxlevel)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                        }
-                            
+- (void) previousLevel {
+        self->level--;
+        if (self->level < 0) {
+            self->level = 0;
+        }
+        [self update];
 }
 
 
-    auto LevelHudWidget::paint(Graphics* graphics) -> void{
-BasicHud::paintDX(graphics, this->levelString, 0, this->levelString.size(), this->levelNumberCharArray, 0, this->levelNumberTotalDigits, this->offset);
-    
+- (bool) isComplete {
+        if (self->level <= self->maxlevel) {
+            return false;
+        } else {
+            return true;
+        }
 }
 
 
-    auto LevelHudWidget::paintThreed(Graphics* graphics) -> void{
+- (void) paint:(Graphics*)graphics {
+        [super paintDX:graphics :self->levelString :0 :java_array_length(self->levelString) :self->levelNumberCharArray :0 :self->levelNumberTotalDigits :self->offset];
 }
 
 
+- (void) paintThreed:(Graphics*)graphics {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_LEVEL_LEVELHUDWIDGET_CPP

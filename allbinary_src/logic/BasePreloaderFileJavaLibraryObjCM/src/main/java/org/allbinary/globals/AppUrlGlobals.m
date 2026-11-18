@@ -1,136 +1,61 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/globals/AppUrlGlobals.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/globals/UrlGlobalsInterface.h"
 
 
+AppUrlGlobals* AppUrlGlobals_NULL_APP_URL_GLOBALS;
 
-        #ifndef ORG_ALLBINARY_GLOBALS_APPURLGLOBALS_CPP
-        #define ORG_ALLBINARY_GLOBALS_APPURLGLOBALS_CPP
+void AppUrlGlobals_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AppUrlGlobals_NULL_APP_URL_GLOBALS = [((AppUrlGlobals*) [AppUrlGlobals alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/globals/AppUrlGlobals.h"
-        
+@implementation AppUrlGlobals
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->path = [StringUtil getInstance]->EMPTY_STRING;
+}
 
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
+- (bool) isTestingMode {
+        return false;
+}
 
 
+- (const char*) getWebappPath {
+        return self->path;
+}
 
 
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/globals/UrlGlobalsInterface.h"
-//implements
-
-AppUrlGlobals::AppUrlGlobals() : path(StringUtil::getInstance()->EMPTY_STRING) {
+// synchronized
+- (void) setWebappPath:(const char*)path {
+        self->path = path;
+        if (!(java_string_endsWith(self->path, "\\") || java_string_endsWith(self->path, "/"))) {
+            self->path = java_concat(self->path, "\\");
         }
-        auto AppUrlGlobals::NULL_APP_URL_GLOBALS_owner() -> AppUrlGlobals* { static std::unique_ptr<AppUrlGlobals> value(new AppUrlGlobals()); return value.get(); }
-AppUrlGlobals* AppUrlGlobals::NULL_APP_URL_GLOBALS = AppUrlGlobals::NULL_APP_URL_GLOBALS_owner();
-
-    auto AppUrlGlobals::isTestingMode() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
 }
 
 
-    auto AppUrlGlobals::getWebappPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->path;
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto AppUrlGlobals::setWebappPath(std::string path) -> void{
-this->path= path;
-    
-
-                        if(!(JavaString::endsWith(this->path, "\\") || JavaString::endsWith(this->path, "/")))
-                        
-                                    {
-                                    this->path= JavaString::valueOf(this->path) +JavaString::valueOf("\\");
-    
-
-                                    }
-                                
+- (const char*) getTestHtmlPath {
+        return [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-    auto AppUrlGlobals::getTestHtmlPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->EMPTY_STRING;
-    
+// throws Exception
+- (const char*) getMainPath {
+        return self->path;
 }
 
+@end
 
-                //@Throws(Exception.constructor)
-            
-    auto AppUrlGlobals::getMainPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->path;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GLOBALS_APPURLGLOBALS_CPP

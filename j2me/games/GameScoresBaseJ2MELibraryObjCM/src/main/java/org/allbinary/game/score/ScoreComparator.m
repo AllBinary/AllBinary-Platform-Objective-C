@@ -1,293 +1,89 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/ScoreComparator.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_SCORE_SCORECOMPARATOR_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_SCORECOMPARATOR_CPP
+void ScoreComparator_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/ScoreComparator.h"
-        
+@implementation ScoreComparator
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Long.h"
-        
-#include <java/io/ByteArrayInputStream.h>
-
-      
-#include <java/io/DataInputStream.h>
-
-      
-#include <java/io/EOFException.h>
-
-      
-#include <java/io/IOException.h>
-
-      
-#include <javax/microedition/rms/RecordComparator.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ScoreComparator::ScoreComparator(bool isHighestBest) : logUtil(LogUtil::getInstance()){
-this->isHighestBest= isHighestBest;
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
     
 }
 
 
-    auto ScoreComparator::getBestScore() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->isHighestBest
-                        ?       
-                                Long.MAX_VALUE
-                                :
-
-                            0;;
-    
+- (instancetype) init:(bool)isHighestBest {
+    self = [super init];
+    [self initFields];
+        self->isHighestBest = isHighestBest;
+    return self;
 }
 
 
-    auto ScoreComparator::compare(std::vector<int8_t> recordOne, std::vector<int8_t> recordTwo) -> int32_t{
-
-    ByteArrayInputStream* byteArrayInputStreamOne = new ByteArrayInputStream(recordOne);;
-    
-
-    DataInputStream* inputStreamOne = new DataInputStream(byteArrayInputStreamOne);;
-    
-
-    ByteArrayInputStream* byteArrayInputStreamTwo = new ByteArrayInputStream(recordTwo);;
-    
-
-    DataInputStream* inputStreamTwo = new DataInputStream(byteArrayInputStreamTwo);;
-    
-
-    int64_t scoreOne = 0;;
-    
-
-    int64_t scoreTwo = 0;;
-    
-
-        try {
-            inputStreamOne->readUTF();
-    
-inputStreamTwo->readUTF();
-    
-scoreOne= inputStreamOne->readLong();
-    
-scoreTwo= inputStreamTwo->readLong();
-    
-
-                //: 
-} catch(EOFException& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, "compare", &e);
-    
-}
-
-                //: 
- catch(IOException& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, "compare", &e);
-    
-}
-
-                //: 
- catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, "compare", &e);
-    
+- (int64_t) getBestScore {
+        return (self->isHighestBest ? (Long_staticInit(), Long_MAX_VALUE) : 0);
 }
 
 
-                        if(this->isHighestBest)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getHighTooLow(scoreOne, scoreTwo);;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getLowTooHigh(scoreOne, scoreTwo);;
-    
-
-                        }
-                            
+- (int32_t) compare:(int8_t*)recordOne :(int8_t*)recordTwo {
+        ByteArrayInputStream* byteArrayInputStreamOne = [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordOne];
+        DataInputStream* inputStreamOne = [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStreamOne];
+        ByteArrayInputStream* byteArrayInputStreamTwo = [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordTwo];
+        DataInputStream* inputStreamTwo = [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStreamTwo];
+        int64_t scoreOne = 0LL;
+        int64_t scoreTwo = 0LL;
+        JAVA_TRY {
+            [inputStreamOne readUTF];
+            [inputStreamTwo readUTF];
+            scoreOne = [inputStreamOne readLong];
+            scoreTwo = [inputStreamTwo readLong];
+        } JAVA_CATCH(EOFException, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :"compare" :e];
+        } JAVA_CATCH(IOException, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :"compare" :e];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :"compare" :e];
+        } JAVA_END_TRY;
+        if (self->isHighestBest) {
+            return [self getHighTooLow:scoreOne :scoreTwo];
+        } else {
+            return [self getLowTooHigh:scoreOne :scoreTwo];
+        }
 }
 
 
-    auto ScoreComparator::getHighTooLow(int64_t scoreOne, int64_t scoreTwo) -> int32_t{
-
-                        if(scoreOne > scoreTwo)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return RecordComparator::PRECEDES;
-    
-
-                                    }
-                                
-                             else 
-                        if(scoreOne < scoreTwo)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return RecordComparator::FOLLOWS;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return RecordComparator::EQUIVALENT;
-    
-
-                        }
-                            
+- (int32_t) getHighTooLow:(int64_t)scoreOne :(int64_t)scoreTwo {
+        if (scoreOne > scoreTwo) {
+            return (RecordComparator_staticInit(), RecordComparator_PRECEDES);
+        } else if (scoreOne < scoreTwo) {
+            return (RecordComparator_staticInit(), RecordComparator_FOLLOWS);
+        } else {
+            return (RecordComparator_staticInit(), RecordComparator_EQUIVALENT);
+        }
 }
 
 
-    auto ScoreComparator::getLowTooHigh(int64_t scoreOne, int64_t scoreTwo) -> int32_t{
-
-                        if(scoreOne < scoreTwo)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return RecordComparator::PRECEDES;
-    
-
-                                    }
-                                
-                             else 
-                        if(scoreOne > scoreTwo)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return RecordComparator::FOLLOWS;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return RecordComparator::EQUIVALENT;
-    
-
-                        }
-                            
+- (int32_t) getLowTooHigh:(int64_t)scoreOne :(int64_t)scoreTwo {
+        if (scoreOne < scoreTwo) {
+            return (RecordComparator_staticInit(), RecordComparator_PRECEDES);
+        } else if (scoreOne > scoreTwo) {
+            return (RecordComparator_staticInit(), RecordComparator_FOLLOWS);
+        } else {
+            return (RecordComparator_staticInit(), RecordComparator_EQUIVALENT);
+        }
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_SCORE_SCORECOMPARATOR_CPP

@@ -1,80 +1,30 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/part/PartInterfaceUtil.h"
+#include "org/allbinary/game/part/PartInterface.h"
 
 
+static PartInterface** PartInterfaceUtil_SINGLETON;
 
-        #ifndef ORG_ALLBINARY_GAME_PART_PARTINTERFACEUTIL_CPP
-        #define ORG_ALLBINARY_GAME_PART_PARTINTERFACEUTIL_CPP
+void PartInterfaceUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PartInterfaceUtil_SINGLETON = ((PartInterface**) java_array_new(sizeof(PartInterface*), 0));
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/part/PartInterfaceUtil.h"
-        
+@implementation PartInterfaceUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/part/PartInterface.h"
-
-
-PartInterfaceUtil::PartInterfaceUtil() {
-        }
-        std::vector<PartInterface*> PartInterfaceUtil::SINGLETON = {};
-
-    auto PartInterfaceUtil::getZeroArray() -> std::vector<PartInterface*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PartInterfaceUtil::SINGLETON;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
++ (PartInterface**) getZeroArray {
+        return (PartInterfaceUtil_staticInit(), PartInterfaceUtil_SINGLETON);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_PART_PARTINTERFACEUTIL_CPP

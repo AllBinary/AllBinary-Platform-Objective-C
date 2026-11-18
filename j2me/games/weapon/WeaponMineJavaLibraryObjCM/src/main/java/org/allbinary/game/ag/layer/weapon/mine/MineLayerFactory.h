@@ -1,102 +1,54 @@
+#ifndef ORG_ALLBINARY_GAME_AG_LAYER_WEAPON_MINE_MINELAYERFACTORY_H
+#define ORG_ALLBINARY_GAME_AG_LAYER_WEAPON_MINE_MINELAYERFACTORY_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.weapon.mine
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_WEAPON_MINE_MINELAYERFACTORY_H
-        #define ORG_ALLBINARY_GAME_AG_LAYER_WEAPON_MINE_MINELAYERFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-class AllBinaryLayer;
-#include <org/allbinary/layer/AllBinaryLayerFactoryInterface.h>
-class ViewPositionFactoryInterface;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class MineLayer;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class MineLayerFactory
-            : public virtual Object
-        , public virtual AllBinaryLayerFactoryInterface {
-
-    private: ViewPositionFactoryInterface* viewPositionFactoryInterface;
-
-public: MineLayerFactory(ViewPositionFactoryInterface* viewPositionFactoryInterface);
-
-                //@Throws(Exception.constructor)
-            
-    public: AllBinaryLayer* getInstance();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_WEAPON_MINE_MINELAYERFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_AG_LAYER_WEAPON_MINE_MINELAYERFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_AG_LAYER_WEAPON_MINE_MINELAYERFACTORY_H_COMPLETE
-        #if __has_include(<org/allbinary/layer/AllBinaryLayer.h>)
-#include <org/allbinary/layer/AllBinaryLayer.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayerFactoryInterface.h>)
-#include <org/allbinary/layer/AllBinaryLayerFactoryInterface.h>
-#endif
-#if __has_include(<org/allbinary/view/ViewPositionFactoryInterface.h>)
-#include <org/allbinary/view/ViewPositionFactoryInterface.h>
-#endif
-#if __has_include("org/allbinary/game/ag/layer/weapon/mine/MineLayer.h")
-#include "org/allbinary/game/ag/layer/weapon/mine/MineLayer.h"
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class MineLayerFactory;
+@class AllBinaryLayer;
+@class AllBinaryLayerFactoryInterface;
+@class ViewPositionFactoryInterface;
+@class MineLayer;
+#include "org/allbinary/layer/AllBinaryLayerFactoryInterface.h"
+#if __has_include("org/allbinary/view/ViewPositionFactoryInterface.h")
+#include "org/allbinary/view/ViewPositionFactoryInterface.h"
 #endif
 
-        #endif
-    
+@interface MineLayerFactory : ABObject <AllBinaryLayerFactoryInterface> {
+@public
+    ViewPositionFactoryInterface* viewPositionFactoryInterface;
+}
+- (instancetype) init:(ViewPositionFactoryInterface*)viewPositionFactoryInterface;
+- (void) initFields;
+- (AllBinaryLayer*) getInstance;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void MineLayerFactory_staticInit(void);
+
+#if __has_include("org/allbinary/layer/AllBinaryLayer.h")
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#endif
+
+#endif // ORG_ALLBINARY_GAME_AG_LAYER_WEAPON_MINE_MINELAYERFACTORY_H

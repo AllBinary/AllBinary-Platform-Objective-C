@@ -1,215 +1,119 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/threed/SWTJOGLProcessor.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "javax/microedition/midlet/MIDlet.h"
+#include "org/allbinary/graphics/threed/RatioProcessor.h"
 
 
+static SWTJOGLProcessor* SWTJOGLProcessor_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_THREED_SWTJOGLPROCESSOR_CPP
-        #define ORG_ALLBINARY_GRAPHICS_THREED_SWTJOGLPROCESSOR_CPP
+void SWTJOGLProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    SWTJOGLProcessor_instance = [((SWTJOGLProcessor*) [SWTJOGLProcessor alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/threed/SWTJOGLProcessor.h"
-        
+@implementation SWTJOGLProcessor
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-            #include "java/lang/Runnable.h"
-        
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <javax/microedition/midlet/MIDlet.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/threed/RatioProcessor.h"
-//OpenGLNone
-
-SWTJOGLProcessor::SWTJOGLProcessor() {
-        }
-        auto SWTJOGLProcessor::instance_owner() -> SWTJOGLProcessor* { static std::unique_ptr<SWTJOGLProcessor> value(new SWTJOGLProcessor()); return value.get(); }
-SWTJOGLProcessor* SWTJOGLProcessor::instance = SWTJOGLProcessor::instance_owner();
-
-    auto SWTJOGLProcessor::getInstance() -> SWTJOGLProcessor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return SWTJOGLProcessor::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto SWTJOGLProcessor::init(Object* display, Object* comp) -> void{
++ (SWTJOGLProcessor*) getInstance {
+        return (SWTJOGLProcessor_staticInit(), SWTJOGLProcessor_instance);
 }
 
 
-    auto SWTJOGLProcessor::isHolderCreated() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
+- (void) init_:(id)display :(id)comp {
 }
 
 
-    auto SWTJOGLProcessor::setRenderer(Object* renderer) -> void{
+- (bool) isHolderCreated {
+        return true;
 }
 
 
-    auto SWTJOGLProcessor::isJOGL() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (void) setRenderer:(id)renderer {
 }
 
 
-    auto SWTJOGLProcessor::createSurface() -> void{
+- (bool) isJOGL {
+        return false;
 }
 
 
-    auto SWTJOGLProcessor::onSurfaceCreated() -> void{
+- (void) createSurface {
 }
 
 
-    auto SWTJOGLProcessor::onSurfaceChangedForEvent(Object* event) -> void{
+- (void) onSurfaceCreated {
 }
 
 
-    auto SWTJOGLProcessor::onSurfaceChanged() -> void{
+- (void) onSurfaceChangedForEvent:(id)event {
 }
 
 
-    auto SWTJOGLProcessor::onSurfaceChangedWH(int32_t width, int32_t height) -> void{
+- (void) onSurfaceChanged {
 }
 
 
-    auto SWTJOGLProcessor::addListener() -> void{
+- (void) onSurfaceChangedWH:(int32_t)width :(int32_t)height {
 }
 
 
-    auto SWTJOGLProcessor::addListeners(MIDlet* midlet) -> void{
+- (void) addListener {
 }
 
 
-    auto SWTJOGLProcessor::run() -> void{
+- (void) addListeners:(MIDlet*)midlet {
 }
 
 
-    auto SWTJOGLProcessor::clear() -> void{
+- (void) run {
 }
 
 
-    auto SWTJOGLProcessor::setCustom(int32_t width, int32_t height, float ratio) -> void{
+- (void) clear {
 }
 
 
-    auto SWTJOGLProcessor::setRatioProcessor(RatioProcessor* ratioProcessor) -> void{
+- (void) setCustom:(int32_t)width :(int32_t)height :(float)ratio {
 }
 
 
-    auto SWTJOGLProcessor::isPortraitRatioProcessor() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
+- (void) setRatioProcessor:(RatioProcessor*)ratioProcessor {
 }
 
 
-    auto SWTJOGLProcessor::charWidth(Font* font, char ch) -> int32_t{
-
-
-
-                            throw RuntimeException();
-                    
+- (bool) isPortraitRatioProcessor {
+        return true;
 }
 
 
-    auto SWTJOGLProcessor::charsWidth(Font* font, std::vector<char> ch, int32_t offset, int32_t length) -> int32_t{
-
-
-
-                            throw RuntimeException();
-                    
+- (int32_t) charWidth:(Font*)font :(uint16_t)ch {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-    auto SWTJOGLProcessor::stringWidth(Font* font, std::string str) -> int32_t{
-
-
-
-                            throw RuntimeException();
-                    
+- (int32_t) charsWidth:(Font*)font :(uint16_t*)ch :(int32_t)offset :(int32_t)length {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-    auto SWTJOGLProcessor::substringWidth(Font* font, std::string str, int32_t offset, int32_t len) -> int32_t{
-
-
-
-                            throw RuntimeException();
-                    
+- (int32_t) stringWidth:(Font*)font :(const char*)str {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
+- (int32_t) substringWidth:(Font*)font :(const char*)str :(int32_t)offset :(int32_t)len {
+        java_throw(java_exception_new("RuntimeException", ""));
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_THREED_SWTJOGLPROCESSOR_CPP

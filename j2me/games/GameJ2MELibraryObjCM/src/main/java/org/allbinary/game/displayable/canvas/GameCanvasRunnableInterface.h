@@ -1,138 +1,64 @@
+#ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_GAMECANVASRUNNABLEINTERFACE_H
+#define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_GAMECANVASRUNNABLEINTERFACE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class GameCanvasRunnableInterface;
+@class CommandListener;
+@class ItemStateListener;
+@class GameStateCompositeInterface;
+@class PaintableInterface;
+@class RunnableInterface;
+@class ABHashtable;
+#include "javax/microedition/lcdui/ItemStateListener.h"
+#include "org/allbinary/game/state/GameStateCompositeInterface.h"
+#include "org/allbinary/graphics/paint/PaintableInterface.h"
+#include "org/allbinary/thread/RunnableInterface.h"
 
+@protocol GameCanvasRunnableInterface <RunnableInterface, PaintableInterface, ItemStateListener, GameStateCompositeInterface>
+- (const char*) getTitle;
+- (bool) isInitialized;
+- (bool) isPaused;
+- (void) unPause;
+- (void) pause;
+- (bool) isHighScoreSubmitted;
+- (void) setHighScoreSubmitted:(bool)highScoreSubmitted;
+- (void) processGameOver;
+- (bool) isGameOver;
+- (void) initCommands:(CommandListener*)cmdListener;
+- (ABHashtable*) getCurrentStateHashtable;
+- (ABHashtable*) getLoadStateHashtable;
+- (void) setLoadStateHashtable:(ABHashtable*)hashtable;
+- (int32_t) getType;
+@end
 
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void GameCanvasRunnableInterface_staticInit(void);
 
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_GAMECANVASRUNNABLEINTERFACE_H
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_GAMECANVASRUNNABLEINTERFACE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-class CommandListener;
-#include <javax/microedition/lcdui/ItemStateListener.h>
-#include <org/allbinary/game/state/GameStateCompositeInterface.h>
-#include <org/allbinary/graphics/paint/PaintableInterface.h>
-#include <org/allbinary/thread/RunnableInterface.h>
-template<typename T1, typename T2> class ABHashtable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class GameCanvasRunnableInterface: public virtual RunnableInterface, public virtual PaintableInterface, public virtual ItemStateListener, public virtual GameStateCompositeInterface {
-
-    public: virtual std::string getTitle() = 0;
-
-    public: virtual bool isInitialized() = 0;
-
-    public: virtual bool isPaused() = 0;
-
-    public: virtual void unPause() = 0;
-
-    public: virtual void pause() = 0;
-
-    public: virtual bool isHighScoreSubmitted() = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void setHighScoreSubmitted(bool highScoreSubmitted) = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void processGameOver() = 0;
-
-    public: virtual bool isGameOver() = 0;
-
-    public: virtual void initCommands(CommandListener* cmdListener) = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual ABHashtable<Object*, Object*>* getCurrentStateHashtable() = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual ABHashtable<Object*, Object*>* getLoadStateHashtable() = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void setLoadStateHashtable(ABHashtable<Object*, Object*>* hashtable) = 0;
-
-    public: virtual int32_t getType() = 0;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_GAMECANVASRUNNABLEINTERFACE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_GAMECANVASRUNNABLEINTERFACE_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_GAMECANVASRUNNABLEINTERFACE_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/CommandListener.h>)
-#include <javax/microedition/lcdui/CommandListener.h>
-#endif
-#if __has_include(<javax/microedition/lcdui/ItemStateListener.h>)
-#include <javax/microedition/lcdui/ItemStateListener.h>
-#endif
-#if __has_include(<org/allbinary/game/state/GameStateCompositeInterface.h>)
-#include <org/allbinary/game/state/GameStateCompositeInterface.h>
-#endif
-#if __has_include(<org/allbinary/graphics/paint/PaintableInterface.h>)
-#include <org/allbinary/graphics/paint/PaintableInterface.h>
-#endif
-#if __has_include(<org/allbinary/thread/RunnableInterface.h>)
-#include <org/allbinary/thread/RunnableInterface.h>
-#endif
-#if __has_include(<org/allbinary/util/ABHashtable.h>)
-#include <org/allbinary/util/ABHashtable.h>
+#if __has_include("org/allbinary/util/ABHashtable.h")
+#include "org/allbinary/util/ABHashtable.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_GAMECANVASRUNNABLEINTERFACE_H

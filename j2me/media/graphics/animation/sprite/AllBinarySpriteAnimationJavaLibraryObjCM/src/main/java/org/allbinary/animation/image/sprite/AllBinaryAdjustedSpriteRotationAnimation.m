@@ -1,94 +1,42 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/sprite/AllBinaryAdjustedSpriteRotationAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "javax/microedition/lcdui/game/Sprite.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/animation/image/sprite/AllBinarySpriteRotationAnimation.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ALLBINARYADJUSTEDSPRITEROTATIONANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ALLBINARYADJUSTEDSPRITEROTATIONANIMATION_CPP
+void AllBinaryAdjustedSpriteRotationAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/sprite/AllBinaryAdjustedSpriteRotationAnimation.h"
-        
+@implementation AllBinaryAdjustedSpriteRotationAnimation
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <javax/microedition/lcdui/game/Sprite.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/sprite/AllBinarySpriteRotationAnimation.h"
-
-
-AllBinaryAdjustedSpriteRotationAnimation::AllBinaryAdjustedSpriteRotationAnimation(Sprite* sprite, Image* image, int32_t dx, int32_t dy, AnimationBehavior* animationBehavior) : AllBinarySpriteRotationAnimation(sprite, image, animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->dx= dx;
+- (void) initFields {
     
-this->dy= dy;
     
 }
 
 
-    auto AllBinaryAdjustedSpriteRotationAnimation::paintXY(Graphics* g, int32_t x, int32_t y) -> void{
-this->sprite->setPosition(x +this->dx, y +this->dy);
-    
-this->paint(g);
-    
+- (instancetype) init:(Sprite*)sprite :(Image*)image :(int32_t)dx :(int32_t)dy :(AnimationBehavior*)animationBehavior {
+        self = [super init:sprite :image :animationBehavior];
+        [self initFields];
+        self->dx = dx;
+        self->dy = dy;
+    return self;
 }
 
 
+- (void) paintXY:(Graphics*)g :(int32_t)x :(int32_t)y {
+        [self->sprite setPosition:x + self->dx :y + self->dy];
+        [self paint:g];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ALLBINARYADJUSTEDSPRITEROTATIONANIMATION_CPP

@@ -1,132 +1,65 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/displayable/canvas/EndGameInfo.h"
+#include "org/allbinary/game/GameInfo.h"
+#include "org/allbinary/graphics/displayable/MyCanvas.h"
+#include "org/allbinary/logic/string/StringUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_ENDGAMEINFO_CPP
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_ENDGAMEINFO_CPP
+void EndGameInfo_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/displayable/canvas/EndGameInfo.h"
-        
+@implementation EndGameInfo
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->NORMAL_GAME_OVER_WIN = "You Won";
+    self->TEASER_DEMO_GAME_END_LAST_LEVEL = "End of Demo.";
+    self->TEASER_DEMO_GAME_END = "Demo Game Over.";
+    self->gameOverStr = [StringUtil getInstance]->EMPTY_STRING;
+    self->winStr = self->gameOverStr;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/GameInfo.h>
-
-      
-#include <org/allbinary/graphics/displayable/MyCanvas.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-EndGameInfo::EndGameInfo() : gameOverStr(StringUtil::getInstance()->EMPTY_STRING), winStr(this->gameOverStr) {
+- (void) update:(GameInfo*)gameInfo :(MyCanvas*)myCanvas {
+        if ([gameInfo isLastLevel]) {
+            [self setWinStr:self->TEASER_DEMO_GAME_END_LAST_LEVEL];
+            [self setGameOverStr:self->TEASER_DEMO_GAME_END_LAST_LEVEL];
+        } else {
+            [self setWinStr:self->NORMAL_GAME_OVER_WIN];
+            [self setGameOverStr:self->TEASER_DEMO_GAME_END];
         }
-        
-    auto EndGameInfo::update(GameInfo* gameInfo, MyCanvas* myCanvas) -> void{
-
-                        if(gameInfo->isLastLevel())
-                        
-                                    {
-                                    this->setWinStr(this->TEASER_DEMO_GAME_END_LAST_LEVEL);
-    
-this->setGameOverStr(this->TEASER_DEMO_GAME_END_LAST_LEVEL);
-    
-
-                                    }
-                                
-                        else {
-                            this->setWinStr(this->NORMAL_GAME_OVER_WIN);
-    
-this->setGameOverStr(this->TEASER_DEMO_GAME_END);
-    
-
-                        }
-                            
 }
 
 
-    auto EndGameInfo::getGameOverStr() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gameOverStr;
-    
+- (const char*) getGameOverStr {
+        return self->gameOverStr;
 }
 
 
-    auto EndGameInfo::setGameOverStr(std::string gameOverStr) -> void{
-this->gameOverStr= gameOverStr;
-    
+- (void) setGameOverStr:(const char*)gameOverStr {
+        self->gameOverStr = gameOverStr;
 }
 
 
-    auto EndGameInfo::getWinStr() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->winStr;
-    
+- (const char*) getWinStr {
+        return self->winStr;
 }
 
 
-    auto EndGameInfo::setWinStr(std::string winStr) -> void{
-this->winStr= winStr;
-    
+- (void) setWinStr:(const char*)winStr {
+        self->winStr = winStr;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_ENDGAMEINFO_CPP

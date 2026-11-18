@@ -1,116 +1,56 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/AllBinarySensorManager.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
+static id AllBinarySensorManager_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_ALLBINARYSENSORMANAGER_CPP
-        #define ORG_ALLBINARY_INPUT_ALLBINARYSENSORMANAGER_CPP
+void AllBinarySensorManager_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AllBinarySensorManager_instance = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/AllBinarySensorManager.h"
-        
+@implementation AllBinarySensorManager
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-Object* AllBinarySensorManager::instance = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto AllBinarySensorManager::getInstance() -> AllBinarySensorManager*{
-
-                        if(AllBinarySensorManager::instance == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    AllBinarySensorManager::instance= new AllBinarySensorManager();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<AllBinarySensorManager*>(AllBinarySensorManager::instance);
-    
+- (void) initFields {
+    self->ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
+    self->ORIENTATION_TYPE = "Orientation Type";
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-AllBinarySensorManager::AllBinarySensorManager() : list(new BasicArrayListD()){
++ (AllBinarySensorManager*) getInstance {
+        if ((AllBinarySensorManager_staticInit(), AllBinarySensorManager_instance) == [NullUtil getInstance]->NULL_OBJECT) {
+            AllBinarySensorManager_instance = [((AllBinarySensorManager*) [AllBinarySensorManager alloc]) init];
+        }
+        return ((AllBinarySensorManager*) (AllBinarySensorManager_staticInit(), AllBinarySensorManager_instance));
 }
 
 
-    auto AllBinarySensorManager::init() -> void{
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto AllBinarySensorManager::getSensorNamesList() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list;
-    
+- (void) init_ {
 }
 
 
-    auto AllBinarySensorManager::shutdown() -> void{
+- (BasicArrayList*) getSensorNamesList {
+        return self->list;
 }
 
 
+- (void) shutdown {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_ALLBINARYSENSORMANAGER_CPP

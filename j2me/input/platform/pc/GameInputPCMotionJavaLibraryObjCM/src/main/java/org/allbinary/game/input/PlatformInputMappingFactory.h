@@ -1,109 +1,58 @@
+#ifndef ORG_ALLBINARY_GAME_INPUT_PLATFORMINPUTMAPPINGFACTORY_H
+#define ORG_ALLBINARY_GAME_INPUT_PLATFORMINPUTMAPPINGFACTORY_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.input
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_PLATFORMINPUTMAPPINGFACTORY_H
-        #define ORG_ALLBINARY_GAME_INPUT_PLATFORMINPUTMAPPINGFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-class PersistentInputMapping;
-class LogUtil;
-class CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class MotionLaptopGameInputMapping;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class PlatformInputMappingFactory
-            : public virtual Object
-         {
-
-    private: static PlatformInputMappingFactory* instance_owner();
-    private: static PlatformInputMappingFactory* instance;
-
-    public: static PlatformInputMappingFactory* getInstance();
-
-
-            
-    public: PlatformInputMappingFactory();
-        
-    /*protected*/ public: LogUtil* logUtil;
-
-    private: PersistentInputMapping* inputToGameKeyMapping;
-
-    public: PersistentInputMapping* getPersistentInputMappingInstance();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_PLATFORMINPUTMAPPINGFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_INPUT_PLATFORMINPUTMAPPINGFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_INPUT_PLATFORMINPUTMAPPINGFACTORY_H_COMPLETE
-        #if __has_include(<org/allbinary/game/input/mapping/PersistentInputMapping.h>)
-#include <org/allbinary/game/input/mapping/PersistentInputMapping.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class PlatformInputMappingFactory;
+@class PersistentInputMapping;
+@class LogUtil;
+@class CommonStrings;
+@class MotionLaptopGameInputMapping;
+#if __has_include("org/allbinary/game/input/mapping/PersistentInputMapping.h")
+#include "org/allbinary/game/input/mapping/PersistentInputMapping.h"
 #endif
-#if __has_include(<org/allbinary/logic/communication/log/LogUtil.h>)
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-#endif
-#if __has_include(<org/allbinary/string/CommonStrings.h>)
-#include <org/allbinary/string/CommonStrings.h>
-#endif
-#if __has_include("org/allbinary/game/input/MotionLaptopGameInputMapping.h")
-#include "org/allbinary/game/input/MotionLaptopGameInputMapping.h"
+#if __has_include("org/allbinary/logic/communication/log/LogUtil.h")
+#include "org/allbinary/logic/communication/log/LogUtil.h"
 #endif
 
-        #endif
-    
+@interface PlatformInputMappingFactory : ABObject {
+@public
+    LogUtil* logUtil;
+    PersistentInputMapping* inputToGameKeyMapping;
+}
+- (instancetype) init;
+- (void) initFields;
++ (PlatformInputMappingFactory*) getInstance;
+- (PersistentInputMapping*) getPersistentInputMappingInstance;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void PlatformInputMappingFactory_staticInit(void);
+
+#if __has_include("org/allbinary/game/input/mapping/PersistentInputMapping.h")
+#include "org/allbinary/game/input/mapping/PersistentInputMapping.h"
+#endif
+
+#endif // ORG_ALLBINARY_GAME_INPUT_PLATFORMINPUTMAPPINGFACTORY_H

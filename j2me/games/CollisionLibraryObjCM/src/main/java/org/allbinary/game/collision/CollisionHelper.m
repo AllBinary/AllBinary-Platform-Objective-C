@@ -1,103 +1,46 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/collision/CollisionHelper.h"
+#include "org/allbinary/game/layer/CollidableCompositeLayer.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_COLLISION_COLLISIONHELPER_CPP
-        #define ORG_ALLBINARY_GAME_COLLISION_COLLISIONHELPER_CPP
+void CollisionHelper_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/collision/CollisionHelper.h"
-        
+@implementation CollisionHelper
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/layer/CollidableCompositeLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CollisionHelper::CollisionHelper(AllBinaryLayer* sourceLayerInterface){
-this->sourceLayerInterface= sourceLayerInterface;
+- (void) initFields {
     
 }
 
 
-    auto CollisionHelper::isCollidable(CollidableCompositeLayer* layerInterface) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
+- (instancetype) init:(AllBinaryLayer*)sourceLayerInterface {
+    self = [super init];
+    [self initFields];
+        self->sourceLayerInterface = sourceLayerInterface;
+    return self;
 }
 
 
-    auto CollisionHelper::getOwnerLayerInterface() -> AllBinaryLayer*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->sourceLayerInterface;
-    
+- (bool) isCollidable:(CollidableCompositeLayer*)layerInterface {
+        return true;
 }
 
 
-    auto CollisionHelper::setOwnerLayerInterface(AllBinaryLayer* sourceLayerInterface) -> void{
-this->sourceLayerInterface= sourceLayerInterface;
-    
+- (AllBinaryLayer*) getOwnerLayerInterface {
+        return self->sourceLayerInterface;
 }
 
 
+- (void) setOwnerLayerInterface:(AllBinaryLayer*)sourceLayerInterface {
+        self->sourceLayerInterface = sourceLayerInterface;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_COLLISION_COLLISIONHELPER_CPP

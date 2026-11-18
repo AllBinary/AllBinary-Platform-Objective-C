@@ -1,201 +1,95 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_TERRAIN_TERRAINEVENTHANDLER_CPP
-        #define ORG_ALLBINARY_GAME_TERRAIN_TERRAINEVENTHANDLER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/terrain/TerrainEventHandler.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/terrain/TerrainEventListener.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/terrain/TerrainEventHandler.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/game/terrain/TerrainEventListener.h"
 #include "org/allbinary/game/terrain/TerrainEvent.h"
 #include "org/allbinary/game/terrain/TerrainEventListenerInterface.h"
 
-ABHashtable<Object*, Object*>* TerrainEventHandler::hashtable = StdUtil::getInstance()->NULL_TABLE;
 
-    auto TerrainEventHandler::init() -> void{
-TerrainEventHandler::hashtable= StdUtil::getInstance()->createHashtable();
-    
+static ABHashtable* TerrainEventHandler_hashtable;
+
+void TerrainEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TerrainEventHandler_hashtable = [StdUtil getInstance]->NULL_TABLE;
+}
+
+@implementation TerrainEventHandler
+
+- (void) initFields {
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-    auto TerrainEventHandler::getInstance(Object* anyType) -> TerrainEventHandler*{
-
-    Object* eventHandlerCanBeNull = JavaBoxes::toObject(TerrainEventHandler::hashtable->get(anyType));;
-    
-
-                        if(eventHandlerCanBeNull == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    eventHandlerCanBeNull= new TerrainEventHandler();
-    
-TerrainEventHandler::hashtable->put(anyType, eventHandlerCanBeNull);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<TerrainEventHandler*>(eventHandlerCanBeNull);
-    
++ (void) init_ {
+        TerrainEventHandler_hashtable = [[StdUtil getInstance] createHashtable];
 }
 
 
-TerrainEventHandler::TerrainEventHandler() : list(new BasicArrayListD()){
++ (TerrainEventHandler*) getInstance:(id)anyType {
+        id eventHandlerCanBeNull = [(TerrainEventHandler_staticInit(), TerrainEventHandler_hashtable) get:JAVA_BOX(anyType)];
+        if (eventHandlerCanBeNull == nil) {
+            eventHandlerCanBeNull = [((TerrainEventHandler*) [TerrainEventHandler alloc]) init];
+            [(TerrainEventHandler_staticInit(), TerrainEventHandler_hashtable) put:JAVA_BOX(anyType) :JAVA_BOX(eventHandlerCanBeNull)];
+        }
+        return ((TerrainEventHandler*) eventHandlerCanBeNull);
 }
 
 
-    auto TerrainEventHandler::addListener(TerrainEventListener* terrainEventListener) -> void{
-
-                        if(!this->list->contains(terrainEventListener))
-                        
-                                    {
-                                    this->list->add(terrainEventListener);
-    
-
-                                    }
-                                
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto TerrainEventHandler::removeAllListeners() -> void{
-this->list->clear();
-    
-BasicEventHandler::removeAllListeners();
-    
+- (void) addListener:(TerrainEventListener*)terrainEventListener {
+        if (![self->list contains:terrainEventListener]) {
+            [self->list add:terrainEventListener];
+        }
 }
 
 
-    auto TerrainEventHandler::removeListener(EventListenerInterface* eventListenerInterface) -> void{
-this->list->remove(eventListenerInterface);
-    
-BasicEventHandler::removeListener(eventListenerInterface);
-    
+- (void) removeAllListeners {
+        [self->list clear];
+        [super removeAllListeners];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto TerrainEventHandler::fireEvent(AllBinaryEventObject* eventObject) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->list->size();--index >= 0; )
-        {
-
-        try {
-            
-    TerrainEventListener* terrainEventListener = dynamic_cast<TerrainEventListener*>(this->list->get(index));;
-    
-terrainEventListener->onTerrainEvent(dynamic_cast<TerrainEvent*>(eventObject));
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, EventStrings::getInstance()->FIRE_EVENT, &e);
-    
-}
-
-}
-
-BasicEventHandler::fireEvent(eventObject);
-    
+- (void) removeListener:(EventListenerInterface*)eventListenerInterface {
+        [self->list remove:eventListenerInterface];
+        [super removeListener:eventListenerInterface];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto TerrainEventHandler::process(AllBinaryEventObject* eventObject, EventListenerInterface* eventListenerInterface) -> void{
-
-    TerrainEventListenerInterface* terrainEventListenerInterface = dynamic_cast<TerrainEventListenerInterface*>(eventListenerInterface);;
-    
-terrainEventListenerInterface->onTerrainEvent(dynamic_cast<TerrainEvent*>(eventObject));
-    
+// throws Exception
+- (void) fireEvent:(AllBinaryEventObject*)eventObject {
+        for (int32_t index = [self->list size]; --index >= 0; ) {
+            JAVA_TRY {
+                TerrainEventListener* terrainEventListener = ((TerrainEventListener*) [self->list get:index]);
+                [terrainEventListener onTerrainEvent:((TerrainEvent*) eventObject)];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
+            } JAVA_END_TRY;
+        }
+        [super fireEvent:eventObject];
 }
 
 
+// throws Exception
+- (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
+        TerrainEventListenerInterface* terrainEventListenerInterface = ((TerrainEventListenerInterface*) eventListenerInterface);
+        [terrainEventListenerInterface onTerrainEvent:((TerrainEvent*) eventObject)];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_TERRAIN_TERRAINEVENTHANDLER_CPP

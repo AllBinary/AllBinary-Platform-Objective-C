@@ -1,137 +1,48 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/io/AbFileOutputStream.h"
+#include "org/allbinary/logic/io/file/AbFile.h"
 
 
 
-        #ifndef ORG_ALLBINARY_LOGIC_IO_ABFILEOUTPUTSTREAM_CPP
-        #define ORG_ALLBINARY_LOGIC_IO_ABFILEOUTPUTSTREAM_CPP
+void AbFileOutputStream_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/io/AbFileOutputStream.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <java/io/FileNotFoundException.h>
-
-      
-#include <java/io/FileOutputStream.h>
-
-      
-#include <org/allbinary/logic/io/file/AbFile.h>
-
-      
-#include <org/allbinary/logic/io/file/AbFileNativeUtil.h>
-
-      
+@implementation AbFileOutputStream
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-                //@Throws(FileNotFoundException.constructor)
-            
-    auto AbFileOutputStream::createFromAbFile(AbFile* file) -> AbFileOutputStream*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AbFileOutputStream(file->getPath(), false);
-    
+// throws FileNotFoundException
++ (AbFileOutputStream*) createFromAbFile:(AbFile*)file {
+        return [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:[file getPath] :false];
 }
 
 
-                //@Throws(FileNotFoundException.constructor)
-            
-    auto AbFileOutputStream::createFromAbFileAppend(AbFile* file, bool append) -> AbFileOutputStream*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AbFileOutputStream(file->getPath(), append);
-    
+// throws FileNotFoundException
++ (AbFileOutputStream*) createFromAbFileAppend:(AbFile*)file :(bool)append {
+        return [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:[file getPath] :append];
 }
 
 
-                //@Throws(FileNotFoundException.constructor)
-            
-    auto AbFileOutputStream::createFromFilePath(std::string name) -> AbFileOutputStream*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AbFileOutputStream(name, false);
-    
+// throws FileNotFoundException
++ (AbFileOutputStream*) createFromFilePath:(const char*)name {
+        return [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:name :false];
 }
 
 
-                //@Throws(FileNotFoundException.constructor)
-            
-    auto AbFileOutputStream::createFromFilePathAppend(std::string name, bool append) -> AbFileOutputStream*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AbFileOutputStream(name, append);
-    
+// throws FileNotFoundException
++ (AbFileOutputStream*) createFromFilePathAppend:(const char*)name :(bool)append {
+        return [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:name :append];
 }
 
 
-AbFileOutputStream::AbFileOutputStream(std::string name, bool append) : FileOutputStream(name, append){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init:(const char*)name :(bool)append {
+        self = [super init:name :append];
+    return self;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_LOGIC_IO_ABFILEOUTPUTSTREAM_CPP

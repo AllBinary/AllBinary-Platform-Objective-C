@@ -1,69 +1,24 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/device/NullGL10.h"
 
 
+NullGL10* NullGL10_NULL_GL10;
 
-        #ifndef ORG_ALLBINARY_DEVICE_NULLGL10_CPP
-        #define ORG_ALLBINARY_DEVICE_NULLGL10_CPP
+void NullGL10_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NullGL10_NULL_GL10 = [((NullGL10*) [NullGL10 alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/device/NullGL10.h"
-        
+@implementation NullGL10
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/khronos/opengles/GL10.h>
+@end
 
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-NullGL10::NullGL10() {
-        }
-        auto NullGL10::NULL_GL10_owner() -> NullGL10* { static std::unique_ptr<NullGL10> value(new NullGL10()); return value.get(); }
-NullGL10* NullGL10::NULL_GL10 = NullGL10::NULL_GL10_owner();
-
-
-
-        #endif //ORG_ALLBINARY_DEVICE_NULLGL10_CPP

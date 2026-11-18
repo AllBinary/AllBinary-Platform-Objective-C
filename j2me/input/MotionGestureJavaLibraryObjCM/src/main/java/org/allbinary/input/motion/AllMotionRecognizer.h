@@ -1,141 +1,76 @@
+#ifndef ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_H
+#define ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.input.motion
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_H
-        #define ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class CustomGPoint;
-class GPointCircularPool;
-class TouchButtonRecognizer;
-class MotionGestureRecognizer;
-class LogUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/MotionRecognizer.h"
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class AllMotionRecognizer: public MotionRecognizer {
-
-    private: static inline int32_t index = 0;
-
-    private: static GPointCircularPool* pointCircularPool_owner();
-    private: static GPointCircularPool* pointCircularPool;
-
-    /*protected*/ public: LogUtil* logUtil;
-
-    private: MotionGestureRecognizer* motionGestureRecognizer;
-
-    private: bool touchButtonProcessing = false;
-
-    private: TouchButtonRecognizer* touchButtonRecognizer;
-
-    private: int32_t id;
-
-public: AllMotionRecognizer();
-
-                //@Throws(Exception.constructor)
-            
-    public: void processStartMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers);
-
-                //@Throws(Exception.constructor)
-            
-    public: void processEndMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers);
-
-                //@Throws(Exception.constructor)
-            
-    public: void processDraggedMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers);
-
-    private: int32_t lastX= 0;
-
-    private: int32_t lastY= 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: void processMovedMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers);
-
-                //@Throws(Exception.constructor)
-            
-    public: void processScrolledMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers);
-
-    public: MotionGestureRecognizer* getMotionGestureRecognizer();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_H_COMPLETE)
-        #define ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_H_COMPLETE
-        #if __has_include(<org/allbinary/graphics/CustomGPoint.h>)
-#include <org/allbinary/graphics/CustomGPoint.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class AllMotionRecognizer;
+@class CustomGPoint;
+@class GPointCircularPool;
+@class TouchButtonRecognizer;
+@class MotionGestureRecognizer;
+@class LogUtil;
+@class MotionRecognizer;
+#if __has_include("org/allbinary/graphics/GPointCircularPool.h")
+#include "org/allbinary/graphics/GPointCircularPool.h"
 #endif
-#if __has_include(<org/allbinary/graphics/GPointCircularPool.h>)
-#include <org/allbinary/graphics/GPointCircularPool.h>
+#if __has_include("org/allbinary/input/motion/button/TouchButtonRecognizer.h")
+#include "org/allbinary/input/motion/button/TouchButtonRecognizer.h"
 #endif
-#if __has_include(<org/allbinary/input/motion/button/TouchButtonRecognizer.h>)
-#include <org/allbinary/input/motion/button/TouchButtonRecognizer.h>
+#if __has_include("org/allbinary/input/motion/gesture/MotionGestureRecognizer.h")
+#include "org/allbinary/input/motion/gesture/MotionGestureRecognizer.h"
 #endif
-#if __has_include(<org/allbinary/input/motion/gesture/MotionGestureRecognizer.h>)
-#include <org/allbinary/input/motion/gesture/MotionGestureRecognizer.h>
+#if __has_include("org/allbinary/logic/communication/log/LogUtil.h")
+#include "org/allbinary/logic/communication/log/LogUtil.h"
 #endif
-#if __has_include(<org/allbinary/logic/communication/log/LogUtil.h>)
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-#endif
-#if __has_include("org/allbinary/input/motion/MotionRecognizer.h")
 #include "org/allbinary/input/motion/MotionRecognizer.h"
+
+@interface AllMotionRecognizer : MotionRecognizer {
+@public
+    LogUtil* logUtil;
+    MotionGestureRecognizer* motionGestureRecognizer;
+    bool touchButtonProcessing;
+    TouchButtonRecognizer* touchButtonRecognizer;
+    int32_t id_;
+    int32_t lastX;
+    int32_t lastY;
+}
+- (instancetype) init;
+- (void) initFields;
+- (void) processStartMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers;
+- (void) processEndMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers;
+- (void) processDraggedMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers;
+- (void) processMovedMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers;
+- (void) processScrolledMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers;
+- (MotionGestureRecognizer*) getMotionGestureRecognizer;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void AllMotionRecognizer_staticInit(void);
+
+#if __has_include("org/allbinary/input/motion/gesture/MotionGestureRecognizer.h")
+#include "org/allbinary/input/motion/gesture/MotionGestureRecognizer.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_H

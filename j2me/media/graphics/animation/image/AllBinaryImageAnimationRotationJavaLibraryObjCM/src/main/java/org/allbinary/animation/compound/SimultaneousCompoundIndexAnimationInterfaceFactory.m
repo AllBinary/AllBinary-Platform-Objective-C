@@ -1,151 +1,61 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/compound/SimultaneousCompoundIndexAnimationInterfaceFactory.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/animation/AnimationBehaviorFactory.h"
+#include "org/allbinary/animation/IndexedAnimation.h"
+#include "org/allbinary/media/ScaleProperties.h"
+#include "org/allbinary/animation/compound/SimultaneousCompoundIndexAnimation.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDINDEXANIMATIONINTERFACEFACTORY_CPP
-        #define ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDINDEXANIMATIONINTERFACEFACTORY_CPP
+void SimultaneousCompoundIndexAnimationInterfaceFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/compound/SimultaneousCompoundIndexAnimationInterfaceFactory.h"
-        
+@implementation SimultaneousCompoundIndexAnimationInterfaceFactory
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/animation/AnimationBehaviorFactory.h>
-
-      
-#include <org/allbinary/animation/AnimationInterfaceFactoryInterface.h>
-
-      
-#include <org/allbinary/animation/IndexedAnimation.h>
-
-      
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-
-      
-#include <org/allbinary/media/ScaleProperties.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/compound/SimultaneousCompoundIndexAnimation.h"
-
-
-SimultaneousCompoundIndexAnimationInterfaceFactory::SimultaneousCompoundIndexAnimationInterfaceFactory(std::vector<AnimationInterfaceFactoryInterface*> basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory* animationBehaviorFactory){
-this->basicAnimationInterfaceFactoryInterfaceArray= basicAnimationInterfaceFactoryInterfaceArray;
+- (void) initFields {
     
-this->animationBehaviorFactory= animationBehaviorFactory;
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto SimultaneousCompoundIndexAnimationInterfaceFactory::getInstance(int32_t instanceId) -> Animation*{
-
-    int32_t size = this->basicAnimationInterfaceFactoryInterfaceArray.size();;
-    
-
-    std::vector<IndexedAnimation*> animationInterfaceArray = std::vector<IndexedAnimation*>(size);;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-animationInterfaceArray[index]= dynamic_cast<IndexedAnimation*>(this->basicAnimationInterfaceFactoryInterfaceArray[index]->getInstance(instanceId));
-    
+- (instancetype) init:(AnimationInterfaceFactoryInterface**)basicAnimationInterfaceFactoryInterfaceArray :(AnimationBehaviorFactory*)animationBehaviorFactory {
+    self = [super init];
+    [self initFields];
+        self->basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
+        self->animationBehaviorFactory = animationBehaviorFactory;
+    return self;
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getOrCreate(animationInterfaceArray);;
-    
+// throws Exception
+- (Animation*) getInstance:(int32_t)instanceId {
+        int32_t size = java_array_length(self->basicAnimationInterfaceFactoryInterfaceArray);
+        IndexedAnimation** animationInterfaceArray = ((IndexedAnimation**) java_array_new(sizeof(IndexedAnimation*), size));
+        for (int32_t index = 0; index < size; index++) {
+            animationInterfaceArray[index] = ((IndexedAnimation*) [self->basicAnimationInterfaceFactoryInterfaceArray[index] getInstance:instanceId]);
+        }
+        return [self getOrCreate:animationInterfaceArray];
 }
 
 
-    auto SimultaneousCompoundIndexAnimationInterfaceFactory::getOrCreate(std::vector<IndexedAnimation*> animationInterfaceArray) -> Animation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new SimultaneousCompoundIndexAnimation(animationInterfaceArray, this->animationBehaviorFactory->getOrCreateInstance());
-    
+- (Animation*) getOrCreate:(IndexedAnimation**)animationInterfaceArray {
+        return [((SimultaneousCompoundIndexAnimation*) [SimultaneousCompoundIndexAnimation alloc]) init:animationInterfaceArray :[self->animationBehaviorFactory getOrCreateInstance]];
 }
 
 
-    auto SimultaneousCompoundIndexAnimationInterfaceFactory::getBasicAnimationInterfaceFactoryInterfaceArray() -> std::vector<AnimationInterfaceFactoryInterface*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->basicAnimationInterfaceFactoryInterfaceArray;
-    
+- (AnimationInterfaceFactoryInterface**) getBasicAnimationInterfaceFactoryInterfaceArray {
+        return self->basicAnimationInterfaceFactoryInterfaceArray;
 }
 
 
-    auto SimultaneousCompoundIndexAnimationInterfaceFactory::setInitialScale(ScaleProperties* scaleProperties) -> void{
+- (void) setInitialScale:(ScaleProperties*)scaleProperties {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDINDEXANIMATIONINTERFACEFACTORY_CPP

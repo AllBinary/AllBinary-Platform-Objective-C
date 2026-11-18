@@ -1,115 +1,55 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/AnimationFactoryInitializationVisitor.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/math/PositionStrings.h"
+#include "org/allbinary/string/CommonLabels.h"
+#include "org/allbinary/string/CommonSeps.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_ANIMATIONFACTORYINITIALIZATIONVISITOR_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_ANIMATIONFACTORYINITIALIZATIONVISITOR_CPP
+void AnimationFactoryInitializationVisitor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/AnimationFactoryInitializationVisitor.h"
-        
+@implementation AnimationFactoryInitializationVisitor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->width = 0;
+    self->height = 0;
+    self->dx = 0;
+    self->dy = 0;
+    self->originalDx = 0;
+    self->originalDy = 0;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/math/PositionStrings.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-AnimationFactoryInitializationVisitor::AnimationFactoryInitializationVisitor() {
-        }
-        
-    auto AnimationFactoryInitializationVisitor::visit() -> void{
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto AnimationFactoryInitializationVisitor::toString() -> std::string{
-
-    CommonSeps* commonSeps = CommonSeps::getInstance();;
-    
-
-    CommonLabels* commonLabels = CommonLabels::getInstance();;
-    
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append(PositionStrings::getInstance()->DX_LABEL)->appendfloat(this->dx);
-    
-stringBuffer->append(PositionStrings::getInstance()->DY_LABEL)->appendfloat(this->dy);
-    
-stringBuffer->append(commonLabels->WIDTH_LABEL);
-    
-stringBuffer->appendint(this->width);
-    
-stringBuffer->append(commonSeps->SPACE);
-    
-stringBuffer->append(commonLabels->HEIGHT_LABEL);
-    
-stringBuffer->appendint(this->height);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (void) visit {
 }
 
 
+- (const char*) toString {
+        CommonSeps* commonSeps = [CommonSeps getInstance];
+        CommonLabels* commonLabels = [CommonLabels getInstance];
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [[stringBuffer append:[PositionStrings getInstance]->DX_LABEL] appendfloat:((float) self->dx)];
+        [[stringBuffer append:[PositionStrings getInstance]->DY_LABEL] appendfloat:((float) self->dy)];
+        [stringBuffer append:commonLabels->WIDTH_LABEL];
+        [stringBuffer appendint:self->width];
+        [stringBuffer append:commonSeps->SPACE];
+        [stringBuffer append:commonLabels->HEIGHT_LABEL];
+        [stringBuffer appendint:self->height];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_ANIMATIONFACTORYINITIALIZATIONVISITOR_CPP

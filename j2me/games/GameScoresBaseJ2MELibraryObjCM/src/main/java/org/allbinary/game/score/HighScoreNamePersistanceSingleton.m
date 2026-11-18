@@ -1,440 +1,169 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORENAMEPERSISTANCESINGLETON_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORENAMEPERSISTANCESINGLETON_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/HighScoreNamePersistanceSingleton.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <java/io/ByteArrayInputStream.h>
-
-      
-#include <java/io/ByteArrayOutputStream.h>
-
-      
-#include <java/io/DataInputStream.h>
-
-      
-#include <java/io/DataOutputStream.h>
-
-      
-#include <javax/microedition/rms/RecordEnumeration.h>
-
-      
-#include <javax/microedition/rms/RecordStore.h>
-
-      
-#include <javax/microedition/rms/RecordStoreException.h>
-
-      
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/game/GameInfo.h>
-
-      
-#include <org/allbinary/game/configuration/persistance/NullRecordComparator.h>
-
-      
-#include <org/allbinary/game/configuration/persistance/NullRecordFilter.h>
-
-      
-#include <org/allbinary/game/configuration/persistance/NullRecordStore.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/PreLogUtil.h>
-
-      
-#include <org/allbinary/logic/java/exception/ExceptionUtil.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
-
-      
-#include <org/allbinary/persistance/PlatformRecordIdUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/HighScoreNamePersistanceSingleton.h"
+#include "javax/microedition/rms/RecordEnumeration.h"
+#include "javax/microedition/rms/RecordStore.h"
+#include "javax/microedition/rms/RecordStoreException.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/game/GameInfo.h"
+#include "org/allbinary/game/configuration/persistance/NullRecordComparator.h"
+#include "org/allbinary/game/configuration/persistance/NullRecordFilter.h"
+#include "org/allbinary/game/configuration/persistance/NullRecordStore.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/communication/log/PreLogUtil.h"
+#include "org/allbinary/logic/java/exception/ExceptionUtil.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
+#include "org/allbinary/persistance/PlatformRecordIdUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
+static HighScoreNamePersistanceSingleton* HighScoreNamePersistanceSingleton_SINGLETON;
+
+void HighScoreNamePersistanceSingleton_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    HighScoreNamePersistanceSingleton_SINGLETON = [((HighScoreNamePersistanceSingleton*) [HighScoreNamePersistanceSingleton alloc]) init];
+}
+
+@implementation HighScoreNamePersistanceSingleton
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->tsUtil = [TsUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+    self->platformRecordIdUtil = [PlatformRecordIdUtil getInstance];
+    self->RECORD_ID = "_SN";
+    self->name = [StringUtil getInstance]->EMPTY_STRING;
+    self->nameBasicArrayList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+}
+
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (HighScoreNamePersistanceSingleton*) getInstance {
+        return (HighScoreNamePersistanceSingleton_staticInit(), HighScoreNamePersistanceSingleton_SINGLETON);
+}
 
 
+- (void) clear {
+        self->name = [StringUtil getInstance]->EMPTY_STRING;
+}
 
 
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-HighScoreNamePersistanceSingleton::HighScoreNamePersistanceSingleton() : logUtil(LogUtil::getInstance()), tsUtil(TsUtil::getInstance()), commonStrings(CommonStrings::getInstance()), platformRecordIdUtil(PlatformRecordIdUtil::getInstance()), name(StringUtil::getInstance()->EMPTY_STRING), nameBasicArrayList(new BasicArrayListD()) {
+// throws Exception
+- (void) deleteAll:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo {
+        int32_t size = [self->nameBasicArrayList size];
+        for (int32_t index = 0; index < size; index++) {
+            int32_t integer = ((int32_t) self->nameBasicArrayList->objectArray[index]);
+            [self delete:abeClientInformation :gameInfo :((int32_t) (integer))];
         }
-        auto HighScoreNamePersistanceSingleton::SINGLETON_owner() -> HighScoreNamePersistanceSingleton* { static std::unique_ptr<HighScoreNamePersistanceSingleton> value(new HighScoreNamePersistanceSingleton()); return value.get(); }
-HighScoreNamePersistanceSingleton* HighScoreNamePersistanceSingleton::SINGLETON = HighScoreNamePersistanceSingleton::SINGLETON_owner();
-
-    auto HighScoreNamePersistanceSingleton::getInstance() -> HighScoreNamePersistanceSingleton*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return HighScoreNamePersistanceSingleton::SINGLETON;
-    
+        [self clear];
 }
 
 
-    auto HighScoreNamePersistanceSingleton::clear() -> void{
-this->name= StringUtil::getInstance()->EMPTY_STRING;
-    
+- (const char*) getRecordId:(AbeClientInformationInterface*)abeClientInformation {
+        return [self->platformRecordIdUtil getRecordId:abeClientInformation :self->RECORD_ID];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto HighScoreNamePersistanceSingleton::deleteAll(AbeClientInformationInterface* abeClientInformation, GameInfo* gameInfo) -> void{
-
-    int32_t size = this->nameBasicArrayList->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-
-    int32_t integer = JavaBoxes::unbox<int32_t>(this->nameBasicArrayList->objectArray[index]);;
-    
-this->delete_(abeClientInformation, gameInfo, integer);
-    
-}
-
-this->clear();
-    
+// throws Exception
+- (void) delete:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo :(int32_t)deleteId {
+        RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
+        JAVA_TRY {
+            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Deleting: "] appendint:deleteId] toString] :self :self->commonStrings->delete];
+            recordStore = [RecordStore openRecordStore:[self getRecordId:abeClientInformation] :true];
+            [recordStore deleteRecord:deleteId];
+        } JAVA_CATCH(Exception, e) {
+            java_throw(e);
+        } JAVA_FINALLY {
+            if (recordStore != nil) {
+                [PreLogUtil put:"Closing RecordStore" :self :self->commonStrings->delete];
+                [recordStore closeRecordStore];
+            }
+        } JAVA_END_TRY;
 }
 
 
-    auto HighScoreNamePersistanceSingleton::getRecordId(AbeClientInformationInterface* abeClientInformation) -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->platformRecordIdUtil->getRecordId(abeClientInformation, this->RECORD_ID);;
-    
+- (BasicArrayList*) getIds {
+        return self->nameBasicArrayList;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto HighScoreNamePersistanceSingleton::delete_(AbeClientInformationInterface* abeClientInformation, GameInfo* gameInfo, int32_t deleteId) -> void{
-
-    RecordStore* recordStore = NullRecordStore::NULL_RECORD_STORE;;
-    
-
-        {
-        
-        auto finallyFunction_N67232 = [&]() {
-            
-                        if(recordStore != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    PreLogUtil::put("Closing RecordStore", this, this->commonStrings->delete_);
-    
-recordStore->closeRecordStore();
-    
-
-                                    }
-                                
-
-        };
-        
-        struct FinallyGuard_N67232 { decltype(finallyFunction_N67232)& function; ~FinallyGuard_N67232() { function(); } } finallyGuard_N67232{finallyFunction_N67232};
-        
-        try {
-            this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("Deleting: ")->appendint(deleteId)), this, this->commonStrings->delete_);
-    
-recordStore= RecordStore::openRecordStore(this->getRecordId(abeClientInformation), true);
-    
-recordStore->deleteRecord(deleteId);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-
-
-                            throw e;
-                    
-}
-
-        }
-
+- (const char*) load_:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo {
+        RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
+        JAVA_TRY {
+            if (self->name == [StringUtil getInstance]->EMPTY_STRING) {
+                const char* LOADING_ID = "Loading id: ";
+                recordStore = [RecordStore openRecordStore:[self getRecordId:abeClientInformation] :true];
+                RecordEnumeration* recordEnum = [recordStore enumerateRecords:(NullRecordFilter_staticInit(), NullRecordFilter_NULL_RECORD_FILTER) :(NullRecordComparator_staticInit(), NullRecordComparator_NULL_RECORD_COMPARATOR) :true];
+                SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
+                int8_t* recordAsBytes = nullptr;
+                ByteArrayInputStream* byteArrayInputStream = nullptr;
+                DataInputStream* inputStream = nullptr;
+                while ([recordEnum hasNextElement]) {
+                    int32_t id_ = [recordEnum nextRecordId];
+                    [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:LOADING_ID] appendint:id_] toString] :self :self->commonStrings->LOAD];
+                    recordAsBytes = [self->tsUtil getRecord:recordStore :id_];
+                    byteArrayInputStream = [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes];
+                    inputStream = [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream];
+                    while ([inputStream available] > 0) {
+                        self->name = [inputStream readUTF];
+                    }
+                    [self->nameBasicArrayList add:JAVA_BOX([smallIntegerSingletonFactory getAt:id_])];
+                }
+            }
+        } JAVA_CATCH(Exception, e) {
+            [self save:abeClientInformation :gameInfo :self->name];
+            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->EXCEPTION_LABEL] append:[[ExceptionUtil getInstance] getStackTrace:e]] toString] :self :self->commonStrings->LOAD];
+        } JAVA_FINALLY {
+            JAVA_TRY {
+                if (recordStore != nil) {
+                    [PreLogUtil put:"Closing RecordStore" :self :self->commonStrings->LOAD];
+                    [recordStore closeRecordStore];
+                }
+            } JAVA_CATCH(RecordStoreException, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->LOAD :e];
+            } JAVA_END_TRY;
+        } JAVA_END_TRY;
+        return self->name;
 }
 
 
-    auto HighScoreNamePersistanceSingleton::getIds() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->nameBasicArrayList;
-    
+- (void) save:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo :(const char*)name {
+        RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
+        JAVA_TRY {
+            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Saving: "] append:name] toString] :self :self->commonStrings->SAVE];
+            recordStore = [RecordStore openRecordStore:[self getRecordId:abeClientInformation] :true];
+            ByteArrayOutputStream* byteArrayOutputStream = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init];
+            DataOutputStream* outputStream = [((DataOutputStream*) [DataOutputStream alloc]) init:byteArrayOutputStream];
+            [outputStream writeUTF:name];
+            int8_t* savedGameBytes = [byteArrayOutputStream toByteArray];
+            [recordStore addRecord:savedGameBytes :0 :java_array_length(savedGameBytes)];
+            self->name = name;
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->SAVE :e];
+        } JAVA_FINALLY {
+            JAVA_TRY {
+                if (recordStore != nil) {
+                    [PreLogUtil put:"Closing RecordStore" :self :self->commonStrings->SAVE];
+                    [recordStore closeRecordStore];
+                }
+            } JAVA_CATCH(RecordStoreException, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->SAVE :e];
+            } JAVA_END_TRY;
+        } JAVA_END_TRY;
 }
 
+@end
 
-    auto HighScoreNamePersistanceSingleton::load(AbeClientInformationInterface* abeClientInformation, GameInfo* gameInfo) -> std::string{
-
-    RecordStore* recordStore = NullRecordStore::NULL_RECORD_STORE;;
-    
-
-        {
-        
-        auto finallyFunction_N67779 = [&]() {
-            
-        try {
-            
-                        if(recordStore != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    PreLogUtil::put("Closing RecordStore", this, this->commonStrings->LOAD);
-    
-recordStore->closeRecordStore();
-    
-
-                                    }
-                                
-
-                //: 
-} catch(RecordStoreException& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->LOAD, &e);
-    
-}
-
-
-        };
-        
-        struct FinallyGuard_N67779 { decltype(finallyFunction_N67779)& function; ~FinallyGuard_N67779() { function(); } } finallyGuard_N67779{finallyFunction_N67779};
-        
-        try {
-            
-                        if(this->name == StringUtil::getInstance()->EMPTY_STRING)
-                        
-                                    {
-                                    
-    std::string LOADING_ID = "Loading id: ";;
-    
-recordStore= RecordStore::openRecordStore(this->getRecordId(abeClientInformation), true);
-    
-
-    RecordEnumeration* recordEnum = recordStore->enumerateRecords(NullRecordFilter::NULL_RECORD_FILTER, NullRecordComparator::NULL_RECORD_COMPARATOR, true);;
-    
-
-    SmallIntegerSingletonFactory* smallIntegerSingletonFactory = SmallIntegerSingletonFactory::getInstance();;
-    
-
-    std::vector<int8_t> recordAsBytes;;
-    
-
-    ByteArrayInputStream* byteArrayInputStream;;
-    
-
-    DataInputStream* inputStream;;
-    
-
-        while(recordEnum->hasNextElement())
-        {
-
-    int32_t id = recordEnum->nextRecordId();;
-    
-this->logUtil->putF(JavaString::valueOf((new StringMaker())->append(LOADING_ID)->appendint(id)), this, this->commonStrings->LOAD);
-    
-recordAsBytes= this->tsUtil->getRecord(recordStore, id);
-    
-byteArrayInputStream= new ByteArrayInputStream(recordAsBytes);
-    
-inputStream= new DataInputStream(byteArrayInputStream);
-    
-
-        while(inputStream->available() > 0)
-        {
-this->name= inputStream->readUTF();
-    
-}
-
-this->nameBasicArrayList->add(smallIntegerSingletonFactory->getAt(id));
-    
-}
-
-
-                                    }
-                                
-
-                //: 
-} catch(Exception& e) 
-            {
-this->save(abeClientInformation, gameInfo, this->name);
-    
-this->logUtil->putF(JavaString::valueOf((new StringMaker())->append(this->commonStrings->EXCEPTION_LABEL)->append(ExceptionUtil::getInstance()->getStackTrace(&e))), this, this->commonStrings->LOAD);
-    
-}
-
-        }
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->name;
-    
-}
-
-
-    auto HighScoreNamePersistanceSingleton::save(AbeClientInformationInterface* abeClientInformation, GameInfo* gameInfo, std::string name) -> void{
-
-    RecordStore* recordStore = NullRecordStore::NULL_RECORD_STORE;;
-    
-
-        {
-        
-        auto finallyFunction_N69188 = [&]() {
-            
-        try {
-            
-                        if(recordStore != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    PreLogUtil::put("Closing RecordStore", this, this->commonStrings->SAVE);
-    
-recordStore->closeRecordStore();
-    
-
-                                    }
-                                
-
-                //: 
-} catch(RecordStoreException& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->SAVE, &e);
-    
-}
-
-
-        };
-        
-        struct FinallyGuard_N69188 { decltype(finallyFunction_N69188)& function; ~FinallyGuard_N69188() { function(); } } finallyGuard_N69188{finallyFunction_N69188};
-        
-        try {
-            this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("Saving: ")->append(name)), this, this->commonStrings->SAVE);
-    
-recordStore= RecordStore::openRecordStore(this->getRecordId(abeClientInformation), true);
-    
-
-    ByteArrayOutputStream* byteArrayOutputStream = new ByteArrayOutputStream();;
-    
-
-    DataOutputStream* outputStream = new DataOutputStream(byteArrayOutputStream);;
-    
-outputStream->writeUTF(name);
-    
-
-    std::vector<int8_t> savedGameBytes = byteArrayOutputStream->toByteArray();;
-    
-recordStore->addRecord(savedGameBytes, 0, savedGameBytes.size());
-    
-this->name= name;
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->SAVE, &e);
-    
-}
-
-        }
-
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_SCORE_HIGHSCORENAMEPERSISTANCESINGLETON_CPP

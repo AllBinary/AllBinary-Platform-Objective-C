@@ -1,104 +1,48 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/identification/BasicGroupFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/game/identification/Group.h"
 
 
+static id BasicGroupFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_IDENTIFICATION_BASICGROUPFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_IDENTIFICATION_BASICGROUPFACTORY_CPP
+void BasicGroupFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    BasicGroupFactory_instance = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/identification/BasicGroupFactory.h"
-        
+@implementation BasicGroupFactory
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->NAME = "GROUP_NAME";
+    self->NO_SUCH_GROUP = "No Such Group: ";
+    self->GOOD = [((Group*) [Group alloc]) init:"Good Guys" :((int16_t) 0)];
+    self->ENEMY = [((Group*) [Group alloc]) init:"Bad Guys" :((int16_t) 1)];
+    self->ENEMY_ON_LEVEL = [((Group*) [Group alloc]) init:"Bad Guys on Level" :((int16_t) 2)];
+    self->NONE = [((Group*) [Group alloc]) init:"Not On A Team" :((int16_t) 3)];
+    self->GOOD_ARRAY = ((Group**) java_array_from(sizeof(Group*), sizeof((Group*[]){ self->GOOD }) / sizeof(Group*), (Group*[]){ self->GOOD }));
+    self->ENEMY_ARRAY = ((Group**) java_array_from(sizeof(Group*), sizeof((Group*[]){ self->ENEMY }) / sizeof(Group*), (Group*[]){ self->ENEMY }));
+    self->ENEMY_ON_LEVEL_ARRAY = ((Group**) java_array_from(sizeof(Group*), sizeof((Group*[]){ self->ENEMY, self->ENEMY_ON_LEVEL }) / sizeof(Group*), (Group*[]){ self->ENEMY, self->ENEMY_ON_LEVEL }));
+    self->NONE_ARRAY = ((Group**) java_array_from(sizeof(Group*), sizeof((Group*[]){ self->NONE }) / sizeof(Group*), (Group*[]){ self->NONE }));
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/identification/Group.h"
-
-
-BasicGroupFactory::BasicGroupFactory() : GOOD(new Group("Good Guys", 0)), ENEMY(new Group("Bad Guys", 1)), ENEMY_ON_LEVEL(new Group("Bad Guys on Level", 2)), NONE(new Group("Not On A Team", 3)), GOOD_ARRAY(
-                                                        {
-                                                            this->GOOD
-                                                        }), ENEMY_ARRAY(
-                                                        {
-                                                            this->ENEMY
-                                                        }), ENEMY_ON_LEVEL_ARRAY(
-                                                        {
-                                                            this->ENEMY,this->ENEMY_ON_LEVEL
-                                                        }), NONE_ARRAY(
-                                                        {
-                                                            this->NONE
-                                                        }) {
-        }
-        Object* BasicGroupFactory::instance = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto BasicGroupFactory::getInstance() -> BasicGroupFactory*{
-
-                        if(BasicGroupFactory::instance == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    BasicGroupFactory::instance= new BasicGroupFactory();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<BasicGroupFactory*>(BasicGroupFactory::instance);
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (BasicGroupFactory*) getInstance {
+        if ((BasicGroupFactory_staticInit(), BasicGroupFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
+            BasicGroupFactory_instance = [((BasicGroupFactory*) [BasicGroupFactory alloc]) init];
+        }
+        return ((BasicGroupFactory*) (BasicGroupFactory_staticInit(), BasicGroupFactory_instance));
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_IDENTIFICATION_BASICGROUPFACTORY_CPP

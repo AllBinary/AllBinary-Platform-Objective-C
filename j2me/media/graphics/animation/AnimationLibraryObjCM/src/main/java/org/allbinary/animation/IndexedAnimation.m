@@ -1,225 +1,107 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_INDEXEDANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_INDEXEDANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/IndexedAnimation.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/Animation.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/IndexedAnimation.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/animation/Animation.h"
 #include "org/allbinary/animation/IndexedAnimationInterface.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
 
 
-IndexedAnimation::IndexedAnimation(AnimationBehavior* animationBehavior) : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()){
-this->animationBehaviorP= animationBehavior;
+
+void IndexedAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation IndexedAnimation
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
     
 }
 
 
-    auto IndexedAnimation::getAnimationBehavior() -> AnimationBehavior*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationBehaviorP;
-    
+- (instancetype) init:(AnimationBehavior*)animationBehavior {
+    self = [super init];
+    [self initFields];
+        self->animationBehaviorP = animationBehavior;
+    return self;
 }
 
 
-    auto IndexedAnimation::reset() -> void{
-this->animationBehaviorP->reset();
-    
-this->setFrame(0);
-    
+- (AnimationBehavior*) getAnimationBehavior {
+        return self->animationBehaviorP;
 }
 
 
-    auto IndexedAnimation::setFrame(int32_t index) -> void{
+- (void) reset {
+        [self->animationBehaviorP reset];
+        [self setFrame:0];
 }
 
 
-    auto IndexedAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (void) setFrame:(int32_t)index {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto IndexedAnimation::getAnimationSize() -> int32_t{
-
-
-
-                            throw Exception(this->commonStrings->NOT_IMPLEMENTED);
-                    
+- (int32_t) getFrame {
+        return 0;
 }
 
 
-    auto IndexedAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+// throws Exception
+- (int32_t) getAnimationSize {
+        java_throw(java_exception_new("Exception", self->commonStrings->NOT_IMPLEMENTED));
 }
 
 
-    auto IndexedAnimation::previousFrame() -> void{
+- (int32_t) getSize {
+        return 0;
 }
 
 
-    auto IndexedAnimation::isLastFrame() -> bool{
-
-                        if(this->getFrame() == this->getSize() -1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+- (void) previousFrame {
 }
 
 
-    auto IndexedAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+- (bool) isLastFrame {
+        if ([self getFrame] == [self getSize] - 1) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 
-    auto IndexedAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
-    auto IndexedAnimation::setState(IndexedAnimation* indexedAnimation) -> void{
-this->setFrame(indexedAnimation->getFrame());
-    
-this->setDx(indexedAnimation->getDx());
-    
-this->setDy(indexedAnimation->getDy());
-    
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
 }
 
 
-    auto IndexedAnimation::getWidth() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (void) setState:(IndexedAnimation*)indexedAnimation {
+        [self setFrame:[indexedAnimation getFrame]];
+        [self setDx:[indexedAnimation getDx]];
+        [self setDy:[indexedAnimation getDy]];
 }
 
 
-    auto IndexedAnimation::getHeight() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (int32_t) getWidth {
+        return 0;
 }
 
 
+- (int32_t) getHeight {
+        return 0;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_INDEXEDANIMATION_CPP

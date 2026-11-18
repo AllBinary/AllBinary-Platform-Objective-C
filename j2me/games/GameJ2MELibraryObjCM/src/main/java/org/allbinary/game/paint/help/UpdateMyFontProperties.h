@@ -1,104 +1,50 @@
+#ifndef ORG_ALLBINARY_GAME_PAINT_HELP_UPDATEMYFONTPROPERTIES_H
+#define ORG_ALLBINARY_GAME_PAINT_HELP_UPDATEMYFONTPROPERTIES_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.paint.help
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class UpdateMyFontProperties;
+@class NullUtil;
+@class StringUtil;
 
+@interface UpdateMyFontProperties : ABObject {
+@public
+    const char** actionStringArray;
+    int32_t* keymappingBeginWidthArray;
+    int32_t* actionStringDeltaXArray;
+    int32_t** inputDeltaXArray;
+    const char*** sepArray;
+    int32_t** sepWidthArray;
+    int32_t charHeight;
+}
+- (instancetype) init;
+- (void) initFields;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_PAINT_HELP_UPDATEMYFONTPROPERTIES_H
-        #define ORG_ALLBINARY_GAME_PAINT_HELP_UPDATEMYFONTPROPERTIES_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class NullUtil;
-class StringUtil;
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void UpdateMyFontProperties_staticInit(void);
 
 
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class UpdateMyFontProperties
-            : public virtual Object
-         {
-
-
-            
-    public: UpdateMyFontProperties();
-        
-    public: std::vector<std::string> actionStringArray;
-
-    public: std::vector<int32_t> keymappingBeginWidthArray;
-
-    public: std::vector<int32_t> actionStringDeltaXArray;
-
-    public: std::vector<std::vector<int32_t>> inputDeltaXArray;
-
-    public: std::vector<std::vector<std::string>> sepArray;
-
-    public: std::vector<std::vector<int32_t>> sepWidthArray;
-
-    public: int32_t charHeight= 0;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_PAINT_HELP_UPDATEMYFONTPROPERTIES_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_PAINT_HELP_UPDATEMYFONTPROPERTIES_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_PAINT_HELP_UPDATEMYFONTPROPERTIES_H_COMPLETE
-        #if __has_include(<org/allbinary/logic/NullUtil.h>)
-#include <org/allbinary/logic/NullUtil.h>
-#endif
-#if __has_include(<org/allbinary/logic/string/StringUtil.h>)
-#include <org/allbinary/logic/string/StringUtil.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_PAINT_HELP_UPDATEMYFONTPROPERTIES_H

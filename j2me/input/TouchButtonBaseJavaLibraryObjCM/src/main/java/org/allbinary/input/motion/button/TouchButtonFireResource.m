@@ -1,83 +1,31 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/TouchButtonFireResource.h"
+#include "org/allbinary/input/motion/button/TouchButtonResource.h"
 
 
+static TouchButtonResource* TouchButtonFireResource_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONFIRERESOURCE_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONFIRERESOURCE_CPP
+void TouchButtonFireResource_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TouchButtonFireResource_instance = [((TouchButtonFireResource*) [TouchButtonFireResource alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/TouchButtonFireResource.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
+@implementation TouchButtonFireResource
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/button/TouchButtonResource.h"
-
-TouchButtonResource* TouchButtonFireResource::instance = new TouchButtonFireResource();
-
-    auto TouchButtonFireResource::getInstance() -> TouchButtonResource*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TouchButtonFireResource::instance;
-    
++ (TouchButtonResource*) getInstance {
+        return (TouchButtonFireResource_staticInit(), TouchButtonFireResource_instance);
 }
 
 
-TouchButtonFireResource::TouchButtonFireResource() : TouchButtonResource("/touch_button_fire_64_by_64.png", "/touch_button_fire_hint_64_by_64.png"){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init {
+        self = [super init:"/touch_button_fire_64_by_64.png" :"/touch_button_fire_hint_64_by_64.png"];
+    return self;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONFIRERESOURCE_CPP

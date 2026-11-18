@@ -1,328 +1,120 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/io/file/SimpleFileUtil.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/io/NullOutputStream.h"
+#include "org/allbinary/logic/io/NullReader.h"
+#include "org/allbinary/logic/io/NullWriter.h"
+#include "org/allbinary/logic/io/StreamUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
+static SimpleFileUtil* SimpleFileUtil_instance;
 
-        #ifndef ORG_ALLBINARY_LOGIC_IO_FILE_SIMPLEFILEUTIL_CPP
-        #define ORG_ALLBINARY_LOGIC_IO_FILE_SIMPLEFILEUTIL_CPP
+void SimpleFileUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    SimpleFileUtil_instance = [((SimpleFileUtil*) [SimpleFileUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/io/file/SimpleFileUtil.h"
-        
+@implementation SimpleFileUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->NULL_WRITER = [SimpleFileUtil nullWriter];
+    self->NULL_READER = [SimpleFileUtil nullReader];
+    self->commonStrings = [CommonStrings getInstance];
+    self->nullUtil = [NullUtil getInstance];
+    self->streamUtil = [StreamUtil getInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <java/io/ByteArrayOutputStream.h>
-
-      
-#include <java/io/InputStream.h>
-
-      
-#include <java/io/OutputStream.h>
-
-      
-#include <java/io/Reader.h>
-
-      
-#include <java/io/Writer.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/io/NullOutputStream.h>
-
-      
-#include <org/allbinary/logic/io/NullReader.h>
-
-      
-#include <org/allbinary/logic/io/NullWriter.h>
-
-      
-#include <org/allbinary/logic/io/StreamUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (SimpleFileUtil*) getInstance {
+        return (SimpleFileUtil_staticInit(), SimpleFileUtil_instance);
+}
 
 
++ (OutputStream*) nullOutputStream {
+        return (NullOutputStream_staticInit(), NullOutputStream_NULL_OUTPUT_STREAM);
+}
 
 
++ (Writer*) nullWriter {
+        return (NullWriter_staticInit(), NullWriter_NULL_WRITER);
+}
 
 
++ (Reader*) nullReader {
+        return (NullReader_staticInit(), NullReader_NULL_READER);
+}
 
 
+- (BasicArrayList*) loadFileAsList:(InputStream*)inputStream :(int32_t)max :(int8_t*)byteArray1 {
+        return [self loadFileAsListReturnLine:inputStream :max :byteArray1 :0];
+}
 
 
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-SimpleFileUtil::SimpleFileUtil() : logUtil(LogUtil::getInstance()), NULL_WRITER(SimpleFileUtil::nullWriter()), NULL_READER(SimpleFileUtil::nullReader()), commonStrings(CommonStrings::getInstance()), nullUtil(NullUtil::getInstance()), streamUtil(StreamUtil::getInstance()) {
+- (BasicArrayList*) loadFileAsListReturnLine:(InputStream*)inputStream :(int32_t)max :(int8_t*)byteArray1 :(int32_t)includeReturnLine {
+        BasicArrayList* stringList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        if (inputStream == nil) {
+            return stringList;
         }
-        auto SimpleFileUtil::instance_owner() -> SimpleFileUtil* { static std::unique_ptr<SimpleFileUtil> value(new SimpleFileUtil()); return value.get(); }
-SimpleFileUtil* SimpleFileUtil::instance = SimpleFileUtil::instance_owner();
-
-    auto SimpleFileUtil::getInstance() -> SimpleFileUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return SimpleFileUtil::instance;
-    
+        int8_t* byteArray = self->nullUtil->NULL_BYTE_ARRAY;
+        JAVA_TRY {
+            ByteArrayOutputStream* outputStream2 = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init:max];
+            byteArray = [self->streamUtil getByteArray:inputStream :outputStream2 :byteArray1];
+            [self->streamUtil close:inputStream];
+        } JAVA_CATCH(Exception, e) {
+            [self->streamUtil close:inputStream];
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->ADD :e];
+        } JAVA_END_TRY;
+        if (byteArray == nil) {
+            return stringList;
+        }
+        int32_t size = java_array_length(byteArray);
+        int32_t index = 0;
+        int32_t startIndex = 0;
+        int32_t returnLine = 0;
+        while (index < size) {
+            startIndex = index;
+            while (index < size - 1 && byteArray[index] != ((int8_t) u'\n')) {
+                index++;
+            }
+            if (includeReturnLine == 0) {
+                if (index > 0 && byteArray[index - 1] == ((int8_t) u'\r')) {
+                    returnLine = 1;
+                } else {
+                    returnLine = 0;
+                }
+            }
+            const char* s = java_string_new(byteArray, startIndex, (index + includeReturnLine - returnLine - startIndex));
+            [stringList add:s];
+            index++;
+        }
+        return stringList;
 }
 
 
-    auto SimpleFileUtil::nullOutputStream() -> OutputStream*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullOutputStream::NULL_OUTPUT_STREAM;
-    
+- (const char*) createStringFromArrayOfStrings:(const char**)stringArray {
+        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        int32_t size = java_array_length(stringArray);
+        for (int32_t index = 0; index < size; index++) {
+            [stringMaker append:stringArray[index]];
+        }
+        return [stringMaker toString];
 }
 
+@end
 
-    auto SimpleFileUtil::nullWriter() -> Writer*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullWriter::NULL_WRITER;
-    
-}
-
-
-    auto SimpleFileUtil::nullReader() -> Reader*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullReader::NULL_READER;
-    
-}
-
-
-    auto SimpleFileUtil::loadFileAsList(InputStream* inputStream, int32_t max, std::vector<int8_t> byteArray1) -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->loadFileAsListReturnLine(inputStream, max, byteArray1, 0);;
-    
-}
-
-
-    auto SimpleFileUtil::loadFileAsListReturnLine(InputStream* inputStream, int32_t max, std::vector<int8_t> byteArray1, int32_t includeReturnLine) -> BasicArrayList*{
-
-    BasicArrayList* stringList = new BasicArrayListD();;
-    
-
-                        if(inputStream == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return stringList;
-    
-
-                                    }
-                                
-
-    std::vector<int8_t> byteArray = this->nullUtil->NULL_BYTE_ARRAY;;
-    
-
-        try {
-            
-    ByteArrayOutputStream* outputStream2 = new ByteArrayOutputStream(max);;
-    
-byteArray= this->streamUtil->getByteArray(inputStream, outputStream2, byteArray1);
-    
-this->streamUtil->close(inputStream);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->streamUtil->close(inputStream);
-    
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->ADD, &e);
-    
-}
-
-
-                        if(byteArray.empty())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return stringList;
-    
-
-                                    }
-                                
-
-    int32_t size = byteArray.size();;
-    
-
-    int32_t index = 0;;
-    
-
-    int32_t startIndex= 0;;
-    
-
-    int32_t returnLine = 0;;
-    
-
-        while(index < size)
-        {
-startIndex= index;
-    
-
-        while(index < size -1 && byteArray[index] != '\n')
-        {
-index++;
-    
-}
-
-
-                        if(includeReturnLine == 0)
-                        
-                                    {
-                                    
-                        if(index > 0 && byteArray[index -1] == '\r')
-                        
-                                    {
-                                    returnLine= 1;
-    
-
-                                    }
-                                
-                        else {
-                            returnLine= 0;
-    
-
-                        }
-                            
-
-                                    }
-                                
-
-    std::string s = JavaString::fromChars(byteArray, startIndex, (index +includeReturnLine -returnLine -startIndex));;
-    
-stringList->add(s);
-    
-index++;
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return stringList;
-    
-}
-
-
-    auto SimpleFileUtil::createStringFromArrayOfStrings(std::vector<std::string> stringArray) -> std::string{
-
-    StringMaker* stringMaker = new StringMaker();;
-    
-
-    int32_t size = stringArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-stringMaker->append(stringArray[index]);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringMaker);;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_LOGIC_IO_FILE_SIMPLEFILEUTIL_CPP

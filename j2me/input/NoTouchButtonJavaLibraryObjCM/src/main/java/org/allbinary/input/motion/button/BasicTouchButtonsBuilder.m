@@ -1,129 +1,51 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/BasicTouchButtonsBuilder.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#include "org/allbinary/input/motion/button/BaseTouchInput.h"
 
 
+static BasicTouchButtonsBuilder* BasicTouchButtonsBuilder_SINGLETON;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_BASICTOUCHBUTTONSBUILDER_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_BASICTOUCHBUTTONSBUILDER_CPP
+void BasicTouchButtonsBuilder_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    BasicTouchButtonsBuilder_SINGLETON = [((BasicTouchButtonsBuilder*) [BasicTouchButtonsBuilder alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/BasicTouchButtonsBuilder.h"
-        
+@implementation BasicTouchButtonsBuilder
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+}
 
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-#include <org/allbinary/util/BasicArrayListUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/button/BaseTouchInput.h"
-
-
-BasicTouchButtonsBuilder::BasicTouchButtonsBuilder() : logUtil(LogUtil::getInstance()) {
-        }
-        auto BasicTouchButtonsBuilder::SINGLETON_owner() -> BasicTouchButtonsBuilder* { static std::unique_ptr<BasicTouchButtonsBuilder> value(new BasicTouchButtonsBuilder()); return value.get(); }
-BasicTouchButtonsBuilder* BasicTouchButtonsBuilder::SINGLETON = BasicTouchButtonsBuilder::SINGLETON_owner();
-
-    auto BasicTouchButtonsBuilder::getInstance() -> BaseTouchInput*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return BasicTouchButtonsBuilder::SINGLETON;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto BasicTouchButtonsBuilder::getList() -> BasicArrayList*{
-
-        try {
-            this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->GET_LIST);
-    
-
-    BasicArrayList* list = new BasicArrayListD();;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return list;
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->GET_LIST, &e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return BasicArrayListUtil::getInstance()->getImmutableInstance();;
-    
-}
-
++ (BaseTouchInput*) getInstance {
+        return (BasicTouchButtonsBuilder_staticInit(), BasicTouchButtonsBuilder_SINGLETON);
 }
 
 
+- (BasicArrayList*) getList {
+        JAVA_TRY {
+            [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->GET_LIST];
+            BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            return list;
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->GET_LIST :e];
+            return [[BasicArrayListUtil getInstance] getImmutableInstance];
+        } JAVA_END_TRY;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_BASICTOUCHBUTTONSBUILDER_CPP

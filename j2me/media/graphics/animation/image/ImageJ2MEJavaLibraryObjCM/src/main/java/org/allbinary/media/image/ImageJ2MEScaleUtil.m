@@ -1,184 +1,65 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2023 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/media/image/ImageJ2MEScaleUtil.h"
+#include "javax/microedition/lcdui/Image.h"
 
 
+static ImageJ2MEScaleUtil* ImageJ2MEScaleUtil_instance;
 
-        #ifndef ORG_ALLBINARY_MEDIA_IMAGE_IMAGEJ2MESCALEUTIL_CPP
-        #define ORG_ALLBINARY_MEDIA_IMAGE_IMAGEJ2MESCALEUTIL_CPP
+void ImageJ2MEScaleUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ImageJ2MEScaleUtil_instance = [((ImageJ2MEScaleUtil*) [ImageJ2MEScaleUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/image/ImageJ2MEScaleUtil.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
+@implementation ImageJ2MEScaleUtil
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto ImageJ2MEScaleUtil::instance_owner() -> ImageJ2MEScaleUtil* { static std::unique_ptr<ImageJ2MEScaleUtil> value(new ImageJ2MEScaleUtil()); return value.get(); }
-ImageJ2MEScaleUtil* ImageJ2MEScaleUtil::instance = ImageJ2MEScaleUtil::instance_owner();
-
-    auto ImageJ2MEScaleUtil::getInstance() -> ImageJ2MEScaleUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ImageJ2MEScaleUtil::instance;
-    
++ (ImageJ2MEScaleUtil*) getInstance {
+        return (ImageJ2MEScaleUtil_staticInit(), ImageJ2MEScaleUtil_instance);
 }
 
 
-ImageJ2MEScaleUtil::ImageJ2MEScaleUtil(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageJ2MEScaleUtil::scaleArray(std::vector<Image*> images, int32_t width, int32_t height) -> std::vector<Image*>{
-
-    std::vector<Image*> scaledImages = std::vector<Image*>(images.size());;
-    
-
-
-
-
-                        for (
-    int32_t index = images.size();--index >= 0; )
-        {
-scaledImages[index]= this->scale(images[index], width, height);
-    
+// throws Exception
+- (Image**) scaleArray:(Image**)images :(int32_t)width :(int32_t)height {
+        Image** scaledImages = ((Image**) java_array_new(sizeof(Image*), java_array_length(images)));
+        for (int32_t index = java_array_length(images); --index >= 0; ) {
+            scaledImages[index] = [self scale:images[index] :width :height];
+        }
+        return scaledImages;
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return scaledImages;
-    
+// throws Exception
+- (Image*) scale:(Image*)image :(int32_t)width :(int32_t)height {
+        int32_t sourceWidth = [image getWidth];
+        int32_t sourceHeight = [image getHeight];
+        int32_t* originalData = ((int32_t*) java_array_new(sizeof(int32_t), [image getWidth] * [image getHeight]));
+        [image getRGB:originalData :0 :[image getWidth] :0 :0 :[image getWidth] :[image getHeight]];
+        int32_t* scaledData = ((int32_t*) java_array_new(sizeof(int32_t), width * height));
+        int32_t heightRatioFactor = (8 * sourceHeight) / height;
+        int32_t widthRatioFactor = (8 * sourceWidth) / width;
+        int32_t scaledIndex = java_array_length(scaledData) - 1;
+        int32_t dx = 0;
+        int32_t dy = 0;
+        for (int32_t index = height; --index >= 0; ) {
+            dy = (index * heightRatioFactor) >> 3;
+            for (int32_t index2 = width; --index2 >= 0; ) {
+                dx = (index2 * widthRatioFactor) >> 3;
+                scaledData[scaledIndex--] = originalData[(sourceWidth * dy) + dx];
+            }
+        }
+        Image* scaledImage = [Image createRGBImage:scaledData :width :height :true];
+        return scaledImage;
 }
 
+@end
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageJ2MEScaleUtil::scale(Image* image, int32_t width, int32_t height) -> Image*{
-
-    int32_t sourceWidth = image->getWidth();;
-    
-
-    int32_t sourceHeight = image->getHeight();;
-    
-
-    std::vector<int32_t> originalData = std::vector<int32_t>(image->getWidth() *image->getHeight());;
-    
-image->getRGB(originalData, 0, image->getWidth(), 0, 0, image->getWidth(), image->getHeight());
-    
-
-    std::vector<int32_t> scaledData = std::vector<int32_t>(width *height);;
-    
-
-    int32_t heightRatioFactor = (8 *sourceHeight) /height;;
-    
-
-    int32_t widthRatioFactor = (8 *sourceWidth) /width;;
-    
-
-    int32_t scaledIndex = scaledData.size() -1;;
-    
-
-    int32_t dx= 0;;
-    
-
-    int32_t dy= 0;;
-    
-
-
-
-
-                        for (
-    int32_t index = height;--index >= 0; )
-        {
-dy= (index *heightRatioFactor)>>3;
-    
-
-
-
-
-                        for (
-    int32_t index2 = width;--index2 >= 0; )
-        {
-dx= (index2 *widthRatioFactor)>>3;
-    
-scaledData[scaledIndex--]= originalData[(sourceWidth *dy) +dx];
-    
-}
-
-}
-
-
-    Image* scaledImage = Image::createRGBImage(scaledData, width, height, true);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return scaledImage;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_MEDIA_IMAGE_IMAGEJ2MESCALEUTIL_CPP

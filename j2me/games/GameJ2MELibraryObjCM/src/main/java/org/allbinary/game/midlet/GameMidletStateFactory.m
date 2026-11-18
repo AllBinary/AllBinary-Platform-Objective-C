@@ -1,103 +1,53 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_MIDLET_GAMEMIDLETSTATEFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_MIDLET_GAMEMIDLETSTATEFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/midlet/GameMidletStateFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/state/GameState.h>
-
-      
-#include <org/allbinary/game/state/GameStateFactory.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/game/midlet/GameMidletStateFactory.h"
+#include "org/allbinary/game/state/GameState.h"
+#include "org/allbinary/game/state/GameStateFactory.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonLabels.h"
 
 
+static GameMidletStateFactory* GameMidletStateFactory_INSTANCE;
 
+void GameMidletStateFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameMidletStateFactory_INSTANCE = [((GameMidletStateFactory*) [GameMidletStateFactory alloc]) init];
+}
 
+@implementation GameMidletStateFactory
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto GameMidletStateFactory::INSTANCE_owner() -> GameMidletStateFactory* { static std::unique_ptr<GameMidletStateFactory> value(new GameMidletStateFactory()); return value.get(); }
-GameMidletStateFactory* GameMidletStateFactory::INSTANCE = GameMidletStateFactory::INSTANCE_owner();
-
-GameMidletStateFactory::GameMidletStateFactory() : logUtil(LogUtil::getInstance()), currentGameState(GameStateFactory::getInstance()->NO_GAME_STATE){
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->currentGameState = [GameStateFactory getInstance]->NO_GAME_STATE;
 }
 
 
-    auto GameMidletStateFactory::getInstance() -> GameMidletStateFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameMidletStateFactory::INSTANCE;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto GameMidletStateFactory::getCurrentGameState() -> GameState*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->currentGameState;
-    
++ (GameMidletStateFactory*) getInstance {
+        return (GameMidletStateFactory_staticInit(), GameMidletStateFactory_INSTANCE);
 }
 
 
-    auto GameMidletStateFactory::setCurrentGameState(GameState* currentGameState) -> void{
-this->logUtil->putF(JavaString::valueOf((new StringMaker())->append(CommonLabels::getInstance()->CURRENT)->append(" GameState: ")->append(StringUtil::getInstance()->toString(currentGameState))), this, "setCurrentGameState");
-    
-this->currentGameState= currentGameState;
-    
+- (GameState*) getCurrentGameState {
+        return self->currentGameState;
 }
 
 
+- (void) setCurrentGameState:(GameState*)currentGameState {
+        [self->logUtil putF:[[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->CURRENT] append:" GameState: "] append:[[StringUtil getInstance] toString:currentGameState]] toString] :self :"setCurrentGameState"];
+        self->currentGameState = currentGameState;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_MIDLET_GAMEMIDLETSTATEFACTORY_CPP

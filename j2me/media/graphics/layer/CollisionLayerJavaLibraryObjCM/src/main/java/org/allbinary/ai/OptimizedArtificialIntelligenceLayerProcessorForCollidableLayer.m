@@ -1,128 +1,59 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_AI_OPTIMIZEDARTIFICIALINTELLIGENCELAYERPROCESSORFORCOLLIDABLELAYER_CPP
-        #define ORG_ALLBINARY_AI_OPTIMIZEDARTIFICIALINTELLIGENCELAYERPROCESSORFORCOLLIDABLELAYER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/ai/OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/layer/CollidableCompositeLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/layer/LayerProcessor.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/ai/OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer.h"
+#include "org/allbinary/game/layer/CollidableCompositeLayer.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/ai/OptimizedArtificialIntelligenceLayerManager.h"
+#if __has_include("org/allbinary/ai/ArtificialIntelligenceInterface.h")
+#include "org/allbinary/ai/ArtificialIntelligenceInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/ArtificialIntelligenceInterface.h")
+#include "org/allbinary/game/layer/ArtificialIntelligenceInterface.h"
+#endif
+#if __has_include("org/allbinary/layer/ArtificialIntelligenceInterface.h")
+#include "org/allbinary/layer/ArtificialIntelligenceInterface.h"
+#endif
+#if __has_include("org/allbinary/layer/ArtificialIntelligenceInterface.h")
+#include "org/allbinary/layer/ArtificialIntelligenceInterface.h"
+#endif
+#if __has_include("org/allbinary/layer/ArtificialIntelligenceInterface.h")
+#include "org/allbinary/layer/ArtificialIntelligenceInterface.h"
+#endif
 
 
 
+void OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer
 
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/ai/OptimizedArtificialIntelligenceLayerManager.h"
-
-
-OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer::OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer() : LayerProcessor(new OptimizedArtificialIntelligenceLayerManager()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init {
+        self = [super init:[((OptimizedArtificialIntelligenceLayerManager*) [OptimizedArtificialIntelligenceLayerManager alloc]) init]];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer::processAt(AllBinaryLayerManager* allBinaryLayerManager, AllBinaryLayer* layerInterface, int32_t index) -> void{
-
-    CollidableCompositeLayer* artificialIntelligenceCompositeInterface = dynamic_cast<CollidableCompositeLayer*>(layerInterface);;
-    
-artificialIntelligenceCompositeInterface->getArtificialIntelligenceInterface()->processAI(allBinaryLayerManager);
-    
+// throws Exception
+- (void) processAt:(AllBinaryLayerManager*)allBinaryLayerManager :(AllBinaryLayer*)layerInterface :(int32_t)index {
+        CollidableCompositeLayer* artificialIntelligenceCompositeInterface = ((CollidableCompositeLayer*) layerInterface);
+        [[artificialIntelligenceCompositeInterface getArtificialIntelligenceInterface] processAI:allBinaryLayerManager];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer::isProcessorLayer(AllBinaryLayer* layerInterface) -> bool{
-
-                        if(layerInterface->implmentsArtificialIntelligenceCompositeInterface())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+// throws Exception
+- (bool) isProcessorLayer:(AllBinaryLayer*)layerInterface {
+        if ([layerInterface implmentsArtificialIntelligenceCompositeInterface]) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_AI_OPTIMIZEDARTIFICIALINTELLIGENCELAYERPROCESSORFORCOLLIDABLELAYER_CPP

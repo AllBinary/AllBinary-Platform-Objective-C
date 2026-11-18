@@ -1,121 +1,64 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_IMAGE_IMAGECREATIONUTIL_CPP
-        #define ORG_ALLBINARY_MEDIA_IMAGE_IMAGECREATIONUTIL_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/image/ImageCreationUtil.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/image/GameFeatureImageCacheFactory.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/media/image/ImageCreationUtil.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/image/GameFeatureImageCacheFactory.h"
+#if __has_include("org/allbinary/media/image/ImageCache.h")
+#include "org/allbinary/media/image/ImageCache.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ImageCache.h")
+#include "javax/microedition/lcdui/ImageCache.h"
+#endif
+#if __has_include("org/allbinary/image/ImageCache.h")
+#include "org/allbinary/image/ImageCache.h"
+#endif
+#if __has_include("org/allbinary/media/image/ImageCache.h")
+#include "org/allbinary/media/image/ImageCache.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ImageCache.h")
+#include "javax/microedition/lcdui/ImageCache.h"
+#endif
+#if __has_include("org/allbinary/image/ImageCache.h")
+#include "org/allbinary/image/ImageCache.h"
+#endif
 
 
+static ImageCreationUtil* ImageCreationUtil_instance;
+
+void ImageCreationUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ImageCreationUtil_instance = [((ImageCreationUtil*) [ImageCreationUtil alloc]) init];
+}
+
+@implementation ImageCreationUtil
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto ImageCreationUtil::instance_owner() -> ImageCreationUtil* { static std::unique_ptr<ImageCreationUtil> value(new ImageCreationUtil()); return value.get(); }
-ImageCreationUtil* ImageCreationUtil::instance = ImageCreationUtil::instance_owner();
-
-    auto ImageCreationUtil::getInstance() -> ImageCreationUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ImageCreationUtil::instance;
-    
++ (ImageCreationUtil*) getInstance {
+        return (ImageCreationUtil_staticInit(), ImageCreationUtil_instance);
 }
 
 
-ImageCreationUtil::ImageCreationUtil(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageCreationUtil::createImageWH(int32_t width, int32_t height) -> Image*{
-
-    Image* image = GameFeatureImageCacheFactory::getInstance()->get(this->getClass()->getName(), width, height);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return image;
-    
+// throws Exception
+- (Image*) createImageWH:(int32_t)width :(int32_t)height {
+        Image* image = [[GameFeatureImageCacheFactory getInstance] get:java_objc_class_name(self) :width :height];
+        return image;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageCreationUtil::createImage(int32_t width, int32_t height, float maxScaleX, float maxScaleY) -> Image*{
-
-    Image* image = GameFeatureImageCacheFactory::getInstance()->get(this->getClass()->getName(), static_cast<int32_t>((width *maxScaleX)) +1, static_cast<int32_t>((height *maxScaleY)) +1);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return image;
-    
+// throws Exception
+- (Image*) createImage:(int32_t)width :(int32_t)height :(float)maxScaleX :(float)maxScaleY {
+        Image* image = [[GameFeatureImageCacheFactory getInstance] get:java_objc_class_name(self) :((int32_t) (((float) width) * maxScaleX)) + 1 :((int32_t) (((float) height) * maxScaleY)) + 1];
+        return image;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_MEDIA_IMAGE_IMAGECREATIONUTIL_CPP

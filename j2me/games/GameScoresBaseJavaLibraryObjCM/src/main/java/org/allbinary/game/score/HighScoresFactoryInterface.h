@@ -1,92 +1,43 @@
+#ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORESFACTORYINTERFACE_H
+#define ORG_ALLBINARY_GAME_SCORE_HIGHSCORESFACTORYINTERFACE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.score
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class HighScoresFactoryInterface;
+@class GameInfo;
+@class HighScoresResultsListener;
+@class HighScoresHelperBaseInterface;
 
+@protocol HighScoresFactoryInterface
+- (void) fetchHighScores:(GameInfo*)gameInfo :(HighScoresResultsListener*)highScoresResultsListener;
+- (void) fetchHighScoresPreload:(GameInfo*)gameInfo :(HighScoresResultsListener*)highScoresResultsListener :(bool)preload;
+- (HighScoresHelperBaseInterface*) createHighScoresHelper;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORESFACTORYINTERFACE_H
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORESFACTORYINTERFACE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class GameInfo;
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void HighScoresFactoryInterface_staticInit(void);
 
 
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class HighScoresResultsListener;
-class HighScoresHelperBaseInterface;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class HighScoresFactoryInterface
-            : public virtual Object
-         {
-
-    public: virtual void fetchHighScores(GameInfo* gameInfo, HighScoresResultsListener* highScoresResultsListener) = 0;
-
-    public: virtual void fetchHighScoresPreload(GameInfo* gameInfo, HighScoresResultsListener* highScoresResultsListener, bool preload) = 0;
-
-    public: virtual HighScoresHelperBaseInterface* createHighScoresHelper() = 0;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_SCORE_HIGHSCORESFACTORYINTERFACE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_SCORE_HIGHSCORESFACTORYINTERFACE_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORESFACTORYINTERFACE_H_COMPLETE
-        #if __has_include(<org/allbinary/game/GameInfo.h>)
-#include <org/allbinary/game/GameInfo.h>
-#endif
-#if __has_include("org/allbinary/game/score/HighScoresResultsListener.h")
-#include "org/allbinary/game/score/HighScoresResultsListener.h"
-#endif
-#if __has_include("org/allbinary/game/score/HighScoresHelperBaseInterface.h")
-#include "org/allbinary/game/score/HighScoresHelperBaseInterface.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_SCORE_HIGHSCORESFACTORYINTERFACE_H

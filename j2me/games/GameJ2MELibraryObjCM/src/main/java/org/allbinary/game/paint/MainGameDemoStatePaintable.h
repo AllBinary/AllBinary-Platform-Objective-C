@@ -1,92 +1,52 @@
+#ifndef ORG_ALLBINARY_GAME_PAINT_MAINGAMEDEMOSTATEPAINTABLE_H
+#define ORG_ALLBINARY_GAME_PAINT_MAINGAMEDEMOSTATEPAINTABLE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.paint
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class MainGameDemoStatePaintable;
+@class Graphics;
+@class Paintable;
+#include "org/allbinary/graphics/paint/Paintable.h"
 
+@interface MainGameDemoStatePaintable : Paintable {
+@public
+    Paintable* ownershipPaintableInterface;
+    Paintable* menuPaintableInterface;
+}
+- (instancetype) init:(Paintable*)ownershipPaintableInterface :(Paintable*)menuPaintableInterface;
+- (void) initFields;
+- (void) paint:(Graphics*)graphics;
+- (Paintable*) getOwnershipPaintableInterface;
+- (Paintable*) getMenuPaintableInterface;
+@end
 
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void MainGameDemoStatePaintable_staticInit(void);
 
-        #ifndef ORG_ALLBINARY_GAME_PAINT_MAINGAMEDEMOSTATEPAINTABLE_H
-        #define ORG_ALLBINARY_GAME_PAINT_MAINGAMEDEMOSTATEPAINTABLE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class Graphics;
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class MainGameDemoStatePaintable: public Paintable {
-
-    private: Paintable* ownershipPaintableInterface;
-
-    private: Paintable* menuPaintableInterface;
-
-public: MainGameDemoStatePaintable(Paintable* ownershipPaintableInterface, Paintable* menuPaintableInterface);
-
-    public: void paint(Graphics* graphics);
-
-    public: Paintable* getOwnershipPaintableInterface();
-
-    public: Paintable* getMenuPaintableInterface();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_PAINT_MAINGAMEDEMOSTATEPAINTABLE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_PAINT_MAINGAMEDEMOSTATEPAINTABLE_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_PAINT_MAINGAMEDEMOSTATEPAINTABLE_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Graphics.h>)
-#include <javax/microedition/lcdui/Graphics.h>
-#endif
-#if __has_include(<org/allbinary/graphics/paint/Paintable.h>)
-#include <org/allbinary/graphics/paint/Paintable.h>
+#if __has_include("org/allbinary/graphics/paint/Paintable.h")
+#include "org/allbinary/graphics/paint/Paintable.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_PAINT_MAINGAMEDEMOSTATEPAINTABLE_H

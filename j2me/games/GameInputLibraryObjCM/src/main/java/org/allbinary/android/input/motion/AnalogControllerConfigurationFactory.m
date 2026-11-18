@@ -1,112 +1,53 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/android/input/motion/AnalogControllerConfigurationFactory.h"
+#include "org/allbinary/android/input/motion/event/AnalogControllerConfigurationEvent.h"
+#include "org/allbinary/android/input/motion/event/AnalogControllerConfigurationEventHandler.h"
+#include "org/allbinary/logic/math/ScaleFactorFactory.h"
 
 
+static AnalogControllerConfigurationFactory* AnalogControllerConfigurationFactory_instance;
 
-        #ifndef ORG_ALLBINARY_ANDROID_INPUT_MOTION_ANALOGCONTROLLERCONFIGURATIONFACTORY_CPP
-        #define ORG_ALLBINARY_ANDROID_INPUT_MOTION_ANALOGCONTROLLERCONFIGURATIONFACTORY_CPP
+void AnalogControllerConfigurationFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AnalogControllerConfigurationFactory_instance = [((AnalogControllerConfigurationFactory*) [AnalogControllerConfigurationFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/android/input/motion/AnalogControllerConfigurationFactory.h"
-        
+@implementation AnalogControllerConfigurationFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/android/input/motion/event/AnalogControllerConfigurationEvent.h>
-
-      
-#include <org/allbinary/android/input/motion/event/AnalogControllerConfigurationEventHandler.h>
-
-      
-#include <org/allbinary/logic/math/ScaleFactorFactory.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto AnalogControllerConfigurationFactory::instance_owner() -> AnalogControllerConfigurationFactory* { static std::unique_ptr<AnalogControllerConfigurationFactory> value(new AnalogControllerConfigurationFactory()); return value.get(); }
-AnalogControllerConfigurationFactory* AnalogControllerConfigurationFactory::instance = AnalogControllerConfigurationFactory::instance_owner();
-
-    auto AnalogControllerConfigurationFactory::getInstance() -> AnalogControllerConfigurationFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AnalogControllerConfigurationFactory::instance;
-    
+- (void) initFields {
+    self->SCALE_FACTOR = [ScaleFactorFactory getInstance]->DEFAULT_SCALE_FACTOR;
+    self->SCALE_VALUE = [ScaleFactorFactory getInstance]->DEFAULT_SCALE_VALUE;
+    self->available = false;
+    self->analogControllerConfigurationEvent = [((AnalogControllerConfigurationEvent*) [AnalogControllerConfigurationEvent alloc]) init:self];
 }
 
 
-AnalogControllerConfigurationFactory::AnalogControllerConfigurationFactory() : SCALE_FACTOR(ScaleFactorFactory::getInstance()->DEFAULT_SCALE_FACTOR), SCALE_VALUE(ScaleFactorFactory::getInstance()->DEFAULT_SCALE_VALUE), analogControllerConfigurationEvent(new AnalogControllerConfigurationEvent(this)){
++ (AnalogControllerConfigurationFactory*) getInstance {
+        return (AnalogControllerConfigurationFactory_staticInit(), AnalogControllerConfigurationFactory_instance);
 }
 
 
-    auto AnalogControllerConfigurationFactory::isAvailable() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->available;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AnalogControllerConfigurationFactory::setAvailable(bool available) -> void{
-this->available= available;
-    
-AnalogControllerConfigurationEventHandler::getInstance()->fireEvent(this->analogControllerConfigurationEvent);
-    
+- (bool) isAvailable {
+        return self->available;
 }
 
 
+// throws Exception
+- (void) setAvailable:(bool)available {
+        self->available = available;
+        [[AnalogControllerConfigurationEventHandler getInstance] fireEvent:self->analogControllerConfigurationEvent];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANDROID_INPUT_MOTION_ANALOGCONTROLLERCONFIGURATIONFACTORY_CPP

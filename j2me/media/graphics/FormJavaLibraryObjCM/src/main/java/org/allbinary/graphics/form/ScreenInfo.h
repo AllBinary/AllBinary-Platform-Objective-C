@@ -1,79 +1,32 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_FORM_SCREENINFO_H
+#define ORG_ALLBINARY_GRAPHICS_FORM_SCREENINFO_H
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.form
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ScreenInfo;
 
+@interface ScreenInfo : ABObject {
+@public
+    int32_t SMALL_WIDTH;
+    int32_t SMALL_HEIGHT;
+    int32_t MEDIUM_WIDTH;
+    int32_t MEDIUM_HEIGHT;
+}
+- (instancetype) init;
+- (void) initFields;
++ (ScreenInfo*) getInstance;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_SCREENINFO_H
-        #define ORG_ALLBINARY_GRAPHICS_FORM_SCREENINFO_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ScreenInfo_staticInit(void);
 
 
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ScreenInfo
-            : public virtual Object
-         {
-
-    private: static ScreenInfo* instance_owner();
-    private: static ScreenInfo* instance;
-
-    public: static ScreenInfo* getInstance();
-
-
-            
-    public: ScreenInfo();
-        
-    public: const int32_t SMALL_WIDTH = 320;
-
-    public: const int32_t SMALL_HEIGHT = 240;
-
-    public: const int32_t MEDIUM_WIDTH = 800;
-
-    public: const int32_t MEDIUM_HEIGHT = 600;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_SCREENINFO_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_FORM_SCREENINFO_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_FORM_SCREENINFO_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_FORM_SCREENINFO_H

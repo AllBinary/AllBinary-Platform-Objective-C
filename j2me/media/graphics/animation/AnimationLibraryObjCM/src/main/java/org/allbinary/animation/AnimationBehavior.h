@@ -1,87 +1,42 @@
+#ifndef ORG_ALLBINARY_ANIMATION_ANIMATIONBEHAVIOR_H
+#define ORG_ALLBINARY_ANIMATION_ANIMATIONBEHAVIOR_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.animation
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class AnimationBehavior;
 
+@interface AnimationBehavior : ABObject {
+@public
+}
+- (instancetype) init;
++ (AnimationBehavior*) getInstance;
+- (void) reset;
+@end
 
-
-        #ifndef ORG_ALLBINARY_ANIMATION_ANIMATIONBEHAVIOR_H
-        #define ORG_ALLBINARY_ANIMATION_ANIMATIONBEHAVIOR_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void AnimationBehavior_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class AnimationBehavior
-            : public virtual Object
-         {
-
-    private: static AnimationBehavior* instance_owner();
-    private: static AnimationBehavior* instance;
-
-    public: static AnimationBehavior* getInstance();
-
-
-            
-    public: AnimationBehavior();
-        
-    public: void reset();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_ANIMATIONBEHAVIOR_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_ANIMATION_ANIMATIONBEHAVIOR_H_COMPLETE)
-        #define ORG_ALLBINARY_ANIMATION_ANIMATIONBEHAVIOR_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_ANIMATION_ANIMATIONBEHAVIOR_H

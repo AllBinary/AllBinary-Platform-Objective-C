@@ -1,78 +1,34 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/system/security/licensing/LicenseStrings.h"
 
 
+static LicenseStrings* LicenseStrings_instance;
 
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_LICENSESTRINGS_CPP
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_LICENSESTRINGS_CPP
+void LicenseStrings_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    LicenseStrings_instance = [((LicenseStrings*) [LicenseStrings alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/system/security/licensing/LicenseStrings.h"
-        
+@implementation LicenseStrings
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->LOCKED = "Demo Locked Feature";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-LicenseStrings::LicenseStrings() {
-        }
-        auto LicenseStrings::instance_owner() -> LicenseStrings* { static std::unique_ptr<LicenseStrings> value(new LicenseStrings()); return value.get(); }
-LicenseStrings* LicenseStrings::instance = LicenseStrings::instance_owner();
-
-    auto LicenseStrings::getInstance() -> LicenseStrings*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return LicenseStrings::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (LicenseStrings*) getInstance {
+        return (LicenseStrings_staticInit(), LicenseStrings_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_LICENSESTRINGS_CPP

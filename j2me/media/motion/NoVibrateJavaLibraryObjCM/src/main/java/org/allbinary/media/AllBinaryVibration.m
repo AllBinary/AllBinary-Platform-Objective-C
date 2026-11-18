@@ -1,104 +1,46 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_ALLBINARYVIBRATION_CPP
-        #define ORG_ALLBINARY_MEDIA_ALLBINARYVIBRATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/AllBinaryVibration.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/game/configuration/GameConfigurationCentral.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/AllBinaryVibrationME.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/media/AllBinaryVibration.h"
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#include "org/allbinary/media/AllBinaryVibrationME.h"
 #include "org/allbinary/media/AllBinaryNoVibration.h"
 
-AllBinaryVibrationME* AllBinaryVibration::VIBRATION = AllBinaryNoVibration::NO_VIBRATION;
 
-AllBinaryVibration::AllBinaryVibration(){
+static AllBinaryVibrationME* AllBinaryVibration_VIBRATION;
+
+void AllBinaryVibration_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AllBinaryVibration_VIBRATION = (AllBinaryNoVibration_staticInit(), AllBinaryNoVibration_NO_VIBRATION);
+}
+
+@implementation AllBinaryVibration
+
+
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto AllBinaryVibration::getInstance() -> AllBinaryVibrationME*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AllBinaryVibration::VIBRATION;
-    
++ (AllBinaryVibrationME*) getInstance {
+        return (AllBinaryVibration_staticInit(), AllBinaryVibration_VIBRATION);
 }
 
 
-    auto AllBinaryVibration::init() -> void{
-
-                        if(JavaBoxes::value<int32_t>(GameConfigurationCentral::getInstance()->VIBRATION->getValue()) == 0)
-                        
-                                    {
-                                    AllBinaryVibration::VIBRATION= AllBinaryNoVibration::NO_VIBRATION;
-    
-
-                                    }
-                                
-                        else {
-                            AllBinaryVibration::VIBRATION= new AllBinaryVibration();
-    
-
-                        }
-                            
++ (void) init_ {
+        if (((int32_t) ([[GameConfigurationCentral getInstance]->VIBRATION getValue])) == 0) {
+            AllBinaryVibration_VIBRATION = (AllBinaryNoVibration_staticInit(), AllBinaryNoVibration_NO_VIBRATION);
+        } else {
+            AllBinaryVibration_VIBRATION = [((AllBinaryVibration*) [AllBinaryVibration alloc]) init];
+        }
 }
 
 
-    auto AllBinaryVibration::vibrate(int32_t duration, int32_t type, int32_t volume) -> void{
+- (void) vibrate:(int32_t)duration :(int32_t)type :(int32_t)volume {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_MEDIA_ALLBINARYVIBRATION_CPP

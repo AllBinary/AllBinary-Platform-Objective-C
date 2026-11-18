@@ -1,115 +1,58 @@
+#ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_ABECLIENTINFORMATIONDATA_H
+#define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_ABECLIENTINFORMATIONDATA_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2011 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class AbeClientInformationData;
 
+@interface AbeClientInformationData : ABObject {
+@public
+    const char* KEY;
+    const char* NAME;
+    const char* VERSION;
+    const char* SPECIALNAME;
+    const char* LICENSEID;
+    const char* LICENSE_TYPE;
+    const char* PREVIOUSLICENSEID;
+    const char* OSNAME;
+    const char* OSARCH;
+    const char* OSVERSION;
+    const char* OS;
+    const char* HARDWARE;
+    const char* LICENSESERVERS;
+    const char* NEWLICENSE;
+    const char* ISNEW;
+    const char* SPECIAL;
+}
+- (instancetype) init;
+- (void) initFields;
++ (AbeClientInformationData*) getInstance;
+@end
 
-
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_ABECLIENTINFORMATIONDATA_H
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_ABECLIENTINFORMATIONDATA_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class AbeClientInformationData
-            : public virtual Object
-         {
-
-    private: static AbeClientInformationData* instance_owner();
-    private: static AbeClientInformationData* instance;
-
-    public: static AbeClientInformationData* getInstance();
-
-private: AbeClientInformationData();
-
-    public: const std::string KEY = "KEY";
-
-    public: const std::string NAME = "NAME";
-
-    public: const std::string VERSION = "VERSION";
-
-    public: const std::string SPECIALNAME = "SPECIALNAME";
-
-    public: const std::string LICENSEID = "LICENSEID";
-
-    public: const std::string LICENSE_TYPE = "LICENSETYPE";
-
-    public: const std::string PREVIOUSLICENSEID = "PREVIOUSLICENSEID";
-
-    public: const std::string OSNAME = "OSNAME";
-
-    public: const std::string OSARCH = "OSARCH";
-
-    public: const std::string OSVERSION = "OSVERSION";
-
-    public: const std::string OS = "OS";
-
-    public: const std::string HARDWARE = "HARDWARE";
-
-    public: const std::string LICENSESERVERS = "LICENSESERVERS";
-
-    public: const std::string NEWLICENSE = "NEWLICENSE";
-
-    public: const std::string ISNEW = "ISNEW";
-
-    public: const std::string SPECIAL = "SPECIAL";
-
-};
-
-            
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void AbeClientInformationData_staticInit(void);
 
 
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_ABECLIENTINFORMATIONDATA_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_ABECLIENTINFORMATIONDATA_H_COMPLETE)
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_ABECLIENTINFORMATIONDATA_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_ABECLIENTINFORMATIONDATA_H

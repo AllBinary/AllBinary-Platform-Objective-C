@@ -1,228 +1,102 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_BASICPERSITANCE_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_BASICPERSITANCE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/persistance/BasicPersitance.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <javax/microedition/rms/RecordStore.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/PreLogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
-
-      
-#include <org/allbinary/persistance/PlatformRecordIdUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/configuration/persistance/PersistanceStrings.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/persistance/BasicPersitance.h"
+#include "javax/microedition/rms/RecordStore.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/communication/log/PreLogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
+#include "org/allbinary/persistance/PlatformRecordIdUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/game/configuration/persistance/PersistanceStrings.h"
 #include "org/allbinary/game/configuration/persistance/NullRecordStore.h"
 
 
-BasicPersitance::BasicPersitance(std::string recordId) : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), persistanceStrings(PersistanceStrings::getInstance()), platformRecordIdUtil(PlatformRecordIdUtil::getInstance()), valueList(new BasicArrayListD()), idList(new BasicArrayListD()){
-this->recordId= recordId;
+
+void BasicPersitance_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation BasicPersitance
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+    self->persistanceStrings = [PersistanceStrings getInstance];
+    self->platformRecordIdUtil = [PlatformRecordIdUtil getInstance];
     
+    self->valueList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->idList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BasicPersitance::deleteRecoreStore(AbeClientInformationInterface* abeClientInformation) -> void{
-RecordStore::deleteRecordStore(this->getRecordId(abeClientInformation));
-    
+- (instancetype) init:(const char*)recordId {
+    self = [super init];
+    [self initFields];
+        self->recordId = recordId;
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BasicPersitance::deleteAll(AbeClientInformationInterface* abeClientInformation) -> void{
-
-    int32_t size = this->idList->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-
-    int32_t integer = JavaBoxes::unbox<int32_t>(this->idList->objectArray[index]);;
-    
-this->delete_(abeClientInformation, integer);
-    
-}
-
-this->clear();
-    
+// throws Exception
+- (void) deleteRecoreStore:(AbeClientInformationInterface*)abeClientInformation {
+        [RecordStore deleteRecordStore:[self getRecordId:abeClientInformation]];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BasicPersitance::delete_(AbeClientInformationInterface* abeClientInformation, int32_t deleteId) -> void{
-
-    RecordStore* recordStore = NullRecordStore::NULL_RECORD_STORE;;
-    
-
-        {
-        
-        auto finallyFunction_N66725 = [&]() {
-            
-                        if(recordStore != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    PreLogUtil::put(this->persistanceStrings->CLOSING_RECORDSTORE, this, this->commonStrings->delete_);
-    
-recordStore->closeRecordStore();
-    
-
-                                    }
-                                
-
-        };
-        
-        struct FinallyGuard_N66725 { decltype(finallyFunction_N66725)& function; ~FinallyGuard_N66725() { function(); } } finallyGuard_N66725{finallyFunction_N66725};
-        
-        try {
-            this->logUtil->putF(JavaString::valueOf((new StringMaker())->append(this->persistanceStrings->DELETING_WITH_ID)->appendint(deleteId)), this, this->commonStrings->delete_);
-    
-recordStore= RecordStore::openRecordStore(this->getRecordId(abeClientInformation), true);
-    
-recordStore->deleteRecord(deleteId);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-
-
-                            throw e;
-                    
-}
-
+// throws Exception
+- (void) deleteAll:(AbeClientInformationInterface*)abeClientInformation {
+        int32_t size = [self->idList size];
+        for (int32_t index = 0; index < size; index++) {
+            int32_t integer = ((int32_t) self->idList->objectArray[index]);
+            [self delete:abeClientInformation :((int32_t) (integer))];
         }
-
+        [self clear];
 }
 
 
-    auto BasicPersitance::getRecordId(AbeClientInformationInterface* abeClientInformation) -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->platformRecordIdUtil->getRecordId(abeClientInformation, this->recordId);;
-    
+// throws Exception
+- (void) delete:(AbeClientInformationInterface*)abeClientInformation :(int32_t)deleteId {
+        RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
+        JAVA_TRY {
+            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->persistanceStrings->DELETING_WITH_ID] appendint:deleteId] toString] :self :self->commonStrings->delete];
+            recordStore = [RecordStore openRecordStore:[self getRecordId:abeClientInformation] :true];
+            [recordStore deleteRecord:deleteId];
+        } JAVA_CATCH(Exception, e) {
+            java_throw(e);
+        } JAVA_FINALLY {
+            if (recordStore != nil) {
+                [PreLogUtil put:self->persistanceStrings->CLOSING_RECORDSTORE :self :self->commonStrings->delete];
+                [recordStore closeRecordStore];
+            }
+        } JAVA_END_TRY;
 }
 
 
-    auto BasicPersitance::getList() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->valueList;
-    
+- (const char*) getRecordId:(AbeClientInformationInterface*)abeClientInformation {
+        return [self->platformRecordIdUtil getRecordId:abeClientInformation :self->recordId];
 }
 
 
-    auto BasicPersitance::getIds() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->idList;
-    
+- (BasicArrayList*) getList {
+        return self->valueList;
 }
 
 
-    auto BasicPersitance::clear() -> void{
-this->valueList->clear();
-    
-this->idList->clear();
-    
+- (BasicArrayList*) getIds {
+        return self->idList;
 }
 
 
+- (void) clear {
+        [self->valueList clear];
+        [self->idList clear];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_BASICPERSITANCE_CPP

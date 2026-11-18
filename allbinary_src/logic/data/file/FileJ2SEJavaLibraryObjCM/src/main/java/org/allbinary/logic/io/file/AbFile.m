@@ -1,717 +1,297 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/io/file/AbFile.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/logic/io/path/AbPath.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/logic/io/file/AbFileInterface.h"
 
 
+AbFile* AbFile_NULL_FILE;
 
-        #ifndef ORG_ALLBINARY_LOGIC_IO_FILE_ABFILE_CPP
-        #define ORG_ALLBINARY_LOGIC_IO_FILE_ABFILE_CPP
+void AbFile_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AbFile_NULL_FILE = [AbFile createAbFileFromRawPath:[StringUtil getInstance]->EMPTY_STRING];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/io/file/AbFile.h"
-        
+@implementation AbFile
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <java/io/File.h>
-
-      
-#include <java/io/FileFilter.h>
-
-      
-#include <java/io/FilenameFilter.h>
-
-      
-#include <java/io/IOException.h>
-
-      
-#include <java/net/URI.h>
-
-      
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/logic/io/path/AbPath.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/logic/io/file/AbFileInterface.h"
-
-AbFile* AbFile::NULL_FILE = AbFile::createAbFileFromRawPath(StringUtil::getInstance()->EMPTY_STRING);
-
-                //@Throws(Exception.constructor)
-            
-    auto AbFile::createAbFileWithChild(AbFile* file, std::string childPathName) -> AbFile*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AbFile(new File(file->getFile(), childPathName));
+- (void) initFields {
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AbFile::createAbFile(std::string filePath) -> AbFile*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AbFile(new File((new AbPath(filePath, StringUtil::getInstance()->EMPTY_STRING))->toFileSystemString()));
-    
+// throws Exception
++ (AbFile*) createAbFileWithChild:(AbFile*)file :(const char*)childPathName {
+        return [((AbFile*) [AbFile alloc]) init:[((File*) [File alloc]) init:[file getFile] :childPathName]];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AbFile::createAbFilePathAndName(std::string filePath, std::string fileName) -> AbFile*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AbFile(new File((new AbPath(filePath, StringUtil::getInstance()->EMPTY_STRING))->toFileSystemString(), fileName));
-    
+// throws Exception
++ (AbFile*) createAbFile:(const char*)filePath {
+        return [((AbFile*) [AbFile alloc]) init:[((File*) [File alloc]) init:[[((AbPath*) [AbPath alloc]) init:filePath :[StringUtil getInstance]->EMPTY_STRING] toFileSystemString]]];
 }
 
 
-    auto AbFile::createAbFileFromAbPath(AbPath* abPath) -> AbFile*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AbFile(new File(abPath->toFileSystemString()));
-    
+// throws Exception
++ (AbFile*) createAbFilePathAndName:(const char*)filePath :(const char*)fileName {
+        return [((AbFile*) [AbFile alloc]) init:[((File*) [File alloc]) init:[[((AbPath*) [AbPath alloc]) init:filePath :[StringUtil getInstance]->EMPTY_STRING] toFileSystemString] :fileName]];
 }
 
 
-    auto AbFile::createAbFileFromRawPath(std::string filePath) -> AbFile*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AbFile(new File(filePath));
-    
++ (AbFile*) createAbFileFromAbPath:(AbPath*)abPath {
+        return [((AbFile*) [AbFile alloc]) init:[((File*) [File alloc]) init:[abPath toFileSystemString]]];
 }
 
 
-AbFile::AbFile(File* file){
-this->file= file;
-    
++ (AbFile*) createAbFileFromRawPath:(const char*)filePath {
+        return [((AbFile*) [AbFile alloc]) init:[((File*) [File alloc]) init:filePath]];
 }
 
 
-    auto AbFile::getFile() -> File*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file;
-    
+- (instancetype) init:(File*)file {
+    self = [super init];
+    [self initFields];
+        self->file = file;
+    return self;
 }
 
 
-    auto AbFile::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->getName();;
-    
+- (File*) getFile {
+        return self->file;
 }
 
 
-    auto AbFile::getParent() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->getParent();;
-    
+- (const char*) getName {
+        return [self->file getName];
 }
 
 
-    auto AbFile::getParentFile() -> Object*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->getParentFile();;
-    
+- (const char*) getParent {
+        return [self->file getParent];
 }
 
 
-    auto AbFile::getPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->getPath();;
-    
+- (id) getParentFile {
+        return [self->file getParentFile];
 }
 
 
-    auto AbFile::isAbsolute() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->isAbsolute();;
-    
+- (const char*) getPath {
+        return [self->file getPath];
 }
 
 
-    auto AbFile::getAbsolutePath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->getAbsolutePath();;
-    
+- (bool) isAbsolute {
+        return [self->file isAbsolute];
 }
 
 
-    auto AbFile::getAbsoluteFile() -> Object*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->getAbsoluteFile();;
-    
+- (const char*) getAbsolutePath {
+        return [self->file getAbsolutePath];
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto AbFile::getCanonicalPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->getCanonicalPath();;
-    
+- (id) getAbsoluteFile {
+        return [self->file getAbsoluteFile];
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto AbFile::getCanonicalFile() -> Object*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->getCanonicalFile();;
-    
+// throws IOException
+- (const char*) getCanonicalPath {
+        return [self->file getCanonicalPath];
 }
 
 
-    auto AbFile::toURI() -> URI*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->toURI();;
-    
+// throws IOException
+- (id) getCanonicalFile {
+        return [self->file getCanonicalFile];
 }
 
 
-    auto AbFile::canRead() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->canRead();;
-    
+- (URI*) toURI {
+        return [self->file toURI];
 }
 
 
-    auto AbFile::canWrite() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->canWrite();;
-    
+- (bool) canRead {
+        return [self->file canRead];
 }
 
 
-    auto AbFile::exists() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->exists();;
-    
+- (bool) canWrite {
+        return [self->file canWrite];
 }
 
 
-    auto AbFile::isDirectory() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->isDirectory();;
-    
+- (bool) exists {
+        return [self->file exists];
 }
 
 
-    auto AbFile::isFile() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->isFile();;
-    
+- (bool) isDirectory {
+        return [self->file isDirectory];
 }
 
 
-    auto AbFile::isHidden() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->isHidden();;
-    
+- (bool) isFile {
+        return [self->file isFile];
 }
 
 
-    auto AbFile::lastModified() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->lastModified();;
-    
+- (bool) isHidden {
+        return [self->file isHidden];
 }
 
 
-    auto AbFile::length() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->length();;
-    
+- (int64_t) lastModified {
+        return [self->file lastModified];
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto AbFile::createNewFile() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->createNewFile();;
-    
+- (int64_t) length {
+        return ((int64_t) [self->file length]);
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto AbFile::delete_() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->delete_();;
-    
+// throws IOException
+- (bool) createNewFile {
+        return [self->file createNewFile];
 }
 
 
-    auto AbFile::deleteOnExit() -> void{
-this->file->deleteOnExit();
-    
+// throws IOException
+- (bool) delete {
+        return [self->file delete];
 }
 
 
-    auto AbFile::list() -> std::vector<std::string>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->list();;
-    
+- (void) deleteOnExit {
+        [self->file deleteOnExit];
 }
 
 
-    auto AbFile::listWithFilter(FilenameFilter* filter) -> std::vector<std::string>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->list(filter);;
-    
+- (const char**) list {
+        return [self->file list];
 }
 
 
-    auto AbFile::listFiles() -> std::vector<Object*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::unbox<std::vector<Object*>>(this->file->listFiles());
-    
+- (const char**) listWithFilter:(FilenameFilter*)filter {
+        return [self->file list:filter];
 }
 
 
-    auto AbFile::listFilesFileNameFilter(FilenameFilter* filter) -> std::vector<Object*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::unbox<std::vector<Object*>>(this->file->listFiles(filter));
-    
+- (id*) listFiles {
+        return ((id*) [self->file listFiles]);
 }
 
 
-    auto AbFile::listFilesFileFilter(FileFilter* filter) -> std::vector<Object*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::unbox<std::vector<Object*>>(this->file->listFiles(filter));
-    
+- (id*) listFilesFileNameFilter:(FilenameFilter*)filter {
+        return ((id*) [self->file listFiles:filter]);
 }
 
 
-    auto AbFile::mkdir() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->mkdir();;
-    
+- (id*) listFilesFileFilter:(FileFilter*)filter {
+        return ((id*) [self->file listFiles:filter]);
 }
 
 
-    auto AbFile::mkdirs() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->mkdirs();;
-    
+- (bool) mkdir {
+        return [self->file mkdir];
 }
 
 
-    auto AbFile::renameTo(AbFile* dest) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->renameTo(dest->getFile());;
-    
+- (bool) mkdirs {
+        return [self->file mkdirs];
 }
 
 
-    auto AbFile::setLastModified(int64_t time) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->setLastModified(time);;
-    
+- (bool) renameTo:(AbFile*)dest {
+        return [self->file renameTo:[dest getFile]];
 }
 
 
-    auto AbFile::setReadOnly() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->setReadOnly();;
-    
+- (bool) setLastModified:(int64_t)time {
+        return [self->file setLastModified:time];
 }
 
 
-    auto AbFile::setWritable(bool writable, bool ownerOnly) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->setExecutable(writable, ownerOnly);;
-    
+- (bool) setReadOnly {
+        return [self->file setReadOnly];
 }
 
 
-    auto AbFile::setWritable(bool writable) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->setWritable(writable);;
-    
+- (bool) setWritable:(bool)writable :(bool)ownerOnly {
+        return [self->file setExecutable:writable :ownerOnly];
 }
 
 
-    auto AbFile::setReadable(bool readable, bool ownerOnly) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->setReadable(readable, ownerOnly);;
-    
+- (bool) setWritable:(bool)writable {
+        return [self->file setWritable:writable];
 }
 
 
-    auto AbFile::setReadable(bool readable) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->setReadable(readable);;
-    
+- (bool) setReadable:(bool)readable :(bool)ownerOnly {
+        return [self->file setReadable:readable :ownerOnly];
 }
 
 
-    auto AbFile::setExecutable(bool executable, bool ownerOnly) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->setExecutable(executable, ownerOnly);;
-    
+- (bool) setReadable:(bool)readable {
+        return [self->file setReadable:readable];
 }
 
 
-    auto AbFile::setExecutable(bool executable) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->setExecutable(executable);;
-    
+- (bool) setExecutable:(bool)executable :(bool)ownerOnly {
+        return [self->file setExecutable:executable :ownerOnly];
 }
 
 
-    auto AbFile::canExecute() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->canExecute();;
-    
+- (bool) setExecutable:(bool)executable {
+        return [self->file setExecutable:executable];
 }
 
 
-    auto AbFile::getTotalSpace() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->getTotalSpace();;
-    
+- (bool) canExecute {
+        return [self->file canExecute];
 }
 
 
-    auto AbFile::getFreeSpace() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->getFreeSpace();;
-    
+- (int64_t) getTotalSpace {
+        return [self->file getTotalSpace];
 }
 
 
-    auto AbFile::getUsableSpace() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->getUsableSpace();;
-    
+- (int64_t) getFreeSpace {
+        return [self->file getFreeSpace];
 }
 
 
-    auto AbFile::compareTo(File* pathname) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->compareTo(pathname);;
-    
+- (int64_t) getUsableSpace {
+        return [self->file getUsableSpace];
 }
 
 
-    auto AbFile::equals(Object* obj) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TsUtil::getInstance()->equalsNotstring(this->file, obj);;
-    
+- (int32_t) compareTo:(File*)pathname {
+        return [self->file compareTo:pathname];
 }
 
 
-    auto AbFile::hashCode() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->file->hashCode();;
-    
+- (bool) equals:(id)obj {
+        return [[TsUtil getInstance] equalsNotstring:self->file :obj];
 }
 
 
-    auto AbFile::toString() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(this->file);;
-    
+- (int32_t) hashCode {
+        return [self->file hashCode];
 }
 
 
+- (const char*) toString {
+        return [self->file toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_IO_FILE_ABFILE_CPP

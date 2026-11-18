@@ -1,120 +1,55 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLBITMAPFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLBITMAPFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/OpenGLBitmapFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <java/io/IOException.h>
-
-      
-#include <java/io/InputStream.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/platform/graphics/PlatformBitmapBase.h>
-
-      
-#include <org/allbinary/platform/graphics/PlatformBitmapBaseFactory.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/OpenGLBitmapConfig.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/OpenGLBitmapFactory.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/platform/graphics/PlatformBitmapBase.h"
+#include "org/allbinary/graphics/OpenGLBitmapConfig.h"
 #include "org/allbinary/graphics/OpenGLBitmap.h"
 
 
-OpenGLBitmapFactory::OpenGLBitmapFactory() : ARGB_8888(new OpenGLBitmapConfig(NullUtil::getInstance()->NULL_OBJECT)) {
-        }
-        auto OpenGLBitmapFactory::instance_owner() -> OpenGLBitmapFactory* { static std::unique_ptr<OpenGLBitmapFactory> value(new OpenGLBitmapFactory()); return value.get(); }
-OpenGLBitmapFactory* OpenGLBitmapFactory::instance = OpenGLBitmapFactory::instance_owner();
+static OpenGLBitmapFactory* OpenGLBitmapFactory_instance;
 
-    auto OpenGLBitmapFactory::getInstance() -> OpenGLBitmapFactory*{
+void OpenGLBitmapFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    OpenGLBitmapFactory_instance = [((OpenGLBitmapFactory*) [OpenGLBitmapFactory alloc]) init];
+}
 
+@implementation OpenGLBitmapFactory
 
+- (void) initFields {
+    self->ARGB_8888 = [((OpenGLBitmapConfig*) [OpenGLBitmapConfig alloc]) init:[NullUtil getInstance]->NULL_OBJECT];
+}
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return OpenGLBitmapFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto OpenGLBitmapFactory::createBitmap(int32_t width, int32_t height, OpenGLBitmapConfig* config) -> OpenGLBitmap*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new OpenGLBitmap(NullUtil::getInstance()->NULL_OBJECT);
-    
++ (OpenGLBitmapFactory*) getInstance {
+        return (OpenGLBitmapFactory_staticInit(), OpenGLBitmapFactory_instance);
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto OpenGLBitmapFactory::decodeStream(InputStream* inputStream) -> OpenGLBitmap*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new OpenGLBitmap(NullUtil::getInstance()->NULL_OBJECT);
-    
+- (OpenGLBitmap*) createBitmap:(int32_t)width :(int32_t)height :(OpenGLBitmapConfig*)config {
+        return [((OpenGLBitmap*) [OpenGLBitmap alloc]) init:[NullUtil getInstance]->NULL_OBJECT];
 }
 
 
-    auto OpenGLBitmapFactory::createBitmap(Image* image) -> PlatformBitmapBase*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new OpenGLBitmap(NullUtil::getInstance()->NULL_OBJECT);
-    
+// throws IOException
+- (OpenGLBitmap*) decodeStream:(InputStream*)inputStream {
+        return [((OpenGLBitmap*) [OpenGLBitmap alloc]) init:[NullUtil getInstance]->NULL_OBJECT];
 }
 
 
+- (PlatformBitmapBase*) createBitmap:(Image*)image {
+        return [((OpenGLBitmap*) [OpenGLBitmap alloc]) init:[NullUtil getInstance]->NULL_OBJECT];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLBITMAPFACTORY_CPP

@@ -1,120 +1,53 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/event/GameInitializedEvent.h"
+#include "org/allbinary/game/resource/ResourceLoadingLevel.h"
+#include "org/allbinary/game/resource/ResourceLoadingLevelFactory.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEINITIALIZEDEVENT_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEINITIALIZEDEVENT_CPP
+void GameInitializedEvent_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/event/GameInitializedEvent.h"
-        
+@implementation GameInitializedEvent
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/resource/ResourceLoadingLevel.h>
-
-      
-#include <org/allbinary/game/resource/ResourceLoadingLevelFactory.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GameInitializedEvent::GameInitializedEvent(Object* anyType) : AllBinaryEventObject(anyType), resourceLoadingLevel(ResourceLoadingLevelFactory::getInstance()->LEVEL){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (void) initFields {
+    self->resourceLoadingLevel = [ResourceLoadingLevelFactory getInstance]->LEVEL;
+    self->level = 0;
 }
 
 
-    auto GameInitializedEvent::setLevel(int32_t level) -> void{
-this->level= level;
-    
-this->resourceLoadingLevel= ResourceLoadingLevelFactory::getInstance()->LEVEL;
-    
+- (instancetype) init:(id)anyType {
+        self = [super init:anyType];
+        [self initFields];
+    return self;
 }
 
 
-    auto GameInitializedEvent::getLevel() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->level;
-    
+- (void) setLevel:(int32_t)level {
+        self->level = level;
+        self->resourceLoadingLevel = [ResourceLoadingLevelFactory getInstance]->LEVEL;
 }
 
 
-    auto GameInitializedEvent::setResourceLoadingLevel(ResourceLoadingLevel* resourceLoadingLevel) -> void{
-this->resourceLoadingLevel= resourceLoadingLevel;
-    
-this->level= this->resourceLoadingLevel->getLevel();
-    
+- (int32_t) getLevel {
+        return self->level;
 }
 
 
-    auto GameInitializedEvent::getResourceLoadingLevel() -> ResourceLoadingLevel*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->resourceLoadingLevel;
-    
+- (void) setResourceLoadingLevel:(ResourceLoadingLevel*)resourceLoadingLevel {
+        self->resourceLoadingLevel = resourceLoadingLevel;
+        self->level = [self->resourceLoadingLevel getLevel];
 }
 
 
+- (ResourceLoadingLevel*) getResourceLoadingLevel {
+        return self->resourceLoadingLevel;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEINITIALIZEDEVENT_CPP

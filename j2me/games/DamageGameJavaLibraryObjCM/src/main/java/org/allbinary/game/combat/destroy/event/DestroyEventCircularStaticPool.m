@@ -1,117 +1,53 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_COMBAT_DESTROY_EVENT_DESTROYEVENTCIRCULARSTATICPOOL_CPP
-        #define ORG_ALLBINARY_GAME_COMBAT_DESTROY_EVENT_DESTROYEVENTCIRCULARSTATICPOOL_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/combat/destroy/event/DestroyEventCircularStaticPool.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventCircularPool.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/combat/destroy/event/DestroyEventFactory.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/combat/destroy/event/DestroyEventCircularStaticPool.h"
+#include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventCircularPool.h"
+#include "org/allbinary/game/combat/destroy/event/DestroyEventFactory.h"
 #include "org/allbinary/game/combat/destroy/event/DestroyedEvent.h"
 
-auto DestroyEventCircularStaticPool::instance_owner() -> DestroyEventCircularStaticPool* { static std::unique_ptr<DestroyEventCircularStaticPool> value(new DestroyEventCircularStaticPool()); return value.get(); }
-DestroyEventCircularStaticPool* DestroyEventCircularStaticPool::instance = DestroyEventCircularStaticPool::instance_owner();
 
-    auto DestroyEventCircularStaticPool::getInstance() -> DestroyEventCircularStaticPool*{
+static DestroyEventCircularStaticPool* DestroyEventCircularStaticPool_instance;
 
+void DestroyEventCircularStaticPool_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    DestroyEventCircularStaticPool_instance = [((DestroyEventCircularStaticPool*) [DestroyEventCircularStaticPool alloc]) init];
+}
 
+@implementation DestroyEventCircularStaticPool
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return DestroyEventCircularStaticPool::instance;
-    
+- (void) initFields {
+    self->EVENT_POOL = [((AllBinaryEventCircularPool*) [AllBinaryEventCircularPool alloc]) init:20];
 }
 
 
-DestroyEventCircularStaticPool::DestroyEventCircularStaticPool() : EVENT_POOL(new AllBinaryEventCircularPool(20)){
++ (DestroyEventCircularStaticPool*) getInstance {
+        return (DestroyEventCircularStaticPool_staticInit(), DestroyEventCircularStaticPool_instance);
 }
 
 
-    auto DestroyEventCircularStaticPool::init(AllBinaryGameCanvas* combatGameCanvas) -> void{
-this->EVENT_POOL->initAllBinaryEventCircularPool(new DestroyEventFactory(combatGameCanvas));
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto DestroyEventCircularStaticPool::getInstanceForLayer(AllBinaryLayer* layerInterface) -> DestroyedEvent*{
-
-    DestroyedEvent* destroyedEvent = dynamic_cast<DestroyedEvent*>(this->EVENT_POOL->getNextInstance());;
-    
-destroyedEvent->setLayerInterfaceForCircularStaticPool(layerInterface);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return destroyedEvent;
-    
+- (void) init_:(AllBinaryGameCanvas*)combatGameCanvas {
+        [self->EVENT_POOL initAllBinaryEventCircularPool:[((DestroyEventFactory*) [DestroyEventFactory alloc]) init:combatGameCanvas]];
 }
 
 
+// throws Exception
+- (DestroyedEvent*) getInstanceForLayer:(AllBinaryLayer*)layerInterface {
+        DestroyedEvent* destroyedEvent = ((DestroyedEvent*) [self->EVENT_POOL getNextInstance]);
+        [destroyedEvent setLayerInterfaceForCircularStaticPool:layerInterface];
+        return destroyedEvent;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_COMBAT_DESTROY_EVENT_DESTROYEVENTCIRCULARSTATICPOOL_CPP

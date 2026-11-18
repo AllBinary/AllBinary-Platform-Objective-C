@@ -1,195 +1,72 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/system/security/crypt/jcehelper/BasicCrypt.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/PreLogUtil.h"
+#include "org/allbinary/logic/java/byteutil/ByteUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
 
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_JCEHELPER_BASICCRYPT_CPP
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_JCEHELPER_BASICCRYPT_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/system/security/crypt/jcehelper/BasicCrypt.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/init/crypt/jcehelper/CryptInterface.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/PreLogUtil.h>
-
-      
-#include <org/allbinary/logic/java/byteutil/ByteUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-BasicCrypt::BasicCrypt(std::string keyAsString) : byteUtil(ByteUtil::getInstance()){
-
-    std::vector<int8_t> key = NullUtil::getInstance()->NULL_BYTE_ARRAY;;
-    
-
-        try {
-            key= TsUtil::getInstance()->getByteArray(keyAsString);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-PreLogUtil::putOE(commonStrings->EXCEPTION, this, "AbCrypt(alg,key)", &e);
-    
+void BasicCrypt_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
 }
 
-this->key= key;
+@implementation BasicCrypt
+
+- (void) initFields {
+    self->byteUtil = [ByteUtil getInstance];
     
 }
 
 
-    auto BasicCrypt::encrypt(std::vector<int8_t> array) -> std::vector<int8_t>{
-
-        try {
-            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->mutilate(array);;
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-PreLogUtil::putOE("Encrypt Failed", this, "encrypt", &e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullUtil::getInstance()->NULL_BYTE_ARRAY;
-    
-}
-
+- (instancetype) init:(const char*)keyAsString {
+    self = [super init];
+    [self initFields];
+        int8_t* key = [NullUtil getInstance]->NULL_BYTE_ARRAY;
+        JAVA_TRY {
+            key = [[TsUtil getInstance] getByteArray:keyAsString];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [PreLogUtil putOE:commonStrings->EXCEPTION :self :"AbCrypt(alg,key)" :e];
+        } JAVA_END_TRY;
+        self->key = key;
+    return self;
 }
 
 
-    auto BasicCrypt::decrypt(std::vector<int8_t> array) -> std::vector<int8_t>{
-
-        try {
-            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->mutilate(array);;
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-PreLogUtil::putOE("decrypt Failed", this, "decrypt", &e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullUtil::getInstance()->NULL_BYTE_ARRAY;
-    
-}
-
+- (int8_t*) encrypt:(int8_t*)array {
+        JAVA_TRY {
+            return [self mutilate:array];
+        } JAVA_CATCH(Exception, e) {
+            [PreLogUtil putOE:"Encrypt Failed" :self :"encrypt" :e];
+            return [NullUtil getInstance]->NULL_BYTE_ARRAY;
+        } JAVA_END_TRY;
 }
 
 
-    auto BasicCrypt::mutilate(std::vector<int8_t> array) -> std::vector<int8_t>{
-
-    int8_t value;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < this->key.size(); index++)
-        {
-value= this->key[index];
-    
-array= this->byteUtil->xor_(array, value);
-    
+- (int8_t*) decrypt:(int8_t*)array {
+        JAVA_TRY {
+            return [self mutilate:array];
+        } JAVA_CATCH(Exception, e) {
+            [PreLogUtil putOE:"decrypt Failed" :self :"decrypt" :e];
+            return [NullUtil getInstance]->NULL_BYTE_ARRAY;
+        } JAVA_END_TRY;
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return array;
-    
+- (int8_t*) mutilate:(int8_t*)array {
+        int8_t value = 0;
+        for (int32_t index = 0; index < java_array_length(self->key); index++) {
+            value = self->key[index];
+            array = [self->byteUtil xor:array :value];
+        }
+        return array;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_JCEHELPER_BASICCRYPT_CPP

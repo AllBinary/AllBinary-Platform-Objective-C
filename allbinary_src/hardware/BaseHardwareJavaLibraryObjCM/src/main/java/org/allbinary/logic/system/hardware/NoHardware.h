@@ -47,5 +47,11 @@
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.
 void NoHardware_staticInit(void);
 
+#if __has_include("org/allbinary/logic/system/hardware/components/interfaces/HardwareComponentInterface.h")
+#include "org/allbinary/logic/system/hardware/components/interfaces/HardwareComponentInterface.h"
+#endif
+#if __has_include("org/allbinary/util/ABHashtable.h")
+#include "org/allbinary/util/ABHashtable.h"
+#endif
 
 #endif // ORG_ALLBINARY_LOGIC_SYSTEM_HARDWARE_NOHARDWARE_H

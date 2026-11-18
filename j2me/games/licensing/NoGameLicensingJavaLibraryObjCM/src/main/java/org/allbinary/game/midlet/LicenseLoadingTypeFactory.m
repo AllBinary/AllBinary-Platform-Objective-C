@@ -1,79 +1,38 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/midlet/LicenseLoadingTypeFactory.h"
+#include "org/allbinary/game/midlet/LicenseLoadingType.h"
 
 
+static LicenseLoadingTypeFactory* LicenseLoadingTypeFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_MIDLET_LICENSELOADINGTYPEFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_MIDLET_LICENSELOADINGTYPEFACTORY_CPP
+void LicenseLoadingTypeFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    LicenseLoadingTypeFactory_instance = [((LicenseLoadingTypeFactory*) [LicenseLoadingTypeFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/midlet/LicenseLoadingTypeFactory.h"
-        
+@implementation LicenseLoadingTypeFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->INITIAL_LOADING = [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Initial Loading"];
+    self->GAME_START = [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Game Start"];
+    self->LOGIN = [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Login"];
+    self->OTHER = [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Other/Usually The First Non Demo Level"];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/midlet/LicenseLoadingType.h"
-
-
-LicenseLoadingTypeFactory::LicenseLoadingTypeFactory() : INITIAL_LOADING(new LicenseLoadingType("Initial Loading")), GAME_START(new LicenseLoadingType("Game Start")), LOGIN(new LicenseLoadingType("Login")), OTHER(new LicenseLoadingType("Other/Usually The First Non Demo Level")) {
-        }
-        auto LicenseLoadingTypeFactory::instance_owner() -> LicenseLoadingTypeFactory* { static std::unique_ptr<LicenseLoadingTypeFactory> value(new LicenseLoadingTypeFactory()); return value.get(); }
-LicenseLoadingTypeFactory* LicenseLoadingTypeFactory::instance = LicenseLoadingTypeFactory::instance_owner();
-
-    auto LicenseLoadingTypeFactory::getIntance() -> LicenseLoadingTypeFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return LicenseLoadingTypeFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (LicenseLoadingTypeFactory*) getIntance {
+        return (LicenseLoadingTypeFactory_staticInit(), LicenseLoadingTypeFactory_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_MIDLET_LICENSELOADINGTYPEFACTORY_CPP

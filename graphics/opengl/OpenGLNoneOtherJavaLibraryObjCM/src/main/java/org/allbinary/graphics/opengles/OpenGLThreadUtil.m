@@ -1,76 +1,41 @@
-
-        /* Generated Code Do Not Modify */
-        
-
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/OpenGLThreadUtil.h"
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLTHREADUTIL_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLTHREADUTIL_CPP
+static OpenGLThreadUtil* OpenGLThreadUtil_instance;
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/OpenGLThreadUtil.h"
-        
+void OpenGLThreadUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    OpenGLThreadUtil_instance = [((OpenGLThreadUtil*) [OpenGLThreadUtil alloc]) init];
+}
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+@implementation OpenGLThreadUtil
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-OpenGLThreadUtil::OpenGLThreadUtil() {
-        }
-        auto OpenGLThreadUtil::instance_owner() -> OpenGLThreadUtil* { static std::unique_ptr<OpenGLThreadUtil> value(new OpenGLThreadUtil()); return value.get(); }
-OpenGLThreadUtil* OpenGLThreadUtil::instance = OpenGLThreadUtil::instance_owner();
-
-    auto OpenGLThreadUtil::getInstance() -> OpenGLThreadUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return OpenGLThreadUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto OpenGLThreadUtil::set(Object* glSurfaceView) -> void{
++ (OpenGLThreadUtil*) getInstance {
+        return (OpenGLThreadUtil_staticInit(), OpenGLThreadUtil_instance);
 }
 
 
-    auto OpenGLThreadUtil::onPause() -> void{
+- (void) set:(id)glSurfaceView {
 }
 
 
-    auto OpenGLThreadUtil::onResume() -> void{
+- (void) onPause {
 }
 
 
+- (void) onResume {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLTHREADUTIL_CPP

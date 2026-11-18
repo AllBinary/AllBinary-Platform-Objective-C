@@ -1,179 +1,90 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/physics/movement/NoZBasicConstantVelocityMovement.h"
+#include "org/allbinary/game/layer/AllBinaryGameLayer.h"
+#include "org/allbinary/game/physics/velocity/BasicVelocityProperties.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#include "org/allbinary/logic/math/vector/AxisMathVectorUtil.h"
+#include "org/allbinary/math/AngleFactory.h"
+#include "org/allbinary/physics/movement/Movement.h"
 
 
 
-        #ifndef ORG_ALLBINARY_PHYSICS_MOVEMENT_NOZBASICCONSTANTVELOCITYMOVEMENT_CPP
-        #define ORG_ALLBINARY_PHYSICS_MOVEMENT_NOZBASICCONSTANTVELOCITYMOVEMENT_CPP
+void NoZBasicConstantVelocityMovement_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/physics/movement/NoZBasicConstantVelocityMovement.h"
-        
+@implementation NoZBasicConstantVelocityMovement
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/layer/AllBinaryGameLayer.h>
-
-      
-#include <org/allbinary/game/physics/velocity/BasicVelocityProperties.h>
-
-      
-#include <org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/logic/math/BasicDecimal.h>
-
-      
-#include <org/allbinary/logic/math/vector/AxisMathVectorUtil.h>
-
-      
-#include <org/allbinary/math/AngleFactory.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/physics/movement/Movement.h"
-
-
-NoZBasicConstantVelocityMovement::NoZBasicConstantVelocityMovement(BasicDecimal* basicDecimal, BasicVelocityProperties* velocityProperties) : speedBasicDecimal(BasicDecimal::ZERO_BIGDECIMAL), axisMathVectorUtil(AxisMathVectorUtil::getInstance()){
-this->setSpeedBasicDecimal(basicDecimal);
+- (void) initFields {
     
-this->velocityProperties= velocityProperties;
-    
+    self->speedBasicDecimal = (BasicDecimal_staticInit(), BasicDecimal_ZERO_BIGDECIMAL);
+    self->axisMathVectorUtil = [AxisMathVectorUtil getInstance];
 }
 
 
-    auto NoZBasicConstantVelocityMovement::init(BasicDecimal* speedBasicDecimal, int32_t angle, int32_t otherAngle) -> void{
-this->speedBasicDecimal= speedBasicDecimal;
-    
-
-    AngleFactory* angleFactory = AngleFactory::getInstance();;
-    
-this->velocityProperties->setVelocityWithBigDecimal(speedBasicDecimal, angleFactory->getAt(angle), angleFactory->getAt(otherAngle));
-    
+- (instancetype) init:(BasicDecimal*)basicDecimal :(BasicVelocityProperties*)velocityProperties {
+    self = [super init];
+    [self initFields];
+        [self setSpeedBasicDecimal:basicDecimal];
+        self->velocityProperties = velocityProperties;
+    return self;
 }
 
 
-    auto NoZBasicConstantVelocityMovement::moveOutsideRadius(AllBinaryLayer* layer, int64_t radius, int32_t angle, int32_t otherAngle) -> void{
-
-    int32_t scaleFactorValue = this->speedBasicDecimal->getScaledFactorValue();;
-    
-
-    int32_t xVector = static_cast<int32_t>((this->axisMathVectorUtil->calculateX(radius, angle) /scaleFactorValue));;
-    
-
-    int32_t yVector = static_cast<int32_t>((this->axisMathVectorUtil->calculateY(radius, angle) /scaleFactorValue));;
-    
-layer->moveDXYZ(xVector, yVector, 0);
-    
+- (void) init_:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle {
+        self->speedBasicDecimal = speedBasicDecimal;
+        AngleFactory* angleFactory = [AngleFactory getInstance];
+        [self->velocityProperties setVelocityWithBigDecimal:speedBasicDecimal :[angleFactory getAt:angle] :[angleFactory getAt:otherAngle]];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto NoZBasicConstantVelocityMovement::process(AllBinaryGameLayer* layer) -> void{
-layer->moveDXYZ(this->velocityProperties->getVelocityXBasicDecimalP()->getScaled(), this->velocityProperties->getVelocityYBasicDecimalP()->getScaled(), 0);
-    
+- (void) moveOutsideRadius:(AllBinaryLayer*)layer :(int64_t)radius :(int32_t)angle :(int32_t)otherAngle {
+        int32_t scaleFactorValue = [self->speedBasicDecimal getScaledFactorValue];
+        int32_t xVector = ((int32_t) ([self->axisMathVectorUtil calculateX:radius :angle] / ((int64_t) scaleFactorValue)));
+        int32_t yVector = ((int32_t) ([self->axisMathVectorUtil calculateY:radius :angle] / ((int64_t) scaleFactorValue)));
+        [layer moveDXYZ:xVector :yVector :0];
 }
 
 
-    auto NoZBasicConstantVelocityMovement::toString() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(this->velocityProperties);;
-    
+// throws Exception
+- (void) process:(AllBinaryGameLayer*)layer {
+        [layer moveDXYZ:[[self->velocityProperties getVelocityXBasicDecimalP] getScaled] :[[self->velocityProperties getVelocityYBasicDecimalP] getScaled] :0];
 }
 
 
-    auto NoZBasicConstantVelocityMovement::stop() -> void{
-this->velocityProperties->zero();
-    
+- (const char*) toString {
+        return [self->velocityProperties toString];
 }
 
 
-    auto NoZBasicConstantVelocityMovement::getVelocityProperties() -> BasicVelocityProperties*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->velocityProperties;
-    
+- (void) stop {
+        [self->velocityProperties zero];
 }
 
 
-    auto NoZBasicConstantVelocityMovement::setVelocityProperties(BasicVelocityProperties* velocityProperties) -> void{
-this->velocityProperties= velocityProperties;
-    
+- (BasicVelocityProperties*) getVelocityProperties {
+        return self->velocityProperties;
 }
 
 
-    auto NoZBasicConstantVelocityMovement::setSpeedBasicDecimal(BasicDecimal* speedBasicDecimal) -> void{
-this->speedBasicDecimal= speedBasicDecimal;
-    
+- (void) setVelocityProperties:(BasicVelocityProperties*)velocityProperties {
+        self->velocityProperties = velocityProperties;
 }
 
 
-    auto NoZBasicConstantVelocityMovement::getSpeedBasicDecimal() -> BasicDecimal*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->speedBasicDecimal;
-    
+- (void) setSpeedBasicDecimal:(BasicDecimal*)speedBasicDecimal {
+        self->speedBasicDecimal = speedBasicDecimal;
 }
 
 
+- (BasicDecimal*) getSpeedBasicDecimal {
+        return self->speedBasicDecimal;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_PHYSICS_MOVEMENT_NOZBASICCONSTANTVELOCITYMOVEMENT_CPP

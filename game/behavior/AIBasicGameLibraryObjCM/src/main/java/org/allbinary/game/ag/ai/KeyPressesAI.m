@@ -1,193 +1,82 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/ai/KeyPressesAI.h"
+#include "org/allbinary/game/input/GameInput.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/util/HashtableUtil.h"
+#include "org/allbinary/util/ABHashtable.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_AI_KEYPRESSESAI_CPP
-        #define ORG_ALLBINARY_GAME_AG_AI_KEYPRESSESAI_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/ai/KeyPressesAI.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <org/allbinary/game/input/GameInput.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/util/HashtableUtil.h>
-
-      
-#include <org/allbinary/game/ai/BasicAI.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-KeyPressesAI::KeyPressesAI(ABHashtable<Object*, Object*>* hashtable, AllBinaryLayer* ownerLayerInterface, GameInput* gameInput) : BasicAI(ownerLayerInterface, gameInput){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->keys= std::vector<int32_t>(hashtable->size());
-    
-
-    std::vector<Object*> objectArray = HashtableUtil::getInstance()->getKeysAsArray(hashtable);;
-    
-
-    int32_t size = objectArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-this->keys[index]= JavaBoxes::unbox<int32_t>(hashtable->get(objectArray[index]));
-    
+void KeyPressesAI_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
 }
 
-}
+@implementation KeyPressesAI
 
-
-                //@Throws(Exception.constructor)
-            
-    auto KeyPressesAI::processAI(AllBinaryLayerManager* allBinaryLayerManager) -> void{
-
-                        if(this->on)
-                        
-                                    {
-                                    
-
-
-
-                        for (
-    int32_t index = 0;index < this->keys.size(); index++)
-        {
-BasicAI::processKeyAI(this->keys[index]);
+- (void) initFields {
+    self->on = true;
     
 }
 
 
-                                    }
-                                
+- (instancetype) init:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
+        self = [super init:ownerLayerInterface :gameInput];
+        [self initFields];
+        self->keys = ((int32_t*) java_array_new(sizeof(int32_t), [hashtable size]));
+        id* objectArray = [[HashtableUtil getInstance] getKeysAsArray:hashtable];
+        int32_t size = java_array_length(objectArray);
+        for (int32_t index = 0; index < size; index++) {
+            self->keys[index] = ((int32_t) [hashtable get:JAVA_BOX(((id) objectArray[index]))]);
+        }
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto KeyPressesAI::toggle() -> void{
-
-                        if(this->isOn())
-                        
-                                    {
-                                    this->setOn(false);
-    
-
-                                    }
-                                
-                        else {
-                            this->setOn(true);
-    
-
-                        }
-                            
+// throws Exception
+- (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager {
+        if (self->on) {
+            for (int32_t index = 0; index < java_array_length(self->keys); index++) {
+                [super processKeyAI:((int32_t) (self->keys[index]))];
+            }
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto KeyPressesAI::disable() -> void{
-this->setOn(false);
-    
+// throws Exception
+- (void) toggle {
+        if ([self isOn]) {
+            [self setOn:false];
+        } else {
+            [self setOn:true];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto KeyPressesAI::enable() -> void{
-this->setOn(true);
-    
+// throws Exception
+- (void) disable {
+        [self setOn:false];
 }
 
 
-    auto KeyPressesAI::setOn(bool on) -> void{
-this->on= on;
-    
+// throws Exception
+- (void) enable {
+        [self setOn:true];
 }
 
 
-    auto KeyPressesAI::isOn() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->on;
-    
+- (void) setOn:(bool)on {
+        self->on = on;
 }
 
 
+- (bool) isOn {
+        return self->on;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_AI_KEYPRESSESAI_CPP

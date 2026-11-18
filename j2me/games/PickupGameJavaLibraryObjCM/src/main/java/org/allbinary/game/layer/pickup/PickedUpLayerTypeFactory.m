@@ -1,82 +1,45 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/game/layer/pickup/PickedUpLayerType.h"
 
 
+static PickedUpLayerTypeFactory* PickedUpLayerTypeFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_PICKUP_PICKEDUPLAYERTYPEFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_PICKUP_PICKEDUPLAYERTYPEFACTORY_CPP
+void PickedUpLayerTypeFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PickedUpLayerTypeFactory_instance = [((PickedUpLayerTypeFactory*) [PickedUpLayerTypeFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.h"
-        
+@implementation PickedUpLayerTypeFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->NONE = [((PickedUpLayerType*) [PickedUpLayerType alloc]) init:[StringUtil getInstance]->NULL_STRING];
+    self->BEAM = [((PickedUpLayerType*) [PickedUpLayerType alloc]) init:"BEAM"];
+    self->MINE = [((PickedUpLayerType*) [PickedUpLayerType alloc]) init:"MINE"];
+    self->PROJECTILE = [((PickedUpLayerType*) [PickedUpLayerType alloc]) init:"PROJECTILE"];
+    self->ENHANCEMENT = [((PickedUpLayerType*) [PickedUpLayerType alloc]) init:"Enhancement"];
+    self->MORPH = [((PickedUpLayerType*) [PickedUpLayerType alloc]) init:"Morph"];
+    self->PART = [((PickedUpLayerType*) [PickedUpLayerType alloc]) init:"Part"];
+    self->HEAL = [((PickedUpLayerType*) [PickedUpLayerType alloc]) init:"Heal"];
+    self->LIFE = [((PickedUpLayerType*) [PickedUpLayerType alloc]) init:"Life"];
+    self->POINTS = [((PickedUpLayerType*) [PickedUpLayerType alloc]) init:"Points"];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/pickup/PickedUpLayerType.h"
-
-
-PickedUpLayerTypeFactory::PickedUpLayerTypeFactory() : NONE(new PickedUpLayerType(StringUtil::getInstance()->NULL_STRING)), BEAM(new PickedUpLayerType("BEAM")), MINE(new PickedUpLayerType("MINE")), PROJECTILE(new PickedUpLayerType("PROJECTILE")), ENHANCEMENT(new PickedUpLayerType("Enhancement")), MORPH(new PickedUpLayerType("Morph")), PART(new PickedUpLayerType("Part")), HEAL(new PickedUpLayerType("Heal")), LIFE(new PickedUpLayerType("Life")), POINTS(new PickedUpLayerType("Points")) {
-        }
-        auto PickedUpLayerTypeFactory::instance_owner() -> PickedUpLayerTypeFactory* { static std::unique_ptr<PickedUpLayerTypeFactory> value(new PickedUpLayerTypeFactory()); return value.get(); }
-PickedUpLayerTypeFactory* PickedUpLayerTypeFactory::instance = PickedUpLayerTypeFactory::instance_owner();
-
-    auto PickedUpLayerTypeFactory::getInstance() -> PickedUpLayerTypeFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PickedUpLayerTypeFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (PickedUpLayerTypeFactory*) getInstance {
+        return (PickedUpLayerTypeFactory_staticInit(), PickedUpLayerTypeFactory_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_PICKUP_PICKEDUPLAYERTYPEFACTORY_CPP

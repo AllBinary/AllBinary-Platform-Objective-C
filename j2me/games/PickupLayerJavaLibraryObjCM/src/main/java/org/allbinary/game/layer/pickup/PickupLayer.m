@@ -1,237 +1,155 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_LAYER_PICKUP_PICKUPLAYER_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_PICKUP_PICKUPLAYER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/pickup/PickupLayer.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/khronos/opengles/GL.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/animation/NullAnimationFactory.h>
-
-      
-#include <org/allbinary/game/collision/CollidableAlwaysPickupNeverCollideBehaviorFactory.h>
-
-      
-#include <org/allbinary/game/combat/destroy/DestroyedLayerProcessor.h>
-
-      
-#include <org/allbinary/game/identification/BasicGroupFactory.h>
-
-      
-#include <org/allbinary/game/multiplayer/layer/MultiPlayerGameLayer.h>
-
-      
-#include <org/allbinary/game/multiplayer/layer/RemoteInfo.h>
-
-      
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-#include <org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.h>
-
-      
-#include <org/allbinary/view/ViewPositionBase.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/pickup/PickedUpLayerInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/pickup/PickupLayer.h"
+#include "javax/microedition/khronos/opengles/GL.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#include "org/allbinary/game/collision/CollidableAlwaysPickupNeverCollideBehaviorFactory.h"
+#include "org/allbinary/game/combat/destroy/DestroyedLayerProcessor.h"
+#include "org/allbinary/game/identification/BasicGroupFactory.h"
+#include "org/allbinary/game/multiplayer/layer/RemoteInfo.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.h"
+#include "org/allbinary/view/ViewPositionBase.h"
+#include "org/allbinary/game/layer/pickup/PickedUpLayerInterface.h"
 #include "org/allbinary/game/layer/pickup/PickupableInterface.h"
 #include "org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.h"
 #include "org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.h"
+#if __has_include("org/allbinary/game/layer/pickup/BasicLayerProcessor.h")
+#include "org/allbinary/game/layer/pickup/BasicLayerProcessor.h"
+#endif
+#if __has_include("javax/microedition/khronos/opengles/BasicLayerProcessor.h")
+#include "javax/microedition/khronos/opengles/BasicLayerProcessor.h"
+#endif
+#if __has_include("javax/microedition/lcdui/BasicLayerProcessor.h")
+#include "javax/microedition/lcdui/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/animation/BasicLayerProcessor.h")
+#include "org/allbinary/animation/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/animation/BasicLayerProcessor.h")
+#include "org/allbinary/animation/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/collision/BasicLayerProcessor.h")
+#include "org/allbinary/game/collision/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/BasicLayerProcessor.h")
+#include "org/allbinary/game/combat/destroy/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/identification/BasicLayerProcessor.h")
+#include "org/allbinary/game/identification/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/multiplayer/layer/BasicLayerProcessor.h")
+#include "org/allbinary/game/multiplayer/layer/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/multiplayer/layer/BasicLayerProcessor.h")
+#include "org/allbinary/game/multiplayer/layer/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/graphics/BasicLayerProcessor.h")
+#include "org/allbinary/graphics/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/image/opengles/BasicLayerProcessor.h")
+#include "org/allbinary/image/opengles/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/view/BasicLayerProcessor.h")
+#include "org/allbinary/view/BasicLayerProcessor.h"
+#endif
 
 
-PickupLayer::PickupLayer(std::string name, RemoteInfo* remoteInfo, int32_t total, PickedUpLayerInterfaceFactoryInterface* pickedUpLayerInterfaceFactoryInterface, Animation* animationInterface, Rectangle* rectangle, ViewPositionBase* viewPosition) : MultiPlayerGameLayer(remoteInfo, BasicGroupFactory::getInstance()->NONE_ARRAY, name, rectangle, viewPosition), pickedUpLayerInterfaceFactoryInterface(CountedPickedUpLayerInterfaceFactory::NULL_COUNTED_PICKUP_LAYER_FACTORY), animationInterface(NullAnimationFactory::getFactoryInstance()->getInstance(0)){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void PickupLayer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
-this->setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory::getInstance()->createBehavior());
-    
-this->setLayerWidth(10);
-    
-this->setLayerHeight(10);
-    
-this->init(pickedUpLayerInterfaceFactoryInterface, animationInterface);
-    
+@implementation PickupLayer
+
+- (void) initFields {
+    self->pickedUpLayerInterfaceFactoryInterface = (CountedPickedUpLayerInterfaceFactory_staticInit(), CountedPickedUpLayerInterfaceFactory_NULL_COUNTED_PICKUP_LAYER_FACTORY);
+    self->destroyed = false;
+    self->animationInterface = [[NullAnimationFactory getFactoryInstance] getInstance:0];
 }
 
 
-    auto PickupLayer::init(PickedUpLayerInterfaceFactoryInterface* pickedUpLayerInterfaceFactoryInterface, Animation* animationInterface) -> void{
-this->pickedUpLayerInterfaceFactoryInterface= pickedUpLayerInterfaceFactoryInterface;
-    
-this->animationInterface= animationInterface;
-    
-this->setDestroyed(false);
-    
+- (instancetype) init:(const char*)name :(RemoteInfo*)remoteInfo :(int32_t)total :(PickedUpLayerInterfaceFactoryInterface*)pickedUpLayerInterfaceFactoryInterface :(Animation*)animationInterface :(Rectangle*)rectangle :(ViewPositionBase*)viewPosition {
+        self = [super init:remoteInfo :[BasicGroupFactory getInstance]->NONE_ARRAY :name :rectangle :viewPosition];
+        [self initFields];
+        [self setCollidableInferface:[[CollidableAlwaysPickupNeverCollideBehaviorFactory getInstance] createBehavior]];
+        [self setLayerWidth:10];
+        [self setLayerHeight:10];
+        [self init_:pickedUpLayerInterfaceFactoryInterface :animationInterface];
+    return self;
 }
 
 
-    auto PickupLayer::initXYZ(int32_t x, int32_t y, int32_t z) -> void{
-this->setPosition(x, y, z);
-    
+- (void) init_:(PickedUpLayerInterfaceFactoryInterface*)pickedUpLayerInterfaceFactoryInterface :(Animation*)animationInterface {
+        self->pickedUpLayerInterfaceFactoryInterface = pickedUpLayerInterfaceFactoryInterface;
+        self->animationInterface = animationInterface;
+        [self setDestroyed:false];
 }
 
 
-    auto PickupLayer::paint(Graphics* graphics) -> void{
-
-    ViewPositionBase* viewPosition = this->getViewPosition();;
-    
-
-    int32_t viewX = viewPosition->getX();;
-    
-
-    int32_t viewY = viewPosition->getY();;
-    
-this->animationInterface->paintXY(graphics, viewX, viewY);
-    
+- (void) initXYZ:(int32_t)x :(int32_t)y :(int32_t)z {
+        [self setPosition:x :y :z];
 }
 
 
-    auto PickupLayer::paintThreed(Graphics* graphics) -> void{
-
-    ViewPositionBase* viewPosition = this->getViewPosition();;
-    
-
-    int32_t viewX = viewPosition->getX();;
-    
-
-    int32_t viewY = viewPosition->getY();;
-    
-this->animationInterface->paintThreedXYZ(graphics, viewX, viewY, 3);
-    
+- (void) paint:(Graphics*)graphics {
+        ViewPositionBase* viewPosition = [self getViewPosition];
+        int32_t viewX = [viewPosition getX];
+        int32_t viewY = [viewPosition getY];
+        [self->animationInterface paintXY:graphics :viewX :viewY];
 }
 
 
-    auto PickupLayer::getPickedUpLayerInterfaceFactoryInterface() -> PickedUpLayerInterfaceFactoryInterface*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->pickedUpLayerInterfaceFactoryInterface;
-    
+- (void) paintThreed:(Graphics*)graphics {
+        ViewPositionBase* viewPosition = [self getViewPosition];
+        int32_t viewX = [viewPosition getX];
+        int32_t viewY = [viewPosition getY];
+        [self->animationInterface paintThreedXYZ:graphics :viewX :viewY :3];
 }
 
 
-    auto PickupLayer::setPickedUp() -> void{
-this->setDestroyed(true);
-    
+- (PickedUpLayerInterfaceFactoryInterface*) getPickedUpLayerInterfaceFactoryInterface {
+        return self->pickedUpLayerInterfaceFactoryInterface;
 }
 
 
-    auto PickupLayer::isDestroyed() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->destroyed;
-    
+- (void) setPickedUp {
+        [self setDestroyed:true];
 }
 
 
-    auto PickupLayer::setDestroyed(bool destroyed) -> void{
-this->destroyed= destroyed;
-    
-
-                        if(this->isDestroyed())
-                        
-                                    {
-                                    DestroyedLayerProcessor::getInstance()->add(this);
-    
-
-                                    }
-                                
+- (bool) isDestroyed {
+        return self->destroyed;
 }
 
 
-    auto PickupLayer::damage(int32_t damage, int32_t damageType) -> void{
+- (void) setDestroyed:(bool)destroyed {
+        self->destroyed = destroyed;
+        if ([self isDestroyed]) {
+            [[DestroyedLayerProcessor getInstance] add:self];
+        }
 }
 
 
-    auto PickupLayer::getDamage(int32_t damageType) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (void) damage:(int32_t)damage :(int32_t)damageType {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto PickupLayer::set(GL* gl) -> void{
-
-    OpenGLSurfaceChangedInterface* openGLSurfaceChangedInterface = dynamic_cast<OpenGLSurfaceChangedInterface*>(this->animationInterface);;
-    
-openGLSurfaceChangedInterface->set(gl);
-    
+- (int32_t) getDamage:(int32_t)damageType {
+        return 0;
 }
 
 
+// throws Exception
+- (void) set:(GL*)gl {
+        OpenGLSurfaceChangedInterface* openGLSurfaceChangedInterface = ((OpenGLSurfaceChangedInterface*) self->animationInterface);
+        [openGLSurfaceChangedInterface set:gl];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_PICKUP_PICKUPLAYER_CPP

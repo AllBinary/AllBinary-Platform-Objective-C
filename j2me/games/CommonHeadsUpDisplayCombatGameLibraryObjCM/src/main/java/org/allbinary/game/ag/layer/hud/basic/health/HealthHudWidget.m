@@ -1,223 +1,99 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/hud/basic/health/HealthHudWidget.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/game/health/Health.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/time/GameTickTimeDelayHelper.h"
+#include "org/allbinary/time/GameTickTimeDelayHelperFactory.h"
+#include "org/allbinary/time/NoTimeDelayHelper.h"
+#include "org/allbinary/time/TimeDelayHelper.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_HEALTH_HEALTHHUDWIDGET_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_HEALTH_HEALTHHUDWIDGET_CPP
+void HealthHudWidget_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/hud/basic/health/HealthHudWidget.h"
-        
+@implementation HealthHudWidget
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/game/graphics/hud/BasicHud.h>
-
-      
-#include <org/allbinary/game/health/Health.h>
-
-      
-#include <org/allbinary/game/health/HealthListenerInterface.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/paint/PaintableInterface.h>
-
-      
-#include <org/allbinary/time/GameTickTimeDelayHelper.h>
-
-      
-#include <org/allbinary/time/GameTickTimeDelayHelperFactory.h>
-
-      
-#include <org/allbinary/time/NoTimeDelayHelper.h>
-
-      
-#include <org/allbinary/time/TimeDelayHelper.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-HealthHudWidget::HealthHudWidget(Animation* animationInterface, Health* healthInterface, int32_t location, int32_t direction) : BasicHud(location, direction, 2, BasicColorFactory::getInstance()->WHITE), gameTickTimeDelayHelper(GameTickTimeDelayHelperFactory::getInstance()), timeDelayHelper(NoTimeDelayHelper::SINGLETON), slowBeatTimeDelayHelper(new TimeDelayHelper(1280)), mediumBeatTimeDelayHelper(new TimeDelayHelper(640)), fastBeatTimeDelayHelper(new TimeDelayHelper(320)){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->animationInterface= animationInterface;
+- (void) initFields {
     
-this->healthInterface= healthInterface;
     
-this->healthInterface->addListener(this);
     
-this->healthScale= (this->healthInterface->getMaxHealth() /6) +1;
+    self->max = 0;
     
-this->onHealthChange();
-    
-this->updateMaxWidth= healthInterface->getMaxHealth() *16;
-    
-this->updateMaxHeight= 16;
-    
-this->xArray= std::vector<int32_t>(30);
-    
-this->update();
-    
+    self->gameTickTimeDelayHelper = [GameTickTimeDelayHelperFactory getInstance];
+    self->timeDelayHelper = (NoTimeDelayHelper_staticInit(), NoTimeDelayHelper_SINGLETON);
+    self->slowBeatTimeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:1280];
+    self->mediumBeatTimeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:640];
+    self->fastBeatTimeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:320];
 }
 
 
-    auto HealthHudWidget::update() -> void{
-
-                        if(!this->xArray.empty())
-                        
-                                    {
-                                    
-
-
-
-                        for (
-    int32_t index = 0;index < this->xArray.size(); index++)
-        {
-this->xArray[index]= this->getX() +(index *16);
-    
+- (instancetype) init:(Animation*)animationInterface :(Health*)healthInterface :(int32_t)location :(int32_t)direction {
+        self = [super init:location :direction :2 :[BasicColorFactory getInstance]->WHITE];
+        [self initFields];
+        self->animationInterface = animationInterface;
+        self->healthInterface = healthInterface;
+        [self->healthInterface addListener:self];
+        self->healthScale = ([self->healthInterface getMaxHealth] / 6) + 1;
+        [self onHealthChange];
+        self->updateMaxWidth = [healthInterface getMaxHealth] * 16;
+        self->updateMaxHeight = 16;
+        self->xArray = ((int32_t*) java_array_new(sizeof(int32_t), 30));
+        [self update];
+    return self;
 }
 
 
-                                    }
-                                
+- (void) update {
+        if (self->xArray != nil) {
+            for (int32_t index = 0; index < java_array_length(self->xArray); index++) {
+                self->xArray[index] = [self getX] + (index * 16);
+            }
+        }
 }
 
 
-    auto HealthHudWidget::setX(int32_t x) -> void{
-BasicHud::setX(x);
-    
-this->update();
-    
+- (void) setX:(int32_t)x {
+        [super setX:x];
+        [self update];
 }
 
 
-    auto HealthHudWidget::onHealthChange() -> void{
-this->max= (this->healthInterface->getHealth() /this->healthScale);
-    
-this->timeDelayHelper= NoTimeDelayHelper::SINGLETON;
-    
-
-                        if(this->max <= 1 && this->healthInterface->isAlive())
-                        
-                                    {
-                                    this->max= 1;
-    
-
-                        if(this->healthScale -this->healthInterface->getHealth() > (this->healthScale *2) /3)
-                        
-                                    {
-                                    this->timeDelayHelper= this->slowBeatTimeDelayHelper;
-    
-
-                                    }
-                                
-                             else 
-                        if(this->healthScale -this->healthInterface->getHealth() > this->healthScale /3)
-                        
-                                    {
-                                    this->timeDelayHelper= this->mediumBeatTimeDelayHelper;
-    
-
-                                    }
-                                
-                        else {
-                            this->timeDelayHelper= this->fastBeatTimeDelayHelper;
-    
-
-                        }
-                            
-
-                                    }
-                                
+- (void) onHealthChange {
+        self->max = ([self->healthInterface getHealth] / self->healthScale);
+        self->timeDelayHelper = (NoTimeDelayHelper_staticInit(), NoTimeDelayHelper_SINGLETON);
+        if (self->max <= 1 && [self->healthInterface isAlive]) {
+            self->max = 1;
+            if (self->healthScale - [self->healthInterface getHealth] > (self->healthScale * 2) / 3) {
+                self->timeDelayHelper = self->slowBeatTimeDelayHelper;
+            } else if (self->healthScale - [self->healthInterface getHealth] > self->healthScale / 3) {
+                self->timeDelayHelper = self->mediumBeatTimeDelayHelper;
+            } else {
+                self->timeDelayHelper = self->fastBeatTimeDelayHelper;
+            }
+        }
 }
 
 
-    auto HealthHudWidget::paint(Graphics* graphics) -> void{
-this->myFontProcessor->process(graphics);
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < this->max; index++)
-        {
-
-                        if(this->timeDelayHelper->isTime(this->gameTickTimeDelayHelper->startTime))
-                        
-                                    {
-                                    this->animationInterface->paintXY(graphics, this->xArray[index], this->getY());
-    
-
-                                    }
-                                
-}
-
+- (void) paint:(Graphics*)graphics {
+        [self->myFontProcessor process:graphics];
+        for (int32_t index = 0; index < self->max; index++) {
+            if ([self->timeDelayHelper isTime:self->gameTickTimeDelayHelper->startTime]) {
+                [self->animationInterface paintXY:graphics :self->xArray[index] :[self getY]];
+            }
+        }
 }
 
 
-    auto HealthHudWidget::paintThreed(Graphics* graphics) -> void{
+- (void) paintThreed:(Graphics*)graphics {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_HEALTH_HEALTHHUDWIDGET_CPP

@@ -1,243 +1,113 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORESPAINTABLE_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORESPAINTABLE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/HighScoresPaintable.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/Anchor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/color/ColorChangeEvent.h>
-
-      
-#include <org/allbinary/graphics/color/ColorChangeListener.h>
-
-      
-#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
-
-      
-#include <org/allbinary/graphics/font/MyFontProcessor.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontInterface.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontProcessor.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/score/NullHighScoresSingletonFactory.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/HighScoresPaintable.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/Anchor.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/graphics/color/ColorChangeEvent.h"
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#include "org/allbinary/graphics/font/MyFontProcessor.h"
+#include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/game/score/NullHighScoresSingletonFactory.h"
 #include "org/allbinary/game/score/HighScores.h"
 #include "org/allbinary/game/score/HighScore.h"
 
 
-HighScoresPaintable::HighScoresPaintable() : displayInfoSingleton(DisplayInfoSingleton::getInstance()), myFontProcessor(new UpdateMyFontProcessor(this)), basicColor(BasicColorFactory::getInstance()->WHITE), highScores(NullHighScoresSingletonFactory::getInstance()), anchor(Anchor::TOP_LEFT){
+
+void HighScoresPaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation HighScoresPaintable
+
+- (void) initFields {
+    self->displayInfoSingleton = [DisplayInfoSingleton getInstance];
+    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->basicColor = [BasicColorFactory getInstance]->WHITE;
+    self->highScores = [NullHighScoresSingletonFactory getInstance];
+    self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
+    self->charHeight = 0;
 }
 
 
-    auto HighScoresPaintable::updateMeasurement(Graphics* graphics) -> void{
-
-    Font* font = graphics->getFont();;
-    
-this->charHeight= font->getHeight();
-    
-this->myFontProcessor= MyFontProcessor::getInstance();
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto HighScoresPaintable::onEvent(AllBinaryEventObject* eventObject) -> void{
-
-    ColorChangeEvent* colorChangeEvent = dynamic_cast<ColorChangeEvent*>(eventObject);;
-    
-this->basicColor= colorChangeEvent->getBasicColorP();
-    
+- (void) updateMeasurement:(Graphics*)graphics {
+        Font* font = [graphics getFont];
+        self->charHeight = [font getHeight];
+        self->myFontProcessor = [MyFontProcessor getInstance];
 }
 
 
-    auto HighScoresPaintable::paint(Graphics* graphics) -> void{
-this->myFontProcessor->process(graphics);
-    
-
-    int32_t width = this->displayInfoSingleton->getLastWidth();;
-    
-
-    int32_t height = this->displayInfoSingleton->getLastHeight();;
-    
-graphics->setColor(JavaBoxes::value<int32_t>(this->getBasicColorP()));
-    
-
-    std::string heading = this->highScores->getHeading();;
-    
-
-    int32_t topScoresWidth = (graphics->getFont()->stringWidth(heading)>>1);;
-    
-
-    int32_t charHeight = this->charHeight;;
-    
-graphics->drawString(heading, (width>>1) -topScoresWidth, charHeight, this->anchor);
-    
-graphics->drawString(this->highScores->getColumnOneHeading(), 10, charHeight *3, this->anchor);
-    
-
-    std::string columnTwoHeading = this->highScores->getColumnTwoHeading();;
-    
-
-    int32_t columnTwoHeadingWidth = graphics->getFont()->stringWidth(columnTwoHeading);;
-    
-graphics->drawString(columnTwoHeading, width -10 -columnTwoHeadingWidth, charHeight *3, this->anchor);
-    
-
-    int32_t index = 4;;
-    
-
-    int32_t largestSecondColumnWidth = columnTwoHeadingWidth;;
-    
-
-    BasicArrayList* list = this->highScores->getList();;
-    
-
-    int32_t size = list->size();;
-    
-
-    int32_t vectorIndex = 0;;
-    
-
-    HighScore* highScore;;
-    
-
-        while(vectorIndex < size && charHeight *index < height -(charHeight *2))
-        {
-highScore= dynamic_cast<HighScore*>(list->objectArray[vectorIndex]);
-    
-
-    int32_t nextScoreWidth = graphics->getFont()->stringWidth(highScore->getScoreString());;
-    
-
-                        if(nextScoreWidth > largestSecondColumnWidth)
-                        
-                                    {
-                                    largestSecondColumnWidth= nextScoreWidth;
-    
-
-                                    }
-                                
-vectorIndex++;
-    
-}
-
-vectorIndex= 0;
-    
-
-        while(vectorIndex < size && charHeight *index < height -(charHeight *2))
-        {
-highScore= dynamic_cast<HighScore*>(list->objectArray[vectorIndex]);
-    
-graphics->drawString(highScore->getName(), 10, charHeight *index, this->anchor);
-    
-graphics->drawString(highScore->getScoreString(), width -10 -largestSecondColumnWidth, charHeight *index, this->anchor);
-    
-index++;
-    
-vectorIndex++;
-    
-}
-
+- (void) onEvent:(AllBinaryEventObject*)eventObject {
+        ColorChangeEvent* colorChangeEvent = ((ColorChangeEvent*) eventObject);
+        self->basicColor = [colorChangeEvent getBasicColorP];
 }
 
 
-    auto HighScoresPaintable::setBasicColorP(BasicColor* basicColor) -> void{
-this->basicColor= basicColor;
-    
+- (void) paint:(Graphics*)graphics {
+        [self->myFontProcessor process:graphics];
+        int32_t width = [self->displayInfoSingleton getLastWidth];
+        int32_t height = [self->displayInfoSingleton getLastHeight];
+        [graphics setColor:[[self getBasicColorP] intValue]];
+        const char* heading = [self->highScores getHeading];
+        int32_t topScoresWidth = ([[graphics getFont] stringWidth:heading] >> 1);
+        int32_t charHeight = self->charHeight;
+        [graphics drawString:heading :(width >> 1) - topScoresWidth :charHeight :self->anchor];
+        [graphics drawString:[self->highScores getColumnOneHeading] :10 :charHeight * 3 :self->anchor];
+        const char* columnTwoHeading = [self->highScores getColumnTwoHeading];
+        int32_t columnTwoHeadingWidth = [[graphics getFont] stringWidth:columnTwoHeading];
+        [graphics drawString:columnTwoHeading :width - 10 - columnTwoHeadingWidth :charHeight * 3 :self->anchor];
+        int32_t index = 4;
+        int32_t largestSecondColumnWidth = columnTwoHeadingWidth;
+        BasicArrayList* list = [self->highScores getList];
+        int32_t size = [list size];
+        int32_t vectorIndex = 0;
+        HighScore* highScore = nullptr;
+        while (vectorIndex < size && charHeight * index < height - (charHeight * 2)) {
+            highScore = ((HighScore*) list->objectArray[vectorIndex]);
+            int32_t nextScoreWidth = [[graphics getFont] stringWidth:[highScore getScoreString]];
+            if (nextScoreWidth > largestSecondColumnWidth) {
+                largestSecondColumnWidth = nextScoreWidth;
+            }
+            vectorIndex++;
+        }
+        vectorIndex = 0;
+        while (vectorIndex < size && charHeight * index < height - (charHeight * 2)) {
+            highScore = ((HighScore*) list->objectArray[vectorIndex]);
+            [graphics drawString:[highScore getName] :10 :charHeight * index :self->anchor];
+            [graphics drawString:[highScore getScoreString] :width - 10 - largestSecondColumnWidth :charHeight * index :self->anchor];
+            index++;
+            vectorIndex++;
+        }
 }
 
 
-    auto HighScoresPaintable::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->basicColor;
-    
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        self->basicColor = basicColor;
 }
 
 
-    auto HighScoresPaintable::setHighScores(HighScores* highScores) -> void{
-this->highScores= highScores;
-    
+- (BasicColor*) getBasicColorP {
+        return self->basicColor;
 }
 
 
+- (void) setHighScores:(HighScores*)highScores {
+        self->highScores = highScores;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_SCORE_HIGHSCORESPAINTABLE_CPP

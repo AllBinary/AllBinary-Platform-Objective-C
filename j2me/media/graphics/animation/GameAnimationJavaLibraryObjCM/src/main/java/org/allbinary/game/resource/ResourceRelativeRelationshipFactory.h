@@ -1,136 +1,68 @@
+#ifndef ORG_ALLBINARY_GAME_RESOURCE_RESOURCERELATIVERELATIONSHIPFACTORY_H
+#define ORG_ALLBINARY_GAME_RESOURCE_RESOURCERELATIVERELATIONSHIPFACTORY_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.resource
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_RESOURCE_RESOURCERELATIVERELATIONSHIPFACTORY_H
-        #define ORG_ALLBINARY_GAME_RESOURCE_RESOURCERELATIVERELATIONSHIPFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-class RelativeRelationship;
-class StdUtil;
-template<typename T1, typename T2> class ABHashtable;
-class BasicArrayList;
-class BasicArrayListD;
-class BasicArrayListUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/resource/ResourceRelativeRelationshipFactoryInterface.h"
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ResourceRelativeRelationshipFactory
-            : public virtual Object
-        , public virtual ResourceRelativeRelationshipFactoryInterface {
-
-
-            
-    public: ResourceRelativeRelationshipFactory();
-        
-    private: BasicArrayListUtil* basicArrayListUtil;
-
-    private: ABHashtable<Object*, Object*>* hashtable;
-
-    private: bool initialized= false;
-
-                //@Throws(Exception.constructor)
-            
-    public: void init(int32_t level);
-
-                //@Throws(Exception.constructor)
-            
-    public: BasicArrayList* getResourceRelativeRelationshipList(std::string resource);
-
-                //@Throws(Exception.constructor)
-            
-    public: void addResourceRelativeRelationship(std::string resource, RelativeRelationship* hardPoint);
-
-    public: bool isLoadingLevel(int32_t level);
-
-    public: bool isFeature();
-
-    public: void setInitialized(bool initialized);
-
-    public: bool isInitialized();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_RESOURCE_RESOURCERELATIVERELATIONSHIPFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_RESOURCE_RESOURCERELATIVERELATIONSHIPFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_RESOURCE_RESOURCERELATIVERELATIONSHIPFACTORY_H_COMPLETE
-        #if __has_include(<org/allbinary/graphics/RelativeRelationship.h>)
-#include <org/allbinary/graphics/RelativeRelationship.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ResourceRelativeRelationshipFactory;
+@class RelativeRelationship;
+@class StdUtil;
+@class ABHashtable;
+@class BasicArrayList;
+@class BasicArrayListD;
+@class BasicArrayListUtil;
+@class ResourceRelativeRelationshipFactoryInterface;
+#if __has_include("org/allbinary/util/ABHashtable.h")
+#include "org/allbinary/util/ABHashtable.h"
 #endif
-#if __has_include(<org/allbinary/logic/StdUtil.h>)
-#include <org/allbinary/logic/StdUtil.h>
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
 #endif
-#if __has_include(<org/allbinary/util/ABHashtable.h>)
-#include <org/allbinary/util/ABHashtable.h>
-#endif
-#if __has_include(<org/allbinary/util/BasicArrayList.h>)
-#include <org/allbinary/util/BasicArrayList.h>
-#endif
-#if __has_include(<org/allbinary/util/BasicArrayListD.h>)
-#include <org/allbinary/util/BasicArrayListD.h>
-#endif
-#if __has_include(<org/allbinary/util/BasicArrayListUtil.h>)
-#include <org/allbinary/util/BasicArrayListUtil.h>
-#endif
-#if __has_include("org/allbinary/game/resource/ResourceRelativeRelationshipFactoryInterface.h")
 #include "org/allbinary/game/resource/ResourceRelativeRelationshipFactoryInterface.h"
+
+@interface ResourceRelativeRelationshipFactory : ABObject <ResourceRelativeRelationshipFactoryInterface> {
+@public
+    BasicArrayListUtil* basicArrayListUtil;
+    ABHashtable* hashtable;
+    bool initialized;
+}
+- (instancetype) init;
+- (void) initFields;
+- (void) init_:(int32_t)level;
+- (BasicArrayList*) getResourceRelativeRelationshipList:(const char*)resource;
+- (void) addResourceRelativeRelationship:(const char*)resource :(RelativeRelationship*)hardPoint;
+- (bool) isLoadingLevel:(int32_t)level;
+- (bool) isFeature;
+- (void) setInitialized:(bool)initialized;
+- (bool) isInitialized;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ResourceRelativeRelationshipFactory_staticInit(void);
+
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_RESOURCE_RESOURCERELATIVERELATIONSHIPFACTORY_H

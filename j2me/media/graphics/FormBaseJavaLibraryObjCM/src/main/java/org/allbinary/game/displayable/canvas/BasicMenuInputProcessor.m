@@ -1,139 +1,61 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/displayable/canvas/BasicMenuInputProcessor.h"
+#include "javax/microedition/lcdui/Canvas.h"
+#include "javax/microedition/lcdui/NullCanvas.h"
+#include "org/allbinary/graphics/displayable/MyCanvas.h"
+#include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASICMENUINPUTPROCESSOR_CPP
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASICMENUINPUTPROCESSOR_CPP
+void BasicMenuInputProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/displayable/canvas/BasicMenuInputProcessor.h"
-        
+@implementation BasicMenuInputProcessor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Canvas.h>
-
-      
-#include <javax/microedition/lcdui/NullCanvas.h>
-
-      
-#include <org/allbinary/game/input/PlayerGameInput.h>
-
-      
-#include <org/allbinary/graphics/displayable/MyCanvas.h>
-
-      
-#include <org/allbinary/input/motion/gesture/observer/BaseMotionGestureEventListener.h>
-
-      
-#include <org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-BasicMenuInputProcessor::BasicMenuInputProcessor(BasicArrayList* gameKeyEventList, int32_t playerInputId, Canvas* gameCanvas) : PlayerGameInput(gameKeyEventList, new BasicArrayListD(), playerInputId), motionGestureEventList(new BasicArrayListD()), canvas(NullCanvas::NULL_CANVAS){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->canvas= gameCanvas;
-    
+- (void) initFields {
+    self->motionGestureEventList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->canvas = (NullCanvas_staticInit(), NullCanvas_NULL_CANVAS);
 }
 
 
-    auto BasicMenuInputProcessor::onMotionGestureEvent(MotionGestureEvent* motionGestureEvent) -> void{
-this->motionGestureEventList->add(motionGestureEvent);
-    
+- (instancetype) init:(BasicArrayList*)gameKeyEventList :(int32_t)playerInputId :(Canvas*)gameCanvas {
+        self = [super init:gameKeyEventList :[((BasicArrayListD*) [BasicArrayListD alloc]) init] :playerInputId];
+        [self initFields];
+        self->canvas = gameCanvas;
+    return self;
 }
 
 
-    auto BasicMenuInputProcessor::onScrolledMotionGestureEvent(MotionGestureEvent* motionGestureEvent) -> void{
+- (void) onMotionGestureEvent:(MotionGestureEvent*)motionGestureEvent {
+        [self->motionGestureEventList add:motionGestureEvent];
 }
 
 
-    auto BasicMenuInputProcessor::setCanvas(MyCanvas* canvas) -> void{
-this->canvas= canvas;
-    
+- (void) onScrolledMotionGestureEvent:(MotionGestureEvent*)motionGestureEvent {
 }
 
 
-    auto BasicMenuInputProcessor::getCanvas() -> MyCanvas*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<MyCanvas*>(this->canvas);
-    
+- (void) setCanvas:(MyCanvas*)canvas {
+        self->canvas = canvas;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BasicMenuInputProcessor::processInputList() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+- (MyCanvas*) getCanvas {
+        return ((MyCanvas*) self->canvas);
 }
 
 
+// throws Exception
+- (int32_t) processInputList {
+        return -1;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASICMENUINPUTPROCESSOR_CPP

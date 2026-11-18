@@ -1,366 +1,133 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_KEYVALUEPERSISTANCE_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_KEYVALUEPERSISTANCE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/persistance/KeyValuePersistance.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <java/io/ByteArrayInputStream.h>
-
-      
-#include <java/io/ByteArrayOutputStream.h>
-
-      
-#include <java/io/DataInputStream.h>
-
-      
-#include <java/io/DataOutputStream.h>
-
-      
-#include <javax/microedition/rms/RecordEnumeration.h>
-
-      
-#include <javax/microedition/rms/RecordStore.h>
-
-      
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/PreLogUtil.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-#include <org/allbinary/util/HashtableUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/configuration/persistance/BasicPersitance.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/persistance/KeyValuePersistance.h"
+#include "javax/microedition/rms/RecordEnumeration.h"
+#include "javax/microedition/rms/RecordStore.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/logic/communication/log/PreLogUtil.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/util/HashtableUtil.h"
+#include "org/allbinary/game/configuration/persistance/BasicPersitance.h"
 #include "org/allbinary/game/configuration/persistance/NullRecordStore.h"
 #include "org/allbinary/game/configuration/persistance/NullRecordFilter.h"
 #include "org/allbinary/game/configuration/persistance/NullRecordComparator.h"
 
 
-KeyValuePersistance::KeyValuePersistance(std::string recordId) : BasicPersitance(recordId), tsUtil(TsUtil::getInstance()){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void KeyValuePersistance_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
+@implementation KeyValuePersistance
+
+- (void) initFields {
+    self->tsUtil = [TsUtil getInstance];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto KeyValuePersistance::loadAll(AbeClientInformationInterface* abeClientInformation) -> void{
-this->loadAllSize(abeClientInformation, 1);
-    
+- (instancetype) init:(const char*)recordId {
+        self = [super init:recordId];
+        [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto KeyValuePersistance::loadAllSize(AbeClientInformationInterface* abeClientInformation, int32_t size) -> void{
-
-    RecordStore* recordStore = NullRecordStore::NULL_RECORD_STORE;;
-    
-
-        {
-        
-        auto finallyFunction_N66248 = [&]() {
-            
-                        if(recordStore != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    PreLogUtil::put(this->persistanceStrings->CLOSING_RECORDSTORE, this, this->persistanceStrings->LOAD_ALL);
-    
-recordStore->closeRecordStore();
-    
-
-                                    }
-                                
-
-        };
-        
-        struct FinallyGuard_N66248 { decltype(finallyFunction_N66248)& function; ~FinallyGuard_N66248() { function(); } } finallyGuard_N66248{finallyFunction_N66248};
-        
-        try {
-            recordStore= RecordStore::openRecordStore(this->getRecordId(abeClientInformation), true);
-    
-
-    RecordEnumeration* recordEnum = recordStore->enumerateRecords(NullRecordFilter::NULL_RECORD_FILTER, NullRecordComparator::NULL_RECORD_COMPARATOR, true);;
-    
-
-    ABHashtable<std::string, std::string>* hashtable;;
-    
-
-    std::string name;;
-    
-
-    std::string value;;
-    
-
-    SmallIntegerSingletonFactory* smallIntegerSingletonFactory = SmallIntegerSingletonFactory::getInstance();;
-    
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-
-    std::vector<int8_t> recordAsBytes;;
-    
-
-    ByteArrayInputStream* byteArrayInputStream;;
-    
-
-    DataInputStream* inputStream;;
-    
-
-        while(recordEnum->hasNextElement())
-        {
-
-    int32_t id = recordEnum->nextRecordId();;
-    
-stringBuffer->delete_(0, stringBuffer->length());
-    
-this->logUtil->putF(JavaString::valueOf(stringBuffer->append(this->persistanceStrings->LOADING_ID)->appendint(id)), this, this->persistanceStrings->LOAD_ALL);
-    
-recordAsBytes= this->tsUtil->getRecord(recordStore, id);
-    
-
-                        if(!recordAsBytes.empty())
-                        
-                                    {
-                                    byteArrayInputStream= new ByteArrayInputStream(recordAsBytes);
-    
-inputStream= new DataInputStream(byteArrayInputStream);
-    
-hashtable= new ABHashtable<std::string, std::string>();
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-name= inputStream->readUTF();
-    
-inputStream->readUTF();
-    
-value= inputStream->readUTF();
-    
-hashtable->put(name, value);
-    
-}
-
-this->valueList->add(hashtable);
-    
-this->idList->add(smallIntegerSingletonFactory->getAt(id));
-    
-
-                                    }
-                                
+// throws Exception
+- (void) loadAll:(AbeClientInformationInterface*)abeClientInformation {
+        [self loadAllSize:abeClientInformation :1];
 }
 
 
-                //: 
-} catch(Exception& e) 
-            {
-
-
-
-                            throw e;
-                    
-}
-
-        }
-
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    auto KeyValuePersistance::save(AbeClientInformationInterface* abeClientInformation, ABHashtable<Object*, Object*>* hashtable) -> void{
-
-    RecordStore* recordStore = NullRecordStore::NULL_RECORD_STORE;;
-    
-
-        {
-        
-        auto finallyFunction_N67693 = [&]() {
-            
-                        if(recordStore != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    PreLogUtil::put(this->persistanceStrings->CLOSING_RECORDSTORE, this, this->commonStrings->SAVE);
-    
-recordStore->closeRecordStore();
-    
-
-                                    }
-                                
-
-        };
-        
-        struct FinallyGuard_N67693 { decltype(finallyFunction_N67693)& function; ~FinallyGuard_N67693() { function(); } } finallyGuard_N67693{finallyFunction_N67693};
-        
-        try {
-            this->logUtil->putF(JavaString::valueOf((new StringMaker())->append(this->persistanceStrings->SAVING)->append(StringUtil::getInstance()->toString(hashtable))), this, this->commonStrings->SAVE);
-    
-recordStore= RecordStore::openRecordStore(this->getRecordId(abeClientInformation), true);
-    
-
-    ByteArrayOutputStream* byteArrayOutputStream = new ByteArrayOutputStream();;
-    
-
-    DataOutputStream* outputStream = new DataOutputStream(byteArrayOutputStream);;
-    
-
-    std::string value;;
-    
-
-    CommonSeps* commonSeps = CommonSeps::getInstance();;
-    
-
-    std::vector<Object*> objectArray = HashtableUtil::getInstance()->getKeysAsArray(hashtable);;
-    
-
-    Object* anyType;;
-    
-
-    int32_t size = objectArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-outputStream->writeUTF(JavaBoxes::unbox<std::string>(objectArray[index]));
-    
-outputStream->writeUTF(commonSeps->EQUALS);
-    
-anyType= objectArray[index];
-    
-value= JavaBoxes::unbox<std::string>(hashtable->get(anyType));
-    
-outputStream->writeUTF(value);
-    
+// throws Exception
+- (void) loadAllSize:(AbeClientInformationInterface*)abeClientInformation :(int32_t)size {
+        RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
+        JAVA_TRY {
+            recordStore = [RecordStore openRecordStore:[self getRecordId:abeClientInformation] :true];
+            RecordEnumeration* recordEnum = [recordStore enumerateRecords:(NullRecordFilter_staticInit(), NullRecordFilter_NULL_RECORD_FILTER) :(NullRecordComparator_staticInit(), NullRecordComparator_NULL_RECORD_COMPARATOR) :true];
+            ABHashtable* hashtable = nullptr;
+            const char* name = nullptr;
+            const char* value = nullptr;
+            SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
+            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            int8_t* recordAsBytes = nullptr;
+            ByteArrayInputStream* byteArrayInputStream = nullptr;
+            DataInputStream* inputStream = nullptr;
+            while ([recordEnum hasNextElement]) {
+                int32_t id_ = [recordEnum nextRecordId];
+                [stringBuffer delete:0 :[stringBuffer length]];
+                [self->logUtil putF:[[[stringBuffer append:self->persistanceStrings->LOADING_ID] appendint:id_] toString] :self :self->persistanceStrings->LOAD_ALL];
+                recordAsBytes = [self->tsUtil getRecord:recordStore :id_];
+                if (recordAsBytes != nil) {
+                    byteArrayInputStream = [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes];
+                    inputStream = [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream];
+                    hashtable = [((ABHashtable*) [ABHashtable alloc]) init];
+                    for (int32_t index = 0; index < size; index++) {
+                        name = [inputStream readUTF];
+                        [inputStream readUTF];
+                        value = [inputStream readUTF];
+                        [hashtable put:JAVA_BOX(name) :JAVA_BOX(value)];
+                    }
+                    [self->valueList add:hashtable];
+                    [self->idList add:JAVA_BOX([smallIntegerSingletonFactory getAt:id_])];
+                }
+            }
+        } JAVA_CATCH(Exception, e) {
+            java_throw(e);
+        } JAVA_FINALLY {
+            if (recordStore != nil) {
+                [PreLogUtil put:self->persistanceStrings->CLOSING_RECORDSTORE :self :self->persistanceStrings->LOAD_ALL];
+                [recordStore closeRecordStore];
+            }
+        } JAVA_END_TRY;
 }
 
 
-    TsUtil* tsUtil = TsUtil::getInstance();;
-    
-
-    std::vector<int8_t> savedGameBytes = tsUtil->getByteArray(JavaString::valueOf(byteArrayOutputStream));;
-    
-recordStore->addRecord(savedGameBytes, 0, savedGameBytes.size());
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-
-
-                            throw e;
-                    
-}
-
-        }
-
-}
-
-
-    auto KeyValuePersistance::get(int32_t index) -> ABHashtable<Object*, Object*>*{
-
-    ABHashtable<Object*, Object*>* hashtable = dynamic_cast<ABHashtable<Object*, Object*>*>(this->valueList->objectArray[index]);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return hashtable;
-    
+// throws Exception
+- (void) save:(AbeClientInformationInterface*)abeClientInformation :(ABHashtable*)hashtable {
+        RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
+        JAVA_TRY {
+            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->persistanceStrings->SAVING] append:[[StringUtil getInstance] toString:hashtable]] toString] :self :self->commonStrings->SAVE];
+            recordStore = [RecordStore openRecordStore:[self getRecordId:abeClientInformation] :true];
+            ByteArrayOutputStream* byteArrayOutputStream = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init];
+            DataOutputStream* outputStream = [((DataOutputStream*) [DataOutputStream alloc]) init:byteArrayOutputStream];
+            const char* value = nullptr;
+            CommonSeps* commonSeps = [CommonSeps getInstance];
+            id* objectArray = [[HashtableUtil getInstance] getKeysAsArray:hashtable];
+            id anyType = nullptr;
+            int32_t size = java_array_length(objectArray);
+            for (int32_t index = 0; index < size; index++) {
+                [outputStream writeUTF:((const char*) objectArray[index])];
+                [outputStream writeUTF:commonSeps->EQUALS];
+                anyType = ((id) objectArray[index]);
+                value = ((const char*) [hashtable get:JAVA_BOX(anyType)]);
+                [outputStream writeUTF:value];
+            }
+            TsUtil* tsUtil = [TsUtil getInstance];
+            int8_t* savedGameBytes = [tsUtil getByteArray:[byteArrayOutputStream toString]];
+            [recordStore addRecord:savedGameBytes :0 :java_array_length(savedGameBytes)];
+        } JAVA_CATCH(Exception, e) {
+            java_throw(e);
+        } JAVA_FINALLY {
+            if (recordStore != nil) {
+                [PreLogUtil put:self->persistanceStrings->CLOSING_RECORDSTORE :self :self->commonStrings->SAVE];
+                [recordStore closeRecordStore];
+            }
+        } JAVA_END_TRY;
 }
 
 
+- (ABHashtable*) get:(int32_t)index {
+        ABHashtable* hashtable = ((ABHashtable*) self->valueList->objectArray[index]);
+        return hashtable;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_KEYVALUEPERSISTANCE_CPP

@@ -1,115 +1,51 @@
+#ifndef ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFOUTIL_H
+#define ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFOUTIL_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.business.init
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class LicenseInitInfoUtil;
+@class LicenseInitInfo;
 
+@interface LicenseInitInfoUtil : ABObject {
+@public
+    const char* INITFILENAME;
+    const char* ABOUT;
+    const char* PRIVACY_POLICY;
+    const char* OFFICIAL_ALLBINARY_SERVICES_SERVER;
+}
+- (instancetype) init;
+- (void) initFields;
++ (LicenseInitInfoUtil*) getInstance;
+- (void) setFilePath:(const char*)filePath;
+- (void) write:(LicenseInitInfo*)initData;
+- (LicenseInitInfo*) read;
+- (LicenseInitInfo*) readAgain:(int32_t)initializeCounter;
+@end
 
-
-        #ifndef ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFOUTIL_H
-        #define ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFOUTIL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void LicenseInitInfoUtil_staticInit(void);
 
 
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class LicenseInitInfo;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class LicenseInitInfoUtil
-            : public virtual Object
-         {
-
-    private: static LicenseInitInfoUtil* instance_owner();
-    private: static LicenseInitInfoUtil* instance;
-
-    public: static LicenseInitInfoUtil* getInstance();
-
-    public: const std::string INITFILENAME = "licenseinitdata.dat";
-
-    public: const std::string ABOUT = "about";
-
-    public: const std::string PRIVACY_POLICY = "privacy_policy";
-
-    private: const std::string OFFICIAL_ALLBINARY_SERVICES_SERVER = "https://services.allbinary.com/LicServ/serverssl.php";
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    public: void setFilePath(std::string filePath);
-
-private: LicenseInitInfoUtil();
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    public: void write(LicenseInitInfo* initData);
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    public: LicenseInitInfo* read();
-
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    public: LicenseInitInfo* readAgain(int32_t initializeCounter);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFOUTIL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFOUTIL_H_COMPLETE)
-        #define ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFOUTIL_H_COMPLETE
-        #if __has_include("org/allbinary/business/init/LicenseInitInfo.h")
-#include "org/allbinary/business/init/LicenseInitInfo.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFOUTIL_H

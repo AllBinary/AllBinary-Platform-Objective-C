@@ -1,189 +1,77 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INIT_GAMEINITIALIZATIONUTIL_CPP
-        #define ORG_ALLBINARY_GAME_INIT_GAMEINITIALIZATIONUTIL_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/init/GameInitializationUtil.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/configuration/event/ChangedGameFeatureListener.h>
-
-      
-#include <org/allbinary/game/configuration/event/GameInitializedEvent.h>
-
-      
-#include <org/allbinary/game/configuration/event/GameInitializedEventHandler.h>
-
-      
-#include <org/allbinary/game/configuration/feature/Features.h>
-
-      
-#include <org/allbinary/game/configuration/feature/MainFeatureFactory.h>
-
-      
-#include <org/allbinary/game/resource/ResourceLoadingLevelFactory.h>
-
-      
-#include <org/allbinary/graphics/displayable/MyCanvas.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/init/GameInitializationInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/init/GameInitializationUtil.h"
+#include "org/allbinary/game/configuration/event/ChangedGameFeatureListener.h"
+#include "org/allbinary/game/configuration/event/GameInitializedEvent.h"
+#include "org/allbinary/game/configuration/event/GameInitializedEventHandler.h"
+#include "org/allbinary/game/configuration/feature/Features.h"
+#include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#include "org/allbinary/game/resource/ResourceLoadingLevelFactory.h"
+#include "org/allbinary/graphics/displayable/MyCanvas.h"
+#include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
+#include "org/allbinary/game/init/GameInitializationInterface.h"
 #include "org/allbinary/game/init/BasicBuildGameInitializerFactory.h"
 
 
-GameInitializationUtil::GameInitializationUtil() : EVENT(new GameInitializedEvent(this)) {
+static GameInitializationUtil* GameInitializationUtil_instance;
+
+void GameInitializationUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameInitializationUtil_instance = [((GameInitializationUtil*) [GameInitializationUtil alloc]) init];
+}
+
+@implementation GameInitializationUtil
+
+- (void) initFields {
+    self->EVENT = [((GameInitializedEvent*) [GameInitializedEvent alloc]) init:self];
+}
+
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
+
+
+// throws Exception
+- (void) initDemo:(AbeClientInformationInterface*)abeClientInformation :(MyCanvas*)canvas :(BasicBuildGameInitializerFactory*)gameInitializationInterfaceFactoryInterface {
+        MainFeatureFactory* mainFeatureFactory = [MainFeatureFactory getInstance];
+        if ([[ChangedGameFeatureListener getInstance] isChangedFeature:mainFeatureFactory->STATIC]) {
+            GameInitializationInterface* gameInitializationInterface = [gameInitializationInterfaceFactoryInterface getInstance];
+            Features* features = [Features getInstance];
+            if ([features isFeature:mainFeatureFactory->LOAD_ALL]) {
+                [self initGame:abeClientInformation :canvas :gameInitializationInterfaceFactoryInterface];
+            } else if ([features isFeature:mainFeatureFactory->LOAD_ONDEMAND]) {
+                ResourceLoadingLevelFactory* resourceLoadingLevelFactory = [ResourceLoadingLevelFactory getInstance];
+                [gameInitializationInterface init_:abeClientInformation :[canvas getCustomCommandListener] :[resourceLoadingLevelFactory->LOAD_EARLY getLevel]];
+                [self->EVENT setResourceLoadingLevel:resourceLoadingLevelFactory->LOAD_EARLY];
+            } else {
+                java_throw(java_exception_new("Exception", "No Loading Feature Available"));
+            }
+            [[GameInitializedEventHandler getInstance] fireEvent:self->EVENT];
         }
-        auto GameInitializationUtil::instance_owner() -> GameInitializationUtil* { static std::unique_ptr<GameInitializationUtil> value(new GameInitializationUtil()); return value.get(); }
-GameInitializationUtil* GameInitializationUtil::instance = GameInitializationUtil::instance_owner();
-
-                //@Throws(Exception.constructor)
-            
-    auto GameInitializationUtil::initDemo(AbeClientInformationInterface* abeClientInformation, MyCanvas* canvas, BasicBuildGameInitializerFactory* gameInitializationInterfaceFactoryInterface) -> void{
-
-    MainFeatureFactory* mainFeatureFactory = MainFeatureFactory::getInstance();;
-    
-
-                        if(ChangedGameFeatureListener::getInstance()->isChangedFeature(mainFeatureFactory->STATIC))
-                        
-                                    {
-                                    
-    GameInitializationInterface* gameInitializationInterface = gameInitializationInterfaceFactoryInterface->getInstance();;
-    
-
-    Features* features = Features::getInstance();;
-    
-
-                        if(features->isFeature(mainFeatureFactory->LOAD_ALL))
-                        
-                                    {
-                                    this->initGame(abeClientInformation, canvas, gameInitializationInterfaceFactoryInterface);
-    
-
-                                    }
-                                
-                             else 
-                        if(features->isFeature(mainFeatureFactory->LOAD_ONDEMAND))
-                        
-                                    {
-                                    
-    ResourceLoadingLevelFactory* resourceLoadingLevelFactory = ResourceLoadingLevelFactory::getInstance();;
-    
-gameInitializationInterface->init(abeClientInformation, canvas->getCustomCommandListener(), resourceLoadingLevelFactory->LOAD_EARLY->getLevel());
-    
-this->EVENT->setResourceLoadingLevel(resourceLoadingLevelFactory->LOAD_EARLY);
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw Exception("No Loading Feature Available");
-                    
-
-                        }
-                            
-GameInitializedEventHandler::getInstance()->fireEvent(this->EVENT);
-    
-
-                                    }
-                                
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GameInitializationUtil::initGame(AbeClientInformationInterface* abeClientInformation, MyCanvas* canvas, BasicBuildGameInitializerFactory* gameInitializationInterfaceFactoryInterface) -> void{
-
-                        if(ChangedGameFeatureListener::getInstance()->isChangedFeature(MainFeatureFactory::getInstance()->STATIC))
-                        
-                                    {
-                                    
-    GameInitializationInterface* gameInitializationInterface = gameInitializationInterfaceFactoryInterface->getInstance();;
-    
-
-    ResourceLoadingLevelFactory* resourceLoadingLevelFactory = ResourceLoadingLevelFactory::getInstance();;
-    
-gameInitializationInterface->init(abeClientInformation, canvas->getCustomCommandListener(), resourceLoadingLevelFactory->LOAD_ALL->getLevel());
-    
-this->EVENT->setResourceLoadingLevel(resourceLoadingLevelFactory->LOAD_ALL);
-    
-GameInitializedEventHandler::getInstance()->fireEvent(this->EVENT);
-    
-ChangedGameFeatureListener::getInstance()->remove(MainFeatureFactory::getInstance()->STATIC);
-    
-
-                                    }
-                                
+// throws Exception
+- (void) initGame:(AbeClientInformationInterface*)abeClientInformation :(MyCanvas*)canvas :(BasicBuildGameInitializerFactory*)gameInitializationInterfaceFactoryInterface {
+        if ([[ChangedGameFeatureListener getInstance] isChangedFeature:[MainFeatureFactory getInstance]->STATIC]) {
+            GameInitializationInterface* gameInitializationInterface = [gameInitializationInterfaceFactoryInterface getInstance];
+            ResourceLoadingLevelFactory* resourceLoadingLevelFactory = [ResourceLoadingLevelFactory getInstance];
+            [gameInitializationInterface init_:abeClientInformation :[canvas getCustomCommandListener] :[resourceLoadingLevelFactory->LOAD_ALL getLevel]];
+            [self->EVENT setResourceLoadingLevel:resourceLoadingLevelFactory->LOAD_ALL];
+            [[GameInitializedEventHandler getInstance] fireEvent:self->EVENT];
+            [[ChangedGameFeatureListener getInstance] remove:[MainFeatureFactory getInstance]->STATIC];
+        }
 }
 
 
-    auto GameInitializationUtil::getInstance() -> GameInitializationUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameInitializationUtil::instance;
-    
++ (GameInitializationUtil*) getInstance {
+        return (GameInitializationUtil_staticInit(), GameInitializationUtil_instance);
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_INIT_GAMEINITIALIZATIONUTIL_CPP

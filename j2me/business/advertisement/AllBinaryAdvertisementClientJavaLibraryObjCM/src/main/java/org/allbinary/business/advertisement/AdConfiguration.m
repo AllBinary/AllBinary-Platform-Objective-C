@@ -1,119 +1,61 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/business/advertisement/AdConfiguration.h"
+#include "org/allbinary/direction/Direction.h"
+#include "org/allbinary/game/state/GameState.h"
 
 
 
-        #ifndef ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_ADCONFIGURATION_CPP
-        #define ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_ADCONFIGURATION_CPP
+void AdConfiguration_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/business/advertisement/AdConfiguration.h"
-        
+@implementation AdConfiguration
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/direction/Direction.h>
-
-      
-#include <org/allbinary/game/state/GameState.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-AdConfiguration::AdConfiguration(std::vector<Object*> advertIdArray){
-this->INNERACTIVE= JavaBoxes::unbox<std::string>(advertIdArray[0]);
+- (void) initFields {
     
-this->ADMOB= JavaBoxes::unbox<std::string>(advertIdArray[1]);
     
-this->LEADBOLT= JavaBoxes::unbox<std::string>(advertIdArray[2]);
     
 }
 
 
-    auto AdConfiguration::getValidAdSpots() -> std::vector<Direction*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return {};
-    
+- (instancetype) init:(id*)advertIdArray {
+    self = [super init];
+    [self initFields];
+        self->INNERACTIVE = ((const char*) advertIdArray[0]);
+        self->ADMOB = ((const char*) advertIdArray[1]);
+        self->LEADBOLT = ((const char*) advertIdArray[2]);
+    return self;
 }
 
 
-    auto AdConfiguration::process(GameState* gameState) -> void{
+- (Direction**) getValidAdSpots {
+        return ((Direction**) java_array_new(sizeof(Direction*), 0));
 }
 
 
-    auto AdConfiguration::processDemo(int32_t state) -> void{
+- (void) process:(GameState*)gameState {
 }
 
 
-    auto AdConfiguration::setShowAds() -> void{
+- (void) processDemo:(int32_t)state {
 }
 
 
-    auto AdConfiguration::setToggleAds(bool showAds) -> void{
+- (void) setShowAds {
 }
 
 
-    auto AdConfiguration::isShowAds() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
+- (void) setToggleAds:(bool)showAds {
 }
 
 
+- (bool) isShowAds {
+        return true;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_ADCONFIGURATION_CPP

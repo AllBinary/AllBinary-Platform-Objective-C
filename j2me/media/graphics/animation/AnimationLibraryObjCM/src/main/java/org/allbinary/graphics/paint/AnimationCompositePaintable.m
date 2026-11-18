@@ -1,84 +1,42 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/paint/AnimationCompositePaintable.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/graphics/paint/InitUpdatePaintable.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_PAINT_ANIMATIONCOMPOSITEPAINTABLE_CPP
-        #define ORG_ALLBINARY_GRAPHICS_PAINT_ANIMATIONCOMPOSITEPAINTABLE_CPP
+void AnimationCompositePaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/paint/AnimationCompositePaintable.h"
-        
+@implementation AnimationCompositePaintable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/paint/InitUpdatePaintable.h"
-
-
-AnimationCompositePaintable::AnimationCompositePaintable(Animation* animationInterface){
-this->animationInterface= animationInterface;
+- (void) initFields {
     
 }
 
 
-    auto AnimationCompositePaintable::paint(Graphics* graphics) -> void{
-this->animationInterface->paintXY(graphics, 0, 0);
-    
+- (instancetype) init:(Animation*)animationInterface {
+    self = [super init];
+    [self initFields];
+        self->animationInterface = animationInterface;
+    return self;
 }
 
 
-    auto AnimationCompositePaintable::paintThreed(Graphics* graphics) -> void{
-this->animationInterface->paintThreedXYZ(graphics, 0, 0, 0);
-    
+- (void) paint:(Graphics*)graphics {
+        [self->animationInterface paintXY:graphics :0 :0];
 }
 
 
+- (void) paintThreed:(Graphics*)graphics {
+        [self->animationInterface paintThreedXYZ:graphics :0 :0 :0];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_PAINT_ANIMATIONCOMPOSITEPAINTABLE_CPP

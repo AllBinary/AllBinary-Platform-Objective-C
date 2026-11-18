@@ -1,162 +1,60 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/system/security/licensing/PartnerIdentifierFileUtil.h"
+#include "org/allbinary/data/resource/ResourceUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
+static PartnerIdentifierFileUtil* PartnerIdentifierFileUtil_instance;
 
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_PARTNERIDENTIFIERFILEUTIL_CPP
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_PARTNERIDENTIFIERFILEUTIL_CPP
+void PartnerIdentifierFileUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PartnerIdentifierFileUtil_instance = [((PartnerIdentifierFileUtil*) [PartnerIdentifierFileUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/system/security/licensing/PartnerIdentifierFileUtil.h"
-        
+@implementation PartnerIdentifierFileUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->FILE_NAME = "partner.txt";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <java/io/InputStream.h>
-
-      
-#include <java/io/InputStreamReader.h>
-
-      
-#include <org/allbinary/data/resource/ResourceUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-PartnerIdentifierFileUtil::PartnerIdentifierFileUtil() : logUtil(LogUtil::getInstance()) {
-        }
-        auto PartnerIdentifierFileUtil::instance_owner() -> PartnerIdentifierFileUtil* { static std::unique_ptr<PartnerIdentifierFileUtil> value(new PartnerIdentifierFileUtil()); return value.get(); }
-PartnerIdentifierFileUtil* PartnerIdentifierFileUtil::instance = PartnerIdentifierFileUtil::instance_owner();
-
-    auto PartnerIdentifierFileUtil::getInstance() -> PartnerIdentifierFileUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PartnerIdentifierFileUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto PartnerIdentifierFileUtil::get() -> std::string{
-
-        try {
-            
-    ResourceUtil* resourceUtil = ResourceUtil::getInstance();;
-    
-
-    InputStream* inputStream = resourceUtil->getResourceAsStream(this->FILE_NAME);;
-    
-
-    InputStreamReader* inputStreamReader = new InputStreamReader(inputStream);;
-    
-
-    std::vector<char> chars = std::vector<char>(30);;
-    
-
-    int32_t size = inputStreamReader->read(chars);;
-    
-
-    std::string partnerString = StringUtil::getInstance()->EMPTY_STRING;;
-    
-
-                        if(size > 0)
-                        
-                                    {
-                                    partnerString= JavaString::fromChars(chars, 0, size);
-    
-
-                                    }
-                                
-inputStreamReader->close();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return partnerString;
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, commonStrings->GET, &e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->NULL_STRING;
-    
-}
-
++ (PartnerIdentifierFileUtil*) getInstance {
+        return (PartnerIdentifierFileUtil_staticInit(), PartnerIdentifierFileUtil_instance);
 }
 
 
+- (const char*) get {
+        JAVA_TRY {
+            ResourceUtil* resourceUtil = [ResourceUtil getInstance];
+            InputStream* inputStream = [resourceUtil getResourceAsStream:self->FILE_NAME];
+            InputStreamReader* inputStreamReader = [((InputStreamReader*) [InputStreamReader alloc]) init:inputStream];
+            uint16_t* chars = ((uint16_t*) java_array_new(sizeof(uint16_t), 30));
+            int32_t size = [inputStreamReader read:chars];
+            const char* partnerString = [StringUtil getInstance]->EMPTY_STRING;
+            if (size > 0) {
+                partnerString = java_string_new(chars, 0, size);
+            }
+            [inputStreamReader close];
+            return partnerString;
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->GET :e];
+            return [StringUtil getInstance]->NULL_STRING;
+        } JAVA_END_TRY;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_PARTNERIDENTIFIERFILEUTIL_CPP

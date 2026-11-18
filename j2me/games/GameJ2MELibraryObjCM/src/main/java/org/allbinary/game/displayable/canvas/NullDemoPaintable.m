@@ -1,71 +1,29 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/displayable/canvas/NullDemoPaintable.h"
+#include "org/allbinary/game/displayable/canvas/DemoPaintableInterface.h"
 
 
+NullDemoPaintable* NullDemoPaintable_NULL_DEMO_PAINTABLE;
 
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLDEMOPAINTABLE_CPP
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLDEMOPAINTABLE_CPP
+void NullDemoPaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NullDemoPaintable_NULL_DEMO_PAINTABLE = [((NullDemoPaintable*) [NullDemoPaintable alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/displayable/canvas/NullDemoPaintable.h"
-        
+@implementation NullDemoPaintable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/displayable/canvas/DemoPaintableInterface.h"
-
-
-NullDemoPaintable::NullDemoPaintable() {
-        }
-        auto NullDemoPaintable::NULL_DEMO_PAINTABLE_owner() -> NullDemoPaintable* { static std::unique_ptr<NullDemoPaintable> value(new NullDemoPaintable()); return value.get(); }
-NullDemoPaintable* NullDemoPaintable::NULL_DEMO_PAINTABLE = NullDemoPaintable::NULL_DEMO_PAINTABLE_owner();
-
-    auto NullDemoPaintable::showGamePaintable() -> void{
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+- (void) showGamePaintable {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLDEMOPAINTABLE_CPP

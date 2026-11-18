@@ -1,64 +1,29 @@
-
-        /* Generated Code Do Not Modify */
-        
-
+// Generated Code Do Not Modify
+#include "org/allbinary/graph/E.h"
 
 
-        #ifndef ORG_ALLBINARY_GRAPH_E_CPP
-        #define ORG_ALLBINARY_GRAPH_E_CPP
+static E* E_e;
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graph/E.h"
-        
+void E_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    E_e = [((E*) [E alloc]) init];
+}
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+@implementation E
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-E::E() {
-        }
-        auto E::e_owner() -> E* { static std::unique_ptr<E> value(new E()); return value.get(); }
-E* E::e = E::e_owner();
-
-    auto E::newInstance() -> E*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return E::e;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+- (E*) newInstance {
+        return (E_staticInit(), E_e);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPH_E_CPP

@@ -1,112 +1,56 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/ai/NumberInSameGroupSequence.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_AI_NUMBERINSAMEGROUPSEQUENCE_CPP
-        #define ORG_ALLBINARY_GAME_AG_AI_NUMBERINSAMEGROUPSEQUENCE_CPP
+void NumberInSameGroupSequence_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/ai/NumberInSameGroupSequence.h"
-        
+@implementation NumberInSameGroupSequence
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-    auto NumberInSameGroupSequence::getInstance() -> NumberInSameGroupSequence*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new NumberInSameGroupSequence();
+- (void) initFields {
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
 
 
-NumberInSameGroupSequence::NumberInSameGroupSequence(){
-
-    SmallIntegerSingletonFactory* smallIntegerSingletonFactory = SmallIntegerSingletonFactory::getInstance();;
-    
-this->NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO= smallIntegerSingletonFactory->getAt(100);
-    
-this->NUMBER_ON_SAME_TEAM_SEQUENCE_ONE= smallIntegerSingletonFactory->getAt(101);
-    
-this->NUMBER_ON_SAME_TEAM_SEQUENCE_TWO= smallIntegerSingletonFactory->getAt(102);
-    
-this->NUMBER_ON_SAME_TEAM_SEQUENCE_THREE= smallIntegerSingletonFactory->getAt(103);
-    
-this->NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR= smallIntegerSingletonFactory->getAt(104);
-    
-this->NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE= smallIntegerSingletonFactory->getAt(105);
-    
-this->NUMBER_ON_SAME_TEAM_SEQUENCE_SIX= smallIntegerSingletonFactory->getAt(106);
-    
-this->NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN= smallIntegerSingletonFactory->getAt(107);
-    
-this->NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT= smallIntegerSingletonFactory->getAt(108);
-    
-this->NUMBER_ON_SAME_TEAM_SEQUENCE_NINE= smallIntegerSingletonFactory->getAt(109);
-    
-this->NUMBER_ON_SAME_TEAM_SEQUENCE= 
-                                                {
-                                                    this->NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO,this->NUMBER_ON_SAME_TEAM_SEQUENCE_ONE,this->NUMBER_ON_SAME_TEAM_SEQUENCE_THREE,this->NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR,this->NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE,this->NUMBER_ON_SAME_TEAM_SEQUENCE_SIX,this->NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN,this->NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT,this->NUMBER_ON_SAME_TEAM_SEQUENCE_NINE
-                                                };
-    
++ (NumberInSameGroupSequence*) getInstance {
+        return [((NumberInSameGroupSequence*) [NumberInSameGroupSequence alloc]) init];
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
+        self->NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO = [smallIntegerSingletonFactory getAt:100];
+        self->NUMBER_ON_SAME_TEAM_SEQUENCE_ONE = [smallIntegerSingletonFactory getAt:101];
+        self->NUMBER_ON_SAME_TEAM_SEQUENCE_TWO = [smallIntegerSingletonFactory getAt:102];
+        self->NUMBER_ON_SAME_TEAM_SEQUENCE_THREE = [smallIntegerSingletonFactory getAt:103];
+        self->NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR = [smallIntegerSingletonFactory getAt:104];
+        self->NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE = [smallIntegerSingletonFactory getAt:105];
+        self->NUMBER_ON_SAME_TEAM_SEQUENCE_SIX = [smallIntegerSingletonFactory getAt:106];
+        self->NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN = [smallIntegerSingletonFactory getAt:107];
+        self->NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT = [smallIntegerSingletonFactory getAt:108];
+        self->NUMBER_ON_SAME_TEAM_SEQUENCE_NINE = [smallIntegerSingletonFactory getAt:109];
+        self->NUMBER_ON_SAME_TEAM_SEQUENCE = ((int32_t*) java_array_from(sizeof(int32_t), sizeof((int32_t[]){ self->NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO, self->NUMBER_ON_SAME_TEAM_SEQUENCE_ONE, self->NUMBER_ON_SAME_TEAM_SEQUENCE_THREE, self->NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR, self->NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE, self->NUMBER_ON_SAME_TEAM_SEQUENCE_SIX, self->NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN, self->NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT, self->NUMBER_ON_SAME_TEAM_SEQUENCE_NINE }) / sizeof(int32_t), (int32_t[]){ self->NUMBER_ON_SAME_TEAM_SEQUENCE_ZERO, self->NUMBER_ON_SAME_TEAM_SEQUENCE_ONE, self->NUMBER_ON_SAME_TEAM_SEQUENCE_THREE, self->NUMBER_ON_SAME_TEAM_SEQUENCE_FOUR, self->NUMBER_ON_SAME_TEAM_SEQUENCE_FIVE, self->NUMBER_ON_SAME_TEAM_SEQUENCE_SIX, self->NUMBER_ON_SAME_TEAM_SEQUENCE_SEVEN, self->NUMBER_ON_SAME_TEAM_SEQUENCE_EIGHT, self->NUMBER_ON_SAME_TEAM_SEQUENCE_NINE }));
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_AI_NUMBERINSAMEGROUPSEQUENCE_CPP

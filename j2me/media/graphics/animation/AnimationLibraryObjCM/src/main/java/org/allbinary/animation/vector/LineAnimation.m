@@ -1,154 +1,77 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/vector/LineAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/logic/NullUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_VECTOR_LINEANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_VECTOR_LINEANIMATION_CPP
+void LineAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/vector/LineAnimation.h"
-        
+@implementation LineAnimation
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/ColorCompositeInterface.h>
-
-      
-#include <org/allbinary/layer/PositionInterface.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-LineAnimation::LineAnimation(BasicColor* basicColor) : newLine(std::vector<std::vector<int32_t>>(2, std::vector<int32_t>(2))), tempLine(NullUtil::getInstance()->NULL_INT_ARRAY_ARRAY), line(std::vector<std::vector<int32_t>>(2, std::vector<int32_t>(2))){
-this->setBasicColorP(basicColor);
-    
+- (void) initFields {
+    self->newLine = ((int32_t**) java_array_new2(sizeof(int32_t), 2, 2));
+    self->tempLine = [NullUtil getInstance]->NULL_INT_ARRAY_ARRAY;
+    self->line = ((int32_t**) java_array_new2(sizeof(int32_t), 2, 2));
 }
 
 
-    auto LineAnimation::init(int32_t x, int32_t y) -> void{
-this->newLine[0][0]= x;
-    
-this->newLine[0][1]= y;
-    
-this->newLine[1][0]= x;
-    
-this->newLine[1][1]= y;
-    
-this->tempLine= this->line;
-    
-this->line= this->newLine;
-    
-this->newLine= this->tempLine;
-    
+- (instancetype) init:(BasicColor*)basicColor {
+    self = [super init];
+    [self initFields];
+        [self setBasicColorP:basicColor];
+    return self;
 }
 
 
-    auto LineAnimation::setPosition(int32_t x, int32_t y, int32_t z) -> void{
-this->newLine[0][0]= this->line[1][0];
-    
-this->newLine[0][1]= this->line[1][1];
-    
-this->newLine[1][0]= x;
-    
-this->newLine[1][1]= y;
-    
-this->tempLine= this->line;
-    
-this->line= this->newLine;
-    
-this->newLine= this->tempLine;
-    
+- (void) init_:(int32_t)x :(int32_t)y {
+        self->newLine[0][0] = x;
+        self->newLine[0][1] = y;
+        self->newLine[1][0] = x;
+        self->newLine[1][1] = y;
+        self->tempLine = self->line;
+        self->line = self->newLine;
+        self->newLine = self->tempLine;
 }
 
 
-    auto LineAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-
-    std::vector<std::vector<int32_t>> currentLine = this->line;;
-    
-this->basicSetColorUtil->setBasicColorP3(graphics, this->getBasicColorP(), this->getColor());
-    
-graphics->drawLine(currentLine[0][0], currentLine[0][1], currentLine[1][0], currentLine[1][1]);
-    
+- (void) setPosition:(int32_t)x :(int32_t)y :(int32_t)z {
+        self->newLine[0][0] = self->line[1][0];
+        self->newLine[0][1] = self->line[1][1];
+        self->newLine[1][0] = x;
+        self->newLine[1][1] = y;
+        self->tempLine = self->line;
+        self->line = self->newLine;
+        self->newLine = self->tempLine;
 }
 
 
-    auto LineAnimation::nextFrame() -> void{
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        int32_t** currentLine = self->line;
+        [self->basicSetColorUtil setBasicColorP3:graphics :[self getBasicColorP] :[self getColor]];
+        [graphics drawLine:currentLine[0][0] :currentLine[0][1] :currentLine[1][0] :currentLine[1][1]];
 }
 
 
-    auto LineAnimation::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Animation::getBasicColorP();;
-    
+- (void) nextFrame {
 }
 
 
-    auto LineAnimation::setBasicColorP(BasicColor* basicColor) -> void{
-Animation::setBasicColorP(basicColor);
-    
+- (BasicColor*) getBasicColorP {
+        return [super getBasicColorP];
 }
 
 
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        [super setBasicColorP:basicColor];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_VECTOR_LINEANIMATION_CPP

@@ -1,124 +1,72 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICS_CPP
-        #define ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICS_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/device/OpenGLESGraphics.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-#include <javax/microedition/khronos/opengles/GL.h>
-
-      
-#include <javax/microedition/khronos/opengles/GL10.h>
-
-      
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <org/allbinary/graphics/font/FontDebugBase.h>
-
-      
-#include <org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/device/GraphicsInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/device/OpenGLESGraphics.h"
+#include "javax/microedition/khronos/opengles/GL.h"
+#include "javax/microedition/khronos/opengles/GL10.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "org/allbinary/graphics/font/FontDebugBase.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/device/GraphicsInterface.h"
 #include "org/allbinary/device/NullGL10.h"
 
 
-OpenGLESGraphics::OpenGLESGraphics() : commonStrings(CommonStrings::getInstance()), gl(NullGL10::NULL_GL10){
+
+void OpenGLESGraphics_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation OpenGLESGraphics
+
+- (void) initFields {
+    self->commonStrings = [CommonStrings getInstance];
+    self->gl = (NullGL10_staticInit(), NullGL10_NULL_GL10);
 }
 
 
-    auto OpenGLESGraphics::updateGL(GL* gl) -> void{
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto OpenGLESGraphics::set(GL* gl) -> void{
+- (void) updateGL:(GL*)gl {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto OpenGLESGraphics::init() -> void{
+- (void) set:(GL*)gl {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto OpenGLESGraphics::update() -> void{
+// throws Exception
+- (void) init_ {
 }
 
 
-    auto OpenGLESGraphics::setOrthoginalMode() -> void{
+// throws Exception
+- (void) update {
 }
 
 
-    auto OpenGLESGraphics::setCameraMode() -> void{
+- (void) setOrthoginalMode {
 }
 
 
-    auto OpenGLESGraphics::getGlP() -> GL10*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gl;
-    
+- (void) setCameraMode {
 }
 
 
-    auto OpenGLESGraphics::setFontDebug(Font* font, FontDebugBase* fontDebug) -> void{
-
-
-
-                            throw RuntimeException();
-                    
+- (GL10*) getGlP {
+        return self->gl;
 }
 
 
+- (void) setFontDebug:(Font*)font :(FontDebugBase*)fontDebug {
+        java_throw(java_exception_new("RuntimeException", ""));
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICS_CPP

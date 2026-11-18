@@ -1,151 +1,63 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/PlatformFormInputMappingFactory.h"
+#include "org/allbinary/game/input/mapping/InputToGameKeyMapping.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/game/input/GameKeyFactory.h"
 
 
+static id PlatformFormInputMappingFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_PLATFORMFORMINPUTMAPPINGFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_PLATFORMFORMINPUTMAPPINGFACTORY_CPP
+void PlatformFormInputMappingFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PlatformFormInputMappingFactory_instance = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/PlatformFormInputMappingFactory.h"
-        
+@implementation PlatformFormInputMappingFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->inputToGameKeyMapping = [InputToGameKeyMapping getNullInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/input/mapping/InputToGameKeyMapping.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/GameKeyFactory.h"
-
-
-PlatformFormInputMappingFactory::PlatformFormInputMappingFactory() : logUtil(LogUtil::getInstance()), inputToGameKeyMapping(InputToGameKeyMapping::getNullInstance()) {
++ (PlatformFormInputMappingFactory*) getInstance {
+        if ((PlatformFormInputMappingFactory_staticInit(), PlatformFormInputMappingFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
+            PlatformFormInputMappingFactory_instance = [((PlatformFormInputMappingFactory*) [PlatformFormInputMappingFactory alloc]) init];
         }
-        Object* PlatformFormInputMappingFactory::instance = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto PlatformFormInputMappingFactory::getInstance() -> PlatformFormInputMappingFactory*{
-
-                        if(PlatformFormInputMappingFactory::instance == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    PlatformFormInputMappingFactory::instance= new PlatformFormInputMappingFactory();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<PlatformFormInputMappingFactory*>(PlatformFormInputMappingFactory::instance);
-    
+        return ((PlatformFormInputMappingFactory*) (PlatformFormInputMappingFactory_staticInit(), PlatformFormInputMappingFactory_instance));
 }
 
 
-    auto PlatformFormInputMappingFactory::getOrCreate() -> InputToGameKeyMapping*{
-
-        try {
-            
-                        if(this->inputToGameKeyMapping == InputToGameKeyMapping::getNullInstance())
-                        
-                                    {
-                                    
-    InputToGameKeyMapping* inputToGameKeyMapping = new InputToGameKeyMapping();;
-    
-
-    GameKeyFactory* gameKeyFactory = GameKeyFactory::getInstance();;
-    
-inputToGameKeyMapping->add(gameKeyFactory->UP, gameKeyFactory->UP);
-    
-inputToGameKeyMapping->add(gameKeyFactory->DOWN, gameKeyFactory->DOWN);
-    
-inputToGameKeyMapping->add(gameKeyFactory->LEFT, gameKeyFactory->LEFT);
-    
-inputToGameKeyMapping->add(gameKeyFactory->RIGHT, gameKeyFactory->RIGHT);
-    
-inputToGameKeyMapping->add(gameKeyFactory->KEY_NUM1, gameKeyFactory->GAME_A);
-    
-this->inputToGameKeyMapping= inputToGameKeyMapping;
-    
-
-                                    }
-                                
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, commonStrings->GET_INSTANCE, &e);
-    
+- (InputToGameKeyMapping*) getOrCreate {
+        JAVA_TRY {
+            if (self->inputToGameKeyMapping == [InputToGameKeyMapping getNullInstance]) {
+                InputToGameKeyMapping* inputToGameKeyMapping = [((InputToGameKeyMapping*) [InputToGameKeyMapping alloc]) init];
+                GameKeyFactory* gameKeyFactory = [GameKeyFactory getInstance];
+                [inputToGameKeyMapping add:gameKeyFactory->UP :gameKeyFactory->UP];
+                [inputToGameKeyMapping add:gameKeyFactory->DOWN :gameKeyFactory->DOWN];
+                [inputToGameKeyMapping add:gameKeyFactory->LEFT :gameKeyFactory->LEFT];
+                [inputToGameKeyMapping add:gameKeyFactory->RIGHT :gameKeyFactory->RIGHT];
+                [inputToGameKeyMapping add:gameKeyFactory->KEY_NUM1 :gameKeyFactory->GAME_A];
+                self->inputToGameKeyMapping = inputToGameKeyMapping;
+            }
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->GET_INSTANCE :e];
+        } JAVA_END_TRY;
+        return self->inputToGameKeyMapping;
 }
 
+@end
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->inputToGameKeyMapping;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_PLATFORMFORMINPUTMAPPINGFACTORY_CPP

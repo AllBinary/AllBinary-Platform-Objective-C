@@ -1,242 +1,112 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/event/UpKeyEventHandlerBase.h"
+#include "org/allbinary/game/input/PlayerGameInput.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/game/input/event/UpKeyEventListenerInterface.h"
 
 
+static const char* UpKeyEventHandlerBase_TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
+static const char* UpKeyEventHandlerBase_LISTENER_LABEL = " PlayerGameInput Listener: ";
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLERBASE_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLERBASE_CPP
+void UpKeyEventHandlerBase_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/event/UpKeyEventHandlerBase.h"
-        
+@implementation UpKeyEventHandlerBase
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <org/allbinary/game/input/PlayerGameInput.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/event/UpKeyEventListenerInterface.h"
-
-
-UpKeyEventHandlerBase::UpKeyEventHandlerBase() : list(new BasicArrayListD()){
+- (void) initFields {
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-    auto UpKeyEventHandlerBase::addListener(PlayerGameInput* playerGameInput) -> void{
-
-                        if(!this->list->contains(playerGameInput))
-                        
-                                    {
-                                    this->list->add(playerGameInput);
-    
-
-                                    }
-                                
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto UpKeyEventHandlerBase::removeAllListeners() -> void{
-this->list->clear();
-    
-BasicEventHandler::removeAllListeners();
-    
+- (void) addListener:(PlayerGameInput*)playerGameInput {
+        if (![self->list contains:playerGameInput]) {
+            [self->list add:playerGameInput];
+        }
 }
 
 
-    auto UpKeyEventHandlerBase::removeListenerSingleThreaded(EventListenerInterface* eventListenerInterface) -> void{
-this->list->remove(eventListenerInterface);
-    
-BasicEventHandler::removeListenerSingleThreaded(eventListenerInterface);
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto UpKeyEventHandlerBase::removeListener(EventListenerInterface* eventListenerInterface) -> void{
-this->list->remove(eventListenerInterface);
-    
-BasicEventHandler::removeListener(eventListenerInterface);
-    
+- (void) removeAllListeners {
+        [self->list clear];
+        [super removeAllListeners];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto UpKeyEventHandlerBase::fireEventForInteger(int32_t eventObject) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->list->size();--index >= 0; )
-        {
-
-        try {
-            
-    PlayerGameInput* playerGameInput = dynamic_cast<PlayerGameInput*>(this->list->objectArray[index]);;
-    
-playerGameInput->onUpKeyEvent(eventObject);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, EventStrings::getInstance()->FIRE_EVENT, &e);
-    
-}
-
+- (void) removeListenerSingleThreaded:(EventListenerInterface*)eventListenerInterface {
+        [self->list remove:eventListenerInterface];
+        [super removeListenerSingleThreaded:eventListenerInterface];
 }
 
 
-    int32_t index = 0;;
-    
-
-    EventListenerInterface* eventListenerInterface;;
-    
-
-        while(index < this->eventListenerInterfaceList->size())
-        {
-
-        try {
-            eventListenerInterface= dynamic_cast<EventListenerInterface*>(this->eventListenerInterfaceList->get(index));
-    
-this->processForInteger(eventObject, eventListenerInterface);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, EventStrings::getInstance()->FIRE_EVENT, &e);
-    
-}
-
-index++;
-    
-}
-
+// synchronized
+- (void) removeListener:(EventListenerInterface*)eventListenerInterface {
+        [self->list remove:eventListenerInterface];
+        [super removeListener:eventListenerInterface];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto UpKeyEventHandlerBase::processForInteger(int32_t eventObject, EventListenerInterface* eventListenerInterface) -> void{
-
-    UpKeyEventListenerInterface* upKeyEventListenerInterface = dynamic_cast<UpKeyEventListenerInterface*>(eventListenerInterface);;
-    
-upKeyEventListenerInterface->onUpKeyEvent(eventObject);
-    
+// throws Exception
+- (void) fireEventForInteger:(int32_t)eventObject {
+        for (int32_t index = [self->list size]; --index >= 0; ) {
+            JAVA_TRY {
+                PlayerGameInput* playerGameInput = ((PlayerGameInput*) self->list->objectArray[index]);
+                [playerGameInput onUpKeyEvent:eventObject];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
+            } JAVA_END_TRY;
+        }
+        int32_t index = 0;
+        EventListenerInterface* eventListenerInterface = nullptr;
+        while (index < [self->eventListenerInterfaceList size]) {
+            JAVA_TRY {
+                eventListenerInterface = ((EventListenerInterface*) [self->eventListenerInterfaceList get:index]);
+                [self processForInteger:eventObject :eventListenerInterface];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
+            } JAVA_END_TRY;
+            index++;
+        }
 }
 
 
-    auto UpKeyEventHandlerBase::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append(BasicEventHandler::toString());
-    
-stringBuffer->append(UpKeyEventHandlerBase::TOTAL_LISTENERS);
-    
-stringBuffer->appendint(this->list->size());
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < this->list->size(); index++)
-        {
-
-        try {
-            
-    EventListenerInterface* eventListenerInterface = dynamic_cast<EventListenerInterface*>(this->list->get(index));;
-    
-stringBuffer->append(UpKeyEventHandlerBase::LISTENER_LABEL);
-    
-stringBuffer->append(JavaString::valueOf(eventListenerInterface));
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->TOSTRING, &e);
-    
-}
-
+// throws Exception
+- (void) processForInteger:(int32_t)eventObject :(EventListenerInterface*)eventListenerInterface {
+        UpKeyEventListenerInterface* upKeyEventListenerInterface = ((UpKeyEventListenerInterface*) eventListenerInterface);
+        [upKeyEventListenerInterface onUpKeyEvent:eventObject];
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:[super toString]];
+        [stringBuffer append:UpKeyEventHandlerBase_TOTAL_LISTENERS];
+        [stringBuffer appendint:[self->list size]];
+        for (int32_t index = 0; index < [self->list size]; index++) {
+            JAVA_TRY {
+                EventListenerInterface* eventListenerInterface = ((EventListenerInterface*) [self->list get:index]);
+                [stringBuffer append:UpKeyEventHandlerBase_LISTENER_LABEL];
+                [stringBuffer append:[eventListenerInterface toString]];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->TOSTRING :e];
+            } JAVA_END_TRY;
+        }
+        return [stringBuffer toString];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_EVENT_UPKEYEVENTHANDLERBASE_CPP

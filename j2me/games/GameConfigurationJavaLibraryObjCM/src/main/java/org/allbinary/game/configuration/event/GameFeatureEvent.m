@@ -1,100 +1,39 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/event/GameFeatureEvent.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEFEATUREEVENT_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEFEATUREEVENT_CPP
+void GameFeatureEvent_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/event/GameFeatureEvent.h"
-        
+@implementation GameFeatureEvent
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GameFeatureEvent::GameFeatureEvent(Object* anyType, std::string whatChanged) : AllBinaryEventObject(anyType){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->whatChanged= whatChanged;
+- (void) initFields {
     
 }
 
 
-    auto GameFeatureEvent::getWhatChanged() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->whatChanged;
-    
+- (instancetype) init:(id)anyType :(const char*)whatChanged {
+        self = [super init:anyType];
+        [self initFields];
+        self->whatChanged = whatChanged;
+    return self;
 }
 
 
-    auto GameFeatureEvent::getGameOption() -> Object*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getSource();;
-    
+- (const char*) getWhatChanged {
+        return self->whatChanged;
 }
 
 
+- (id) getGameOption {
+        return [self getSource];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEFEATUREEVENT_CPP

@@ -1,127 +1,66 @@
+#ifndef JAVAX_MICROEDITION_LCDUI_CHOICEGROUPIMAGEFACTORY_H
+#define JAVAX_MICROEDITION_LCDUI_CHOICEGROUPIMAGEFACTORY_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package javax.microedition.lcdui
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef JAVAX_MICROEDITION_LCDUI_CHOICEGROUPIMAGEFACTORY_H
-        #define JAVAX_MICROEDITION_LCDUI_CHOICEGROUPIMAGEFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class MIDPUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class Image;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ChoiceGroupImageFactory
-            : public virtual Object
-         {
-
-    private: static ChoiceGroupImageFactory* instance_owner();
-    private: static ChoiceGroupImageFactory* instance;
-
-    public: static ChoiceGroupImageFactory* getInstance();
-
-
-            
-    public: ChoiceGroupImageFactory();
-        
-    private: std::vector<int8_t> multiOff;
-
-    private: std::vector<int8_t> multiOn;
-
-    private: std::vector<int8_t> radioOff;
-
-    private: std::vector<int8_t> radioOn;
-
-    private: MIDPUtil* midpUtil;
-
-    private: Image* imgMultiOffO;
-
-    private: Image* imgMultiOnO;
-
-    private: Image* imgRadioOffO;
-
-    private: Image* imgRadioOnO;
-
-    public: Image* imgMultiOff;
-
-    public: Image* imgMultiOn;
-
-    public: Image* imgRadioOff;
-
-    public: Image* imgRadioOn;
-
-    private: std::vector<Image*> imageArray;
-
-    public: std::vector<Image*> getImageArray();
-
-    public: void init(std::vector<Image*> imageArray);
-
-};
-
-            
-
-
-        #endif //JAVAX_MICROEDITION_LCDUI_CHOICEGROUPIMAGEFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(JAVAX_MICROEDITION_LCDUI_CHOICEGROUPIMAGEFACTORY_H_COMPLETE)
-        #define JAVAX_MICROEDITION_LCDUI_CHOICEGROUPIMAGEFACTORY_H_COMPLETE
-        #if __has_include(<org/allbinary/MIDPUtil.h>)
-#include <org/allbinary/MIDPUtil.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ChoiceGroupImageFactory;
+@class MIDPUtil;
+@class Image;
+#if __has_include("org/allbinary/MIDPUtil.h")
+#include "org/allbinary/MIDPUtil.h"
 #endif
 #if __has_include("javax/microedition/lcdui/Image.h")
 #include "javax/microedition/lcdui/Image.h"
 #endif
 
-        #endif
-    
+@interface ChoiceGroupImageFactory : ABObject {
+@public
+    int8_t* multiOff;
+    int8_t* multiOn;
+    int8_t* radioOff;
+    int8_t* radioOn;
+    MIDPUtil* midpUtil;
+    Image* imgMultiOffO;
+    Image* imgMultiOnO;
+    Image* imgRadioOffO;
+    Image* imgRadioOnO;
+    Image* imgMultiOff;
+    Image* imgMultiOn;
+    Image* imgRadioOff;
+    Image* imgRadioOn;
+    Image** imageArray;
+}
+- (instancetype) init;
+- (void) initFields;
++ (ChoiceGroupImageFactory*) getInstance;
+- (Image**) getImageArray;
+- (void) init_:(Image**)imageArray;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ChoiceGroupImageFactory_staticInit(void);
+
+
+#endif // JAVAX_MICROEDITION_LCDUI_CHOICEGROUPIMAGEFACTORY_H

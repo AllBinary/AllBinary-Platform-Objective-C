@@ -1,106 +1,49 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_BASESOUNDSFACTORY_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_BASESOUNDSFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/BaseSoundsFactory.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/SoundsFactoryInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/BaseSoundsFactory.h"
+#include "org/allbinary/media/audio/SoundsFactoryInterface.h"
 #include "org/allbinary/media/audio/Sound.h"
 
 
-BaseSoundsFactory::BaseSoundsFactory() {
-        }
-        
-    auto BaseSoundsFactory::init() -> void{
+
+void BaseSoundsFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation BaseSoundsFactory
+
+- (void) initFields {
+    self->initialized = false;
+}
+
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseSoundsFactory::getSoundInterfaceArray() -> std::vector<Sound*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return {};
-    
+- (void) init_ {
 }
 
 
-    auto BaseSoundsFactory::setInitialized(bool initialized) -> void{
-this->initialized= initialized;
-    
+// throws Exception
+- (Sound**) getSoundInterfaceArray {
+        return ((Sound**) java_array_new(sizeof(Sound*), 0));
 }
 
 
-    auto BaseSoundsFactory::isInitialized() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->initialized;
-    
+- (void) setInitialized:(bool)initialized {
+        self->initialized = initialized;
 }
 
 
+- (bool) isInitialized {
+        return self->initialized;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_BASESOUNDSFACTORY_CPP

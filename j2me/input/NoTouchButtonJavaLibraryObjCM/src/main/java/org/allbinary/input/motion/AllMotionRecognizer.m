@@ -1,111 +1,60 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/AllMotionRecognizer.h"
 
 
+static int32_t AllMotionRecognizer_index = 0;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_CPP
+void AllMotionRecognizer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/AllMotionRecognizer.h"
-        
+@implementation AllMotionRecognizer
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-AllMotionRecognizer::AllMotionRecognizer(){
-this->id= AllMotionRecognizer::index++;
+- (void) initFields {
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllMotionRecognizer::processStartMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        self->id_ = AllMotionRecognizer_index++;
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllMotionRecognizer::processEndMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
+// throws Exception
+- (void) processStartMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllMotionRecognizer::processDraggedMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
+// throws Exception
+- (void) processEndMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllMotionRecognizer::processMovedMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
+// throws Exception
+- (void) processDraggedMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllMotionRecognizer::processScrolledMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
+// throws Exception
+- (void) processMovedMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
 }
 
 
-    auto AllMotionRecognizer::getId() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->id;
-    
+// throws Exception
+- (void) processScrolledMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
 }
 
 
+- (int32_t) getId {
+        return self->id_;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_CPP

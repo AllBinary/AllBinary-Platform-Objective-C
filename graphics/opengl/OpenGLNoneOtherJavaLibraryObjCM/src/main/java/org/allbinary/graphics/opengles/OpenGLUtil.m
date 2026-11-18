@@ -1,89 +1,43 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLUTIL_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLUTIL_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/OpenGLUtil.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Runnable.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/OpenGLUtil.h"
+#include "javax/microedition/lcdui/Image.h"
 
 
+static OpenGLUtil* OpenGLUtil_instance;
 
+void OpenGLUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    OpenGLUtil_instance = [((OpenGLUtil*) [OpenGLUtil alloc]) init];
+}
 
+@implementation OpenGLUtil
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-OpenGLUtil::OpenGLUtil() {
-        }
-        auto OpenGLUtil::instance_owner() -> OpenGLUtil* { static std::unique_ptr<OpenGLUtil> value(new OpenGLUtil()); return value.get(); }
-OpenGLUtil* OpenGLUtil::instance = OpenGLUtil::instance_owner();
-
-    auto OpenGLUtil::getInstance() -> OpenGLUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return OpenGLUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto OpenGLUtil::addImage(Image* image) -> Image*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return image;
-    
++ (OpenGLUtil*) getInstance {
+        return (OpenGLUtil_staticInit(), OpenGLUtil_instance);
 }
 
 
-    auto OpenGLUtil::clear() -> void{
+- (Image*) addImage:(Image*)image {
+        return image;
 }
 
 
-    auto OpenGLUtil::addRunnable(Runnable* runnable) -> void{
+- (void) clear {
 }
 
 
+- (void) addRunnable:(Runnable*)runnable {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLUTIL_CPP

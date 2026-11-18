@@ -1,339 +1,158 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/special/TitleAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/animation/IndexedAnimation.h"
+#include "org/allbinary/animation/IndexedAnimationBehavior.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#include "org/allbinary/logic/ABSystemWrapper.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/animation/special/SpecialAnimation.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_SPECIAL_TITLEANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_SPECIAL_TITLEANIMATION_CPP
+void TitleAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/special/TitleAnimation.h"
-        
+@implementation TitleAnimation
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Integer.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/animation/IndexedAnimation.h>
-
-      
-#include <org/allbinary/animation/IndexedAnimationBehavior.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
-
-      
-#include <org/allbinary/logic/ABSystemWrapper.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/special/SpecialAnimation.h"
-
-
-    auto TitleAnimation::createAnimation(std::vector<IndexedAnimation*> animationInterfaceArray, std::vector<BasicColor*> basicColorArray, std::vector<int32_t> dxArray, std::vector<int32_t> dyArray, int32_t y, int32_t width) -> TitleAnimation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new TitleAnimation(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, new IndexedAnimationBehavior(1, 250));
+- (void) initFields {
+    self->systemWrapper = [ABSystemWrapper getInstance];
+    self->deltaX = 0.0f;
+    self->deltaY = 0.0f;
+    self->deltaZ = 0.0f;
     
+    
+    
+    
+    
+    
+    
+    
+    self->displayInfoSingleton = [DisplayInfoSingleton getInstance];
+    self->CLEAR_COLOR = [BasicColorFactory getInstance]->CLEAR_COLOR;
 }
 
 
-TitleAnimation::TitleAnimation(std::vector<IndexedAnimation*> animationInterfaceArray, std::vector<BasicColor*> basicColorArray, std::vector<int32_t> dxArray, std::vector<int32_t> dyArray, int32_t y, int32_t width, AnimationBehavior* animationBehavior) : SpecialAnimation(animationBehavior), systemWrapper(ABSystemWrapper::getInstance()), displayInfoSingleton(DisplayInfoSingleton::getInstance()), CLEAR_COLOR(BasicColorFactory::getInstance()->CLEAR_COLOR){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->lastFrameStartTime= this->systemWrapper->currentTimeMillis();
-    
-this->animationInterfaceArray= animationInterfaceArray;
-    
-this->sizeP= this->animationInterfaceArray.size();
-    
-this->basicColorArray= basicColorArray;
-    
-this->dxArray= dxArray;
-    
-this->dyArray= dyArray;
-    
-this->y= y;
-    
-this->widthP= width;
-    
-this->reset();
-    
++ (TitleAnimation*) createAnimation:(IndexedAnimation**)animationInterfaceArray :(BasicColor**)basicColorArray :(int32_t*)dxArray :(int32_t*)dyArray :(int32_t)y :(int32_t)width {
+        return [((TitleAnimation*) [TitleAnimation alloc]) init:animationInterfaceArray :basicColorArray :dxArray :dyArray :y :width :[((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:1 :250]];
 }
 
 
-    auto TitleAnimation::nextFrame() -> void{
-
-    int64_t currentTime = this->systemWrapper->currentTimeMillis();;
-    
-
-    int64_t totalTimeElapsed = currentTime -this->lastFrameStartTime;;
-    
-
-    IndexedAnimationBehavior* indexedAnimationBehavior = dynamic_cast<IndexedAnimationBehavior*>(this->getAnimationBehavior());;
-    
-
-                        if(totalTimeElapsed > indexedAnimationBehavior->frameDelayTime)
-                        
-                                    {
-                                    this->previousFrame();
-    
-this->lastFrameStartTime= currentTime;
-    
-
-                                    }
-                                
-
-                        if(this->animationInterfaceArray[0]->getFrame() == 0)
-                        
-                                    {
-                                    indexedAnimationBehavior->loopIndex++;
-    
-
-                                    }
-                                
+- (instancetype) init:(IndexedAnimation**)animationInterfaceArray :(BasicColor**)basicColorArray :(int32_t*)dxArray :(int32_t*)dyArray :(int32_t)y :(int32_t)width :(AnimationBehavior*)animationBehavior {
+        self = [super init:animationBehavior];
+        [self initFields];
+        self->lastFrameStartTime = [self->systemWrapper currentTimeMillis];
+        self->animationInterfaceArray = animationInterfaceArray;
+        self->sizeP = java_array_length(self->animationInterfaceArray);
+        self->basicColorArray = basicColorArray;
+        self->dxArray = dxArray;
+        self->dyArray = dyArray;
+        self->y = y;
+        self->widthP = width;
+        [self reset];
+    return self;
 }
 
 
-    auto TitleAnimation::isComplete() -> bool{
-
-    IndexedAnimationBehavior* indexedAnimationBehavior = dynamic_cast<IndexedAnimationBehavior*>(this->getAnimationBehavior());;
-    
-
-                        if(indexedAnimationBehavior->loopTotal ==  -1 || indexedAnimationBehavior->loopIndex < indexedAnimationBehavior->loopTotal || this->getFrame() != 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                        }
-                            
+- (void) nextFrame {
+        int64_t currentTime = [self->systemWrapper currentTimeMillis];
+        int64_t totalTimeElapsed = currentTime - self->lastFrameStartTime;
+        IndexedAnimationBehavior* indexedAnimationBehavior = ((IndexedAnimationBehavior*) [self getAnimationBehavior]);
+        if (totalTimeElapsed > indexedAnimationBehavior->frameDelayTime) {
+            [self previousFrame];
+            self->lastFrameStartTime = currentTime;
+        }
+        if ([self->animationInterfaceArray[0] getFrame] == 0) {
+            indexedAnimationBehavior->loopIndex++;
+        }
 }
 
 
-    auto TitleAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+- (bool) isComplete {
+        IndexedAnimationBehavior* indexedAnimationBehavior = ((IndexedAnimationBehavior*) [self getAnimationBehavior]);
+        if (indexedAnimationBehavior->loopTotal == -1 || indexedAnimationBehavior->loopIndex < indexedAnimationBehavior->loopTotal || [self getFrame] != 0) {
+            return false;
+        } else {
+            return true;
+        }
 }
 
 
-    auto TitleAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
-    auto TitleAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[0]->getSize();;
-    
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
 }
 
 
-    auto TitleAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[0]->getFrame();;
-    
+- (int32_t) getSize {
+        return [self->animationInterfaceArray[0] getSize];
 }
 
 
-    auto TitleAnimation::setFrame(int32_t frame) -> void{
-
-
-
-
-                        for (
-    int32_t index = 0;index < this->sizeP; index++)
-        {
-this->animationInterfaceArray[index]->setFrame(frame);
-    
-}
-
+- (int32_t) getFrame {
+        return [self->animationInterfaceArray[0] getFrame];
 }
 
 
-    auto TitleAnimation::setLastFrame() -> void{
-this->setFrame(this->getSize() -1);
-    
+- (void) setFrame:(int32_t)frame {
+        for (int32_t index = 0; index < self->sizeP; index++) {
+            [self->animationInterfaceArray[index] setFrame:frame];
+        }
 }
 
 
-    auto TitleAnimation::reset() -> void{
-this->setLastFrame();
-    
-
-    IndexedAnimationBehavior* indexedAnimationBehavior = (dynamic_cast<IndexedAnimationBehavior*>(this->getAnimationBehavior()));;
-    
-indexedAnimationBehavior->reset();
-    
+- (void) setLastFrame {
+        [self setFrame:[self getSize] - 1];
 }
 
 
-    auto TitleAnimation::previousFrame() -> void{
-
-
-
-
-                        for (
-    int32_t index = 0;index < this->sizeP; index++)
-        {
-this->animationInterfaceArray[index]->previousFrame();
-    
-}
-
+- (void) reset {
+        [self setLastFrame];
+        IndexedAnimationBehavior* indexedAnimationBehavior = (((IndexedAnimationBehavior*) [self getAnimationBehavior]));
+        [indexedAnimationBehavior reset];
 }
 
 
-    auto TitleAnimation::paintFrameXY(Graphics* graphics, int32_t frame, int32_t x, int32_t y) -> void{
-this->setFrame(frame);
-    
-this->paintXY(graphics, x, y);
-    
+- (void) previousFrame {
+        for (int32_t index = 0; index < self->sizeP; index++) {
+            [self->animationInterfaceArray[index] previousFrame];
+        }
 }
 
 
-    auto TitleAnimation::paintXY(Graphics* graphics, int32_t ax, int32_t ay) -> void{
-
-    int32_t x = 0;;
-    
-
-                        if(this->widthP != Integer.MIN_VALUE)
-                        
-                                    {
-                                    x= ((this->displayInfoSingleton->getLastWidth() -this->widthP) /2);
-    
-
-                                    }
-                                
-
-    int32_t deltaX= 0;;
-    
-
-    int32_t deltaY= 0;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < this->sizeP; index++)
-        {
-deltaX= this->dxArray[index] +x;
-    
-deltaY= this->dyArray[index] +this->y;
-    
-
-                        if(this->basicColorArray[index] != this->CLEAR_COLOR)
-                        
-                                    {
-                                    this->basicSetColorUtil->setBasicColorP(graphics, this->basicColorArray[index]);
-    
-
-                                    }
-                                
-this->animationInterfaceArray[index]->paintXY(graphics, deltaX, deltaY);
-    
-}
-
+- (void) paintFrameXY:(Graphics*)graphics :(int32_t)frame :(int32_t)x :(int32_t)y {
+        [self setFrame:frame];
+        [self paintXY:graphics :x :y];
 }
 
 
+- (void) paintXY:(Graphics*)graphics :(int32_t)ax :(int32_t)ay {
+        int32_t x = 0;
+        if (self->widthP != (Integer_staticInit(), Integer_MIN_VALUE)) {
+            x = (([self->displayInfoSingleton getLastWidth] - self->widthP) / 2);
+        }
+        int32_t deltaX = 0;
+        int32_t deltaY = 0;
+        for (int32_t index = 0; index < self->sizeP; index++) {
+            deltaX = self->dxArray[index] + x;
+            deltaY = self->dyArray[index] + self->y;
+            if (self->basicColorArray[index] != self->CLEAR_COLOR) {
+                [self->basicSetColorUtil setBasicColorP:graphics :self->basicColorArray[index]];
+            }
+            [self->animationInterfaceArray[index] paintXY:graphics :deltaX :deltaY];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_SPECIAL_TITLEANIMATION_CPP

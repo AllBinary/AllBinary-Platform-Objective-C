@@ -1,82 +1,32 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_COMPOSITESOUND_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_COMPOSITESOUND_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/CompositeSound.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/Sound.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/CompositeSound.h"
+#include "org/allbinary/media/audio/Sound.h"
 #include "org/allbinary/media/audio/PlayerComposite.h"
 #include "org/allbinary/media/audio/AllBinaryMediaManager.h"
 
 
-CompositeSound::CompositeSound(std::string resource) : Sound(resource){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void CompositeSound_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
+@implementation CompositeSound
+
+
+- (instancetype) init:(const char*)resource {
+        self = [super init:resource];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CompositeSound::init() -> void{
-this->setPlayerP(new PlayerComposite(AllBinaryMediaManager::createPlayer(this->getResource()), 570));
-    
+// throws Exception
+- (void) init_ {
+        [self setPlayerP:[((PlayerComposite*) [PlayerComposite alloc]) init:[AllBinaryMediaManager createPlayer:[self getResource]] :570]];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_COMPOSITESOUND_CPP

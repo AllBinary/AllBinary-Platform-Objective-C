@@ -1,138 +1,63 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/GameConfigurationSingleton.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/game/configuration/GameConfiguration.h"
 
 
+static GameConfigurationSingleton* GameConfigurationSingleton_SINGLETON;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATIONSINGLETON_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATIONSINGLETON_CPP
+void GameConfigurationSingleton_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameConfigurationSingleton_SINGLETON = [((GameConfigurationSingleton*) [GameConfigurationSingleton alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/GameConfigurationSingleton.h"
-        
+@implementation GameConfigurationSingleton
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/configuration/GameConfiguration.h"
-
-auto GameConfigurationSingleton::SINGLETON_owner() -> GameConfigurationSingleton* { static std::unique_ptr<GameConfigurationSingleton> value(new GameConfigurationSingleton()); return value.get(); }
-GameConfigurationSingleton* GameConfigurationSingleton::SINGLETON = GameConfigurationSingleton::SINGLETON_owner();
-
-    auto GameConfigurationSingleton::getInstance() -> GameConfigurationSingleton*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameConfigurationSingleton::SINGLETON;
+- (void) initFields {
+    
     
 }
 
 
-GameConfigurationSingleton::GameConfigurationSingleton(){
-this->list= new BasicArrayListD();
-    
-this->hashtable= StdUtil::getInstance()->createHashtable();
-    
++ (GameConfigurationSingleton*) getInstance {
+        return (GameConfigurationSingleton_staticInit(), GameConfigurationSingleton_SINGLETON);
 }
 
 
-    auto GameConfigurationSingleton::getInstanceByName(std::string name) -> GameConfiguration*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<GameConfiguration*>(this->hashtable->get(name));
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->hashtable = [[StdUtil getInstance] createHashtable];
+    return self;
 }
 
 
-    auto GameConfigurationSingleton::getOptionsBasicArrayList() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list;
-    
+- (GameConfiguration*) getInstanceByName:(const char*)name {
+        return ((GameConfiguration*) [self->hashtable get:JAVA_BOX(name)]);
 }
 
 
-    auto GameConfigurationSingleton::add(GameConfiguration* gameConfiguration) -> void{
-this->list->add(gameConfiguration);
-    
+- (BasicArrayList*) getOptionsBasicArrayList {
+        return self->list;
 }
 
 
-    auto GameConfigurationSingleton::getHashtable() -> ABHashtable<Object*, Object*>*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->hashtable;
-    
+- (void) add:(GameConfiguration*)gameConfiguration {
+        [self->list add:gameConfiguration];
 }
 
 
+- (ABHashtable*) getHashtable {
+        return self->hashtable;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATIONSINGLETON_CPP

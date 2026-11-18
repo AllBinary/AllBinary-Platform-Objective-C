@@ -1,65 +1,25 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/physics/velocity/NoDragVelocityBehavior.h"
+#include "org/allbinary/game/physics/velocity/VelocityBehaviorBase.h"
 
 
+NoDragVelocityBehavior* NoDragVelocityBehavior_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_NODRAGVELOCITYBEHAVIOR_CPP
-        #define ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_NODRAGVELOCITYBEHAVIOR_CPP
+void NoDragVelocityBehavior_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NoDragVelocityBehavior_instance = [((NoDragVelocityBehavior*) [NoDragVelocityBehavior alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/physics/velocity/NoDragVelocityBehavior.h"
-        
+@implementation NoDragVelocityBehavior
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
-        
+@end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/physics/velocity/VelocityBehaviorBase.h"
-
-
-NoDragVelocityBehavior::NoDragVelocityBehavior() {
-        }
-        auto NoDragVelocityBehavior::instance_owner() -> NoDragVelocityBehavior* { static std::unique_ptr<NoDragVelocityBehavior> value(new NoDragVelocityBehavior()); return value.get(); }
-NoDragVelocityBehavior* NoDragVelocityBehavior::instance = NoDragVelocityBehavior::instance_owner();
-
-
-
-        #endif //ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_NODRAGVELOCITYBEHAVIOR_CPP

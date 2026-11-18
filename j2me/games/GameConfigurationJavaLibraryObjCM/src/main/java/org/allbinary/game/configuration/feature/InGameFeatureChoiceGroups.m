@@ -1,120 +1,55 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/util/BasicArrayList.h"
 
 
+static InGameFeatureChoiceGroups* InGameFeatureChoiceGroups_gameFeatureChoiceGroupsExclusive;
+static InGameFeatureChoiceGroups* InGameFeatureChoiceGroups_gameFeatureChoiceGroupsMultiple;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_INGAMEFEATURECHOICEGROUPS_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_INGAMEFEATURECHOICEGROUPS_CPP
+void InGameFeatureChoiceGroups_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    InGameFeatureChoiceGroups_gameFeatureChoiceGroupsExclusive = [((InGameFeatureChoiceGroups*) [InGameFeatureChoiceGroups alloc]) init];
+    InGameFeatureChoiceGroups_gameFeatureChoiceGroupsMultiple = [((InGameFeatureChoiceGroups*) [InGameFeatureChoiceGroups alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.h"
-        
+@implementation InGameFeatureChoiceGroups
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto InGameFeatureChoiceGroups::gameFeatureChoiceGroupsExclusive_owner() -> InGameFeatureChoiceGroups* { static std::unique_ptr<InGameFeatureChoiceGroups> value(new InGameFeatureChoiceGroups()); return value.get(); }
-InGameFeatureChoiceGroups* InGameFeatureChoiceGroups::gameFeatureChoiceGroupsExclusive = InGameFeatureChoiceGroups::gameFeatureChoiceGroupsExclusive_owner();
-auto InGameFeatureChoiceGroups::gameFeatureChoiceGroupsMultiple_owner() -> InGameFeatureChoiceGroups* { static std::unique_ptr<InGameFeatureChoiceGroups> value(new InGameFeatureChoiceGroups()); return value.get(); }
-InGameFeatureChoiceGroups* InGameFeatureChoiceGroups::gameFeatureChoiceGroupsMultiple = InGameFeatureChoiceGroups::gameFeatureChoiceGroupsMultiple_owner();
-
-InGameFeatureChoiceGroups::InGameFeatureChoiceGroups() : hashtable(StdUtil::getInstance()->createHashtable()){
+- (void) initFields {
+    self->hashtable = [[StdUtil getInstance] createHashtable];
 }
 
 
-    auto InGameFeatureChoiceGroups::getExclusiveInstance() -> InGameFeatureChoiceGroups*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return InGameFeatureChoiceGroups::gameFeatureChoiceGroupsExclusive;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto InGameFeatureChoiceGroups::getMultipleInstance() -> InGameFeatureChoiceGroups*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return InGameFeatureChoiceGroups::gameFeatureChoiceGroupsMultiple;
-    
++ (InGameFeatureChoiceGroups*) getExclusiveInstance {
+        return (InGameFeatureChoiceGroups_staticInit(), InGameFeatureChoiceGroups_gameFeatureChoiceGroupsExclusive);
 }
 
 
-    auto InGameFeatureChoiceGroups::get() -> ABHashtable<Object*, Object*>*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->hashtable;
-    
++ (InGameFeatureChoiceGroups*) getMultipleInstance {
+        return (InGameFeatureChoiceGroups_staticInit(), InGameFeatureChoiceGroups_gameFeatureChoiceGroupsMultiple);
 }
 
 
-    auto InGameFeatureChoiceGroups::add(std::string name, BasicArrayList* list) -> void{
-this->hashtable->put(name, list);
-    
+- (ABHashtable*) get {
+        return self->hashtable;
 }
 
 
+- (void) add:(const char*)name :(BasicArrayList*)list {
+        [self->hashtable put:JAVA_BOX(name) :JAVA_BOX(list)];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_INGAMEFEATURECHOICEGROUPS_CPP

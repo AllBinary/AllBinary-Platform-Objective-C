@@ -1,155 +1,68 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/ai/InputProbability.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/time/TimeDelayHelper.h"
+#include "org/allbinary/util/ABHashtable.h"
 
 
+int32_t InputProbability_INPUT_PROBABILITY;
 
-        #ifndef ORG_ALLBINARY_GAME_AG_AI_INPUTPROBABILITY_CPP
-        #define ORG_ALLBINARY_GAME_AG_AI_INPUTPROBABILITY_CPP
+void InputProbability_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    InputProbability_INPUT_PROBABILITY = [[SmallIntegerSingletonFactory getInstance] getAt:0];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/ai/InputProbability.h"
-        
+@implementation InputProbability
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/time/TimeDelayHelper.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-int32_t InputProbability::INPUT_PROBABILITY = SmallIntegerSingletonFactory::getInstance()->getAt(0);
-
-InputProbability::InputProbability(std::vector<std::vector<int32_t>> likelyhoodIntegerArray, std::vector<int32_t> repeatLikelyhoodIntegerArray, int32_t max, TimeDelayHelper* timeDelayHelper){
-this->likelyhoodIntegerArray= likelyhoodIntegerArray;
+- (void) initFields {
     
-this->repeatLikelyhoodIntegerArray= repeatLikelyhoodIntegerArray;
     
-this->max= max;
     
-this->timeDelayHelper= timeDelayHelper;
     
 }
 
 
-    auto InputProbability::getLikelyhoodIntegerArray() -> std::vector<std::vector<int32_t>>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->likelyhoodIntegerArray;
-    
+- (instancetype) init:(int32_t**)likelyhoodIntegerArray :(int32_t*)repeatLikelyhoodIntegerArray :(int32_t)max :(TimeDelayHelper*)timeDelayHelper {
+    self = [super init];
+    [self initFields];
+        self->likelyhoodIntegerArray = likelyhoodIntegerArray;
+        self->repeatLikelyhoodIntegerArray = repeatLikelyhoodIntegerArray;
+        self->max = max;
+        self->timeDelayHelper = timeDelayHelper;
+    return self;
 }
 
 
-    auto InputProbability::getRepeatLikelyhoodIntegerArray() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->repeatLikelyhoodIntegerArray;
-    
+- (int32_t**) getLikelyhoodIntegerArray {
+        return self->likelyhoodIntegerArray;
 }
 
 
-    auto InputProbability::getMax() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->max;
-    
+- (int32_t*) getRepeatLikelyhoodIntegerArray {
+        return self->repeatLikelyhoodIntegerArray;
 }
 
 
-    auto InputProbability::getTimeDelayHelper() -> TimeDelayHelper*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->timeDelayHelper;
-    
+- (int32_t) getMax {
+        return self->max;
 }
 
 
-    auto InputProbability::toHashtable() -> ABHashtable<Object*, Object*>*{
-
-    ABHashtable<Object*, Object*>* hashtable = StdUtil::getInstance()->createHashtable();;
-    
-hashtable->put(InputProbability::INPUT_PROBABILITY, this);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return hashtable;
-    
+- (TimeDelayHelper*) getTimeDelayHelper {
+        return self->timeDelayHelper;
 }
 
 
+- (ABHashtable*) toHashtable {
+        ABHashtable* hashtable = [[StdUtil getInstance] createHashtable];
+        [hashtable put:JAVA_BOX((InputProbability_staticInit(), InputProbability_INPUT_PROBABILITY)) :JAVA_BOX(self)];
+        return hashtable;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_AI_INPUTPROBABILITY_CPP

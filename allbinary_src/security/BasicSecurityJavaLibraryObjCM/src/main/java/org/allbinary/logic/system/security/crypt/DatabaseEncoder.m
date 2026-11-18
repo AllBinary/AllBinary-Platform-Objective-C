@@ -1,218 +1,71 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/system/security/crypt/DatabaseEncoder.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/PreLogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/logic/string/tokens/Tokenizer.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
 
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_DATABASEENCODER_CPP
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_DATABASEENCODER_CPP
+void DatabaseEncoder_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/system/security/crypt/DatabaseEncoder.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Byte.h"
-        
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/PreLogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/logic/string/tokens/Tokenizer.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
+@implementation DatabaseEncoder
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-DatabaseEncoder::DatabaseEncoder(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto DatabaseEncoder::encode(std::vector<int8_t> value) -> std::string{
-
-        try {
-            
-    std::vector<int8_t> array = value;;
-    
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < array.size(); index++)
-        {
-stringBuffer->append(JavaString::valueOf((static_cast<int8_t>(array[index]))));
-    
-
-                        if(index < array.size() -1)
-                        
-                                    {
-                                    stringBuffer->append(CommonSeps::getInstance()->SPACE);
-    
-
-                                    }
-                                
++ (const char*) encode:(int8_t*)value {
+        JAVA_TRY {
+            int8_t* array = value;
+            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            for (int32_t index = 0; index < java_array_length(array); index++) {
+                [stringBuffer append:[array[index] toString]];
+                if (index < java_array_length(array) - 1) {
+                    [stringBuffer append:[CommonSeps getInstance]->SPACE];
+                }
+            }
+            return [stringBuffer toString];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [PreLogUtil putOE:commonStrings->EXCEPTION :"DatabaseEncoder" :"decode" :e];
+            return [StringUtil getInstance]->EMPTY_STRING;
+        } JAVA_END_TRY;
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-PreLogUtil::putOE(commonStrings->EXCEPTION, "DatabaseEncoder", "decode", &e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->EMPTY_STRING;
-    
++ (int8_t*) decode:(const char*)value {
+        JAVA_TRY {
+            Tokenizer* tokenizer = [((Tokenizer*) [Tokenizer alloc]) init:[CommonSeps getInstance]->SPACE];
+            BasicArrayList* vector = [tokenizer getTokensFromString:value :[((BasicArrayListD*) [BasicArrayListD alloc]) init]];
+            int32_t size = [vector size];
+            int8_t* decode = ((int8_t*) java_array_new(sizeof(int8_t), size));
+            const char* byteOfData = nullptr;
+            for (int32_t index = 0; index < size; index++) {
+                byteOfData = ((const char*) vector->objectArray[index]);
+                decode[index] = [Byte parseByte:byteOfData];
+            }
+            return decode;
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [PreLogUtil putSE:commonStrings->EXCEPTION :"DatabaseEncoder" :"decode" :e];
+            return [NullUtil getInstance]->NULL_BYTE_ARRAY;
+        } JAVA_END_TRY;
 }
 
-}
+@end
 
-
-    auto DatabaseEncoder::decode(std::string value) -> std::vector<int8_t>{
-
-        try {
-            
-    Tokenizer* tokenizer = new Tokenizer(CommonSeps::getInstance()->SPACE);;
-    
-
-    BasicArrayList* vector = tokenizer->getTokensFromString(value, new BasicArrayListD());;
-    
-
-    int32_t size = vector->size();;
-    
-
-    std::vector<int8_t> decode = std::vector<int8_t>(size);;
-    
-
-    std::string byteOfData;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-byteOfData= JavaBoxes::unbox<std::string>(vector->objectArray[index]);
-    
-decode[index]= Byte::parseByte(byteOfData);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return decode;
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-PreLogUtil::putSE(commonStrings->EXCEPTION, "DatabaseEncoder", "decode", &e);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullUtil::getInstance()->NULL_BYTE_ARRAY;
-    
-}
-
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_DATABASEENCODER_CPP

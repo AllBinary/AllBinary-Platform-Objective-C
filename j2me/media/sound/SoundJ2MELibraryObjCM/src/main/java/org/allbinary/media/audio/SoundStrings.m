@@ -1,78 +1,39 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/SoundStrings.h"
 
 
+static SoundStrings* SoundStrings_instance;
 
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_SOUNDSTRINGS_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_SOUNDSTRINGS_CPP
+void SoundStrings_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    SoundStrings_instance = [((SoundStrings*) [SoundStrings alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/SoundStrings.h"
-        
+@implementation SoundStrings
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->STOP_ALL = "stopAll";
+    self->CLOSE_ALL = "closeAll";
+    self->SOUND = " Sound: ";
+    self->INIT_SOUND = "Initializing Sound: ";
+    self->STOPPING_SOUND = "Stopping Sound: ";
+    self->CLOSING_SOUND = "Closing Sound: ";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-SoundStrings::SoundStrings() {
-        }
-        auto SoundStrings::instance_owner() -> SoundStrings* { static std::unique_ptr<SoundStrings> value(new SoundStrings()); return value.get(); }
-SoundStrings* SoundStrings::instance = SoundStrings::instance_owner();
-
-    auto SoundStrings::getInstance() -> SoundStrings*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return SoundStrings::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (SoundStrings*) getInstance {
+        return (SoundStrings_staticInit(), SoundStrings_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_SOUNDSTRINGS_CPP

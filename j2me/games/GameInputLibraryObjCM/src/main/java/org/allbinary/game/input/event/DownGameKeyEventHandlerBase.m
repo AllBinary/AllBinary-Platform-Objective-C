@@ -1,225 +1,108 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_EVENT_DOWNGAMEKEYEVENTHANDLERBASE_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_EVENT_DOWNGAMEKEYEVENTHANDLERBASE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/event/DownGameKeyEventHandlerBase.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/input/PlayerGameInput.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/event/GameKeyEvent.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/event/DownGameKeyEventHandlerBase.h"
+#include "org/allbinary/game/input/PlayerGameInput.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/game/input/event/GameKeyEvent.h"
 #include "org/allbinary/game/input/event/DownGameKeyEventListenerInterface.h"
 
 
-DownGameKeyEventHandlerBase::DownGameKeyEventHandlerBase() : list(new BasicArrayListD()){
+static const char* DownGameKeyEventHandlerBase_TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
+static const char* DownGameKeyEventHandlerBase_LISTENER_LABEL = " PlayerGameInput Listener: ";
+
+void DownGameKeyEventHandlerBase_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation DownGameKeyEventHandlerBase
+
+- (void) initFields {
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-    auto DownGameKeyEventHandlerBase::addListener(PlayerGameInput* playerGameInput) -> void{
-
-                        if(!this->list->contains(playerGameInput))
-                        
-                                    {
-                                    this->list->add(playerGameInput);
-    
-
-                                    }
-                                
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto DownGameKeyEventHandlerBase::removeAllListeners() -> void{
-this->list->clear();
-    
-BasicEventHandler::removeAllListeners();
-    
+- (void) addListener:(PlayerGameInput*)playerGameInput {
+        if (![self->list contains:playerGameInput]) {
+            [self->list add:playerGameInput];
+        }
 }
 
 
-    auto DownGameKeyEventHandlerBase::removeListenerSingleThreaded(EventListenerInterface* eventListenerInterface) -> void{
-this->list->remove(eventListenerInterface);
-    
-BasicEventHandler::removeListenerSingleThreaded(eventListenerInterface);
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto DownGameKeyEventHandlerBase::removeListener(EventListenerInterface* eventListenerInterface) -> void{
-this->list->remove(eventListenerInterface);
-    
-BasicEventHandler::removeListener(eventListenerInterface);
-    
+- (void) removeAllListeners {
+        [self->list clear];
+        [super removeAllListeners];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto DownGameKeyEventHandlerBase::fireEvent(AllBinaryEventObject* eventObject) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->list->size();--index >= 0; )
-        {
-
-        try {
-            
-    PlayerGameInput* playerGameInput = dynamic_cast<PlayerGameInput*>(this->list->objectArray[index]);;
-    
-playerGameInput->onDownGameKeyEvent(dynamic_cast<GameKeyEvent*>(eventObject));
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, EventStrings::getInstance()->FIRE_EVENT, &e);
-    
-}
-
-}
-
-BasicEventHandler::fireEvent(eventObject);
-    
+- (void) removeListenerSingleThreaded:(EventListenerInterface*)eventListenerInterface {
+        [self->list remove:eventListenerInterface];
+        [super removeListenerSingleThreaded:eventListenerInterface];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto DownGameKeyEventHandlerBase::process(AllBinaryEventObject* eventObject, EventListenerInterface* eventListenerInterface) -> void{
-
-    DownGameKeyEventListenerInterface* downGameKeyEventListenerInterface = dynamic_cast<DownGameKeyEventListenerInterface*>(eventListenerInterface);;
-    
-downGameKeyEventListenerInterface->onDownGameKeyEvent(dynamic_cast<GameKeyEvent*>(eventObject));
-    
+// synchronized
+- (void) removeListener:(EventListenerInterface*)eventListenerInterface {
+        [self->list remove:eventListenerInterface];
+        [super removeListener:eventListenerInterface];
 }
 
 
-    auto DownGameKeyEventHandlerBase::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append(BasicEventHandler::toString());
-    
-stringBuffer->append(DownGameKeyEventHandlerBase::TOTAL_LISTENERS);
-    
-stringBuffer->appendint(this->list->size());
-    
-
-    EventListenerInterface* eventListenerInterface;;
-    
-
-    int32_t size = this->list->size();;
-    
-
-    int32_t index = 0;;
-    
-
-        while(index < size)
-        {
-
-        try {
-            eventListenerInterface= dynamic_cast<EventListenerInterface*>(this->list->get(index));
-    
-stringBuffer->append(DownGameKeyEventHandlerBase::LISTENER_LABEL);
-    
-stringBuffer->append(JavaString::valueOf(eventListenerInterface));
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->TOSTRING, &e);
-    
-}
-
-index++;
-    
+// throws Exception
+- (void) fireEvent:(AllBinaryEventObject*)eventObject {
+        for (int32_t index = [self->list size]; --index >= 0; ) {
+            JAVA_TRY {
+                PlayerGameInput* playerGameInput = ((PlayerGameInput*) self->list->objectArray[index]);
+                [playerGameInput onDownGameKeyEvent:((GameKeyEvent*) eventObject)];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
+            } JAVA_END_TRY;
+        }
+        [super fireEvent:eventObject];
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+// throws Exception
+- (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
+        DownGameKeyEventListenerInterface* downGameKeyEventListenerInterface = ((DownGameKeyEventListenerInterface*) eventListenerInterface);
+        [downGameKeyEventListenerInterface onDownGameKeyEvent:((GameKeyEvent*) eventObject)];
 }
 
 
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:[super toString]];
+        [stringBuffer append:DownGameKeyEventHandlerBase_TOTAL_LISTENERS];
+        [stringBuffer appendint:[self->list size]];
+        EventListenerInterface* eventListenerInterface = nullptr;
+        int32_t size = [self->list size];
+        int32_t index = 0;
+        while (index < size) {
+            JAVA_TRY {
+                eventListenerInterface = ((EventListenerInterface*) [self->list get:index]);
+                [stringBuffer append:DownGameKeyEventHandlerBase_LISTENER_LABEL];
+                [stringBuffer append:[eventListenerInterface toString]];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->TOSTRING :e];
+            } JAVA_END_TRY;
+            index++;
+        }
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_EVENT_DOWNGAMEKEYEVENTHANDLERBASE_CPP

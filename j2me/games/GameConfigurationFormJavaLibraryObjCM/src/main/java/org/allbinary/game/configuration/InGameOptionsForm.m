@@ -1,127 +1,50 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/InGameOptionsForm.h"
+#include "javax/microedition/lcdui/Choice.h"
+#include "javax/microedition/lcdui/Command.h"
+#include "javax/microedition/lcdui/CommandListener.h"
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#include "org/allbinary/game/configuration/feature/GameFeatureFormUtil.h"
+#include "org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/logic/string/StringUtil.h"
 
 
+Command* InGameOptionsForm_DISPLAY;
+Command* InGameOptionsForm_SAVE;
+Command* InGameOptionsForm_DEFAULT;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_INGAMEOPTIONSFORM_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_INGAMEOPTIONSFORM_CPP
+void InGameOptionsForm_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    InGameOptionsForm_DISPLAY = [((Command*) [Command alloc]) init:"Options In Game" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1];
+    InGameOptionsForm_SAVE = [((Command*) [Command alloc]) init:"Save" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1];
+    InGameOptionsForm_DEFAULT = [((Command*) [Command alloc]) init:"Default" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/InGameOptionsForm.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Choice.h>
-
-      
-#include <javax/microedition/lcdui/Command.h>
-
-      
-#include <javax/microedition/lcdui/CommandListener.h>
-
-      
-#include <org/allbinary/game/commands/GameCommandsFactory.h>
-
-      
-#include <org/allbinary/game/configuration/feature/GameFeatureFormUtil.h>
-
-      
-#include <org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/displayable/screen/CommandForm.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
+@implementation InGameOptionsForm
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto InGameOptionsForm::DISPLAY_owner() -> Command* { static std::unique_ptr<Command> value(new Command("Options In Game", StringUtil::getInstance()->EMPTY_STRING, Command::SCREEN, 1)); return value.get(); }
-Command* InGameOptionsForm::DISPLAY = InGameOptionsForm::DISPLAY_owner();
-auto InGameOptionsForm::SAVE_owner() -> Command* { static std::unique_ptr<Command> value(new Command("Save", StringUtil::getInstance()->EMPTY_STRING, Command::SCREEN, 1)); return value.get(); }
-Command* InGameOptionsForm::SAVE = InGameOptionsForm::SAVE_owner();
-auto InGameOptionsForm::DEFAULT_owner() -> Command* { static std::unique_ptr<Command> value(new Command("Default", StringUtil::getInstance()->EMPTY_STRING, Command::SCREEN, 1)); return value.get(); }
-Command* InGameOptionsForm::DEFAULT = InGameOptionsForm::DEFAULT_owner();
-
-InGameOptionsForm::InGameOptionsForm(CommandListener* commandListener, std::string title, BasicColor* backgrounBasicColor, BasicColor* foregroundBasicColor) : CommandForm(commandListener, title, backgrounBasicColor, foregroundBasicColor){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->CONSTRUCTOR);
-    
-
-    GameFeatureFormUtil* gameFeatureFormUtil = GameFeatureFormUtil::getInstance();;
-    
-gameFeatureFormUtil->addChoiceGroup(this, InGameFeatureChoiceGroups::getExclusiveInstance()->get(), Choice::EXCLUSIVE);
-    
-gameFeatureFormUtil->addChoiceGroup(this, InGameFeatureChoiceGroups::getMultipleInstance()->get(), Choice::MULTIPLE);
-    
-this->initCommands(commandListener);
-    
+- (instancetype) init:(CommandListener*)commandListener :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor {
+        self = [super init:commandListener :title :backgrounBasicColor :foregroundBasicColor];
+        [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->CONSTRUCTOR];
+        GameFeatureFormUtil* gameFeatureFormUtil = [GameFeatureFormUtil getInstance];
+        [gameFeatureFormUtil addChoiceGroup:self :[[InGameFeatureChoiceGroups getExclusiveInstance] get] :(Choice_staticInit(), Choice_EXCLUSIVE)];
+        [gameFeatureFormUtil addChoiceGroup:self :[[InGameFeatureChoiceGroups getMultipleInstance] get] :(Choice_staticInit(), Choice_MULTIPLE)];
+        [self initCommands:commandListener];
+    return self;
 }
 
 
-    auto InGameOptionsForm::initCommands(CommandListener* cmdListener) -> void{
-this->removeAllCommands();
-    
-this->addCommand(GameCommandsFactory::getInstance()->CLOSE_AND_SHOW_GAME_CANVAS);
-    
-this->addCommand(InGameOptionsForm::DEFAULT);
-    
-this->setCommandListener(cmdListener);
-    
+- (void) initCommands:(CommandListener*)cmdListener {
+        [self removeAllCommands];
+        [self addCommand:[GameCommandsFactory getInstance]->CLOSE_AND_SHOW_GAME_CANVAS];
+        [self addCommand:(InGameOptionsForm_staticInit(), InGameOptionsForm_DEFAULT)];
+        [self setCommandListener:cmdListener];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_INGAMEOPTIONSFORM_CPP

@@ -1,119 +1,52 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2007 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/util/cache/CacheType.h"
+#include "org/allbinary/logic/string/StringMaker.h"
 
 
 
-        #ifndef ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHETYPE_CPP
-        #define ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHETYPE_CPP
+void CacheType_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/util/cache/CacheType.h"
-        
+@implementation CacheType
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CacheType::CacheType(std::string vendor, std::string type){
-this->vendor= vendor;
+- (void) initFields {
     
-this->type= type;
     
 }
 
 
-    auto CacheType::getVendor() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->vendor;
-    
+- (instancetype) init:(const char*)vendor :(const char*)type {
+    self = [super init];
+    [self initFields];
+        self->vendor = vendor;
+        self->type = type;
+    return self;
 }
 
 
-    auto CacheType::getType() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->type;
-    
+- (const char*) getVendor {
+        return self->vendor;
 }
 
 
-    auto CacheType::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("CacheType: Vendor: ");
-    
-stringBuffer->append(this->getVendor());
-    
-stringBuffer->append(" Type: ");
-    
-stringBuffer->append(this->getType());
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (const char*) getType {
+        return self->type;
 }
 
 
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:"CacheType: Vendor: "];
+        [stringBuffer append:[self getVendor]];
+        [stringBuffer append:" Type: "];
+        [stringBuffer append:[self getType]];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHETYPE_CPP

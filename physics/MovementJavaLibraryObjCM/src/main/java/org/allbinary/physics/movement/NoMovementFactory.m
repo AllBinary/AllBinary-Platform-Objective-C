@@ -1,91 +1,40 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/physics/movement/NoMovementFactory.h"
+#include "org/allbinary/physics/movement/Movement.h"
 
 
+static NoMovementFactory* NoMovementFactory_instance;
 
-        #ifndef ORG_ALLBINARY_PHYSICS_MOVEMENT_NOMOVEMENTFACTORY_CPP
-        #define ORG_ALLBINARY_PHYSICS_MOVEMENT_NOMOVEMENTFACTORY_CPP
+void NoMovementFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NoMovementFactory_instance = [((NoMovementFactory*) [NoMovementFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/physics/movement/NoMovementFactory.h"
-        
+@implementation NoMovementFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->movement = [((Movement*) [Movement alloc]) init];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/physics/movement/Movement.h"
-
-
-NoMovementFactory::NoMovementFactory() : movement(new Movement()) {
-        }
-        auto NoMovementFactory::instance_owner() -> NoMovementFactory* { static std::unique_ptr<NoMovementFactory> value(new NoMovementFactory()); return value.get(); }
-NoMovementFactory* NoMovementFactory::instance = NoMovementFactory::instance_owner();
-
-    auto NoMovementFactory::getInstance() -> NoMovementFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NoMovementFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto NoMovementFactory::getMovmentInstance() -> Movement*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->movement;
-    
++ (NoMovementFactory*) getInstance {
+        return (NoMovementFactory_staticInit(), NoMovementFactory_instance);
 }
 
 
+- (Movement*) getMovmentInstance {
+        return self->movement;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_PHYSICS_MOVEMENT_NOMOVEMENTFACTORY_CPP

@@ -1,191 +1,83 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/resource/ResourceRelativeRelationshipFactory.h"
+#include "org/allbinary/graphics/RelativeRelationship.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#include "org/allbinary/game/resource/ResourceRelativeRelationshipFactoryInterface.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_RESOURCE_RESOURCERELATIVERELATIONSHIPFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_RESOURCE_RESOURCERELATIVERELATIONSHIPFACTORY_CPP
+void ResourceRelativeRelationshipFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/resource/ResourceRelativeRelationshipFactory.h"
-        
+@implementation ResourceRelativeRelationshipFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->basicArrayListUtil = [BasicArrayListUtil getInstance];
+    self->hashtable = [[StdUtil getInstance] createHashtable];
+    self->initialized = false;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/graphics/RelativeRelationship.h>
-
-      
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-#include <org/allbinary/util/BasicArrayListUtil.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
+// throws Exception
+- (void) init_:(int32_t)level {
+        [self setInitialized:true];
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/resource/ResourceRelativeRelationshipFactoryInterface.h"
-
-
-ResourceRelativeRelationshipFactory::ResourceRelativeRelationshipFactory() : basicArrayListUtil(BasicArrayListUtil::getInstance()), hashtable(StdUtil::getInstance()->createHashtable()) {
+// throws Exception
+- (BasicArrayList*) getResourceRelativeRelationshipList:(const char*)resource {
+        id listCanBeNull = [self->hashtable get:JAVA_BOX(resource)];
+        if (listCanBeNull == nil) {
+            return [self->basicArrayListUtil getImmutableInstance];
         }
-        
-                //@Throws(Exception.constructor)
-            
-    auto ResourceRelativeRelationshipFactory::init(int32_t level) -> void{
-this->setInitialized(true);
-    
+        return ((BasicArrayList*) listCanBeNull);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ResourceRelativeRelationshipFactory::getResourceRelativeRelationshipList(std::string resource) -> BasicArrayList*{
-
-    Object* listCanBeNull = JavaBoxes::toObject(this->hashtable->get(resource));;
-    
-
-                        if(listCanBeNull == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->basicArrayListUtil->getImmutableInstance();;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<BasicArrayList*>(listCanBeNull);
-    
+// throws Exception
+- (void) addResourceRelativeRelationship:(const char*)resource :(RelativeRelationship*)hardPoint {
+        BasicArrayList* list = [self getResourceRelativeRelationshipList:resource];
+        if (list == [self->basicArrayListUtil getImmutableInstance]) {
+            list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        }
+        [list add:hardPoint];
+        [self->hashtable put:JAVA_BOX(resource) :JAVA_BOX(list)];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ResourceRelativeRelationshipFactory::addResourceRelativeRelationship(std::string resource, RelativeRelationship* hardPoint) -> void{
-
-    BasicArrayList* list = this->getResourceRelativeRelationshipList(resource);;
-    
-
-                        if(list == this->basicArrayListUtil->getImmutableInstance())
-                        
-                                    {
-                                    list= new BasicArrayListD();
-    
-
-                                    }
-                                
-list->add(hardPoint);
-    
-this->hashtable->put(resource, list);
-    
+- (bool) isLoadingLevel:(int32_t)level {
+        return false;
 }
 
 
-    auto ResourceRelativeRelationshipFactory::isLoadingLevel(int32_t level) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isFeature {
+        return false;
 }
 
 
-    auto ResourceRelativeRelationshipFactory::isFeature() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (void) setInitialized:(bool)initialized {
+        self->initialized = initialized;
 }
 
 
-    auto ResourceRelativeRelationshipFactory::setInitialized(bool initialized) -> void{
-this->initialized= initialized;
-    
+- (bool) isInitialized {
+        return self->initialized;
 }
 
+@end
 
-    auto ResourceRelativeRelationshipFactory::isInitialized() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->initialized;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_RESOURCE_RESOURCERELATIVERELATIONSHIPFACTORY_CPP

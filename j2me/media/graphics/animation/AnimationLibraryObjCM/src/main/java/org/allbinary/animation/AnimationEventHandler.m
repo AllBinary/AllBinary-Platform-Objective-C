@@ -1,81 +1,31 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/AnimationEventHandler.h"
 
 
+static AnimationEventHandler* AnimationEventHandler_eventHandler;
 
-        #ifndef ORG_ALLBINARY_ANIMATION_ANIMATIONEVENTHANDLER_CPP
-        #define ORG_ALLBINARY_ANIMATION_ANIMATIONEVENTHANDLER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/AnimationEventHandler.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto AnimationEventHandler::eventHandler_owner() -> AnimationEventHandler* { static std::unique_ptr<AnimationEventHandler> value(new AnimationEventHandler()); return value.get(); }
-AnimationEventHandler* AnimationEventHandler::eventHandler = AnimationEventHandler::eventHandler_owner();
-
-AnimationEventHandler::AnimationEventHandler(){
+void AnimationEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AnimationEventHandler_eventHandler = [((AnimationEventHandler*) [AnimationEventHandler alloc]) init];
 }
 
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto AnimationEventHandler::getInstance() -> AnimationEventHandler*{
+@implementation AnimationEventHandler
 
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AnimationEventHandler::eventHandler;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+// synchronized
++ (AnimationEventHandler*) getInstance {
+        return (AnimationEventHandler_staticInit(), AnimationEventHandler_eventHandler);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_ANIMATIONEVENTHANDLER_CPP

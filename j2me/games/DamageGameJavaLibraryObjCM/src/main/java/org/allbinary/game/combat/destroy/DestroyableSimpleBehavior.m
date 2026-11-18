@@ -1,97 +1,52 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_COMBAT_DESTROY_DESTROYABLESIMPLEBEHAVIOR_CPP
-        #define ORG_ALLBINARY_GAME_COMBAT_DESTROY_DESTROYABLESIMPLEBEHAVIOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/combat/destroy/DestroyableSimpleBehavior.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/game/layer/CollidableCompositeLayer.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/combat/destroy/DestroyableBaseBehavior.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/combat/destroy/DestroyableSimpleBehavior.h"
+#include "org/allbinary/game/layer/CollidableCompositeLayer.h"
+#include "org/allbinary/game/combat/destroy/DestroyableBaseBehavior.h"
 #include "org/allbinary/game/combat/destroy/DestroyedLayerProcessor.h"
+#if __has_include("org/allbinary/game/combat/destroy/BasicLayerProcessor.h")
+#include "org/allbinary/game/combat/destroy/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/layer/BasicLayerProcessor.h")
+#include "org/allbinary/game/layer/BasicLayerProcessor.h"
+#endif
 
 
-DestroyableSimpleBehavior::DestroyableSimpleBehavior(CollidableCompositeLayer* ownerLayer){
-this->ownerLayer= ownerLayer;
+
+void DestroyableSimpleBehavior_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation DestroyableSimpleBehavior
+
+- (void) initFields {
     
+    self->destroyed = false;
 }
 
 
-    auto DestroyableSimpleBehavior::isDestroyed() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->destroyed;
-    
+- (instancetype) init:(CollidableCompositeLayer*)ownerLayer {
+    self = [super init];
+    [self initFields];
+        self->ownerLayer = ownerLayer;
+    return self;
 }
 
 
-    auto DestroyableSimpleBehavior::setDestroyed(bool destroyed) -> void{
-this->destroyed= destroyed;
-    
-
-                        if(this->isDestroyed())
-                        
-                                    {
-                                    DestroyedLayerProcessor::getInstance()->add(this->ownerLayer);
-    
-
-                                    }
-                                
+- (bool) isDestroyed {
+        return self->destroyed;
 }
 
 
+- (void) setDestroyed:(bool)destroyed {
+        self->destroyed = destroyed;
+        if ([self isDestroyed]) {
+            [[DestroyedLayerProcessor getInstance] add:self->ownerLayer];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_COMBAT_DESTROY_DESTROYABLESIMPLEBEHAVIOR_CPP

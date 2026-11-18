@@ -1,122 +1,59 @@
+#ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_WEAKCRYPT_H
+#define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_WEAKCRYPT_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.crypt
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_WEAKCRYPT_H
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_WEAKCRYPT_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-class TsUtil;
-class PreLogUtil;
-class StringUtil;
-class AbCrypt;
-class KeySpecFactory;
-class CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class DatabaseEncoder;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class WeakCrypt
-            : public virtual Object
-         {
-
-    private: static std::vector<std::string> keys;
-
-    public: static int32_t KEYMAX;
-
-    private: TsUtil* tsUtil;
-
-    private: AbCrypt* abCrypt;
-
-public: WeakCrypt(int32_t key);
-
-    public: std::string encrypt(std::string value);
-
-    public: std::string decrypt(std::string value);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_WEAKCRYPT_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_WEAKCRYPT_H_COMPLETE)
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_WEAKCRYPT_H_COMPLETE
-        #if __has_include(<org/allbinary/TsUtil.h>)
-#include <org/allbinary/TsUtil.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class WeakCrypt;
+@class TsUtil;
+@class PreLogUtil;
+@class StringUtil;
+@class AbCrypt;
+@class KeySpecFactory;
+@class CommonStrings;
+@class DatabaseEncoder;
+#if __has_include("org/allbinary/TsUtil.h")
+#include "org/allbinary/TsUtil.h"
 #endif
-#if __has_include(<org/allbinary/logic/communication/log/PreLogUtil.h>)
-#include <org/allbinary/logic/communication/log/PreLogUtil.h>
-#endif
-#if __has_include(<org/allbinary/logic/string/StringUtil.h>)
-#include <org/allbinary/logic/string/StringUtil.h>
-#endif
-#if __has_include(<org/allbinary/logic/system/security/crypt/jcehelper/AbCrypt.h>)
-#include <org/allbinary/logic/system/security/crypt/jcehelper/AbCrypt.h>
-#endif
-#if __has_include(<org/allbinary/logic/system/security/crypt/jcehelper/KeySpecFactory.h>)
-#include <org/allbinary/logic/system/security/crypt/jcehelper/KeySpecFactory.h>
-#endif
-#if __has_include(<org/allbinary/string/CommonStrings.h>)
-#include <org/allbinary/string/CommonStrings.h>
-#endif
-#if __has_include("org/allbinary/logic/system/security/crypt/DatabaseEncoder.h")
-#include "org/allbinary/logic/system/security/crypt/DatabaseEncoder.h"
+#if __has_include("org/allbinary/logic/system/security/crypt/jcehelper/AbCrypt.h")
+#include "org/allbinary/logic/system/security/crypt/jcehelper/AbCrypt.h"
 #endif
 
-        #endif
-    
+@interface WeakCrypt : ABObject {
+@public
+    TsUtil* tsUtil;
+    AbCrypt* abCrypt;
+}
+- (instancetype) init:(int32_t)key;
+- (void) initFields;
+- (const char*) encrypt:(const char*)value;
+- (const char*) decrypt:(const char*)value;
+@end
+
+extern int32_t WeakCrypt_KEYMAX;
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void WeakCrypt_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_WEAKCRYPT_H

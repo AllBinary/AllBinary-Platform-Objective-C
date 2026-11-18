@@ -1,226 +1,93 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/ai/MultiKeyPressesAI.h"
+#include "org/allbinary/game/input/GameInput.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/time/GameTickTimeDelayHelper.h"
+#include "org/allbinary/time/GameTickTimeDelayHelperFactory.h"
+#include "org/allbinary/time/TimeDelayHelper.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/game/ag/ai/KeyPressesAI.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_AI_MULTIKEYPRESSESAI_CPP
-        #define ORG_ALLBINARY_GAME_AG_AI_MULTIKEYPRESSESAI_CPP
+void MultiKeyPressesAI_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/ai/MultiKeyPressesAI.h"
-        
+@implementation MultiKeyPressesAI
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <org/allbinary/game/input/GameInput.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/time/GameTickTimeDelayHelper.h>
-
-      
-#include <org/allbinary/time/GameTickTimeDelayHelperFactory.h>
-
-      
-#include <org/allbinary/time/TimeDelayHelper.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/ag/ai/KeyPressesAI.h"
-
-
-MultiKeyPressesAI::MultiKeyPressesAI(ABHashtable<Object*, Object*>* hashtable, AllBinaryLayer* ownerLayerInterface, GameInput* gameInput) : KeyPressesAI(hashtable, ownerLayerInterface, gameInput), toggleTimeHelper(new TimeDelayHelper(600)), gameTickTimeDelayHelper(GameTickTimeDelayHelperFactory::getInstance()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->update();
-    
+- (void) initFields {
+    self->toggleTimeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:600];
+    self->gameTickTimeDelayHelper = [GameTickTimeDelayHelperFactory getInstance];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto MultiKeyPressesAI::processAI(AllBinaryLayerManager* allBinaryLayerManager) -> void{
+- (instancetype) init:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
+        self = [super init:hashtable :ownerLayerInterface :gameInput];
+        [self initFields];
+        [self update];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto MultiKeyPressesAI::update() -> void{
-
-    GameInput* gameInput = this->getGameInput();;
-    
-
-    std::vector<int32_t> keys = this->keys;;
-    
-
-    int32_t size = keys.size();;
-    
-
-                        if(this->isOn())
-                        
-                                    {
-                                    
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-
-    int32_t key = keys[index];;
-    
-
-                        if(key !=  -1)
-                        
-                                    {
-                                    gameInput->add(this->gameKeyEventFactory->getInstanceForKey(this, key));
-    
-
-                                    }
-                                
+// throws Exception
+- (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager {
 }
 
 
-                                    }
-                                
-                        else {
-                            
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-
-    int32_t key = keys[index];;
-    
-
-                        if(key !=  -1)
-                        
-                                    {
-                                    gameInput->addForRemoval(this->gameKeyEventFactory->getInstanceForKey(this, key));
-    
-
-                                    }
-                                
+// throws Exception
+- (void) update {
+        GameInput* gameInput = [self getGameInput];
+        int32_t* keys = self->keys;
+        int32_t size = java_array_length(keys);
+        if ([self isOn]) {
+            for (int32_t index = 0; index < size; index++) {
+                int32_t key = ((int32_t) (keys[index]));
+                if (key != -1) {
+                    [gameInput add:[self->gameKeyEventFactory getInstanceForKey:self :key]];
+                }
+            }
+        } else {
+            for (int32_t index = 0; index < size; index++) {
+                int32_t key = ((int32_t) (keys[index]));
+                if (key != -1) {
+                    [gameInput addForRemoval:[self->gameKeyEventFactory getInstanceForKey:self :key]];
+                }
+            }
+        }
 }
 
 
-                        }
-                            
+// throws Exception
+- (void) toggle {
+        if ([self->toggleTimeHelper isTime:self->gameTickTimeDelayHelper->startTime]) {
+            [super toggle];
+            [self update];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto MultiKeyPressesAI::toggle() -> void{
-
-                        if(this->toggleTimeHelper->isTime(this->gameTickTimeDelayHelper->startTime))
-                        
-                                    {
-                                    KeyPressesAI::toggle();
-    
-this->update();
-    
-
-                                    }
-                                
+// throws Exception
+- (void) disable {
+        if ([self->toggleTimeHelper isTime:self->gameTickTimeDelayHelper->startTime]) {
+            [super disable];
+            [self update];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto MultiKeyPressesAI::disable() -> void{
-
-                        if(this->toggleTimeHelper->isTime(this->gameTickTimeDelayHelper->startTime))
-                        
-                                    {
-                                    KeyPressesAI::disable();
-    
-this->update();
-    
-
-                                    }
-                                
+// throws Exception
+- (void) enable {
+        if ([self->toggleTimeHelper isTime:self->gameTickTimeDelayHelper->startTime]) {
+            [super enable];
+            [self update];
+        }
 }
 
+@end
 
-                //@Throws(Exception.constructor)
-            
-    auto MultiKeyPressesAI::enable() -> void{
-
-                        if(this->toggleTimeHelper->isTime(this->gameTickTimeDelayHelper->startTime))
-                        
-                                    {
-                                    KeyPressesAI::enable();
-    
-this->update();
-    
-
-                                    }
-                                
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_AG_AI_MULTIKEYPRESSESAI_CPP

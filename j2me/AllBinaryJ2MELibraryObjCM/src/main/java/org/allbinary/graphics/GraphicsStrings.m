@@ -1,78 +1,41 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/GraphicsStrings.h"
 
 
+static GraphicsStrings* GraphicsStrings_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_GRAPHICSSTRINGS_CPP
-        #define ORG_ALLBINARY_GRAPHICS_GRAPHICSSTRINGS_CPP
+void GraphicsStrings_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GraphicsStrings_instance = [((GraphicsStrings*) [GraphicsStrings alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/GraphicsStrings.h"
-        
+@implementation GraphicsStrings
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->ANIMATION = "animation";
+    self->ANGLE = "angle";
+    self->MOVEMENT_ANGLE = "movement_angle";
+    self->ROTATION = "rotation";
+    self->OPACITY = "opacity";
+    self->HTML = "HTML";
+    self->WIDTH = "width";
+    self->HEIGHT = "height";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GraphicsStrings::GraphicsStrings() {
-        }
-        auto GraphicsStrings::instance_owner() -> GraphicsStrings* { static std::unique_ptr<GraphicsStrings> value(new GraphicsStrings()); return value.get(); }
-GraphicsStrings* GraphicsStrings::instance = GraphicsStrings::instance_owner();
-
-    auto GraphicsStrings::getInstance() -> GraphicsStrings*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GraphicsStrings::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (GraphicsStrings*) getInstance {
+        return (GraphicsStrings_staticInit(), GraphicsStrings_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_GRAPHICSSTRINGS_CPP

@@ -1,79 +1,35 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/emulator/swt/SWTProcessorUtil.h"
+#include "org/allbinary/emulator/swt/SWTProcessor.h"
 
 
+static SWTProcessorUtil* SWTProcessorUtil_instance;
 
-        #ifndef ORG_ALLBINARY_EMULATOR_SWT_SWTPROCESSORUTIL_CPP
-        #define ORG_ALLBINARY_EMULATOR_SWT_SWTPROCESSORUTIL_CPP
+void SWTProcessorUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    SWTProcessorUtil_instance = [((SWTProcessorUtil*) [SWTProcessorUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/emulator/swt/SWTProcessorUtil.h"
-        
+@implementation SWTProcessorUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->swtProcessor = [SWTProcessor getInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/emulator/swt/SWTProcessor.h"
-
-
-SWTProcessorUtil::SWTProcessorUtil() : swtProcessor(SWTProcessor::getInstance()) {
-        }
-        auto SWTProcessorUtil::instance_owner() -> SWTProcessorUtil* { static std::unique_ptr<SWTProcessorUtil> value(new SWTProcessorUtil()); return value.get(); }
-SWTProcessorUtil* SWTProcessorUtil::instance = SWTProcessorUtil::instance_owner();
-
-    auto SWTProcessorUtil::getInstance() -> SWTProcessorUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return SWTProcessorUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (SWTProcessorUtil*) getInstance {
+        return (SWTProcessorUtil_staticInit(), SWTProcessorUtil_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_EMULATOR_SWT_SWTPROCESSORUTIL_CPP

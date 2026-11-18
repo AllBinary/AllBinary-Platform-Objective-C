@@ -1,128 +1,67 @@
+#ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_TIME_HUDTIMER_H
+#define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_TIME_HUDTIMER_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.hud.basic.time
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_TIME_HUDTIMER_H
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_TIME_HUDTIMER_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class PrimitiveLongSingleton;
-class PrimitiveLongUtil;
-class GameTickTimeDelayHelper;
-class GameTickTimeDelayHelperFactory;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class HudTimer
-            : public virtual Object
-         {
-
-    private: int64_t startTime =  -1;
-
-    private: int64_t hundredthTime= 0;
-
-    private: int64_t maxTime;
-
-    private: int64_t modifier= 0;
-
-    private: std::vector<char> hundrethsString;
-
-    private: int32_t totalDigits = 1;
-
-    private: PrimitiveLongUtil* primitiveLongUtil;
-
-    private: std::vector<char> MAX;
-
-    private: GameTickTimeDelayHelper* gameTickTimeDelayHelper;
-
-public: HudTimer(int32_t maxTime);
-
-    public: void start();
-
-    public: int64_t get();
-
-    public: void update();
-
-    public: void reduce(int32_t value);
-
-    public: void add(int32_t value);
-
-    public: std::vector<char> getTimeChars();
-
-    public: int32_t getCurrentTotalDigits();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_TIME_HUDTIMER_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_TIME_HUDTIMER_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_TIME_HUDTIMER_H_COMPLETE
-        #if __has_include(<org/allbinary/logic/math/PrimitiveLongSingleton.h>)
-#include <org/allbinary/logic/math/PrimitiveLongSingleton.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class HudTimer;
+@class PrimitiveLongSingleton;
+@class PrimitiveLongUtil;
+@class GameTickTimeDelayHelper;
+@class GameTickTimeDelayHelperFactory;
+#if __has_include("org/allbinary/logic/math/PrimitiveLongUtil.h")
+#include "org/allbinary/logic/math/PrimitiveLongUtil.h"
 #endif
-#if __has_include(<org/allbinary/logic/math/PrimitiveLongUtil.h>)
-#include <org/allbinary/logic/math/PrimitiveLongUtil.h>
-#endif
-#if __has_include(<org/allbinary/time/GameTickTimeDelayHelper.h>)
-#include <org/allbinary/time/GameTickTimeDelayHelper.h>
-#endif
-#if __has_include(<org/allbinary/time/GameTickTimeDelayHelperFactory.h>)
-#include <org/allbinary/time/GameTickTimeDelayHelperFactory.h>
+#if __has_include("org/allbinary/time/GameTickTimeDelayHelper.h")
+#include "org/allbinary/time/GameTickTimeDelayHelper.h"
 #endif
 
-        #endif
-    
+@interface HudTimer : ABObject {
+@public
+    int64_t startTime;
+    int64_t hundredthTime;
+    int64_t maxTime;
+    int64_t modifier;
+    uint16_t* hundrethsString;
+    int32_t totalDigits;
+    PrimitiveLongUtil* primitiveLongUtil;
+    uint16_t* MAX;
+    GameTickTimeDelayHelper* gameTickTimeDelayHelper;
+}
+- (instancetype) init:(int32_t)maxTime;
+- (void) initFields;
+- (void) start;
+- (int64_t) get;
+- (void) update;
+- (void) reduce:(int32_t)value;
+- (void) add:(int32_t)value;
+- (uint16_t*) getTimeChars;
+- (int32_t) getCurrentTotalDigits;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void HudTimer_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_TIME_HUDTIMER_H

@@ -1,83 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/midlet/MidletExitProcessor.h"
+#include "javax/microedition/midlet/MIDlet.h"
 
 
 
-        #ifndef ORG_ALLBINARY_MIDLET_MIDLETEXITPROCESSOR_CPP
-        #define ORG_ALLBINARY_MIDLET_MIDLETEXITPROCESSOR_CPP
+void MidletExitProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/midlet/MidletExitProcessor.h"
-        
+@implementation MidletExitProcessor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/System.h"
-        
-#include <javax/microedition/midlet/MIDlet.h>
-
-      
-#include <org/allbinary/canvas/Processor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-MidletExitProcessor::MidletExitProcessor(MIDlet* midlet){
-this->midlet= midlet;
+- (void) initFields {
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto MidletExitProcessor::process() -> void{
-System.exit(0);
-    
+- (instancetype) init:(MIDlet*)midlet {
+    self = [super init];
+    [self initFields];
+        self->midlet = midlet;
+    return self;
 }
 
 
+// throws Exception
+- (void) process {
+        exit(0);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MIDLET_MIDLETEXITPROCESSOR_CPP

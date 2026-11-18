@@ -1,68 +1,26 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/eclipse/swt/widgets/Display.h"
 
 
 
-        #ifndef ORG_ECLIPSE_SWT_WIDGETS_DISPLAY_CPP
-        #define ORG_ECLIPSE_SWT_WIDGETS_DISPLAY_CPP
+void Display_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/eclipse/swt/widgets/Display.h"
-        
+@implementation Display
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-Display::Display() {
-        }
-        
-    auto Display::sleep() -> void{
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+- (void) sleep {
+}
 
+@end
 
-        #endif //ORG_ECLIPSE_SWT_WIDGETS_DISPLAY_CPP

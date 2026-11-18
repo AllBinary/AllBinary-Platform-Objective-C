@@ -1,105 +1,42 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/displayable/BaseScalable.h"
+#include "org/allbinary/graphics/displayable/ScalableListener.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_BASESCALABLE_CPP
-        #define ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_BASESCALABLE_CPP
+void BaseScalable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/displayable/BaseScalable.h"
-        
+@implementation BaseScalable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/displayable/ScalableListener.h"
-
-
-BaseScalable::BaseScalable() {
-        }
-        
-    auto BaseScalable::getRatio(float ratio) -> float{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 1;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto BaseScalable::getLeft(int32_t xOffset) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+- (float) getRatio:(float)ratio {
+        return 1.0f;
 }
 
 
-    auto BaseScalable::getTop(int32_t yOffset) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+- (int32_t) getLeft:(int32_t)xOffset {
+        return -1;
 }
 
 
-    auto BaseScalable::scale(float ratio) -> void{
+- (int32_t) getTop:(int32_t)yOffset {
+        return -1;
 }
 
 
+- (void) scale:(float)ratio {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_BASESCALABLE_CPP

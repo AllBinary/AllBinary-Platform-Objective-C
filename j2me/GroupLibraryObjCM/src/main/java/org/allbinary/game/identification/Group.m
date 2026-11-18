@@ -1,135 +1,63 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_IDENTIFICATION_GROUP_CPP
-        #define ORG_ALLBINARY_GAME_IDENTIFICATION_GROUP_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/identification/Group.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/identification/GroupInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/identification/Group.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/game/identification/GroupInterface.h"
 #include "org/allbinary/game/identification/GroupCommonFactory.h"
 
 
-Group::Group(std::string teamName, int16_t teamId) : name(StringUtil::getInstance()->EMPTY_STRING), string(StringUtil::getInstance()->EMPTY_STRING){
-this->teamId= teamId;
+
+void Group_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation Group
+
+- (void) initFields {
+    self->name = [StringUtil getInstance]->EMPTY_STRING;
     
-this->setName(teamName);
-    
+    self->string = [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-    auto Group::getGroupName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->name;
-    
+- (instancetype) init:(const char*)teamName :(int16_t)teamId {
+    self = [super init];
+    [self initFields];
+        self->teamId = teamId;
+        [self setName:teamName];
+    return self;
 }
 
 
-    auto Group::setName(std::string name) -> void{
-this->name= name;
-    
-
-    GroupCommonFactory* groupCommonFactory = GroupCommonFactory::getInstance();;
-    
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append(groupCommonFactory->GROUP_NAME_LABEL);
-    
-stringBuffer->append(this->name);
-    
-stringBuffer->append(groupCommonFactory->ID_LABEL);
-    
-stringBuffer->appendshort(this->teamId);
-    
-this->string= JavaString::valueOf(stringBuffer);
-    
+- (const char*) getGroupName {
+        return self->name;
 }
 
 
-    auto Group::getGroupId() -> int16_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->teamId;
-    
+- (void) setName:(const char*)name {
+        self->name = name;
+        GroupCommonFactory* groupCommonFactory = [GroupCommonFactory getInstance];
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:groupCommonFactory->GROUP_NAME_LABEL];
+        [stringBuffer append:self->name];
+        [stringBuffer append:groupCommonFactory->ID_LABEL];
+        [stringBuffer appendshort:self->teamId];
+        self->string = [stringBuffer toString];
 }
 
 
-    auto Group::toString() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->string;
-    
+- (int16_t) getGroupId {
+        return self->teamId;
 }
 
 
+- (const char*) toString {
+        return self->string;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_IDENTIFICATION_GROUP_CPP

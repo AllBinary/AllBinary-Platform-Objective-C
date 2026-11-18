@@ -1,171 +1,57 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/PlayerStateUtil.h"
+#include "javax/microedition/media/Player.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
+static PlayerStateUtil* PlayerStateUtil_instance;
 
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_PLAYERSTATEUTIL_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_PLAYERSTATEUTIL_CPP
+void PlayerStateUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PlayerStateUtil_instance = [((PlayerStateUtil*) [PlayerStateUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/PlayerStateUtil.h"
-        
+@implementation PlayerStateUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->commonStrings = [CommonStrings getInstance];
+    self->UNREALIZED = "UNREALIZED";
+    self->REALIZED = "REALIZED";
+    self->PREFETCHED = "PREFETCHED";
+    self->STARTED = "STARTED";
+    self->CLOSED = "CLOSED";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/media/Player.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (PlayerStateUtil*) getInstance {
+        return (PlayerStateUtil_staticInit(), PlayerStateUtil_instance);
+}
 
 
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-PlayerStateUtil::PlayerStateUtil() : commonStrings(CommonStrings::getInstance()) {
+- (const char*) convert:(int32_t)state {
+        if (state == (Player_staticInit(), Player_UNREALIZED)) {
+            return self->UNREALIZED;
+        } else if (state == (Player_staticInit(), Player_REALIZED)) {
+            return self->REALIZED;
+        } else if (state == (Player_staticInit(), Player_PREFETCHED)) {
+            return self->PREFETCHED;
+        } else if (state == (Player_staticInit(), Player_STARTED)) {
+            return self->STARTED;
+        } else if (state == (Player_staticInit(), Player_CLOSED)) {
+            return self->CLOSED;
         }
-        auto PlayerStateUtil::instance_owner() -> PlayerStateUtil* { static std::unique_ptr<PlayerStateUtil> value(new PlayerStateUtil()); return value.get(); }
-PlayerStateUtil* PlayerStateUtil::instance = PlayerStateUtil::instance_owner();
-
-    auto PlayerStateUtil::getInstance() -> PlayerStateUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PlayerStateUtil::instance;
-    
+        return self->commonStrings->UNKNOWN;
 }
 
+@end
 
-    auto PlayerStateUtil::convert(int32_t state) -> std::string{
-
-                        if(state == Player::UNREALIZED)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->UNREALIZED;
-    
-
-                                    }
-                                
-                             else 
-                        if(state == Player::REALIZED)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->REALIZED;
-    
-
-                                    }
-                                
-                             else 
-                        if(state == Player::PREFETCHED)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->PREFETCHED;
-    
-
-                                    }
-                                
-                             else 
-                        if(state == Player::STARTED)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->STARTED;
-    
-
-                                    }
-                                
-                             else 
-                        if(state == Player::CLOSED)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->CLOSED;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->commonStrings->UNKNOWN;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_PLAYERSTATEUTIL_CPP

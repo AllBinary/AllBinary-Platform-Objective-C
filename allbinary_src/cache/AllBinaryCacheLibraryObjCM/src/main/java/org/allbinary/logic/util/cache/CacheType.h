@@ -1,92 +1,47 @@
+#ifndef ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHETYPE_H
+#define ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHETYPE_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2007 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.logic.util.cache
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2007 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class CacheType;
+@class StringMaker;
 
+@interface CacheType : ABObject {
+@public
+    const char* vendor;
+    const char* type;
+}
+- (instancetype) init:(const char*)vendor :(const char*)type;
+- (void) initFields;
+- (const char*) getVendor;
+- (const char*) getType;
+- (const char*) toString;
+@end
 
-
-        #ifndef ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHETYPE_H
-        #define ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHETYPE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class StringMaker;
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void CacheType_staticInit(void);
 
 
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class CacheType
-            : public virtual Object
-         {
-
-    private: std::string vendor;
-
-    private: std::string type;
-
-public: CacheType(std::string vendor, std::string type);
-
-    public: std::string getVendor();
-
-    public: std::string getType();
-
-    public: std::string toString();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHETYPE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHETYPE_H_COMPLETE)
-        #define ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHETYPE_H_COMPLETE
-        #if __has_include(<org/allbinary/logic/string/StringMaker.h>)
-#include <org/allbinary/logic/string/StringMaker.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_LOGIC_UTIL_CACHE_CACHETYPE_H

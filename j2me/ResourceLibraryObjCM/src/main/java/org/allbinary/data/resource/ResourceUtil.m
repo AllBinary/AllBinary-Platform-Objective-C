@@ -1,250 +1,92 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/data/resource/ResourceUtil.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
+static id ResourceUtil_classLoader;
+static ResourceUtil* ResourceUtil_instance;
 
-        #ifndef ORG_ALLBINARY_DATA_RESOURCE_RESOURCEUTIL_CPP
-        #define ORG_ALLBINARY_DATA_RESOURCE_RESOURCEUTIL_CPP
+void ResourceUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ResourceUtil_classLoader = [NullUtil getInstance]->NULL_OBJECT;
+    ResourceUtil_instance = [((ResourceUtil*) [ResourceUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/data/resource/ResourceUtil.h"
-        
+@implementation ResourceUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/ClassLoader.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-            #include "java/lang/Thread.h"
-        
-#include <java/io/InputStream.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //J2SE - J2ME
-Object* ResourceUtil::classLoader = NullUtil::getInstance()->NULL_OBJECT;
-auto ResourceUtil::instance_owner() -> ResourceUtil* { static std::unique_ptr<ResourceUtil> value(new ResourceUtil()); return value.get(); }
-ResourceUtil* ResourceUtil::instance = ResourceUtil::instance_owner();
-
-    auto ResourceUtil::getInstance() -> ResourceUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ResourceUtil::instance;
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
 }
 
 
-ResourceUtil::ResourceUtil() : logUtil(LogUtil::getInstance()){
++ (ResourceUtil*) getInstance {
+        return (ResourceUtil_staticInit(), ResourceUtil_instance);
 }
 
 
-    auto ResourceUtil::setLoadingPaths(std::string path, std::string ext) -> void{
-this->logUtil->putF(CommonStrings::getInstance()->NOT_IMPLEMENTED, this, "setLoadingPaths");
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto ResourceUtil::setClassLoader(ClassLoader* classLoader) -> void{
-this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("Resource Loader: ")->append(classLoader->getClass()->getName())), this, "setClassLoader");
-    
-ResourceUtil::classLoader= classLoader;
-    
+- (void) setLoadingPaths:(const char*)path :(const char*)ext {
+        [self->logUtil putF:[CommonStrings getInstance]->NOT_IMPLEMENTED :self :"setLoadingPaths"];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ResourceUtil::getResourceAsStream(std::string resource) -> InputStream*{
-
-    InputStream* inputStream = this->getResourceAsStreamAtStart(resource, 2);;
-    
-
-                        if(inputStream == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    inputStream= this->getResourceAsStreamAtStart(resource, 1);
-    
-
-                        if(inputStream == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    
-
-
-                            throw Exception(JavaString::valueOf((new StringMaker())->append("Unable to obtain: ")->append(resource)));
-                    
-
-                                    }
-                                
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return inputStream;
-    
+- (void) setClassLoader:(ClassLoader*)classLoader {
+        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Resource Loader: "] append:java_objc_class_name(classLoader)] toString] :self :"setClassLoader"];
+        ResourceUtil_classLoader = classLoader;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ResourceUtil::getResourceAsStreamAtStart(std::string resource, int32_t startIndex) -> InputStream*{
-
-    CommonSeps* commonSeps = CommonSeps::getInstance();;
-    
-
-    int32_t index = JavaString::indexOf(resource, commonSeps->COLON);;
-    
-
-    std::string resourcePath = JavaString::substring(resource, index +startIndex);;
-    
-
-    InputStream* inputStream = Class::forType(typeid(std::string))->getResourceAsStream(resourcePath);;
-    
-
-                        if(inputStream != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return inputStream;
-    
-
-                                    }
-                                
-
-    ClassLoader* classLoader = dynamic_cast<ClassLoader*>(ResourceUtil::classLoader);;
-    
-inputStream= classLoader->getResourceAsStream(resourcePath);
-    
-
-                        if(inputStream != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return inputStream;
-    
-
-                                    }
-                                
-inputStream= Thread::currentThread()->getContextClassLoader()->getResourceAsStream(resourcePath);
-    
-
-                        if(inputStream != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return inputStream;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return inputStream;
-    
+// throws Exception
+- (InputStream*) getResourceAsStream:(const char*)resource {
+        InputStream* inputStream = [self getResourceAsStreamAtStart:resource :2];
+        if (inputStream == nil) {
+            inputStream = [self getResourceAsStreamAtStart:resource :1];
+            if (inputStream == nil) {
+                java_throw(java_exception_new("Exception", [[[[((StringMaker*) [StringMaker alloc]) init] append:"Unable to obtain: "] append:resource] toString]));
+            }
+        }
+        return inputStream;
 }
 
 
-    auto ResourceUtil::addResource(std::string resource, int32_t value) -> void{
+// throws Exception
+- (InputStream*) getResourceAsStreamAtStart:(const char*)resource :(int32_t)startIndex {
+        CommonSeps* commonSeps = [CommonSeps getInstance];
+        int32_t index = java_string_indexOf(resource, commonSeps->COLON);
+        const char* resourcePath = java_substring(resource, index + startIndex, (int32_t) strlen(resource));
+        InputStream* inputStream = [java_objc_class_name(resource) getResourceAsStream:resourcePath];
+        if (inputStream != nil) {
+            return inputStream;
+        }
+        ClassLoader* classLoader = ((ClassLoader*) (ResourceUtil_staticInit(), ResourceUtil_classLoader));
+        inputStream = [classLoader getResourceAsStream:resourcePath];
+        if (inputStream != nil) {
+            return inputStream;
+        }
+        inputStream = [[[Thread currentThread] getContextClassLoader] getResourceAsStream:resourcePath];
+        if (inputStream != nil) {
+            return inputStream;
+        }
+        return inputStream;
 }
 
 
+- (void) addResource:(const char*)resource :(int32_t)value {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_DATA_RESOURCE_RESOURCEUTIL_CPP

@@ -1,123 +1,56 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/feature/Feature.h"
+#include "org/allbinary/game/configuration/event/ChangedGameFeatureListener.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/util/ABHashtable.h"
 
 
+static ABHashtable* Feature_hashtable;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_FEATURE_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_FEATURE_CPP
+void Feature_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    Feature_hashtable = [[StdUtil getInstance] createHashtable];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/feature/Feature.h"
-        
+@implementation Feature
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/configuration/event/ChangedGameFeatureListener.h>
-
-      
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-ABHashtable<Object*, Object*>* Feature::hashtable = StdUtil::getInstance()->createHashtable();
-
-Feature::Feature(std::string name){
-this->name= name;
-    
-Feature::add(name, this);
-    
-ChangedGameFeatureListener::getInstance()->add(this);
+- (void) initFields {
     
 }
 
 
-    auto Feature::getInstance(std::string name) -> Feature*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<Feature*>(Feature::hashtable->get(name));
-    
+- (instancetype) init:(const char*)name {
+    self = [super init];
+    [self initFields];
+        self->name = name;
+        [Feature add:name :self];
+        [[ChangedGameFeatureListener getInstance] add:self];
+    return self;
 }
 
 
-    auto Feature::add(std::string name, Feature* gameFeature) -> void{
-Feature::hashtable->put(name, gameFeature);
-    
++ (Feature*) getInstance:(const char*)name {
+        return ((Feature*) [(Feature_staticInit(), Feature_hashtable) get:JAVA_BOX(name)]);
 }
 
 
-    auto Feature::toString() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getName();;
-    
++ (void) add:(const char*)name :(Feature*)gameFeature {
+        [(Feature_staticInit(), Feature_hashtable) put:JAVA_BOX(name) :JAVA_BOX(gameFeature)];
 }
 
 
-    auto Feature::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->name;
-    
+- (const char*) toString {
+        return [self getName];
 }
 
 
+- (const char*) getName {
+        return self->name;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_FEATURE_CPP

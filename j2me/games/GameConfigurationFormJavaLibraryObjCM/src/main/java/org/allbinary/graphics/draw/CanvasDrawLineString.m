@@ -1,106 +1,54 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/draw/CanvasDrawLineString.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/font/MyFontProcessor.h"
+#include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
+#include "org/allbinary/graphics/draw/DrawStringUtil.h"
 
 
+CanvasDrawLineString* CanvasDrawLineString_NULL_CANVAS_DRAW_LINE_STRING;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_DRAW_CANVASDRAWLINESTRING_CPP
-        #define ORG_ALLBINARY_GRAPHICS_DRAW_CANVASDRAWLINESTRING_CPP
+void CanvasDrawLineString_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CanvasDrawLineString_NULL_CANVAS_DRAW_LINE_STRING = [((CanvasDrawLineString*) [CanvasDrawLineString alloc]) init:0 :0];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/draw/CanvasDrawLineString.h"
-        
+@implementation CanvasDrawLineString
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/font/MyFontProcessor.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontInterface.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontProcessor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/draw/DrawStringUtil.h"
-
-auto CanvasDrawLineString::NULL_CANVAS_DRAW_LINE_STRING_owner() -> CanvasDrawLineString* { static std::unique_ptr<CanvasDrawLineString> value(new CanvasDrawLineString(0, 0)); return value.get(); }
-CanvasDrawLineString* CanvasDrawLineString::NULL_CANVAS_DRAW_LINE_STRING = CanvasDrawLineString::NULL_CANVAS_DRAW_LINE_STRING_owner();
-
-CanvasDrawLineString::CanvasDrawLineString(int32_t x, int32_t y) : drawStringUtil(DrawStringUtil::getInstance()), myFontProcessor(new UpdateMyFontProcessor(this)){
-this->x= x;
+- (void) initFields {
+    self->drawStringUtil = [DrawStringUtil getInstance];
+    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
     
-this->y= y;
     
+    self->fontHeight = 0;
 }
 
 
-    auto CanvasDrawLineString::updateMeasurement(Graphics* graphics) -> void{
-
-    Font* font = graphics->getFont();;
-    
-this->fontHeight= font->getHeight();
-    
-this->myFontProcessor= MyFontProcessor::getInstance();
-    
+- (instancetype) init:(int32_t)x :(int32_t)y {
+    self = [super init];
+    [self initFields];
+        self->x = x;
+        self->y = y;
+    return self;
 }
 
 
-    auto CanvasDrawLineString::paint(Graphics* graphics, std::string string, int32_t line) -> void{
-this->myFontProcessor->process(graphics);
-    
-this->drawStringUtil->drawCenterString(graphics, string, 0, string.size(), this->x, this->y +(line *this->fontHeight));
-    
+- (void) updateMeasurement:(Graphics*)graphics {
+        Font* font = [graphics getFont];
+        self->fontHeight = [font getHeight];
+        self->myFontProcessor = [MyFontProcessor getInstance];
 }
 
 
+- (void) paint:(Graphics*)graphics :(const char*)string :(int32_t)line {
+        [self->myFontProcessor process:graphics];
+        [self->drawStringUtil drawCenterString:graphics :string :0 :((int32_t) strlen(string)) :self->x :self->y + (line * self->fontHeight)];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_DRAW_CANVASDRAWLINESTRING_CPP

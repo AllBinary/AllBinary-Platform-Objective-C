@@ -1,80 +1,39 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/feature/TouchFeatureFactory.h"
+#include "org/allbinary/game/configuration/feature/TouchFeature.h"
 
 
+static TouchFeatureFactory* TouchFeatureFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_TOUCHFEATUREFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_TOUCHFEATUREFACTORY_CPP
+void TouchFeatureFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TouchFeatureFactory_instance = [((TouchFeatureFactory*) [TouchFeatureFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/feature/TouchFeatureFactory.h"
-        
+@implementation TouchFeatureFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/configuration/feature/TouchFeature.h"
-
-auto TouchFeatureFactory::instance_owner() -> TouchFeatureFactory* { static std::unique_ptr<TouchFeatureFactory> value(new TouchFeatureFactory()); return value.get(); }
-TouchFeatureFactory* TouchFeatureFactory::instance = TouchFeatureFactory::instance_owner();
-
-    auto TouchFeatureFactory::getInstance() -> TouchFeatureFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TouchFeatureFactory::instance;
-    
+- (void) initFields {
+    self->TOUCH_ENABLED = [((TouchFeature*) [TouchFeature alloc]) init:"Touch Enabled"];
+    self->SHOW_SCREEN_BUTTONS = [((TouchFeature*) [TouchFeature alloc]) init:"Show"];
+    self->AUTO_HIDE_SHOW_SCREEN_BUTTONS = [((TouchFeature*) [TouchFeature alloc]) init:"Auto Hide (One Level)"];
+    self->HIDE_SCREEN_BUTTONS = [((TouchFeature*) [TouchFeature alloc]) init:"Hide"];
 }
 
 
-TouchFeatureFactory::TouchFeatureFactory() : TOUCH_ENABLED(new TouchFeature("Touch Enabled")), SHOW_SCREEN_BUTTONS(new TouchFeature("Show")), AUTO_HIDE_SHOW_SCREEN_BUTTONS(new TouchFeature("Auto Hide (One Level)")), HIDE_SCREEN_BUTTONS(new TouchFeature("Hide")){
++ (TouchFeatureFactory*) getInstance {
+        return (TouchFeatureFactory_staticInit(), TouchFeatureFactory_instance);
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_TOUCHFEATUREFACTORY_CPP

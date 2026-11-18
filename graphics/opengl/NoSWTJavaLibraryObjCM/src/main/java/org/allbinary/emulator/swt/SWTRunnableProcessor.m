@@ -1,84 +1,35 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/emulator/swt/SWTRunnableProcessor.h"
+#include "org/eclipse/swt/widgets/Display.h"
+#include "org/allbinary/emulator/swt/SWTProcessor.h"
 
 
+static SWTRunnableProcessor* SWTRunnableProcessor_instanceR;
 
-        #ifndef ORG_ALLBINARY_EMULATOR_SWT_SWTRUNNABLEPROCESSOR_CPP
-        #define ORG_ALLBINARY_EMULATOR_SWT_SWTRUNNABLEPROCESSOR_CPP
+void SWTRunnableProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    SWTRunnableProcessor_instanceR = [((SWTRunnableProcessor*) [SWTRunnableProcessor alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/emulator/swt/SWTRunnableProcessor.h"
-        
+@implementation SWTRunnableProcessor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/eclipse/swt/widgets/Display.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/emulator/swt/SWTProcessor.h"
-
-
-SWTRunnableProcessor::SWTRunnableProcessor() {
-        }
-        auto SWTRunnableProcessor::instanceR_owner() -> SWTRunnableProcessor* { static std::unique_ptr<SWTRunnableProcessor> value(new SWTRunnableProcessor()); return value.get(); }
-SWTRunnableProcessor* SWTRunnableProcessor::instanceR = SWTRunnableProcessor::instanceR_owner();
-
-    auto SWTRunnableProcessor::getInstance() -> SWTRunnableProcessor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return SWTRunnableProcessor::instanceR;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto SWTRunnableProcessor::process(Display* display) -> void{
++ (SWTRunnableProcessor*) getInstance {
+        return (SWTRunnableProcessor_staticInit(), SWTRunnableProcessor_instanceR);
 }
 
 
+- (void) process:(Display*)display {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_EMULATOR_SWT_SWTRUNNABLEPROCESSOR_CPP

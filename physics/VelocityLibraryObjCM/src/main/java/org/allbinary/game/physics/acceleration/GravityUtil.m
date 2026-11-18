@@ -1,87 +1,47 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/physics/acceleration/GravityUtil.h"
+#include "org/allbinary/game/physics/velocity/BasicVelocityProperties.h"
+#if __has_include("org/allbinary/game/physics/acceleration/BasicDecimal.h")
+#include "org/allbinary/game/physics/acceleration/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/BasicDecimal.h")
+#include "org/allbinary/game/physics/velocity/BasicDecimal.h"
+#endif
 
 
+static GravityUtil* GravityUtil_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_PHYSICS_ACCELERATION_GRAVITYUTIL_CPP
-        #define ORG_ALLBINARY_GAME_PHYSICS_ACCELERATION_GRAVITYUTIL_CPP
+void GravityUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GravityUtil_instance = [((GravityUtil*) [GravityUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/physics/acceleration/GravityUtil.h"
-        
+@implementation GravityUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->GAME_GRAVITY_VELOCITY = 1800;
+    self->MAX_GAME_VELOCITY = 18000;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/physics/velocity/BasicVelocityProperties.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GravityUtil::GravityUtil() {
-        }
-        auto GravityUtil::instance_owner() -> GravityUtil* { static std::unique_ptr<GravityUtil> value(new GravityUtil()); return value.get(); }
-GravityUtil* GravityUtil::instance = GravityUtil::instance_owner();
-
-    auto GravityUtil::getInstance() -> GravityUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GravityUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto GravityUtil::process(BasicVelocityProperties* velocityProperties, int32_t customGravity) -> void{
-velocityProperties->getVelocityYBasicDecimalP()->addint(customGravity);
-    
++ (GravityUtil*) getInstance {
+        return (GravityUtil_staticInit(), GravityUtil_instance);
 }
 
 
+- (void) process:(BasicVelocityProperties*)velocityProperties :(int32_t)customGravity {
+        [[velocityProperties getVelocityYBasicDecimalP] addint:customGravity];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_PHYSICS_ACCELERATION_GRAVITYUTIL_CPP

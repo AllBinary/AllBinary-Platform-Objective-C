@@ -1,101 +1,46 @@
+#ifndef ORG_ALLBINARY_GAME_COMBAT_DAMAGE_DAMAGEABLEBASEBEHAVIOR_H
+#define ORG_ALLBINARY_GAME_COMBAT_DAMAGE_DAMAGEABLEBASEBEHAVIOR_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.combat.damage
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_COMBAT_DAMAGE_DAMAGEABLEBASEBEHAVIOR_H
-        #define ORG_ALLBINARY_GAME_COMBAT_DAMAGE_DAMAGEABLEBASEBEHAVIOR_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/combat/damage/DamageableInterface.h"
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class DamageableBaseBehavior
-            : public virtual Object
-        , public virtual DamageableInterface {
-
-    private: static DamageableBaseBehavior* instance_owner();
-    private: static DamageableBaseBehavior* instance;
-
-    public: static DamageableBaseBehavior* getInstance();
-
-
-            
-    public: DamageableBaseBehavior();
-        
-    public: std::string getName();
-
-                //@Throws(Exception.constructor)
-            
-    public: void damage(int32_t damage, int32_t damageType);
-
-                //@Throws(Exception.constructor)
-            
-    public: int32_t getDamage(int32_t damageType);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_COMBAT_DAMAGE_DAMAGEABLEBASEBEHAVIOR_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_COMBAT_DAMAGE_DAMAGEABLEBASEBEHAVIOR_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_COMBAT_DAMAGE_DAMAGEABLEBASEBEHAVIOR_H_COMPLETE
-        #if __has_include("org/allbinary/game/combat/damage/DamageableInterface.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class DamageableBaseBehavior;
+@class DamageableInterface;
 #include "org/allbinary/game/combat/damage/DamageableInterface.h"
-#endif
 
-        #endif
-    
+@interface DamageableBaseBehavior : ABObject <DamageableInterface> {
+@public
+}
+- (instancetype) init;
++ (DamageableBaseBehavior*) getInstance;
+- (const char*) getName;
+- (void) damage:(int32_t)damage :(int32_t)damageType;
+- (int32_t) getDamage:(int32_t)damageType;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void DamageableBaseBehavior_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GAME_COMBAT_DAMAGE_DAMAGEABLEBASEBEHAVIOR_H

@@ -1,75 +1,29 @@
+#ifndef ORG_BOUNCYCASTLE_JCE_PROVIDER_BOUNCYCASTLEPROVIDER_H
+#define ORG_BOUNCYCASTLE_JCE_PROVIDER_BOUNCYCASTLEPROVIDER_H
+// Generated Code Do Not Modify
+// package org.bouncycastle.jce.provider
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class BouncyCastleProvider;
+#include "java/security/Provider.h"
 
+@interface BouncyCastleProvider : Provider {
+@public
+}
+- (instancetype) init;
+- (void) setParameter:(const char*)parameterName :(id)parameter;
+@end
 
-
-        #ifndef ORG_BOUNCYCASTLE_JCE_PROVIDER_BOUNCYCASTLEPROVIDER_H
-        #define ORG_BOUNCYCASTLE_JCE_PROVIDER_BOUNCYCASTLEPROVIDER_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <java/security/Provider.h>
-
-
-
-
-
+extern const char* BouncyCastleProvider_PROVIDER_NAME;
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void BouncyCastleProvider_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class BouncyCastleProvider: public Provider {
-
-    private: static inline std::string info = "BouncyCastle Security Provider v1.41";
-
-    public: static inline std::string PROVIDER_NAME = "BC";
-
-public: BouncyCastleProvider();
-
-    public: void setParameter(std::string parameterName, Object* parameter);
-    public: void setParameter(std::string parameterName, const std::string& parameter) { return setParameter(parameterName, JavaString::box(parameter)); }
-    public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> void setParameter(std::string parameterName, BoxValue parameter) { return setParameter(parameterName, JavaBoxes::toObject(parameter)); }
-    public: template<typename BoxElement> void setParameter(std::string parameterName, const std::vector<BoxElement>& parameter) { return setParameter(parameterName, JavaBoxes::toObject(parameter)); }
-
-};
-
-            
-
-
-        #endif //ORG_BOUNCYCASTLE_JCE_PROVIDER_BOUNCYCASTLEPROVIDER_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_BOUNCYCASTLE_JCE_PROVIDER_BOUNCYCASTLEPROVIDER_H_COMPLETE)
-        #define ORG_BOUNCYCASTLE_JCE_PROVIDER_BOUNCYCASTLEPROVIDER_H_COMPLETE
-        #if __has_include(<java/security/Provider.h>)
-#include <java/security/Provider.h>
-#endif
-
-        #endif
-    
+#endif // ORG_BOUNCYCASTLE_JCE_PROVIDER_BOUNCYCASTLEPROVIDER_H

@@ -1,112 +1,45 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/font/MyFontProcessor.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "javax/microedition/lcdui/Graphics.h"
 
 
+static MyFontProcessor* MyFontProcessor_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_FONT_MYFONTPROCESSOR_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FONT_MYFONTPROCESSOR_CPP
+void MyFontProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    MyFontProcessor_instance = [((MyFontProcessor*) [MyFontProcessor alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/font/MyFontProcessor.h"
-        
+@implementation MyFontProcessor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-MyFontProcessor::MyFontProcessor() {
-        }
-        
-    auto MyFontProcessor::defaultCharWidth(Font* font) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return font->charWidth('C');;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto MyFontProcessor::defaultStringWidth(Font* font, int32_t size) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return MyFontProcessor::defaultCharWidth(font) *size;
-    
-}
-
-auto MyFontProcessor::instance_owner() -> MyFontProcessor* { static std::unique_ptr<MyFontProcessor> value(new MyFontProcessor()); return value.get(); }
-MyFontProcessor* MyFontProcessor::instance = MyFontProcessor::instance_owner();
-
-    auto MyFontProcessor::getInstance() -> MyFontProcessor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return MyFontProcessor::instance;
-    
++ (int32_t) defaultCharWidth:(Font*)font {
+        return [font charWidth:u'C'];
 }
 
 
-    auto MyFontProcessor::process(Graphics* graphics) -> void{
++ (int32_t) defaultStringWidth:(Font*)font :(int32_t)size {
+        return [MyFontProcessor defaultCharWidth:font] * size;
 }
 
 
++ (MyFontProcessor*) getInstance {
+        return (MyFontProcessor_staticInit(), MyFontProcessor_instance);
+}
 
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FONT_MYFONTPROCESSOR_CPP
+- (void) process:(Graphics*)graphics {
+}
+
+@end
+

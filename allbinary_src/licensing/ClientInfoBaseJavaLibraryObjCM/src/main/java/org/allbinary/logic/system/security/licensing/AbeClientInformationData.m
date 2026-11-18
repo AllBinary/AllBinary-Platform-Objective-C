@@ -1,79 +1,50 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/system/security/licensing/AbeClientInformationData.h"
 
 
+static AbeClientInformationData* AbeClientInformationData_instance;
 
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_ABECLIENTINFORMATIONDATA_CPP
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_ABECLIENTINFORMATIONDATA_CPP
+void AbeClientInformationData_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AbeClientInformationData_instance = [((AbeClientInformationData*) [AbeClientInformationData alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/system/security/licensing/AbeClientInformationData.h"
-        
+@implementation AbeClientInformationData
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto AbeClientInformationData::instance_owner() -> AbeClientInformationData* { static std::unique_ptr<AbeClientInformationData> value(new AbeClientInformationData()); return value.get(); }
-AbeClientInformationData* AbeClientInformationData::instance = AbeClientInformationData::instance_owner();
-
-    auto AbeClientInformationData::getInstance() -> AbeClientInformationData*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AbeClientInformationData::instance;
-    
+- (void) initFields {
+    self->KEY = "KEY";
+    self->NAME = "NAME";
+    self->VERSION = "VERSION";
+    self->SPECIALNAME = "SPECIALNAME";
+    self->LICENSEID = "LICENSEID";
+    self->LICENSE_TYPE = "LICENSETYPE";
+    self->PREVIOUSLICENSEID = "PREVIOUSLICENSEID";
+    self->OSNAME = "OSNAME";
+    self->OSARCH = "OSARCH";
+    self->OSVERSION = "OSVERSION";
+    self->OS = "OS";
+    self->HARDWARE = "HARDWARE";
+    self->LICENSESERVERS = "LICENSESERVERS";
+    self->NEWLICENSE = "NEWLICENSE";
+    self->ISNEW = "ISNEW";
+    self->SPECIAL = "SPECIAL";
 }
 
 
-AbeClientInformationData::AbeClientInformationData(){
++ (AbeClientInformationData*) getInstance {
+        return (AbeClientInformationData_staticInit(), AbeClientInformationData_instance);
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_ABECLIENTINFORMATIONDATA_CPP

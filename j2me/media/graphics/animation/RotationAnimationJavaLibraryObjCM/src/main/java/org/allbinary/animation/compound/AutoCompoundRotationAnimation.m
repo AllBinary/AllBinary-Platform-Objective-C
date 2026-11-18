@@ -1,329 +1,173 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/compound/AutoCompoundRotationAnimation.h"
+#include "javax/microedition/khronos/opengles/GL.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/animation/IndexedAnimation.h"
+#include "org/allbinary/direction/Direction.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/math/Angle.h"
+#include "org/allbinary/math/AngleFactory.h"
+#include "org/allbinary/math/AngleInfo.h"
+#include "org/allbinary/util/CircularIndexUtil.h"
+#include "org/allbinary/animation/compound/CompoundAnimationInterface.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_COMPOUND_AUTOCOMPOUNDROTATIONANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_COMPOUND_AUTOCOMPOUNDROTATIONANIMATION_CPP
+void AutoCompoundRotationAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/compound/AutoCompoundRotationAnimation.h"
-        
+@implementation AutoCompoundRotationAnimation
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/khronos/opengles/GL.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/animation/IndexedAnimation.h>
-
-      
-#include <org/allbinary/animation/RotationAnimation.h>
-
-      
-#include <org/allbinary/direction/Direction.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-#include <org/allbinary/math/Angle.h>
-
-      
-#include <org/allbinary/math/AngleFactory.h>
-
-      
-#include <org/allbinary/math/AngleInfo.h>
-
-      
-#include <org/allbinary/util/CircularIndexUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/compound/CompoundAnimationInterface.h"
-
-
-AutoCompoundRotationAnimation::AutoCompoundRotationAnimation(std::vector<RotationAnimation*> animationInterfaceArray, AnimationBehavior* animationBehavior) : RotationAnimation(AngleInfo::getInstance(AngleFactory::getInstance()->QUARTER_TOTAL_ANGLE), CircularIndexUtil::createInstance(4), animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->animationInterfaceArray= animationInterfaceArray;
-    
-this->circularIndexUtil= CircularIndexUtil::createInstance(this->animationInterfaceArray.size());
+- (void) initFields {
     
 }
 
 
-    auto AutoCompoundRotationAnimation::setFrame(int32_t index) -> void{
-this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->setFrame(index);
-    
+- (instancetype) init:(RotationAnimation**)animationInterfaceArray :(AnimationBehavior*)animationBehavior {
+        self = [super init:[AngleInfo getInstance:[AngleFactory getInstance]->QUARTER_TOTAL_ANGLE] :[CircularIndexUtil createInstance:4] :animationBehavior];
+        [self initFields];
+        self->animationInterfaceArray = animationInterfaceArray;
+        self->circularIndexUtil = [CircularIndexUtil createInstance:java_array_length(self->animationInterfaceArray)];
+    return self;
 }
 
 
-    auto AutoCompoundRotationAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->getFrame();;
-    
+- (void) setFrame:(int32_t)index {
+        [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] setFrame:index];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AutoCompoundRotationAnimation::getAnimationSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->getAnimationSize();;
-    
+- (int32_t) getFrame {
+        return [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] getFrame];
 }
 
 
-    auto AutoCompoundRotationAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->getSize();;
-    
+// throws Exception
+- (int32_t) getAnimationSize {
+        return [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] getAnimationSize];
 }
 
 
-    auto AutoCompoundRotationAnimation::previousFrame() -> void{
-this->circularIndexUtil->previous();
-    
-this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->previousFrame();
-    
+- (int32_t) getSize {
+        return [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] getSize];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AutoCompoundRotationAnimation::nextFrame() -> void{
-this->circularIndexUtil->next();
-    
-this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->nextFrame();
-    
+- (void) previousFrame {
+        [self->circularIndexUtil previous];
+        [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] previousFrame];
 }
 
 
-    auto AutoCompoundRotationAnimation::previousRotation() -> void{
-this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->previousRotation();
-    
+// throws Exception
+- (void) nextFrame {
+        [self->circularIndexUtil next];
+        [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] nextFrame];
 }
 
 
-    auto AutoCompoundRotationAnimation::nextRotation() -> void{
-this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->nextRotation();
-    
+- (void) previousRotation {
+        [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] previousRotation];
 }
 
 
-    auto AutoCompoundRotationAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+- (void) nextRotation {
+        [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] nextRotation];
 }
 
 
-    auto AutoCompoundRotationAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
-    auto AutoCompoundRotationAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->paintXY(graphics, x, y);
-    
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
 }
 
 
-    auto AutoCompoundRotationAnimation::paintThreedXYZ(Graphics* graphics, int32_t x, int32_t y, int32_t z) -> void{
-this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->paintThreedXYZ(graphics, x, y, z);
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] paintXY:graphics :x :y];
 }
 
 
-    auto AutoCompoundRotationAnimation::getCurrentAnimation() -> IndexedAnimation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[this->circularIndexUtil->getIndex()];
-    
+- (void) paintThreedXYZ:(Graphics*)graphics :(int32_t)x :(int32_t)y :(int32_t)z {
+        [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] paintThreedXYZ:graphics :x :y :z];
 }
 
 
-    auto AutoCompoundRotationAnimation::nextAnimation() -> void{
-
-    int32_t frame = this->getFrame();;
-    
-this->circularIndexUtil->next();
-    
-this->setFrame(frame);
-    
+- (IndexedAnimation*) getCurrentAnimation {
+        return self->animationInterfaceArray[[self->circularIndexUtil getIndex]];
 }
 
 
-    auto AutoCompoundRotationAnimation::previousAnimation() -> void{
-
-    int32_t frame = this->getFrame();;
-    
-this->circularIndexUtil->previous();
-    
-this->setFrame(frame);
-    
+- (void) nextAnimation {
+        int32_t frame = [self getFrame];
+        [self->circularIndexUtil next];
+        [self setFrame:frame];
 }
 
 
-    auto AutoCompoundRotationAnimation::setAnimation(int32_t index) -> void{
-
-    int32_t frame = this->getFrame();;
-    
-this->circularIndexUtil->setIndex(index);
-    
-this->setFrame(frame);
-    
+- (void) previousAnimation {
+        int32_t frame = [self getFrame];
+        [self->circularIndexUtil previous];
+        [self setFrame:frame];
 }
 
 
-    auto AutoCompoundRotationAnimation::setFrameByDirection(Direction* direction) -> void{
-this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->setFrameByDirection(direction);
-    
+- (void) setAnimation:(int32_t)index {
+        int32_t frame = [self getFrame];
+        [self->circularIndexUtil setIndex:index];
+        [self setFrame:frame];
 }
 
 
-    auto AutoCompoundRotationAnimation::setFrameToAngle(Angle* angle) -> void{
-this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->setFrameToAngle(angle);
-    
+- (void) setFrameByDirection:(Direction*)direction {
+        [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] setFrameByDirection:direction];
 }
 
 
-    auto AutoCompoundRotationAnimation::adjustFrameToAngle(Angle* newAngle) -> void{
-this->adjustFrame(newAngle->getValue());
-    
+- (void) setFrameToAngle:(Angle*)angle {
+        [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] setFrameToAngle:angle];
 }
 
 
-    auto AutoCompoundRotationAnimation::adjustFrame(int16_t angle) -> void{
-this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->adjustFrame(angle);
-    
+- (void) adjustFrameToAngle:(Angle*)newAngle {
+        [self adjustFrame:[newAngle getValue]];
 }
 
 
-    auto AutoCompoundRotationAnimation::getAngleInfoP() -> AngleInfo*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray[this->circularIndexUtil->getIndex()]->getAngleInfoP();;
-    
+- (void) adjustFrame:(int16_t)angle {
+        [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] adjustFrame:angle];
 }
 
 
-    auto AutoCompoundRotationAnimation::getAnimationInterfaceArray() -> std::vector<RotationAnimation*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterfaceArray;
-    
+- (AngleInfo*) getAngleInfoP {
+        return [self->animationInterfaceArray[[self->circularIndexUtil getIndex]] getAngleInfoP];
 }
 
 
-    auto AutoCompoundRotationAnimation::setAnimationInterfaceArray(std::vector<RotationAnimation*> animationInterfaceArray) -> void{
-this->animationInterfaceArray= animationInterfaceArray;
-    
+- (RotationAnimation**) getAnimationInterfaceArray {
+        return self->animationInterfaceArray;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AutoCompoundRotationAnimation::set(GL* gl) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->animationInterfaceArray.size();--index >= 0; )
-        {
-this->animationInterfaceArray[index]->set(gl);
-    
-}
-
+- (void) setAnimationInterfaceArray:(RotationAnimation**)animationInterfaceArray {
+        self->animationInterfaceArray = animationInterfaceArray;
 }
 
 
+// throws Exception
+- (void) set:(GL*)gl {
+        for (int32_t index = java_array_length(self->animationInterfaceArray); --index >= 0; ) {
+            [self->animationInterfaceArray[index] set:gl];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_COMPOUND_AUTOCOMPOUNDROTATIONANIMATION_CPP

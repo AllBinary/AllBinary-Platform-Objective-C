@@ -1,171 +1,78 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.h"
+#include "org/allbinary/game/input/GameKey.h"
+#include "org/allbinary/game/input/event/GameKeyEvent.h"
+#include "org/allbinary/game/input/event/GameKeyEventFactory.h"
+#include "org/allbinary/game/input/mapping/InputToGameKeyMapping.h"
+#include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEventFactory.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_GAMEKEYCOMPLETEMOTIONGESTUREINPUTEVENT_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_GAMEKEYCOMPLETEMOTIONGESTUREINPUTEVENT_CPP
+void GameKeyCompleteMotionGestureInputEvent_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.h"
-        
+@implementation GameKeyCompleteMotionGestureInputEvent
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/input/CompleteMotionGestureInputEvent.h>
-
-      
-#include <org/allbinary/game/input/GameKey.h>
-
-      
-#include <org/allbinary/game/input/GameKeyEventSourceInterface.h>
-
-      
-#include <org/allbinary/game/input/event/GameKeyEvent.h>
-
-      
-#include <org/allbinary/game/input/event/GameKeyEventFactory.h>
-
-      
-#include <org/allbinary/game/input/mapping/InputToGameKeyMapping.h>
-
-      
-#include <org/allbinary/input/motion/gesture/MotionGestureInput.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEventFactory.h"
-
-
-GameKeyCompleteMotionGestureInputEvent::GameKeyCompleteMotionGestureInputEvent(std::string name, MotionGestureInput* motionGestureInput, InputToGameKeyMapping* inputToGameKeyMapping) : CompleteMotionGestureInputEvent(name, motionGestureInput), gameKeyEventFactory(GameKeyEventFactory::getInstance()), SOURCE_ID(this->gameKeyEventFactory->MOTION_GESTURE_SOURCE_ID), gameKey(GameKey::NULL_GAME_KEY), gameKeyEvent(GameKeyEvent::NONE){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->inputToGameKeyMapping= inputToGameKeyMapping;
-    
-GameKeyCompleteMotionGestureInputEventFactory::getInstance()->add(this);
-    
-this->update();
+- (void) initFields {
+    self->gameKeyEventFactory = [GameKeyEventFactory getInstance];
+    self->SOURCE_ID = self->gameKeyEventFactory->MOTION_GESTURE_SOURCE_ID;
+    self->gameKey = (GameKey_staticInit(), GameKey_NULL_GAME_KEY);
+    self->gameKeyEvent = (GameKeyEvent_staticInit(), GameKeyEvent_NONE);
     
 }
 
 
-    auto GameKeyCompleteMotionGestureInputEvent::getSourceId() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->SOURCE_ID;
-    
+- (instancetype) init:(const char*)name :(MotionGestureInput*)motionGestureInput :(InputToGameKeyMapping*)inputToGameKeyMapping {
+        self = [super init:name :motionGestureInput];
+        [self initFields];
+        self->inputToGameKeyMapping = inputToGameKeyMapping;
+        [[GameKeyCompleteMotionGestureInputEventFactory getInstance] add:self];
+        [self update];
+    return self;
 }
 
 
-    auto GameKeyCompleteMotionGestureInputEvent::update() -> void{
-
-        try {
-            this->setGameKey(this->inputToGameKeyMapping->getInstance(this->getMotionGestureInput()->getId()));
-    
-this->setGameKeyEvent(this->gameKeyEventFactory->getInstanceForInput(this, this->getGameKey()));
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, commonStrings->UPDATE, &e);
-    
-}
-
+- (int32_t) getSourceId {
+        return self->SOURCE_ID;
 }
 
 
-    auto GameKeyCompleteMotionGestureInputEvent::setGameKeyEvent(GameKeyEvent* gameKeyEvent) -> void{
-this->gameKeyEvent= gameKeyEvent;
-    
+- (void) update {
+        JAVA_TRY {
+            [self setGameKey:[self->inputToGameKeyMapping getInstance:[[self getMotionGestureInput] getId]]];
+            [self setGameKeyEvent:[self->gameKeyEventFactory getInstanceForInput:self :[self getGameKey]]];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->UPDATE :e];
+        } JAVA_END_TRY;
 }
 
 
-    auto GameKeyCompleteMotionGestureInputEvent::getGameKeyEvent() -> GameKeyEvent*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gameKeyEvent;
-    
+- (void) setGameKeyEvent:(GameKeyEvent*)gameKeyEvent {
+        self->gameKeyEvent = gameKeyEvent;
 }
 
 
-    auto GameKeyCompleteMotionGestureInputEvent::setGameKey(GameKey* gameKey) -> void{
-this->gameKey= gameKey;
-    
+- (GameKeyEvent*) getGameKeyEvent {
+        return self->gameKeyEvent;
 }
 
 
-    auto GameKeyCompleteMotionGestureInputEvent::getGameKey() -> GameKey*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gameKey;
-    
+- (void) setGameKey:(GameKey*)gameKey {
+        self->gameKey = gameKey;
 }
 
 
+- (GameKey*) getGameKey {
+        return self->gameKey;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_GAMEKEYCOMPLETEMOTIONGESTUREINPUTEVENT_CPP

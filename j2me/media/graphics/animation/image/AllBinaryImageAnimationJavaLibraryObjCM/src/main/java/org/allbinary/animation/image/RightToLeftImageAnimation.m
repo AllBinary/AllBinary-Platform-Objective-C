@@ -1,130 +1,67 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/RightToLeftImageAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "javax/microedition/lcdui/game/Sprite.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/graphics/Anchor.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/animation/image/ImageSegmentAnimation.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_RIGHTTOLEFTIMAGEANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_RIGHTTOLEFTIMAGEANIMATION_CPP
+void RightToLeftImageAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/RightToLeftImageAnimation.h"
-        
+@implementation RightToLeftImageAnimation
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <javax/microedition/lcdui/game/Sprite.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/graphics/Anchor.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/ImageSegmentAnimation.h"
-
-
-RightToLeftImageAnimation::RightToLeftImageAnimation(Image* image, AnimationBehavior* animationBehavior) : ImageSegmentAnimation(image, PrimitiveIntUtil::getArrayInstance(), animationBehavior), anchor(Anchor::TOP_LEFT){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->setFrame(this->getSize() -1);
-    
+- (void) initFields {
+    self->startWidth = 0;
+    self->currentWidth = 0;
+    self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
 }
 
 
-    auto RightToLeftImageAnimation::nextFrame() -> void{
-ImageSegmentAnimation::previousFrame();
-    
-this->update();
-    
+- (instancetype) init:(Image*)image :(AnimationBehavior*)animationBehavior {
+        self = [super init:image :[PrimitiveIntUtil getArrayInstance] :animationBehavior];
+        [self initFields];
+        [self setFrame:[self getSize] - 1];
+    return self;
 }
 
 
-    auto RightToLeftImageAnimation::previousFrame() -> void{
-ImageSegmentAnimation::nextFrame();
-    
-this->update();
-    
+- (void) nextFrame {
+        [super previousFrame];
+        [self update];
 }
 
 
-    auto RightToLeftImageAnimation::setFrame(int32_t index) -> void{
-ImageSegmentAnimation::setFrame(index);
-    
-this->update();
-    
+- (void) previousFrame {
+        [super nextFrame];
+        [self update];
 }
 
 
-    auto RightToLeftImageAnimation::update() -> void{
-this->startWidth= this->getDrawWidth() *this->getFrame() /this->getSize();
-    
-this->currentWidth= this->getDrawWidth() -this->startWidth;
-    
+- (void) setFrame:(int32_t)index {
+        [super setFrame:index];
+        [self update];
 }
 
 
-    auto RightToLeftImageAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-graphics->drawRegion(this->getImage(), this->startWidth, this->getStartY(), this->currentWidth, this->getDrawHeight(), Sprite::TRANS_NONE, x +this->startWidth, y, this->anchor);
-    
+- (void) update {
+        self->startWidth = [self getDrawWidth] * [self getFrame] / [self getSize];
+        self->currentWidth = [self getDrawWidth] - self->startWidth;
 }
 
 
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [graphics drawRegion:[self getImage] :self->startWidth :[self getStartY] :self->currentWidth :[self getDrawHeight] :(Sprite_staticInit(), Sprite_TRANS_NONE) :x + self->startWidth :y :self->anchor];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_RIGHTTOLEFTIMAGEANIMATION_CPP

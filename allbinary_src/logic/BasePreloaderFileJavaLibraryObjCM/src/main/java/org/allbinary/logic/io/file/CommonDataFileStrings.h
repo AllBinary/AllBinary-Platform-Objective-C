@@ -1,463 +1,231 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2026 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LOGIC_IO_FILE_COMMONDATAFILESTRINGS_H
-        #define ORG_ALLBINARY_LOGIC_IO_FILE_COMMONDATAFILESTRINGS_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class CommonDataFileStrings
-            : public virtual Object
-         {
-
-    private: static CommonDataFileStrings* instance_owner();
-    private: static CommonDataFileStrings* instance;
-
-    public: static CommonDataFileStrings* getInstance();
-
-
-            
-    public: CommonDataFileStrings();
-        
-    public: const std::string XML = "xml";
-
-    public: const std::string _XML = ".xml";
-
-    public: const std::string JSON = "json";
-
-    public: const std::string _JSON = ".json";
-
-    public: const std::string XSL = "xsl";
-
-    public: const std::string _XSL = ".xsl";
-
-    public: const std::string JAVA = "java";
-
-    public: const std::string _JAVA = ".java";
-
-    public: const std::string KT = "kt";
-
-    public: const std::string _KT = ".kt";
-
-    public: const std::string TS = "ts";
-
-    public: const std::string _TS = ".ts";
-
-    public: const std::string JS = "js";
-
-    public: const std::string _JS = ".js";
-
-    public: const std::string CPP = "cpp";
-
-    public: const std::string _CPP = ".cpp";
-
-    public: const std::string H = "h";
-
-    public: const std::string _H = ".h";
-
-    public: const std::string PY = "py";
-
-    public: const std::string _PY = ".py";
-
-    public: const std::string GO = "go";
-
-    public: const std::string _GO = ".go";
-
-    public: const std::string CS = "cs";
-
-    public: const std::string _CS = ".cs";
-
-    public: const std::string ADB = "adb";
-
-    public: const std::string _ADB = ".adb";
-
-    public: const std::string ADS = "ads";
-
-    public: const std::string _ADS = ".ads";
-
-    public: const std::string ADA = "ada";
-
-    public: const std::string _ADA = ".ada";
-
-    public: const std::string RUST = "rs";
-
-    public: const std::string _RUST = ".rs";
-
-    public: const std::string C = "c";
-
-    public: const std::string _C = ".c";
-
-    public: const std::string CSHARP = "cs";
-
-    public: const std::string _CSHARP = ".cs";
-
-    public: const std::string ERL = "erl";
-
-    public: const std::string _ERL = ".erl";
-
-    public: const std::string HS = "hs";
-
-    public: const std::string _HS = ".hs";
-
-    public: const std::string HX = "hx";
-
-    public: const std::string _HX = ".hx";
-
-    public: const std::string LUA = "lua";
-
-    public: const std::string _LUA = ".lua";
-
-    public: const std::string PAS = "pas";
-
-    public: const std::string _PAS = ".pas";
-
-    public: const std::string ML = "ml";
-
-    public: const std::string _ML = ".ml";
-
-    public: const std::string PL = "pl";
-
-    public: const std::string _PL = ".pl";
-
-    public: const std::string RB = "rb";
-
-    public: const std::string _RB = ".rb";
-
-    public: const std::string ZIG = "zig";
-
-    public: const std::string _ZIG = ".zig";
-
-    public: const std::string PM = "pm";
-
-    public: const std::string _PM = ".pm";
-
-    public: const std::string KTS = "kts";
-
-    public: const std::string _KTS = ".kts";
-
-    public: const std::string CBL = "cbl";
-
-    public: const std::string _CBL = ".cbl";
-
-    public: const std::string COB = "cob";
-
-    public: const std::string _COB = ".cob";
-
-    public: const std::string F90 = "f90";
-
-    public: const std::string _F90 = ".f90";
-
-    public: const std::string F = "f";
-
-    public: const std::string _F = ".f";
-
-    public: const std::string DART = "dart";
-
-    public: const std::string _DART = ".dart";
-
-    public: const std::string EX = "ex";
-
-    public: const std::string _EX = ".ex";
-
-    public: const std::string EXS = "exs";
-
-    public: const std::string _EXS = ".exs";
-
-    public: const std::string M = "m";
-
-    public: const std::string _M = ".m";
-
-    public: const std::string SWIFT = "swift";
-
-    public: const std::string _SWIFT = ".swift";
-
-    public: const std::string ASM = "asm";
-
-    public: const std::string _ASM = ".asm";
-
-    public: const std::string S = "s";
-
-    public: const std::string _S = ".s";
-
-    public: const std::string NIM = "nim";
-
-    public: const std::string _NIM = ".nim";
-
-    public: const std::string VALA = "vala";
-
-    public: const std::string _VALA = ".vala";
-
-    public: const std::string LISP = "lisp";
-
-    public: const std::string _LISP = ".lisp";
-
-    public: const std::string RKT = "rkt";
-
-    public: const std::string _RKT = ".rkt";
-
-    public: const std::string SCM = "scm";
-
-    public: const std::string _SCM = ".scm";
-
-    public: const std::string AS = "as";
-
-    public: const std::string _AS = ".as";
-
-    public: const std::string OBX = "obx";
-
-    public: const std::string _OBX = ".obx";
-
-    public: const std::string SCALA = "scala";
-
-    public: const std::string _SCALA = ".scala";
-
-    public: const std::string GROOVY = "groovy";
-
-    public: const std::string _GROOVY = ".groovy";
-
-    public: const std::string JL = "jl";
-
-    public: const std::string _JL = ".jl";
-
-    public: const std::string TCL = "tcl";
-
-    public: const std::string _TCL = ".tcl";
-
-    public: const std::string WREN = "wren";
-
-    public: const std::string _WREN = ".wren";
-
-    public: const std::string JANET = "janet";
-
-    public: const std::string _JANET = ".janet";
-
-    public: const std::string GR = "gr";
-
-    public: const std::string _GR = ".gr";
-
-    public: const std::string ELM = "elm";
-
-    public: const std::string _ELM = ".elm";
-
-    public: const std::string KOTLIN = "kotlin";
-
-    public: const std::string TYPESCRIPT = "typescript";
-
-    public: const std::string JAVASCRIPT = "javascript";
-
-    public: const std::string C_PLUS_PLUS = "c++";
-
-    public: const std::string PYTHON = "python";
-
-    public: const std::string C_SHARP = "c#";
-
-    public: const std::string RUST_NAME = "rust";
-
-    public: const std::string RUBY = "ruby";
-
-    public: const std::string PERL = "perl";
-
-    public: const std::string OBJECT_PASCAL = "objectpascal";
-
-    public: const std::string OCAML = "ocaml";
-
-    public: const std::string HASKELL = "haskell";
-
-    public: const std::string HAXE = "haxe";
-
-    public: const std::string ERLANG = "erlang";
-
-    public: const std::string COBOL = "cobol";
-
-    public: const std::string FORTRAN = "fortran";
-
-    public: const std::string ELIXIR = "elixir";
-
-    public: const std::string OBJECTIVE_C = "objective-c";
-
-    public: const std::string RACKET = "racket";
-
-    public: const std::string SCHEME = "scheme";
-
-    public: const std::string ACTIONSCRIPT = "actionscript";
-
-    public: const std::string OBERON_PLUS = "oberon+";
-
-    public: const std::string JULIA = "julia";
-
-    public: const std::string GRAIN = "grain";
-
-    public: const std::string CPLUSPLUS = "cplusplus";
-
-    public: const std::string GOLANG = "golang";
-
-    public: const std::string CSHARP_ALIAS = "csharp";
-
-    public: const std::string C23 = "c23";
-
-    public: const std::string PASCAL = "pascal";
-
-    public: const std::string OBJECT_PASCAL_ALIAS = "object pascal";
-
-    public: const std::string OBJC = "objc";
-
-    public: const std::string OBJECTIVE_C_ALIAS = "objectivec";
-
-    public: const std::string ASSEMBLY = "assembly";
-
-    public: const std::string COMMON_LISP = "common lisp";
-
-    public: const std::string OBERON = "oberon";
-
-    public: const std::string OBERON_PLUS_ALIAS = "oberonplus";
-
-    public: const std::string KT_SHORT_NAME = "Kt";
-
-    public: const std::string TS_SHORT_NAME = "Ts";
-
-    public: const std::string JS_SHORT_NAME = "Js";
-
-    public: const std::string CPP_SHORT_NAME = "Cpp";
-
-    public: const std::string PY_SHORT_NAME = "Py";
-
-    public: const std::string GO_SHORT_NAME = "Go";
-
-    public: const std::string CS_SHORT_NAME = "Cs";
-
-    public: const std::string ADA_SHORT_NAME = "Ada";
-
-    public: const std::string RUST_SHORT_NAME = "Rust";
-
-    public: const std::string LUA_SHORT_NAME = "Lua";
-
-    public: const std::string C_SHORT_NAME = "C";
-
-    public: const std::string ZIG_SHORT_NAME = "Zig";
-
-    public: const std::string RB_SHORT_NAME = "Rb";
-
-    public: const std::string PL_SHORT_NAME = "Pl";
-
-    public: const std::string PAS_SHORT_NAME = "Pas";
-
-    public: const std::string ML_SHORT_NAME = "Ml";
-
-    public: const std::string HS_SHORT_NAME = "Hs";
-
-    public: const std::string HX_SHORT_NAME = "Hx";
-
-    public: const std::string ERL_SHORT_NAME = "Erl";
-
-    public: const std::string CBL_SHORT_NAME = "Cbl";
-
-    public: const std::string F90_SHORT_NAME = "F90";
-
-    public: const std::string DART_SHORT_NAME = "Dart";
-
-    public: const std::string EX_SHORT_NAME = "Ex";
-
-    public: const std::string OBJC_SHORT_NAME = "ObjC";
-
-    public: const std::string SWIFT_SHORT_NAME = "Swift";
-
-    public: const std::string ASM_SHORT_NAME = "Asm";
-
-    public: const std::string NIM_SHORT_NAME = "Nim";
-
-    public: const std::string VALA_SHORT_NAME = "Vala";
-
-    public: const std::string LISP_SHORT_NAME = "Lisp";
-
-    public: const std::string RKT_SHORT_NAME = "Rkt";
-
-    public: const std::string SCM_SHORT_NAME = "Scm";
-
-    public: const std::string AS_SHORT_NAME = "As";
-
-    public: const std::string OBX_SHORT_NAME = "Obx";
-
-    public: const std::string SCALA_SHORT_NAME = "Scala";
-
-    public: const std::string GROOVY_SHORT_NAME = "Groovy";
-
-    public: const std::string JL_SHORT_NAME = "Jl";
-
-    public: const std::string TCL_SHORT_NAME = "Tcl";
-
-    public: const std::string WREN_SHORT_NAME = "Wren";
-
-    public: const std::string JANET_SHORT_NAME = "Janet";
-
-    public: const std::string GR_SHORT_NAME = "Gr";
-
-    public: const std::string ELM_SHORT_NAME = "Elm";
-
-    public: const std::string UNCRYPTED_EXTENSION;
-
-    public: const std::string ENCRYPTED_EXTENSION = "abd";
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_LOGIC_IO_FILE_COMMONDATAFILESTRINGS_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_LOGIC_IO_FILE_COMMONDATAFILESTRINGS_H_COMPLETE)
-        #define ORG_ALLBINARY_LOGIC_IO_FILE_COMMONDATAFILESTRINGS_H_COMPLETE
-        
-        #endif
-    
+#ifndef ORG_ALLBINARY_LOGIC_IO_FILE_COMMONDATAFILESTRINGS_H
+#define ORG_ALLBINARY_LOGIC_IO_FILE_COMMONDATAFILESTRINGS_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2026 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.logic.io.file
+
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class CommonDataFileStrings;
+
+@interface CommonDataFileStrings : ABObject {
+@public
+    const char* XML;
+    const char* _XML_;
+    const char* JSON;
+    const char* _JSON_;
+    const char* XSL;
+    const char* _XSL_;
+    const char* JAVA;
+    const char* _JAVA_;
+    const char* KT;
+    const char* _KT_;
+    const char* TS;
+    const char* _TS_;
+    const char* JS;
+    const char* _JS_;
+    const char* CPP;
+    const char* _CPP_;
+    const char* H;
+    const char* _H_;
+    const char* PY;
+    const char* _PY_;
+    const char* GO;
+    const char* _GO_;
+    const char* CS;
+    const char* _CS_;
+    const char* ADB;
+    const char* _ADB_;
+    const char* ADS;
+    const char* _ADS_;
+    const char* ADA;
+    const char* _ADA_;
+    const char* RUST;
+    const char* _RUST_;
+    const char* C;
+    const char* _C_;
+    const char* CSHARP;
+    const char* _CSHARP_;
+    const char* ERL;
+    const char* _ERL_;
+    const char* HS;
+    const char* _HS_;
+    const char* HX;
+    const char* _HX_;
+    const char* LUA;
+    const char* _LUA_;
+    const char* PAS;
+    const char* _PAS_;
+    const char* ML;
+    const char* _ML_;
+    const char* PL;
+    const char* _PL_;
+    const char* RB;
+    const char* _RB_;
+    const char* ZIG;
+    const char* _ZIG_;
+    const char* PM;
+    const char* _PM_;
+    const char* KTS;
+    const char* _KTS_;
+    const char* CBL;
+    const char* _CBL_;
+    const char* COB;
+    const char* _COB_;
+    const char* F90;
+    const char* _F90_;
+    const char* F;
+    const char* _F_;
+    const char* DART;
+    const char* _DART_;
+    const char* EX;
+    const char* _EX_;
+    const char* EXS;
+    const char* _EXS_;
+    const char* M;
+    const char* _M_;
+    const char* SWIFT;
+    const char* _SWIFT_;
+    const char* ASM;
+    const char* _ASM_;
+    const char* S;
+    const char* _S_;
+    const char* NIM;
+    const char* _NIM_;
+    const char* VALA;
+    const char* _VALA_;
+    const char* LISP;
+    const char* _LISP_;
+    const char* RKT;
+    const char* _RKT_;
+    const char* SCM;
+    const char* _SCM_;
+    const char* AS;
+    const char* _AS_;
+    const char* OBX;
+    const char* _OBX_;
+    const char* SCALA;
+    const char* _SCALA_;
+    const char* GROOVY;
+    const char* _GROOVY_;
+    const char* JL;
+    const char* _JL_;
+    const char* TCL;
+    const char* _TCL_;
+    const char* WREN;
+    const char* _WREN_;
+    const char* JANET;
+    const char* _JANET_;
+    const char* GR;
+    const char* _GR_;
+    const char* ELM;
+    const char* _ELM_;
+    const char* KOTLIN;
+    const char* TYPESCRIPT;
+    const char* JAVASCRIPT;
+    const char* C_PLUS_PLUS;
+    const char* PYTHON;
+    const char* C_SHARP;
+    const char* RUST_NAME;
+    const char* RUBY;
+    const char* PERL;
+    const char* OBJECT_PASCAL;
+    const char* OCAML;
+    const char* HASKELL;
+    const char* HAXE;
+    const char* ERLANG;
+    const char* COBOL;
+    const char* FORTRAN;
+    const char* ELIXIR;
+    const char* OBJECTIVE_C;
+    const char* RACKET;
+    const char* SCHEME;
+    const char* ACTIONSCRIPT;
+    const char* OBERON_PLUS;
+    const char* JULIA;
+    const char* GRAIN;
+    const char* CPLUSPLUS;
+    const char* GOLANG;
+    const char* CSHARP_ALIAS;
+    const char* C23;
+    const char* PASCAL;
+    const char* OBJECT_PASCAL_ALIAS;
+    const char* OBJC;
+    const char* OBJECTIVE_C_ALIAS;
+    const char* ASSEMBLY;
+    const char* COMMON_LISP;
+    const char* OBERON;
+    const char* OBERON_PLUS_ALIAS;
+    const char* KT_SHORT_NAME;
+    const char* TS_SHORT_NAME;
+    const char* JS_SHORT_NAME;
+    const char* CPP_SHORT_NAME;
+    const char* PY_SHORT_NAME;
+    const char* GO_SHORT_NAME;
+    const char* CS_SHORT_NAME;
+    const char* ADA_SHORT_NAME;
+    const char* RUST_SHORT_NAME;
+    const char* LUA_SHORT_NAME;
+    const char* C_SHORT_NAME;
+    const char* ZIG_SHORT_NAME;
+    const char* RB_SHORT_NAME;
+    const char* PL_SHORT_NAME;
+    const char* PAS_SHORT_NAME;
+    const char* ML_SHORT_NAME;
+    const char* HS_SHORT_NAME;
+    const char* HX_SHORT_NAME;
+    const char* ERL_SHORT_NAME;
+    const char* CBL_SHORT_NAME;
+    const char* F90_SHORT_NAME;
+    const char* DART_SHORT_NAME;
+    const char* EX_SHORT_NAME;
+    const char* OBJC_SHORT_NAME;
+    const char* SWIFT_SHORT_NAME;
+    const char* ASM_SHORT_NAME;
+    const char* NIM_SHORT_NAME;
+    const char* VALA_SHORT_NAME;
+    const char* LISP_SHORT_NAME;
+    const char* RKT_SHORT_NAME;
+    const char* SCM_SHORT_NAME;
+    const char* AS_SHORT_NAME;
+    const char* OBX_SHORT_NAME;
+    const char* SCALA_SHORT_NAME;
+    const char* GROOVY_SHORT_NAME;
+    const char* JL_SHORT_NAME;
+    const char* TCL_SHORT_NAME;
+    const char* WREN_SHORT_NAME;
+    const char* JANET_SHORT_NAME;
+    const char* GR_SHORT_NAME;
+    const char* ELM_SHORT_NAME;
+    const char* UNCRYPTED_EXTENSION;
+    const char* ENCRYPTED_EXTENSION;
+}
+- (instancetype) init;
+- (void) initFields;
++ (CommonDataFileStrings*) getInstance;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void CommonDataFileStrings_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_LOGIC_IO_FILE_COMMONDATAFILESTRINGS_H

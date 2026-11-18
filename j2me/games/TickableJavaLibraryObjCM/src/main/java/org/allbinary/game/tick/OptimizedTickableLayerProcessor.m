@@ -1,126 +1,43 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/tick/OptimizedTickableLayerProcessor.h"
+#include "org/allbinary/game/layer/AllBinaryGameLayer.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/game/tick/OptimizedTickableLayerManager.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_TICK_OPTIMIZEDTICKABLELAYERPROCESSOR_CPP
-        #define ORG_ALLBINARY_GAME_TICK_OPTIMIZEDTICKABLELAYERPROCESSOR_CPP
+void OptimizedTickableLayerProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/tick/OptimizedTickableLayerProcessor.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/layer/AllBinaryGameLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/layer/LayerProcessor.h>
-
-      
+@implementation OptimizedTickableLayerProcessor
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/tick/OptimizedTickableLayerManager.h"
-
-
-OptimizedTickableLayerProcessor::OptimizedTickableLayerProcessor() : LayerProcessor(new OptimizedTickableLayerManager()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init {
+        self = [super init:[((OptimizedTickableLayerManager*) [OptimizedTickableLayerManager alloc]) init]];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto OptimizedTickableLayerProcessor::processAt(AllBinaryLayerManager* allBinaryLayerManager, AllBinaryLayer* layerInterface, int32_t index) -> void{
-
-    AllBinaryGameLayer* tickableInterface = dynamic_cast<AllBinaryGameLayer*>(layerInterface);;
-    
-tickableInterface->processTick(allBinaryLayerManager);
-    
+// throws Exception
+- (void) processAt:(AllBinaryLayerManager*)allBinaryLayerManager :(AllBinaryLayer*)layerInterface :(int32_t)index {
+        AllBinaryGameLayer* tickableInterface = ((AllBinaryGameLayer*) layerInterface);
+        [tickableInterface processTick:allBinaryLayerManager];
 }
 
 
-    auto OptimizedTickableLayerProcessor::isProcessorLayer(AllBinaryLayer* layerInterface) -> bool{
-
-                        if(layerInterface->implmentsTickableInterface())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+- (bool) isProcessorLayer:(AllBinaryLayer*)layerInterface {
+        if ([layerInterface implmentsTickableInterface]) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_TICK_OPTIMIZEDTICKABLELAYERPROCESSOR_CPP

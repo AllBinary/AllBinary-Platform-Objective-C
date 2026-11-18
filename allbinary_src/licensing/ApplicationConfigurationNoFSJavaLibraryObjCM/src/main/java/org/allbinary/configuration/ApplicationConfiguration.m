@@ -1,261 +1,129 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_CONFIGURATION_APPLICATIONCONFIGURATION_CPP
-        #define ORG_ALLBINARY_CONFIGURATION_APPLICATIONCONFIGURATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/configuration/ApplicationConfiguration.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/configuration/feature/Feature.h>
-
-      
-#include <org/allbinary/game/configuration/feature/Features.h>
-
-      
-#include <org/allbinary/game/configuration/feature/MainFeatureFactory.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/configuration/ApplicationConfiguration.h"
+#include "org/allbinary/game/configuration/feature/Feature.h"
+#include "org/allbinary/game/configuration/feature/Features.h"
+#include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
+static id ApplicationConfiguration_instance;
 
+void ApplicationConfiguration_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ApplicationConfiguration_instance = [NullUtil getInstance]->NULL_OBJECT;
+}
 
+@implementation ApplicationConfiguration
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-Object* ApplicationConfiguration::instance = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto ApplicationConfiguration::getInstance() -> ApplicationConfiguration*{
-
-                        if(ApplicationConfiguration::instance == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    ApplicationConfiguration::instance= new ApplicationConfiguration();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<ApplicationConfiguration*>(ApplicationConfiguration::instance);
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->fullscreen = true;
+    self->showTitleBar = false;
+    self->progressBarView = false;
 }
 
 
-ApplicationConfiguration::ApplicationConfiguration() : logUtil(LogUtil::getInstance()){
-
-        try {
-            this->read();
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, commonStrings->CONSTRUCTOR, &e);
-    
-}
-
++ (ApplicationConfiguration*) getInstance {
+        if ((ApplicationConfiguration_staticInit(), ApplicationConfiguration_instance) == [NullUtil getInstance]->NULL_OBJECT) {
+            ApplicationConfiguration_instance = [((ApplicationConfiguration*) [ApplicationConfiguration alloc]) init];
+        }
+        return ((ApplicationConfiguration*) (ApplicationConfiguration_staticInit(), ApplicationConfiguration_instance));
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ApplicationConfiguration::read() -> void{
-this->setFullscreen(true);
-    
-this->setProgressBarView(false);
-    
-this->setShowTitleBar(false);
-    
-this->logUtil->putF(JavaString::valueOf("Read Configuration: ") +JavaString::valueOf(JavaString::valueOf(this)), this, "read");
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        JAVA_TRY {
+            [self read];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->CONSTRUCTOR :e];
+        } JAVA_END_TRY;
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ApplicationConfiguration::write() -> void{
+// throws Exception
+- (void) read {
+        [self setFullscreen:true];
+        [self setProgressBarView:false];
+        [self setShowTitleBar:false];
+        [self->logUtil putF:java_concat("Read Configuration: ", [self toString]) :self :"read"];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ApplicationConfiguration::update(Feature* gameFeature) -> void{
-
-                        if(gameFeature == MainFeatureFactory::getInstance()->FULL_SCREEN)
-                        
-                                    {
-                                    
-    Features* features = Features::getInstance();;
-    
-
-                        if(features->isFeature(gameFeature))
-                        
-                                    {
-                                    
-                        if(!this->isFullscreen())
-                        
-                                    {
-                                    this->setFullscreen(true);
-    
-this->write();
-    
-
-                                    }
-                                
-
-                                    }
-                                
-                        else {
-                            
-                        if(this->isFullscreen())
-                        
-                                    {
-                                    this->setFullscreen(false);
-    
-this->write();
-    
-
-                                    }
-                                
-
-                        }
-                            
-
-                                    }
-                                
+// throws Exception
+- (void) write {
 }
 
 
-    auto ApplicationConfiguration::setFullscreen(bool fullscreen) -> void{
-this->fullscreen= fullscreen;
-    
+// throws Exception
+- (void) update:(Feature*)gameFeature {
+        if (gameFeature == [MainFeatureFactory getInstance]->FULL_SCREEN) {
+            Features* features = [Features getInstance];
+            if ([features isFeature:gameFeature]) {
+                if (![self isFullscreen]) {
+                    [self setFullscreen:true];
+                    [self write];
+                }
+            } else {
+                if ([self isFullscreen]) {
+                    [self setFullscreen:false];
+                    [self write];
+                }
+            }
+        }
 }
 
 
-    auto ApplicationConfiguration::isFullscreen() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->fullscreen;
-    
+- (void) setFullscreen:(bool)fullscreen {
+        self->fullscreen = fullscreen;
 }
 
 
-    auto ApplicationConfiguration::setShowTitleBar(bool showTitleBar) -> void{
-this->showTitleBar= showTitleBar;
-    
+- (bool) isFullscreen {
+        return self->fullscreen;
 }
 
 
-    auto ApplicationConfiguration::isShowTitleBar() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->showTitleBar;
-    
+- (void) setShowTitleBar:(bool)showTitleBar {
+        self->showTitleBar = showTitleBar;
 }
 
 
-    auto ApplicationConfiguration::setProgressBarView(bool progressBarView) -> void{
-this->progressBarView= progressBarView;
-    
+- (bool) isShowTitleBar {
+        return self->showTitleBar;
 }
 
 
-    auto ApplicationConfiguration::isProgressBarView() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->progressBarView;
-    
+- (void) setProgressBarView:(bool)progressBarView {
+        self->progressBarView = progressBarView;
 }
 
 
-    auto ApplicationConfiguration::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("isFullscreen: ");
-    
-stringBuffer->appendboolean(this->isFullscreen());
-    
-stringBuffer->append(" isProgressBarView: ");
-    
-stringBuffer->appendboolean(this->isProgressBarView());
-    
-stringBuffer->append(" isShowTitleBar: ");
-    
-stringBuffer->appendboolean(this->isShowTitleBar());
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (bool) isProgressBarView {
+        return self->progressBarView;
 }
 
 
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:"isFullscreen: "];
+        [stringBuffer appendboolean:[self isFullscreen]];
+        [stringBuffer append:" isProgressBarView: "];
+        [stringBuffer appendboolean:[self isProgressBarView]];
+        [stringBuffer append:" isShowTitleBar: "];
+        [stringBuffer appendboolean:[self isShowTitleBar]];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_CONFIGURATION_APPLICATIONCONFIGURATION_CPP

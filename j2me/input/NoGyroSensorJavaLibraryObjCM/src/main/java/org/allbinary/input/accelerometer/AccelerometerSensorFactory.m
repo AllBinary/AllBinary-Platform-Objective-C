@@ -1,143 +1,49 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/accelerometer/AccelerometerSensorFactory.h"
+#include "org/allbinary/game/configuration/feature/Features.h"
+#include "org/allbinary/game/configuration/feature/SensorFeatureFactory.h"
+#include "org/allbinary/input/gyro/AllBinaryOrientationSensor.h"
+#include "org/allbinary/input/accelerometer/NoAccelerometerSensor.h"
 
 
+static AllBinaryOrientationSensor* AccelerometerSensorFactory_allBinaryAccelerometerSensor;
 
-        #ifndef ORG_ALLBINARY_INPUT_ACCELEROMETER_ACCELEROMETERSENSORFACTORY_CPP
-        #define ORG_ALLBINARY_INPUT_ACCELEROMETER_ACCELEROMETERSENSORFACTORY_CPP
+void AccelerometerSensorFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AccelerometerSensorFactory_allBinaryAccelerometerSensor = (AllBinaryOrientationSensor_staticInit(), AllBinaryOrientationSensor_NULL_ALLBINARY_ORIENTATION_SENSOR);
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/accelerometer/AccelerometerSensorFactory.h"
-        
+@implementation AccelerometerSensorFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/configuration/feature/Features.h>
-
-      
-#include <org/allbinary/game/configuration/feature/SensorFeatureFactory.h>
-
-      
-#include <org/allbinary/input/gyro/AllBinaryOrientationSensor.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/accelerometer/NoAccelerometerSensor.h"
-
-
-AccelerometerSensorFactory::AccelerometerSensorFactory() {
+// throws Exception
++ (void) init_ {
+        Features* features = [Features getInstance];
+        SensorFeatureFactory* sensorFeatureFactory = [SensorFeatureFactory getInstance];
+        if ([features isFeature:sensorFeatureFactory->ORIENTATION_SENSORS]) {
+            java_throw(java_exception_new("Exception", "No Orientation Sensors"));
+        } else if ([features isFeature:sensorFeatureFactory->SIMULATED_ORIENTATION_SENSORS]) {
+            java_throw(java_exception_new("Exception", "No Simulation Sensors"));
+        } else if ([features isFeature:sensorFeatureFactory->NO_ORIENTATION]) {
+            AccelerometerSensorFactory_allBinaryAccelerometerSensor = [((NoAccelerometerSensor*) [NoAccelerometerSensor alloc]) init];
+        } else {
+            java_throw(java_exception_new("Exception", "Not Such SensorFeature"));
         }
-        AllBinaryOrientationSensor* AccelerometerSensorFactory::allBinaryAccelerometerSensor = AllBinaryOrientationSensor::NULL_ALLBINARY_ORIENTATION_SENSOR;
-
-                //@Throws(Exception.constructor)
-            
-    auto AccelerometerSensorFactory::init() -> void{
-
-    Features* features = Features::getInstance();;
-    
-
-    SensorFeatureFactory* sensorFeatureFactory = SensorFeatureFactory::getInstance();;
-    
-
-                        if(features->isFeature(sensorFeatureFactory->ORIENTATION_SENSORS))
-                        
-                                    {
-                                    
-
-
-                            throw Exception("No Orientation Sensors");
-                    
-
-                                    }
-                                
-                             else 
-                        if(features->isFeature(sensorFeatureFactory->SIMULATED_ORIENTATION_SENSORS))
-                        
-                                    {
-                                    
-
-
-                            throw Exception("No Simulation Sensors");
-                    
-
-                                    }
-                                
-                             else 
-                        if(features->isFeature(sensorFeatureFactory->NO_ORIENTATION))
-                        
-                                    {
-                                    AccelerometerSensorFactory::allBinaryAccelerometerSensor= new NoAccelerometerSensor();
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw Exception("Not Such SensorFeature");
-                    
-
-                        }
-                            
 }
 
 
-    auto AccelerometerSensorFactory::getInstance() -> AllBinaryOrientationSensor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AccelerometerSensorFactory::allBinaryAccelerometerSensor;
-    
++ (AllBinaryOrientationSensor*) getInstance {
+        return (AccelerometerSensorFactory_staticInit(), AccelerometerSensorFactory_allBinaryAccelerometerSensor);
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_INPUT_ACCELEROMETER_ACCELEROMETERSENSORFACTORY_CPP

@@ -1,146 +1,51 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEANIMATIONFACTORY_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEANIMATIONFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/ImageAnimationFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/animation/AnimationBehaviorFactory.h>
-
-      
-#include <org/allbinary/graphics/opengles/OpenGLUtil.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/BaseImageAnimationFactory.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/ImageAnimationFactory.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/animation/AnimationBehaviorFactory.h"
+#include "org/allbinary/graphics/opengles/OpenGLUtil.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/animation/image/BaseImageAnimationFactory.h"
 #include "org/allbinary/animation/image/ImageAnimation.h"
 #include "org/allbinary/animation/image/AdjustedImageAnimation.h"
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageAnimationFactory::createFactory(Image* image) -> ImageAnimationFactory*{
+
+void ImageAnimationFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation ImageAnimationFactory
 
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new ImageAnimationFactory(image, image->getWidth(), image->getHeight(), 0, 0, AnimationBehaviorFactory::getInstance());
-    
+// throws Exception
++ (ImageAnimationFactory*) createFactory:(Image*)image {
+        return [((ImageAnimationFactory*) [ImageAnimationFactory alloc]) init:image :[image getWidth] :[image getHeight] :0 :0 :[AnimationBehaviorFactory getInstance]];
 }
 
 
-ImageAnimationFactory::ImageAnimationFactory(Image* image, int32_t width, int32_t height, int32_t dx, int32_t dy, AnimationBehaviorFactory* animationBehaviorFactory) : BaseImageAnimationFactory(image, PrimitiveIntUtil::getArrayInstance(), width, height, dx, dy, animationBehaviorFactory){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init:(Image*)image :(int32_t)width :(int32_t)height :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory {
+        self = [super init:image :[PrimitiveIntUtil getArrayInstance] :width :height :dx :dy :animationBehaviorFactory];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageAnimationFactory::getInstance(int32_t instanceId) -> Animation*{
-
-    Image* scaledImage = this->animationFactoryImageScaleUtil->createImage(this->getImage(), this->animationFactoryInitializationVisitor->width, this->animationFactoryInitializationVisitor->height, this->scaleProperties->scaleWidth, this->scaleProperties->scaleHeight);;
-    
-
-    OpenGLUtil* openGLUtil = OpenGLUtil::getInstance();;
-    
-scaledImage= openGLUtil->addImage(scaledImage);
-    
-
-                        if(this->animationFactoryInitializationVisitor->dx != 0 || this->animationFactoryInitializationVisitor->dy != 0)
-                        
-                                    {
-                                    this->animationFactoryImageScaleUtil->processAdjust(this);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AdjustedImageAnimation(scaledImage, this->animationFactoryInitializationVisitor->dx, this->animationFactoryInitializationVisitor->dy, this->animationBehaviorFactory->getOrCreateInstance());
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new ImageAnimation(scaledImage, this->animationBehaviorFactory->getOrCreateInstance());
-    
-
-                        }
-                            
+// throws Exception
+- (Animation*) getInstance:(int32_t)instanceId {
+        Image* scaledImage = [self->animationFactoryImageScaleUtil createImage:[self getImage] :self->animationFactoryInitializationVisitor->width :self->animationFactoryInitializationVisitor->height :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
+        OpenGLUtil* openGLUtil = [OpenGLUtil getInstance];
+        scaledImage = [openGLUtil addImage:scaledImage];
+        if (self->animationFactoryInitializationVisitor->dx != 0 || self->animationFactoryInitializationVisitor->dy != 0) {
+            [self->animationFactoryImageScaleUtil processAdjust:self];
+            return [((AdjustedImageAnimation*) [AdjustedImageAnimation alloc]) init:scaledImage :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+        } else {
+            return [((ImageAnimation*) [ImageAnimation alloc]) init:scaledImage :[self->animationBehaviorFactory getOrCreateInstance]];
+        }
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEANIMATIONFACTORY_CPP

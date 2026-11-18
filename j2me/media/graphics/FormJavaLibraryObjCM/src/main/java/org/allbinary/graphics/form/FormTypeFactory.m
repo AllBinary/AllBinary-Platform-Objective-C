@@ -1,118 +1,53 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/FormTypeFactory.h"
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/graphics/form/FormType.h"
 
 
+static FormTypeFactory* FormTypeFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_FORMTYPEFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_FORMTYPEFACTORY_CPP
+void FormTypeFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    FormTypeFactory_instance = [((FormTypeFactory*) [FormTypeFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/FormTypeFactory.h"
-        
+@implementation FormTypeFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->UNK = "Unknown FormType";
+    self->NULL_FORM_TYPE = [((FormType*) [FormType alloc]) init:[StringUtil getInstance]->NULL_STRING];
+    self->TEMP_HORIZONTAL_FORM = [((FormType*) [FormType alloc]) init:"TempHorizontal"];
+    self->HORIZONTAL_FORM = [((FormType*) [FormType alloc]) init:"Horizontal"];
+    self->VERTICAL_CENTER_FORM = [((FormType*) [FormType alloc]) init:"Vertical"];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (FormTypeFactory*) getInstance {
+        return (FormTypeFactory_staticInit(), FormTypeFactory_instance);
+}
 
 
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/FormType.h"
-
-
-FormTypeFactory::FormTypeFactory() : NULL_FORM_TYPE(new FormType(StringUtil::getInstance()->NULL_STRING)), TEMP_HORIZONTAL_FORM(new FormType("TempHorizontal")), HORIZONTAL_FORM(new FormType("Horizontal")), VERTICAL_CENTER_FORM(new FormType("Vertical")) {
+- (FormType*) getFormType {
+        DisplayInfoSingleton* displayInfo = [DisplayInfoSingleton getInstance];
+        FormType* formType = nullptr;
+        if ([displayInfo isPortrait]) {
+            formType = self->VERTICAL_CENTER_FORM;
+        } else {
+            formType = self->HORIZONTAL_FORM;
         }
-        auto FormTypeFactory::instance_owner() -> FormTypeFactory* { static std::unique_ptr<FormTypeFactory> value(new FormTypeFactory()); return value.get(); }
-FormTypeFactory* FormTypeFactory::instance = FormTypeFactory::instance_owner();
-
-    auto FormTypeFactory::getInstance() -> FormTypeFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return FormTypeFactory::instance;
-    
+        return formType;
 }
 
+@end
 
-    auto FormTypeFactory::getFormType() -> FormType*{
-
-    DisplayInfoSingleton* displayInfo = DisplayInfoSingleton::getInstance();;
-    
-
-    FormType* formType;;
-    
-
-                        if(displayInfo->isPortrait())
-                        
-                                    {
-                                    formType= this->VERTICAL_CENTER_FORM;
-    
-
-                                    }
-                                
-                        else {
-                            formType= this->HORIZONTAL_FORM;
-    
-
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return formType;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_FORMTYPEFACTORY_CPP

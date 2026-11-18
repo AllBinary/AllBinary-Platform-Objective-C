@@ -1,86 +1,47 @@
+#ifndef ORG_ALLBINARY_MEDIA_AUDIO_ERRORSOUND_H
+#define ORG_ALLBINARY_MEDIA_AUDIO_ERRORSOUND_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.media.audio
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_ERRORSOUND_H
-        #define ORG_ALLBINARY_MEDIA_AUDIO_ERRORSOUND_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/CompositeSound.h"
-class Sound;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ErrorSound: public CompositeSound {
-
-    private: static Sound* soundInterface;
-
-    public: static Sound* getInstance();
-
-private: ErrorSound();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_ERRORSOUND_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_MEDIA_AUDIO_ERRORSOUND_H_COMPLETE)
-        #define ORG_ALLBINARY_MEDIA_AUDIO_ERRORSOUND_H_COMPLETE
-        #if __has_include("org/allbinary/media/audio/CompositeSound.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ErrorSound;
+@class CompositeSound;
+@class Sound;
 #include "org/allbinary/media/audio/CompositeSound.h"
-#endif
 #if __has_include("org/allbinary/media/audio/Sound.h")
 #include "org/allbinary/media/audio/Sound.h"
 #endif
 
-        #endif
-    
+@interface ErrorSound : CompositeSound {
+@public
+}
+- (instancetype) init;
++ (Sound*) getInstance;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ErrorSound_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_MEDIA_AUDIO_ERRORSOUND_H

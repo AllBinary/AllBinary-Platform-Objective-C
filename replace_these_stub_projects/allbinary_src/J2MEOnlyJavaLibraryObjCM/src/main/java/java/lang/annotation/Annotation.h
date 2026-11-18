@@ -1,64 +1,24 @@
+#ifndef JAVA_LANG_ANNOTATION_ANNOTATION_H
+#define JAVA_LANG_ANNOTATION_ANNOTATION_H
+// Generated Code Do Not Modify
+// package java.lang.annotation
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class Annotation;
 
+@protocol Annotation
+- (const char*) annotationType;
+@end
 
-
-        #ifndef JAVA_LANG_ANNOTATION_ANNOTATION_H
-        #define JAVA_LANG_ANNOTATION_ANNOTATION_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Class.h"
-        
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void Annotation_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class Annotation
-            : public virtual Object
-         {
-
-    public: virtual Class* annotationType() = 0;
-
-};
-
-            
-
-
-        #endif //JAVA_LANG_ANNOTATION_ANNOTATION_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(JAVA_LANG_ANNOTATION_ANNOTATION_H_COMPLETE)
-        #define JAVA_LANG_ANNOTATION_ANNOTATION_H_COMPLETE
-        
-        #endif
-    
+#endif // JAVA_LANG_ANNOTATION_ANNOTATION_H

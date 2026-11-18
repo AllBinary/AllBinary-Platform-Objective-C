@@ -1,137 +1,56 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEARRAYANIMATIONFACTORY_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEARRAYANIMATIONFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/ImageArrayAnimationFactory.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/animation/AnimationBehaviorFactory.h>
-
-      
-#include <org/allbinary/animation/AnimationInterfaceFactoryInterface.h>
-
-      
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-
-      
-#include <org/allbinary/media/ScaleProperties.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/ImageArrayAnimation.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/ImageArrayAnimationFactory.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/animation/AnimationBehaviorFactory.h"
+#include "org/allbinary/media/ScaleProperties.h"
+#include "org/allbinary/animation/image/ImageArrayAnimation.h"
 #include "org/allbinary/animation/image/AdjustedImageArrayAnimation.h"
 
 
-ImageArrayAnimationFactory::ImageArrayAnimationFactory(std::vector<Image*> imageArray, int32_t dx, int32_t dy, AnimationBehaviorFactory* animationBehaviorFactory){
-this->imageArray= imageArray;
+
+void ImageArrayAnimationFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation ImageArrayAnimationFactory
+
+- (void) initFields {
+    self->dx = 0;
+    self->dy = 0;
     
-this->animationBehaviorFactory= animationBehaviorFactory;
-    
-this->dx= dx;
-    
-this->dy= dy;
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageArrayAnimationFactory::getInstance(int32_t instanceId) -> Animation*{
-
-                        if(this->dx != 0 || this->dy != 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AdjustedImageArrayAnimation(this->imageArray, this->dx, this->dy, this->animationBehaviorFactory->getOrCreateInstance());
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new ImageArrayAnimation(this->imageArray, AnimationBehavior::getInstance());
-    
-
-                        }
-                            
+- (instancetype) init:(Image**)imageArray :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory {
+    self = [super init];
+    [self initFields];
+        self->imageArray = imageArray;
+        self->animationBehaviorFactory = animationBehaviorFactory;
+        self->dx = dx;
+        self->dy = dy;
+    return self;
 }
 
 
-    auto ImageArrayAnimationFactory::setInitialScale(ScaleProperties* scaleProperties) -> void{
+// throws Exception
+- (Animation*) getInstance:(int32_t)instanceId {
+        if (self->dx != 0 || self->dy != 0) {
+            return [((AdjustedImageArrayAnimation*) [AdjustedImageArrayAnimation alloc]) init:self->imageArray :self->dx :self->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+        } else {
+            return [((ImageArrayAnimation*) [ImageArrayAnimation alloc]) init:self->imageArray :[AnimationBehavior getInstance]];
+        }
 }
 
 
+- (void) setInitialScale:(ScaleProperties*)scaleProperties {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEARRAYANIMATIONFACTORY_CPP

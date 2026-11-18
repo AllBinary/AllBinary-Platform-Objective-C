@@ -1,118 +1,57 @@
+#ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONLOCATIONHELPER_H
+#define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONLOCATIONHELPER_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.input.motion.button
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class TouchButtonLocationHelper;
+@class DisplayInfoSingleton;
+@class StringMaker;
+@class CommonButtons;
 
+@interface TouchButtonLocationHelper : ABObject {
+@public
+    int32_t totalColumns;
+    int32_t totalRows;
+    int32_t columnsRemainder;
+    int32_t rowsRemainder;
+    int32_t columnsRemainderHalf;
+    int32_t rowsRemainderHalf;
+}
+- (instancetype) init;
+- (void) initFields;
+- (int32_t) getTotalColumns;
+- (int32_t) getTotalRows;
+- (int32_t) getColumnsRemainder;
+- (int32_t) getRowsRemainder;
+- (int32_t) getColumnsRemainderHalf;
+- (int32_t) getRowsRemainderHalf;
+- (const char*) toString;
+@end
 
-
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONLOCATIONHELPER_H
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONLOCATIONHELPER_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Math.h"
-        
-class DisplayInfoSingleton;
-class StringMaker;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class CommonButtons;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class TouchButtonLocationHelper
-            : public virtual Object
-         {
-
-    private: int32_t totalColumns;
-
-    private: int32_t totalRows;
-
-    private: int32_t columnsRemainder;
-
-    private: int32_t rowsRemainder;
-
-    private: int32_t columnsRemainderHalf;
-
-    private: int32_t rowsRemainderHalf;
-
-public: TouchButtonLocationHelper();
-
-    public: int32_t getTotalColumns();
-
-    public: int32_t getTotalRows();
-
-    public: int32_t getColumnsRemainder();
-
-    public: int32_t getRowsRemainder();
-
-    public: int32_t getColumnsRemainderHalf();
-
-    public: int32_t getRowsRemainderHalf();
-
-    public: std::string toString();
-
-};
-
-            
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void TouchButtonLocationHelper_staticInit(void);
 
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONLOCATIONHELPER_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONLOCATIONHELPER_H_COMPLETE)
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONLOCATIONHELPER_H_COMPLETE
-        #if __has_include(<org/allbinary/graphics/displayable/DisplayInfoSingleton.h>)
-#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
-#endif
-#if __has_include(<org/allbinary/logic/string/StringMaker.h>)
-#include <org/allbinary/logic/string/StringMaker.h>
-#endif
-#if __has_include("org/allbinary/input/motion/button/CommonButtons.h")
-#include "org/allbinary/input/motion/button/CommonButtons.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONLOCATIONHELPER_H

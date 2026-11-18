@@ -1,119 +1,56 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/combat/CombatBaseBehavior.h"
+#include "org/allbinary/game/combat/damage/DamageableBaseBehavior.h"
+#include "org/allbinary/game/combat/destroy/DestroyableBaseBehavior.h"
 
 
+CombatBaseBehavior* CombatBaseBehavior_NULL_COMBAT_BEHAVIOR;
 
-        #ifndef ORG_ALLBINARY_GAME_COMBAT_COMBATBASEBEHAVIOR_CPP
-        #define ORG_ALLBINARY_GAME_COMBAT_COMBATBASEBEHAVIOR_CPP
+void CombatBaseBehavior_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CombatBaseBehavior_NULL_COMBAT_BEHAVIOR = [((CombatBaseBehavior*) [CombatBaseBehavior alloc]) init:[DamageableBaseBehavior getInstance] :[DestroyableBaseBehavior getInstance]];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/combat/CombatBaseBehavior.h"
-        
+@implementation CombatBaseBehavior
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/combat/damage/DamageableBaseBehavior.h>
-
-      
-#include <org/allbinary/game/combat/destroy/DestroyableBaseBehavior.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto CombatBaseBehavior::NULL_COMBAT_BEHAVIOR_owner() -> CombatBaseBehavior* { static std::unique_ptr<CombatBaseBehavior> value(new CombatBaseBehavior(DamageableBaseBehavior::getInstance(), DestroyableBaseBehavior::getInstance())); return value.get(); }
-CombatBaseBehavior* CombatBaseBehavior::NULL_COMBAT_BEHAVIOR = CombatBaseBehavior::NULL_COMBAT_BEHAVIOR_owner();
-
-CombatBaseBehavior::CombatBaseBehavior(DamageableBaseBehavior* damageableBaseBehavior, DestroyableBaseBehavior* destroyableBaseBehavior){
-this->damageableBaseBehavior= damageableBaseBehavior;
+- (void) initFields {
     
-this->destroyableBaseBehavior= destroyableBaseBehavior;
     
+    self->readyForExplosion = false;
 }
 
 
-    auto CombatBaseBehavior::getDamageableBaseBehavior() -> DamageableBaseBehavior*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->damageableBaseBehavior;
-    
+- (instancetype) init:(DamageableBaseBehavior*)damageableBaseBehavior :(DestroyableBaseBehavior*)destroyableBaseBehavior {
+    self = [super init];
+    [self initFields];
+        self->damageableBaseBehavior = damageableBaseBehavior;
+        self->destroyableBaseBehavior = destroyableBaseBehavior;
+    return self;
 }
 
 
-    auto CombatBaseBehavior::getDestroyableBaseBehavior() -> DestroyableBaseBehavior*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->destroyableBaseBehavior;
-    
+- (DamageableBaseBehavior*) getDamageableBaseBehavior {
+        return self->damageableBaseBehavior;
 }
 
 
-    auto CombatBaseBehavior::isReadyForExplosion() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->readyForExplosion;
-    
+- (DestroyableBaseBehavior*) getDestroyableBaseBehavior {
+        return self->destroyableBaseBehavior;
 }
 
 
-    auto CombatBaseBehavior::setReadyForExplosion(bool readyForExplosion) -> void{
-this->readyForExplosion= readyForExplosion;
-    
+- (bool) isReadyForExplosion {
+        return self->readyForExplosion;
 }
 
 
+- (void) setReadyForExplosion:(bool)readyForExplosion {
+        self->readyForExplosion = readyForExplosion;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_COMBAT_COMBATBASEBEHAVIOR_CPP

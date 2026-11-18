@@ -1,64 +1,29 @@
-
-        /* Generated Code Do Not Modify */
-        
-
+// Generated Code Do Not Modify
+#include "org/bouncycastle/jce/provider/BouncyCastleProvider.h"
 
 
-        #ifndef ORG_BOUNCYCASTLE_JCE_PROVIDER_BOUNCYCASTLEPROVIDER_CPP
-        #define ORG_BOUNCYCASTLE_JCE_PROVIDER_BOUNCYCASTLEPROVIDER_CPP
+static const char* BouncyCastleProvider_info = "BouncyCastle Security Provider v1.41";
+const char* BouncyCastleProvider_PROVIDER_NAME = "BC";
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/bouncycastle/jce/provider/BouncyCastleProvider.h"
-        
+void BouncyCastleProvider_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <java/security/Provider.h>
-
-      
+@implementation BouncyCastleProvider
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-BouncyCastleProvider::BouncyCastleProvider() : Provider(BouncyCastleProvider::PROVIDER_NAME, 1.41, BouncyCastleProvider::info){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init {
+        self = [super init:BouncyCastleProvider_PROVIDER_NAME :1.41 :BouncyCastleProvider_info];
+    return self;
 }
 
 
-    auto BouncyCastleProvider::setParameter(std::string parameterName, Object* parameter) -> void{
+- (void) setParameter:(const char*)parameterName :(id)parameter {
 }
 
+@end
 
-
-
-        #endif //ORG_BOUNCYCASTLE_JCE_PROVIDER_BOUNCYCASTLEPROVIDER_CPP

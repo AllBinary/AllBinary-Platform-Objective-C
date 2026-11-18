@@ -1,81 +1,35 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/item/CustomItemUtil.h"
+#include "org/allbinary/graphics/form/item/ABCustomItem.h"
 
 
+static CustomItemUtil* CustomItemUtil_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_CUSTOMITEMUTIL_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_CUSTOMITEMUTIL_CPP
+void CustomItemUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CustomItemUtil_instance = [((CustomItemUtil*) [CustomItemUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/item/CustomItemUtil.h"
-        
+@implementation CustomItemUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->CUSTOM_ITEM_ARRAY = ((ABCustomItem**) java_array_new(sizeof(ABCustomItem*), 0));
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/item/ABCustomItem.h"
-
-
-CustomItemUtil::CustomItemUtil() : CUSTOM_ITEM_ARRAY({}) {
-        }
-        auto CustomItemUtil::instance_owner() -> CustomItemUtil* { static std::unique_ptr<CustomItemUtil> value(new CustomItemUtil()); return value.get(); }
-CustomItemUtil* CustomItemUtil::instance = CustomItemUtil::instance_owner();
-
-    auto CustomItemUtil::getInstance() -> CustomItemUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CustomItemUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (CustomItemUtil*) getInstance {
+        return (CustomItemUtil_staticInit(), CustomItemUtil_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_CUSTOMITEMUTIL_CPP

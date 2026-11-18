@@ -1,183 +1,119 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_AG_AI_SCROLLER_BASEPATROLAI_CPP
-        #define ORG_ALLBINARY_GAME_AG_AI_SCROLLER_BASEPATROLAI_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/ai/scroller/BasePatrolAI.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <javax/microedition/lcdui/Canvas.h>
-
-      
-#include <org/allbinary/game/ai/BasicAI.h>
-
-      
-#include <org/allbinary/game/input/GameInput.h>
-
-      
-#include <org/allbinary/game/physics/velocity/BasicVelocityProperties.h>
-
-      
-#include <org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/logic/math/MathUtil.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/ai/scroller/BasePatrolAI.h"
+#include "javax/microedition/lcdui/Canvas.h"
+#include "org/allbinary/game/input/GameInput.h"
+#include "org/allbinary/game/physics/velocity/BasicVelocityProperties.h"
+#include "org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/logic/math/MathUtil.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/util/ABHashtable.h"
+#if __has_include("org/allbinary/game/ag/ai/scroller/BasicDecimal.h")
+#include "org/allbinary/game/ag/ai/scroller/BasicDecimal.h"
+#endif
+#if __has_include("javax/microedition/lcdui/BasicDecimal.h")
+#include "javax/microedition/lcdui/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/game/ai/BasicDecimal.h")
+#include "org/allbinary/game/ai/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/game/input/BasicDecimal.h")
+#include "org/allbinary/game/input/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/BasicDecimal.h")
+#include "org/allbinary/game/physics/velocity/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/BasicDecimal.h")
+#include "org/allbinary/game/physics/velocity/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/layer/BasicDecimal.h")
+#include "org/allbinary/layer/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/util/BasicDecimal.h")
+#include "org/allbinary/util/BasicDecimal.h"
+#endif
 
 
+int32_t BasePatrolAI_MAX_DISTANCE;
+int32_t BasePatrolAI_DIRECTION_ARRAY;
+int32_t BasePatrolAI_FIRING_DISTANCE;
+int32_t BasePatrolAI_SPEED;
 
+void BasePatrolAI_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    BasePatrolAI_MAX_DISTANCE = [[SmallIntegerSingletonFactory getInstance] getAt:2];
+    BasePatrolAI_DIRECTION_ARRAY = [[SmallIntegerSingletonFactory getInstance] getAt:3];
+    BasePatrolAI_FIRING_DISTANCE = [[SmallIntegerSingletonFactory getInstance] getAt:4];
+    BasePatrolAI_SPEED = [[SmallIntegerSingletonFactory getInstance] getAt:5];
+}
 
+@implementation BasePatrolAI
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-int32_t BasePatrolAI::MAX_DISTANCE = SmallIntegerSingletonFactory::getInstance()->getAt(2);
-int32_t BasePatrolAI::DIRECTION_ARRAY = SmallIntegerSingletonFactory::getInstance()->getAt(3);
-int32_t BasePatrolAI::FIRING_DISTANCE = SmallIntegerSingletonFactory::getInstance()->getAt(4);
-int32_t BasePatrolAI::SPEED = SmallIntegerSingletonFactory::getInstance()->getAt(5);
-
-BasePatrolAI::BasePatrolAI(ABHashtable<Object*, Object*>* hashtable, AllBinaryLayer* ownerLayerInterface, GameInput* gameInput) : BasicAI(ownerLayerInterface, gameInput), lastKeyDirection(Canvas::RIGHT), keyDirection(Canvas::RIGHT){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->maxDistance= JavaBoxes::unbox<int32_t>(hashtable->get(BasePatrolAI::MAX_DISTANCE));
+- (void) initFields {
     
-this->currentDistance= this->maxDistance;
     
+    self->xTotalDistance = 0;
+    self->lastKeyDirection = (Canvas_staticInit(), Canvas_RIGHT);
+    self->keyDirection = (Canvas_staticInit(), Canvas_RIGHT);
 }
 
 
-    auto BasePatrolAI::update() -> void{
-this->updateTotalDistance();
-    
-this->changeDirectionIfReachedPacingAreaMax();
-    
+- (instancetype) init:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
+        self = [super init:ownerLayerInterface :gameInput];
+        [self initFields];
+        self->maxDistance = ((int32_t) [hashtable get:JAVA_BOX((BasePatrolAI_staticInit(), BasePatrolAI_MAX_DISTANCE))]);
+        self->currentDistance = ((int32_t) (self->maxDistance));
+    return self;
 }
 
 
-    auto BasePatrolAI::updateTotalDistance() -> void{
-
-    VelocityInterfaceCompositeInterface* velocityInterfaceCompositeInterface = dynamic_cast<VelocityInterfaceCompositeInterface*>(this->getOwnerLayerInterface());;
-    
-
-    BasicVelocityProperties* velocityProperties = velocityInterfaceCompositeInterface->getVelocityProperties();;
-    
-this->xTotalDistance += velocityProperties->getVelocityXBasicDecimalP()->getScaled();
-    
+- (void) update {
+        [self updateTotalDistance];
+        [self changeDirectionIfReachedPacingAreaMax];
 }
 
 
-    auto BasePatrolAI::changeDirectionIfReachedPacingAreaMax() -> void{
-
-    MathUtil* mathUtil = MathUtil::getInstance();;
-    
-
-    int32_t totalDistance = mathUtil->abs(this->xTotalDistance);;
-    
-
-                        if(totalDistance > this->currentDistance)
-                        
-                                    {
-                                    this->nextDirection();
-    
-
-                                    }
-                                
+- (void) updateTotalDistance {
+        VelocityInterfaceCompositeInterface* velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
+        BasicVelocityProperties* velocityProperties = [velocityInterfaceCompositeInterface getVelocityProperties];
+        self->xTotalDistance += [[velocityProperties getVelocityXBasicDecimalP] getScaled];
 }
 
 
-    auto BasePatrolAI::nextDirection() -> void{
-
-                        if(this->lastKeyDirection == Canvas::LEFT)
-                        
-                                    {
-                                    this->keyDirection= Canvas::RIGHT;
-    
-this->lastKeyDirection= this->keyDirection;
-    
-this->xTotalDistance= 0;
-    
-
-                                    }
-                                
-                             else 
-                        if(this->lastKeyDirection == Canvas::RIGHT)
-                        
-                                    {
-                                    this->keyDirection= Canvas::LEFT;
-    
-this->lastKeyDirection= this->keyDirection;
-    
-this->xTotalDistance= 0;
-    
-
-                                    }
-                                
+- (void) changeDirectionIfReachedPacingAreaMax {
+        MathUtil* mathUtil = [MathUtil getInstance];
+        int32_t totalDistance = [mathUtil abs:self->xTotalDistance];
+        if (totalDistance > self->currentDistance) {
+            [self nextDirection];
+        }
 }
 
 
-    auto BasePatrolAI::disable() -> void{
+- (void) nextDirection {
+        if (self->lastKeyDirection == (Canvas_staticInit(), Canvas_LEFT)) {
+            self->keyDirection = (Canvas_staticInit(), Canvas_RIGHT);
+            self->lastKeyDirection = self->keyDirection;
+            self->xTotalDistance = 0;
+        } else if (self->lastKeyDirection == (Canvas_staticInit(), Canvas_RIGHT)) {
+            self->keyDirection = (Canvas_staticInit(), Canvas_LEFT);
+            self->lastKeyDirection = self->keyDirection;
+            self->xTotalDistance = 0;
+        }
 }
 
 
+- (void) disable {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_AI_SCROLLER_BASEPATROLAI_CPP

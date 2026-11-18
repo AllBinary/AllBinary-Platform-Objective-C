@@ -1,432 +1,153 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LOGIC_IO_PATH_PATHUTIL_CPP
-        #define ORG_ALLBINARY_LOGIC_IO_PATH_PATHUTIL_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/io/path/PathUtil.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/io/file/FilePathData.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringValidationUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/logic/io/path/AbPathData.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/io/path/PathUtil.h"
+#include "org/allbinary/logic/io/file/FilePathData.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/logic/string/StringValidationUtil.h"
+#include "org/allbinary/logic/io/path/AbPathData.h"
 #include "org/allbinary/logic/io/path/AbFilePath.h"
 #include "org/allbinary/logic/io/path/AbPath.h"
-//Used to correct user input for paths
-auto PathUtil::instance_owner() -> PathUtil* { static std::unique_ptr<PathUtil> value(new PathUtil()); return value.get(); }
-PathUtil* PathUtil::instance = PathUtil::instance_owner();
-
-    auto PathUtil::getInstance() -> PathUtil*{
 
 
+static PathUtil* PathUtil_instance;
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PathUtil::instance;
-    
+void PathUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PathUtil_instance = [((PathUtil*) [PathUtil alloc]) init];
+}
+
+@implementation PathUtil
+
+- (void) initFields {
+    self->abPathData = [AbPathData getInstance];
+    self->filePathData = [FilePathData getInstance];
 }
 
 
-PathUtil::PathUtil() : abPathData(AbPathData::getInstance()), filePathData(FilePathData::getInstance()){
++ (PathUtil*) getInstance {
+        return (PathUtil_staticInit(), PathUtil_instance);
 }
 
 
-    auto PathUtil::getExtensionWithAbFilePath(AbFilePath* abFilePath) -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->abPathData->getExtension(JavaString::valueOf(abFilePath));;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto PathUtil::getExtensionWithAbPath(AbPath* abPath) -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->abPathData->getExtension(JavaString::valueOf(abPath));;
-    
+- (const char*) getExtensionWithAbFilePath:(AbFilePath*)abFilePath {
+        return [self->abPathData getExtension:[abFilePath toString]];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto PathUtil::getWithoutExtensionWithAbFilePath(AbFilePath* abFilePath) -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getWithoutExtension(JavaString::valueOf(abFilePath));;
-    
+- (const char*) getExtensionWithAbPath:(AbPath*)abPath {
+        return [self->abPathData getExtension:[abPath toString]];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto PathUtil::getWithoutExtensionWithAbPath(AbPath* abPath) -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getWithoutExtension(JavaString::valueOf(abPath));;
-    
+// throws Exception
+- (const char*) getWithoutExtensionWithAbFilePath:(AbFilePath*)abFilePath {
+        return [self getWithoutExtension:[abFilePath toString]];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto PathUtil::getWithoutExtension(std::string filePath) -> std::string{
-
-    int32_t indexOfFileExtensionDelmiter = this->abPathData->getExtensionIndex(filePath);;
-    
-
-    std::string pathWithoutExtension = filePath;;
-    
-
-                        if(indexOfFileExtensionDelmiter >= 0)
-                        
-                                    {
-                                    pathWithoutExtension= JavaString::substring(filePath, 0, indexOfFileExtensionDelmiter);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return pathWithoutExtension;
-    
+// throws Exception
+- (const char*) getWithoutExtensionWithAbPath:(AbPath*)abPath {
+        return [self getWithoutExtension:[abPath toString]];
 }
 
 
-    auto PathUtil::isValid(std::string path) -> bool{
-
-                        if(this->isValidStart(path))
-                        
-                                    {
-                                    
-                        if(this->isValidEnd(path))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+// throws Exception
+- (const char*) getWithoutExtension:(const char*)filePath {
+        int32_t indexOfFileExtensionDelmiter = [self->abPathData getExtensionIndex:filePath];
+        const char* pathWithoutExtension = filePath;
+        if (indexOfFileExtensionDelmiter >= 0) {
+            pathWithoutExtension = java_substring(filePath, 0, indexOfFileExtensionDelmiter);
+        }
+        return pathWithoutExtension;
 }
 
 
-    auto PathUtil::isValidStart(std::string path) -> bool{
-
-                        if(path[0] == this->abPathData->SEPARATORCHAR || path[0] == '.')
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+- (bool) isValid:(const char*)path {
+        if ([self isValidStart:path]) {
+            if ([self isValidEnd:path]) {
+                return true;
+            }
+        }
+        return false;
 }
 
 
-    auto PathUtil::isValidEnd(std::string path) -> bool{
-
-    StringValidationUtil* stringValidationUtil = StringValidationUtil::getInstance();;
-    
-
-                        if(stringValidationUtil->isEmpty(path))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                                    }
-                                
-
-                        if(path[path.size() -1] == this->abPathData->SEPARATORCHAR)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+- (bool) isValidStart:(const char*)path {
+        if (((uint16_t) path[0]) == self->abPathData->SEPARATORCHAR || ((uint16_t) path[0]) == u'.') {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 
-    auto PathUtil::adjustStart(std::string path) -> std::string{
-
-                        if(!this->isValidStart(path))
-                        
-                                    {
-                                    path= JavaString::valueOf(this->abPathData->SEPARATOR) +JavaString::valueOf(path);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return path;
-    
+- (bool) isValidEnd:(const char*)path {
+        StringValidationUtil* stringValidationUtil = [StringValidationUtil getInstance];
+        if ([stringValidationUtil isEmpty:path]) {
+            return false;
+        }
+        if (((uint16_t) path[((int32_t) strlen(path)) - 1]) == self->abPathData->SEPARATORCHAR) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 
-    auto PathUtil::adjustEnd(std::string path) -> std::string{
-
-                        if(!this->isValidEnd(path))
-                        
-                                    {
-                                    path= JavaString::valueOf(path) +JavaString::valueOf(this->abPathData->SEPARATOR);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return path;
-    
+- (const char*) adjustStart:(const char*)path {
+        if (![self isValidStart:path]) {
+            path = java_concat(self->abPathData->SEPARATOR, path);
+        }
+        return path;
 }
 
 
-    auto PathUtil::adjust(std::string path) -> std::string{
-
-    StringValidationUtil* stringValidationUtil = StringValidationUtil::getInstance();;
-    
-
-                        if(stringValidationUtil->isEmpty(path))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->abPathData->SEPARATOR;
-    
-
-                                    }
-                                
-
-                        if(JavaString::indexOf(path, "\\") >= 0)
-                        
-                                    {
-                                    path= JavaString::replace(path, '\\', this->abPathData->SEPARATORCHAR);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return path;
-    
+- (const char*) adjustEnd:(const char*)path {
+        if (![self isValidEnd:path]) {
+            path = java_concat(path, self->abPathData->SEPARATOR);
+        }
+        return path;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto PathUtil::removeNameFromPath(std::string path) -> AbPath*{
-
-    int32_t endIndex = JavaString::lastIndexOf(path, this->abPathData->SEPARATOR);;
-    
-
-                        if(endIndex < 0)
-                        
-                                    {
-                                    endIndex= JavaString::lastIndexOf(path, this->filePathData->SEPARATORCHAR);
-    
-
-                                    }
-                                
-
-                        if(endIndex < 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AbPath::createAbPath();;
-    
-
-                                    }
-                                
-
-                        if(path.size() == endIndex +1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->removeNameFromPath(JavaString::substring(path, 0, endIndex -1));;
-    
-
-                                    }
-                                
-                        else {
-                            
-    std::string pathWithoutName = JavaString::substring(path, 0, endIndex);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AbPath(pathWithoutName, StringUtil::getInstance()->EMPTY_STRING);
-    
-
-                        }
-                            
+- (const char*) adjust:(const char*)path {
+        StringValidationUtil* stringValidationUtil = [StringValidationUtil getInstance];
+        if ([stringValidationUtil isEmpty:path]) {
+            return self->abPathData->SEPARATOR;
+        }
+        if (java_string_indexOf(path, "\\") >= 0) {
+            path = java_string_replace(path, u'\\', self->abPathData->SEPARATORCHAR);
+        }
+        return path;
 }
 
 
+// throws Exception
+- (AbPath*) removeNameFromPath:(const char*)path {
+        int32_t endIndex = java_string_lastIndexOf(path, self->abPathData->SEPARATOR);
+        if (endIndex < 0) {
+            endIndex = java_string_lastIndexOf(path, self->filePathData->SEPARATORCHAR);
+        }
+        if (endIndex < 0) {
+            return [AbPath createAbPath];
+        }
+        if (((int32_t) strlen(path)) == endIndex + 1) {
+            return [self removeNameFromPath:java_substring(path, 0, endIndex - 1)];
+        } else {
+            const char* pathWithoutName = java_substring(path, 0, endIndex);
+            return [((AbPath*) [AbPath alloc]) init:pathWithoutName :[StringUtil getInstance]->EMPTY_STRING];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_IO_PATH_PATHUTIL_CPP

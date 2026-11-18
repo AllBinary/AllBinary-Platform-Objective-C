@@ -1,148 +1,74 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/GameConfigurationTextInput.h"
+#include "javax/microedition/lcdui/TextField.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/util/ABHashtable.h"
 
 
+static ABHashtable* GameConfigurationTextInput_hashtable;
+GameConfigurationTextInput* GameConfigurationTextInput_SIMULATOR_IP;
+GameConfigurationTextInput* GameConfigurationTextInput_SIMULATOR_PORT;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATIONTEXTINPUT_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATIONTEXTINPUT_CPP
+void GameConfigurationTextInput_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameConfigurationTextInput_hashtable = [[StdUtil getInstance] createHashtable];
+    GameConfigurationTextInput_SIMULATOR_IP = [((GameConfigurationTextInput*) [GameConfigurationTextInput alloc]) init:"IP: " :"192.168.1.3"];
+    GameConfigurationTextInput_SIMULATOR_PORT = [((GameConfigurationTextInput*) [GameConfigurationTextInput alloc]) init:"Port: " :"8010"];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/GameConfigurationTextInput.h"
-        
+@implementation GameConfigurationTextInput
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/TextField.h>
-
-      
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-ABHashtable<Object*, Object*>* GameConfigurationTextInput::hashtable = StdUtil::getInstance()->createHashtable();
-auto GameConfigurationTextInput::SIMULATOR_IP_owner() -> GameConfigurationTextInput* { static std::unique_ptr<GameConfigurationTextInput> value(new GameConfigurationTextInput("IP: ", "192.168.1.3")); return value.get(); }
-GameConfigurationTextInput* GameConfigurationTextInput::SIMULATOR_IP = GameConfigurationTextInput::SIMULATOR_IP_owner();
-auto GameConfigurationTextInput::SIMULATOR_PORT_owner() -> GameConfigurationTextInput* { static std::unique_ptr<GameConfigurationTextInput> value(new GameConfigurationTextInput("Port: ", "8010")); return value.get(); }
-GameConfigurationTextInput* GameConfigurationTextInput::SIMULATOR_PORT = GameConfigurationTextInput::SIMULATOR_PORT_owner();
-
-GameConfigurationTextInput::GameConfigurationTextInput(std::string label, std::string text) : label(StringUtil::getInstance()->EMPTY_STRING), text(StringUtil::getInstance()->EMPTY_STRING){
-this->setText(text);
-    
-this->setLabel(label);
-    
-GameConfigurationTextInput::hashtable->put(this->getLabel(), this);
-    
+- (void) initFields {
+    self->label = [StringUtil getInstance]->EMPTY_STRING;
+    self->text = [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-    auto GameConfigurationTextInput::update(TextField* textField) -> void{
-
-    Object* anyType = JavaBoxes::toObject(textField->getLabel());;
-    
-
-    GameConfigurationTextInput* gameConfigurationTextInput = dynamic_cast<GameConfigurationTextInput*>(GameConfigurationTextInput::hashtable->get(anyType));;
-    
-gameConfigurationTextInput->setText(textField->getString());
-    
+- (instancetype) init:(const char*)label :(const char*)text {
+    self = [super init];
+    [self initFields];
+        [self setText:text];
+        [self setLabel:label];
+        [(GameConfigurationTextInput_staticInit(), GameConfigurationTextInput_hashtable) put:JAVA_BOX([self getLabel]) :JAVA_BOX(self)];
+    return self;
 }
 
 
-    auto GameConfigurationTextInput::setText(std::string text) -> void{
-this->text= text;
-    
++ (void) update:(TextField*)textField {
+        id anyType = ((id) [textField getLabel]);
+        GameConfigurationTextInput* gameConfigurationTextInput = ((GameConfigurationTextInput*) [(GameConfigurationTextInput_staticInit(), GameConfigurationTextInput_hashtable) get:JAVA_BOX(anyType)]);
+        [gameConfigurationTextInput setText:[textField getString]];
 }
 
 
-    auto GameConfigurationTextInput::getText() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->text;
-    
+- (void) setText:(const char*)text {
+        self->text = text;
 }
 
 
-    auto GameConfigurationTextInput::setLabel(std::string label) -> void{
-this->label= label;
-    
+- (const char*) getText {
+        return self->text;
 }
 
 
-    auto GameConfigurationTextInput::getLabel() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->label;
-    
+- (void) setLabel:(const char*)label {
+        self->label = label;
 }
 
 
-    auto GameConfigurationTextInput::getHashtable() -> ABHashtable<Object*, Object*>*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameConfigurationTextInput::hashtable;
-    
+- (const char*) getLabel {
+        return self->label;
 }
 
 
++ (ABHashtable*) getHashtable {
+        return (GameConfigurationTextInput_staticInit(), GameConfigurationTextInput_hashtable);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATIONTEXTINPUT_CPP

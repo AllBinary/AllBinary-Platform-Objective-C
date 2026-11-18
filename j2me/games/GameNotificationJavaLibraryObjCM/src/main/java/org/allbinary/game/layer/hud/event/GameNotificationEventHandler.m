@@ -1,153 +1,65 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_LAYER_HUD_EVENT_GAMENOTIFICATIONEVENTHANDLER_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_HUD_EVENT_GAMENOTIFICATIONEVENTHANDLER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/hud/event/GameNotificationEventHandler.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-#include <org/allbinary/logic/util/event/NullEventListener.h>
-
-      
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/hud/event/GameNotificationListenerInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/hud/event/GameNotificationEventHandler.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/logic/util/event/NullEventListener.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/game/layer/hud/event/GameNotificationListenerInterface.h"
 #include "org/allbinary/game/layer/hud/event/GameNotificationEvent.h"
 
-auto GameNotificationEventHandler::instance_owner() -> GameNotificationEventHandler* { static std::unique_ptr<GameNotificationEventHandler> value(new GameNotificationEventHandler()); return value.get(); }
-GameNotificationEventHandler* GameNotificationEventHandler::instance = GameNotificationEventHandler::instance_owner();
 
-GameNotificationEventHandler::GameNotificationEventHandler(){
+static GameNotificationEventHandler* GameNotificationEventHandler_instance;
+
+void GameNotificationEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameNotificationEventHandler_instance = [((GameNotificationEventHandler*) [GameNotificationEventHandler alloc]) init];
 }
 
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
+@implementation GameNotificationEventHandler
 
-    auto GameNotificationEventHandler::removeAllListeners() -> void{
-
-    EventListenerInterface* eventListenerInterface = NullEventListener::NULL_EVENT_LISTENER;;
-    
-
-    BasicArrayList* list = this->eventListenerInterfaceList;;
-    
-
-                        if(list->size() > 0)
-                        
-                                    {
-                                    eventListenerInterface= dynamic_cast<EventListenerInterface*>(list->objectArray[0]);
-    
-
-                                    }
-                                
-BasicEventHandler::removeAllListeners();
-    
-
-                        if(eventListenerInterface != NullEventListener::NULL_EVENT_LISTENER)
-                        
-                                    {
-                                    this->addListenerInterface(eventListenerInterface);
-    
-
-                                    }
-                                
+- (void) initFields {
+    self->enabled = true;
 }
 
 
-    auto GameNotificationEventHandler::getInstance() -> GameNotificationEventHandler*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameNotificationEventHandler::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GameNotificationEventHandler::process(AllBinaryEventObject* eventObject, EventListenerInterface* eventListenerInterface) -> void{
-
-                        if(!this->enabled)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ;
-    
-
-                                    }
-                                
-
-    GameNotificationListenerInterface* gameNotificationListenerInterface = dynamic_cast<GameNotificationListenerInterface*>(eventListenerInterface);;
-    
-gameNotificationListenerInterface->onGameNotificationEvent(dynamic_cast<GameNotificationEvent*>(eventObject));
-    
+// synchronized
+- (void) removeAllListeners {
+        EventListenerInterface* eventListenerInterface = (NullEventListener_staticInit(), NullEventListener_NULL_EVENT_LISTENER);
+        BasicArrayList* list = self->eventListenerInterfaceList;
+        if ([list size] > 0) {
+            eventListenerInterface = ((EventListenerInterface*) list->objectArray[0]);
+        }
+        [super removeAllListeners];
+        if (eventListenerInterface != (NullEventListener_staticInit(), NullEventListener_NULL_EVENT_LISTENER)) {
+            [self addListenerInterface:eventListenerInterface];
+        }
 }
 
 
++ (GameNotificationEventHandler*) getInstance {
+        return (GameNotificationEventHandler_staticInit(), GameNotificationEventHandler_instance);
+}
 
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_HUD_EVENT_GAMENOTIFICATIONEVENTHANDLER_CPP
+// throws Exception
+- (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
+        if (!self->enabled) {
+            return;
+        }
+        GameNotificationListenerInterface* gameNotificationListenerInterface = ((GameNotificationListenerInterface*) eventListenerInterface);
+        [gameNotificationListenerInterface onGameNotificationEvent:((GameNotificationEvent*) eventObject)];
+}
+
+@end
+

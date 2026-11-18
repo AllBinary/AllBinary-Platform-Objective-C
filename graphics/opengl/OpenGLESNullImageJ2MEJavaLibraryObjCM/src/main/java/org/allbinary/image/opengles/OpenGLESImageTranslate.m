@@ -1,90 +1,39 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/image/opengles/OpenGLESImageTranslate.h"
+#include "javax/microedition/khronos/opengles/GL10.h"
+#include "org/allbinary/image/opengles/OpenGLESImage.h"
 
 
+static OpenGLESImageTranslate* OpenGLESImageTranslate_instance;
 
-        #ifndef ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGETRANSLATE_CPP
-        #define ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGETRANSLATE_CPP
+void OpenGLESImageTranslate_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    OpenGLESImageTranslate_instance = [((OpenGLESImageTranslate*) [OpenGLESImageTranslate alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/image/opengles/OpenGLESImageTranslate.h"
-        
+@implementation OpenGLESImageTranslate
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/khronos/opengles/GL10.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/image/opengles/OpenGLESImage.h"
-
-
-OpenGLESImageTranslate::OpenGLESImageTranslate() {
-        }
-        auto OpenGLESImageTranslate::instance_owner() -> OpenGLESImageTranslate* { static std::unique_ptr<OpenGLESImageTranslate> value(new OpenGLESImageTranslate()); return value.get(); }
-OpenGLESImageTranslate* OpenGLESImageTranslate::instance = OpenGLESImageTranslate::instance_owner();
-
-    auto OpenGLESImageTranslate::getInstance() -> OpenGLESImageTranslate*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return OpenGLESImageTranslate::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto OpenGLESImageTranslate::translate(GL10* gl, OpenGLESImage* openGLESImage, float x, float y) -> void{
++ (OpenGLESImageTranslate*) getInstance {
+        return (OpenGLESImageTranslate_staticInit(), OpenGLESImageTranslate_instance);
 }
 
 
-    auto OpenGLESImageTranslate::translate2(GL10* gl, OpenGLESImage* openGLESImage) -> void{
+- (void) translate:(GL10*)gl :(OpenGLESImage*)openGLESImage :(float)x :(float)y {
 }
 
 
+- (void) translate2:(GL10*)gl :(OpenGLESImage*)openGLESImage {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGETRANSLATE_CPP

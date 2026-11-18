@@ -1,100 +1,43 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/SpriteFactory.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "javax/microedition/lcdui/game/Sprite.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/game/layer/SpriteFactoryInterface.h"
 
 
+static SpriteFactory* SpriteFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_SPRITEFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_SPRITEFACTORY_CPP
+void SpriteFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    SpriteFactory_instance = [((SpriteFactory*) [SpriteFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/SpriteFactory.h"
-        
+@implementation SpriteFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <javax/microedition/lcdui/game/Sprite.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/SpriteFactoryInterface.h"
-
-
-SpriteFactory::SpriteFactory() : logUtil(LogUtil::getInstance()) {
-        }
-        auto SpriteFactory::instance_owner() -> SpriteFactory* { static std::unique_ptr<SpriteFactory> value(new SpriteFactory()); return value.get(); }
-SpriteFactory* SpriteFactory::instance = SpriteFactory::instance_owner();
-
-    auto SpriteFactory::getInstance() -> SpriteFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return SpriteFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto SpriteFactory::createSprite(Image* image, int32_t frameWidth, int32_t frameHeight) -> Sprite*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new Sprite(image, frameWidth, frameHeight);
-    
++ (SpriteFactory*) getInstance {
+        return (SpriteFactory_staticInit(), SpriteFactory_instance);
 }
 
 
+- (Sprite*) createSprite:(Image*)image :(int32_t)frameWidth :(int32_t)frameHeight {
+        return [((Sprite*) [Sprite alloc]) init:image :frameWidth :frameHeight];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_SPRITEFACTORY_CPP

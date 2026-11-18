@@ -1,130 +1,66 @@
+#ifndef ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTILBASE_H
+#define ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTILBASE_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.emulator.device
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTILBASE_H
-        #define ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTILBASE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class Font;
-class AvianUtil;
-class StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class TrueTypeFontUtilBase
-            : public virtual Object
-         {
-
-    public: std::string shortPattern;
-
-    private: std::vector<int8_t> patternAsBytes;
-
-    public: const std::string pattern;
-
-    public: std::vector<int16_t> charArray;
-
-    /*protected*/ public: std::vector<int32_t> _characterWidth;
-
-    /*protected*/ public: std::vector<char> characterArray;
-
-    /*protected*/ public: const int32_t size;
-
-    /*protected*/ public: const int32_t lastCapIndex;
-
-    public: Font* currentFont;
-
-    public: int32_t scale;
-
-    public: int32_t CELLS_PER_ROW;
-
-    public: int32_t fontSize;
-
-    public: int32_t baseCharWidth;
-
-    public: int32_t cellSize;
-
-    public: int32_t textureSize;
-
-    public: int32_t actualCellsPerRow;
-
-public: TrueTypeFontUtilBase(int32_t scale);
-
-    public: int32_t getAsTextureSize(int32_t textureSize);
-
-    public: int32_t getCellSize(int32_t cellSize);
-
-    public: int32_t getYOffset();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTILBASE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTILBASE_H_COMPLETE)
-        #define ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTILBASE_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Font.h>)
-#include <javax/microedition/lcdui/Font.h>
-#endif
-#if __has_include(<org/allbinary/AvianUtil.h>)
-#include <org/allbinary/AvianUtil.h>
-#endif
-#if __has_include(<org/allbinary/logic/string/StringUtil.h>)
-#include <org/allbinary/logic/string/StringUtil.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class TrueTypeFontUtilBase;
+@class Font;
+@class AvianUtil;
+@class StringUtil;
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
 #endif
 
-        #endif
-    
+@interface TrueTypeFontUtilBase : ABObject {
+@public
+    const char* shortPattern;
+    int8_t* patternAsBytes;
+    const char* pattern;
+    int16_t* charArray;
+    int32_t* _characterWidth;
+    uint16_t* characterArray;
+    int32_t size;
+    int32_t lastCapIndex;
+    Font* currentFont;
+    int32_t scale;
+    int32_t CELLS_PER_ROW;
+    int32_t fontSize;
+    int32_t baseCharWidth;
+    int32_t cellSize;
+    int32_t textureSize;
+    int32_t actualCellsPerRow;
+}
+- (instancetype) init:(int32_t)scale;
+- (void) initFields;
+- (int32_t) getAsTextureSize:(int32_t)textureSize;
+- (int32_t) getCellSize:(int32_t)cellSize;
+- (int32_t) getYOffset;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void TrueTypeFontUtilBase_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTILBASE_H

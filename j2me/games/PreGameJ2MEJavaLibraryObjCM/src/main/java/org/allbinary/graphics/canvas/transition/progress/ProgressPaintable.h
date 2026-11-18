@@ -1,90 +1,50 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSPAINTABLE_H
+#define ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSPAINTABLE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ *
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ *
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ *
+ * Created By: Travis Berthelot
+ * 
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.canvas.transition.progress
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                * 
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                * 
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                * 
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSPAINTABLE_H
-        #define ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSPAINTABLE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class Graphics;
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class ProgressCanvas;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ProgressPaintable: public Paintable {
-
-    private: ProgressCanvas* progressCanvas;
-
-public: ProgressPaintable(ProgressCanvas* progressCanvas);
-
-    public: void paint(Graphics* graphics);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSPAINTABLE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSPAINTABLE_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSPAINTABLE_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Graphics.h>)
-#include <javax/microedition/lcdui/Graphics.h>
-#endif
-#if __has_include(<org/allbinary/graphics/paint/Paintable.h>)
-#include <org/allbinary/graphics/paint/Paintable.h>
-#endif
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ProgressPaintable;
+@class Graphics;
+@class Paintable;
+@class ProgressCanvas;
+#include "org/allbinary/graphics/paint/Paintable.h"
 #if __has_include("org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h")
 #include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
 #endif
 
-        #endif
-    
+@interface ProgressPaintable : Paintable {
+@public
+    ProgressCanvas* progressCanvas;
+}
+- (instancetype) init:(ProgressCanvas*)progressCanvas;
+- (void) initFields;
+- (void) paint:(Graphics*)graphics;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ProgressPaintable_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSPAINTABLE_H

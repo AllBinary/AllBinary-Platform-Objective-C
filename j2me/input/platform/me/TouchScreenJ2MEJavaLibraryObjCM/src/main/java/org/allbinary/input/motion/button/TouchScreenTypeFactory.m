@@ -1,88 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/TouchScreenTypeFactory.h"
+#include "org/allbinary/input/motion/button/TouchScreenFactory.h"
 
 
+static TouchScreenTypeFactory* TouchScreenTypeFactory_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHSCREENTYPEFACTORY_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHSCREENTYPEFACTORY_CPP
+void TouchScreenTypeFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TouchScreenTypeFactory_instance = [((TouchScreenTypeFactory*) [TouchScreenTypeFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/TouchScreenTypeFactory.h"
-        
+@implementation TouchScreenTypeFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/button/TouchScreenFactory.h"
-
-
-TouchScreenTypeFactory::TouchScreenTypeFactory() {
-        }
-        auto TouchScreenTypeFactory::instance_owner() -> TouchScreenTypeFactory* { static std::unique_ptr<TouchScreenTypeFactory> value(new TouchScreenTypeFactory()); return value.get(); }
-TouchScreenTypeFactory* TouchScreenTypeFactory::instance = TouchScreenTypeFactory::instance_owner();
-
-    auto TouchScreenTypeFactory::getInstance() -> TouchScreenTypeFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TouchScreenTypeFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto TouchScreenTypeFactory::TouchScreenTypeFactory_() -> void{
-
-    TouchScreenFactory* touchScreenFactory = TouchScreenFactory::getInstance();;
-    
-touchScreenFactory->setTouch(true);
-    
++ (TouchScreenTypeFactory*) getInstance {
+        return (TouchScreenTypeFactory_staticInit(), TouchScreenTypeFactory_instance);
 }
 
 
+- (void) TouchScreenTypeFactory {
+        TouchScreenFactory* touchScreenFactory = [TouchScreenFactory getInstance];
+        [touchScreenFactory setTouch:true];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHSCREENTYPEFACTORY_CPP

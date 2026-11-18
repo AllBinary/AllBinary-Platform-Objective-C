@@ -1,351 +1,163 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_CURRENTDISPLAYABLEFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_CURRENTDISPLAYABLEFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/CurrentDisplayableFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Displayable.h>
-
-      
-#include <org/allbinary/J2MEUtil.h>
-
-      
-#include <org/allbinary/game/configuration/feature/Features.h>
-
-      
-#include <org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h>
-
-      
-#include <org/allbinary/game/displayable/canvas/DemoCanvas.h>
-
-      
-#include <org/allbinary/game/displayable/canvas/GameInputMappingCanvas.h>
-
-      
-#include <org/allbinary/game/displayable/canvas/GameInputMappingInstructionsCanvas.h>
-
-      
-#include <org/allbinary/game/displayable/canvas/GameRunnable.h>
-
-      
-#include <org/allbinary/game/displayable/canvas/NullDisplayable.h>
-
-      
-#include <org/allbinary/game/displayable/canvas/NullWaitGameRunnable.h>
-
-      
-#include <org/allbinary/game/layer/SWTUtil.h>
-
-      
-#include <org/allbinary/game/score/displayable/HighScoresCanvas.h>
-
-      
-#include <org/allbinary/graphics/GraphicsStrings.h>
-
-      
-#include <org/allbinary/graphics/displayable/CanvasStrings.h>
-
-      
-#include <org/allbinary/graphics/displayable/MyCanvas.h>
-
-      
-#include <org/allbinary/logic/communication/log/PreLogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/thread/NullRunnable.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/CurrentDisplayableFactory.h"
+#include "javax/microedition/lcdui/Displayable.h"
+#include "org/allbinary/J2MEUtil.h"
+#include "org/allbinary/game/configuration/feature/Features.h"
+#include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
+#include "org/allbinary/game/displayable/canvas/DemoCanvas.h"
+#include "org/allbinary/game/displayable/canvas/GameInputMappingCanvas.h"
+#include "org/allbinary/game/displayable/canvas/GameInputMappingInstructionsCanvas.h"
+#include "org/allbinary/game/displayable/canvas/GameRunnable.h"
+#include "org/allbinary/game/displayable/canvas/NullDisplayable.h"
+#include "org/allbinary/game/displayable/canvas/NullWaitGameRunnable.h"
+#include "org/allbinary/game/layer/SWTUtil.h"
+#include "org/allbinary/game/score/displayable/HighScoresCanvas.h"
+#include "org/allbinary/graphics/GraphicsStrings.h"
+#include "org/allbinary/graphics/displayable/CanvasStrings.h"
+#include "org/allbinary/graphics/displayable/MyCanvas.h"
+#include "org/allbinary/logic/communication/log/PreLogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/thread/NullRunnable.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
 
 
+static CurrentDisplayableFactory* CurrentDisplayableFactory_instance;
 
+void CurrentDisplayableFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CurrentDisplayableFactory_instance = [((CurrentDisplayableFactory*) [CurrentDisplayableFactory alloc]) init];
+}
 
+@implementation CurrentDisplayableFactory
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
-
-auto CurrentDisplayableFactory::instance_owner() -> CurrentDisplayableFactory* { static std::unique_ptr<CurrentDisplayableFactory> value(new CurrentDisplayableFactory()); return value.get(); }
-CurrentDisplayableFactory* CurrentDisplayableFactory::instance = CurrentDisplayableFactory::instance_owner();
-
-    auto CurrentDisplayableFactory::getInstance() -> CurrentDisplayableFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CurrentDisplayableFactory::instance;
-    
+- (void) initFields {
+    self->commonStrings = [CommonStrings getInstance];
+    self->canvasStrings = [CanvasStrings getInstance];
+    self->stringUtil = [StringUtil getInstance];
+    self->SET_DISPLAYABLE = "setDisplayable";
+    self->SET_RUNNABLE = "setRunnable";
+    self->CLEAR_RUNNABLE = "clearRunnable";
+    self->SET_USED_RUNNABLE = "setUsedRunnable";
+    self->RUNNABLE = "Runnable: ";
+    self->RUNNABLE_WAS_ALREADY_IN_USE = "Runnable was already in use: ";
+    self->DEFAULT_CHILD_NAME_LIST = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->displayable = [NullDisplayable getInstance];
+    self->openGlReadydisplayable = [NullDisplayable getInstance];
+    self->runnable = [NullWaitGameRunnable getInstance];
+    self->usedRunnable = [NullWaitGameRunnable getInstance];
 }
 
 
-CurrentDisplayableFactory::CurrentDisplayableFactory() : commonStrings(CommonStrings::getInstance()), canvasStrings(CanvasStrings::getInstance()), stringUtil(StringUtil::getInstance()), DEFAULT_CHILD_NAME_LIST(new BasicArrayListD()), displayable(NullDisplayable::getInstance()), openGlReadydisplayable(NullDisplayable::getInstance()), runnable(NullWaitGameRunnable::getInstance()), usedRunnable(NullWaitGameRunnable::getInstance()){
-this->DEFAULT_CHILD_NAME_LIST->add(this->canvasStrings->ABOUT);
-    
-this->DEFAULT_CHILD_NAME_LIST->add(this->canvasStrings->OPTIONS);
-    
-this->DEFAULT_CHILD_NAME_LIST->add(GameInputMappingCanvas::NAME);
-    
-this->DEFAULT_CHILD_NAME_LIST->add(GameInputMappingInstructionsCanvas::NAME);
-    
-this->DEFAULT_CHILD_NAME_LIST->add(HighScoresCanvas::NAME);
-    
++ (CurrentDisplayableFactory*) getInstance {
+        return (CurrentDisplayableFactory_staticInit(), CurrentDisplayableFactory_instance);
 }
 
 
-    auto CurrentDisplayableFactory::setMyCanvas(MyCanvas* displayable) -> void{
-
-                        if(
-                                        (dynamic_cast<const MyCanvas*>(this->displayable) != nullptr)
-                                    )
-                        
-                                    {
-                                    
-                        if(displayable->hasChild(dynamic_cast<MyCanvas*>(this->displayable)))
-                        
-                                    {
-                                    PreLogUtil::put(JavaString::valueOf((new StringMaker())->append("Child Displayable is already set for: ")->append(this->stringUtil->toString(displayable))), this, this->SET_DISPLAYABLE);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ;
-    
-
-                                    }
-                                
-
-                                    }
-                                
-this->setDisplayable(displayable);
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        [self->DEFAULT_CHILD_NAME_LIST add:self->canvasStrings->ABOUT];
+        [self->DEFAULT_CHILD_NAME_LIST add:self->canvasStrings->OPTIONS];
+        [self->DEFAULT_CHILD_NAME_LIST add:(GameInputMappingCanvas_staticInit(), GameInputMappingCanvas_NAME)];
+        [self->DEFAULT_CHILD_NAME_LIST add:(GameInputMappingInstructionsCanvas_staticInit(), GameInputMappingInstructionsCanvas_NAME)];
+        [self->DEFAULT_CHILD_NAME_LIST add:(HighScoresCanvas_staticInit(), HighScoresCanvas_NAME)];
+    return self;
 }
 
 
-    auto CurrentDisplayableFactory::setDisplayable(Displayable* displayable) -> void{
-this->displayable= displayable;
-    
-this->setOpenGlReadydisplayable(displayable);
-    
+- (void) setMyCanvas:(MyCanvas*)displayable {
+        if (java_objc_instanceof(self->displayable, [MyCanvas class])) {
+            if ([displayable hasChild:((MyCanvas*) self->displayable)]) {
+                [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Child Displayable is already set for: "] append:[self->stringUtil toString:displayable]] toString] :self :self->SET_DISPLAYABLE];
+                return;
+            }
+        }
+        [self setDisplayable:displayable];
 }
 
 
-    auto CurrentDisplayableFactory::setOpenGlReadydisplayable(Displayable* openGlReadydisplayable) -> void{
-this->openGlReadydisplayable= openGlReadydisplayable;
-    
-this->update();
-    
+- (void) setDisplayable:(Displayable*)displayable {
+        self->displayable = displayable;
+        [self setOpenGlReadydisplayable:displayable];
 }
 
 
-    auto CurrentDisplayableFactory::getOpenGlReadydisplayable() -> Displayable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->openGlReadydisplayable;
-    
+- (void) setOpenGlReadydisplayable:(Displayable*)openGlReadydisplayable {
+        self->openGlReadydisplayable = openGlReadydisplayable;
+        [self update];
 }
 
 
-    auto CurrentDisplayableFactory::setRunnable(GameRunnable* runnable) -> void{
-PreLogUtil::put(JavaString::valueOf((new StringMaker())->append(this->RUNNABLE)->append(this->stringUtil->toString(runnable))), this, this->SET_RUNNABLE);
-    
-this->runnable= runnable;
-    
-
-                        if(this->usedRunnable != this->runnable)
-                        
-                                    {
-                                    this->update();
-    
-
-                                    }
-                                
-                        else {
-                            PreLogUtil::put(JavaString::valueOf((new StringMaker())->append(this->RUNNABLE_WAS_ALREADY_IN_USE)->append(this->stringUtil->toString(runnable))), this, this->SET_RUNNABLE);
-    
-
-                        }
-                            
+- (Displayable*) getOpenGlReadydisplayable {
+        return self->openGlReadydisplayable;
 }
 
 
-    auto CurrentDisplayableFactory::clearRunnable() -> void{
-PreLogUtil::put(JavaString::valueOf((new StringMaker())->append(this->RUNNABLE)->append(this->stringUtil->toString(NullRunnable::getInstance()))), this, this->CLEAR_RUNNABLE);
-    
-this->setUsedRunnable(NullWaitGameRunnable::getInstance());
-    
+- (void) setRunnable:(GameRunnable*)runnable {
+        [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->RUNNABLE] append:[self->stringUtil toString:runnable]] toString] :self :self->SET_RUNNABLE];
+        self->runnable = runnable;
+        if (self->usedRunnable != self->runnable) {
+            [self update];
+        } else {
+            [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->RUNNABLE_WAS_ALREADY_IN_USE] append:[self->stringUtil toString:runnable]] toString] :self :self->SET_RUNNABLE];
+        }
 }
 
 
-    auto CurrentDisplayableFactory::update() -> void{
-
-        
-        //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-        //synchronized(this) 
-
-        //mutex.withLock
-        
-
-    CommonSeps* commonSeps = CommonSeps::getInstance();;
-    
-
-    Features* features = Features::getInstance();;
-    
-
-    StringMaker* stringMaker = new StringMaker();;
-    
-stringMaker->append(this->stringUtil->toString(this->openGlReadydisplayable));
-    
-
-                        if(SWTUtil::isSWT && !features->isDefault(OpenGLFeatureFactory::getInstance()->OPENGL))
-                        
-                                    {
-                                    PreLogUtil::put(JavaString::valueOf(stringMaker->append(commonSeps->SPACE)->append(SWTUtil::SWT)->append(commonSeps->SPACE)->append(this->RUNNABLE)->append(this->stringUtil->toString(NullRunnable::getInstance()))), this, this->commonStrings->UPDATE);
-    
-this->setUsedRunnable(NullWaitGameRunnable::getInstance());
-    
-
-                                    }
-                                
-                             else 
-                        if(J2MEUtil::isHTML())
-                        
-                                    {
-                                    PreLogUtil::put(JavaString::valueOf(stringMaker->append(commonSeps->SPACE)->append(GraphicsStrings::getInstance()->HTML)->append(commonSeps->SPACE)->append(this->RUNNABLE)->append(this->stringUtil->toString(this->runnable))), this, this->commonStrings->UPDATE);
-    
-this->setUsedRunnable(this->runnable);
-    
-
-                                    }
-                                
-                             else 
-                        if(
-                                    (dynamic_cast<const DemoCanvas*>(this->openGlReadydisplayable) != nullptr)
-                                 || 
-                                    (dynamic_cast<const AllBinaryGameCanvas*>(this->openGlReadydisplayable) != nullptr)
-                                 || features->isDefault(OpenGLFeatureFactory::getInstance()->OPENGL))
-                        
-                                    {
-                                    PreLogUtil::put(JavaString::valueOf(stringMaker->append(commonSeps->SPACE)->append(JavaString::valueOf(OpenGLFeatureFactory::getInstance()->OPENGL))->append(commonSeps->SPACE)->append(this->RUNNABLE)->append(this->stringUtil->toString(this->runnable))), this, this->commonStrings->UPDATE);
-    
-this->setUsedRunnable(this->runnable);
-    
-
-                                    }
-                                
-                        else {
-                            PreLogUtil::put(JavaString::valueOf(stringMaker->append(this->RUNNABLE)->append(this->stringUtil->toString(NullRunnable::getInstance()))), this, this->commonStrings->UPDATE);
-    
-this->setUsedRunnable(NullWaitGameRunnable::getInstance());
-    
-
-                        }
-                            
-
-
+- (void) clearRunnable {
+        [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->RUNNABLE] append:[self->stringUtil toString:[NullRunnable getInstance]]] toString] :self :self->CLEAR_RUNNABLE];
+        [self setUsedRunnable:[NullWaitGameRunnable getInstance]];
 }
 
 
-    auto CurrentDisplayableFactory::getDisplayable() -> Displayable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->displayable;
-    
+- (void) update {
+        java_monitor_enter(self);
+        {
+            CommonSeps* commonSeps = [CommonSeps getInstance];
+            Features* features = [Features getInstance];
+            StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+            [stringMaker append:[self->stringUtil toString:self->openGlReadydisplayable]];
+            if ((SWTUtil_staticInit(), SWTUtil_isSWT) && ![features isDefault:[OpenGLFeatureFactory getInstance]->OPENGL]) {
+                [PreLogUtil put:[[[[[[stringMaker append:commonSeps->SPACE] append:(SWTUtil_staticInit(), SWTUtil_SWT)] append:commonSeps->SPACE] append:self->RUNNABLE] append:[self->stringUtil toString:[NullRunnable getInstance]]] toString] :self :self->commonStrings->UPDATE];
+                [self setUsedRunnable:[NullWaitGameRunnable getInstance]];
+            } else if ([J2MEUtil isHTML]) {
+                [PreLogUtil put:[[[[[[stringMaker append:commonSeps->SPACE] append:[GraphicsStrings getInstance]->HTML] append:commonSeps->SPACE] append:self->RUNNABLE] append:[self->stringUtil toString:self->runnable]] toString] :self :self->commonStrings->UPDATE];
+                [self setUsedRunnable:self->runnable];
+            } else if (java_objc_instanceof(self->openGlReadydisplayable, [DemoCanvas class]) || java_objc_instanceof(self->openGlReadydisplayable, [AllBinaryGameCanvas class]) || [features isDefault:[OpenGLFeatureFactory getInstance]->OPENGL]) {
+                [PreLogUtil put:[[[[[[stringMaker append:commonSeps->SPACE] append:[[OpenGLFeatureFactory getInstance]->OPENGL toString]] append:commonSeps->SPACE] append:self->RUNNABLE] append:[self->stringUtil toString:self->runnable]] toString] :self :self->commonStrings->UPDATE];
+                [self setUsedRunnable:self->runnable];
+            } else {
+                [PreLogUtil put:[[[stringMaker append:self->RUNNABLE] append:[self->stringUtil toString:[NullRunnable getInstance]]] toString] :self :self->commonStrings->UPDATE];
+                [self setUsedRunnable:[NullWaitGameRunnable getInstance]];
+            }
+        }
+        java_monitor_exit(self);
 }
 
 
-    auto CurrentDisplayableFactory::getUsedRunnable() -> GameRunnable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->usedRunnable;
-    
+- (Displayable*) getDisplayable {
+        return self->displayable;
 }
 
 
-    auto CurrentDisplayableFactory::setUsedRunnable(GameRunnable* usedRunnable) -> void{
-PreLogUtil::put(JavaString::valueOf((new StringMaker())->append(this->RUNNABLE)->append(this->stringUtil->toString(this->runnable))->append(CommonSeps::getInstance()->COLON_SEP)->append(this->stringUtil->toString(usedRunnable))), this, this->SET_USED_RUNNABLE);
-    
-this->usedRunnable= usedRunnable;
-    
+- (GameRunnable*) getUsedRunnable {
+        return self->usedRunnable;
 }
 
 
+- (void) setUsedRunnable:(GameRunnable*)usedRunnable {
+        [PreLogUtil put:[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->RUNNABLE] append:[self->stringUtil toString:self->runnable]] append:[CommonSeps getInstance]->COLON_SEP] append:[self->stringUtil toString:usedRunnable]] toString] :self :self->SET_USED_RUNNABLE];
+        self->usedRunnable = usedRunnable;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_CURRENTDISPLAYABLEFACTORY_CPP

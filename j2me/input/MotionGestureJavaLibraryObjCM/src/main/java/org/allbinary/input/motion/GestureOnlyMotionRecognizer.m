@@ -1,126 +1,65 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/GestureOnlyMotionRecognizer.h"
+#include "org/allbinary/graphics/CustomGPoint.h"
+#include "org/allbinary/graphics/GPointCircularPool.h"
+#include "org/allbinary/input/motion/gesture/MotionGestureRecognizer.h"
+#include "org/allbinary/input/motion/MotionRecognizer.h"
 
 
+static int32_t GestureOnlyMotionRecognizer_index = 0;
+static GPointCircularPool* GestureOnlyMotionRecognizer_pointCircularPool;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_GESTUREONLYMOTIONRECOGNIZER_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_GESTUREONLYMOTIONRECOGNIZER_CPP
+void GestureOnlyMotionRecognizer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GestureOnlyMotionRecognizer_pointCircularPool = [((GPointCircularPool*) [GPointCircularPool alloc]) init:40];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/GestureOnlyMotionRecognizer.h"
-        
+@implementation GestureOnlyMotionRecognizer
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/graphics/CustomGPoint.h>
-
-      
-#include <org/allbinary/graphics/GPointCircularPool.h>
-
-      
-#include <org/allbinary/input/motion/gesture/MotionGestureRecognizer.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/MotionRecognizer.h"
-
-auto GestureOnlyMotionRecognizer::pointCircularPool_owner() -> GPointCircularPool* { static std::unique_ptr<GPointCircularPool> value(new GPointCircularPool(40)); return value.get(); }
-GPointCircularPool* GestureOnlyMotionRecognizer::pointCircularPool = GestureOnlyMotionRecognizer::pointCircularPool_owner();
-
-GestureOnlyMotionRecognizer::GestureOnlyMotionRecognizer(){
-this->id= GestureOnlyMotionRecognizer::index++;
+- (void) initFields {
     
-this->motionGestureRecognizer= new MotionGestureRecognizer(this->id);
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GestureOnlyMotionRecognizer::processStartMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
-
-    CustomGPoint* point = dynamic_cast<CustomGPoint*>(GestureOnlyMotionRecognizer::pointCircularPool->getNextInstance());;
-    
-point->setX(x);
-    
-point->setY(y);
-    
-this->motionGestureRecognizer->processPressedMotionEvent(point, deviceId, modifiers);
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        self->id_ = GestureOnlyMotionRecognizer_index++;
+        self->motionGestureRecognizer = [((MotionGestureRecognizer*) [MotionGestureRecognizer alloc]) init:self->id_];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GestureOnlyMotionRecognizer::processEndMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
-
-    CustomGPoint* point = dynamic_cast<CustomGPoint*>(GestureOnlyMotionRecognizer::pointCircularPool->getNextInstance());;
-    
-point->setX(x);
-    
-point->setY(y);
-    
-this->motionGestureRecognizer->processReleasedMotionEvent(point, deviceId, modifiers);
-    
+// throws Exception
+- (void) processStartMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
+        CustomGPoint* point = ((CustomGPoint*) [(GestureOnlyMotionRecognizer_staticInit(), GestureOnlyMotionRecognizer_pointCircularPool) getNextInstance]);
+        [point setX:x];
+        [point setY:y];
+        [self->motionGestureRecognizer processPressedMotionEvent:point :deviceId :modifiers];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GestureOnlyMotionRecognizer::processDraggedMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
-
-    CustomGPoint* point = dynamic_cast<CustomGPoint*>(GestureOnlyMotionRecognizer::pointCircularPool->getNextInstance());;
-    
-point->setX(x);
-    
-point->setY(y);
-    
-this->motionGestureRecognizer->processDraggedMotionEvent(point, deviceId, modifiers);
-    
+// throws Exception
+- (void) processEndMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
+        CustomGPoint* point = ((CustomGPoint*) [(GestureOnlyMotionRecognizer_staticInit(), GestureOnlyMotionRecognizer_pointCircularPool) getNextInstance]);
+        [point setX:x];
+        [point setY:y];
+        [self->motionGestureRecognizer processReleasedMotionEvent:point :deviceId :modifiers];
 }
 
 
+// throws Exception
+- (void) processDraggedMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
+        CustomGPoint* point = ((CustomGPoint*) [(GestureOnlyMotionRecognizer_staticInit(), GestureOnlyMotionRecognizer_pointCircularPool) getNextInstance]);
+        [point setX:x];
+        [point setY:y];
+        [self->motionGestureRecognizer processDraggedMotionEvent:point :deviceId :modifiers];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_GESTUREONLYMOTIONRECOGNIZER_CPP

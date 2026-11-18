@@ -1,183 +1,74 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/part/weapon/StraightMultiProjectileWeaponPart.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/game/combat/weapon/WeaponProperties.h"
+#include "org/allbinary/game/layer/weapon/WeaponLayer.h"
+#include "org/allbinary/game/layer/weapon/WeaponLayerCircularPool.h"
+#include "org/allbinary/game/score/NoScoreable.h"
+#include "org/allbinary/game/score/ScoreableInterface.h"
+#include "org/allbinary/graphics/RelativeRelationship.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/math/NoDecimalTrigTable.h"
+#include "org/allbinary/game/part/weapon/BasicWeaponPart.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_PART_WEAPON_STRAIGHTMULTIPROJECTILEWEAPONPART_CPP
-        #define ORG_ALLBINARY_GAME_PART_WEAPON_STRAIGHTMULTIPROJECTILEWEAPONPART_CPP
+void StraightMultiProjectileWeaponPart_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/part/weapon/StraightMultiProjectileWeaponPart.h"
-        
+@implementation StraightMultiProjectileWeaponPart
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/game/combat/weapon/WeaponProperties.h>
-
-      
-#include <org/allbinary/game/layer/weapon/WeaponLayer.h>
-
-      
-#include <org/allbinary/game/layer/weapon/WeaponLayerCircularPool.h>
-
-      
-#include <org/allbinary/game/score/NoScoreable.h>
-
-      
-#include <org/allbinary/game/score/ScoreableInterface.h>
-
-      
-#include <org/allbinary/graphics/RelativeRelationship.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/math/NoDecimalTrigTable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/part/weapon/BasicWeaponPart.h"
-
-
-    auto StraightMultiProjectileWeaponPart::createStraightMultiProjectileWeaponPart(Animation* animationInterface, WeaponLayerCircularPool* weaponLayerCircularStaticPool) -> StraightMultiProjectileWeaponPart*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new StraightMultiProjectileWeaponPart(animationInterface, AllBinaryLayer::NULL_ALLBINARY_LAYER, weaponLayerCircularStaticPool, 2, WeaponProperties::NULL_WEAPON_PROPERTIES, NoScoreable::getInstance(), RelativeRelationship::NULL_RELATIVE_RELATIONSHIP);
+- (void) initFields {
     
+    
+    self->noDecimalTrigTable = [NoDecimalTrigTable getInstance];
 }
 
 
-StraightMultiProjectileWeaponPart::StraightMultiProjectileWeaponPart(Animation* animationInterface, AllBinaryLayer* sourceLayerInterface, WeaponLayerCircularPool* weaponLayerCircularStaticPool, int32_t total, WeaponProperties* weaponProperties, ScoreableInterface* scoreableInterface, RelativeRelationship* relativeRelationship) : BasicWeaponPart(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship), noDecimalTrigTable(NoDecimalTrigTable::getInstance()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->total= total;
-    
-this->weaponLayerCircularStaticPool= weaponLayerCircularStaticPool;
-    
++ (StraightMultiProjectileWeaponPart*) createStraightMultiProjectileWeaponPart:(Animation*)animationInterface :(WeaponLayerCircularPool*)weaponLayerCircularStaticPool {
+        return [((StraightMultiProjectileWeaponPart*) [StraightMultiProjectileWeaponPart alloc]) init:animationInterface :(AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER) :weaponLayerCircularStaticPool :2 :(WeaponProperties_staticInit(), WeaponProperties_NULL_WEAPON_PROPERTIES) :[NoScoreable getInstance] :(RelativeRelationship_staticInit(), RelativeRelationship_NULL_RELATIVE_RELATIONSHIP)];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto StraightMultiProjectileWeaponPart::processScore(AllBinaryLayerManager* allbinaryLayerManager, int16_t angle, int16_t otherAngle, WeaponProperties* weaponProperties, ScoreableInterface* scoreableInterface) -> void{
-
-    AllBinaryLayer* sourceLayerInterface = this->getOwnerLayerInterface();;
-    
-
-    int32_t reducedWidth = (sourceLayerInterface->getWidth() *8 /10);;
-    
-
-    int32_t halfWidth = (reducedWidth>>1);;
-    
-
-    int32_t x = this->relativeRelationship->getX();;
-    
-
-    int32_t y = this->relativeRelationship->getY();;
-    
-
-    int64_t sine= 0;;
-    
-
-    int32_t beamX= 0;;
-    
-
-    int64_t cosine= 0;;
-    
-
-    int32_t beamY= 0;;
-    
-
-    WeaponLayer* weaponLayer;;
-    
-
-    int32_t increment = reducedWidth /(this->total -1);;
-    
-
-    int32_t next =  -halfWidth;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < this->total; index++)
-        {
-sine= (next *this->noDecimalTrigTable->sin(static_cast<int32_t>(angle)));
-    
-beamX= static_cast<int32_t>((sine /this->noDecimalTrigTable->SCALE));
-    
-cosine= (next *this->noDecimalTrigTable->cos(static_cast<int32_t>(angle)));
-    
-beamY=  -static_cast<int32_t>((cosine /this->noDecimalTrigTable->SCALE));
-    
-weaponLayer= this->weaponLayerCircularStaticPool->getInstanceWeaponLayer(sourceLayerInterface, x +beamX, y +beamY, 0, static_cast<int32_t>(angle), static_cast<int32_t>(otherAngle), weaponProperties, scoreableInterface);
-    
-allbinaryLayerManager->append(weaponLayer);
-    
-next += increment;
-    
-}
-
+- (instancetype) init:(Animation*)animationInterface :(AllBinaryLayer*)sourceLayerInterface :(WeaponLayerCircularPool*)weaponLayerCircularStaticPool :(int32_t)total :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreableInterface :(RelativeRelationship*)relativeRelationship {
+        self = [super init:animationInterface :sourceLayerInterface :weaponProperties :scoreableInterface :relativeRelationship];
+        [self initFields];
+        self->total = total;
+        self->weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
+    return self;
 }
 
 
+// throws Exception
+- (void) processScore:(AllBinaryLayerManager*)allbinaryLayerManager :(int16_t)angle :(int16_t)otherAngle :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreableInterface {
+        AllBinaryLayer* sourceLayerInterface = [self getOwnerLayerInterface];
+        int32_t reducedWidth = ([sourceLayerInterface getWidth] * 8 / 10);
+        int32_t halfWidth = (reducedWidth >> 1);
+        int32_t x = [self->relativeRelationship getX];
+        int32_t y = [self->relativeRelationship getY];
+        int64_t sine = 0;
+        int32_t beamX = 0;
+        int64_t cosine = 0;
+        int32_t beamY = 0;
+        WeaponLayer* weaponLayer = nullptr;
+        int32_t increment = reducedWidth / (self->total - 1);
+        int32_t next = -halfWidth;
+        for (int32_t index = 0; index < self->total; index++) {
+            sine = (((int64_t) next) * [self->noDecimalTrigTable sin:((int32_t) angle)]);
+            beamX = ((int32_t) (sine / ((int64_t) self->noDecimalTrigTable->SCALE)));
+            cosine = (((int64_t) next) * [self->noDecimalTrigTable cos:((int32_t) angle)]);
+            beamY = -((int32_t) (cosine / ((int64_t) self->noDecimalTrigTable->SCALE)));
+            weaponLayer = [self->weaponLayerCircularStaticPool getInstanceWeaponLayer:sourceLayerInterface :x + beamX :y + beamY :0 :((int32_t) angle) :((int32_t) otherAngle) :weaponProperties :scoreableInterface];
+            [allbinaryLayerManager append:weaponLayer];
+            next += increment;
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_PART_WEAPON_STRAIGHTMULTIPROJECTILEWEAPONPART_CPP

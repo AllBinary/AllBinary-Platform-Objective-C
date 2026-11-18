@@ -1,103 +1,49 @@
+#ifndef ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_NOCOMPLETEMOTIONGESTUREINPUTEVENTLISTENER_H
+#define ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_NOCOMPLETEMOTIONGESTUREINPUTEVENTLISTENER_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.input.motion.action
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class NoCompleteMotionGestureInputEventListener;
+@class CompleteMotionGestureInputEvent;
+@class CompleteMotionGestureInputEventListener;
+@class ForcedLogUtil;
+@class AllBinaryEventObject;
+@class EventStrings;
+#include "org/allbinary/game/input/CompleteMotionGestureInputEventListener.h"
 
+@interface NoCompleteMotionGestureInputEventListener : CompleteMotionGestureInputEventListener {
+@public
+}
+- (instancetype) init;
+- (void) onEvent:(AllBinaryEventObject*)eventObject;
+- (void) onCompleteMotionGestureInputEvent:(CompleteMotionGestureInputEvent*)completeMotionGestureInputEvent;
++ (NoCompleteMotionGestureInputEventListener*) getInstance;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_NOCOMPLETEMOTIONGESTUREINPUTEVENTLISTENER_H
-        #define ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_NOCOMPLETEMOTIONGESTUREINPUTEVENTLISTENER_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class CompleteMotionGestureInputEvent;
-#include <org/allbinary/game/input/CompleteMotionGestureInputEventListener.h>
-class ForcedLogUtil;
-class AllBinaryEventObject;
-class EventStrings;
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void NoCompleteMotionGestureInputEventListener_staticInit(void);
 
 
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class NoCompleteMotionGestureInputEventListener: public CompleteMotionGestureInputEventListener {
-
-    private: static NoCompleteMotionGestureInputEventListener* instance_owner();
-    private: static NoCompleteMotionGestureInputEventListener* instance;
-
-    public: static NoCompleteMotionGestureInputEventListener* getInstance();
-
-private: NoCompleteMotionGestureInputEventListener();
-
-    public: void onEvent(AllBinaryEventObject* eventObject);
-
-    public: void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent* completeMotionGestureInputEvent);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_NOCOMPLETEMOTIONGESTUREINPUTEVENTLISTENER_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_NOCOMPLETEMOTIONGESTUREINPUTEVENTLISTENER_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_NOCOMPLETEMOTIONGESTUREINPUTEVENTLISTENER_H_COMPLETE
-        #if __has_include(<org/allbinary/game/input/CompleteMotionGestureInputEvent.h>)
-#include <org/allbinary/game/input/CompleteMotionGestureInputEvent.h>
-#endif
-#if __has_include(<org/allbinary/game/input/CompleteMotionGestureInputEventListener.h>)
-#include <org/allbinary/game/input/CompleteMotionGestureInputEventListener.h>
-#endif
-#if __has_include(<org/allbinary/logic/communication/log/ForcedLogUtil.h>)
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/AllBinaryEventObject.h>)
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/EventStrings.h>)
-#include <org/allbinary/logic/util/event/EventStrings.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_NOCOMPLETEMOTIONGESTUREINPUTEVENTLISTENER_H

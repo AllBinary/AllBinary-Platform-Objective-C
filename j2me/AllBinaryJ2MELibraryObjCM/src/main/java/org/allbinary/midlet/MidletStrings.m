@@ -1,78 +1,34 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/midlet/MidletStrings.h"
 
 
+static MidletStrings* MidletStrings_instance;
 
-        #ifndef ORG_ALLBINARY_MIDLET_MIDLETSTRINGS_CPP
-        #define ORG_ALLBINARY_MIDLET_MIDLETSTRINGS_CPP
+void MidletStrings_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    MidletStrings_instance = [((MidletStrings*) [MidletStrings alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/midlet/MidletStrings.h"
-        
+@implementation MidletStrings
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->COMMAND_ACTION = "commandAction";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-MidletStrings::MidletStrings() {
-        }
-        auto MidletStrings::instance_owner() -> MidletStrings* { static std::unique_ptr<MidletStrings> value(new MidletStrings()); return value.get(); }
-MidletStrings* MidletStrings::instance = MidletStrings::instance_owner();
-
-    auto MidletStrings::getInstance() -> MidletStrings*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return MidletStrings::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (MidletStrings*) getInstance {
+        return (MidletStrings_staticInit(), MidletStrings_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MIDLET_MIDLETSTRINGS_CPP

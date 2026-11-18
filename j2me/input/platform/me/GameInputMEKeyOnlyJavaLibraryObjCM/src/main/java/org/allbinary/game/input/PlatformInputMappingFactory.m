@@ -1,124 +1,52 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
+#include "org/allbinary/game/input/mapping/PersistentInputMapping.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/game/input/NormalJ2MEGameInputMapping.h"
 
 
+static PlatformInputMappingFactory* PlatformInputMappingFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_PLATFORMINPUTMAPPINGFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_PLATFORMINPUTMAPPINGFACTORY_CPP
+void PlatformInputMappingFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PlatformInputMappingFactory_instance = [((PlatformInputMappingFactory*) [PlatformInputMappingFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/PlatformInputMappingFactory.h"
-        
+@implementation PlatformInputMappingFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->inputToGameKeyMapping = [PersistentInputMapping getNullInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/input/mapping/PersistentInputMapping.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/NormalJ2MEGameInputMapping.h"
-
-
-PlatformInputMappingFactory::PlatformInputMappingFactory() : logUtil(LogUtil::getInstance()), inputToGameKeyMapping(PersistentInputMapping::getNullInstance()) {
-        }
-        auto PlatformInputMappingFactory::instance_owner() -> PlatformInputMappingFactory* { static std::unique_ptr<PlatformInputMappingFactory> value(new PlatformInputMappingFactory()); return value.get(); }
-PlatformInputMappingFactory* PlatformInputMappingFactory::instance = PlatformInputMappingFactory::instance_owner();
-
-    auto PlatformInputMappingFactory::getInstance() -> PlatformInputMappingFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PlatformInputMappingFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto PlatformInputMappingFactory::getPersistentInputMappingInstance() -> PersistentInputMapping*{
-
-        try {
-            
-                        if(this->inputToGameKeyMapping == PersistentInputMapping::getNullInstance())
-                        
-                                    {
-                                    this->inputToGameKeyMapping= new NormalJ2MEGameInputMapping();
-    
-
-                                    }
-                                
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, commonStrings->GET_INSTANCE, &e);
-    
++ (PlatformInputMappingFactory*) getInstance {
+        return (PlatformInputMappingFactory_staticInit(), PlatformInputMappingFactory_instance);
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->inputToGameKeyMapping;
-    
+- (PersistentInputMapping*) getPersistentInputMappingInstance {
+        JAVA_TRY {
+            if (self->inputToGameKeyMapping == [PersistentInputMapping getNullInstance]) {
+                self->inputToGameKeyMapping = [((NormalJ2MEGameInputMapping*) [NormalJ2MEGameInputMapping alloc]) init];
+            }
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->GET_INSTANCE :e];
+        } JAVA_END_TRY;
+        return self->inputToGameKeyMapping;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_PLATFORMINPUTMAPPINGFACTORY_CPP

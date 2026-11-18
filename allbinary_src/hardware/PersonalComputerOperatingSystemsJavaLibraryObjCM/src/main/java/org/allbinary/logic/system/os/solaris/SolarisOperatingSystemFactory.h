@@ -52,5 +52,8 @@
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.
 void SolarisOperatingSystemFactory_staticInit(void);
 
+#if __has_include("org/allbinary/logic/system/os/GenericOperatingSystem.h")
+#include "org/allbinary/logic/system/os/GenericOperatingSystem.h"
+#endif
 
 #endif // ORG_ALLBINARY_LOGIC_SYSTEM_OS_SOLARIS_SOLARISOPERATINGSYSTEMFACTORY_H

@@ -1,84 +1,32 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_GAMEYOULOSESOUND_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_GAMEYOULOSESOUND_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/GameYouLoseSound.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/CompositeSound.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/GameYouLoseSound.h"
+#include "org/allbinary/media/audio/CompositeSound.h"
 #include "org/allbinary/media/audio/Sound.h"
-//Use 8hz16bitmono for most J2ME
-Sound* GameYouLoseSound::soundInterface = new GameYouLoseSound();
 
-GameYouLoseSound::GameYouLoseSound() : CompositeSound("resource:/wav/youlose.wav"){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+static Sound* GameYouLoseSound_soundInterface;
 
-                            //For kotlin this is before the body of the constructor.
-                    
+void GameYouLoseSound_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameYouLoseSound_soundInterface = [((GameYouLoseSound*) [GameYouLoseSound alloc]) init];
+}
+
+@implementation GameYouLoseSound
+
+
+- (instancetype) init {
+        self = [super init:"resource:/wav/youlose.wav"];
+    return self;
 }
 
 
-    auto GameYouLoseSound::getInstance() -> Sound*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameYouLoseSound::soundInterface;
-    
++ (Sound*) getInstance {
+        return (GameYouLoseSound_staticInit(), GameYouLoseSound_soundInterface);
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_GAMEYOULOSESOUND_CPP

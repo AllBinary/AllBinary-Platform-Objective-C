@@ -1,79 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/displayable/canvas/EndLevelIntermissionProcessor.h"
+#include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_ENDLEVELINTERMISSIONPROCESSOR_CPP
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_ENDLEVELINTERMISSIONPROCESSOR_CPP
+void EndLevelIntermissionProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/displayable/canvas/EndLevelIntermissionProcessor.h"
-        
+@implementation EndLevelIntermissionProcessor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/canvas/Processor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
-
-
-EndLevelIntermissionProcessor::EndLevelIntermissionProcessor(AllBinaryGameCanvas* gameCanvas){
-this->gameCanvas= gameCanvas;
+- (void) initFields {
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto EndLevelIntermissionProcessor::process() -> void{
-this->gameCanvas->processEndLevelIntermissionGameState();
-    
+- (instancetype) init:(AllBinaryGameCanvas*)gameCanvas {
+    self = [super init];
+    [self initFields];
+        self->gameCanvas = gameCanvas;
+    return self;
 }
 
 
+// throws Exception
+- (void) process {
+        [self->gameCanvas processEndLevelIntermissionGameState];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_ENDLEVELINTERMISSIONPROCESSOR_CPP

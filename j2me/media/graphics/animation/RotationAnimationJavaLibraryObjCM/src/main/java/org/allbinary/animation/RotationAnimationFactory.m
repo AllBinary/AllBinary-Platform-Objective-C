@@ -1,135 +1,62 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_ROTATIONANIMATIONFACTORY_CPP
-        #define ORG_ALLBINARY_ANIMATION_ROTATIONANIMATIONFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/RotationAnimationFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/configuration/GameConfigurationCentral.h>
-
-      
-#include <org/allbinary/math/AngleFactory.h>
-
-      
-#include <org/allbinary/math/AngleInfo.h>
-
-      
-#include <org/allbinary/media/ScaleProperties.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/RotationAnimationFactory.h"
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#include "org/allbinary/math/AngleFactory.h"
+#include "org/allbinary/math/AngleInfo.h"
+#include "org/allbinary/media/ScaleProperties.h"
+#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
 #include "org/allbinary/animation/ProceduralAnimationInterfaceFactoryInterface.h"
 #include "org/allbinary/animation/NullRotationAnimation.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
 #include "org/allbinary/animation/Animation.h"
 
 
-    auto RotationAnimationFactory::createFactory() -> RotationAnimationFactory*{
 
-    int16_t totalAngle = AngleFactory::getInstance()->TOTAL_ANGLE;;
+void RotationAnimationFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation RotationAnimationFactory
+
+- (void) initFields {
     
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new RotationAnimationFactory(totalAngle, (totalAngle /GameConfigurationCentral::getInstance()->getGameControlFidelity()));
     
 }
 
 
-RotationAnimationFactory::RotationAnimationFactory(int16_t totalAngle, int16_t angleIncrement){
-this->totalAngle= totalAngle;
-    
-this->angleIncrement= angleIncrement;
-    
++ (RotationAnimationFactory*) createFactory {
+        int16_t totalAngle = [AngleFactory getInstance]->TOTAL_ANGLE;
+        return [((RotationAnimationFactory*) [RotationAnimationFactory alloc]) init:totalAngle :((int16_t) (((int32_t) totalAngle) / [[GameConfigurationCentral getInstance] getGameControlFidelity]))];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto RotationAnimationFactory::getInstance(int32_t instanceId) -> Animation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullRotationAnimation::createTotalAngle(AngleInfo::getInstance(this->angleIncrement), this->totalAngle, AnimationBehavior::getInstance());;
-    
+- (instancetype) init:(int16_t)totalAngle :(int16_t)angleIncrement {
+    self = [super init];
+    [self initFields];
+        self->totalAngle = totalAngle;
+        self->angleIncrement = angleIncrement;
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto RotationAnimationFactory::getInstanceAnimation(Animation* animationInterface) -> Animation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullRotationAnimation::createTotalAngle(AngleInfo::getInstance(this->angleIncrement), this->totalAngle, AnimationBehavior::getInstance());;
-    
+// throws Exception
+- (Animation*) getInstance:(int32_t)instanceId {
+        return [NullRotationAnimation createTotalAngle:[AngleInfo getInstance:self->angleIncrement] :self->totalAngle :[AnimationBehavior getInstance]];
 }
 
 
-    auto RotationAnimationFactory::setInitialScale(ScaleProperties* scaleProperties) -> void{
+// throws Exception
+- (Animation*) getInstanceAnimation:(Animation*)animationInterface {
+        return [NullRotationAnimation createTotalAngle:[AngleInfo getInstance:self->angleIncrement] :self->totalAngle :[AnimationBehavior getInstance]];
 }
 
 
+- (void) setInitialScale:(ScaleProperties*)scaleProperties {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_ROTATIONANIMATIONFACTORY_CPP

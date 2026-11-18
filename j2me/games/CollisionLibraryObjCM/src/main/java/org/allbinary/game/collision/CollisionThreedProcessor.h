@@ -1,72 +1,30 @@
+#ifndef ORG_ALLBINARY_GAME_COLLISION_COLLISIONTHREEDPROCESSOR_H
+#define ORG_ALLBINARY_GAME_COLLISION_COLLISIONTHREEDPROCESSOR_H
+// Generated Code Do Not Modify
+// package org.allbinary.game.collision
 
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_COLLISION_COLLISIONTHREEDPROCESSOR_H
-        #define ORG_ALLBINARY_GAME_COLLISION_COLLISIONTHREEDPROCESSOR_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class AllBinaryLayer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/collision/CollisionProcessor.h"
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class CollisionThreedProcessor: public CollisionProcessor {
-
-
-            
-    public: CollisionThreedProcessor();
-        
-    public: bool isCollision(AllBinaryLayer* myLayer, AllBinaryLayer* myLayer2);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_COLLISION_COLLISIONTHREEDPROCESSOR_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_COLLISION_COLLISIONTHREEDPROCESSOR_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_COLLISION_COLLISIONTHREEDPROCESSOR_H_COMPLETE
-        #if __has_include(<org/allbinary/layer/AllBinaryLayer.h>)
-#include <org/allbinary/layer/AllBinaryLayer.h>
-#endif
-#if __has_include("org/allbinary/game/collision/CollisionProcessor.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class CollisionThreedProcessor;
+@class AllBinaryLayer;
+@class CollisionProcessor;
 #include "org/allbinary/game/collision/CollisionProcessor.h"
-#endif
 
-        #endif
-    
+@interface CollisionThreedProcessor : CollisionProcessor {
+@public
+}
+- (instancetype) init;
+- (bool) isCollision:(AllBinaryLayer*)myLayer :(AllBinaryLayer*)myLayer2;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void CollisionThreedProcessor_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GAME_COLLISION_COLLISIONTHREEDPROCESSOR_H

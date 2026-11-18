@@ -1,352 +1,173 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#include "org/allbinary/game/configuration/persistance/GameConfigurationPersistanceSingleton.h"
+#include "org/allbinary/game/configuration/persistance/KeyValuePersistance.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/game/configuration/GameConfiguration.h"
 
 
+static id GameConfigurationCentral_SINGLETON;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATIONCENTRAL_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATIONCENTRAL_CPP
+void GameConfigurationCentral_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameConfigurationCentral_SINGLETON = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/GameConfigurationCentral.h"
-        
+@implementation GameConfigurationCentral
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <org/allbinary/game/configuration/persistance/GameConfigurationPersistanceSingleton.h>
-
-      
-#include <org/allbinary/game/configuration/persistance/KeyValuePersistance.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/configuration/GameConfiguration.h"
-
-Object* GameConfigurationCentral::SINGLETON = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto GameConfigurationCentral::getInstance() -> GameConfigurationCentral*{
-
-                        if(GameConfigurationCentral::SINGLETON == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    GameConfigurationCentral::SINGLETON= new GameConfigurationCentral();
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
     
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<GameConfigurationCentral*>(GameConfigurationCentral::SINGLETON);
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    self->gameControlFidelity = 36;
 }
 
 
-GameConfigurationCentral::GameConfigurationCentral() : logUtil(LogUtil::getInstance()){
-
-    SmallIntegerSingletonFactory* smallIntegerSingletonFactory = SmallIntegerSingletonFactory::getInstance();;
-    
-this->SCALE= new GameConfiguration("Scale", smallIntegerSingletonFactory->getAt(2), smallIntegerSingletonFactory->getAt(2), smallIntegerSingletonFactory->getAt(3));
-    
-this->ORIENTATION= new GameConfiguration("Orientation", smallIntegerSingletonFactory->getAt(0), smallIntegerSingletonFactory->getAt(0), smallIntegerSingletonFactory->getAt(8));
-    
-this->SENSOR_UPDATE_RATE= new GameConfiguration("Sensor Update Rate", smallIntegerSingletonFactory->getAt(0), smallIntegerSingletonFactory->getAt(0), smallIntegerSingletonFactory->getAt(3));
-    
-this->VIBRATION= new GameConfiguration("Vibration", smallIntegerSingletonFactory->getAt(0), smallIntegerSingletonFactory->getAt(0), smallIntegerSingletonFactory->getAt(3));
-    
-this->CHALLENGE_LEVEL= new GameConfiguration("Global Challenge Level", smallIntegerSingletonFactory->getAt(3), smallIntegerSingletonFactory->getAt(1), smallIntegerSingletonFactory->getAt(10));
-    
-this->COLLIDE_DAMAGE= new GameConfiguration("Collide Damage Challenge Level", smallIntegerSingletonFactory->getAt(3), smallIntegerSingletonFactory->getAt(1), smallIntegerSingletonFactory->getAt(10));
-    
-this->DURABILITY_CHALLENGE_LEVEL= new GameConfiguration("Enemy Durability Challenge Level", smallIntegerSingletonFactory->getAt(3), smallIntegerSingletonFactory->getAt(1), smallIntegerSingletonFactory->getAt(10));
-    
-this->SPEED_CHALLENGE_LEVEL= new GameConfiguration("Enemy Speed Challenge Level", smallIntegerSingletonFactory->getAt(3), smallIntegerSingletonFactory->getAt(1), smallIntegerSingletonFactory->getAt(10));
-    
-this->ATTACK_CHALLENGE_LEVEL= new GameConfiguration("Enemy Attack Challenge Level", smallIntegerSingletonFactory->getAt(3), smallIntegerSingletonFactory->getAt(1), smallIntegerSingletonFactory->getAt(10));
-    
-this->CONTROL_LEVEL= new GameConfiguration("Control Fidelity", smallIntegerSingletonFactory->getAt(5), smallIntegerSingletonFactory->getAt(1), smallIntegerSingletonFactory->getAt(10));
-    
-this->PLAYER_INPUT_WAIT= new GameConfiguration("Input Wait", smallIntegerSingletonFactory->getAt(5), smallIntegerSingletonFactory->getAt(1), smallIntegerSingletonFactory->getAt(10));
-    
-this->SPEED= new GameConfiguration("Game Speed (Device Specific)", smallIntegerSingletonFactory->getAt(5), smallIntegerSingletonFactory->getAt(1), smallIntegerSingletonFactory->getAt(10));
-    
-this->SOUND_VOLUME= new GameConfiguration("Sound Volume", smallIntegerSingletonFactory->getAt(6), smallIntegerSingletonFactory->getAt(0), smallIntegerSingletonFactory->getAt(10));
-    
-this->MAX_GAME_OBJECTS= new GameConfiguration("Max Game Objects", smallIntegerSingletonFactory->getAt(20), smallIntegerSingletonFactory->getAt(1), smallIntegerSingletonFactory->getAt(50));
-    
-this->MAX_LAYERS= new GameConfiguration("Max Layers", smallIntegerSingletonFactory->getAt(20), smallIntegerSingletonFactory->getAt(1), smallIntegerSingletonFactory->getAt(50));
-    
++ (GameConfigurationCentral*) getInstance {
+        if ((GameConfigurationCentral_staticInit(), GameConfigurationCentral_SINGLETON) == [NullUtil getInstance]->NULL_OBJECT) {
+            GameConfigurationCentral_SINGLETON = [((GameConfigurationCentral*) [GameConfigurationCentral alloc]) init];
+        }
+        return ((GameConfigurationCentral*) (GameConfigurationCentral_staticInit(), GameConfigurationCentral_SINGLETON));
 }
 
 
-    auto GameConfigurationCentral::load(AbeClientInformationInterface* abeClientInformation) -> void{
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-
-        try {
-            
-    SmallIntegerSingletonFactory* smallIntegerSingletonFactory = SmallIntegerSingletonFactory::getInstance();;
-    
-
-    KeyValuePersistance* keyValuePersistance = GameConfigurationPersistanceSingleton::getInstance();;
-    
-keyValuePersistance->clear();
-    
-keyValuePersistance->loadAll(abeClientInformation);
-    
-
-    BasicArrayList* list = keyValuePersistance->getIds();;
-    
-
-                        if(list->size() > 0)
-                        
-                                    {
-                                    
-    ABHashtable<Object*, Object*>* hashtable = keyValuePersistance->get(0);;
-    
-
-    Object* anyType = JavaBoxes::toObject(this->SCALE->getName());;
-    
-
-    std::string value = JavaBoxes::unbox<std::string>(hashtable->get(anyType));;
-    
-this->SCALE->setValue(smallIntegerSingletonFactory->getAt(JavaBoxes::value<int32_t>(Integer.valueOf(value))));
-    
-
-                                    }
-                                
-                        else {
-                            this->logUtil->putF("No Game Configuration To Load", this, commonStrings->LOAD);
-    
-
-                        }
-                            
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(commonStrings->EXCEPTION, this, commonStrings->LOAD, &e);
-    
-}
-
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
+        self->SCALE = [((GameConfiguration*) [GameConfiguration alloc]) init:"Scale" :[smallIntegerSingletonFactory getAt:2] :[smallIntegerSingletonFactory getAt:2] :[smallIntegerSingletonFactory getAt:3]];
+        self->ORIENTATION = [((GameConfiguration*) [GameConfiguration alloc]) init:"Orientation" :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:8]];
+        self->SENSOR_UPDATE_RATE = [((GameConfiguration*) [GameConfiguration alloc]) init:"Sensor Update Rate" :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:3]];
+        self->VIBRATION = [((GameConfiguration*) [GameConfiguration alloc]) init:"Vibration" :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:3]];
+        self->CHALLENGE_LEVEL = [((GameConfiguration*) [GameConfiguration alloc]) init:"Global Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
+        self->COLLIDE_DAMAGE = [((GameConfiguration*) [GameConfiguration alloc]) init:"Collide Damage Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
+        self->DURABILITY_CHALLENGE_LEVEL = [((GameConfiguration*) [GameConfiguration alloc]) init:"Enemy Durability Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
+        self->SPEED_CHALLENGE_LEVEL = [((GameConfiguration*) [GameConfiguration alloc]) init:"Enemy Speed Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
+        self->ATTACK_CHALLENGE_LEVEL = [((GameConfiguration*) [GameConfiguration alloc]) init:"Enemy Attack Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
+        self->CONTROL_LEVEL = [((GameConfiguration*) [GameConfiguration alloc]) init:"Control Fidelity" :[smallIntegerSingletonFactory getAt:5] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
+        self->PLAYER_INPUT_WAIT = [((GameConfiguration*) [GameConfiguration alloc]) init:"Input Wait" :[smallIntegerSingletonFactory getAt:5] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
+        self->SPEED = [((GameConfiguration*) [GameConfiguration alloc]) init:"Game Speed (Device Specific)" :[smallIntegerSingletonFactory getAt:5] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
+        self->SOUND_VOLUME = [((GameConfiguration*) [GameConfiguration alloc]) init:"Sound Volume" :[smallIntegerSingletonFactory getAt:6] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:10]];
+        self->MAX_GAME_OBJECTS = [((GameConfiguration*) [GameConfiguration alloc]) init:"Max Game Objects" :[smallIntegerSingletonFactory getAt:20] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:50]];
+        self->MAX_LAYERS = [((GameConfiguration*) [GameConfiguration alloc]) init:"Max Layers" :[smallIntegerSingletonFactory getAt:20] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:50]];
+    return self;
 }
 
 
-    auto GameConfigurationCentral::setGameControlFidelity(int32_t gameControlFidelity) -> void{
-this->gameControlFidelity= gameControlFidelity;
-    
+- (void) load_:(AbeClientInformationInterface*)abeClientInformation {
+        CommonStrings* commonStrings = [CommonStrings getInstance];
+        JAVA_TRY {
+            SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
+            KeyValuePersistance* keyValuePersistance = [GameConfigurationPersistanceSingleton getInstance];
+            [keyValuePersistance clear];
+            [keyValuePersistance loadAll:abeClientInformation];
+            BasicArrayList* list = [keyValuePersistance getIds];
+            if ([list size] > 0) {
+                ABHashtable* hashtable = [keyValuePersistance get:0];
+                id anyType = ((id) [self->SCALE getName]);
+                const char* value = ((const char*) [hashtable get:JAVA_BOX(anyType)]);
+                [self->SCALE setValue:[smallIntegerSingletonFactory getAt:((int32_t) (((int32_t) strtoll(value, nullptr, 10))))]];
+            } else {
+                [self->logUtil putF:"No Game Configuration To Load" :self :commonStrings->LOAD];
+            }
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->LOAD :e];
+        } JAVA_END_TRY;
 }
 
 
-    auto GameConfigurationCentral::getGameControlFidelity() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gameControlFidelity;
-    
+- (void) setGameControlFidelity:(int32_t)gameControlFidelity {
+        self->gameControlFidelity = gameControlFidelity;
 }
 
 
-    auto GameConfigurationCentral::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-
-    CommonSeps* commonStrings = CommonSeps::getInstance();;
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->SCALE->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->SCALE->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->ORIENTATION->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->ORIENTATION->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->SENSOR_UPDATE_RATE->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->SENSOR_UPDATE_RATE->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->VIBRATION->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->VIBRATION->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->CHALLENGE_LEVEL->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->CHALLENGE_LEVEL->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->COLLIDE_DAMAGE->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->COLLIDE_DAMAGE->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->DURABILITY_CHALLENGE_LEVEL->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->DURABILITY_CHALLENGE_LEVEL->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->SPEED_CHALLENGE_LEVEL->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->SPEED_CHALLENGE_LEVEL->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->ATTACK_CHALLENGE_LEVEL->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->ATTACK_CHALLENGE_LEVEL->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->CONTROL_LEVEL->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->CONTROL_LEVEL->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->SPEED->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->SPEED->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->MAX_GAME_OBJECTS->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->MAX_GAME_OBJECTS->getValue()));
-    
-stringBuffer->append(commonStrings->COMMA_SEP);
-    
-stringBuffer->append(this->MAX_LAYERS->getName());
-    
-stringBuffer->append(commonStrings->EQUALS);
-    
-stringBuffer->appendint(JavaBoxes::value<int32_t>(this->MAX_LAYERS->getValue()));
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (int32_t) getGameControlFidelity {
+        return self->gameControlFidelity;
 }
 
 
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        CommonSeps* commonStrings = [CommonSeps getInstance];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->SCALE getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->SCALE getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->ORIENTATION getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->ORIENTATION getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->SENSOR_UPDATE_RATE getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->SENSOR_UPDATE_RATE getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->VIBRATION getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->VIBRATION getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->CHALLENGE_LEVEL getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->CHALLENGE_LEVEL getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->COLLIDE_DAMAGE getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->COLLIDE_DAMAGE getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->DURABILITY_CHALLENGE_LEVEL getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->DURABILITY_CHALLENGE_LEVEL getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->SPEED_CHALLENGE_LEVEL getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->SPEED_CHALLENGE_LEVEL getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->ATTACK_CHALLENGE_LEVEL getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->ATTACK_CHALLENGE_LEVEL getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->CONTROL_LEVEL getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->CONTROL_LEVEL getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->SPEED getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->SPEED getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->MAX_GAME_OBJECTS getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->MAX_GAME_OBJECTS getValue])))];
+        [stringBuffer append:commonStrings->COMMA_SEP];
+        [stringBuffer append:[self->MAX_LAYERS getName]];
+        [stringBuffer append:commonStrings->EQUALS];
+        [stringBuffer appendint:((int32_t) ((int32_t) ([self->MAX_LAYERS getValue])))];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_GAMECONFIGURATIONCENTRAL_CPP

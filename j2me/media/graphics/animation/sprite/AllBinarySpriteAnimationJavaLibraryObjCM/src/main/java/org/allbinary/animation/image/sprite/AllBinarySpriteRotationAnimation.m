@@ -1,144 +1,95 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ALLBINARYSPRITEROTATIONANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ALLBINARYSPRITEROTATIONANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/sprite/AllBinarySpriteRotationAnimation.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <javax/microedition/lcdui/game/Sprite.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/direction/Direction.h>
-
-      
-#include <org/allbinary/math/Angle.h>
-
-      
-#include <org/allbinary/math/AngleFactory.h>
-
-      
-#include <org/allbinary/math/AngleInfo.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/sprite/AllBinarySpriteRotationAnimation.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "javax/microedition/lcdui/game/Sprite.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/direction/Direction.h"
+#include "org/allbinary/math/Angle.h"
+#include "org/allbinary/math/AngleFactory.h"
+#include "org/allbinary/math/AngleInfo.h"
+#include "org/allbinary/animation/image/sprite/HackRotationSpriteIndexedAnimation.h"
+#if __has_include("org/allbinary/animation/image/sprite/AngleIncrementInfo.h")
+#include "org/allbinary/animation/image/sprite/AngleIncrementInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AngleIncrementInfo.h")
+#include "javax/microedition/lcdui/AngleIncrementInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/game/AngleIncrementInfo.h")
+#include "javax/microedition/lcdui/game/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleIncrementInfo.h")
+#include "org/allbinary/animation/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/direction/AngleIncrementInfo.h")
+#include "org/allbinary/direction/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
 
 
 
+void AllBinarySpriteRotationAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation AllBinarySpriteRotationAnimation
 
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/sprite/HackRotationSpriteIndexedAnimation.h"
-
-
-AllBinarySpriteRotationAnimation::AllBinarySpriteRotationAnimation(Sprite* sprite, Image* image, AnimationBehavior* animationBehavior) : HackRotationSpriteIndexedAnimation(sprite, image, AngleInfo::getInstance((AngleFactory::getInstance()->TOTAL_ANGLE /sprite->getRawFrameCount())), animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->angleInfo->adjustAngle(this->sprite->getFrame());
-    
+- (instancetype) init:(Sprite*)sprite :(Image*)image :(AnimationBehavior*)animationBehavior {
+        self = [super init:sprite :image :[AngleInfo getInstance:((int16_t) ([AngleFactory getInstance]->TOTAL_ANGLE / [sprite getRawFrameCount]))] :animationBehavior];
+        [self->angleInfo adjustAngle:[self->sprite getFrame]];
+    return self;
 }
 
 
-    auto AllBinarySpriteRotationAnimation::nextRotation() -> void{
-this->sprite->nextFrame();
-    
-this->angleInfo->adjustAngle(this->sprite->getFrame());
-    
+- (void) nextRotation {
+        [self->sprite nextFrame];
+        [self->angleInfo adjustAngle:[self->sprite getFrame]];
 }
 
 
-    auto AllBinarySpriteRotationAnimation::previousRotation() -> void{
-this->sprite->prevFrame();
-    
-this->angleInfo->adjustAngle(this->sprite->getFrame());
-    
+- (void) previousRotation {
+        [self->sprite prevFrame];
+        [self->angleInfo adjustAngle:[self->sprite getFrame]];
 }
 
 
-    auto AllBinarySpriteRotationAnimation::setFrameByDirection(Direction* direction) -> void{
-
-    Angle* angle = this->directionUtil->getFrameAngle(direction);;
-    
-this->adjustFrameToAngle(angle);
-    
+- (void) setFrameByDirection:(Direction*)direction {
+        Angle* angle = [self->directionUtil getFrameAngle:direction];
+        [self adjustFrameToAngle:angle];
 }
 
 
-    auto AllBinarySpriteRotationAnimation::setFrameToAngle(Angle* angle) -> void{
-this->adjustFrameToAngle(angle);
-    
+- (void) setFrameToAngle:(Angle*)angle {
+        [self adjustFrameToAngle:angle];
 }
 
 
-    auto AllBinarySpriteRotationAnimation::setFrame(int32_t index) -> void{
-this->sprite->setFrame(index);
-    
-this->angleInfo->adjustAngle(this->getFrame());
-    
+- (void) setFrame:(int32_t)index {
+        [self->sprite setFrame:index];
+        [self->angleInfo adjustAngle:[self getFrame]];
 }
 
 
-    auto AllBinarySpriteRotationAnimation::adjustFrameToAngle(Angle* angle) -> void{
-this->adjustFrame(angle->getValue());
-    
+- (void) adjustFrameToAngle:(Angle*)angle {
+        [self adjustFrame:[angle getValue]];
 }
 
 
-    auto AllBinarySpriteRotationAnimation::adjustFrame(int16_t angle) -> void{
-this->setFrame(this->frameUtil->getFrameForAngle(angle, static_cast<int32_t>(this->angleInfo->getAngleIncrementInfo()->getAngleIncrement())));
-    
+- (void) adjustFrame:(int16_t)angle {
+        [self setFrame:[self->frameUtil getFrameForAngle:angle :((int32_t) [[self->angleInfo getAngleIncrementInfo] getAngleIncrement])]];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_ALLBINARYSPRITEROTATIONANIMATION_CPP

@@ -1,109 +1,56 @@
+#ifndef ORG_ALLBINARY_DIRECTION_DIRECTIONUTIL_H
+#define ORG_ALLBINARY_DIRECTION_DIRECTIONUTIL_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.direction
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_DIRECTION_DIRECTIONUTIL_H
-        #define ORG_ALLBINARY_DIRECTION_DIRECTIONUTIL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class Angle;
-class AngleFactory;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class DirectionFactory;
-class Direction;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class DirectionUtil
-            : public virtual Object
-         {
-
-    private: static DirectionUtil* instance_owner();
-    private: static DirectionUtil* instance;
-
-    public: static DirectionUtil* getInstance();
-
-    private: std::vector<Angle*> directionArray;
-
-    private: std::vector<Angle*> directionArray2;
-
-private: DirectionUtil();
-
-    public: Angle* getAngle(Direction* direction);
-
-    public: Angle* getFrameAngle(Direction* direction);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_DIRECTION_DIRECTIONUTIL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_DIRECTION_DIRECTIONUTIL_H_COMPLETE)
-        #define ORG_ALLBINARY_DIRECTION_DIRECTIONUTIL_H_COMPLETE
-        #if __has_include(<org/allbinary/math/Angle.h>)
-#include <org/allbinary/math/Angle.h>
-#endif
-#if __has_include(<org/allbinary/math/AngleFactory.h>)
-#include <org/allbinary/math/AngleFactory.h>
-#endif
-#if __has_include("org/allbinary/direction/DirectionFactory.h")
-#include "org/allbinary/direction/DirectionFactory.h"
-#endif
-#if __has_include("org/allbinary/direction/Direction.h")
-#include "org/allbinary/direction/Direction.h"
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class DirectionUtil;
+@class Angle;
+@class AngleFactory;
+@class DirectionFactory;
+@class Direction;
+#if __has_include("org/allbinary/math/Angle.h")
+#include "org/allbinary/math/Angle.h"
 #endif
 
-        #endif
-    
+@interface DirectionUtil : ABObject {
+@public
+    Angle** directionArray;
+    Angle** directionArray2;
+}
+- (instancetype) init;
+- (void) initFields;
++ (DirectionUtil*) getInstance;
+- (Angle*) getAngle:(Direction*)direction;
+- (Angle*) getFrameAngle:(Direction*)direction;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void DirectionUtil_staticInit(void);
+
+#if __has_include("org/allbinary/math/Angle.h")
+#include "org/allbinary/math/Angle.h"
+#endif
+
+#endif // ORG_ALLBINARY_DIRECTION_DIRECTIONUTIL_H

@@ -1,109 +1,61 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/direction/DirectionFactory.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonPhoneStrings.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/direction/Direction.h"
 
 
+static DirectionFactory* DirectionFactory_instance;
 
-        #ifndef ORG_ALLBINARY_DIRECTION_DIRECTIONFACTORY_CPP
-        #define ORG_ALLBINARY_DIRECTION_DIRECTIONFACTORY_CPP
+void DirectionFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    DirectionFactory_instance = [((DirectionFactory*) [DirectionFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/direction/DirectionFactory.h"
-        
+@implementation DirectionFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonPhoneStrings.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/direction/Direction.h"
-
-auto DirectionFactory::instance_owner() -> DirectionFactory* { static std::unique_ptr<DirectionFactory> value(new DirectionFactory()); return value.get(); }
-DirectionFactory* DirectionFactory::instance = DirectionFactory::instance_owner();
-
-    auto DirectionFactory::getInstance() -> DirectionFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return DirectionFactory::instance;
+- (void) initFields {
+    self->NAME = "DIRECTION";
+    self->LEFT = [((Direction*) [Direction alloc]) init:[CommonPhoneStrings getInstance]->LEFT :"WEST" :0 :1];
+    self->RIGHT = [((Direction*) [Direction alloc]) init:[CommonPhoneStrings getInstance]->RIGHT :"EAST" :1 :0];
+    self->DOWN = [((Direction*) [Direction alloc]) init:[CommonPhoneStrings getInstance]->DOWN :"SOUTH" :2 :0];
+    self->UP = [((Direction*) [Direction alloc]) init:[CommonPhoneStrings getInstance]->UP :"NORTH" :3 :0];
     
+    
+    
+    
+    self->NOT_BORDERED_WITH = [((Direction*) [Direction alloc]) init:"NOT_BORDERED_WITH" :"NOT_BORDERED_WITH" :8 :0];
+    self->NO_DIRECTION = [((Direction*) [Direction alloc]) init:"NO_DIRECTION" :"NO_DIRECTION" :9 :0];
+    self->TOP = [((Direction*) [Direction alloc]) init:"TOP" :"TOP" :10 :0];
+    self->BOTTOM = [((Direction*) [Direction alloc]) init:"BOTTOM" :"BOTTOM" :11 :0];
+    self->ALL_DIRECTION = [((Direction*) [Direction alloc]) init:"ALL_DIRECTION" :"ALL_DIRECTION" :12 :0];
 }
 
 
-DirectionFactory::DirectionFactory() : LEFT(new Direction(CommonPhoneStrings::getInstance()->LEFT, "WEST", 0, 1)), RIGHT(new Direction(CommonPhoneStrings::getInstance()->RIGHT, "EAST", 1, 0)), DOWN(new Direction(CommonPhoneStrings::getInstance()->DOWN, "SOUTH", 2, 0)), UP(new Direction(CommonPhoneStrings::getInstance()->UP, "NORTH", 3, 0)), NOT_BORDERED_WITH(new Direction("NOT_BORDERED_WITH", "NOT_BORDERED_WITH", 8, 0)), NO_DIRECTION(new Direction("NO_DIRECTION", "NO_DIRECTION", 9, 0)), TOP(new Direction("TOP", "TOP", 10, 0)), BOTTOM(new Direction("BOTTOM", "BOTTOM", 11, 0)), ALL_DIRECTION(new Direction("ALL_DIRECTION", "ALL_DIRECTION", 12, 0)){
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-
-    CommonSeps* commonSeps = CommonSeps::getInstance();;
-    
-this->UP_LEFT= new Direction("UP LEFT", JavaString::valueOf(stringBuffer->append(this->UP->getOtherName())->append(commonSeps->SPACE)->append(this->LEFT->getOtherName())), 4, 0);
-    
-stringBuffer->delete_(0, stringBuffer->length());
-    
-this->UP_RIGHT= new Direction("UP RIGHT", JavaString::valueOf(stringBuffer->append(this->UP->getOtherName())->append(commonSeps->SPACE)->append(this->RIGHT->getOtherName())), 5, 0);
-    
-stringBuffer->delete_(0, stringBuffer->length());
-    
-this->DOWN_LEFT= new Direction("DOWN LEFT", JavaString::valueOf(stringBuffer->append(this->DOWN->getOtherName())->append(commonSeps->SPACE)->append(this->LEFT->getOtherName())), 6, 0);
-    
-stringBuffer->delete_(0, stringBuffer->length());
-    
-this->DOWN_RIGHT= new Direction("DOWN RIGHT", JavaString::valueOf(stringBuffer->append(this->DOWN->getOtherName())->append(commonSeps->SPACE)->append(this->RIGHT->getOtherName())), 7, 0);
-    
++ (DirectionFactory*) getInstance {
+        return (DirectionFactory_staticInit(), DirectionFactory_instance);
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        CommonSeps* commonSeps = [CommonSeps getInstance];
+        self->UP_LEFT = [((Direction*) [Direction alloc]) init:"UP LEFT" :[[[[stringBuffer append:[self->UP getOtherName]] append:commonSeps->SPACE] append:[self->LEFT getOtherName]] toString] :4 :0];
+        [stringBuffer delete:0 :[stringBuffer length]];
+        self->UP_RIGHT = [((Direction*) [Direction alloc]) init:"UP RIGHT" :[[[[stringBuffer append:[self->UP getOtherName]] append:commonSeps->SPACE] append:[self->RIGHT getOtherName]] toString] :5 :0];
+        [stringBuffer delete:0 :[stringBuffer length]];
+        self->DOWN_LEFT = [((Direction*) [Direction alloc]) init:"DOWN LEFT" :[[[[stringBuffer append:[self->DOWN getOtherName]] append:commonSeps->SPACE] append:[self->LEFT getOtherName]] toString] :6 :0];
+        [stringBuffer delete:0 :[stringBuffer length]];
+        self->DOWN_RIGHT = [((Direction*) [Direction alloc]) init:"DOWN RIGHT" :[[[[stringBuffer append:[self->DOWN getOtherName]] append:commonSeps->SPACE] append:[self->RIGHT getOtherName]] toString] :7 :0];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_DIRECTION_DIRECTIONFACTORY_CPP

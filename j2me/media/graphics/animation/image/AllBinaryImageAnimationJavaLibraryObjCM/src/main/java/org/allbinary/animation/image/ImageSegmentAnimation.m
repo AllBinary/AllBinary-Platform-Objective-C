@@ -1,234 +1,123 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/ImageSegmentAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/util/CircularIndexUtil.h"
+#include "org/allbinary/animation/image/ImageAnimation.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_IMAGESEGMENTANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_IMAGESEGMENTANIMATION_CPP
+void ImageSegmentAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/ImageSegmentAnimation.h"
-        
+@implementation ImageSegmentAnimation
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/util/CircularIndexUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/ImageAnimation.h"
-
-
-ImageSegmentAnimation::ImageSegmentAnimation(Image* image, std::vector<int32_t> sequenceArray, AnimationBehavior* animationBehavior) : ImageAnimation(image, animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->startX= 0;
+- (void) initFields {
     
-this->startY= 0;
     
-this->drawWidth= this->getImage()->getWidth();
     
-this->drawHeight= this->getImage()->getHeight();
     
-this->circularIndexUtil= CircularIndexUtil::createInstance(this->drawHeight);
     
-this->sequenceArray= sequenceArray;
     
 }
 
 
-    auto ImageSegmentAnimation::nextFrame() -> void{
-this->circularIndexUtil->next();
-    
+- (instancetype) init:(Image*)image :(int32_t*)sequenceArray :(AnimationBehavior*)animationBehavior {
+        self = [super init:image :animationBehavior];
+        [self initFields];
+        self->startX = 0;
+        self->startY = 0;
+        self->drawWidth = [[self getImage] getWidth];
+        self->drawHeight = [[self getImage] getHeight];
+        self->circularIndexUtil = [CircularIndexUtil createInstance:self->drawHeight];
+        self->sequenceArray = sequenceArray;
+    return self;
 }
 
 
-    auto ImageSegmentAnimation::previousFrame() -> void{
-this->circularIndexUtil->previous();
-    
+- (void) nextFrame {
+        [self->circularIndexUtil next];
 }
 
 
-    auto ImageSegmentAnimation::setFrame(int32_t index) -> void{
-this->circularIndexUtil->setIndex(index);
-    
+- (void) previousFrame {
+        [self->circularIndexUtil previous];
 }
 
 
-    auto ImageSegmentAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->circularIndexUtil->getIndex();;
-    
+- (void) setFrame:(int32_t)index {
+        [self->circularIndexUtil setIndex:index];
 }
 
 
-    auto ImageSegmentAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->circularIndexUtil->getSize();;
-    
+- (int32_t) getFrame {
+        return [self->circularIndexUtil getIndex];
 }
 
 
-    auto ImageSegmentAnimation::setSequence(std::vector<int32_t> sequenceArray) -> void{
-this->sequenceArray= sequenceArray;
-    
+- (int32_t) getSize {
+        return [self->circularIndexUtil getSize];
 }
 
 
-    auto ImageSegmentAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->sequenceArray;
-    
+- (void) setSequence:(int32_t*)sequenceArray {
+        self->sequenceArray = sequenceArray;
 }
 
 
-    auto ImageSegmentAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
+- (int32_t*) getSequence {
+        return self->sequenceArray;
 }
 
 
-    auto ImageSegmentAnimation::getStartX() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->startX;
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
 }
 
 
-    auto ImageSegmentAnimation::setStartX(int32_t startX) -> void{
-this->startX= startX;
-    
+- (int32_t) getStartX {
+        return self->startX;
 }
 
 
-    auto ImageSegmentAnimation::getStartY() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->startY;
-    
+- (void) setStartX:(int32_t)startX {
+        self->startX = startX;
 }
 
 
-    auto ImageSegmentAnimation::setStartY(int32_t startY) -> void{
-this->startY= startY;
-    
+- (int32_t) getStartY {
+        return self->startY;
 }
 
 
-    auto ImageSegmentAnimation::getDrawWidth() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->drawWidth;
-    
+- (void) setStartY:(int32_t)startY {
+        self->startY = startY;
 }
 
 
-    auto ImageSegmentAnimation::setDrawWidth(int32_t drawWidth) -> void{
-this->drawWidth= drawWidth;
-    
+- (int32_t) getDrawWidth {
+        return self->drawWidth;
 }
 
 
-    auto ImageSegmentAnimation::getDrawHeight() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->drawHeight;
-    
+- (void) setDrawWidth:(int32_t)drawWidth {
+        self->drawWidth = drawWidth;
 }
 
 
-    auto ImageSegmentAnimation::setDrawHeight(int32_t drawHeight) -> void{
-this->drawHeight= drawHeight;
-    
+- (int32_t) getDrawHeight {
+        return self->drawHeight;
 }
 
 
+- (void) setDrawHeight:(int32_t)drawHeight {
+        self->drawHeight = drawHeight;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_IMAGESEGMENTANIMATION_CPP

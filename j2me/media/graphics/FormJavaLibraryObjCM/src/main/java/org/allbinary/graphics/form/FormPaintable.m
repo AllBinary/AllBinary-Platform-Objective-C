@@ -1,90 +1,41 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/FormPaintable.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/form/PaintableForm.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_FORMPAINTABLE_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_FORMPAINTABLE_CPP
+void FormPaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/FormPaintable.h"
-        
+@implementation FormPaintable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/PaintableForm.h"
-
-
-FormPaintable::FormPaintable(PaintableForm* form){
-this->form= form;
+- (void) initFields {
     
 }
 
 
-    auto FormPaintable::paint(Graphics* graphics) -> void{
-this->form->paint(graphics);
-    
+- (instancetype) init:(PaintableForm*)form {
+    self = [super init];
+    [self initFields];
+        self->form = form;
+    return self;
 }
 
 
-    auto FormPaintable::getForm() -> PaintableForm*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->form;
-    
+- (void) paint:(Graphics*)graphics {
+        [self->form paint:graphics];
 }
 
 
+- (PaintableForm*) getForm {
+        return self->form;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_FORMPAINTABLE_CPP

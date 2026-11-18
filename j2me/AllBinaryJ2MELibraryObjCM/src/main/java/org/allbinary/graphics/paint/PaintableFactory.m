@@ -1,78 +1,29 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_PAINT_PAINTABLEFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_PAINT_PAINTABLEFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/paint/PaintableFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/paint/NullPaintable.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/paint/PaintableFactory.h"
+#include "org/allbinary/graphics/paint/NullPaintable.h"
 #include "org/allbinary/graphics/paint/Paintable.h"
 
 
-PaintableFactory::PaintableFactory() {
-        }
-        
-    auto PaintableFactory::getInstance() -> Paintable*{
 
+void PaintableFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation PaintableFactory
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullPaintable::getInstance();;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+- (Paintable*) getInstance {
+        return [NullPaintable getInstance];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_PAINT_PAINTABLEFACTORY_CPP

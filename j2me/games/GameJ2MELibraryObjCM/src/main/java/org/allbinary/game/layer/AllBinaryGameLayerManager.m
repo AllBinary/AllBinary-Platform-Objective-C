@@ -1,253 +1,120 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/AllBinaryGameLayerManager.h"
+#include "org/allbinary/game/GameInfo.h"
+#include "org/allbinary/game/input/NullPlayerGameInputComposite.h"
+#include "org/allbinary/game/input/PlayerGameInputCompositeInterface.h"
+#include "org/allbinary/graphics/ItemColorFactory.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/layer/LayerProcessor.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/util/BasicArrayList.h"
 
 
+static id AllBinaryGameLayerManager_NULL_ALLBINARY_LAYER_MANAGER;
+int32_t AllBinaryGameLayerManager_ID;
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_ALLBINARYGAMELAYERMANAGER_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_ALLBINARYGAMELAYERMANAGER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/AllBinaryGameLayerManager.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <org/allbinary/game/GameInfo.h>
-
-      
-#include <org/allbinary/game/input/NullPlayerGameInputComposite.h>
-
-      
-#include <org/allbinary/game/input/PlayerGameInputCompositeInterface.h>
-
-      
-#include <org/allbinary/graphics/ItemColorFactory.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/layer/LayerProcessor.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-Object* AllBinaryGameLayerManager::NULL_ALLBINARY_LAYER_MANAGER = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto AllBinaryGameLayerManager::getNullInstance() -> AllBinaryGameLayerManager*{
-
-                        if(AllBinaryGameLayerManager::NULL_ALLBINARY_LAYER_MANAGER == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    AllBinaryGameLayerManager::NULL_ALLBINARY_LAYER_MANAGER= new AllBinaryGameLayerManager(BasicColorFactory::getInstance()->BLACK, BasicColorFactory::getInstance()->WHITE, GameInfo::NONE);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<AllBinaryGameLayerManager*>(AllBinaryGameLayerManager::NULL_ALLBINARY_LAYER_MANAGER);
-    
+void AllBinaryGameLayerManager_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AllBinaryGameLayerManager_NULL_ALLBINARY_LAYER_MANAGER = [NullUtil getInstance]->NULL_OBJECT;
+    AllBinaryGameLayerManager_ID = [[SmallIntegerSingletonFactory getInstance] getAt:22];
 }
 
-int32_t AllBinaryGameLayerManager::ID = SmallIntegerSingletonFactory::getInstance()->getAt(22);
+@implementation AllBinaryGameLayerManager
 
-AllBinaryGameLayerManager::AllBinaryGameLayerManager(BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor, GameInfo* gameInfo) : playerGameInputCompositeInterface(NullPlayerGameInputComposite::NULL_PLAYER_GAME_INPUT_COMPOSITE){
-this->backgroundBasicColor= backgroundBasicColor;
+- (void) initFields {
     
-this->foregroundBasicColor= foregroundBasicColor;
     
-
-    ItemColorFactory* itemColorFactory = ItemColorFactory::getInstance();;
     
-itemColorFactory->INVERT_PAINT= this->backgroundBasicColor->intValue();
-    
-itemColorFactory->PAINT= this->foregroundBasicColor->intValue();
-    
-this->gameInfo= gameInfo;
-    
+    self->playerGameInputCompositeInterface = (NullPlayerGameInputComposite_staticInit(), NullPlayerGameInputComposite_NULL_PLAYER_GAME_INPUT_COMPOSITE);
 }
 
 
-    auto AllBinaryGameLayerManager::getLayerManager() -> AllBinaryLayerManager*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this;
-    
++ (AllBinaryGameLayerManager*) getNullInstance {
+        if ((AllBinaryGameLayerManager_staticInit(), AllBinaryGameLayerManager_NULL_ALLBINARY_LAYER_MANAGER) == [NullUtil getInstance]->NULL_OBJECT) {
+            AllBinaryGameLayerManager_NULL_ALLBINARY_LAYER_MANAGER = [((AllBinaryGameLayerManager*) [AllBinaryGameLayerManager alloc]) init:[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE :(GameInfo_staticInit(), GameInfo_NONE)];
+        }
+        return ((AllBinaryGameLayerManager*) (AllBinaryGameLayerManager_staticInit(), AllBinaryGameLayerManager_NULL_ALLBINARY_LAYER_MANAGER));
 }
 
 
-    auto AllBinaryGameLayerManager::init() -> void{
+- (instancetype) init:(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor :(GameInfo*)gameInfo {
+    self = [super init];
+    [self initFields];
+        self->backgroundBasicColor = backgroundBasicColor;
+        self->foregroundBasicColor = foregroundBasicColor;
+        ItemColorFactory* itemColorFactory = [ItemColorFactory getInstance];
+        itemColorFactory->INVERT_PAINT = [self->backgroundBasicColor intValue];
+        itemColorFactory->PAINT = [self->foregroundBasicColor intValue];
+        self->gameInfo = gameInfo;
+    return self;
 }
 
 
-    auto AllBinaryGameLayerManager::getBackgroundBasicColor() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->backgroundBasicColor;
-    
+- (AllBinaryLayerManager*) getLayerManager {
+        return self;
 }
 
 
-    auto AllBinaryGameLayerManager::setBackgroundBasicColor(BasicColor* backgroundBasicColor) -> void{
-this->backgroundBasicColor= backgroundBasicColor;
-    
-ItemColorFactory::getInstance()->INVERT_PAINT= this->backgroundBasicColor->intValue();
-    
+- (void) init_ {
 }
 
 
-    auto AllBinaryGameLayerManager::getForegroundBasicColor() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->foregroundBasicColor;
-    
+- (BasicColor*) getBackgroundBasicColor {
+        return self->backgroundBasicColor;
 }
 
 
-    auto AllBinaryGameLayerManager::setForegroundBasicColor(BasicColor* foregroundBasicColor) -> void{
-this->foregroundBasicColor= foregroundBasicColor;
-    
-ItemColorFactory::getInstance()->PAINT= this->foregroundBasicColor->intValue();
-    
+- (void) setBackgroundBasicColor:(BasicColor*)backgroundBasicColor {
+        self->backgroundBasicColor = backgroundBasicColor;
+        [ItemColorFactory getInstance]->INVERT_PAINT = [self->backgroundBasicColor intValue];
 }
 
 
-    auto AllBinaryGameLayerManager::getGameInfo() -> GameInfo*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gameInfo;
-    
+- (BasicColor*) getForegroundBasicColor {
+        return self->foregroundBasicColor;
 }
 
 
-    auto AllBinaryGameLayerManager::setGameInfo(GameInfo* gameInfo) -> void{
-this->gameInfo= gameInfo;
-    
+- (void) setForegroundBasicColor:(BasicColor*)foregroundBasicColor {
+        self->foregroundBasicColor = foregroundBasicColor;
+        [ItemColorFactory getInstance]->PAINT = [self->foregroundBasicColor intValue];
 }
 
 
-    auto AllBinaryGameLayerManager::setLayerProcessorList(BasicArrayList* list) -> void{
-
-    std::vector<LayerProcessor*> layerProcessorInterfaceArray = std::vector<LayerProcessor*>(list->size());;
-    
-
-    int32_t size = layerProcessorInterfaceArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-layerProcessorInterfaceArray[index]= dynamic_cast<LayerProcessor*>(list->objectArray[index]);
-    
-}
-
-this->setLayerProcessorArray(layerProcessorInterfaceArray);
-    
+- (GameInfo*) getGameInfo {
+        return self->gameInfo;
 }
 
 
-    auto AllBinaryGameLayerManager::setPlayerGameInputCompositeInterface(PlayerGameInputCompositeInterface* playerGameInputCompositeInterface) -> void{
-this->playerGameInputCompositeInterface= playerGameInputCompositeInterface;
-    
+- (void) setGameInfo:(GameInfo*)gameInfo {
+        self->gameInfo = gameInfo;
 }
 
 
-    auto AllBinaryGameLayerManager::getPlayerGameInputCompositeInterface() -> PlayerGameInputCompositeInterface*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->playerGameInputCompositeInterface;
-    
+- (void) setLayerProcessorList:(BasicArrayList*)list {
+        LayerProcessor** layerProcessorInterfaceArray = ((LayerProcessor**) java_array_new(sizeof(LayerProcessor*), [list size]));
+        int32_t size = java_array_length(layerProcessorInterfaceArray);
+        for (int32_t index = 0; index < size; index++) {
+            layerProcessorInterfaceArray[index] = ((LayerProcessor*) list->objectArray[index]);
+        }
+        [self setLayerProcessorArray:layerProcessorInterfaceArray];
 }
 
 
+- (void) setPlayerGameInputCompositeInterface:(PlayerGameInputCompositeInterface*)playerGameInputCompositeInterface {
+        self->playerGameInputCompositeInterface = playerGameInputCompositeInterface;
+}
 
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_ALLBINARYGAMELAYERMANAGER_CPP
+- (PlayerGameInputCompositeInterface*) getPlayerGameInputCompositeInterface {
+        return self->playerGameInputCompositeInterface;
+}
+
+@end
+

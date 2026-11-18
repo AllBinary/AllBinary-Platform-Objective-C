@@ -1,50 +1,22 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef JAVA_LANG_DEPRECATED_CPP
-        #define JAVA_LANG_DEPRECATED_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "java/lang/Deprecated.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
+// Generated Code Do Not Modify
+#include "java/lang/Deprecated.h"
 
 
 
+void Deprecated_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation Deprecated
 
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
+@end
 
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //J2SE to J2ME compatibility
-
-Deprecated::Deprecated() {
-        }
-        
-
-
-        #endif //JAVA_LANG_DEPRECATED_CPP

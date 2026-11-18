@@ -1,60 +1,23 @@
+#ifndef JAVAX_MICROEDITION_KHRONOS_OPENGLES_GL_H
+#define JAVAX_MICROEDITION_KHRONOS_OPENGLES_GL_H
+// Generated Code Do Not Modify
+// package javax.microedition.khronos.opengles
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class GL;
 
+@protocol GL
+@end
 
-
-        #ifndef JAVAX_MICROEDITION_KHRONOS_OPENGLES_GL_H
-        #define JAVAX_MICROEDITION_KHRONOS_OPENGLES_GL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void GL_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class GL
-            : public virtual Object
-         {
-
-};
-
-            
-
-
-        #endif //JAVAX_MICROEDITION_KHRONOS_OPENGLES_GL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(JAVAX_MICROEDITION_KHRONOS_OPENGLES_GL_H_COMPLETE)
-        #define JAVAX_MICROEDITION_KHRONOS_OPENGLES_GL_H_COMPLETE
-        
-        #endif
-    
+#endif // JAVAX_MICROEDITION_KHRONOS_OPENGLES_GL_H

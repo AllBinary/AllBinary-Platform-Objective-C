@@ -1,63 +1,35 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLPROCESSOR_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLPROCESSOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/OpenGLProcessor.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/khronos/opengles/GL10.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/OpenGLProcessor.h"
+#include "javax/microedition/khronos/opengles/GL10.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
 
+void OpenGLProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation OpenGLProcessor
 
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+}
 
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-OpenGLProcessor::OpenGLProcessor() : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()) {
-        }
-        
-    auto OpenGLProcessor::process(GL10* gl) -> void{
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
+- (void) process:(GL10*)gl {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLPROCESSOR_CPP

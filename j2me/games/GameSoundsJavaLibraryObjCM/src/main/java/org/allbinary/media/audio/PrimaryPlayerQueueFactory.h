@@ -1,89 +1,45 @@
+#ifndef ORG_ALLBINARY_MEDIA_AUDIO_PRIMARYPLAYERQUEUEFACTORY_H
+#define ORG_ALLBINARY_MEDIA_AUDIO_PRIMARYPLAYERQUEUEFACTORY_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.media.audio
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_PRIMARYPLAYERQUEUEFACTORY_H
-        #define ORG_ALLBINARY_MEDIA_AUDIO_PRIMARYPLAYERQUEUEFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class PlayerQueue;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class PrimaryPlayerQueueFactory
-            : public virtual Object
-         {
-
-    private: static PlayerQueue* SINGLETON_owner();
-    private: static PlayerQueue* SINGLETON;
-
-    public: static PlayerQueue* getInstance();
-
-
-            
-    public: PrimaryPlayerQueueFactory();
-        
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_PRIMARYPLAYERQUEUEFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_MEDIA_AUDIO_PRIMARYPLAYERQUEUEFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_MEDIA_AUDIO_PRIMARYPLAYERQUEUEFACTORY_H_COMPLETE
-        #if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class PrimaryPlayerQueueFactory;
+@class PlayerQueue;
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
 #include "org/allbinary/media/audio/PlayerQueue.h"
 #endif
 
-        #endif
-    
+@interface PrimaryPlayerQueueFactory : ABObject {
+@public
+}
+- (instancetype) init;
++ (PlayerQueue*) getInstance;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void PrimaryPlayerQueueFactory_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_MEDIA_AUDIO_PRIMARYPLAYERQUEUEFACTORY_H

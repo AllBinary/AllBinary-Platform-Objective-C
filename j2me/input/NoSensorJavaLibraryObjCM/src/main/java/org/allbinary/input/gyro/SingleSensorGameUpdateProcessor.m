@@ -1,79 +1,33 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/gyro/SingleSensorGameUpdateProcessor.h"
+#include "org/allbinary/input/gyro/SensorGameUpdateProcessor.h"
 
 
 
-        #ifndef ORG_ALLBINARY_INPUT_GYRO_SINGLESENSORGAMEUPDATEPROCESSOR_CPP
-        #define ORG_ALLBINARY_INPUT_GYRO_SINGLESENSORGAMEUPDATEPROCESSOR_CPP
+void SingleSensorGameUpdateProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/gyro/SingleSensorGameUpdateProcessor.h"
-        
+@implementation SingleSensorGameUpdateProcessor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/gyro/SensorGameUpdateProcessor.h"
-
-
-SingleSensorGameUpdateProcessor::SingleSensorGameUpdateProcessor() {
-        }
-        
-                //@Throws(Exception.constructor)
-            
-    auto SingleSensorGameUpdateProcessor::process(Object* anyType) -> void{
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto SingleSensorGameUpdateProcessor::sendNotifications(Object* anyType) -> void{
+// throws Exception
+- (void) process:(id)anyType {
 }
 
 
+// throws Exception
+- (void) sendNotifications:(id)anyType {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_GYRO_SINGLESENSORGAMEUPDATEPROCESSOR_CPP

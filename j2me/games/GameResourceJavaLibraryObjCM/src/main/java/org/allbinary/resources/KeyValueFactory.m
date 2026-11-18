@@ -1,111 +1,44 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/resources/KeyValueFactory.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/util/ABHashtable.h"
 
 
+static KeyValueFactory* KeyValueFactory_instance;
 
-        #ifndef ORG_ALLBINARY_RESOURCES_KEYVALUEFACTORY_CPP
-        #define ORG_ALLBINARY_RESOURCES_KEYVALUEFACTORY_CPP
+void KeyValueFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    KeyValueFactory_instance = [((KeyValueFactory*) [KeyValueFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/resources/KeyValueFactory.h"
-        
+@implementation KeyValueFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->MAP = [[StdUtil getInstance] createHashtable];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (KeyValueFactory*) getInstance {
+        return (KeyValueFactory_staticInit(), KeyValueFactory_instance);
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-KeyValueFactory::KeyValueFactory() : MAP(StdUtil::getInstance()->createHashtable()) {
+- (const char*) get:(const char*)key {
+        if (![self->MAP containsKey:JAVA_BOX(((id) key))]) {
+            return key;
         }
-        auto KeyValueFactory::instance_owner() -> KeyValueFactory* { static std::unique_ptr<KeyValueFactory> value(new KeyValueFactory()); return value.get(); }
-KeyValueFactory* KeyValueFactory::instance = KeyValueFactory::instance_owner();
-
-    auto KeyValueFactory::getInstance() -> KeyValueFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return KeyValueFactory::instance;
-    
+        return ((const char*) [self->MAP get:JAVA_BOX(((id) key))]);
 }
 
+@end
 
-    auto KeyValueFactory::get(std::string key) -> std::string{
-
-                        if(!this->MAP->containsKey(key))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return key;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::unbox<std::string>(this->MAP->get(key));
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_RESOURCES_KEYVALUEFACTORY_CPP

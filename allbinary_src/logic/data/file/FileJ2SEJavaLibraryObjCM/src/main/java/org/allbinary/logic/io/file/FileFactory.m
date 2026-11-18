@@ -1,145 +1,53 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/io/file/FileFactory.h"
+#include "org/allbinary/logic/io/file/AbFile.h"
 
 
+static FileFactory* FileFactory_instance;
 
-        #ifndef ORG_ALLBINARY_LOGIC_IO_FILE_FILEFACTORY_CPP
-        #define ORG_ALLBINARY_LOGIC_IO_FILE_FILEFACTORY_CPP
+void FileFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    FileFactory_instance = [((FileFactory*) [FileFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/io/file/FileFactory.h"
-        
+@implementation FileFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
 
++ (FileFactory*) getInstance {
+        return (FileFactory_staticInit(), FileFactory_instance);
+}
 
 
+// throws Exception
+- (AbFile*) getInstance:(const char*)filePath {
+        return [AbFile createAbFileFromRawPath:filePath];
+}
 
 
+// throws Exception
+- (AbFile*) getInstance:(AbFile*)file :(const char*)childFilePath {
+        return [AbFile createAbFileWithChild:file :childFilePath];
+}
 
 
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/logic/io/file/AbFile.h"
-
-
-FileFactory::FileFactory() {
+// throws Exception
+- (bool) isFile:(const char*)path {
+        AbFile* file = [AbFile createAbFile:path];
+        if ([file exists]) {
+            return true;
+        } else {
+            return false;
         }
-        auto FileFactory::instance_owner() -> FileFactory* { static std::unique_ptr<FileFactory> value(new FileFactory()); return value.get(); }
-FileFactory* FileFactory::instance = FileFactory::instance_owner();
-
-    auto FileFactory::getInstance() -> FileFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return FileFactory::instance;
-    
 }
 
+@end
 
-                //@Throws(Exception.constructor)
-            
-    auto FileFactory::getInstance(std::string filePath) -> AbFile*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AbFile::createAbFileFromRawPath(filePath);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    auto FileFactory::getInstance(AbFile* file, std::string childFilePath) -> AbFile*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AbFile::createAbFileWithChild(file, childFilePath);;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    auto FileFactory::isFile(std::string path) -> bool{
-
-    AbFile* file = AbFile::createAbFile(path);;
-    
-
-                        if(file->exists())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_LOGIC_IO_FILE_FILEFACTORY_CPP

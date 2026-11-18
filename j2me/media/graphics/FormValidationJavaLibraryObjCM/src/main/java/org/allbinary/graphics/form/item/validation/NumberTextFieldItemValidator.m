@@ -1,287 +1,107 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/item/validation/NumberTextFieldItemValidator.h"
+#include "org/allbinary/graphics/form/item/ABTextFieldItem.h"
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_NUMBERTEXTFIELDITEMVALIDATOR_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_NUMBERTEXTFIELDITEMVALIDATOR_CPP
+void NumberTextFieldItemValidator_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/item/validation/NumberTextFieldItemValidator.h"
-        
+@implementation NumberTextFieldItemValidator
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/NumberFormatException.h"
-        
-            #include "java/lang/Integer.h"
-        
-            #include "java/lang/Boolean.h"
-        
-#include <org/allbinary/graphics/form/item/ABTextFieldItem.h>
-
-      
-#include <org/allbinary/logic/control/validate/ValidatorBase.h>
-
-      
-#include <org/allbinary/logic/java/bool/BooleanFactory.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-NumberTextFieldItemValidator::NumberTextFieldItemValidator(ABTextFieldItem* textFieldItem, int32_t maxChars, int32_t min, int32_t max){
-this->textFieldItem= textFieldItem;
+- (void) initFields {
     
-this->min= min;
     
-this->max= max;
     
-this->maxChars= maxChars;
     
 }
 
 
-    auto NumberTextFieldItemValidator::isNumberValid(int32_t value) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return BooleanFactory::getInstance()->TRUE;
-    
+- (instancetype) init:(ABTextFieldItem*)textFieldItem :(int32_t)maxChars :(int32_t)min :(int32_t)max {
+    self = [super init];
+    [self initFields];
+        self->textFieldItem = textFieldItem;
+        self->min = min;
+        self->max = max;
+        self->maxChars = maxChars;
+    return self;
 }
 
 
-    auto NumberTextFieldItemValidator::toNumberVector(int32_t value) -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new BasicArrayListD();
-    
+- (bool) isNumberValid:(int32_t)value {
+        return [BooleanFactory getInstance]->TRUE;
 }
 
 
-    auto NumberTextFieldItemValidator::isValid() -> bool{
-
-    bool result = BooleanFactory::getInstance()->TRUE;;
-    
-
-    std::string string = this->textFieldItem->getString();;
-    
-
-    int32_t textLength = string.size();;
-    
-
-                        if(textLength > 0 && textLength < this->maxChars)
-                        
-                                    {
-                                    
-        try {
-            Integer.parseInt(this->textFieldItem->getString());
-    
-
-                //: 
-} catch(NumberFormatException& e) 
-            {
-result= BooleanFactory::getInstance()->FALSE;
-    
+- (BasicArrayList*) toNumberVector:(int32_t)value {
+        return [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-                                    }
-                                
-                        else {
-                            
-                        if(textLength < 1)
-                        
-                                    {
-                                    result= BooleanFactory::getInstance()->FALSE;
-    
-
-                                    }
-                                
-                             else 
-                        if(textLength > this->maxChars)
-                        
-                                    {
-                                    result= BooleanFactory::getInstance()->FALSE;
-    
-
-                                    }
-                                
-
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return result;
-    
+- (bool) isValid {
+        bool result = [BooleanFactory getInstance]->TRUE;
+        const char* string = [self->textFieldItem getString];
+        int32_t textLength = ((int32_t) strlen(string));
+        if (textLength > 0 && textLength < self->maxChars) {
+            JAVA_TRY {
+                ((int32_t) strtol([self->textFieldItem getString], nullptr, 10));
+            } JAVA_CATCH(NumberFormatException, e) {
+                result = [BooleanFactory getInstance]->FALSE;
+            } JAVA_END_TRY;
+        } else {
+            if (textLength < 1) {
+                result = [BooleanFactory getInstance]->FALSE;
+            } else if (textLength > self->maxChars) {
+                result = [BooleanFactory getInstance]->FALSE;
+            }
+        }
+        return result;
 }
 
 
-    auto NumberTextFieldItemValidator::toList() -> BasicArrayList*{
-
-    BasicArrayList* list = new BasicArrayListD();;
-    
-
-    std::string string = this->textFieldItem->getString();;
-    
-
-    int32_t textLength = string.size();;
-    
-
-    std::string label = this->textFieldItem->getLabel();;
-    
-
-    std::string name = JavaString::substring(label, 0, label.size() -2);;
-    
-
-    SmallIntegerSingletonFactory* smallIntegerSingletonFactory = SmallIntegerSingletonFactory::getInstance();;
-    
-
-    StringMaker* stringMaker = new StringMaker();;
-    
-
-                        if(textLength > 0 && textLength < this->maxChars)
-                        
-                                    {
-                                    
-        try {
-            
-    int32_t number = smallIntegerSingletonFactory->createInstance(Integer.parseInt(this->textFieldItem->getString()));;
-    
-
-                        if(number > this->min)
-                        
-                                    {
-                                    stringMaker->delete_(0, stringMaker->length());
-    
-list->add(JavaString::valueOf(stringMaker->append(name)->append(" is to small")));
-    
-
-                                    }
-                                
-                             else 
-                        if(number > this->max)
-                        
-                                    {
-                                    stringMaker->delete_(0, stringMaker->length());
-    
-list->add(JavaString::valueOf(stringMaker->append(name)->append(" is to large")));
-    
-
-                                    }
-                                
-
-                //: 
-} catch(NumberFormatException& e) 
-            {
-stringMaker->delete_(0, stringMaker->length());
-    
-list->add(JavaString::valueOf(stringMaker->append(name)->append(" is not a number")));
-    
+- (BasicArrayList*) toList {
+        BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        const char* string = [self->textFieldItem getString];
+        int32_t textLength = ((int32_t) strlen(string));
+        const char* label = [self->textFieldItem getLabel];
+        const char* name = java_substring(label, 0, ((int32_t) strlen(label)) - 2);
+        SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
+        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        if (textLength > 0 && textLength < self->maxChars) {
+            JAVA_TRY {
+                int32_t number = [smallIntegerSingletonFactory createInstance:((int32_t) strtol([self->textFieldItem getString], nullptr, 10))];
+                if (((int32_t) (number)) > self->min) {
+                    [stringMaker delete:0 :[stringMaker length]];
+                    [list add:[[[stringMaker append:name] append:" is to small"] toString]];
+                } else if (((int32_t) (number)) > self->max) {
+                    [stringMaker delete:0 :[stringMaker length]];
+                    [list add:[[[stringMaker append:name] append:" is to large"] toString]];
+                }
+            } JAVA_CATCH(NumberFormatException, e) {
+                [stringMaker delete:0 :[stringMaker length]];
+                [list add:[[[stringMaker append:name] append:" is not a number"] toString]];
+            } JAVA_END_TRY;
+        } else {
+            if (textLength < 1) {
+                [stringMaker delete:0 :[stringMaker length]];
+                [list add:[[[stringMaker append:name] append:" is to short"] toString]];
+            } else if (textLength > self->maxChars) {
+                [stringMaker delete:0 :[stringMaker length]];
+                [list add:[[[stringMaker append:name] append:" is to long"] toString]];
+            }
+        }
+        return list;
 }
 
+@end
 
-                                    }
-                                
-                        else {
-                            
-                        if(textLength < 1)
-                        
-                                    {
-                                    stringMaker->delete_(0, stringMaker->length());
-    
-list->add(JavaString::valueOf(stringMaker->append(name)->append(" is to short")));
-    
-
-                                    }
-                                
-                             else 
-                        if(textLength > this->maxChars)
-                        
-                                    {
-                                    stringMaker->delete_(0, stringMaker->length());
-    
-list->add(JavaString::valueOf(stringMaker->append(name)->append(" is to long")));
-    
-
-                                    }
-                                
-
-                        }
-                            
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return list;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_NUMBERTEXTFIELDITEMVALIDATOR_CPP

@@ -1,77 +1,30 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/layer/LayerManagerNoDebug.h"
+#include "org/allbinary/layer/LayerManagerLoggingBase.h"
 
 
+static LayerManagerNoDebug* LayerManagerNoDebug_instance;
 
-        #ifndef ORG_ALLBINARY_LAYER_LAYERMANAGERNODEBUG_CPP
-        #define ORG_ALLBINARY_LAYER_LAYERMANAGERNODEBUG_CPP
+void LayerManagerNoDebug_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    LayerManagerNoDebug_instance = [((LayerManagerNoDebug*) [LayerManagerNoDebug alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/layer/LayerManagerNoDebug.h"
-        
+@implementation LayerManagerNoDebug
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/layer/LayerManagerLoggingBase.h"
-
-
-LayerManagerNoDebug::LayerManagerNoDebug() {
-        }
-        auto LayerManagerNoDebug::instance_owner() -> LayerManagerNoDebug* { static std::unique_ptr<LayerManagerNoDebug> value(new LayerManagerNoDebug()); return value.get(); }
-LayerManagerNoDebug* LayerManagerNoDebug::instance = LayerManagerNoDebug::instance_owner();
-
-    auto LayerManagerNoDebug::getInstance() -> LayerManagerNoDebug*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return LayerManagerNoDebug::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
++ (LayerManagerNoDebug*) getInstance {
+        return (LayerManagerNoDebug_staticInit(), LayerManagerNoDebug_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LAYER_LAYERMANAGERNODEBUG_CPP

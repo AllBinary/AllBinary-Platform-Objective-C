@@ -1,129 +1,70 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABTEXTFIELDITEM_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABTEXTFIELDITEM_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/item/ABTextFieldItem.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Canvas.h>
-
-      
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/logic/util/visitor/Visitor.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/item/ABTextFieldItem.h"
+#include "javax/microedition/lcdui/Canvas.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/logic/util/visitor/Visitor.h"
+#include "org/allbinary/graphics/form/item/ABTextItem.h"
 
 
 
+void ABTextFieldItem_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation ABTextFieldItem
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/item/ABTextItem.h"
-
-
-ABTextFieldItem::ABTextFieldItem(Canvas* canvas, Visitor* visitor, std::string label, std::string value, int32_t maxSize, int32_t layout, std::string altText, Font* font, BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor) : ABTextItem(label, layout, altText, backgroundBasicColor, foregroundBasicColor){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->font= font;
+- (void) initFields {
     
 }
 
 
-    auto ABTextFieldItem::getLabel() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->EMPTY_STRING;
-    
+- (instancetype) init:(Canvas*)canvas :(Visitor*)visitor :(const char*)label :(const char*)value :(int32_t)maxSize :(int32_t)layout :(const char*)altText :(Font*)font :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor {
+        self = [super init:label :layout :altText :backgroundBasicColor :foregroundBasicColor];
+        [self initFields];
+        self->font = font;
+    return self;
 }
 
 
-    auto ABTextFieldItem::setLabel(std::string label) -> void{
+- (const char*) getLabel {
+        return [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-    auto ABTextFieldItem::getString() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->EMPTY_STRING;
-    
+- (void) setLabel:(const char*)label {
 }
 
 
-    auto ABTextFieldItem::setString(std::string string) -> void{
+- (const char*) getString {
+        return [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-    auto ABTextFieldItem::setFocus(bool state) -> void{
+- (void) setString:(const char*)string {
 }
 
 
-    auto ABTextFieldItem::getFontHeight() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->font->getHeight();;
-    
+- (void) setFocus:(bool)state {
 }
 
 
-    auto ABTextFieldItem::setBackgroundBasicColorP(BasicColor* basicColor) -> void{
+- (int32_t) getFontHeight {
+        return [self->font getHeight];
 }
 
 
-    auto ABTextFieldItem::setForegroundBasicColorP(BasicColor* basicColor) -> void{
+- (void) setBackgroundBasicColorP:(BasicColor*)basicColor {
 }
 
 
+- (void) setForegroundBasicColorP:(BasicColor*)basicColor {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABTEXTFIELDITEM_CPP

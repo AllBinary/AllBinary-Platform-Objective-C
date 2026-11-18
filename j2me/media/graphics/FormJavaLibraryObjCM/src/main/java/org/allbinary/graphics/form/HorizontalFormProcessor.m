@@ -1,81 +1,37 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/HorizontalFormProcessor.h"
+#include "org/allbinary/graphics/form/ScrollCurrentSelectionForm.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_HORIZONTALFORMPROCESSOR_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_HORIZONTALFORMPROCESSOR_CPP
+void HorizontalFormProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/HorizontalFormProcessor.h"
-        
+@implementation HorizontalFormProcessor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/canvas/Processor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/ScrollCurrentSelectionForm.h"
-
-
-HorizontalFormProcessor::HorizontalFormProcessor(ScrollCurrentSelectionForm* scrollCurrentSelectionForm){
-this->scrollCurrentSelectionForm= scrollCurrentSelectionForm;
+- (void) initFields {
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto HorizontalFormProcessor::process() -> void{
-this->scrollCurrentSelectionForm->processHorizontalForm();
-    
-this->scrollCurrentSelectionForm->processor= Processor::getInstance();
-    
+- (instancetype) init:(ScrollCurrentSelectionForm*)scrollCurrentSelectionForm {
+    self = [super init];
+    [self initFields];
+        self->scrollCurrentSelectionForm = scrollCurrentSelectionForm;
+    return self;
 }
 
 
+// throws Exception
+- (void) process {
+        [self->scrollCurrentSelectionForm processHorizontalForm];
+        self->scrollCurrentSelectionForm->processor = [Processor getInstance];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_HORIZONTALFORMPROCESSOR_CPP

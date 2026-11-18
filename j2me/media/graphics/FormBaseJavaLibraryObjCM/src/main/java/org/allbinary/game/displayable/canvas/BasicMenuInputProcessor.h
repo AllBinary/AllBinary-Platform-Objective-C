@@ -1,124 +1,67 @@
+#ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASICMENUINPUTPROCESSOR_H
+#define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASICMENUINPUTPROCESSOR_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASICMENUINPUTPROCESSOR_H
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASICMENUINPUTPROCESSOR_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class Canvas;
-class NullCanvas;
-#include <org/allbinary/game/input/PlayerGameInput.h>
-class MyCanvas;
-#include <org/allbinary/input/motion/gesture/observer/BaseMotionGestureEventListener.h>
-class MotionGestureEvent;
-class BasicArrayList;
-class BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class BasicMenuInputProcessor: public PlayerGameInput, public virtual BaseMotionGestureEventListener {
-
-    public: BasicArrayList* motionGestureEventList;
-
-    private: Canvas* canvas;
-
-/*protected*/ public: BasicMenuInputProcessor(BasicArrayList* gameKeyEventList, int32_t playerInputId, Canvas* gameCanvas);
-
-    public: void onMotionGestureEvent(MotionGestureEvent* motionGestureEvent);
-
-    public: void onScrolledMotionGestureEvent(MotionGestureEvent* motionGestureEvent);
-
-    private: void setCanvas(MyCanvas* canvas);
-
-    /*protected*/ public: MyCanvas* getCanvas();
-
-                //@Throws(Exception.constructor)
-            
-    public: int32_t processInputList();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASICMENUINPUTPROCESSOR_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASICMENUINPUTPROCESSOR_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASICMENUINPUTPROCESSOR_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Canvas.h>)
-#include <javax/microedition/lcdui/Canvas.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class BasicMenuInputProcessor;
+@class Canvas;
+@class NullCanvas;
+@class PlayerGameInput;
+@class MyCanvas;
+@class BaseMotionGestureEventListener;
+@class MotionGestureEvent;
+@class BasicArrayList;
+@class BasicArrayListD;
+#if __has_include("javax/microedition/lcdui/Canvas.h")
+#include "javax/microedition/lcdui/Canvas.h"
 #endif
-#if __has_include(<javax/microedition/lcdui/NullCanvas.h>)
-#include <javax/microedition/lcdui/NullCanvas.h>
-#endif
-#if __has_include(<org/allbinary/game/input/PlayerGameInput.h>)
-#include <org/allbinary/game/input/PlayerGameInput.h>
-#endif
-#if __has_include(<org/allbinary/graphics/displayable/MyCanvas.h>)
-#include <org/allbinary/graphics/displayable/MyCanvas.h>
-#endif
-#if __has_include(<org/allbinary/input/motion/gesture/observer/BaseMotionGestureEventListener.h>)
-#include <org/allbinary/input/motion/gesture/observer/BaseMotionGestureEventListener.h>
-#endif
-#if __has_include(<org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h>)
-#include <org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h>
-#endif
-#if __has_include(<org/allbinary/util/BasicArrayList.h>)
-#include <org/allbinary/util/BasicArrayList.h>
-#endif
-#if __has_include(<org/allbinary/util/BasicArrayListD.h>)
-#include <org/allbinary/util/BasicArrayListD.h>
+#include "org/allbinary/game/input/PlayerGameInput.h"
+#include "org/allbinary/input/motion/gesture/observer/BaseMotionGestureEventListener.h"
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
 #endif
 
-        #endif
-    
+@interface BasicMenuInputProcessor : PlayerGameInput <BaseMotionGestureEventListener> {
+@public
+    BasicArrayList* motionGestureEventList;
+    Canvas* canvas;
+}
+- (instancetype) init:(BasicArrayList*)gameKeyEventList :(int32_t)playerInputId :(Canvas*)gameCanvas;
+- (void) initFields;
+- (void) onMotionGestureEvent:(MotionGestureEvent*)motionGestureEvent;
+- (void) onScrolledMotionGestureEvent:(MotionGestureEvent*)motionGestureEvent;
+- (void) setCanvas:(MyCanvas*)canvas;
+- (MyCanvas*) getCanvas;
+- (int32_t) processInputList;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void BasicMenuInputProcessor_staticInit(void);
+
+#if __has_include("org/allbinary/graphics/displayable/MyCanvas.h")
+#include "org/allbinary/graphics/displayable/MyCanvas.h"
+#endif
+
+#endif // ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASICMENUINPUTPROCESSOR_H

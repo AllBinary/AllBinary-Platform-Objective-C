@@ -1,121 +1,61 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/displayable/canvas/BaseMenuBehavior.h"
+#include "org/allbinary/graphics/displayable/event/DisplayChangeEvent.h"
+#include "org/allbinary/graphics/paint/NullPaintable.h"
+#include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
 
 
+static BaseMenuBehavior* BaseMenuBehavior_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASEMENUBEHAVIOR_CPP
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASEMENUBEHAVIOR_CPP
+void BaseMenuBehavior_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    BaseMenuBehavior_instance = [((BaseMenuBehavior*) [BaseMenuBehavior alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/displayable/canvas/BaseMenuBehavior.h"
-        
+@implementation BaseMenuBehavior
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/graphics/displayable/event/DisplayChangeEvent.h>
-
-      
-#include <org/allbinary/graphics/paint/NullPaintable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
-
-
-BaseMenuBehavior::BaseMenuBehavior() {
-        }
-        auto BaseMenuBehavior::instance_owner() -> BaseMenuBehavior* { static std::unique_ptr<BaseMenuBehavior> value(new BaseMenuBehavior()); return value.get(); }
-BaseMenuBehavior* BaseMenuBehavior::instance = BaseMenuBehavior::instance_owner();
-
-    auto BaseMenuBehavior::getInstance() -> BaseMenuBehavior*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return BaseMenuBehavior::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseMenuBehavior::onDisplayChangeEvent(AllBinaryGameCanvas* allBinaryGameCanvas, DisplayChangeEvent* displayChangeEvent) -> void{
++ (BaseMenuBehavior*) getInstance {
+        return (BaseMenuBehavior_staticInit(), BaseMenuBehavior_instance);
 }
 
 
-    auto BaseMenuBehavior::initSpecialPaint(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
-allBinaryGameCanvas->setNonBotPaintableP(NullPaintable::getInstance());
-    
+// throws Exception
+- (void) onDisplayChangeEvent:(AllBinaryGameCanvas*)allBinaryGameCanvas :(DisplayChangeEvent*)displayChangeEvent {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseMenuBehavior::initMenu(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
+- (void) initSpecialPaint:(AllBinaryGameCanvas*)allBinaryGameCanvas {
+        [allBinaryGameCanvas setNonBotPaintableP:[NullPaintable getInstance]];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseMenuBehavior::updateMenu(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
+// throws Exception
+- (void) initMenu:(AllBinaryGameCanvas*)allBinaryGameCanvas {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseMenuBehavior::popupMenu(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
+// throws Exception
+- (void) updateMenu:(AllBinaryGameCanvas*)allBinaryGameCanvas {
 }
 
 
-    auto BaseMenuBehavior::closeMenu(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
+// throws Exception
+- (void) popupMenu:(AllBinaryGameCanvas*)allBinaryGameCanvas {
 }
 
 
+- (void) closeMenu:(AllBinaryGameCanvas*)allBinaryGameCanvas {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASEMENUBEHAVIOR_CPP

@@ -1,77 +1,40 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/threed/GLHolder.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_THREED_GLHOLDER_CPP
-        #define ORG_ALLBINARY_GRAPHICS_THREED_GLHOLDER_CPP
+void GLHolder_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/threed/GLHolder.h"
-        
+@implementation GLHolder
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GLHolder::GLHolder(){
+- (void) initFields {
+    self->isCreated = true;
 }
 
 
-    auto GLHolder::runOnSurfaceCreated(Object* renderer) -> void{
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto GLHolder::runOnSurfaceChanged(Object* renderer, int32_t width, int32_t height) -> void{
+- (void) runOnSurfaceCreated:(id)renderer {
 }
 
 
-    auto GLHolder::run(Object* renderer) -> void{
+- (void) runOnSurfaceChanged:(id)renderer :(int32_t)width :(int32_t)height {
 }
 
 
+- (void) run:(id)renderer {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_THREED_GLHOLDER_CPP

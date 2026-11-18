@@ -1,79 +1,39 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#include "org/allbinary/game/configuration/feature/Feature.h"
 
 
+static MainFeatureFactory* MainFeatureFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_MAINFEATUREFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_MAINFEATUREFACTORY_CPP
+void MainFeatureFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    MainFeatureFactory_instance = [((MainFeatureFactory*) [MainFeatureFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
-        
+@implementation MainFeatureFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->FULL_SCREEN = [((Feature*) [Feature alloc]) init:"Full Screen"];
+    self->TITLE_BAR = [((Feature*) [Feature alloc]) init:"Title Bar"];
+    self->STATIC = [((Feature*) [Feature alloc]) init:"Static Dependent Feature"];
+    self->LOAD_ONDEMAND = [((Feature*) [Feature alloc]) init:"Load OnDemand"];
+    self->LOAD_ALL = [((Feature*) [Feature alloc]) init:"Load All"];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/configuration/feature/Feature.h"
-
-
-MainFeatureFactory::MainFeatureFactory() : FULL_SCREEN(new Feature("Full Screen")), TITLE_BAR(new Feature("Title Bar")), STATIC(new Feature("Static Dependent Feature")), LOAD_ONDEMAND(new Feature("Load OnDemand")), LOAD_ALL(new Feature("Load All")) {
-        }
-        auto MainFeatureFactory::instance_owner() -> MainFeatureFactory* { static std::unique_ptr<MainFeatureFactory> value(new MainFeatureFactory()); return value.get(); }
-MainFeatureFactory* MainFeatureFactory::instance = MainFeatureFactory::instance_owner();
-
-    auto MainFeatureFactory::getInstance() -> MainFeatureFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return MainFeatureFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (MainFeatureFactory*) getInstance {
+        return (MainFeatureFactory_staticInit(), MainFeatureFactory_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_MAINFEATUREFACTORY_CPP

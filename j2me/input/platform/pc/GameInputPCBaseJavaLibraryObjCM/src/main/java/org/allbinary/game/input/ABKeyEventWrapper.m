@@ -1,84 +1,222 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2026 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/ABKeyEventWrapper.h"
 
 
+static ABKeyEventWrapper* ABKeyEventWrapper_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_ABKEYEVENTWRAPPER_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_ABKEYEVENTWRAPPER_CPP
+void ABKeyEventWrapper_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ABKeyEventWrapper_instance = [((ABKeyEventWrapper*) [ABKeyEventWrapper alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/ABKeyEventWrapper.h"
-        
+@implementation ABKeyEventWrapper
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->VK_ENTER = (KeyEvent_staticInit(), KeyEvent_VK_ENTER);
+    self->VK_BACK_SPACE = (KeyEvent_staticInit(), KeyEvent_VK_BACK_SPACE);
+    self->VK_TAB = (KeyEvent_staticInit(), KeyEvent_VK_TAB);
+    self->VK_CANCEL = (KeyEvent_staticInit(), KeyEvent_VK_CANCEL);
+    self->VK_CLEAR = (KeyEvent_staticInit(), KeyEvent_VK_CLEAR);
+    self->VK_SHIFT = (KeyEvent_staticInit(), KeyEvent_VK_SHIFT);
+    self->VK_CONTROL = (KeyEvent_staticInit(), KeyEvent_VK_CONTROL);
+    self->VK_ALT = (KeyEvent_staticInit(), KeyEvent_VK_ALT);
+    self->VK_PAUSE = (KeyEvent_staticInit(), KeyEvent_VK_PAUSE);
+    self->VK_CAPS_LOCK = (KeyEvent_staticInit(), KeyEvent_VK_CAPS_LOCK);
+    self->VK_ESCAPE = (KeyEvent_staticInit(), KeyEvent_VK_ESCAPE);
+    self->VK_SPACE = (KeyEvent_staticInit(), KeyEvent_VK_SPACE);
+    self->VK_PAGE_UP = (KeyEvent_staticInit(), KeyEvent_VK_PAGE_UP);
+    self->VK_PAGE_DOWN = (KeyEvent_staticInit(), KeyEvent_VK_PAGE_DOWN);
+    self->VK_END = (KeyEvent_staticInit(), KeyEvent_VK_END);
+    self->VK_HOME = (KeyEvent_staticInit(), KeyEvent_VK_HOME);
+    self->VK_LEFT = (KeyEvent_staticInit(), KeyEvent_VK_LEFT);
+    self->VK_UP = (KeyEvent_staticInit(), KeyEvent_VK_UP);
+    self->VK_RIGHT = (KeyEvent_staticInit(), KeyEvent_VK_RIGHT);
+    self->VK_DOWN = (KeyEvent_staticInit(), KeyEvent_VK_DOWN);
+    self->VK_COMMA = (KeyEvent_staticInit(), KeyEvent_VK_COMMA);
+    self->VK_MINUS = (KeyEvent_staticInit(), KeyEvent_VK_MINUS);
+    self->VK_PERIOD = (KeyEvent_staticInit(), KeyEvent_VK_PERIOD);
+    self->VK_SLASH = (KeyEvent_staticInit(), KeyEvent_VK_SLASH);
+    self->VK_0 = (KeyEvent_staticInit(), KeyEvent_VK_0);
+    self->VK_1 = (KeyEvent_staticInit(), KeyEvent_VK_1);
+    self->VK_2 = (KeyEvent_staticInit(), KeyEvent_VK_2);
+    self->VK_3 = (KeyEvent_staticInit(), KeyEvent_VK_3);
+    self->VK_4 = (KeyEvent_staticInit(), KeyEvent_VK_4);
+    self->VK_5 = (KeyEvent_staticInit(), KeyEvent_VK_5);
+    self->VK_6 = (KeyEvent_staticInit(), KeyEvent_VK_6);
+    self->VK_7 = (KeyEvent_staticInit(), KeyEvent_VK_7);
+    self->VK_8 = (KeyEvent_staticInit(), KeyEvent_VK_8);
+    self->VK_9 = (KeyEvent_staticInit(), KeyEvent_VK_9);
+    self->VK_SEMICOLON = (KeyEvent_staticInit(), KeyEvent_VK_SEMICOLON);
+    self->VK_EQUALS = (KeyEvent_staticInit(), KeyEvent_VK_EQUALS);
+    self->VK_A = (KeyEvent_staticInit(), KeyEvent_VK_A);
+    self->VK_B = (KeyEvent_staticInit(), KeyEvent_VK_B);
+    self->VK_C = (KeyEvent_staticInit(), KeyEvent_VK_C);
+    self->VK_D = (KeyEvent_staticInit(), KeyEvent_VK_D);
+    self->VK_E = (KeyEvent_staticInit(), KeyEvent_VK_E);
+    self->VK_F = (KeyEvent_staticInit(), KeyEvent_VK_F);
+    self->VK_G = (KeyEvent_staticInit(), KeyEvent_VK_G);
+    self->VK_H = (KeyEvent_staticInit(), KeyEvent_VK_H);
+    self->VK_I = (KeyEvent_staticInit(), KeyEvent_VK_I);
+    self->VK_J = (KeyEvent_staticInit(), KeyEvent_VK_J);
+    self->VK_K = (KeyEvent_staticInit(), KeyEvent_VK_K);
+    self->VK_L = (KeyEvent_staticInit(), KeyEvent_VK_L);
+    self->VK_M = (KeyEvent_staticInit(), KeyEvent_VK_M);
+    self->VK_N = (KeyEvent_staticInit(), KeyEvent_VK_N);
+    self->VK_O = (KeyEvent_staticInit(), KeyEvent_VK_O);
+    self->VK_P = (KeyEvent_staticInit(), KeyEvent_VK_P);
+    self->VK_Q = (KeyEvent_staticInit(), KeyEvent_VK_Q);
+    self->VK_R = (KeyEvent_staticInit(), KeyEvent_VK_R);
+    self->VK_S = (KeyEvent_staticInit(), KeyEvent_VK_S);
+    self->VK_T = (KeyEvent_staticInit(), KeyEvent_VK_T);
+    self->VK_U = (KeyEvent_staticInit(), KeyEvent_VK_U);
+    self->VK_V = (KeyEvent_staticInit(), KeyEvent_VK_V);
+    self->VK_W = (KeyEvent_staticInit(), KeyEvent_VK_W);
+    self->VK_X = (KeyEvent_staticInit(), KeyEvent_VK_X);
+    self->VK_Y = (KeyEvent_staticInit(), KeyEvent_VK_Y);
+    self->VK_Z = (KeyEvent_staticInit(), KeyEvent_VK_Z);
+    self->VK_OPEN_BRACKET = (KeyEvent_staticInit(), KeyEvent_VK_OPEN_BRACKET);
+    self->VK_BACK_SLASH = (KeyEvent_staticInit(), KeyEvent_VK_BACK_SLASH);
+    self->VK_CLOSE_BRACKET = (KeyEvent_staticInit(), KeyEvent_VK_CLOSE_BRACKET);
+    self->VK_NUMPAD0 = (KeyEvent_staticInit(), KeyEvent_VK_NUMPAD0);
+    self->VK_NUMPAD1 = (KeyEvent_staticInit(), KeyEvent_VK_NUMPAD1);
+    self->VK_NUMPAD2 = (KeyEvent_staticInit(), KeyEvent_VK_NUMPAD2);
+    self->VK_NUMPAD3 = (KeyEvent_staticInit(), KeyEvent_VK_NUMPAD3);
+    self->VK_NUMPAD4 = (KeyEvent_staticInit(), KeyEvent_VK_NUMPAD4);
+    self->VK_NUMPAD5 = (KeyEvent_staticInit(), KeyEvent_VK_NUMPAD5);
+    self->VK_NUMPAD6 = (KeyEvent_staticInit(), KeyEvent_VK_NUMPAD6);
+    self->VK_NUMPAD7 = (KeyEvent_staticInit(), KeyEvent_VK_NUMPAD7);
+    self->VK_NUMPAD8 = (KeyEvent_staticInit(), KeyEvent_VK_NUMPAD8);
+    self->VK_NUMPAD9 = (KeyEvent_staticInit(), KeyEvent_VK_NUMPAD9);
+    self->VK_MULTIPLY = (KeyEvent_staticInit(), KeyEvent_VK_MULTIPLY);
+    self->VK_ADD = (KeyEvent_staticInit(), KeyEvent_VK_ADD);
+    self->VK_SEPARATER = (KeyEvent_staticInit(), KeyEvent_VK_SEPARATER);
+    self->VK_SEPARATOR = (KeyEvent_staticInit(), KeyEvent_VK_SEPARATOR);
+    self->VK_SUBTRACT = (KeyEvent_staticInit(), KeyEvent_VK_SUBTRACT);
+    self->VK_DECIMAL = (KeyEvent_staticInit(), KeyEvent_VK_DECIMAL);
+    self->VK_DIVIDE = (KeyEvent_staticInit(), KeyEvent_VK_DIVIDE);
+    self->VK_DELETE = (KeyEvent_staticInit(), KeyEvent_VK_DELETE);
+    self->VK_NUM_LOCK = (KeyEvent_staticInit(), KeyEvent_VK_NUM_LOCK);
+    self->VK_SCROLL_LOCK = (KeyEvent_staticInit(), KeyEvent_VK_SCROLL_LOCK);
+    self->VK_F1 = (KeyEvent_staticInit(), KeyEvent_VK_F1);
+    self->VK_F2 = (KeyEvent_staticInit(), KeyEvent_VK_F2);
+    self->VK_F3 = (KeyEvent_staticInit(), KeyEvent_VK_F3);
+    self->VK_F4 = (KeyEvent_staticInit(), KeyEvent_VK_F4);
+    self->VK_F5 = (KeyEvent_staticInit(), KeyEvent_VK_F5);
+    self->VK_F6 = (KeyEvent_staticInit(), KeyEvent_VK_F6);
+    self->VK_F7 = (KeyEvent_staticInit(), KeyEvent_VK_F7);
+    self->VK_F8 = (KeyEvent_staticInit(), KeyEvent_VK_F8);
+    self->VK_F9 = (KeyEvent_staticInit(), KeyEvent_VK_F9);
+    self->VK_F10 = (KeyEvent_staticInit(), KeyEvent_VK_F10);
+    self->VK_F11 = (KeyEvent_staticInit(), KeyEvent_VK_F11);
+    self->VK_F12 = (KeyEvent_staticInit(), KeyEvent_VK_F12);
+    self->VK_F13 = (KeyEvent_staticInit(), KeyEvent_VK_F13);
+    self->VK_F14 = (KeyEvent_staticInit(), KeyEvent_VK_F14);
+    self->VK_F15 = (KeyEvent_staticInit(), KeyEvent_VK_F15);
+    self->VK_F16 = (KeyEvent_staticInit(), KeyEvent_VK_F16);
+    self->VK_F17 = (KeyEvent_staticInit(), KeyEvent_VK_F17);
+    self->VK_F18 = (KeyEvent_staticInit(), KeyEvent_VK_F18);
+    self->VK_F19 = (KeyEvent_staticInit(), KeyEvent_VK_F19);
+    self->VK_F20 = (KeyEvent_staticInit(), KeyEvent_VK_F20);
+    self->VK_F21 = (KeyEvent_staticInit(), KeyEvent_VK_F21);
+    self->VK_F22 = (KeyEvent_staticInit(), KeyEvent_VK_F22);
+    self->VK_F23 = (KeyEvent_staticInit(), KeyEvent_VK_F23);
+    self->VK_F24 = (KeyEvent_staticInit(), KeyEvent_VK_F24);
+    self->VK_PRINTSCREEN = (KeyEvent_staticInit(), KeyEvent_VK_PRINTSCREEN);
+    self->VK_INSERT = (KeyEvent_staticInit(), KeyEvent_VK_INSERT);
+    self->VK_HELP = (KeyEvent_staticInit(), KeyEvent_VK_HELP);
+    self->VK_META = (KeyEvent_staticInit(), KeyEvent_VK_META);
+    self->VK_BACK_QUOTE = (KeyEvent_staticInit(), KeyEvent_VK_BACK_QUOTE);
+    self->VK_QUOTE = (KeyEvent_staticInit(), KeyEvent_VK_QUOTE);
+    self->VK_KP_UP = (KeyEvent_staticInit(), KeyEvent_VK_KP_UP);
+    self->VK_KP_DOWN = (KeyEvent_staticInit(), KeyEvent_VK_KP_DOWN);
+    self->VK_KP_LEFT = (KeyEvent_staticInit(), KeyEvent_VK_KP_LEFT);
+    self->VK_KP_RIGHT = (KeyEvent_staticInit(), KeyEvent_VK_KP_RIGHT);
+    self->VK_DEAD_GRAVE = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_GRAVE);
+    self->VK_DEAD_ACUTE = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_ACUTE);
+    self->VK_DEAD_CIRCUMFLEX = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_CIRCUMFLEX);
+    self->VK_DEAD_TILDE = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_TILDE);
+    self->VK_DEAD_MACRON = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_MACRON);
+    self->VK_DEAD_BREVE = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_BREVE);
+    self->VK_DEAD_ABOVEDOT = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_ABOVEDOT);
+    self->VK_DEAD_DIAERESIS = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_DIAERESIS);
+    self->VK_DEAD_ABOVERING = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_ABOVERING);
+    self->VK_DEAD_DOUBLEACUTE = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_DOUBLEACUTE);
+    self->VK_DEAD_CARON = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_CARON);
+    self->VK_DEAD_CEDILLA = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_CEDILLA);
+    self->VK_DEAD_OGONEK = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_OGONEK);
+    self->VK_DEAD_IOTA = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_IOTA);
+    self->VK_DEAD_VOICED_SOUND = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_VOICED_SOUND);
+    self->VK_DEAD_SEMIVOICED_SOUND = (KeyEvent_staticInit(), KeyEvent_VK_DEAD_SEMIVOICED_SOUND);
+    self->VK_AMPERSAND = (KeyEvent_staticInit(), KeyEvent_VK_AMPERSAND);
+    self->VK_ASTERISK = (KeyEvent_staticInit(), KeyEvent_VK_ASTERISK);
+    self->VK_QUOTEDBL = (KeyEvent_staticInit(), KeyEvent_VK_QUOTEDBL);
+    self->VK_LESS = (KeyEvent_staticInit(), KeyEvent_VK_LESS);
+    self->VK_GREATER = (KeyEvent_staticInit(), KeyEvent_VK_GREATER);
+    self->VK_BRACELEFT = (KeyEvent_staticInit(), KeyEvent_VK_BRACELEFT);
+    self->VK_BRACERIGHT = (KeyEvent_staticInit(), KeyEvent_VK_BRACERIGHT);
+    self->VK_AT = (KeyEvent_staticInit(), KeyEvent_VK_AT);
+    self->VK_COLON = (KeyEvent_staticInit(), KeyEvent_VK_COLON);
+    self->VK_CIRCUMFLEX = (KeyEvent_staticInit(), KeyEvent_VK_CIRCUMFLEX);
+    self->VK_DOLLAR = (KeyEvent_staticInit(), KeyEvent_VK_DOLLAR);
+    self->VK_EURO_SIGN = (KeyEvent_staticInit(), KeyEvent_VK_EURO_SIGN);
+    self->VK_EXCLAMATION_MARK = (KeyEvent_staticInit(), KeyEvent_VK_EXCLAMATION_MARK);
+    self->VK_INVERTED_EXCLAMATION_MARK = (KeyEvent_staticInit(), KeyEvent_VK_INVERTED_EXCLAMATION_MARK);
+    self->VK_LEFT_PARENTHESIS = (KeyEvent_staticInit(), KeyEvent_VK_LEFT_PARENTHESIS);
+    self->VK_NUMBER_SIGN = (KeyEvent_staticInit(), KeyEvent_VK_NUMBER_SIGN);
+    self->VK_PLUS = (KeyEvent_staticInit(), KeyEvent_VK_PLUS);
+    self->VK_RIGHT_PARENTHESIS = (KeyEvent_staticInit(), KeyEvent_VK_RIGHT_PARENTHESIS);
+    self->VK_UNDERSCORE = (KeyEvent_staticInit(), KeyEvent_VK_UNDERSCORE);
+    self->VK_WINDOWS = (KeyEvent_staticInit(), KeyEvent_VK_WINDOWS);
+    self->VK_CONTEXT_MENU = (KeyEvent_staticInit(), KeyEvent_VK_CONTEXT_MENU);
+    self->VK_FINAL = (KeyEvent_staticInit(), KeyEvent_VK_FINAL);
+    self->VK_CONVERT = (KeyEvent_staticInit(), KeyEvent_VK_CONVERT);
+    self->VK_NONCONVERT = (KeyEvent_staticInit(), KeyEvent_VK_NONCONVERT);
+    self->VK_ACCEPT = (KeyEvent_staticInit(), KeyEvent_VK_ACCEPT);
+    self->VK_MODECHANGE = (KeyEvent_staticInit(), KeyEvent_VK_MODECHANGE);
+    self->VK_KANA = (KeyEvent_staticInit(), KeyEvent_VK_KANA);
+    self->VK_KANJI = (KeyEvent_staticInit(), KeyEvent_VK_KANJI);
+    self->VK_ALPHANUMERIC = (KeyEvent_staticInit(), KeyEvent_VK_ALPHANUMERIC);
+    self->VK_KATAKANA = (KeyEvent_staticInit(), KeyEvent_VK_KATAKANA);
+    self->VK_HIRAGANA = (KeyEvent_staticInit(), KeyEvent_VK_HIRAGANA);
+    self->VK_FULL_WIDTH = (KeyEvent_staticInit(), KeyEvent_VK_FULL_WIDTH);
+    self->VK_HALF_WIDTH = (KeyEvent_staticInit(), KeyEvent_VK_HALF_WIDTH);
+    self->VK_ROMAN_CHARACTERS = (KeyEvent_staticInit(), KeyEvent_VK_ROMAN_CHARACTERS);
+    self->VK_ALL_CANDIDATES = (KeyEvent_staticInit(), KeyEvent_VK_ALL_CANDIDATES);
+    self->VK_PREVIOUS_CANDIDATE = (KeyEvent_staticInit(), KeyEvent_VK_PREVIOUS_CANDIDATE);
+    self->VK_CODE_INPUT = (KeyEvent_staticInit(), KeyEvent_VK_CODE_INPUT);
+    self->VK_JAPANESE_KATAKANA = (KeyEvent_staticInit(), KeyEvent_VK_JAPANESE_KATAKANA);
+    self->VK_JAPANESE_HIRAGANA = (KeyEvent_staticInit(), KeyEvent_VK_JAPANESE_HIRAGANA);
+    self->VK_JAPANESE_ROMAN = (KeyEvent_staticInit(), KeyEvent_VK_JAPANESE_ROMAN);
+    self->VK_KANA_LOCK = (KeyEvent_staticInit(), KeyEvent_VK_KANA_LOCK);
+    self->VK_INPUT_METHOD_ON_OFF = (KeyEvent_staticInit(), KeyEvent_VK_INPUT_METHOD_ON_OFF);
+    self->VK_CUT = (KeyEvent_staticInit(), KeyEvent_VK_CUT);
+    self->VK_COPY = (KeyEvent_staticInit(), KeyEvent_VK_COPY);
+    self->VK_PASTE = (KeyEvent_staticInit(), KeyEvent_VK_PASTE);
+    self->VK_UNDO = (KeyEvent_staticInit(), KeyEvent_VK_UNDO);
+    self->VK_AGAIN = (KeyEvent_staticInit(), KeyEvent_VK_AGAIN);
+    self->VK_FIND = (KeyEvent_staticInit(), KeyEvent_VK_FIND);
+    self->VK_PROPS = (KeyEvent_staticInit(), KeyEvent_VK_PROPS);
+    self->VK_STOP = (KeyEvent_staticInit(), KeyEvent_VK_STOP);
+    self->VK_COMPOSE = (KeyEvent_staticInit(), KeyEvent_VK_COMPOSE);
+    self->VK_ALT_GRAPH = (KeyEvent_staticInit(), KeyEvent_VK_ALT_GRAPH);
+    self->VK_BEGIN = (KeyEvent_staticInit(), KeyEvent_VK_BEGIN);
+    self->VK_UNDEFINED = (KeyEvent_staticInit(), KeyEvent_VK_UNDEFINED);
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <java/awt/event/KeyEvent.h>
-
-      
-#include <jsinterop/annotations/JsType.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ABKeyEventWrapper::ABKeyEventWrapper() : VK_ENTER(KeyEvent::VK_ENTER), VK_BACK_SPACE(KeyEvent::VK_BACK_SPACE), VK_TAB(KeyEvent::VK_TAB), VK_CANCEL(KeyEvent::VK_CANCEL), VK_CLEAR(KeyEvent::VK_CLEAR), VK_SHIFT(KeyEvent::VK_SHIFT), VK_CONTROL(KeyEvent::VK_CONTROL), VK_ALT(KeyEvent::VK_ALT), VK_PAUSE(KeyEvent::VK_PAUSE), VK_CAPS_LOCK(KeyEvent::VK_CAPS_LOCK), VK_ESCAPE(KeyEvent::VK_ESCAPE), VK_SPACE(KeyEvent::VK_SPACE), VK_PAGE_UP(KeyEvent::VK_PAGE_UP), VK_PAGE_DOWN(KeyEvent::VK_PAGE_DOWN), VK_END(KeyEvent::VK_END), VK_HOME(KeyEvent::VK_HOME), VK_LEFT(KeyEvent::VK_LEFT), VK_UP(KeyEvent::VK_UP), VK_RIGHT(KeyEvent::VK_RIGHT), VK_DOWN(KeyEvent::VK_DOWN), VK_COMMA(KeyEvent::VK_COMMA), VK_MINUS(KeyEvent::VK_MINUS), VK_PERIOD(KeyEvent::VK_PERIOD), VK_SLASH(KeyEvent::VK_SLASH), VK_0(KeyEvent::VK_0), VK_1(KeyEvent::VK_1), VK_2(KeyEvent::VK_2), VK_3(KeyEvent::VK_3), VK_4(KeyEvent::VK_4), VK_5(KeyEvent::VK_5), VK_6(KeyEvent::VK_6), VK_7(KeyEvent::VK_7), VK_8(KeyEvent::VK_8), VK_9(KeyEvent::VK_9), VK_SEMICOLON(KeyEvent::VK_SEMICOLON), VK_EQUALS(KeyEvent::VK_EQUALS), VK_A(KeyEvent::VK_A), VK_B(KeyEvent::VK_B), VK_C(KeyEvent::VK_C), VK_D(KeyEvent::VK_D), VK_E(KeyEvent::VK_E), VK_F(KeyEvent::VK_F), VK_G(KeyEvent::VK_G), VK_H(KeyEvent::VK_H), VK_I(KeyEvent::VK_I), VK_J(KeyEvent::VK_J), VK_K(KeyEvent::VK_K), VK_L(KeyEvent::VK_L), VK_M(KeyEvent::VK_M), VK_N(KeyEvent::VK_N), VK_O(KeyEvent::VK_O), VK_P(KeyEvent::VK_P), VK_Q(KeyEvent::VK_Q), VK_R(KeyEvent::VK_R), VK_S(KeyEvent::VK_S), VK_T(KeyEvent::VK_T), VK_U(KeyEvent::VK_U), VK_V(KeyEvent::VK_V), VK_W(KeyEvent::VK_W), VK_X(KeyEvent::VK_X), VK_Y(KeyEvent::VK_Y), VK_Z(KeyEvent::VK_Z), VK_OPEN_BRACKET(KeyEvent::VK_OPEN_BRACKET), VK_BACK_SLASH(KeyEvent::VK_BACK_SLASH), VK_CLOSE_BRACKET(KeyEvent::VK_CLOSE_BRACKET), VK_NUMPAD0(KeyEvent::VK_NUMPAD0), VK_NUMPAD1(KeyEvent::VK_NUMPAD1), VK_NUMPAD2(KeyEvent::VK_NUMPAD2), VK_NUMPAD3(KeyEvent::VK_NUMPAD3), VK_NUMPAD4(KeyEvent::VK_NUMPAD4), VK_NUMPAD5(KeyEvent::VK_NUMPAD5), VK_NUMPAD6(KeyEvent::VK_NUMPAD6), VK_NUMPAD7(KeyEvent::VK_NUMPAD7), VK_NUMPAD8(KeyEvent::VK_NUMPAD8), VK_NUMPAD9(KeyEvent::VK_NUMPAD9), VK_MULTIPLY(KeyEvent::VK_MULTIPLY), VK_ADD(KeyEvent::VK_ADD), VK_SEPARATER(KeyEvent::VK_SEPARATER), VK_SEPARATOR(KeyEvent::VK_SEPARATOR), VK_SUBTRACT(KeyEvent::VK_SUBTRACT), VK_DECIMAL(KeyEvent::VK_DECIMAL), VK_DIVIDE(KeyEvent::VK_DIVIDE), VK_DELETE(KeyEvent::VK_DELETE), VK_NUM_LOCK(KeyEvent::VK_NUM_LOCK), VK_SCROLL_LOCK(KeyEvent::VK_SCROLL_LOCK), VK_F1(KeyEvent::VK_F1), VK_F2(KeyEvent::VK_F2), VK_F3(KeyEvent::VK_F3), VK_F4(KeyEvent::VK_F4), VK_F5(KeyEvent::VK_F5), VK_F6(KeyEvent::VK_F6), VK_F7(KeyEvent::VK_F7), VK_F8(KeyEvent::VK_F8), VK_F9(KeyEvent::VK_F9), VK_F10(KeyEvent::VK_F10), VK_F11(KeyEvent::VK_F11), VK_F12(KeyEvent::VK_F12), VK_F13(KeyEvent::VK_F13), VK_F14(KeyEvent::VK_F14), VK_F15(KeyEvent::VK_F15), VK_F16(KeyEvent::VK_F16), VK_F17(KeyEvent::VK_F17), VK_F18(KeyEvent::VK_F18), VK_F19(KeyEvent::VK_F19), VK_F20(KeyEvent::VK_F20), VK_F21(KeyEvent::VK_F21), VK_F22(KeyEvent::VK_F22), VK_F23(KeyEvent::VK_F23), VK_F24(KeyEvent::VK_F24), VK_PRINTSCREEN(KeyEvent::VK_PRINTSCREEN), VK_INSERT(KeyEvent::VK_INSERT), VK_HELP(KeyEvent::VK_HELP), VK_META(KeyEvent::VK_META), VK_BACK_QUOTE(KeyEvent::VK_BACK_QUOTE), VK_QUOTE(KeyEvent::VK_QUOTE), VK_KP_UP(KeyEvent::VK_KP_UP), VK_KP_DOWN(KeyEvent::VK_KP_DOWN), VK_KP_LEFT(KeyEvent::VK_KP_LEFT), VK_KP_RIGHT(KeyEvent::VK_KP_RIGHT), VK_DEAD_GRAVE(KeyEvent::VK_DEAD_GRAVE), VK_DEAD_ACUTE(KeyEvent::VK_DEAD_ACUTE), VK_DEAD_CIRCUMFLEX(KeyEvent::VK_DEAD_CIRCUMFLEX), VK_DEAD_TILDE(KeyEvent::VK_DEAD_TILDE), VK_DEAD_MACRON(KeyEvent::VK_DEAD_MACRON), VK_DEAD_BREVE(KeyEvent::VK_DEAD_BREVE), VK_DEAD_ABOVEDOT(KeyEvent::VK_DEAD_ABOVEDOT), VK_DEAD_DIAERESIS(KeyEvent::VK_DEAD_DIAERESIS), VK_DEAD_ABOVERING(KeyEvent::VK_DEAD_ABOVERING), VK_DEAD_DOUBLEACUTE(KeyEvent::VK_DEAD_DOUBLEACUTE), VK_DEAD_CARON(KeyEvent::VK_DEAD_CARON), VK_DEAD_CEDILLA(KeyEvent::VK_DEAD_CEDILLA), VK_DEAD_OGONEK(KeyEvent::VK_DEAD_OGONEK), VK_DEAD_IOTA(KeyEvent::VK_DEAD_IOTA), VK_DEAD_VOICED_SOUND(KeyEvent::VK_DEAD_VOICED_SOUND), VK_DEAD_SEMIVOICED_SOUND(KeyEvent::VK_DEAD_SEMIVOICED_SOUND), VK_AMPERSAND(KeyEvent::VK_AMPERSAND), VK_ASTERISK(KeyEvent::VK_ASTERISK), VK_QUOTEDBL(KeyEvent::VK_QUOTEDBL), VK_LESS(KeyEvent::VK_LESS), VK_GREATER(KeyEvent::VK_GREATER), VK_BRACELEFT(KeyEvent::VK_BRACELEFT), VK_BRACERIGHT(KeyEvent::VK_BRACERIGHT), VK_AT(KeyEvent::VK_AT), VK_COLON(KeyEvent::VK_COLON), VK_CIRCUMFLEX(KeyEvent::VK_CIRCUMFLEX), VK_DOLLAR(KeyEvent::VK_DOLLAR), VK_EURO_SIGN(KeyEvent::VK_EURO_SIGN), VK_EXCLAMATION_MARK(KeyEvent::VK_EXCLAMATION_MARK), VK_INVERTED_EXCLAMATION_MARK(KeyEvent::VK_INVERTED_EXCLAMATION_MARK), VK_LEFT_PARENTHESIS(KeyEvent::VK_LEFT_PARENTHESIS), VK_NUMBER_SIGN(KeyEvent::VK_NUMBER_SIGN), VK_PLUS(KeyEvent::VK_PLUS), VK_RIGHT_PARENTHESIS(KeyEvent::VK_RIGHT_PARENTHESIS), VK_UNDERSCORE(KeyEvent::VK_UNDERSCORE), VK_WINDOWS(KeyEvent::VK_WINDOWS), VK_CONTEXT_MENU(KeyEvent::VK_CONTEXT_MENU), VK_FINAL(KeyEvent::VK_FINAL), VK_CONVERT(KeyEvent::VK_CONVERT), VK_NONCONVERT(KeyEvent::VK_NONCONVERT), VK_ACCEPT(KeyEvent::VK_ACCEPT), VK_MODECHANGE(KeyEvent::VK_MODECHANGE), VK_KANA(KeyEvent::VK_KANA), VK_KANJI(KeyEvent::VK_KANJI), VK_ALPHANUMERIC(KeyEvent::VK_ALPHANUMERIC), VK_KATAKANA(KeyEvent::VK_KATAKANA), VK_HIRAGANA(KeyEvent::VK_HIRAGANA), VK_FULL_WIDTH(KeyEvent::VK_FULL_WIDTH), VK_HALF_WIDTH(KeyEvent::VK_HALF_WIDTH), VK_ROMAN_CHARACTERS(KeyEvent::VK_ROMAN_CHARACTERS), VK_ALL_CANDIDATES(KeyEvent::VK_ALL_CANDIDATES), VK_PREVIOUS_CANDIDATE(KeyEvent::VK_PREVIOUS_CANDIDATE), VK_CODE_INPUT(KeyEvent::VK_CODE_INPUT), VK_JAPANESE_KATAKANA(KeyEvent::VK_JAPANESE_KATAKANA), VK_JAPANESE_HIRAGANA(KeyEvent::VK_JAPANESE_HIRAGANA), VK_JAPANESE_ROMAN(KeyEvent::VK_JAPANESE_ROMAN), VK_KANA_LOCK(KeyEvent::VK_KANA_LOCK), VK_INPUT_METHOD_ON_OFF(KeyEvent::VK_INPUT_METHOD_ON_OFF), VK_CUT(KeyEvent::VK_CUT), VK_COPY(KeyEvent::VK_COPY), VK_PASTE(KeyEvent::VK_PASTE), VK_UNDO(KeyEvent::VK_UNDO), VK_AGAIN(KeyEvent::VK_AGAIN), VK_FIND(KeyEvent::VK_FIND), VK_PROPS(KeyEvent::VK_PROPS), VK_STOP(KeyEvent::VK_STOP), VK_COMPOSE(KeyEvent::VK_COMPOSE), VK_ALT_GRAPH(KeyEvent::VK_ALT_GRAPH), VK_BEGIN(KeyEvent::VK_BEGIN), VK_UNDEFINED(KeyEvent::VK_UNDEFINED) {
-        }
-        auto ABKeyEventWrapper::instance_owner() -> ABKeyEventWrapper* { static std::unique_ptr<ABKeyEventWrapper> value(new ABKeyEventWrapper()); return value.get(); }
-ABKeyEventWrapper* ABKeyEventWrapper::instance = ABKeyEventWrapper::instance_owner();
-
-    auto ABKeyEventWrapper::getInstance() -> ABKeyEventWrapper*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ABKeyEventWrapper::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (ABKeyEventWrapper*) getInstance {
+        return (ABKeyEventWrapper_staticInit(), ABKeyEventWrapper_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_ABKEYEVENTWRAPPER_CPP

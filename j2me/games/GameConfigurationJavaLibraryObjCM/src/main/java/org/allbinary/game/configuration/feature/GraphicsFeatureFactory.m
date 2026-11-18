@@ -1,83 +1,45 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/feature/GraphicsFeatureFactory.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/game/configuration/feature/GraphicsFeature.h"
 
 
+static GraphicsFeatureFactory* GraphicsFeatureFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_GRAPHICSFEATUREFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_GRAPHICSFEATUREFACTORY_CPP
+void GraphicsFeatureFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GraphicsFeatureFactory_instance = [((GraphicsFeatureFactory*) [GraphicsFeatureFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/feature/GraphicsFeatureFactory.h"
-        
+@implementation GraphicsFeatureFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/configuration/feature/GraphicsFeature.h"
-
-auto GraphicsFeatureFactory::instance_owner() -> GraphicsFeatureFactory* { static std::unique_ptr<GraphicsFeatureFactory> value(new GraphicsFeatureFactory()); return value.get(); }
-GraphicsFeatureFactory* GraphicsFeatureFactory::instance = GraphicsFeatureFactory::instance_owner();
-
-    auto GraphicsFeatureFactory::getInstance() -> GraphicsFeatureFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GraphicsFeatureFactory::instance;
-    
+- (void) initFields {
+    self->NONE = [((GraphicsFeature*) [GraphicsFeature alloc]) init:[StringUtil getInstance]->NULL_STRING];
+    self->TRANSPARENT_IMAGE_CREATION = [((GraphicsFeature*) [GraphicsFeature alloc]) init:"Transparent Image Creation"];
+    self->IMAGE_GRAPHICS = [((GraphicsFeature*) [GraphicsFeature alloc]) init:"Image Graphics"];
+    self->IMAGE_ROTATION_ON_THE_FLY = [((GraphicsFeature*) [GraphicsFeature alloc]) init:"Image Rotated On The Fly"];
+    self->IMAGE_TO_ARRAY_GRAPHICS = [((GraphicsFeature*) [GraphicsFeature alloc]) init:"Image To Array Graphics"];
+    self->SPRITE_QUARTER_ROTATION_GRAPHICS = [((GraphicsFeature*) [GraphicsFeature alloc]) init:"Sprite Quarter Rotation Graphics"];
+    self->SPRITE_FULL_GRAPHICS = [((GraphicsFeature*) [GraphicsFeature alloc]) init:"Sprite Full Rotation Graphics"];
+    self->VECTOR_GRAPHICS = [((GraphicsFeature*) [GraphicsFeature alloc]) init:"BasicArrayList Graphics"];
+    self->VECTOR_TO_IMAGE_GRAPHICS = [((GraphicsFeature*) [GraphicsFeature alloc]) init:"BasicArrayList To Image Graphics"];
 }
 
 
-GraphicsFeatureFactory::GraphicsFeatureFactory() : NONE(new GraphicsFeature(StringUtil::getInstance()->NULL_STRING)), TRANSPARENT_IMAGE_CREATION(new GraphicsFeature("Transparent Image Creation")), IMAGE_GRAPHICS(new GraphicsFeature("Image Graphics")), IMAGE_ROTATION_ON_THE_FLY(new GraphicsFeature("Image Rotated On The Fly")), IMAGE_TO_ARRAY_GRAPHICS(new GraphicsFeature("Image To Array Graphics")), SPRITE_QUARTER_ROTATION_GRAPHICS(new GraphicsFeature("Sprite Quarter Rotation Graphics")), SPRITE_FULL_GRAPHICS(new GraphicsFeature("Sprite Full Rotation Graphics")), VECTOR_GRAPHICS(new GraphicsFeature("BasicArrayList Graphics")), VECTOR_TO_IMAGE_GRAPHICS(new GraphicsFeature("BasicArrayList To Image Graphics")){
++ (GraphicsFeatureFactory*) getInstance {
+        return (GraphicsFeatureFactory_staticInit(), GraphicsFeatureFactory_instance);
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_GRAPHICSFEATUREFACTORY_CPP

@@ -1,139 +1,65 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/drop/DropLayerFactory.h"
+#include "org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/util/BasicArrayListUtil.h"
 
 
+static DropLayerFactory* DropLayerFactory_DROP_LAYER_FACTORY;
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_DROP_DROPLAYERFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_DROP_DROPLAYERFACTORY_CPP
+void DropLayerFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    DropLayerFactory_DROP_LAYER_FACTORY = [((DropLayerFactory*) [DropLayerFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/drop/DropLayerFactory.h"
-        
+@implementation DropLayerFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-#include <org/allbinary/util/BasicArrayListUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto DropLayerFactory::DROP_LAYER_FACTORY_owner() -> DropLayerFactory* { static std::unique_ptr<DropLayerFactory> value(new DropLayerFactory()); return value.get(); }
-DropLayerFactory* DropLayerFactory::DROP_LAYER_FACTORY = DropLayerFactory::DROP_LAYER_FACTORY_owner();
-
-DropLayerFactory::DropLayerFactory() : list(new BasicArrayListD()), basicArrayListUtil(BasicArrayListUtil::getInstance()){
+- (void) initFields {
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->basicArrayListUtil = [BasicArrayListUtil getInstance];
 }
 
 
-    auto DropLayerFactory::clear() -> void{
-this->list->clear();
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto DropLayerFactory::getInstance() -> DropLayerFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return DropLayerFactory::DROP_LAYER_FACTORY;
-    
+- (void) clear {
+        [self->list clear];
 }
 
 
-    auto DropLayerFactory::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list->size();;
-    
++ (DropLayerFactory*) getInstance {
+        return (DropLayerFactory_staticInit(), DropLayerFactory_DROP_LAYER_FACTORY);
 }
 
 
-    auto DropLayerFactory::getRandomInstance() -> PickedUpLayerInterfaceFactoryInterface*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<PickedUpLayerInterfaceFactoryInterface*>(this->basicArrayListUtil->getRandom(this->list));
-    
+- (int32_t) getSize {
+        return [self->list size];
 }
 
 
-    auto DropLayerFactory::add(PickedUpLayerInterfaceFactoryInterface* layerInterfaceFactoryInterface) -> void{
-this->list->add(layerInterfaceFactoryInterface);
-    
+- (PickedUpLayerInterfaceFactoryInterface*) getRandomInstance {
+        return ((PickedUpLayerInterfaceFactoryInterface*) [self->basicArrayListUtil getRandom:self->list]);
 }
 
 
-    auto DropLayerFactory::getList() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list;
-    
+- (void) add:(PickedUpLayerInterfaceFactoryInterface*)layerInterfaceFactoryInterface {
+        [self->list add:layerInterfaceFactoryInterface];
 }
 
 
+- (BasicArrayList*) getList {
+        return self->list;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_DROP_DROPLAYERFACTORY_CPP

@@ -1,91 +1,46 @@
+#ifndef ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTOREFACTORY_H
+#define ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTOREFACTORY_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.thirdparty.store
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTOREFACTORY_H
-        #define ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTOREFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class NoThirdPartyStore;
-class ThirdPartyStore;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ThirdPartyStoreFactory
-            : public virtual Object
-         {
-
-    private: static NoThirdPartyStore* instance_owner();
-    private: static NoThirdPartyStore* instance;
-
-    public: static ThirdPartyStore* getInstance();
-
-private: ThirdPartyStoreFactory();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTOREFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTOREFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTOREFACTORY_H_COMPLETE
-        #if __has_include("org/allbinary/thirdparty/store/NoThirdPartyStore.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ThirdPartyStoreFactory;
+@class NoThirdPartyStore;
+@class ThirdPartyStore;
+#if __has_include("org/allbinary/thirdparty/store/NoThirdPartyStore.h")
 #include "org/allbinary/thirdparty/store/NoThirdPartyStore.h"
 #endif
-#if __has_include("org/allbinary/thirdparty/store/ThirdPartyStore.h")
-#include "org/allbinary/thirdparty/store/ThirdPartyStore.h"
-#endif
 
-        #endif
-    
+@interface ThirdPartyStoreFactory : ABObject {
+@public
+}
+- (instancetype) init;
++ (ThirdPartyStore*) getInstance;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ThirdPartyStoreFactory_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_THIRDPARTY_STORE_THIRDPARTYSTOREFACTORY_H

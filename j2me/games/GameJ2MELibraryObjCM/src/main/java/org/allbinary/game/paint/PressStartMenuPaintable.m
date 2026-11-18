@@ -1,191 +1,88 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/paint/PressStartMenuPaintable.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/AppletUtil.h"
+#include "org/allbinary/graphics/Anchor.h"
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#include "org/allbinary/graphics/font/MyFontProcessor.h"
+#include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
+#include "org/allbinary/input/motion/button/TouchScreenFactory.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/time/TimeDelayHelper.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_PAINT_PRESSSTARTMENUPAINTABLE_CPP
-        #define ORG_ALLBINARY_GAME_PAINT_PRESSSTARTMENUPAINTABLE_CPP
+void PressStartMenuPaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/paint/PressStartMenuPaintable.h"
-        
+@implementation PressStartMenuPaintable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/AppletUtil.h>
-
-      
-#include <org/allbinary/graphics/Anchor.h>
-
-      
-#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
-
-      
-#include <org/allbinary/graphics/font/MyFontProcessor.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontInterface.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontProcessor.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-#include <org/allbinary/input/motion/button/TouchScreenFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/time/TimeDelayHelper.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-PressStartMenuPaintable::PressStartMenuPaintable() : displayInfo(DisplayInfoSingleton::getInstance()), myFontProcessor(new UpdateMyFontProcessor(this)), startString(StringUtil::getInstance()->EMPTY_STRING), timeDelayHelper(new TimeDelayHelper(1100)), anchor(Anchor::TOP_LEFT){
-
-                        if(TouchScreenFactory::getInstance()->isTouch())
-                        
-                                    {
-                                    this->startString= this->PRESS_START;
-    
-
-                                    }
-                                
-                             else 
-                        if(AppletUtil::isAppletLoader(this))
-                        
-                                    {
-                                    this->startString= this->KEY_START;
-    
-
-                                    }
-                                
-                        else {
-                            this->startString= this->MENU_START;
-    
-
-                        }
-                            
+- (void) initFields {
+    self->displayInfo = [DisplayInfoSingleton getInstance];
+    self->PRESS_START = "Press Screen To Start";
+    self->KEY_START = "Press or Click F2 To Begin";
+    self->MENU_START = "Press Start From The Menu To Begin";
+    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->startString = [StringUtil getInstance]->EMPTY_STRING;
+    self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:1100];
+    self->flash = false;
+    self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
+    self->beginWidth = 0;
+    self->line = 0;
 }
 
 
-    auto PressStartMenuPaintable::updateMeasurement(Graphics* graphics) -> void{
-
-    Font* font = graphics->getFont();;
-    
-this->beginWidth= (graphics->getFont()->stringWidth(this->startString)>>1);
-    
-this->line= (4 *MyFontProcessor::defaultCharWidth(font)) +(font->getHeight()>>1);
-    
-this->myFontProcessor= MyFontProcessor::getInstance();
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        if ([[TouchScreenFactory getInstance] isTouch]) {
+            self->startString = self->PRESS_START;
+        } else if ([AppletUtil isAppletLoader:self]) {
+            self->startString = self->KEY_START;
+        } else {
+            self->startString = self->MENU_START;
+        }
+    return self;
 }
 
 
-    auto PressStartMenuPaintable::paint(Graphics* graphics) -> void{
-
-                        if(this->timeDelayHelper->isTimeTNT())
-                        
-                                    {
-                                    
-                        if(this->isFlash())
-                        
-                                    {
-                                    this->setFlash(false);
-    
-
-                                    }
-                                
-                        else {
-                            this->setFlash(true);
-    
-
-                        }
-                            
-
-                                    }
-                                
-
-                        if(this->isFlash())
-                        
-                                    {
-                                    this->myFontProcessor->process(graphics);
-    
-graphics->drawString(this->startString, displayInfo->getLastHalfWidth() -beginWidth, displayInfo->getLastHeight() -line, this->anchor);
-    
-
-                                    }
-                                
+- (void) updateMeasurement:(Graphics*)graphics {
+        Font* font = [graphics getFont];
+        self->beginWidth = ([[graphics getFont] stringWidth:self->startString] >> 1);
+        self->line = (4 * [MyFontProcessor defaultCharWidth:font]) + ([font getHeight] >> 1);
+        self->myFontProcessor = [MyFontProcessor getInstance];
 }
 
 
-    auto PressStartMenuPaintable::setFlash(bool flash) -> void{
-this->flash= flash;
-    
+- (void) paint:(Graphics*)graphics {
+        if ([self->timeDelayHelper isTimeTNT]) {
+            if ([self isFlash]) {
+                [self setFlash:false];
+            } else {
+                [self setFlash:true];
+            }
+        }
+        if ([self isFlash]) {
+            [self->myFontProcessor process:graphics];
+            [graphics drawString:self->startString :[self->displayInfo getLastHalfWidth] - self->beginWidth :[self->displayInfo getLastHeight] - self->line :self->anchor];
+        }
 }
 
 
-    auto PressStartMenuPaintable::isFlash() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->flash;
-    
+- (void) setFlash:(bool)flash {
+        self->flash = flash;
 }
 
 
+- (bool) isFlash {
+        return self->flash;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_PAINT_PRESSSTARTMENUPAINTABLE_CPP

@@ -1,336 +1,339 @@
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/ai/HorizontaRotationManeuverAI.h"
+#include "javax/microedition/lcdui/Canvas.h"
+#include "org/allbinary/ai/ArtificialIntelligence.h"
+#include "org/allbinary/animation/IndexedAnimation.h"
+#include "org/allbinary/animation/RotationAnimationInterface.h"
+#include "org/allbinary/animation/RotationAnimationInterfaceCompositeInterface.h"
+#include "org/allbinary/game/input/GameInput.h"
+#include "org/allbinary/game/physics/velocity/BasicVelocityProperties.h"
+#include "org/allbinary/game/physics/velocity/VelocityInterface.h"
+#include "org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.h"
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#include "org/allbinary/util/CircularIndexUtil.h"
+#if __has_include("org/allbinary/game/ag/ai/AngleInfo.h")
+#include "org/allbinary/game/ag/ai/AngleInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AngleInfo.h")
+#include "javax/microedition/lcdui/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/ai/AngleInfo.h")
+#include "org/allbinary/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/ai/AngleInfo.h")
+#include "org/allbinary/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/ai/AngleInfo.h")
+#include "org/allbinary/game/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/input/AngleInfo.h")
+#include "org/allbinary/game/input/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/AngleInfo.h")
+#include "org/allbinary/graphics/displayable/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/layer/AngleInfo.h")
+#include "org/allbinary/layer/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/layer/AngleInfo.h")
+#include "org/allbinary/layer/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleInfo.h")
+#include "org/allbinary/math/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/util/AngleInfo.h")
+#include "org/allbinary/util/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/ag/ai/AngleInfo.h")
+#include "org/allbinary/game/ag/ai/AngleInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AngleInfo.h")
+#include "javax/microedition/lcdui/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/ai/AngleInfo.h")
+#include "org/allbinary/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/ai/AngleInfo.h")
+#include "org/allbinary/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/ai/AngleInfo.h")
+#include "org/allbinary/game/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/input/AngleInfo.h")
+#include "org/allbinary/game/input/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/AngleInfo.h")
+#include "org/allbinary/graphics/displayable/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/layer/AngleInfo.h")
+#include "org/allbinary/layer/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/layer/AngleInfo.h")
+#include "org/allbinary/layer/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleInfo.h")
+#include "org/allbinary/math/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/util/AngleInfo.h")
+#include "org/allbinary/util/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/ag/ai/AngleInfo.h")
+#include "org/allbinary/game/ag/ai/AngleInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AngleInfo.h")
+#include "javax/microedition/lcdui/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/ai/AngleInfo.h")
+#include "org/allbinary/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/ai/AngleInfo.h")
+#include "org/allbinary/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/ai/AngleInfo.h")
+#include "org/allbinary/game/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/input/AngleInfo.h")
+#include "org/allbinary/game/input/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/AngleInfo.h")
+#include "org/allbinary/graphics/displayable/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/layer/AngleInfo.h")
+#include "org/allbinary/layer/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/layer/AngleInfo.h")
+#include "org/allbinary/layer/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleInfo.h")
+#include "org/allbinary/math/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/util/AngleInfo.h")
+#include "org/allbinary/util/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/ag/ai/AngleInfo.h")
+#include "org/allbinary/game/ag/ai/AngleInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AngleInfo.h")
+#include "javax/microedition/lcdui/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/ai/AngleInfo.h")
+#include "org/allbinary/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/ai/AngleInfo.h")
+#include "org/allbinary/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleInfo.h")
+#include "org/allbinary/animation/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/ai/AngleInfo.h")
+#include "org/allbinary/game/ai/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/input/AngleInfo.h")
+#include "org/allbinary/game/input/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/AngleInfo.h")
+#include "org/allbinary/game/physics/velocity/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/AngleInfo.h")
+#include "org/allbinary/graphics/displayable/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/layer/AngleInfo.h")
+#include "org/allbinary/layer/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/layer/AngleInfo.h")
+#include "org/allbinary/layer/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleInfo.h")
+#include "org/allbinary/math/AngleInfo.h"
+#endif
+#if __has_include("org/allbinary/util/AngleInfo.h")
+#include "org/allbinary/util/AngleInfo.h"
+#endif
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
 
 
+void HorizontaRotationManeuverAI_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef ORG_ALLBINARY_GAME_AG_AI_HORIZONTAROTATIONMANEUVERAI_CPP
-        #define ORG_ALLBINARY_GAME_AG_AI_HORIZONTAROTATIONMANEUVERAI_CPP
+@implementation HorizontaRotationManeuverAI
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/ai/HorizontaRotationManeuverAI.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <javax/microedition/lcdui/Canvas.h>
-
-      
-#include <org/allbinary/ai/ArtificialIntelligence.h>
-
-      
-#include <org/allbinary/ai/ArtificialIntelligenceTransitionInterface.h>
-
-      
-#include <org/allbinary/animation/IndexedAnimation.h>
-
-      
-#include <org/allbinary/animation/RotationAnimationInterface.h>
-
-      
-#include <org/allbinary/animation/RotationAnimationInterfaceCompositeInterface.h>
-
-      
-#include <org/allbinary/game/ai/BasicAI.h>
-
-      
-#include <org/allbinary/game/input/GameInput.h>
-
-      
-#include <org/allbinary/game/physics/velocity/BasicVelocityProperties.h>
-
-      
-#include <org/allbinary/game/physics/velocity/VelocityInterface.h>
-
-      
-#include <org/allbinary/game/physics/velocity/VelocityInterfaceCompositeInterface.h>
-
-      
-#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/math/AngleIncrementInfo.h>
-
-      
-#include <org/allbinary/util/CircularIndexUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-HorizontaRotationManeuverAI::HorizontaRotationManeuverAI(AllBinaryLayer* ownerLayerInterface, GameInput* gameInput) : BasicAI(ownerLayerInterface, gameInput), circularIndexUtil(CircularIndexUtil::createInstanceAt(10, Integer.MAX_VALUE)){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-
-    RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = dynamic_cast<RotationAnimationInterfaceCompositeInterface*>(this->getOwnerLayerInterface());;
+- (void) initFields {
+    self->circularIndexUtil = [CircularIndexUtil createInstanceAt:10 :(Integer_staticInit(), Integer_MAX_VALUE)];
+    self->currentSpeedDivisor = 5;
     
-this->rotationAnimationInterface= rotationAnimationInterfaceCompositeInterface->getRotationAnimationInterface();
     
-
-    VelocityInterfaceCompositeInterface* velocityInterfaceCompositeInterface = dynamic_cast<VelocityInterfaceCompositeInterface*>(this->getOwnerLayerInterface());;
-    
-this->baseVelocityInterface= velocityInterfaceCompositeInterface->getVelocityProperties();
-    
-this->velocityInterface= dynamic_cast<VelocityInterface*>(this->baseVelocityInterface);
-    
-
-    RotationAnimationInterface* rotationAnimationInterface = dynamic_cast<RotationAnimationInterface*>(this->rotationAnimationInterface);;
-    
-
-    AngleIncrementInfo* angleIncrementInfo = rotationAnimationInterface->getAngleInfoP()->getAngleIncrementInfo();;
-    
-rotationAnimationInterfaceCompositeInterface->setFrame(JavaBoxes::value<int32_t>(angleIncrementInfo->RIGHT_FRAME));
     
 }
 
 
-    auto HorizontaRotationManeuverAI::transition() -> void{
-
-    RotationAnimationInterface* rotationAnimationInterface = dynamic_cast<RotationAnimationInterface*>(this->rotationAnimationInterface);;
-    
-
-    AngleIncrementInfo* angleIncrementInfo = rotationAnimationInterface->getAngleInfoP()->getAngleIncrementInfo();;
-    
-
-    RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = dynamic_cast<RotationAnimationInterfaceCompositeInterface*>(this->getOwnerLayerInterface());;
-    
-rotationAnimationInterfaceCompositeInterface->setFrame(JavaBoxes::value<int32_t>(angleIncrementInfo->RIGHT_FRAME));
-    
-
-    AllBinaryLayer* allbinaryLayer = this->getOwnerLayerInterface();;
-    
-allbinaryLayer->setPosition(allbinaryLayer->getXP(), 1, allbinaryLayer->getZP());
-    
+- (instancetype) init:(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
+        self = [super init:ownerLayerInterface :gameInput];
+        [self initFields];
+        RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
+        self->rotationAnimationInterface = [rotationAnimationInterfaceCompositeInterface getRotationAnimationInterface];
+        VelocityInterfaceCompositeInterface* velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
+        self->baseVelocityInterface = [velocityInterfaceCompositeInterface getVelocityProperties];
+        self->velocityInterface = ((VelocityInterface*) self->baseVelocityInterface);
+        RotationAnimationInterface* rotationAnimationInterface = ((RotationAnimationInterface*) self->rotationAnimationInterface);
+        AngleIncrementInfo* angleIncrementInfo = [[rotationAnimationInterface getAngleInfoP] getAngleIncrementInfo];
+        [rotationAnimationInterfaceCompositeInterface setFrame:((int32_t) (angleIncrementInfo->RIGHT_FRAME))];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto HorizontaRotationManeuverAI::processAI(AllBinaryLayerManager* allBinaryLayerManager) -> void{
-
-    RotationAnimationInterface* rotationAnimationInterface = (dynamic_cast<RotationAnimationInterface*>(this->rotationAnimationInterface));;
-    
-
-    AngleIncrementInfo* angleIncrementInfo = rotationAnimationInterface->getAngleInfoP()->getAngleIncrementInfo();;
-    
-
-    int32_t frame = this->rotationAnimationInterface->getFrame();;
-    
-
-    AllBinaryLayer* ownerLayerInterface = this->getOwnerLayerInterface();;
-    
-
-                        if(ownerLayerInterface->getXP() -ownerLayerInterface->getWidth() <= 0 && frame == JavaBoxes::value<int32_t>(angleIncrementInfo->LEFT_FRAME))
-                        
-                                    {
-                                    this->reverse();
-    
-this->drop();
-    
-
-                                    }
-                                
-
-    DisplayInfoSingleton* displayInfo = DisplayInfoSingleton::getInstance();;
-    
-
-                        if(ownerLayerInterface->getX2() +ownerLayerInterface->getWidth() > displayInfo->getLastWidth() && frame == JavaBoxes::value<int32_t>(angleIncrementInfo->RIGHT_FRAME))
-                        
-                                    {
-                                    this->reverse();
-    
-this->accelerate();
-    
-this->drop();
-    
-
-                                    }
-                                
-
-    int32_t index = this->circularIndexUtil->getIndex();;
-    
-
-                        if(index % this->currentSpeedDivisor == 0 && index % 2 == 0)
-                        
-                                    {
-                                    BasicAI::processKeyAI(Canvas::UP);
-    
-this->velocityInterface->limitMaxXYVelocity(this->velocityInterface->getMaxForwardVelocity() /this->currentSpeedDivisor);
-    
-
-                                    }
-                                
-this->circularIndexUtil->next();
-    
-
-                        if(frame == JavaBoxes::value<int32_t>(angleIncrementInfo->LEFT_FRAME))
-                        
-                                    {
-                                    BasicAI::processKeyAI(Canvas::KEY_NUM0);
-    
-
-                                    }
-                                
-                             else 
-                        if(frame == JavaBoxes::value<int32_t>(angleIncrementInfo->RIGHT_FRAME))
-                        
-                                    {
-                                    BasicAI::processKeyAI(Canvas::KEY_POUND);
-    
-
-                                    }
-                                
+- (void) transition {
+        RotationAnimationInterface* rotationAnimationInterface = ((RotationAnimationInterface*) self->rotationAnimationInterface);
+        AngleIncrementInfo* angleIncrementInfo = [[rotationAnimationInterface getAngleInfoP] getAngleIncrementInfo];
+        RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
+        [rotationAnimationInterfaceCompositeInterface setFrame:((int32_t) (angleIncrementInfo->RIGHT_FRAME))];
+        AllBinaryLayer* allbinaryLayer = [self getOwnerLayerInterface];
+        [allbinaryLayer setPosition:[allbinaryLayer getXP] :1 :[allbinaryLayer getZP]];
 }
 
 
-    auto HorizontaRotationManeuverAI::reverse() -> void{
-
-    RotationAnimationInterface* rotationAnimationInterface = dynamic_cast<RotationAnimationInterface*>(this->rotationAnimationInterface);;
-    
-
-    AngleIncrementInfo* angleIncrementInfo = rotationAnimationInterface->getAngleInfoP()->getAngleIncrementInfo();;
-    
-
-    int32_t frame = this->rotationAnimationInterface->getFrame();;
-    
-
-                        if(frame == JavaBoxes::value<int32_t>(angleIncrementInfo->LEFT_FRAME))
-                        
-                                    {
-                                    
-    RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = dynamic_cast<RotationAnimationInterfaceCompositeInterface*>(this->getOwnerLayerInterface());;
-    
-rotationAnimationInterfaceCompositeInterface->setFrame(JavaBoxes::value<int32_t>(angleIncrementInfo->RIGHT_FRAME));
-    
-this->baseVelocityInterface->zero();
-    
-
-                                    }
-                                
-                             else 
-                        if(frame == JavaBoxes::value<int32_t>(angleIncrementInfo->RIGHT_FRAME))
-                        
-                                    {
-                                    
-    RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = dynamic_cast<RotationAnimationInterfaceCompositeInterface*>(this->getOwnerLayerInterface());;
-    
-rotationAnimationInterfaceCompositeInterface->setFrame(JavaBoxes::value<int32_t>(angleIncrementInfo->LEFT_FRAME));
-    
-this->baseVelocityInterface->zero();
-    
-
-                                    }
-                                
+// throws Exception
+- (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager {
+        RotationAnimationInterface* rotationAnimationInterface = (((RotationAnimationInterface*) self->rotationAnimationInterface));
+        AngleIncrementInfo* angleIncrementInfo = [[rotationAnimationInterface getAngleInfoP] getAngleIncrementInfo];
+        int32_t frame = [self->rotationAnimationInterface getFrame];
+        AllBinaryLayer* ownerLayerInterface = [self getOwnerLayerInterface];
+        if ([ownerLayerInterface getXP] - [ownerLayerInterface getWidth] <= 0 && frame == ((int32_t) (angleIncrementInfo->LEFT_FRAME))) {
+            [self reverse];
+            [self drop];
+        }
+        DisplayInfoSingleton* displayInfo = [DisplayInfoSingleton getInstance];
+        if ([ownerLayerInterface getX2] + [ownerLayerInterface getWidth] > [displayInfo getLastWidth] && frame == ((int32_t) (angleIncrementInfo->RIGHT_FRAME))) {
+            [self reverse];
+            [self accelerate];
+            [self drop];
+        }
+        int32_t index = [self->circularIndexUtil getIndex];
+        if (index % self->currentSpeedDivisor == 0 && index % 2 == 0) {
+            [super processKeyAI:(Canvas_staticInit(), Canvas_UP)];
+            [self->velocityInterface limitMaxXYVelocity:[self->velocityInterface getMaxForwardVelocity] / self->currentSpeedDivisor];
+        }
+        [self->circularIndexUtil next];
+        if (frame == ((int32_t) (angleIncrementInfo->LEFT_FRAME))) {
+            [super processKeyAI:(Canvas_staticInit(), Canvas_KEY_NUM0)];
+        } else if (frame == ((int32_t) (angleIncrementInfo->RIGHT_FRAME))) {
+            [super processKeyAI:(Canvas_staticInit(), Canvas_KEY_POUND)];
+        }
 }
 
 
-    auto HorizontaRotationManeuverAI::accelerate() -> void{
-
-                        if(this->currentSpeedDivisor > 1)
-                        
-                                    {
-                                    this->currentSpeedDivisor--;
-    
-
-                                    }
-                                
+- (void) reverse {
+        RotationAnimationInterface* rotationAnimationInterface = ((RotationAnimationInterface*) self->rotationAnimationInterface);
+        AngleIncrementInfo* angleIncrementInfo = [[rotationAnimationInterface getAngleInfoP] getAngleIncrementInfo];
+        int32_t frame = [self->rotationAnimationInterface getFrame];
+        if (frame == ((int32_t) (angleIncrementInfo->LEFT_FRAME))) {
+            RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
+            [rotationAnimationInterfaceCompositeInterface setFrame:((int32_t) (angleIncrementInfo->RIGHT_FRAME))];
+            [self->baseVelocityInterface zero];
+        } else if (frame == ((int32_t) (angleIncrementInfo->RIGHT_FRAME))) {
+            RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
+            [rotationAnimationInterfaceCompositeInterface setFrame:((int32_t) (angleIncrementInfo->LEFT_FRAME))];
+            [self->baseVelocityInterface zero];
+        }
 }
 
 
-    auto HorizontaRotationManeuverAI::drop() -> void{
-
-    DisplayInfoSingleton* displayInfo = DisplayInfoSingleton::getInstance();;
-    
-
-    AllBinaryLayer* ownerLayerInterface = this->getOwnerLayerInterface();;
-    
-
-    int32_t y = ownerLayerInterface->getYP();;
-    
-
-                        if(ownerLayerInterface->getY2() +ownerLayerInterface->getHeight() > displayInfo->getLastHeight())
-                        
-                                    {
-                                    y= 0;
-    
-
-                                    }
-                                
-                        else {
-                            y += ownerLayerInterface->getHeight() +1;
-    
-
-                        }
-                            
-ownerLayerInterface->setPosition(ownerLayerInterface->getXP(), y, ownerLayerInterface->getZP());
-    
+- (void) accelerate {
+        if (self->currentSpeedDivisor > 1) {
+            self->currentSpeedDivisor--;
+        }
 }
 
 
-    auto HorizontaRotationManeuverAI::getId() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ArtificialIntelligence::AI_ID;
-    
+- (void) drop {
+        DisplayInfoSingleton* displayInfo = [DisplayInfoSingleton getInstance];
+        AllBinaryLayer* ownerLayerInterface = [self getOwnerLayerInterface];
+        int32_t y = [ownerLayerInterface getYP];
+        if ([ownerLayerInterface getY2] + [ownerLayerInterface getHeight] > [displayInfo getLastHeight]) {
+            y = 0;
+        } else {
+            y += [ownerLayerInterface getHeight] + 1;
+        }
+        [ownerLayerInterface setPosition:[ownerLayerInterface getXP] :y :[ownerLayerInterface getZP]];
 }
 
 
+- (int32_t) getId {
+        return (ArtificialIntelligence_staticInit(), ArtificialIntelligence_AI_ID);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_AI_HORIZONTAROTATIONMANEUVERAI_CPP

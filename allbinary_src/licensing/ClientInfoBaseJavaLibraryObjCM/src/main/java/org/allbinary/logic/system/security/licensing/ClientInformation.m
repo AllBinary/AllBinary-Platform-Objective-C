@@ -1,409 +1,176 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_CLIENTINFORMATION_CPP
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_CLIENTINFORMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/system/security/licensing/ClientInformation.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/logic/system/hardware/HardwareInterface.h>
-
-      
-#include <org/allbinary/logic/system/hardware/SystemHardwareFactory.h>
-
-      
-#include <org/allbinary/logic/system/os/GenericOperatingSystem.h>
-
-      
-#include <org/allbinary/logic/system/os/NoOperatingSystem.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListUtil.h>
-
-      
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/system/security/licensing/ClientInformation.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/logic/system/hardware/HardwareInterface.h"
+#include "org/allbinary/logic/system/hardware/SystemHardwareFactory.h"
+#include "org/allbinary/logic/system/os/GenericOperatingSystem.h"
+#include "org/allbinary/logic/system/os/NoOperatingSystem.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationData.h"
-// This is the information sent to the license server
 
-ClientInformation::ClientInformation(std::string name, std::string version, std::string specialName, std::string shortName) : operatingSystemInterface(NoOperatingSystem::NO_OPERATING_SYSTEM), tsUtil(TsUtil::getInstance()), licenseId(StringUtil::getInstance()->EMPTY_STRING), licenseServers(BasicArrayListUtil::getInstance()->getImmutableInstance()){
-this->name= name;
+
+
+void ClientInformation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation ClientInformation
+
+- (void) initFields {
+    self->operatingSystemInterface = (NoOperatingSystem_staticInit(), NoOperatingSystem_NO_OPERATING_SYSTEM);
+    self->tsUtil = [TsUtil getInstance];
     
-this->version= version;
     
-this->specialName= specialName;
     
-this->shortName= JavaString::valueOf((new StringMaker())->append(shortName)->append(CommonSeps::getInstance()->UNDERSCORE)->append(version));
     
-this->init();
-    
+    self->hardSale = true;
+    self->licenseId = [StringUtil getInstance]->EMPTY_STRING;
+    self->licenseServers = [[BasicArrayListUtil getInstance] getImmutableInstance];
 }
 
 
-    auto ClientInformation::init() -> void{
+- (instancetype) init:(const char*)name :(const char*)version :(const char*)specialName :(const char*)shortName {
+    self = [super init];
+    [self initFields];
+        self->name = name;
+        self->version = version;
+        self->specialName = specialName;
+        self->shortName = [[[[[((StringMaker*) [StringMaker alloc]) init] append:shortName] append:[CommonSeps getInstance]->UNDERSCORE] append:version] toString];
+        [self init_];
+    return self;
 }
 
 
-    auto ClientInformation::getOperatingSystemInterface() -> GenericOperatingSystem*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->operatingSystemInterface;
-    
+- (void) init_ {
 }
 
 
-    auto ClientInformation::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->name;
-    
+- (GenericOperatingSystem*) getOperatingSystemInterface {
+        return self->operatingSystemInterface;
 }
 
 
-    auto ClientInformation::getSpecialName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->specialName;
-    
+- (const char*) getName {
+        return self->name;
 }
 
 
-    auto ClientInformation::getVersion() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->version;
-    
+- (const char*) getSpecialName {
+        return self->specialName;
 }
 
 
-    auto ClientInformation::getLicenseId() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->licenseId;
-    
+- (const char*) getVersion {
+        return self->version;
 }
 
 
-    auto ClientInformation::getLicenseServers() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->licenseServers;
-    
+- (const char*) getLicenseId {
+        return self->licenseId;
 }
 
 
-    auto ClientInformation::getLicenseServer(int32_t index) -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::unbox<std::string>(this->licenseServers->objectArray[index]);
-    
+- (BasicArrayList*) getLicenseServers {
+        return self->licenseServers;
 }
 
 
-    auto ClientInformation::getNumberOfLicenseServers() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->licenseServers->size();;
-    
+- (const char*) getLicenseServer:(int32_t)index {
+        return ((const char*) self->licenseServers->objectArray[index]);
 }
 
 
-    auto ClientInformation::toHashtable() -> ABHashtable<Object*, Object*>*{
-
-    AbeClientInformationData* abeClientInformationData = AbeClientInformationData::getInstance();;
-    
-
-    GenericOperatingSystem* genericOperatingSystem = this->getOperatingSystemInterface();;
-    
-
-    ABHashtable<Object*, Object*>* clientInfoHashtable = StdUtil::getInstance()->createHashtable();;
-    
-clientInfoHashtable->put(abeClientInformationData->NAME, this->name);
-    
-clientInfoHashtable->put(abeClientInformationData->VERSION, this->version);
-    
-clientInfoHashtable->put(abeClientInformationData->SPECIALNAME, this->specialName);
-    
-clientInfoHashtable->put(abeClientInformationData->LICENSEID, this->getLicenseId());
-    
-clientInfoHashtable->put(abeClientInformationData->OSNAME, genericOperatingSystem->getName());
-    
-clientInfoHashtable->put(abeClientInformationData->OSARCH, genericOperatingSystem->getArch());
-    
-clientInfoHashtable->put(abeClientInformationData->OSVERSION, genericOperatingSystem->getVersion());
-    
-clientInfoHashtable->put(abeClientInformationData->OS, JavaString::valueOf(genericOperatingSystem));
-    
-
-    HardwareInterface* hardwareInterface = SystemHardwareFactory::getInstance()->getInstance(genericOperatingSystem);;
-    
-
-    std::string hardwareString = JavaString::valueOf(hardwareInterface);;
-    
-clientInfoHashtable->put(abeClientInformationData->HARDWARE, hardwareString);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return clientInfoHashtable;
-    
+- (int32_t) getNumberOfLicenseServers {
+        return [self->licenseServers size];
 }
 
 
-    auto ClientInformation::isSameId(std::string alicenseId) -> bool{
-
-                        if(this->tsUtil->compareTo(this->getLicenseId(), alicenseId) == 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+- (ABHashtable*) toHashtable {
+        AbeClientInformationData* abeClientInformationData = [AbeClientInformationData getInstance];
+        GenericOperatingSystem* genericOperatingSystem = [self getOperatingSystemInterface];
+        ABHashtable* clientInfoHashtable = [[StdUtil getInstance] createHashtable];
+        [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->NAME) :JAVA_BOX(self->name)];
+        [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->VERSION) :JAVA_BOX(self->version)];
+        [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->SPECIALNAME) :JAVA_BOX(self->specialName)];
+        [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->LICENSEID) :JAVA_BOX([self getLicenseId])];
+        [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->OSNAME) :JAVA_BOX([genericOperatingSystem getName])];
+        [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->OSARCH) :JAVA_BOX([genericOperatingSystem getArch])];
+        [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->OSVERSION) :JAVA_BOX([genericOperatingSystem getVersion])];
+        [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->OS) :JAVA_BOX([genericOperatingSystem toString])];
+        HardwareInterface* hardwareInterface = [[SystemHardwareFactory getInstance] getInstance:genericOperatingSystem];
+        const char* hardwareString = [hardwareInterface toString];
+        [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->HARDWARE) :JAVA_BOX(hardwareString)];
+        return clientInfoHashtable;
 }
 
 
-    auto ClientInformation::isLargerOrDifferentServerList(BasicArrayList* list) -> bool{
-
-    int32_t size = list->size() -1;;
-    
-
-    int32_t currentSize = this->licenseServers->size() -1;;
-    
-
-                        if(size > currentSize)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-
-                        for (
-    int32_t index = size;index >= 0; index--)
-        {
-
-    std::string newServerName = JavaBoxes::unbox<std::string>(list->objectArray[index]);;
-    
-
-
-
-
-                        for (
-    int32_t index2 = currentSize;index2 >= 0; index2--)
-        {
-
-    std::string nextOldServerName = JavaBoxes::unbox<std::string>(this->licenseServers->objectArray[index]);;
-    
-
-                        if(this->tsUtil->compareTo(newServerName, nextOldServerName) != 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-}
-
+- (bool) isSameId:(const char*)alicenseId {
+        if ([self->tsUtil compareTo:[self getLicenseId] :alicenseId] == 0) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isLargerOrDifferentServerList:(BasicArrayList*)list {
+        int32_t size = [list size] - 1;
+        int32_t currentSize = [self->licenseServers size] - 1;
+        if (size > currentSize) {
+            return true;
+        }
+        for (int32_t index = size; index >= 0; index--) {
+            const char* newServerName = ((const char*) list->objectArray[index]);
+            for (int32_t index2 = currentSize; index2 >= 0; index2--) {
+                const char* nextOldServerName = ((const char*) self->licenseServers->objectArray[index]);
+                if ([self->tsUtil compareTo:newServerName :nextOldServerName] != 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
 }
 
 
-    auto ClientInformation::setHardSale(bool hardSale) -> void{
-this->hardSale= hardSale;
-    
+- (void) setHardSale:(bool)hardSale {
+        self->hardSale = hardSale;
 }
 
 
-    auto ClientInformation::isHardSale() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->hardSale;
-    
+- (bool) isHardSale {
+        return self->hardSale;
 }
 
 
-    auto ClientInformation::setOperatingSystemInterface(GenericOperatingSystem* operatingSystemInterface) -> void{
-this->operatingSystemInterface= operatingSystemInterface;
-    
+- (void) setOperatingSystemInterface:(GenericOperatingSystem*)operatingSystemInterface {
+        self->operatingSystemInterface = operatingSystemInterface;
 }
 
 
-    auto ClientInformation::setLicenseId(std::string licenseId) -> void{
-this->licenseId= licenseId;
-    
+- (void) setLicenseId:(const char*)licenseId {
+        self->licenseId = licenseId;
 }
 
 
-    auto ClientInformation::setLicenseServers(BasicArrayList* licenseServers) -> void{
-this->licenseServers= licenseServers;
-    
+- (void) setLicenseServers:(BasicArrayList*)licenseServers {
+        self->licenseServers = licenseServers;
 }
 
 
-    auto ClientInformation::toShortString() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->shortName;
-    
+- (const char*) toShortString {
+        return self->shortName;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_CLIENTINFORMATION_CPP

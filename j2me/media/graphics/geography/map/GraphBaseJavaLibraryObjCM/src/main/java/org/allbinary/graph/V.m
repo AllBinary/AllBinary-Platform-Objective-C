@@ -1,62 +1,27 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPH_V_CPP
-        #define ORG_ALLBINARY_GRAPH_V_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graph/V.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graph/V.h"
 
 
 
+void V_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation V
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-V::V() {
-        }
-        
-    auto V::getId() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+- (int32_t) getId {
+        return 0;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPH_V_CPP

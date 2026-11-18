@@ -1,229 +1,96 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/io/BufferedWriterUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/io/file/AbFile.h"
+#include "org/allbinary/logic/io/file/AbFileNativeUtil.h"
+#include "org/allbinary/logic/io/path/AbPathData.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonLabels.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
+static BufferedWriterUtil* BufferedWriterUtil_instance;
 
-        #ifndef ORG_ALLBINARY_LOGIC_IO_BUFFEREDWRITERUTIL_CPP
-        #define ORG_ALLBINARY_LOGIC_IO_BUFFEREDWRITERUTIL_CPP
+void BufferedWriterUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    BufferedWriterUtil_instance = [((BufferedWriterUtil*) [BufferedWriterUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/io/BufferedWriterUtil.h"
-        
+@implementation BufferedWriterUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+    self->commonLabels = [CommonLabels getInstance];
+    self->REMOVING_OLD = "Remove old for overwriting: ";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <java/io/BufferedWriter.h>
-
-      
-#include <java/io/FileWriter.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/io/file/AbFile.h>
-
-      
-#include <org/allbinary/logic/io/file/AbFileNativeUtil.h>
-
-      
-#include <org/allbinary/logic/io/path/AbPathData.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (BufferedWriterUtil*) getInstance {
+        return (BufferedWriterUtil_staticInit(), BufferedWriterUtil_instance);
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-BufferedWriterUtil::BufferedWriterUtil() : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), commonLabels(CommonLabels::getInstance()) {
+// throws Exception
+- (void) overwrite:(const char*)path :(const char*)data {
+        AbFile* abFile = [AbFile createAbFile:path];
+        if ([abFile exists]) {
+            [self->logUtil putF:java_concat(self->REMOVING_OLD, path) :self :self->commonStrings->CREATE];
+            [abFile delete];
+        } else {
+            const char* name = [[AbPathData getInstance] removeNameFromPath:path];
+            AbFile* abFileDirectory = [AbFile createAbFile:name];
+            if ([abFileDirectory exists]) {
+            } else {
+                StringMaker* stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
+                [self->logUtil putF:[[[[stringBuilder append:self->commonStrings->CREATE] append:self->commonLabels->COLON_SEP] append:name] toString] :self :self->commonStrings->CREATE];
+                bool result = [abFileDirectory mkdirs];
+                [stringBuilder delete:0 :[stringBuilder length]];
+                [self->logUtil putF:[[[stringBuilder append:self->commonLabels->RESULT_] appendboolean:result] toString] :self :self->commonStrings->CREATE];
+            }
         }
-        auto BufferedWriterUtil::instance_owner() -> BufferedWriterUtil* { static std::unique_ptr<BufferedWriterUtil> value(new BufferedWriterUtil()); return value.get(); }
-BufferedWriterUtil* BufferedWriterUtil::instance = BufferedWriterUtil::instance_owner();
-
-    auto BufferedWriterUtil::getInstance() -> BufferedWriterUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return BufferedWriterUtil::instance;
-    
+        [self write:abFile :data];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BufferedWriterUtil::overwrite(std::string path, std::string data) -> void{
-
-    AbFile* abFile = AbFile::createAbFile(path);;
-    
-
-                        if(abFile->exists())
-                        
-                                    {
-                                    this->logUtil->putF(JavaString::valueOf(this->REMOVING_OLD) +JavaString::valueOf(path), this, this->commonStrings->CREATE);
-    
-abFile->delete_();
-    
-
-                                    }
-                                
-                        else {
-                            
-    std::string name = AbPathData::getInstance()->removeNameFromPath(path);;
-    
-
-    AbFile* abFileDirectory = AbFile::createAbFile(name);;
-    
-
-                        if(abFileDirectory->exists())
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            
-    StringMaker* stringBuilder = new StringMaker();;
-    
-this->logUtil->putF(JavaString::valueOf(stringBuilder->append(this->commonStrings->CREATE)->append(this->commonLabels->COLON_SEP)->append(name)), this, this->commonStrings->CREATE);
-    
-
-    bool result = abFileDirectory->mkdirs();;
-    
-stringBuilder->delete_(0, stringBuilder->length());
-    
-this->logUtil->putF(JavaString::valueOf(stringBuilder->append(this->commonLabels->RESULT_)->appendboolean(result)), this, this->commonStrings->CREATE);
-    
-
-                        }
-                            
-
-                        }
-                            
-this->write(abFile, data);
-    
+// throws Exception
+- (void) overwrite_2:(AbFile*)abFile :(const char*)data {
+        if ([abFile exists]) {
+            [self->logUtil putF:java_concat(self->REMOVING_OLD, [abFile getPath]) :self :self->commonStrings->CREATE];
+            [abFile delete];
+        } else {
+            const char* name = [[AbPathData getInstance] removeNameFromPath:[abFile getAbsolutePath]];
+            AbFile* abFileDirectory = [AbFile createAbFile:name];
+            if ([abFileDirectory exists]) {
+            } else {
+                StringMaker* stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
+                [self->logUtil putF:[[[[stringBuilder append:self->commonStrings->CREATE] append:self->commonLabels->COLON_SEP] append:name] toString] :self :self->commonStrings->CREATE];
+                bool result = [abFileDirectory mkdirs];
+                [stringBuilder delete:0 :[stringBuilder length]];
+                [self->logUtil putF:[[[stringBuilder append:self->commonLabels->RESULT_] appendboolean:result] toString] :self :self->commonStrings->CREATE];
+            }
+        }
+        [self write:abFile :data];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BufferedWriterUtil::overwrite(AbFile* abFile, std::string data) -> void{
-
-                        if(abFile->exists())
-                        
-                                    {
-                                    this->logUtil->putF(this->REMOVING_OLD +abFile->getPath(), this, this->commonStrings->CREATE);
-    
-abFile->delete_();
-    
-
-                                    }
-                                
-                        else {
-                            
-    std::string name = AbPathData::getInstance()->removeNameFromPath(abFile->getAbsolutePath());;
-    
-
-    AbFile* abFileDirectory = AbFile::createAbFile(name);;
-    
-
-                        if(abFileDirectory->exists())
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            
-    StringMaker* stringBuilder = new StringMaker();;
-    
-this->logUtil->putF(JavaString::valueOf(stringBuilder->append(this->commonStrings->CREATE)->append(this->commonLabels->COLON_SEP)->append(name)), this, this->commonStrings->CREATE);
-    
-
-    bool result = abFileDirectory->mkdirs();;
-    
-stringBuilder->delete_(0, stringBuilder->length());
-    
-this->logUtil->putF(JavaString::valueOf(stringBuilder->append(this->commonLabels->RESULT_)->appendboolean(result)), this, this->commonStrings->CREATE);
-    
-
-                        }
-                            
-
-                        }
-                            
-this->write(abFile, data);
-    
+// throws Exception
+- (void) write:(AbFile*)abFile :(const char*)data {
+        BufferedWriter* fileOut = [((BufferedWriter*) [BufferedWriter alloc]) init:[((FileWriter*) [FileWriter alloc]) init:[AbFileNativeUtil get:abFile]]];
+        [fileOut write:data :0 :((int32_t) strlen(data))];
+        [fileOut newLine];
+        [fileOut flush];
 }
 
+@end
 
-                //@Throws(Exception.constructor)
-            
-    auto BufferedWriterUtil::write(AbFile* abFile, std::string data) -> void{
-
-    BufferedWriter* fileOut = new BufferedWriter(new FileWriter(AbFileNativeUtil::get(abFile)));;
-    
-fileOut->write(data, 0, data.size());
-    
-fileOut->newLine();
-    
-fileOut->flush();
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_LOGIC_IO_BUFFEREDWRITERUTIL_CPP

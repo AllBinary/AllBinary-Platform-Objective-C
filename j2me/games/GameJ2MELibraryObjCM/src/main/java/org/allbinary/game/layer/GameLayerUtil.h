@@ -1,94 +1,45 @@
+#ifndef ORG_ALLBINARY_GAME_LAYER_GAMELAYERUTIL_H
+#define ORG_ALLBINARY_GAME_LAYER_GAMELAYERUTIL_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.layer
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class GameLayerUtil;
+@class DisplayInfoSingleton;
+@class AllBinaryLayer;
+@class ViewPositionBase;
 
+@interface GameLayerUtil : ABObject {
+@public
+}
+- (instancetype) init;
++ (bool) isOnScreen:(AllBinaryLayer*)layer;
++ (bool) isInside:(int32_t)rectX1 :(int32_t)rectY1 :(int32_t)rectX2 :(int32_t)rectY2 :(int32_t)rect2X1 :(int32_t)rect2Y1 :(int32_t)rect2X2 :(int32_t)rect2Y2;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_LAYER_GAMELAYERUTIL_H
-        #define ORG_ALLBINARY_GAME_LAYER_GAMELAYERUTIL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class DisplayInfoSingleton;
-class AllBinaryLayer;
-class ViewPositionBase;
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void GameLayerUtil_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class GameLayerUtil
-            : public virtual Object
-         {
-
-    public: static bool isOnScreen(AllBinaryLayer* layer);
-
-    public: static bool isInside(int32_t rectX1, int32_t rectY1, int32_t rectX2, int32_t rectY2, int32_t rect2X1, int32_t rect2Y1, int32_t rect2X2, int32_t rect2Y2);
-
-private: GameLayerUtil();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_LAYER_GAMELAYERUTIL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_LAYER_GAMELAYERUTIL_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_LAYER_GAMELAYERUTIL_H_COMPLETE
-        #if __has_include(<org/allbinary/graphics/displayable/DisplayInfoSingleton.h>)
-#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayer.h>)
-#include <org/allbinary/layer/AllBinaryLayer.h>
-#endif
-#if __has_include(<org/allbinary/view/ViewPositionBase.h>)
-#include <org/allbinary/view/ViewPositionBase.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_LAYER_GAMELAYERUTIL_H

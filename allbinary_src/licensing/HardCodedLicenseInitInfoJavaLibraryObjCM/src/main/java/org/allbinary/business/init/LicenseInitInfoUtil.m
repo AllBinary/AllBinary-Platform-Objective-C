@@ -1,131 +1,67 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/business/init/LicenseInitInfoUtil.h"
+#include "org/allbinary/business/init/LicenseInitInfo.h"
 
 
+static LicenseInitInfoUtil* LicenseInitInfoUtil_instance;
 
-        #ifndef ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFOUTIL_CPP
-        #define ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFOUTIL_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/business/init/LicenseInitInfoUtil.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/business/init/LicenseInitInfo.h"
-
-auto LicenseInitInfoUtil::instance_owner() -> LicenseInitInfoUtil* { static std::unique_ptr<LicenseInitInfoUtil> value(new LicenseInitInfoUtil()); return value.get(); }
-LicenseInitInfoUtil* LicenseInitInfoUtil::instance = LicenseInitInfoUtil::instance_owner();
-
-    auto LicenseInitInfoUtil::getInstance() -> LicenseInitInfoUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return LicenseInitInfoUtil::instance;
-    
+void LicenseInitInfoUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    LicenseInitInfoUtil_instance = [((LicenseInitInfoUtil*) [LicenseInitInfoUtil alloc]) init];
 }
 
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
+@implementation LicenseInitInfoUtil
 
-    auto LicenseInitInfoUtil::setFilePath(std::string filePath) -> void{
+- (void) initFields {
+    self->INITFILENAME = "licenseinitdata.dat";
+    self->ABOUT = "about";
+    self->PRIVACY_POLICY = "privacy_policy";
+    self->OFFICIAL_ALLBINARY_SERVICES_SERVER = "https://services.allbinary.com/LicServ/serverssl.php";
 }
 
 
-LicenseInitInfoUtil::LicenseInitInfoUtil(){
++ (LicenseInitInfoUtil*) getInstance {
+        return (LicenseInitInfoUtil_staticInit(), LicenseInitInfoUtil_instance);
 }
 
 
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto LicenseInitInfoUtil::write(LicenseInitInfo* initData) -> void{
+// synchronized
+- (void) setFilePath:(const char*)filePath {
 }
 
 
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto LicenseInitInfoUtil::read() -> LicenseInitInfo*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->readAgain(0);;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto LicenseInitInfoUtil::readAgain(int32_t initializeCounter) -> LicenseInitInfo*{
-
-    LicenseInitInfo* licenseInitInfo = new LicenseInitInfo();;
-    
-licenseInitInfo->clearServers();
-    
-licenseInitInfo->addServer(this->OFFICIAL_ALLBINARY_SERVICES_SERVER);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return licenseInitInfo;
-    
+// throws Exception
+// synchronized
+- (void) write:(LicenseInitInfo*)initData {
 }
 
 
+// throws Exception
+// synchronized
+- (LicenseInitInfo*) read {
+        return [self readAgain:0];
+}
 
 
-        #endif //ORG_ALLBINARY_BUSINESS_INIT_LICENSEINITINFOUTIL_CPP
+// throws Exception
+// synchronized
+- (LicenseInitInfo*) readAgain:(int32_t)initializeCounter {
+        LicenseInitInfo* licenseInitInfo = [((LicenseInitInfo*) [LicenseInitInfo alloc]) init];
+        [licenseInitInfo clearServers];
+        [licenseInitInfo addServer:self->OFFICIAL_ALLBINARY_SERVICES_SERVER];
+        return licenseInitInfo;
+}
+
+@end
+

@@ -1,77 +1,30 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/paint/NullLocationPaintable.h"
+#include "org/allbinary/graphics/paint/LocationPaintable.h"
 
 
+static NullLocationPaintable* NullLocationPaintable_instanceC;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_PAINT_NULLLOCATIONPAINTABLE_CPP
-        #define ORG_ALLBINARY_GRAPHICS_PAINT_NULLLOCATIONPAINTABLE_CPP
+void NullLocationPaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NullLocationPaintable_instanceC = [((NullLocationPaintable*) [NullLocationPaintable alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/paint/NullLocationPaintable.h"
-        
+@implementation NullLocationPaintable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/paint/LocationPaintable.h"
-
-
-NullLocationPaintable::NullLocationPaintable() {
-        }
-        auto NullLocationPaintable::instanceC_owner() -> NullLocationPaintable* { static std::unique_ptr<NullLocationPaintable> value(new NullLocationPaintable()); return value.get(); }
-NullLocationPaintable* NullLocationPaintable::instanceC = NullLocationPaintable::instanceC_owner();
-
-    auto NullLocationPaintable::getInstance() -> NullLocationPaintable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullLocationPaintable::instanceC;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
++ (NullLocationPaintable*) getInstance {
+        return (NullLocationPaintable_staticInit(), NullLocationPaintable_instanceC);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_PAINT_NULLLOCATIONPAINTABLE_CPP

@@ -1,114 +1,54 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_BASEANIMATIONINTERFACEFACTORYINTERFACECOMPOSITE_CPP
-        #define ORG_ALLBINARY_ANIMATION_BASEANIMATIONINTERFACEFACTORYINTERFACECOMPOSITE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/BaseAnimationInterfaceFactoryInterfaceComposite.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/media/ScaleProperties.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/BaseAnimationInterfaceFactoryInterfaceComposite.h"
+#include "org/allbinary/media/ScaleProperties.h"
+#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
 #include "org/allbinary/animation/BasicAnimationInterfaceFactoryInterface.h"
 #include "org/allbinary/animation/NullAnimationFactory.h"
 #include "org/allbinary/animation/Animation.h"
 
 
-BaseAnimationInterfaceFactoryInterfaceComposite::BaseAnimationInterfaceFactoryInterfaceComposite(std::vector<BasicAnimationInterfaceFactoryInterface*> basicAnimationInterfaceFactoryInterfaceArray){
-this->basicAnimationInterfaceFactoryInterfaceArray= basicAnimationInterfaceFactoryInterfaceArray;
+
+void BaseAnimationInterfaceFactoryInterfaceComposite_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation BaseAnimationInterfaceFactoryInterfaceComposite
+
+- (void) initFields {
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseAnimationInterfaceFactoryInterfaceComposite::getInstance(int32_t instanceId) -> Animation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullAnimationFactory::getFactoryInstance()->getInstance(0);;
-    
+- (instancetype) init:(BasicAnimationInterfaceFactoryInterface**)basicAnimationInterfaceFactoryInterfaceArray {
+    self = [super init];
+    [self initFields];
+        self->basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
+    return self;
 }
 
 
-    auto BaseAnimationInterfaceFactoryInterfaceComposite::getBasicAnimationInterfaceFactoryInterfaceArray() -> std::vector<BasicAnimationInterfaceFactoryInterface*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->basicAnimationInterfaceFactoryInterfaceArray;
-    
+// throws Exception
+- (Animation*) getInstance:(int32_t)instanceId {
+        return [[NullAnimationFactory getFactoryInstance] getInstance:0];
 }
 
 
-    auto BaseAnimationInterfaceFactoryInterfaceComposite::setBasicAnimationInterfaceFactoryInterfaceArray(std::vector<BasicAnimationInterfaceFactoryInterface*> basicAnimationInterfaceFactoryInterfaceArray) -> void{
-this->basicAnimationInterfaceFactoryInterfaceArray= basicAnimationInterfaceFactoryInterfaceArray;
-    
+- (BasicAnimationInterfaceFactoryInterface**) getBasicAnimationInterfaceFactoryInterfaceArray {
+        return self->basicAnimationInterfaceFactoryInterfaceArray;
 }
 
 
-    auto BaseAnimationInterfaceFactoryInterfaceComposite::setInitialScale(ScaleProperties* scaleProperties) -> void{
+- (void) setBasicAnimationInterfaceFactoryInterfaceArray:(BasicAnimationInterfaceFactoryInterface**)basicAnimationInterfaceFactoryInterfaceArray {
+        self->basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
 }
 
 
+- (void) setInitialScale:(ScaleProperties*)scaleProperties {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_BASEANIMATIONINTERFACEFACTORYINTERFACECOMPOSITE_CPP

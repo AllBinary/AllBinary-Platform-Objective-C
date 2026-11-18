@@ -1,91 +1,47 @@
+#ifndef ORG_ALLBINARY_LOGIC_IO_PATH_ABPATHUTIL_H
+#define ORG_ALLBINARY_LOGIC_IO_PATH_ABPATHUTIL_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.logic.io.path
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LOGIC_IO_PATH_ABPATHUTIL_H
-        #define ORG_ALLBINARY_LOGIC_IO_PATH_ABPATHUTIL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class AbPath;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class AbPathUtil
-            : public virtual Object
-         {
-
-    private: static AbPathUtil* instance_owner();
-    private: static AbPathUtil* instance;
-
-    public: static AbPathUtil* getInstance();
-
-
-            
-    public: AbPathUtil();
-        
-    public: AbPath* NO_ABPATH;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_LOGIC_IO_PATH_ABPATHUTIL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_LOGIC_IO_PATH_ABPATHUTIL_H_COMPLETE)
-        #define ORG_ALLBINARY_LOGIC_IO_PATH_ABPATHUTIL_H_COMPLETE
-        #if __has_include("org/allbinary/logic/io/path/AbPath.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class AbPathUtil;
+@class AbPath;
+#if __has_include("org/allbinary/logic/io/path/AbPath.h")
 #include "org/allbinary/logic/io/path/AbPath.h"
 #endif
 
-        #endif
-    
+@interface AbPathUtil : ABObject {
+@public
+    AbPath* NO_ABPATH;
+}
+- (instancetype) init;
+- (void) initFields;
++ (AbPathUtil*) getInstance;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void AbPathUtil_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_LOGIC_IO_PATH_ABPATHUTIL_H

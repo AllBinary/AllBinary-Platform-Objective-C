@@ -1,338 +1,134 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/image/ImageCache.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "javax/microedition/lcdui/NullImage.h"
+#include "org/allbinary/J2MEUtil.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/data/resource/ResourceUtil.h"
+#include "org/allbinary/game/gd/resource/GDResources.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/system/Memory.h"
+#include "org/allbinary/image/ImageCacheBase.h"
 
 
+ImageCache* ImageCache_NULL_IMAGE_CACHE;
 
-        #ifndef ORG_ALLBINARY_IMAGE_IMAGECACHE_CPP
-        #define ORG_ALLBINARY_IMAGE_IMAGECACHE_CPP
+void ImageCache_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ImageCache_NULL_IMAGE_CACHE = [((ImageCache*) [ImageCache alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/image/ImageCache.h"
-        
+@implementation ImageCache
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-            #include "java/lang/Thread.h"
-        
-#include <java/io/InputStream.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <javax/microedition/lcdui/NullImage.h>
-
-      
-#include <org/allbinary/J2MEUtil.h>
-
-      
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/data/resource/ResourceUtil.h>
-
-      
-#include <org/allbinary/game/gd/resource/GDResources.h>
-
-      
-#include <org/allbinary/logic/ABSystemWrapper.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/system/Memory.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/image/ImageCacheBase.h"
-
-auto ImageCache::NULL_IMAGE_CACHE_owner() -> ImageCache* { static std::unique_ptr<ImageCache> value(new ImageCache()); return value.get(); }
-ImageCache* ImageCache::NULL_IMAGE_CACHE = ImageCache::NULL_IMAGE_CACHE_owner();
-
-ImageCache::ImageCache() : commonStrings(CommonStrings::getInstance()), tsUtil(TsUtil::getInstance()){
+- (void) initFields {
+    self->commonStrings = [CommonStrings getInstance];
+    self->tsUtil = [TsUtil getInstance];
 }
 
 
-    auto ImageCache::addListener(Object* renderer) -> void{
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto ImageCache::getIndex(Object* key) -> int32_t{
-
-    GDResources* gdResources = GDResources::getInstance();;
-    
-
-    std::vector<std::string> resourceStringArray = gdResources->resourceStringArray;;
-    
-
-    int32_t size = resourceStringArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-
-                        if((JavaString::box(resourceStringArray[index]) == key))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return index;
-    
-
-                                    }
-                                
-}
-
-this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("unable to find key: ")->append(StringUtil::getInstance()->toString(key))), this, this->commonStrings->RUN);
-    
-
-
-
-                            throw RuntimeException();
-                    
+- (void) addListener:(id)renderer {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageCache::get(std::string caller, int32_t width, int32_t height) -> Image*{
-
-    int32_t foundIndex = this->getIndexWH(width, height);;
-    
-
-    Image* image = this->getFromAvailable(foundIndex, width, height);;
-    
-
-                        if(image == NullImage::NULL_IMAGE)
-                        
-                                    {
-                                    this->volume += width *height;
-    
-
-                        if(this->volume > 32000)
-                        
-                                    {
-                                    this->tsUtil->gc();
-    
-this->volume= 0;
-    
-
-                                    }
-                                
-image= this->createImage(caller, width, height);
-    
-
-    std::vector<int32_t> widths = this->widths;;
-    
-
-                        if(this->nextIndex > widths.size() -1)
-                        
-                                    {
-                                    
-                        if(foundIndex ==  -1)
-                        
-                                    {
-                                    foundIndex= this->nextIndex;
-    
-widths[this->nextIndex]= width;
-    
-this->heights[this->nextIndex]= height;
-    
-this->nextIndex++;
-    
-
-                                    }
-                                
-this->listOfList[foundIndex]->add(image);
-    
-
-                                    }
-                                
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return image;
-    
+- (int32_t) getIndex:(id)key {
+        GDResources* gdResources = [GDResources getInstance];
+        const char** resourceStringArray = gdResources->resourceStringArray;
+        int32_t size = java_array_length(resourceStringArray);
+        for (int32_t index = 0; index < size; index++) {
+            if (resourceStringArray[index] == key) {
+                return index;
+            }
+        }
+        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"unable to find key: "] append:[[StringUtil getInstance] toString:key]] toString] :self :self->commonStrings->RUN];
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageCache::getWithKey(Object* key) -> Image*{
-
-    Image* image = this->getImage(key);;
-    
-
-                        if(image == NullImage::NULL_IMAGE)
-                        
-                                    {
-                                    
-    ResourceUtil* resourceUtil = ResourceUtil::getInstance();;
-    
-
-    InputStream* resourceInputStream = resourceUtil->getResourceAsStream(JavaBoxes::unbox<std::string>(key));;
-    
-
-                        if(resourceInputStream == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    
-
-
-                            throw RuntimeException(JavaString::valueOf((new StringMaker())->append("Image resource is not available for key: ")->append(StringUtil::getInstance()->toString(key))));
-                    
-
-                                    }
-                                
-
-        try {
-            image= this->createImageFromInputStream(key, resourceInputStream);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put("Exception: Trying Again After GC", this, this->commonStrings->GET, &e);
-    
-this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("InputStream: ")->append(StringUtil::getInstance()->toString(resourceInputStream))), this, this->commonStrings->GET);
-    
-this->tsUtil->gc();
-    
-this->tsUtil->gc();
-    
-this->logUtil->putF(Memory::getInfo(), this, this->commonStrings->GET);
-    
-Thread::sleep(100);
-    
-image= this->createImageFromInputStream(key, resourceInputStream);
-    
+// throws Exception
+- (Image*) get:(const char*)caller :(int32_t)width :(int32_t)height {
+        int32_t foundIndex = [self getIndexWH:width :height];
+        Image* image = [self getFromAvailable:foundIndex :width :height];
+        if (image == (NullImage_staticInit(), NullImage_NULL_IMAGE)) {
+            self->volume += width * height;
+            if (self->volume > 32000) {
+                [self->tsUtil gc];
+                self->volume = 0;
+            }
+            image = [self createImage:caller :width :height];
+            int32_t* widths = self->widths;
+            if (self->nextIndex > java_array_length(widths) - 1) {
+                if (foundIndex == -1) {
+                    foundIndex = self->nextIndex;
+                    widths[self->nextIndex] = width;
+                    self->heights[self->nextIndex] = height;
+                    self->nextIndex++;
+                }
+                [self->listOfList[foundIndex] add:image];
+            }
+        }
+        return image;
 }
 
 
-                        if(J2MEUtil::isHTML())
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            resourceInputStream->close();
-    
-
-                        }
-                            
-this->hashtable->put(key, image);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return image;
-    
+// throws Exception
+- (Image*) getWithKey:(id)key {
+        Image* image = [self getImage:key];
+        if (image == (NullImage_staticInit(), NullImage_NULL_IMAGE)) {
+            ResourceUtil* resourceUtil = [ResourceUtil getInstance];
+            InputStream* resourceInputStream = [resourceUtil getResourceAsStream:((const char*) key)];
+            if (resourceInputStream == nil) {
+                java_throw(java_exception_new("RuntimeException", [[[[((StringMaker*) [StringMaker alloc]) init] append:"Image resource is not available for key: "] append:[[StringUtil getInstance] toString:key]] toString]));
+            }
+            JAVA_TRY {
+                image = [self createImageFromInputStream:key :resourceInputStream];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:"Exception: Trying Again After GC" :self :self->commonStrings->GET :e];
+                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"InputStream: "] append:[[StringUtil getInstance] toString:resourceInputStream]] toString] :self :self->commonStrings->GET];
+                [self->tsUtil gc];
+                [self->tsUtil gc];
+                [self->logUtil putF:[Memory getInfo] :self :self->commonStrings->GET];
+                java_sleep(100);
+                image = [self createImageFromInputStream:key :resourceInputStream];
+            } JAVA_END_TRY;
+            if ([J2MEUtil isHTML]) {
+            } else {
+                [resourceInputStream close];
+            }
+            [self->hashtable put:JAVA_BOX(key) :JAVA_BOX(image)];
+        }
+        return image;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageCache::loadImageForAnimation() -> void{
+// throws Exception
+- (void) loadImageForAnimation {
 }
 
 
-    auto ImageCache::progressEnded() -> void{
+- (void) progressEnded {
 }
 
 
-    auto ImageCache::runTask() -> void{
+- (void) runTask {
 }
 
 
-    auto ImageCache::isLazy() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isLazy {
+        return false;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_IMAGE_IMAGECACHE_CPP

@@ -1,84 +1,44 @@
+#ifndef ORG_ALLBINARY_INPUT_TOUCHJ2ME_H
+#define ORG_ALLBINARY_INPUT_TOUCHJ2ME_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.input
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class TouchJ2ME;
 
+//TouchJ2MENone
+@interface TouchJ2ME : ABObject {
+@public
+}
+- (instancetype) init;
+- (void) pointerDragged:(int32_t)x :(int32_t)y;
+- (void) pointerPressed:(int32_t)x :(int32_t)y;
+- (void) pointerReleased:(int32_t)x :(int32_t)y;
+@end
 
-
-        #ifndef ORG_ALLBINARY_INPUT_TOUCHJ2ME_H
-        #define ORG_ALLBINARY_INPUT_TOUCHJ2ME_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void TouchJ2ME_staticInit(void);
 
 
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        //TouchJ2MENone
-class TouchJ2ME
-            : public virtual Object
-         {
-
-public: TouchJ2ME();
-
-    public: void pointerDragged(int32_t x, int32_t y);
-
-    public: void pointerPressed(int32_t x, int32_t y);
-
-    public: void pointerReleased(int32_t x, int32_t y);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_INPUT_TOUCHJ2ME_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_INPUT_TOUCHJ2ME_H_COMPLETE)
-        #define ORG_ALLBINARY_INPUT_TOUCHJ2ME_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_INPUT_TOUCHJ2ME_H

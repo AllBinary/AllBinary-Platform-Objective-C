@@ -1,109 +1,49 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_RESOURCE_FEATURERESOURCEINITIALIZATIONUTIL_CPP
-        #define ORG_ALLBINARY_GAME_RESOURCE_FEATURERESOURCEINITIALIZATIONUTIL_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/resource/FeatureResourceInitializationUtil.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/resource/FeaturedResourceFactory.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/resource/FeatureResourceInitializationUtil.h"
+#include "org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/game/resource/FeaturedResourceFactory.h"
 #include "org/allbinary/game/resource/FeaturedResourceRelativeRelationshipFactory.h"
 
 
-FeatureResourceInitializationUtil::FeatureResourceInitializationUtil() : logUtil(LogUtil::getInstance()) {
-        }
-        auto FeatureResourceInitializationUtil::instance_owner() -> FeatureResourceInitializationUtil* { static std::unique_ptr<FeatureResourceInitializationUtil> value(new FeatureResourceInitializationUtil()); return value.get(); }
-FeatureResourceInitializationUtil* FeatureResourceInitializationUtil::instance = FeatureResourceInitializationUtil::instance_owner();
+static FeatureResourceInitializationUtil* FeatureResourceInitializationUtil_instance;
 
-    auto FeatureResourceInitializationUtil::getInstance() -> FeatureResourceInitializationUtil*{
+void FeatureResourceInitializationUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    FeatureResourceInitializationUtil_instance = [((FeatureResourceInitializationUtil*) [FeatureResourceInitializationUtil alloc]) init];
+}
 
+@implementation FeatureResourceInitializationUtil
 
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+}
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return FeatureResourceInitializationUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto FeatureResourceInitializationUtil::init(int32_t level) -> void{
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->putF(commonStrings->START, this, commonStrings->INIT);
-    
-
-    FeaturedResourceFactory* featuredResourceFactory = FeaturedAnimationInterfaceFactoryInterfaceFactory::getInstance();;
-    
-featuredResourceFactory->init(level);
-    
-FeaturedResourceRelativeRelationshipFactory::getInstance()->init(level);
-    
++ (FeatureResourceInitializationUtil*) getInstance {
+        return (FeatureResourceInitializationUtil_staticInit(), FeatureResourceInitializationUtil_instance);
 }
 
 
+// throws Exception
+- (void) init_:(int32_t)level {
+        CommonStrings* commonStrings = [CommonStrings getInstance];
+        [self->logUtil putF:commonStrings->START :self :commonStrings->INIT];
+        FeaturedResourceFactory* featuredResourceFactory = [FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance];
+        [featuredResourceFactory init_:level];
+        [[FeaturedResourceRelativeRelationshipFactory getInstance] init_:level];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_RESOURCE_FEATURERESOURCEINITIALIZATIONUTIL_CPP

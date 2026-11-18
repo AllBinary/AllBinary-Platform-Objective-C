@@ -1,90 +1,41 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/CompleteMotionGestureInputToGameMotionGestureInput.h"
+#include "org/allbinary/logic/communication/log/PreLogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
+static CompleteMotionGestureInputToGameMotionGestureInput* CompleteMotionGestureInputToGameMotionGestureInput_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_COMPLETEMOTIONGESTUREINPUTTOGAMEMOTIONGESTUREINPUT_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_COMPLETEMOTIONGESTUREINPUTTOGAMEMOTIONGESTUREINPUT_CPP
+void CompleteMotionGestureInputToGameMotionGestureInput_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CompleteMotionGestureInputToGameMotionGestureInput_instance = [((CompleteMotionGestureInputToGameMotionGestureInput*) [CompleteMotionGestureInputToGameMotionGestureInput alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/CompleteMotionGestureInputToGameMotionGestureInput.h"
-        
+@implementation CompleteMotionGestureInputToGameMotionGestureInput
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->commonStrings = [CommonStrings getInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/communication/log/PreLogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CompleteMotionGestureInputToGameMotionGestureInput::CompleteMotionGestureInputToGameMotionGestureInput() : commonStrings(CommonStrings::getInstance()) {
-        }
-        auto CompleteMotionGestureInputToGameMotionGestureInput::instance_owner() -> CompleteMotionGestureInputToGameMotionGestureInput* { static std::unique_ptr<CompleteMotionGestureInputToGameMotionGestureInput> value(new CompleteMotionGestureInputToGameMotionGestureInput()); return value.get(); }
-CompleteMotionGestureInputToGameMotionGestureInput* CompleteMotionGestureInputToGameMotionGestureInput::instance = CompleteMotionGestureInputToGameMotionGestureInput::instance_owner();
-
-    auto CompleteMotionGestureInputToGameMotionGestureInput::getInstance() -> CompleteMotionGestureInputToGameMotionGestureInput*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CompleteMotionGestureInputToGameMotionGestureInput::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto CompleteMotionGestureInputToGameMotionGestureInput::init() -> void{
-PreLogUtil::put("No Touch Button = No Compound Motion Gestures", this, this->commonStrings->INIT);
-    
++ (CompleteMotionGestureInputToGameMotionGestureInput*) getInstance {
+        return (CompleteMotionGestureInputToGameMotionGestureInput_staticInit(), CompleteMotionGestureInputToGameMotionGestureInput_instance);
 }
 
 
+- (void) init_ {
+        [PreLogUtil put:"No Touch Button = No Compound Motion Gestures" :self :self->commonStrings->INIT];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_COMPLETEMOTIONGESTUREINPUTTOGAMEMOTIONGESTUREINPUT_CPP

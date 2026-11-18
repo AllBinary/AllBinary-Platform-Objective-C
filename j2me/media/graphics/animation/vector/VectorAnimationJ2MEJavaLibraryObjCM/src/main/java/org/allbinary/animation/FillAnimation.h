@@ -1,98 +1,42 @@
+#ifndef ORG_ALLBINARY_ANIMATION_FILLANIMATION_H
+#define ORG_ALLBINARY_ANIMATION_FILLANIMATION_H
+// Generated Code Do Not Modify
+// package org.allbinary.animation
 
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_FILLANIMATION_H
-        #define ORG_ALLBINARY_ANIMATION_FILLANIMATION_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class Graphics;
-class BasicColor;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/IndexedAnimation.h"
-class AnimationBehavior;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class FillAnimation: public IndexedAnimation {
-
-    private: std::vector<int32_t> pixelBuffer;
-
-    private: int32_t width;
-
-    private: int32_t height;
-
-public: FillAnimation(std::vector<int32_t> pixelBuffer, int32_t width, int32_t height, AnimationBehavior* animationBehavior);
-
-    public: void setBasicColorP(BasicColor* basicColor);
-
-    public: void changeBasicColor(BasicColor* basicColor);
-
-    public: void setAlpha(int32_t alpha);
-
-    public: void setScale(float scaleX, float scaleY);
-
-    public: void setMaxScale(float maxScaleX, float maxScaleY);
-
-    private: void updateModifiers();
-
-    /*protected*/ public: void paint(Graphics* g);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_FILLANIMATION_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_ANIMATION_FILLANIMATION_H_COMPLETE)
-        #define ORG_ALLBINARY_ANIMATION_FILLANIMATION_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Graphics.h>)
-#include <javax/microedition/lcdui/Graphics.h>
-#endif
-#if __has_include(<org/allbinary/graphics/color/BasicColor.h>)
-#include <org/allbinary/graphics/color/BasicColor.h>
-#endif
-#if __has_include("org/allbinary/animation/IndexedAnimation.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class FillAnimation;
+@class Graphics;
+@class BasicColor;
+@class IndexedAnimation;
+@class AnimationBehavior;
 #include "org/allbinary/animation/IndexedAnimation.h"
-#endif
-#if __has_include("org/allbinary/animation/AnimationBehavior.h")
-#include "org/allbinary/animation/AnimationBehavior.h"
-#endif
 
-        #endif
-    
+@interface FillAnimation : IndexedAnimation {
+@public
+    int32_t* pixelBuffer;
+    int32_t width;
+    int32_t height;
+}
+- (instancetype) init:(int32_t*)pixelBuffer :(int32_t)width :(int32_t)height :(AnimationBehavior*)animationBehavior;
+- (void) initFields;
+- (void) setBasicColorP:(BasicColor*)basicColor;
+- (void) changeBasicColor:(BasicColor*)basicColor;
+- (void) setAlpha:(int32_t)alpha;
+- (void) setScale:(float)scaleX :(float)scaleY;
+- (void) setMaxScale:(float)maxScaleX :(float)maxScaleY;
+- (void) updateModifiers;
+- (void) paint:(Graphics*)g;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void FillAnimation_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_ANIMATION_FILLANIMATION_H

@@ -1,78 +1,34 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADEROPENGLPROCESSOR_H
+#define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADEROPENGLPROCESSOR_H
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles.shader
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ShaderOpenGLProcessor;
+@class GL10;
+@class OpenGLProcessor;
+#include "org/allbinary/graphics/opengles/OpenGLProcessor.h"
 
+@interface ShaderOpenGLProcessor : OpenGLProcessor {
+@public
+}
+- (instancetype) init;
+- (void) process0:(GL10*)gl;
+- (void) process1:(GL10*)gl;
+- (void) process:(GL10*)gl;
+- (void) process2:(GL10*)gl;
+- (void) process3:(GL10*)gl;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADEROPENGLPROCESSOR_H
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADEROPENGLPROCESSOR_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class GL10;
-#include <org/allbinary/graphics/opengles/OpenGLProcessor.h>
-
-
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ShaderOpenGLProcessor_staticInit(void);
 
 
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ShaderOpenGLProcessor: public OpenGLProcessor {
-
-public: ShaderOpenGLProcessor();
-
-    public: void process0(GL10* gl);
-
-    public: void process1(GL10* gl);
-
-    public: void process(GL10* gl);
-
-    public: void process2(GL10* gl);
-
-    public: void process3(GL10* gl);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADEROPENGLPROCESSOR_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADEROPENGLPROCESSOR_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADEROPENGLPROCESSOR_H_COMPLETE
-        #if __has_include(<javax/microedition/khronos/opengles/GL10.h>)
-#include <javax/microedition/khronos/opengles/GL10.h>
-#endif
-#if __has_include(<org/allbinary/graphics/opengles/OpenGLProcessor.h>)
-#include <org/allbinary/graphics/opengles/OpenGLProcessor.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADEROPENGLPROCESSOR_H

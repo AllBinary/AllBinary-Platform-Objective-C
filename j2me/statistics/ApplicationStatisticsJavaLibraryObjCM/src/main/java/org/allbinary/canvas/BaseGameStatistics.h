@@ -81,5 +81,8 @@
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.
 void BaseGameStatistics_staticInit(void);
 
+#if __has_include("org/allbinary/time/TimeDelayHelper.h")
+#include "org/allbinary/time/TimeDelayHelper.h"
+#endif
 
 #endif // ORG_ALLBINARY_CANVAS_BASEGAMESTATISTICS_H

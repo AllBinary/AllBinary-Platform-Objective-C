@@ -1,94 +1,43 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/identification/GroupCommonFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
 
 
+static id GroupCommonFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_IDENTIFICATION_GROUPCOMMONFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_IDENTIFICATION_GROUPCOMMONFACTORY_CPP
+void GroupCommonFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GroupCommonFactory_instance = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/identification/GroupCommonFactory.h"
-        
+@implementation GroupCommonFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->ID = [[SmallIntegerSingletonFactory getInstance] getAt:10];
+    self->GROUP_NAME_LABEL = "Group Name: ";
+    self->ID_LABEL = " Id: ";
+    self->ADDING_LABEL = "Adding: ";
+    self->TO_LABEL = " to: ";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GroupCommonFactory::GroupCommonFactory() : ID(SmallIntegerSingletonFactory::getInstance()->getAt(10)) {
-        }
-        Object* GroupCommonFactory::instance = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto GroupCommonFactory::getInstance() -> GroupCommonFactory*{
-
-                        if(GroupCommonFactory::instance == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    GroupCommonFactory::instance= new GroupCommonFactory();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<GroupCommonFactory*>(GroupCommonFactory::instance);
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (GroupCommonFactory*) getInstance {
+        if ((GroupCommonFactory_staticInit(), GroupCommonFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
+            GroupCommonFactory_instance = [((GroupCommonFactory*) [GroupCommonFactory alloc]) init];
+        }
+        return ((GroupCommonFactory*) (GroupCommonFactory_staticInit(), GroupCommonFactory_instance));
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_IDENTIFICATION_GROUPCOMMONFACTORY_CPP

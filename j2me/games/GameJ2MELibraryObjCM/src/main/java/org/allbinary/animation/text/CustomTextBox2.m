@@ -1,85 +1,42 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_TEXT_CUSTOMTEXTBOX2_CPP
-        #define ORG_ALLBINARY_ANIMATION_TEXT_CUSTOMTEXTBOX2_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/text/CustomTextBox2.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/CommandListener.h>
-
-      
-#include <javax/microedition/lcdui/Font.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/form/item/CustomTextBox.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/text/CustomTextBox2.h"
+#include "javax/microedition/lcdui/CommandListener.h"
+#include "javax/microedition/lcdui/Font.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#if __has_include("org/allbinary/animation/text/ABTextFieldItem.h")
+#include "org/allbinary/animation/text/ABTextFieldItem.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ABTextFieldItem.h")
+#include "javax/microedition/lcdui/ABTextFieldItem.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ABTextFieldItem.h")
+#include "javax/microedition/lcdui/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/ABTextFieldItem.h")
+#include "org/allbinary/graphics/color/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/item/ABTextFieldItem.h")
+#include "org/allbinary/graphics/form/item/ABTextFieldItem.h"
+#endif
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CustomTextBox2::CustomTextBox2(CommandListener* cmdListener, std::string label, std::string text, int32_t maxSize, int32_t constraints, Font* font, BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor) : CustomTextBox(cmdListener, label, text, maxSize, constraints, font, backgroundBasicColor, foregroundBasicColor){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->getTextFieldItem()->setFocus(true);
-    
+void CustomTextBox2_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
 }
 
+@implementation CustomTextBox2
 
 
+- (instancetype) init:(CommandListener*)cmdListener :(const char*)label :(const char*)text :(int32_t)maxSize :(int32_t)constraints :(Font*)font :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor {
+        self = [super init:cmdListener :label :text :maxSize :constraints :font :backgroundBasicColor :foregroundBasicColor];
+        [[self getTextFieldItem] setFocus:true];
+    return self;
+}
 
-        #endif //ORG_ALLBINARY_ANIMATION_TEXT_CUSTOMTEXTBOX2_CPP
+@end
+

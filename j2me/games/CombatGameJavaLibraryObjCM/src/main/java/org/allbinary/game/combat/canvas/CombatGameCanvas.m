@@ -1,226 +1,192 @@
+// Generated Code Do Not Modify
+#include "org/allbinary/game/combat/canvas/CombatGameCanvas.h"
+#include "javax/microedition/lcdui/CommandListener.h"
+#include "org/allbinary/game/combat/destroy/DestroyedLayerProcessor.h"
+#include "org/allbinary/game/combat/destroy/event/DestroyEventCircularStaticPool.h"
+#include "org/allbinary/game/combat/destroy/event/DestroyedEventHandler.h"
+#include "org/allbinary/game/configuration/feature/Features.h"
+#include "org/allbinary/game/configuration/feature/GameFeatureFactory.h"
+#include "org/allbinary/game/init/BasicBuildGameInitializerFactory.h"
+#include "org/allbinary/game/layer/AllBinaryGameLayerManager.h"
+#include "org/allbinary/game/layer/drop/DropLayerProcessor.h"
+#include "org/allbinary/game/layer/identification/GroupLayerManagerListener.h"
+#include "org/allbinary/game/score/HighScoresFactoryInterface.h"
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.h"
+#include "org/allbinary/layer/BasicLayerProcessor.h"
+#include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
+#if __has_include("org/allbinary/game/combat/canvas/ProgressCanvas.h")
+#include "org/allbinary/game/combat/canvas/ProgressCanvas.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ProgressCanvas.h")
+#include "javax/microedition/lcdui/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/ProgressCanvas.h")
+#include "org/allbinary/game/combat/destroy/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/event/ProgressCanvas.h")
+#include "org/allbinary/game/combat/destroy/event/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/event/ProgressCanvas.h")
+#include "org/allbinary/game/combat/destroy/event/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/ProgressCanvas.h")
+#include "org/allbinary/game/configuration/feature/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/ProgressCanvas.h")
+#include "org/allbinary/game/configuration/feature/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/ProgressCanvas.h")
+#include "org/allbinary/game/displayable/canvas/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/init/ProgressCanvas.h")
+#include "org/allbinary/game/init/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/layer/ProgressCanvas.h")
+#include "org/allbinary/game/layer/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/layer/drop/ProgressCanvas.h")
+#include "org/allbinary/game/layer/drop/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/layer/identification/ProgressCanvas.h")
+#include "org/allbinary/game/layer/identification/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/score/ProgressCanvas.h")
+#include "org/allbinary/game/score/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h")
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/layer/ProgressCanvas.h")
+#include "org/allbinary/layer/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/ProgressCanvas.h")
+#include "org/allbinary/logic/system/security/licensing/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/combat/canvas/ProgressCanvas.h")
+#include "org/allbinary/game/combat/canvas/ProgressCanvas.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ProgressCanvas.h")
+#include "javax/microedition/lcdui/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/ProgressCanvas.h")
+#include "org/allbinary/game/combat/destroy/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/event/ProgressCanvas.h")
+#include "org/allbinary/game/combat/destroy/event/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/event/ProgressCanvas.h")
+#include "org/allbinary/game/combat/destroy/event/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/ProgressCanvas.h")
+#include "org/allbinary/game/configuration/feature/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/ProgressCanvas.h")
+#include "org/allbinary/game/configuration/feature/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/ProgressCanvas.h")
+#include "org/allbinary/game/displayable/canvas/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/init/ProgressCanvas.h")
+#include "org/allbinary/game/init/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/layer/ProgressCanvas.h")
+#include "org/allbinary/game/layer/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/layer/drop/ProgressCanvas.h")
+#include "org/allbinary/game/layer/drop/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/layer/identification/ProgressCanvas.h")
+#include "org/allbinary/game/layer/identification/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/score/ProgressCanvas.h")
+#include "org/allbinary/game/score/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h")
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/layer/ProgressCanvas.h")
+#include "org/allbinary/layer/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/ProgressCanvas.h")
+#include "org/allbinary/logic/system/security/licensing/ProgressCanvas.h"
+#endif
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+
+BasicLayerProcessor** CombatGameCanvas_basicLayerProcessor;
+
+void CombatGameCanvas_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CombatGameCanvas_basicLayerProcessor = ((BasicLayerProcessor**) java_array_new(sizeof(BasicLayerProcessor*), 0));
+}
+
+@implementation CombatGameCanvas
 
 
-
-        #ifndef ORG_ALLBINARY_GAME_COMBAT_CANVAS_COMBATGAMECANVAS_CPP
-        #define ORG_ALLBINARY_GAME_COMBAT_CANVAS_COMBATGAMECANVAS_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/combat/canvas/CombatGameCanvas.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/CommandListener.h>
-
-      
-#include <org/allbinary/game/combat/destroy/DestroyedLayerProcessor.h>
-
-      
-#include <org/allbinary/game/combat/destroy/event/DestroyEventCircularStaticPool.h>
-
-      
-#include <org/allbinary/game/combat/destroy/event/DestroyedEventHandler.h>
-
-      
-#include <org/allbinary/game/configuration/feature/Features.h>
-
-      
-#include <org/allbinary/game/configuration/feature/GameFeatureFactory.h>
-
-      
-#include <org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h>
-
-      
-#include <org/allbinary/game/init/BasicBuildGameInitializerFactory.h>
-
-      
-#include <org/allbinary/game/layer/AllBinaryGameLayerManager.h>
-
-      
-#include <org/allbinary/game/layer/drop/DropLayerProcessor.h>
-
-      
-#include <org/allbinary/game/layer/identification/GroupLayerManagerListener.h>
-
-      
-#include <org/allbinary/game/score/HighScoresFactoryInterface.h>
-
-      
-#include <org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.h>
-
-      
-#include <org/allbinary/layer/BasicLayerProcessor.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-std::vector<BasicLayerProcessor*> CombatGameCanvas::basicLayerProcessor = {};
-
-CombatGameCanvas::CombatGameCanvas(CommandListener* cmdListener, AllBinaryGameLayerManager* gameLayerManager, HighScoresFactoryInterface* highScoresFactoryInterface, BasicBuildGameInitializerFactory* gameInitializationInterfaceFactoryInterface, bool buffered) : AllBinaryGameCanvas(cmdListener, gameLayerManager, highScoresFactoryInterface, gameInitializationInterfaceFactoryInterface, buffered){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init:(CommandListener*)cmdListener :(AllBinaryGameLayerManager*)gameLayerManager :(HighScoresFactoryInterface*)highScoresFactoryInterface :(BasicBuildGameInitializerFactory*)gameInitializationInterfaceFactoryInterface :(bool)buffered {
+        self = [super init:cmdListener :gameLayerManager :highScoresFactoryInterface :gameInitializationInterfaceFactoryInterface :buffered];
+    return self;
 }
 
 
-    auto CombatGameCanvas::CombatGameCanvas_init() -> void{
-DestroyEventCircularStaticPool::getInstance()->init(this);
-    
-ProgressCanvasFactory::getInstance()->addNormalPortion(50, "Destroy Events");
-    
+- (void) CombatGameCanvas_init {
+        [[DestroyEventCircularStaticPool getInstance] init_:self];
+        [[ProgressCanvasFactory getInstance] addNormalPortion:50 :"Destroy Events"];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CombatGameCanvas::initApp(AbeClientInformationInterface* abeClientInformation) -> void{
-this->CombatGameCanvas_init();
-    
-AllBinaryGameCanvas::initApp(abeClientInformation);
-    
+// throws Exception
+- (void) initApp:(AbeClientInformationInterface*)abeClientInformation {
+        [self CombatGameCanvas_init];
+        [super initApp:abeClientInformation];
 }
 
 
-    auto CombatGameCanvas::initConfigurablePortion(int32_t portion) -> void{
-DestroyedLayerProcessor::init();
-    
-ProgressCanvasFactory::getInstance()->addNormalPortion(portion, "Basic Processors");
-    
-
-    Features* features = Features::getInstance();;
-    
-
-    GameFeatureFactory* gameFeatureFactory = GameFeatureFactory::getInstance();;
-    
-
-                        if(features->isFeature(gameFeatureFactory->DROPPED_ITEMS) && features->isFeature(gameFeatureFactory->DROPPED_ITEMS_FROM_DEATH))
-                        
-                                    {
-                                    CombatGameCanvas::basicLayerProcessor= std::vector<BasicLayerProcessor*>(2);
-    
-CombatGameCanvas::basicLayerProcessor[0]= DestroyedLayerProcessor::getInstance();
-    
-CombatGameCanvas::basicLayerProcessor[1]= DropLayerProcessor::getInstance();
-    
-
-                                    }
-                                
-                        else {
-                            CombatGameCanvas::basicLayerProcessor= std::vector<BasicLayerProcessor*>(1);
-    
-CombatGameCanvas::basicLayerProcessor[0]= DestroyedLayerProcessor::getInstance();
-    
-
-                        }
-                            
+- (void) initConfigurablePortion:(int32_t)portion {
+        [DestroyedLayerProcessor init_];
+        [[ProgressCanvasFactory getInstance] addNormalPortion:portion :"Basic Processors"];
+        Features* features = [Features getInstance];
+        GameFeatureFactory* gameFeatureFactory = [GameFeatureFactory getInstance];
+        if ([features isFeature:gameFeatureFactory->DROPPED_ITEMS] && [features isFeature:gameFeatureFactory->DROPPED_ITEMS_FROM_DEATH]) {
+            CombatGameCanvas_basicLayerProcessor = ((BasicLayerProcessor**) java_array_new(sizeof(BasicLayerProcessor*), 2));
+            (CombatGameCanvas_staticInit(), CombatGameCanvas_basicLayerProcessor)[0] = [DestroyedLayerProcessor getInstance];
+            (CombatGameCanvas_staticInit(), CombatGameCanvas_basicLayerProcessor)[1] = [DropLayerProcessor getInstance];
+        } else {
+            CombatGameCanvas_basicLayerProcessor = ((BasicLayerProcessor**) java_array_new(sizeof(BasicLayerProcessor*), 1));
+            (CombatGameCanvas_staticInit(), CombatGameCanvas_basicLayerProcessor)[0] = [DestroyedLayerProcessor getInstance];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CombatGameCanvas::processPlayingGame() -> void{
-AllBinaryGameCanvas::processPlayingGame();
-    
-
-
-
-
-                        for (
-    int32_t index = CombatGameCanvas::basicLayerProcessor.size();--index >= 0; )
-        {
-CombatGameCanvas::basicLayerProcessor[index]->process(this->gameLayerManager);
-    
-}
-
+// throws Exception
+- (void) processPlayingGame {
+        [super processPlayingGame];
+        for (int32_t index = java_array_length((CombatGameCanvas_staticInit(), CombatGameCanvas_basicLayerProcessor)); --index >= 0; ) {
+            [(CombatGameCanvas_staticInit(), CombatGameCanvas_basicLayerProcessor)[index] process:self->gameLayerManager];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CombatGameCanvas::cleanupGame() -> void{
-AllBinaryGameCanvas::cleanupGame();
-    
-
-
-
-
-                        for (
-    int32_t index = CombatGameCanvas::basicLayerProcessor.size();--index >= 0; )
-        {
-CombatGameCanvas::basicLayerProcessor[index]->getList()->clear();
-    
-}
-
-GroupLayerManagerListener::getInstance()->clear();
-    
-GroupLayerManagerListener::getInstance()->log();
-    
-DestroyedEventHandler::getInstance()->removeAllListeners();
-    
-this->cleanupManager();
-    
+// throws Exception
+- (void) cleanupGame {
+        [super cleanupGame];
+        for (int32_t index = java_array_length((CombatGameCanvas_staticInit(), CombatGameCanvas_basicLayerProcessor)); --index >= 0; ) {
+            [[(CombatGameCanvas_staticInit(), CombatGameCanvas_basicLayerProcessor)[index] getList] clear];
+        }
+        [[GroupLayerManagerListener getInstance] clear];
+        [[GroupLayerManagerListener getInstance] log];
+        [[DestroyedEventHandler getInstance] removeAllListeners];
+        [self cleanupManager];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CombatGameCanvas::cleanupManager() -> void{
-this->gameLayerManager->cleanup();
-    
+// throws Exception
+- (void) cleanupManager {
+        [self->gameLayerManager cleanup];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_COMBAT_CANVAS_COMBATGAMECANVAS_CPP

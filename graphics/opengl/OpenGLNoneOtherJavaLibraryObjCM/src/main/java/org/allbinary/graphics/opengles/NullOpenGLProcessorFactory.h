@@ -1,75 +1,31 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_NULLOPENGLPROCESSORFACTORY_H
+#define ORG_ALLBINARY_GRAPHICS_OPENGLES_NULLOPENGLPROCESSORFACTORY_H
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles
 
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_NULLOPENGLPROCESSORFACTORY_H
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_NULLOPENGLPROCESSORFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class OpenGLProcessor;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class NullOpenGLProcessorFactory
-            : public virtual Object
-         {
-
-    private: static OpenGLProcessor* instance_owner();
-    private: static OpenGLProcessor* instance;
-
-    public: static OpenGLProcessor* getInstance();
-
-
-            
-    public: NullOpenGLProcessorFactory();
-        
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_NULLOPENGLPROCESSORFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_OPENGLES_NULLOPENGLPROCESSORFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_NULLOPENGLPROCESSORFACTORY_H_COMPLETE
-        #if __has_include("org/allbinary/graphics/opengles/OpenGLProcessor.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class NullOpenGLProcessorFactory;
+@class OpenGLProcessor;
+#if __has_include("org/allbinary/graphics/opengles/OpenGLProcessor.h")
 #include "org/allbinary/graphics/opengles/OpenGLProcessor.h"
 #endif
 
-        #endif
-    
+@interface NullOpenGLProcessorFactory : ABObject {
+@public
+}
+- (instancetype) init;
++ (OpenGLProcessor*) getInstance;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void NullOpenGLProcessorFactory_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GRAPHICS_OPENGLES_NULLOPENGLPROCESSORFACTORY_H

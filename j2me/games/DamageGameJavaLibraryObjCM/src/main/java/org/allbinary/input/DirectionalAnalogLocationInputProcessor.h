@@ -1,144 +1,77 @@
+#ifndef ORG_ALLBINARY_INPUT_DIRECTIONALANALOGLOCATIONINPUTPROCESSOR_H
+#define ORG_ALLBINARY_INPUT_DIRECTIONALANALOGLOCATIONINPUTPROCESSOR_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.input
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_INPUT_DIRECTIONALANALOGLOCATIONINPUTPROCESSOR_H
-        #define ORG_ALLBINARY_INPUT_DIRECTIONALANALOGLOCATIONINPUTPROCESSOR_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/android/input/motion/AnalogLocationInputProcessor.h>
-class GameInputProcessor;
-#include <org/allbinary/game/input/GameKeyEventSourceInterface.h>
-class GameKeyFactory;
-class AnalogLocationInput;
-class GameKeyEvent;
-class GameKeyEventFactory;
-class CustomGPoint;
-class AllBinaryLayerManager;
-class LogUtil;
-class CommonStrings;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class DirectionalAnalogLocationInputProcessor: public AnalogLocationInputProcessor, public virtual GameKeyEventSourceInterface {
-
-    /*protected*/ public: LogUtil* logUtil;
-
-    private: std::vector<GameInputProcessor*> inputProcessorArray;
-
-    private: GameKeyFactory* gameKeyFactory;
-
-    private: GameKeyEvent* leftGameKeyEvent;
-
-    private: GameKeyEvent* rightGameKeyEvent;
-
-    private: GameKeyEvent* upGameKeyEvent;
-
-    private: GameKeyEvent* downGameKeyEvent;
-
-    private: GameKeyEvent* leftTriggerGameKeyEvent;
-
-    private: GameKeyEvent* rightTriggerGameKeyEvent;
-
-public: DirectionalAnalogLocationInputProcessor(std::vector<GameInputProcessor*> inputProcessorArray);
-
-    public: void process(AllBinaryLayerManager* allbinaryLayerManager, AnalogLocationInput* analogLocationInput);
-
-    public: int32_t getSourceId();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_INPUT_DIRECTIONALANALOGLOCATIONINPUTPROCESSOR_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_INPUT_DIRECTIONALANALOGLOCATIONINPUTPROCESSOR_H_COMPLETE)
-        #define ORG_ALLBINARY_INPUT_DIRECTIONALANALOGLOCATIONINPUTPROCESSOR_H_COMPLETE
-        #if __has_include(<org/allbinary/android/input/motion/AnalogLocationInputProcessor.h>)
-#include <org/allbinary/android/input/motion/AnalogLocationInputProcessor.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class DirectionalAnalogLocationInputProcessor;
+@class AnalogLocationInputProcessor;
+@class GameInputProcessor;
+@class GameKeyEventSourceInterface;
+@class GameKeyFactory;
+@class AnalogLocationInput;
+@class GameKeyEvent;
+@class GameKeyEventFactory;
+@class CustomGPoint;
+@class AllBinaryLayerManager;
+@class LogUtil;
+@class CommonStrings;
+#include "org/allbinary/android/input/motion/AnalogLocationInputProcessor.h"
+#if __has_include("org/allbinary/game/input/GameInputProcessor.h")
+#include "org/allbinary/game/input/GameInputProcessor.h"
 #endif
-#if __has_include(<org/allbinary/game/input/GameInputProcessor.h>)
-#include <org/allbinary/game/input/GameInputProcessor.h>
+#include "org/allbinary/game/input/GameKeyEventSourceInterface.h"
+#if __has_include("org/allbinary/game/input/GameKeyFactory.h")
+#include "org/allbinary/game/input/GameKeyFactory.h"
 #endif
-#if __has_include(<org/allbinary/game/input/GameKeyEventSourceInterface.h>)
-#include <org/allbinary/game/input/GameKeyEventSourceInterface.h>
+#if __has_include("org/allbinary/game/input/event/GameKeyEvent.h")
+#include "org/allbinary/game/input/event/GameKeyEvent.h"
 #endif
-#if __has_include(<org/allbinary/game/input/GameKeyFactory.h>)
-#include <org/allbinary/game/input/GameKeyFactory.h>
-#endif
-#if __has_include(<org/allbinary/game/input/analog/AnalogLocationInput.h>)
-#include <org/allbinary/game/input/analog/AnalogLocationInput.h>
-#endif
-#if __has_include(<org/allbinary/game/input/event/GameKeyEvent.h>)
-#include <org/allbinary/game/input/event/GameKeyEvent.h>
-#endif
-#if __has_include(<org/allbinary/game/input/event/GameKeyEventFactory.h>)
-#include <org/allbinary/game/input/event/GameKeyEventFactory.h>
-#endif
-#if __has_include(<org/allbinary/graphics/CustomGPoint.h>)
-#include <org/allbinary/graphics/CustomGPoint.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayerManager.h>)
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-#endif
-#if __has_include(<org/allbinary/logic/communication/log/LogUtil.h>)
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-#endif
-#if __has_include(<org/allbinary/string/CommonStrings.h>)
-#include <org/allbinary/string/CommonStrings.h>
+#if __has_include("org/allbinary/logic/communication/log/LogUtil.h")
+#include "org/allbinary/logic/communication/log/LogUtil.h"
 #endif
 
-        #endif
-    
+@interface DirectionalAnalogLocationInputProcessor : AnalogLocationInputProcessor <GameKeyEventSourceInterface> {
+@public
+    LogUtil* logUtil;
+    GameInputProcessor** inputProcessorArray;
+    GameKeyFactory* gameKeyFactory;
+    GameKeyEvent* leftGameKeyEvent;
+    GameKeyEvent* rightGameKeyEvent;
+    GameKeyEvent* upGameKeyEvent;
+    GameKeyEvent* downGameKeyEvent;
+    GameKeyEvent* leftTriggerGameKeyEvent;
+    GameKeyEvent* rightTriggerGameKeyEvent;
+}
+- (instancetype) init:(GameInputProcessor**)inputProcessorArray;
+- (void) initFields;
+- (void) process:(AllBinaryLayerManager*)allbinaryLayerManager :(AnalogLocationInput*)analogLocationInput;
+- (int32_t) getSourceId;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void DirectionalAnalogLocationInputProcessor_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_INPUT_DIRECTIONALANALOGLOCATIONINPUTPROCESSOR_H

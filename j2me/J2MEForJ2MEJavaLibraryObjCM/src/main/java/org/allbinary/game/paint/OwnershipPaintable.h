@@ -1,146 +1,84 @@
+#ifndef ORG_ALLBINARY_GAME_PAINT_OWNERSHIPPAINTABLE_H
+#define ORG_ALLBINARY_GAME_PAINT_OWNERSHIPPAINTABLE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.paint
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_PAINT_OWNERSHIPPAINTABLE_H
-        #define ORG_ALLBINARY_GAME_PAINT_OWNERSHIPPAINTABLE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class Font;
-class Graphics;
-class Anchor;
-class BasicColor;
-class BasicColorFactory;
-class DisplayInfoSingleton;
-class MyFontProcessor;
-#include <org/allbinary/graphics/font/UpdateMyFontInterface.h>
-class UpdateMyFontProcessor;
-#include <org/allbinary/graphics/paint/Paintable.h>
-class LogUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        //J2MEForJ2ME
-class OwnershipPaintable: public Paintable, public virtual UpdateMyFontInterface {
-
-    public: static OwnershipPaintable* getInstance();
-
-    /*protected*/ public: LogUtil* logUtil;
-
-    private: DisplayInfoSingleton* displayInfo;
-
-    private: MyFontProcessor* myFontProcessor;
-
-    private: const std::string COPYRIGHT = "AllBinary Copyright (c) 2011";
-
-    private: BasicColor* basicColor;
-
-    private: int32_t color;
-
-    private: int32_t anchor;
-
-    private: int32_t COPYRIGHT_Y= 0;
-
-    private: int32_t beginWidth= 0;
-
-private: OwnershipPaintable();
-
-    public: void updateMeasurement(Graphics* graphics);
-
-    public: void setBasicColorP(BasicColor* basicColor);
-
-    public: BasicColor* getBasicColorP();
-
-    public: void paint(Graphics* graphics);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_PAINT_OWNERSHIPPAINTABLE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_PAINT_OWNERSHIPPAINTABLE_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_PAINT_OWNERSHIPPAINTABLE_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Font.h>)
-#include <javax/microedition/lcdui/Font.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class OwnershipPaintable;
+@class Font;
+@class Graphics;
+@class Anchor;
+@class BasicColor;
+@class BasicColorFactory;
+@class DisplayInfoSingleton;
+@class MyFontProcessor;
+@class UpdateMyFontInterface;
+@class UpdateMyFontProcessor;
+@class Paintable;
+@class LogUtil;
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
 #endif
-#if __has_include(<javax/microedition/lcdui/Graphics.h>)
-#include <javax/microedition/lcdui/Graphics.h>
+#if __has_include("org/allbinary/graphics/displayable/DisplayInfoSingleton.h")
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
 #endif
-#if __has_include(<org/allbinary/graphics/Anchor.h>)
-#include <org/allbinary/graphics/Anchor.h>
+#if __has_include("org/allbinary/graphics/font/MyFontProcessor.h")
+#include "org/allbinary/graphics/font/MyFontProcessor.h"
 #endif
-#if __has_include(<org/allbinary/graphics/color/BasicColor.h>)
-#include <org/allbinary/graphics/color/BasicColor.h>
-#endif
-#if __has_include(<org/allbinary/graphics/color/BasicColorFactory.h>)
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-#endif
-#if __has_include(<org/allbinary/graphics/displayable/DisplayInfoSingleton.h>)
-#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
-#endif
-#if __has_include(<org/allbinary/graphics/font/MyFontProcessor.h>)
-#include <org/allbinary/graphics/font/MyFontProcessor.h>
-#endif
-#if __has_include(<org/allbinary/graphics/font/UpdateMyFontInterface.h>)
-#include <org/allbinary/graphics/font/UpdateMyFontInterface.h>
-#endif
-#if __has_include(<org/allbinary/graphics/font/UpdateMyFontProcessor.h>)
-#include <org/allbinary/graphics/font/UpdateMyFontProcessor.h>
-#endif
-#if __has_include(<org/allbinary/graphics/paint/Paintable.h>)
-#include <org/allbinary/graphics/paint/Paintable.h>
-#endif
-#if __has_include(<org/allbinary/logic/communication/log/LogUtil.h>)
-#include <org/allbinary/logic/communication/log/LogUtil.h>
+#include "org/allbinary/graphics/font/UpdateMyFontInterface.h"
+#include "org/allbinary/graphics/paint/Paintable.h"
+#if __has_include("org/allbinary/logic/communication/log/LogUtil.h")
+#include "org/allbinary/logic/communication/log/LogUtil.h"
 #endif
 
-        #endif
-    
+//J2MEForJ2ME
+@interface OwnershipPaintable : Paintable <UpdateMyFontInterface> {
+@public
+    LogUtil* logUtil;
+    DisplayInfoSingleton* displayInfo;
+    MyFontProcessor* myFontProcessor;
+    const char* COPYRIGHT;
+    BasicColor* basicColor;
+    int32_t color;
+    int32_t anchor;
+    int32_t COPYRIGHT_Y;
+    int32_t beginWidth;
+}
+- (instancetype) init;
+- (void) initFields;
++ (OwnershipPaintable*) getInstance;
+- (void) updateMeasurement:(Graphics*)graphics;
+- (void) setBasicColorP:(BasicColor*)basicColor;
+- (BasicColor*) getBasicColorP;
+- (void) paint:(Graphics*)graphics;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void OwnershipPaintable_staticInit(void);
+
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
+
+#endif // ORG_ALLBINARY_GAME_PAINT_OWNERSHIPPAINTABLE_H

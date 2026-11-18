@@ -1,171 +1,82 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANDROID_INPUT_MOTION_EVENT_ANALOGCONTROLLERCONFIGURATIONEVENTHANDLER_CPP
-        #define ORG_ALLBINARY_ANDROID_INPUT_MOTION_EVENT_ANALOGCONTROLLERCONFIGURATIONEVENTHANDLER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/android/input/motion/event/AnalogControllerConfigurationEventHandler.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/android/input/motion/event/AnalogControllerConfigurationEventListenerInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/android/input/motion/event/AnalogControllerConfigurationEventHandler.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/android/input/motion/event/AnalogControllerConfigurationEventListenerInterface.h"
 #include "org/allbinary/android/input/motion/event/AnalogControllerConfigurationEvent.h"
 
-auto AnalogControllerConfigurationEventHandler::instance_owner() -> AnalogControllerConfigurationEventHandler* { static std::unique_ptr<AnalogControllerConfigurationEventHandler> value(new AnalogControllerConfigurationEventHandler()); return value.get(); }
-AnalogControllerConfigurationEventHandler* AnalogControllerConfigurationEventHandler::instance = AnalogControllerConfigurationEventHandler::instance_owner();
 
-    auto AnalogControllerConfigurationEventHandler::getInstance() -> AnalogControllerConfigurationEventHandler*{
+static AnalogControllerConfigurationEventHandler* AnalogControllerConfigurationEventHandler_instance;
 
+void AnalogControllerConfigurationEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AnalogControllerConfigurationEventHandler_instance = [((AnalogControllerConfigurationEventHandler*) [AnalogControllerConfigurationEventHandler alloc]) init];
+}
 
+@implementation AnalogControllerConfigurationEventHandler
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AnalogControllerConfigurationEventHandler::instance;
-    
+- (void) initFields {
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-AnalogControllerConfigurationEventHandler::AnalogControllerConfigurationEventHandler() : list(new BasicArrayListD()){
++ (AnalogControllerConfigurationEventHandler*) getInstance {
+        return (AnalogControllerConfigurationEventHandler_staticInit(), AnalogControllerConfigurationEventHandler_instance);
 }
 
 
-    auto AnalogControllerConfigurationEventHandler::addListener(AnalogControllerConfigurationEventListenerInterface* analogControllerConfigurationEventListenerInterface) -> void{
-
-                        if(!this->list->contains(analogControllerConfigurationEventListenerInterface))
-                        
-                                    {
-                                    this->list->add(analogControllerConfigurationEventListenerInterface);
-    
-
-                                    }
-                                
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto AnalogControllerConfigurationEventHandler::removeAllListeners() -> void{
-this->list->clear();
-    
-BasicEventHandler::removeAllListeners();
-    
+- (void) addListener:(AnalogControllerConfigurationEventListenerInterface*)analogControllerConfigurationEventListenerInterface {
+        if (![self->list contains:analogControllerConfigurationEventListenerInterface]) {
+            [self->list add:analogControllerConfigurationEventListenerInterface];
+        }
 }
 
 
-    auto AnalogControllerConfigurationEventHandler::removeListener(EventListenerInterface* eventListenerInterface) -> void{
-this->list->remove(eventListenerInterface);
-    
-BasicEventHandler::removeListener(eventListenerInterface);
-    
+- (void) removeAllListeners {
+        [self->list clear];
+        [super removeAllListeners];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AnalogControllerConfigurationEventHandler::fireEvent(AllBinaryEventObject* eventObject) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->list->size();--index >= 0; )
-        {
-
-        try {
-            
-    AnalogControllerConfigurationEventListenerInterface* playerGameInput = dynamic_cast<AnalogControllerConfigurationEventListenerInterface*>(this->list->objectArray[index]);;
-    
-playerGameInput->onAnalogControllerConfigurationEvent(dynamic_cast<AnalogControllerConfigurationEvent*>(eventObject));
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, EventStrings::getInstance()->FIRE_EVENT, &e);
-    
-}
-
-}
-
-BasicEventHandler::fireEvent(eventObject);
-    
+- (void) removeListener:(EventListenerInterface*)eventListenerInterface {
+        [self->list remove:eventListenerInterface];
+        [super removeListener:eventListenerInterface];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AnalogControllerConfigurationEventHandler::process(AllBinaryEventObject* eventObject, EventListenerInterface* eventListenerInterface) -> void{
-
-    AnalogControllerConfigurationEventListenerInterface* analogControllerConfigurationEventListenerInterface = (dynamic_cast<AnalogControllerConfigurationEventListenerInterface*>(eventListenerInterface));;
-    
-analogControllerConfigurationEventListenerInterface->onAnalogControllerConfigurationEvent(dynamic_cast<AnalogControllerConfigurationEvent*>(eventObject));
-    
+// throws Exception
+- (void) fireEvent:(AllBinaryEventObject*)eventObject {
+        for (int32_t index = [self->list size]; --index >= 0; ) {
+            JAVA_TRY {
+                AnalogControllerConfigurationEventListenerInterface* playerGameInput = ((AnalogControllerConfigurationEventListenerInterface*) self->list->objectArray[index]);
+                [playerGameInput onAnalogControllerConfigurationEvent:((AnalogControllerConfigurationEvent*) eventObject)];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
+            } JAVA_END_TRY;
+        }
+        [super fireEvent:eventObject];
 }
 
 
+// throws Exception
+- (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
+        AnalogControllerConfigurationEventListenerInterface* analogControllerConfigurationEventListenerInterface = (((AnalogControllerConfigurationEventListenerInterface*) eventListenerInterface));
+        [analogControllerConfigurationEventListenerInterface onAnalogControllerConfigurationEvent:((AnalogControllerConfigurationEvent*) eventObject)];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANDROID_INPUT_MOTION_EVENT_ANALOGCONTROLLERCONFIGURATIONEVENTHANDLER_CPP

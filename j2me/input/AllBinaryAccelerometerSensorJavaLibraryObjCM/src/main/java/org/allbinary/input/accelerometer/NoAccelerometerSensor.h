@@ -1,90 +1,48 @@
+#ifndef ORG_ALLBINARY_INPUT_ACCELEROMETER_NOACCELEROMETERSENSOR_H
+#define ORG_ALLBINARY_INPUT_ACCELEROMETER_NOACCELEROMETERSENSOR_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.input.accelerometer
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class NoAccelerometerSensor;
+@class AllBinaryOrientationSensor;
+@class Orientation;
+#include "org/allbinary/input/gyro/AllBinaryOrientationSensor.h"
 
+@interface NoAccelerometerSensor : AllBinaryOrientationSensor {
+@public
+}
+- (instancetype) init;
+- (Orientation*) getOrientation;
+- (void) onSensorChange;
+@end
 
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void NoAccelerometerSensor_staticInit(void);
 
-        #ifndef ORG_ALLBINARY_INPUT_ACCELEROMETER_NOACCELEROMETERSENSOR_H
-        #define ORG_ALLBINARY_INPUT_ACCELEROMETER_NOACCELEROMETERSENSOR_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/input/gyro/AllBinaryOrientationSensor.h>
-class Orientation;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class NoAccelerometerSensor: public AllBinaryOrientationSensor {
-
-public: NoAccelerometerSensor();
-
-                //@Throws(Exception.constructor)
-            
-    public: Orientation* getOrientation();
-
-    public: void onSensorChange();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_INPUT_ACCELEROMETER_NOACCELEROMETERSENSOR_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_INPUT_ACCELEROMETER_NOACCELEROMETERSENSOR_H_COMPLETE)
-        #define ORG_ALLBINARY_INPUT_ACCELEROMETER_NOACCELEROMETERSENSOR_H_COMPLETE
-        #if __has_include(<org/allbinary/input/gyro/AllBinaryOrientationSensor.h>)
-#include <org/allbinary/input/gyro/AllBinaryOrientationSensor.h>
-#endif
-#if __has_include(<org/allbinary/logic/math/Orientation.h>)
-#include <org/allbinary/logic/math/Orientation.h>
+#if __has_include("org/allbinary/logic/math/Orientation.h")
+#include "org/allbinary/logic/math/Orientation.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_INPUT_ACCELEROMETER_NOACCELEROMETERSENSOR_H

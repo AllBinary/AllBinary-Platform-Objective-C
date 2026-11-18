@@ -1,104 +1,48 @@
+#ifndef ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_HEALTH_HEALLAYERCIRCULARSTATICPOOL_H
+#define ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_HEALTH_HEALLAYERCIRCULARSTATICPOOL_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.ag.layer.pickup.health
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class HealLayerCircularStaticPool;
+@class HealthInterface;
+@class HealthInterfaceCompositeInterface;
+@class AllBinaryLayer;
+@class AllBinaryLayerCircularPool;
+@class AllBinaryLayerFactoryInterface;
+@class HealLayer;
+#include "org/allbinary/layer/AllBinaryLayerCircularPool.h"
 
+@interface HealLayerCircularStaticPool : AllBinaryLayerCircularPool {
+@public
+}
+- (instancetype) init:(AllBinaryLayerFactoryInterface*)allbinaryLayerFactoryInterface :(int32_t)total;
+- (void) visit:(AllBinaryLayer*)sourceLayerInterface;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_HEALTH_HEALLAYERCIRCULARSTATICPOOL_H
-        #define ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_HEALTH_HEALLAYERCIRCULARSTATICPOOL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class HealthInterface;
-class HealthInterfaceCompositeInterface;
-class AllBinaryLayer;
-#include <org/allbinary/layer/AllBinaryLayerCircularPool.h>
-class AllBinaryLayerFactoryInterface;
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void HealLayerCircularStaticPool_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class HealLayer;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class HealLayerCircularStaticPool: public AllBinaryLayerCircularPool {
-
-public: HealLayerCircularStaticPool(AllBinaryLayerFactoryInterface* allbinaryLayerFactoryInterface, int32_t total);
-
-                //@Throws(Exception.constructor)
-            
-    public: void visit(AllBinaryLayer* sourceLayerInterface);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_HEALTH_HEALLAYERCIRCULARSTATICPOOL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_HEALTH_HEALLAYERCIRCULARSTATICPOOL_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_HEALTH_HEALLAYERCIRCULARSTATICPOOL_H_COMPLETE
-        #if __has_include(<org/allbinary/game/health/HealthInterface.h>)
-#include <org/allbinary/game/health/HealthInterface.h>
-#endif
-#if __has_include(<org/allbinary/game/health/HealthInterfaceCompositeInterface.h>)
-#include <org/allbinary/game/health/HealthInterfaceCompositeInterface.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayer.h>)
-#include <org/allbinary/layer/AllBinaryLayer.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayerCircularPool.h>)
-#include <org/allbinary/layer/AllBinaryLayerCircularPool.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayerFactoryInterface.h>)
-#include <org/allbinary/layer/AllBinaryLayerFactoryInterface.h>
-#endif
-#if __has_include("org/allbinary/game/ag/layer/pickup/health/HealLayer.h")
-#include "org/allbinary/game/ag/layer/pickup/health/HealLayer.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_HEALTH_HEALLAYERCIRCULARSTATICPOOL_H

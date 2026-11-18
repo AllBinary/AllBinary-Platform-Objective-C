@@ -1,134 +1,47 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/J2SEUtil.h"
 
 
+static J2SEUtil* J2SEUtil_instance;
 
-        #ifndef ORG_ALLBINARY_J2SEUTIL_CPP
-        #define ORG_ALLBINARY_J2SEUTIL_CPP
+void J2SEUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    J2SEUtil_instance = [((J2SEUtil*) [J2SEUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/J2SEUtil.h"
-        
+@implementation J2SEUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <java/util/HashMap.h>
-
-      
-#include <java/util/Map.h>
-
-      
-#include <java/util/Set.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //J2SEForJ2ME
-
-J2SEUtil::J2SEUtil() {
-        }
-        auto J2SEUtil::instance_owner() -> J2SEUtil* { static std::unique_ptr<J2SEUtil> value(new J2SEUtil()); return value.get(); }
-J2SEUtil* J2SEUtil::instance = J2SEUtil::instance_owner();
-
-    auto J2SEUtil::getInstance() -> J2SEUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return J2SEUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto J2SEUtil::getHashMapAsArray(HashMap<Object*, Object*>* hashMap) -> std::vector<Object*>{
-
-    std::vector<Object*> objectArray = hashMap->keys().toArray();;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return objectArray;
-    
++ (J2SEUtil*) getInstance {
+        return (J2SEUtil_staticInit(), J2SEUtil_instance);
 }
 
 
-    auto J2SEUtil::getMapAsArray(Map<Object*, Object*>* map) -> std::vector<Object*>{
-
-    std::vector<Object*> objectArray = map->keySet()->toArray();;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return objectArray;
-    
+- (id*) getHashMapAsArray:(HashMap*)hashMap {
+        id* objectArray = [[hashMap keySet] toArray];
+        return objectArray;
 }
 
 
-    auto J2SEUtil::getSetAsArray(Set<std::string>* set) -> std::vector<Object*>{
-
-    std::vector<Object*> objectArray = set->toArray();;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return objectArray;
-    
+- (id*) getMapAsArray:(Map*)map {
+        id* objectArray = [[map keySet] toArray];
+        return objectArray;
 }
 
 
+- (id*) getSetAsArray:(Set*)set {
+        id* objectArray = [set toArray];
+        return objectArray;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_J2SEUTIL_CPP

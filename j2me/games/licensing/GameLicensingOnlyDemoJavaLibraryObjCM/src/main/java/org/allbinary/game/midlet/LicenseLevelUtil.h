@@ -1,87 +1,42 @@
+#ifndef ORG_ALLBINARY_GAME_MIDLET_LICENSELEVELUTIL_H
+#define ORG_ALLBINARY_GAME_MIDLET_LICENSELEVELUTIL_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.midlet
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class LicenseLevelUtil;
 
+@interface LicenseLevelUtil : ABObject {
+@public
+}
+- (instancetype) init;
++ (LicenseLevelUtil*) getInstance;
+- (int32_t) getMaxLevel:(int32_t)maxLevel :(int32_t)demoLevel;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_MIDLET_LICENSELEVELUTIL_H
-        #define ORG_ALLBINARY_GAME_MIDLET_LICENSELEVELUTIL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void LicenseLevelUtil_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class LicenseLevelUtil
-            : public virtual Object
-         {
-
-    private: static LicenseLevelUtil* instance_owner();
-    private: static LicenseLevelUtil* instance;
-
-    public: static LicenseLevelUtil* getInstance();
-
-
-            
-    public: LicenseLevelUtil();
-        
-    public: int32_t getMaxLevel(int32_t maxLevel, int32_t demoLevel);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_MIDLET_LICENSELEVELUTIL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_MIDLET_LICENSELEVELUTIL_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_MIDLET_LICENSELEVELUTIL_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_MIDLET_LICENSELEVELUTIL_H

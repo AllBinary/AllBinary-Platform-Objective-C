@@ -1,272 +1,146 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_BASICPLAYER_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_BASICPLAYER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/BasicPlayer.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/media/Control.h>
-
-      
-#include <javax/microedition/media/MediaException.h>
-
-      
-#include <javax/microedition/media/Player.h>
-
-      
-#include <javax/microedition/media/PlayerListener.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/Controllable2.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/BasicPlayer.h"
+#include "javax/microedition/media/Control.h"
+#include "javax/microedition/media/MediaException.h"
+#include "javax/microedition/media/PlayerListener.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/media/audio/Controllable2.h"
 #include "org/allbinary/media/audio/NullControl.h"
-//BasicPlayerJavaLibrary
 
-BasicPlayer::BasicPlayer() : commonStrings(CommonStrings::getInstance()), listenersList(new BasicArrayListD()){
-this->setLoopCount(0);
-    
-this->setState(Player::UNREALIZED);
-    
+
+const char* BasicPlayer_CONTROL_TYPE = "ToneControl";
+
+void BasicPlayer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation BasicPlayer
+
+- (void) initFields {
+    self->commonStrings = [CommonStrings getInstance];
+    self->listenersList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->stateP = 0;
+    self->loopCountP = 0;
 }
 
 
-    auto BasicPlayer::getContentType() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->EMPTY_STRING;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        [self setLoopCount:0];
+        [self setState:(Player_staticInit(), Player_UNREALIZED)];
+    return self;
 }
 
 
-    auto BasicPlayer::getControl(std::string controlType) -> Control*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new NullControl();
-    
+- (const char*) getContentType {
+        return [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-    auto BasicPlayer::getControls() -> std::vector<Control*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return {};
-    
+- (Control*) getControl:(const char*)controlType {
+        return [((NullControl*) [NullControl alloc]) init];
 }
 
 
-    auto BasicPlayer::close() -> void{
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto BasicPlayer::addPlayerListener(PlayerListener* playerListener) -> void{
-
-                        if(!this->listenersList->contains(playerListener))
-                        
-                                    {
-                                    this->listenersList->add(playerListener);
-    
-
-                                    }
-                                
+- (Control**) getControls {
+        return ((Control**) java_array_new(sizeof(Control*), 0));
 }
 
 
-    auto BasicPlayer::removePlayerListener(PlayerListener* playerListener) -> void{
-this->listenersList->remove(playerListener);
-    
+- (void) close {
 }
 
 
-    auto BasicPlayer::getState() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->stateP;
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto BasicPlayer::setState(int32_t state) -> void{
-this->stateP= state;
-    
+// synchronized
+- (void) addPlayerListener:(PlayerListener*)playerListener {
+        if (![self->listenersList contains:playerListener]) {
+            [self->listenersList add:playerListener];
+        }
 }
 
 
-    auto BasicPlayer::getDuration() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (void) removePlayerListener:(PlayerListener*)playerListener {
+        [self->listenersList remove:playerListener];
 }
 
 
-    auto BasicPlayer::getMediaTime() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (int32_t) getState {
+        return self->stateP;
 }
 
 
-    auto BasicPlayer::deallocate() -> void{
+// synchronized
+- (void) setState:(int32_t)state {
+        self->stateP = state;
 }
 
 
-                //@Throws(MediaException.constructor)
-            
-    auto BasicPlayer::prefetch() -> void{
+- (int64_t) getDuration {
+        return 0LL;
 }
 
 
-                //@Throws(MediaException.constructor)
-            
-    auto BasicPlayer::realize() -> void{
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto BasicPlayer::setLoopCount(int32_t count) -> void{
-this->loopCountP= count;
-    
+- (int64_t) getMediaTime {
+        return 0LL;
 }
 
 
-    auto BasicPlayer::getLoopCount() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->loopCountP;
-    
+- (void) deallocate {
 }
 
 
-                //@Throws(MediaException.constructor)
-            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto BasicPlayer::setMediaTime(int64_t now) -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+// throws MediaException
+- (void) prefetch {
 }
 
 
-                //@Throws(MediaException.constructor)
-            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto BasicPlayer::start() -> void{
-this->setState(Player::STARTED);
-    
+// throws MediaException
+- (void) realize {
 }
 
 
-                //@Throws(MediaException.constructor)
-            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto BasicPlayer::stop() -> void{
-this->setState(Player::PREFETCHED);
-    
+// synchronized
+- (void) setLoopCount:(int32_t)count {
+        self->loopCountP = count;
 }
 
 
-    auto BasicPlayer::setVolume(int32_t leftVolume, int32_t rightVolume) -> void{
+- (int32_t) getLoopCount {
+        return self->loopCountP;
 }
 
 
+// throws MediaException
+// synchronized
+- (int64_t) setMediaTime:(int64_t)now {
+        return 0LL;
+}
 
 
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_BASICPLAYER_CPP
+// throws MediaException
+// synchronized
+- (void) start {
+        [self setState:(Player_staticInit(), Player_STARTED)];
+}
+
+
+// throws MediaException
+// synchronized
+- (void) stop {
+        [self setState:(Player_staticInit(), Player_PREFETCHED)];
+}
+
+
+- (void) setVolume:(int32_t)leftVolume :(int32_t)rightVolume {
+}
+
+@end
+

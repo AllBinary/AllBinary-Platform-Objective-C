@@ -1,105 +1,51 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/physics/acceleration/BasicAccelerationProperties.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_PHYSICS_ACCELERATION_BASICACCELERATIONPROPERTIES_CPP
-        #define ORG_ALLBINARY_GAME_PHYSICS_ACCELERATION_BASICACCELERATIONPROPERTIES_CPP
+void BasicAccelerationProperties_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/physics/acceleration/BasicAccelerationProperties.h"
-        
+@implementation BasicAccelerationProperties
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-BasicAccelerationProperties::BasicAccelerationProperties(int32_t forward, int32_t reverse){
-this->setForward(forward);
-    
-this->setReverse(reverse);
-    
+- (void) initFields {
+    self->forward = 0;
+    self->reverse = 0;
 }
 
 
-    auto BasicAccelerationProperties::setReverse(int32_t reverse) -> void{
-this->reverse= reverse;
-    
+- (instancetype) init:(int32_t)forward :(int32_t)reverse {
+    self = [super init];
+    [self initFields];
+        [self setForward:forward];
+        [self setReverse:reverse];
+    return self;
 }
 
 
-    auto BasicAccelerationProperties::getReverse() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->reverse;
-    
+- (void) setReverse:(int32_t)reverse {
+        self->reverse = reverse;
 }
 
 
-    auto BasicAccelerationProperties::setForward(int32_t forward) -> void{
-this->forward= forward;
-    
+- (int32_t) getReverse {
+        return self->reverse;
 }
 
 
-    auto BasicAccelerationProperties::getForward() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->forward;
-    
+- (void) setForward:(int32_t)forward {
+        self->forward = forward;
 }
 
 
+- (int32_t) getForward {
+        return self->forward;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_PHYSICS_ACCELERATION_BASICACCELERATIONPROPERTIES_CPP

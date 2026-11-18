@@ -1,208 +1,80 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/data/resource/ResourceUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/io/StreamUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
 
 
+static ResourceUtil* ResourceUtil_instance;
 
-        #ifndef ORG_ALLBINARY_DATA_RESOURCE_RESOURCEUTIL_CPP
-        #define ORG_ALLBINARY_DATA_RESOURCE_RESOURCEUTIL_CPP
+void ResourceUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ResourceUtil_instance = [((ResourceUtil*) [ResourceUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/data/resource/ResourceUtil.h"
-        
+@implementation ResourceUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/ClassLoader.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <java/io/ByteArrayInputStream.h>
-
-      
-#include <java/io/ByteArrayOutputStream.h>
-
-      
-#include <java/io/FileInputStream.h>
-
-      
-#include <java/io/InputStream.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/io/StreamUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //J2SE - PC
-auto ResourceUtil::instance_owner() -> ResourceUtil* { static std::unique_ptr<ResourceUtil> value(new ResourceUtil()); return value.get(); }
-ResourceUtil* ResourceUtil::instance = ResourceUtil::instance_owner();
-
-    auto ResourceUtil::getInstance() -> ResourceUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ResourceUtil::instance;
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->path = [StringUtil getInstance]->EMPTY_STRING;
+    self->ext = [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-ResourceUtil::ResourceUtil() : logUtil(LogUtil::getInstance()), path(StringUtil::getInstance()->EMPTY_STRING), ext(StringUtil::getInstance()->EMPTY_STRING){
++ (ResourceUtil*) getInstance {
+        return (ResourceUtil_staticInit(), ResourceUtil_instance);
 }
 
 
-    auto ResourceUtil::setLoadingPaths(std::string path, std::string ext) -> void{
-this->path= path;
-    
-this->ext= ext;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto ResourceUtil::setClassLoader(ClassLoader* classLoader) -> void{
+- (void) setLoadingPaths:(const char*)path :(const char*)ext {
+        self->path = path;
+        self->ext = ext;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ResourceUtil::getResourceAsStream(std::string resource) -> InputStream*{
-
-    InputStream* inputStream = this->getResourceAsStreamAtStart(resource, 2);;
-    
-
-                        if(inputStream == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    inputStream= this->getResourceAsStreamAtStart(resource, 1);
-    
-
-                        if(inputStream == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    
-
-
-                            throw Exception(JavaString::valueOf((new StringMaker())->append("Unable to obtain: ")->append(resource)));
-                    
-
-                                    }
-                                
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return inputStream;
-    
+- (void) setClassLoader:(ClassLoader*)classLoader {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ResourceUtil::getResourceAsStreamAtStart(std::string resource, int32_t startIndex) -> InputStream*{
-
-    InputStream* inputStream = new FileInputStream(JavaString::valueOf((new StringMaker())->append(this->path)->append(resource)->append(this->ext)));;
-    
-
-                        if(inputStream != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    
-    std::vector<int8_t> byteArray = std::vector<int8_t>(inputStream->available());;
-    
-StreamUtil::getInstance()->getByteArray(inputStream, new ByteArrayOutputStream(), byteArray);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new ByteArrayInputStream(byteArray);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return inputStream;
-    
+// throws Exception
+- (InputStream*) getResourceAsStream:(const char*)resource {
+        InputStream* inputStream = [self getResourceAsStreamAtStart:resource :2];
+        if (inputStream == nil) {
+            inputStream = [self getResourceAsStreamAtStart:resource :1];
+            if (inputStream == nil) {
+                java_throw(java_exception_new("Exception", [[[[((StringMaker*) [StringMaker alloc]) init] append:"Unable to obtain: "] append:resource] toString]));
+            }
+        }
+        return inputStream;
 }
 
 
-    auto ResourceUtil::addResource(std::string resource, int32_t value) -> void{
+// throws Exception
+- (InputStream*) getResourceAsStreamAtStart:(const char*)resource :(int32_t)startIndex {
+        InputStream* inputStream = [((FileInputStream*) [FileInputStream alloc]) init:[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->path] append:resource] append:self->ext] toString]];
+        if (inputStream != nil) {
+            int8_t* byteArray = ((int8_t*) java_array_new(sizeof(int8_t), [inputStream available]));
+            [[StreamUtil getInstance] getByteArray:inputStream :[((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init] :byteArray];
+            return [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:byteArray];
+        }
+        return inputStream;
 }
 
 
+- (void) addResource:(const char*)resource :(int32_t)value {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_DATA_RESOURCE_RESOURCEUTIL_CPP

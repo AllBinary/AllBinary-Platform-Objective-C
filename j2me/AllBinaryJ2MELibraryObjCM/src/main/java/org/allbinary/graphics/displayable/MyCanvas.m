@@ -1,371 +1,216 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_MYCANVAS_CPP
-        #define ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_MYCANVAS_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/displayable/MyCanvas.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Canvas.h>
-
-      
-#include <javax/microedition/lcdui/Command.h>
-
-      
-#include <javax/microedition/lcdui/CommandListener.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/NullCommandListener.h>
-
-      
-#include <org/allbinary/graphics/displayable/command/MyCommandInterface.h>
-
-      
-#include <org/allbinary/graphics/displayable/command/MyCommandsFactory.h>
-
-      
-#include <org/allbinary/input/TouchJ2ME.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/media/audio/Sound.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/util/ABStack.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/displayable/DisplayableInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/displayable/MyCanvas.h"
+#include "javax/microedition/lcdui/Command.h"
+#include "javax/microedition/lcdui/CommandListener.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/NullCommandListener.h"
+#include "org/allbinary/graphics/displayable/command/MyCommandsFactory.h"
+#include "org/allbinary/input/TouchJ2ME.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/media/audio/Sound.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/util/ABStack.h"
+#include "org/allbinary/graphics/displayable/DisplayableInterface.h"
 #include "org/allbinary/graphics/displayable/CanvasStrings.h"
 #include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
 
 
-MyCanvas::MyCanvas(std::string name, BasicArrayList* childNameList) : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), canvasStrings(CanvasStrings::getInstance()), stringUtil(StringUtil::getInstance()), displayInfo(DisplayInfoSingleton::getInstance()), commandListener(NullCommandListener::NULL_COMMAND_LISTENER), touchME(new TouchJ2ME()){
-this->logUtil->putF(this->commonStrings->CONSTRUCTOR, this, this->commonStrings->CONSTRUCTOR);
+
+void MyCanvas_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation MyCanvas
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+    self->canvasStrings = [CanvasStrings getInstance];
+    self->stringUtil = [StringUtil getInstance];
+    self->displayInfo = [DisplayInfoSingleton getInstance];
     
-this->displayInfo->update(this, this->canvasStrings->CONSTRUCTOR);
     
-this->name= name;
     
-this->childNameList= childNameList;
-    
-this->commandStack= StdUtil::getInstance()->createStack();
-    
+    self->commandListener = (NullCommandListener_staticInit(), NullCommandListener_NULL_COMMAND_LISTENER);
+    self->paused = false;
+    self->touchME = [((TouchJ2ME*) [TouchJ2ME alloc]) init];
 }
 
 
-    auto MyCanvas::getWidth() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Canvas::getWidth();;
-    
+- (instancetype) init:(const char*)name :(BasicArrayList*)childNameList {
+    self = [super init];
+    [self initFields];
+        [self->logUtil putF:self->commonStrings->CONSTRUCTOR :self :self->commonStrings->CONSTRUCTOR];
+        [self->displayInfo update:self :self->canvasStrings->CONSTRUCTOR];
+        self->name = name;
+        self->childNameList = childNameList;
+        self->commandStack = [[StdUtil getInstance] createStack];
+    return self;
 }
 
 
-    auto MyCanvas::getHeight() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Canvas::getHeight();;
-    
+- (int32_t) getWidth {
+        return [super getWidth];
 }
 
 
-    auto MyCanvas::setFullScreenMode(bool mode) -> void{
-Canvas::setFullScreenMode(mode);
-    
-this->displayInfo->update(this, this->canvasStrings->SET_FULL_SCREEN_MODE);
-    
+- (int32_t) getHeight {
+        return [super getHeight];
 }
 
 
-    auto MyCanvas::sizeChanged(int32_t w, int32_t h) -> void{
-this->displayInfo->update(this, this->canvasStrings->SIZE_CHANGED);
-    
+- (void) setFullScreenMode:(bool)mode {
+        [super setFullScreenMode:mode];
+        [self->displayInfo update:self :self->canvasStrings->SET_FULL_SCREEN_MODE];
 }
 
 
-    auto MyCanvas::getCommandStack() -> ABStack<Object*>*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->commandStack;
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto MyCanvas::isCommand(Command* command) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->commandStack->contains(command);;
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto MyCanvas::addCommand(Command* command) -> void{
-
-                        if(!this->commandStack->contains(command))
-                        
-                                    {
-                                    this->commandStack->push(command);
-    
-Canvas::addCommand(command);
-    
-
-                                    }
-                                
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto MyCanvas::removeCommand(Command* command) -> void{
-this->commandStack->removeElement(command);
-    
-Canvas::removeCommand(command);
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto MyCanvas::removeAllCommands() -> void{
-
-    int32_t size = this->commandStack->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-Canvas::removeCommand(dynamic_cast<Command*>(this->commandStack->pop()));
-    
-}
-
+- (void) sizeChanged:(int32_t)w :(int32_t)h {
+        [self->displayInfo update:self :self->canvasStrings->SIZE_CHANGED];
 }
 
 
-    auto MyCanvas::setCommandListener(CommandListener* l) -> void{
-Canvas::setCommandListener(l);
-    
-this->commandListener= l;
-    
+- (ABStack*) getCommandStack {
+        return self->commandStack;
 }
 
 
-    auto MyCanvas::getCustomCommandListener() -> CommandListener*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->commandListener;
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto MyCanvas::isPaused() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->paused;
-    
+// synchronized
+- (bool) isCommand:(Command*)command {
+        return [self->commandStack contains:command];
 }
 
 
-    auto MyCanvas::removePauseCommand() -> void{
-this->removeCommand(MyCommandsFactory::getInstance()->PAUSE_COMMAND);
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto MyCanvas::pause() -> void{
-this->logUtil->putF(this->commonStrings->START, this, this->canvasStrings->PAUSE);
-    
-this->removePauseCommand();
-    
-this->addCommand(MyCommandsFactory::getInstance()->RESUME_COMMAND);
-    
-this->setPaused(true);
-    
-}
-
-//@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto MyCanvas::unPause() -> void{
-this->logUtil->putF(this->commonStrings->START, this, this->canvasStrings->UN_PAUSE);
-    
-this->removeCommand(MyCommandsFactory::getInstance()->RESUME_COMMAND);
-    
-this->addCommand(MyCommandsFactory::getInstance()->PAUSE_COMMAND);
-    
-this->setPaused(false);
-    
+// synchronized
+- (void) addCommand:(Command*)command {
+        if (![self->commandStack contains:command]) {
+            [self->commandStack push:command];
+            [super addCommand:command];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto MyCanvas::process() -> void{
-this->displayInfo->process();
-    
+// synchronized
+- (void) removeCommand:(Command*)command {
+        [self->commandStack removeElement:command];
+        [super removeCommand:command];
 }
 
 
-    auto MyCanvas::paint(Graphics* graphics) -> void{
+// synchronized
+- (void) removeAllCommands {
+        int32_t size = [self->commandStack size];
+        for (int32_t index = 0; index < size; index++) {
+            [super removeCommand:((Command*) [self->commandStack pop])];
+        }
 }
 
 
-    auto MyCanvas::draw(Graphics* graphics) -> void{
+- (void) setCommandListener:(CommandListener*)l {
+        [super setCommandListener:l];
+        self->commandListener = l;
 }
 
 
-    auto MyCanvas::hasChild(MyCanvas* displayable) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->childNameList->contains(displayable->name);;
-    
+- (CommandListener*) getCustomCommandListener {
+        return self->commandListener;
 }
 
 
-    auto MyCanvas::destroy() -> void{
-this->logUtil->putF("Destroyed MyCanvas", this, "destroy");
-    
+// synchronized
+- (bool) isPaused {
+        return self->paused;
 }
 
 
-    auto MyCanvas::setPaused(bool isPaused) -> void{
-this->paused= isPaused;
-    
+- (void) removePauseCommand {
+        [self removeCommand:[MyCommandsFactory getInstance]->PAUSE_COMMAND];
 }
 
 
-    auto MyCanvas::keyPressedByDevice(int32_t keyCode, int32_t deviceId) -> void{
+// synchronized
+- (void) pause {
+        [self->logUtil putF:self->commonStrings->START :self :self->canvasStrings->PAUSE];
+        [self removePauseCommand];
+        [self addCommand:[MyCommandsFactory getInstance]->RESUME_COMMAND];
+        [self setPaused:true];
 }
 
 
-    auto MyCanvas::keyRepeatedByDevice(int32_t keyCode, int32_t deviceId) -> void{
+// synchronized
+- (void) unPause {
+        [self->logUtil putF:self->commonStrings->START :self :self->canvasStrings->UN_PAUSE];
+        [self removeCommand:[MyCommandsFactory getInstance]->RESUME_COMMAND];
+        [self addCommand:[MyCommandsFactory getInstance]->PAUSE_COMMAND];
+        [self setPaused:false];
 }
 
 
-    auto MyCanvas::keyReleasedByDevice(int32_t keyCode, int32_t deviceId) -> void{
+// throws Exception
+- (void) process {
+        [self->displayInfo process];
 }
 
 
-    auto MyCanvas::pointerDragged(int32_t x, int32_t y) -> void{
-this->touchME->pointerDragged(x, y);
-    
+- (void) paint:(Graphics*)graphics {
 }
 
 
-    auto MyCanvas::pointerPressed(int32_t x, int32_t y) -> void{
-this->touchME->pointerPressed(x, y);
-    
+- (void) draw:(Graphics*)graphics {
 }
 
 
-    auto MyCanvas::pointerReleased(int32_t x, int32_t y) -> void{
-this->touchME->pointerReleased(x, y);
-    
+- (bool) hasChild:(MyCanvas*)displayable {
+        return [self->childNameList contains:displayable->name];
 }
 
 
-    auto MyCanvas::nextSong(Sound* nextSongSound, int32_t leftVolume, int32_t rightVolume) -> void{
+- (void) destroy {
+        [self->logUtil putF:"Destroyed MyCanvas" :self :"destroy"];
 }
 
 
+- (void) setPaused:(bool)isPaused {
+        self->paused = isPaused;
+}
 
 
-        #endif //ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_MYCANVAS_CPP
+- (void) keyPressedByDevice:(int32_t)keyCode :(int32_t)deviceId {
+}
+
+
+- (void) keyRepeatedByDevice:(int32_t)keyCode :(int32_t)deviceId {
+}
+
+
+- (void) keyReleasedByDevice:(int32_t)keyCode :(int32_t)deviceId {
+}
+
+
+- (void) pointerDragged:(int32_t)x :(int32_t)y {
+        [self->touchME pointerDragged:x :y];
+}
+
+
+- (void) pointerPressed:(int32_t)x :(int32_t)y {
+        [self->touchME pointerPressed:x :y];
+}
+
+
+- (void) pointerReleased:(int32_t)x :(int32_t)y {
+        [self->touchME pointerReleased:x :y];
+}
+
+
+- (void) nextSong:(Sound*)nextSongSound :(int32_t)leftVolume :(int32_t)rightVolume {
+}
+
+@end
+

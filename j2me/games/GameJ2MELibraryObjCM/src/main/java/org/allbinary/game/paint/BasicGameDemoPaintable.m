@@ -1,159 +1,74 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/paint/BasicGameDemoPaintable.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/paint/NullPaintable.h"
+#include "org/allbinary/graphics/paint/Paintable.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_PAINT_BASICGAMEDEMOPAINTABLE_CPP
-        #define ORG_ALLBINARY_GAME_PAINT_BASICGAMEDEMOPAINTABLE_CPP
+void BasicGameDemoPaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/paint/BasicGameDemoPaintable.h"
-        
+@implementation BasicGameDemoPaintable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/paint/NullPaintable.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-#include <org/allbinary/graphics/paint/StatePaintable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-BasicGameDemoPaintable::BasicGameDemoPaintable(Paintable* mainDemoStatePaintable, Paintable* ownershipPaintable, Paintable* helpPaintableInterface) : currentStatePaintable(NullPaintable::getInstance()){
-this->mainDemoStatePaintable= mainDemoStatePaintable;
+- (void) initFields {
     
-this->setCurrentStatePaintable(NullPaintable::getInstance());
     
-this->ownershipPaintable= ownershipPaintable;
     
-this->helpPaintableInterface= helpPaintableInterface;
-    
+    self->currentStatePaintable = [NullPaintable getInstance];
 }
 
 
-    auto BasicGameDemoPaintable::setState(int32_t state) -> void{
-
-                        if(state == 0)
-                        
-                                    {
-                                    this->setCurrentStatePaintable(this->getMainDemoStatePaintable());
-    
-
-                                    }
-                                
-                             else 
-                        if(state == 1)
-                        
-                                    {
-                                    this->setCurrentStatePaintable(this->helpPaintableInterface);
-    
-
-                                    }
-                                
-                        else {
-                            this->setCurrentStatePaintable(this->ownershipPaintable);
-    
-
-                        }
-                            
+- (instancetype) init:(Paintable*)mainDemoStatePaintable :(Paintable*)ownershipPaintable :(Paintable*)helpPaintableInterface {
+    self = [super init];
+    [self initFields];
+        self->mainDemoStatePaintable = mainDemoStatePaintable;
+        [self setCurrentStatePaintable:[NullPaintable getInstance]];
+        self->ownershipPaintable = ownershipPaintable;
+        self->helpPaintableInterface = helpPaintableInterface;
+    return self;
 }
 
 
-    auto BasicGameDemoPaintable::paint(Graphics* graphics) -> void{
-this->getCurrentStatePaintable()->paint(graphics);
-    
+- (void) setState:(int32_t)state {
+        if (state == 0) {
+            [self setCurrentStatePaintable:[self getMainDemoStatePaintable]];
+        } else if (state == 1) {
+            [self setCurrentStatePaintable:self->helpPaintableInterface];
+        } else {
+            [self setCurrentStatePaintable:self->ownershipPaintable];
+        }
 }
 
 
-    auto BasicGameDemoPaintable::getHelpPaintableInterface() -> Paintable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->helpPaintableInterface;
-    
+- (void) paint:(Graphics*)graphics {
+        [[self getCurrentStatePaintable] paint:graphics];
 }
 
 
-    auto BasicGameDemoPaintable::setCurrentStatePaintable(Paintable* currentStatePaintable) -> void{
-this->currentStatePaintable= currentStatePaintable;
-    
+- (Paintable*) getHelpPaintableInterface {
+        return self->helpPaintableInterface;
 }
 
 
-    auto BasicGameDemoPaintable::getCurrentStatePaintable() -> Paintable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->currentStatePaintable;
-    
+- (void) setCurrentStatePaintable:(Paintable*)currentStatePaintable {
+        self->currentStatePaintable = currentStatePaintable;
 }
 
 
-    auto BasicGameDemoPaintable::getMainDemoStatePaintable() -> Paintable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->mainDemoStatePaintable;
-    
+- (Paintable*) getCurrentStatePaintable {
+        return self->currentStatePaintable;
 }
 
 
+- (Paintable*) getMainDemoStatePaintable {
+        return self->mainDemoStatePaintable;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_PAINT_BASICGAMEDEMOPAINTABLE_CPP

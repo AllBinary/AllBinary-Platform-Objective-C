@@ -1,161 +1,42 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/displayable/canvas/CanvasUtil.h"
+#include "javax/microedition/lcdui/Canvas.h"
+#include "org/allbinary/string/CommonPhoneStrings.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_CANVASUTIL_CPP
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_CANVASUTIL_CPP
+void CanvasUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/displayable/canvas/CanvasUtil.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Canvas.h>
-
-      
-#include <org/allbinary/string/CommonPhoneStrings.h>
-
-      
+@implementation CanvasUtil
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CanvasUtil::CanvasUtil(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto CanvasUtil::getKeyName(int32_t key) -> std::string{
-
-    CommonPhoneStrings* commonPhoneStrings = CommonPhoneStrings::getInstance();;
-    
-
-                        if(key == Canvas::UP)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return commonPhoneStrings->UP;
-    
-
-                                    }
-                                
-                             else 
-                        if(key == Canvas::DOWN)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return commonPhoneStrings->DOWN;
-    
-
-                                    }
-                                
-                             else 
-                        if(key == Canvas::RIGHT)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return commonPhoneStrings->RIGHT;
-    
-
-                                    }
-                                
-                             else 
-                        if(key == Canvas::LEFT)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return commonPhoneStrings->LEFT;
-    
-
-                                    }
-                                
-                             else 
-                        if(key == Canvas::FIRE)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return commonPhoneStrings->FIRE;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return "UNKNOWN KEY";
-    
++ (const char*) getKeyName:(int32_t)key {
+        CommonPhoneStrings* commonPhoneStrings = [CommonPhoneStrings getInstance];
+        if (key == (Canvas_staticInit(), Canvas_UP)) {
+            return commonPhoneStrings->UP;
+        } else if (key == (Canvas_staticInit(), Canvas_DOWN)) {
+            return commonPhoneStrings->DOWN;
+        } else if (key == (Canvas_staticInit(), Canvas_RIGHT)) {
+            return commonPhoneStrings->RIGHT;
+        } else if (key == (Canvas_staticInit(), Canvas_LEFT)) {
+            return commonPhoneStrings->LEFT;
+        } else if (key == (Canvas_staticInit(), Canvas_FIRE)) {
+            return commonPhoneStrings->FIRE;
+        }
+        return "UNKNOWN KEY";
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_CANVASUTIL_CPP

@@ -1,327 +1,166 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_VELOCITYPROPERTIES_CPP
-        #define ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_VELOCITYPROPERTIES_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/physics/velocity/VelocityProperties.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/physics/velocity/BasicVelocityProperties.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/physics/velocity/VelocityProperties.h"
+#include "org/allbinary/game/physics/velocity/BasicVelocityProperties.h"
 #include "org/allbinary/game/physics/velocity/VelocityInterface.h"
 
-auto VelocityProperties::NULL_VELOCITY_PROPERTIES_owner() -> VelocityProperties* { static std::unique_ptr<VelocityProperties> value(new VelocityProperties(0, 0)); return value.get(); }
-VelocityProperties* VelocityProperties::NULL_VELOCITY_PROPERTIES = VelocityProperties::NULL_VELOCITY_PROPERTIES_owner();
 
-VelocityProperties::VelocityProperties(int32_t maxForwardVelocity, int32_t maxReverseVelocity){
-this->setMaxForwardVelocity(maxForwardVelocity);
-    
-this->setMaxReverseVelocity(maxReverseVelocity);
-    
+VelocityProperties* VelocityProperties_NULL_VELOCITY_PROPERTIES;
+
+void VelocityProperties_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    VelocityProperties_NULL_VELOCITY_PROPERTIES = [((VelocityProperties*) [VelocityProperties alloc]) init:0 :0];
+}
+
+@implementation VelocityProperties
+
+- (void) initFields {
+    self->maxForwardVelocity = 0;
+    self->maxReverseVelocity = 0;
 }
 
 
-    auto VelocityProperties::getMaxForwardVelocity() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->maxForwardVelocity;
-    
+- (instancetype) init:(int32_t)maxForwardVelocity :(int32_t)maxReverseVelocity {
+    self = [super init];
+    [self initFields];
+        [self setMaxForwardVelocity:maxForwardVelocity];
+        [self setMaxReverseVelocity:maxReverseVelocity];
+    return self;
 }
 
 
-    auto VelocityProperties::setMaxForwardVelocity(int32_t maxForwardVelocity) -> void{
-this->maxForwardVelocity= maxForwardVelocity;
-    
+- (int32_t) getMaxForwardVelocity {
+        return self->maxForwardVelocity;
 }
 
 
-    auto VelocityProperties::getMaxReverseVelocity() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->maxReverseVelocity;
-    
+- (void) setMaxForwardVelocity:(int32_t)maxForwardVelocity {
+        self->maxForwardVelocity = maxForwardVelocity;
 }
 
 
-    auto VelocityProperties::setMaxReverseVelocity(int32_t maxReverseVelocity) -> void{
-this->maxReverseVelocity= maxReverseVelocity;
-    
+- (int32_t) getMaxReverseVelocity {
+        return self->maxReverseVelocity;
 }
 
 
-    auto VelocityProperties::limitMaxXYForwardVelocity() -> void{
-this->limitMaxXYVelocity(this->getMaxForwardVelocity());
-    
+- (void) setMaxReverseVelocity:(int32_t)maxReverseVelocity {
+        self->maxReverseVelocity = maxReverseVelocity;
 }
 
 
-    auto VelocityProperties::limitMaxXYReverseVelocity() -> void{
-this->limitMaxXYVelocity(this->getMaxReverseVelocity());
-    
+- (void) limitMaxXYForwardVelocity {
+        [self limitMaxXYVelocity:[self getMaxForwardVelocity]];
 }
 
 
-    auto VelocityProperties::limitMaxYForwardVelocity() -> void{
-this->limitMaxYVelocity(this->getMaxForwardVelocity());
-    
+- (void) limitMaxXYReverseVelocity {
+        [self limitMaxXYVelocity:[self getMaxReverseVelocity]];
 }
 
 
-    auto VelocityProperties::limitMaxYReverseVelocity() -> void{
-this->limitMaxYVelocity(this->getMaxReverseVelocity());
-    
+- (void) limitMaxYForwardVelocity {
+        [self limitMaxYVelocity:[self getMaxForwardVelocity]];
 }
 
 
-    auto VelocityProperties::limitMaxXForwardVelocity() -> void{
-this->limitMaxXVelocity(this->getMaxForwardVelocity());
-    
+- (void) limitMaxYReverseVelocity {
+        [self limitMaxYVelocity:[self getMaxReverseVelocity]];
 }
 
 
-    auto VelocityProperties::limitMaxXReverseVelocity() -> void{
-this->limitMaxXVelocity(this->getMaxReverseVelocity());
-    
+- (void) limitMaxXForwardVelocity {
+        [self limitMaxXVelocity:[self getMaxForwardVelocity]];
 }
 
 
-    auto VelocityProperties::isOverXYMaxForwardVelocity() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->isOverXYMaxVelocity(this->getMaxForwardVelocity());;
-    
+- (void) limitMaxXReverseVelocity {
+        [self limitMaxXVelocity:[self getMaxReverseVelocity]];
 }
 
 
-    auto VelocityProperties::isOverXYMaxReverseVelocity() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->isOverXYMaxVelocity(this->getMaxReverseVelocity());;
-    
+- (bool) isOverXYMaxForwardVelocity {
+        return [self isOverXYMaxVelocity:[self getMaxForwardVelocity]];
 }
 
 
-    auto VelocityProperties::limitXYToForwardAndReverseMaxVelocity() -> void{
-this->limitMaxXYForwardVelocity();
-    
-this->limitMaxXYReverseVelocity();
-    
+- (bool) isOverXYMaxReverseVelocity {
+        return [self isOverXYMaxVelocity:[self getMaxReverseVelocity]];
 }
 
 
-    auto VelocityProperties::limitMaxXYVelocity(int32_t maxVelocity) -> void{
-this->limitMaxXVelocity(maxVelocity);
-    
-this->limitMaxYVelocity(maxVelocity);
-    
+- (void) limitXYToForwardAndReverseMaxVelocity {
+        [self limitMaxXYForwardVelocity];
+        [self limitMaxXYReverseVelocity];
 }
 
 
-    auto VelocityProperties::limitMaxPositiveYVelocity(int32_t maxVelocity) -> void{
-
-                        if(this->velocityYBasicDecimal->getUnscaled() > maxVelocity)
-                        
-                                    {
-                                    this->velocityYBasicDecimal->setint(maxVelocity);
-    
-
-                                    }
-                                
+- (void) limitMaxXYVelocity:(int32_t)maxVelocity {
+        [self limitMaxXVelocity:maxVelocity];
+        [self limitMaxYVelocity:maxVelocity];
 }
 
 
-    auto VelocityProperties::limitMaxNegativeYVelocity(int32_t maxVelocity) -> void{
-
-                        if(this->velocityYBasicDecimal->getUnscaled() <  -maxVelocity)
-                        
-                                    {
-                                    this->velocityYBasicDecimal->setint( -maxVelocity);
-    
-
-                                    }
-                                
+- (void) limitMaxPositiveYVelocity:(int32_t)maxVelocity {
+        if ([self->velocityYBasicDecimal getUnscaled] > ((int64_t) maxVelocity)) {
+            [self->velocityYBasicDecimal setint:maxVelocity];
+        }
 }
 
 
-    auto VelocityProperties::limitMaxYVelocity(int32_t maxVelocity) -> void{
-this->limitMaxPositiveYVelocity(maxVelocity);
-    
-this->limitMaxNegativeYVelocity(maxVelocity);
-    
+- (void) limitMaxNegativeYVelocity:(int32_t)maxVelocity {
+        if ([self->velocityYBasicDecimal getUnscaled] < ((int64_t) (-maxVelocity))) {
+            [self->velocityYBasicDecimal setint:-maxVelocity];
+        }
 }
 
 
-    auto VelocityProperties::limitMaxXVelocity(int32_t maxVelocity) -> void{
-
-                        if(this->velocityXBasicDecimal->getUnscaled() > maxVelocity)
-                        
-                                    {
-                                    this->velocityXBasicDecimal->setint(maxVelocity);
-    
-
-                                    }
-                                
-
-                        if(this->velocityXBasicDecimal->getUnscaled() <  -maxVelocity)
-                        
-                                    {
-                                    this->velocityXBasicDecimal->setint( -maxVelocity);
-    
-
-                                    }
-                                
+- (void) limitMaxYVelocity:(int32_t)maxVelocity {
+        [self limitMaxPositiveYVelocity:maxVelocity];
+        [self limitMaxNegativeYVelocity:maxVelocity];
 }
 
 
-    auto VelocityProperties::isOverXYMaxVelocity(int32_t maxVelocity) -> bool{
-
-                        if(this->velocityXBasicDecimal->getUnscaled() > maxVelocity)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-                        if(this->velocityXBasicDecimal->getUnscaled() <  -maxVelocity)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-                        if(this->velocityYBasicDecimal->getUnscaled() > maxVelocity)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-                        if(this->velocityYBasicDecimal->getUnscaled() <  -maxVelocity)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (void) limitMaxXVelocity:(int32_t)maxVelocity {
+        if ([self->velocityXBasicDecimal getUnscaled] > ((int64_t) maxVelocity)) {
+            [self->velocityXBasicDecimal setint:maxVelocity];
+        }
+        if ([self->velocityXBasicDecimal getUnscaled] < ((int64_t) (-maxVelocity))) {
+            [self->velocityXBasicDecimal setint:-maxVelocity];
+        }
 }
 
 
-    auto VelocityProperties::setVelocityi(int64_t magnitude, int32_t angle, int32_t otherAngle) -> void{
-BasicVelocityProperties::setVelocityi(magnitude, angle, otherAngle);
-    
-this->limitXYToForwardAndReverseMaxVelocity();
-    
+- (bool) isOverXYMaxVelocity:(int32_t)maxVelocity {
+        if ([self->velocityXBasicDecimal getUnscaled] > ((int64_t) maxVelocity)) {
+            return true;
+        }
+        if ([self->velocityXBasicDecimal getUnscaled] < ((int64_t) (-maxVelocity))) {
+            return true;
+        }
+        if ([self->velocityYBasicDecimal getUnscaled] > ((int64_t) maxVelocity)) {
+            return true;
+        }
+        if ([self->velocityYBasicDecimal getUnscaled] < ((int64_t) (-maxVelocity))) {
+            return true;
+        }
+        return false;
 }
 
 
-    auto VelocityProperties::addVelocityi(int64_t magnitude, int32_t angle, int32_t otherAngle) -> void{
-BasicVelocityProperties::addVelocityi(magnitude, angle, otherAngle);
-    
-this->limitXYToForwardAndReverseMaxVelocity();
-    
+- (void) setVelocityi:(int64_t)magnitude :(int32_t)angle :(int32_t)otherAngle {
+        [super setVelocityi:magnitude :angle :otherAngle];
+        [self limitXYToForwardAndReverseMaxVelocity];
 }
 
 
+- (void) addVelocityi:(int64_t)magnitude :(int32_t)angle :(int32_t)otherAngle {
+        [super addVelocityi:magnitude :angle :otherAngle];
+        [self limitXYToForwardAndReverseMaxVelocity];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_VELOCITYPROPERTIES_CPP

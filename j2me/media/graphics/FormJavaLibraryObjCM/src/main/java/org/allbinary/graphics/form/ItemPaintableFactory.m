@@ -1,94 +1,37 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEMPAINTABLEFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEMPAINTABLEFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/ItemPaintableFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/ItemPaintable.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/ItemPaintableFactory.h"
+#include "org/allbinary/graphics/form/ItemPaintable.h"
 #include "org/allbinary/graphics/form/PaintableForm.h"
 
 
-ItemPaintableFactory::ItemPaintableFactory() {
-        }
-        auto ItemPaintableFactory::instance_owner() -> ItemPaintableFactory* { static std::unique_ptr<ItemPaintableFactory> value(new ItemPaintableFactory()); return value.get(); }
-ItemPaintableFactory* ItemPaintableFactory::instance = ItemPaintableFactory::instance_owner();
+static ItemPaintableFactory* ItemPaintableFactory_instance;
 
-    auto ItemPaintableFactory::getInstance() -> ItemPaintableFactory*{
+void ItemPaintableFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ItemPaintableFactory_instance = [((ItemPaintableFactory*) [ItemPaintableFactory alloc]) init];
+}
 
+@implementation ItemPaintableFactory
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ItemPaintableFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ItemPaintableFactory::getInstanceItemPaintable(PaintableForm* paintableForm) -> ItemPaintable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ItemPaintableFactory::instance;
-    
++ (ItemPaintableFactory*) getInstance {
+        return (ItemPaintableFactory_staticInit(), ItemPaintableFactory_instance);
 }
 
 
+// throws Exception
+- (ItemPaintable*) getInstanceItemPaintable:(PaintableForm*)paintableForm {
+        return (ItemPaintableFactory_staticInit(), ItemPaintableFactory_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEMPAINTABLEFACTORY_CPP

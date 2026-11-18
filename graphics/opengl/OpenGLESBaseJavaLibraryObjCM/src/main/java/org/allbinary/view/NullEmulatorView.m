@@ -1,85 +1,39 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/view/NullEmulatorView.h"
+#include "javax/microedition/lcdui/Displayable.h"
+#include "javax/microedition/midlet/MIDlet.h"
+#include "org/allbinary/view/EmulatorViewInterface.h"
 
 
+NullEmulatorView* NullEmulatorView_NULL_EMULATOR_VIEW;
 
-        #ifndef ORG_ALLBINARY_VIEW_NULLEMULATORVIEW_CPP
-        #define ORG_ALLBINARY_VIEW_NULLEMULATORVIEW_CPP
+void NullEmulatorView_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NullEmulatorView_NULL_EMULATOR_VIEW = [((NullEmulatorView*) [NullEmulatorView alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/view/NullEmulatorView.h"
-        
+@implementation NullEmulatorView
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Displayable.h>
-
-      
-#include <javax/microedition/midlet/MIDlet.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/view/EmulatorViewInterface.h"
-
-
-NullEmulatorView::NullEmulatorView() {
-        }
-        auto NullEmulatorView::NULL_EMULATOR_VIEW_owner() -> NullEmulatorView* { static std::unique_ptr<NullEmulatorView> value(new NullEmulatorView()); return value.get(); }
-NullEmulatorView* NullEmulatorView::NULL_EMULATOR_VIEW = NullEmulatorView::NULL_EMULATOR_VIEW_owner();
-
-    auto NullEmulatorView::setMidlet(MIDlet* midlet) -> void{
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto NullEmulatorView::onEmulatorInitComplete(Object* midletActivity) -> void{
+- (void) setMidlet:(MIDlet*)midlet {
 }
 
 
-    auto NullEmulatorView::onSetDisplayable(Displayable* displayable) -> void{
+- (void) onEmulatorInitComplete:(id)midletActivity {
 }
 
 
+- (void) onSetDisplayable:(Displayable*)displayable {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_VIEW_NULLEMULATORVIEW_CPP

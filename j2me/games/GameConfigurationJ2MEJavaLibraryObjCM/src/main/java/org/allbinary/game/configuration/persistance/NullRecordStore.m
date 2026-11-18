@@ -1,67 +1,24 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/persistance/NullRecordStore.h"
 
 
+NullRecordStore* NullRecordStore_NULL_RECORD_STORE;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_NULLRECORDSTORE_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_NULLRECORDSTORE_CPP
+void NullRecordStore_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NullRecordStore_NULL_RECORD_STORE = [((NullRecordStore*) [NullRecordStore alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/persistance/NullRecordStore.h"
-        
+@implementation NullRecordStore
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
-        
-#include <javax/microedition/rms/RecordStore.h>
+@end
 
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-NullRecordStore::NullRecordStore() {
-        }
-        auto NullRecordStore::NULL_RECORD_STORE_owner() -> NullRecordStore* { static std::unique_ptr<NullRecordStore> value(new NullRecordStore()); return value.get(); }
-NullRecordStore* NullRecordStore::NULL_RECORD_STORE = NullRecordStore::NULL_RECORD_STORE_owner();
-
-
-
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_NULLRECORDSTORE_CPP

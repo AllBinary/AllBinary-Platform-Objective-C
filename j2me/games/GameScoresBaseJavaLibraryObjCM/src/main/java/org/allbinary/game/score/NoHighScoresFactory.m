@@ -1,110 +1,54 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_SCORE_NOHIGHSCORESFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_NOHIGHSCORESFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/NoHighScoresFactory.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/game/GameInfo.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/score/HighScoresBase.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/NoHighScoresFactory.h"
+#include "org/allbinary/game/GameInfo.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/game/score/HighScoresBase.h"
 #include "org/allbinary/game/score/HighScores.h"
 #include "org/allbinary/game/score/HighScoresResultsListener.h"
 #include "org/allbinary/game/score/HighScoresHelperBase.h"
 #include "org/allbinary/game/score/HighScoresHelperBaseInterface.h"
 
-auto NoHighScoresFactory::instance_owner() -> NoHighScoresFactory* { static std::unique_ptr<NoHighScoresFactory> value(new NoHighScoresFactory()); return value.get(); }
-NoHighScoresFactory* NoHighScoresFactory::instance = NoHighScoresFactory::instance_owner();
 
-    auto NoHighScoresFactory::getInstance() -> NoHighScoresFactory*{
+static NoHighScoresFactory* NoHighScoresFactory_instance;
 
+void NoHighScoresFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NoHighScoresFactory_instance = [((NoHighScoresFactory*) [NoHighScoresFactory alloc]) init];
+}
 
+@implementation NoHighScoresFactory
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NoHighScoresFactory::instance;
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->NO_HIGH_SCORES = ((HighScores**) java_array_new(sizeof(HighScores*), 0));
 }
 
 
-NoHighScoresFactory::NoHighScoresFactory() : logUtil(LogUtil::getInstance()), NO_HIGH_SCORES({}){
++ (NoHighScoresFactory*) getInstance {
+        return (NoHighScoresFactory_staticInit(), NoHighScoresFactory_instance);
 }
 
 
-    auto NoHighScoresFactory::fetchHighScores(GameInfo* gameInfo, HighScoresResultsListener* highScoresResultsListener) -> void{
-this->logUtil->putF("Getting No HighScores", this, "fetchHighScores");
-    
-highScoresResultsListener->setHighScoresArray(this->NO_HIGH_SCORES);
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto NoHighScoresFactory::createHighScoresHelper() -> HighScoresHelperBaseInterface*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new HighScoresHelperBase();
-    
+- (void) fetchHighScores:(GameInfo*)gameInfo :(HighScoresResultsListener*)highScoresResultsListener {
+        [self->logUtil putF:"Getting No HighScores" :self :"fetchHighScores"];
+        [highScoresResultsListener setHighScoresArray:self->NO_HIGH_SCORES];
 }
 
 
+- (HighScoresHelperBaseInterface*) createHighScoresHelper {
+        return [((HighScoresHelperBase*) [HighScoresHelperBase alloc]) init];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_SCORE_NOHIGHSCORESFACTORY_CPP

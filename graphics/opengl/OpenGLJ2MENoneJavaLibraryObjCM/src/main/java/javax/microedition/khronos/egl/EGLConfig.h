@@ -1,66 +1,26 @@
+#ifndef JAVAX_MICROEDITION_KHRONOS_EGL_EGLCONFIG_H
+#define JAVAX_MICROEDITION_KHRONOS_EGL_EGLCONFIG_H
+// Generated Code Do Not Modify
+// package javax.microedition.khronos.egl
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class EGLConfig;
 
+@interface EGLConfig : ABObject {
+@public
+}
+- (instancetype) init;
+@end
 
-
-        #ifndef JAVAX_MICROEDITION_KHRONOS_EGL_EGLCONFIG_H
-        #define JAVAX_MICROEDITION_KHRONOS_EGL_EGLCONFIG_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void EGLConfig_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class EGLConfig
-            : public virtual Object
-         {
-
-public: EGLConfig();
-
-};
-
-            
-
-
-        #endif //JAVAX_MICROEDITION_KHRONOS_EGL_EGLCONFIG_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(JAVAX_MICROEDITION_KHRONOS_EGL_EGLCONFIG_H_COMPLETE)
-        #define JAVAX_MICROEDITION_KHRONOS_EGL_EGLCONFIG_H_COMPLETE
-        
-        #endif
-    
+#endif // JAVAX_MICROEDITION_KHRONOS_EGL_EGLCONFIG_H

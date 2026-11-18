@@ -1,81 +1,35 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABSTRINGCOMPONENT_H
+#define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABSTRINGCOMPONENT_H
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ABStringComponent;
+@class BasicColor;
+@class BasicColorFactory;
 
+@interface ABStringComponent : ABObject {
+@public
+}
+- (instancetype) init:(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor;
+- (BasicColor*) getBackgroundBasicColor;
+- (BasicColor*) getForegroundBasicColor;
+- (void) setForegroundBasicColor:(BasicColor*)foregroundBasicColor;
+@end
 
+extern ABStringComponent* ABStringComponent_NULL_STRING_COMPONENT;
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ABStringComponent_staticInit(void);
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABSTRINGCOMPONENT_H
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABSTRINGCOMPONENT_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class BasicColor;
-class BasicColorFactory;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ABStringComponent
-            : public virtual Object
-         {
-
-    private: static ABStringComponent* NULL_STRING_COMPONENT_owner();
-    public: static ABStringComponent* NULL_STRING_COMPONENT;
-
-    public: BasicColor* getBackgroundBasicColor();
-
-public: ABStringComponent(BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor);
-
-    public: BasicColor* getForegroundBasicColor();
-
-    public: void setForegroundBasicColor(BasicColor* foregroundBasicColor);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABSTRINGCOMPONENT_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABSTRINGCOMPONENT_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABSTRINGCOMPONENT_H_COMPLETE
-        #if __has_include(<org/allbinary/graphics/color/BasicColor.h>)
-#include <org/allbinary/graphics/color/BasicColor.h>
-#endif
-#if __has_include(<org/allbinary/graphics/color/BasicColorFactory.h>)
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_FORM_ITEM_ABSTRINGCOMPONENT_H

@@ -1,150 +1,62 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/system/security/crypt/jcehelper/SecretComposite.h"
+#include "org/allbinary/logic/java/byteutil/ByteUtil.h"
+#include "org/allbinary/logic/system/security/crypt/jcehelper/BaseSecretComposite.h"
 
 
 
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_JCEHELPER_SECRETCOMPOSITE_CPP
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_JCEHELPER_SECRETCOMPOSITE_CPP
+void SecretComposite_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/system/security/crypt/jcehelper/SecretComposite.h"
-        
+@implementation SecretComposite
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/crypto/Cipher.h>
-
-      
-#include <javax/crypto/SecretKey.h>
-
-      
-#include <org/allbinary/logic/java/byteutil/ByteUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/logic/system/security/crypt/jcehelper/BaseSecretComposite.h"
-
-
-SecretComposite::SecretComposite(SecretKey* secretKey, Cipher* cipher, std::vector<int8_t> key) : byteUtil(ByteUtil::getInstance()){
-this->secretKey= secretKey;
+- (void) initFields {
+    self->byteUtil = [ByteUtil getInstance];
     
-this->cipher= cipher;
     
-this->key= key;
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto SecretComposite::encrypt(std::vector<int8_t> array) -> std::vector<int8_t>{
-array= this->mutilate(array);
-    
-this->cipher->init(Cipher::ENCRYPT_MODE, this->secretKey);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->cipher->doFinal(array);;
-    
+- (instancetype) init:(SecretKey*)secretKey :(Cipher*)cipher :(int8_t*)key {
+    self = [super init];
+    [self initFields];
+        self->secretKey = secretKey;
+        self->cipher = cipher;
+        self->key = key;
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto SecretComposite::decrypt(std::vector<int8_t> array) -> std::vector<int8_t>{
-this->cipher->init(Cipher::DECRYPT_MODE, this->secretKey);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->mutilate(this->cipher->doFinal(array));;
-    
+// throws Exception
+- (int8_t*) encrypt:(int8_t*)array {
+        array = [self mutilate:array];
+        [self->cipher init_:(Cipher_staticInit(), Cipher_ENCRYPT_MODE) :self->secretKey];
+        return [self->cipher doFinal:array];
 }
 
 
-    auto SecretComposite::mutilate(std::vector<int8_t> array) -> std::vector<int8_t>{
-
-
-
-
-                        for (
-    int32_t index = 0;index < this->key.size(); index++)
-        {
-
-    int8_t value = this->key[index];;
-    
-
-                        if(value < 8 && value > 0)
-                        
-                                    {
-                                    array= this->byteUtil->xorByte(array, static_cast<int32_t>(value));
-    
-
-                                    }
-                                
+// throws Exception
+- (int8_t*) decrypt:(int8_t*)array {
+        [self->cipher init_:(Cipher_staticInit(), Cipher_DECRYPT_MODE) :self->secretKey];
+        return [self mutilate:[self->cipher doFinal:array]];
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return array;
-    
+- (int8_t*) mutilate:(int8_t*)array {
+        for (int32_t index = 0; index < java_array_length(self->key); index++) {
+            int8_t value = self->key[index];
+            if (((int32_t) value) < 8 && ((int32_t) value) > 0) {
+                array = [self->byteUtil xorByte:array :((int32_t) value)];
+            }
+        }
+        return array;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_CRYPT_JCEHELPER_SECRETCOMPOSITE_CPP

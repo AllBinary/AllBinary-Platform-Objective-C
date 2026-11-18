@@ -1,118 +1,60 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_RECTANGLE_H
+#define ORG_ALLBINARY_GRAPHICS_RECTANGLE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_RECTANGLE_H
-        #define ORG_ALLBINARY_GRAPHICS_RECTANGLE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class StringMaker;
-class CommonLabels;
-class CommonSeps;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class GPoint;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class Rectangle
-            : public virtual Object
-         {
-
-    private: GPoint* point;
-
-    private: int32_t width;
-
-    private: int32_t height;
-
-public: Rectangle(GPoint* point, int32_t width, int32_t height);
-
-    public: GPoint* getPoint();
-
-    public: void setPoint(GPoint* point);
-
-    public: int32_t getMaxX();
-
-    public: int32_t getMaxY();
-
-    public: int32_t getWidth();
-
-    public: void setWidth(int32_t width);
-
-    public: int32_t getHeight();
-
-    public: void setHeight(int32_t height);
-
-    public: std::string toString();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_RECTANGLE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_RECTANGLE_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_RECTANGLE_H_COMPLETE
-        #if __has_include(<org/allbinary/logic/string/StringMaker.h>)
-#include <org/allbinary/logic/string/StringMaker.h>
-#endif
-#if __has_include(<org/allbinary/string/CommonLabels.h>)
-#include <org/allbinary/string/CommonLabels.h>
-#endif
-#if __has_include(<org/allbinary/string/CommonSeps.h>)
-#include <org/allbinary/string/CommonSeps.h>
-#endif
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class Rectangle;
+@class StringMaker;
+@class CommonLabels;
+@class CommonSeps;
+@class GPoint;
 #if __has_include("org/allbinary/graphics/GPoint.h")
 #include "org/allbinary/graphics/GPoint.h"
 #endif
 
-        #endif
-    
+@interface Rectangle : ABObject {
+@public
+    GPoint* point;
+    int32_t width;
+    int32_t height;
+}
+- (instancetype) init:(GPoint*)point :(int32_t)width :(int32_t)height;
+- (void) initFields;
+- (GPoint*) getPoint;
+- (void) setPoint:(GPoint*)point;
+- (int32_t) getMaxX;
+- (int32_t) getMaxY;
+- (int32_t) getWidth;
+- (void) setWidth:(int32_t)width;
+- (int32_t) getHeight;
+- (void) setHeight:(int32_t)height;
+- (const char*) toString;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void Rectangle_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GRAPHICS_RECTANGLE_H

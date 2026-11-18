@@ -1,76 +1,30 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/displayable/canvas/NullWaitGameRunnable.h"
+#include "org/allbinary/game/displayable/canvas/GameRunnable.h"
 
 
+static GameRunnable* NullWaitGameRunnable_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLWAITGAMERUNNABLE_CPP
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLWAITGAMERUNNABLE_CPP
+void NullWaitGameRunnable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NullWaitGameRunnable_instance = [((NullWaitGameRunnable*) [NullWaitGameRunnable alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/displayable/canvas/NullWaitGameRunnable.h"
-        
+@implementation NullWaitGameRunnable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/displayable/canvas/GameRunnable.h"
-
-
-NullWaitGameRunnable::NullWaitGameRunnable() {
-        }
-        GameRunnable* NullWaitGameRunnable::instance = new NullWaitGameRunnable();
-
-    auto NullWaitGameRunnable::getInstance() -> GameRunnable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullWaitGameRunnable::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
++ (GameRunnable*) getInstance {
+        return (NullWaitGameRunnable_staticInit(), NullWaitGameRunnable_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLWAITGAMERUNNABLE_CPP

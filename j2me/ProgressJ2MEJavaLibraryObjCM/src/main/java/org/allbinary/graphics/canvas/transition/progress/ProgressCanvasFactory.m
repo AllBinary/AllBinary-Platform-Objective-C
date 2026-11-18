@@ -1,114 +1,43 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/graphics/paint/NullPaintable.h"
+#include "org/allbinary/graphics/paint/PaintableInterface.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
 
 
+static id ProgressCanvasFactory_PROGRESS_FORM_SCREEN;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSCANVASFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSCANVASFACTORY_CPP
+void ProgressCanvasFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ProgressCanvasFactory_PROGRESS_FORM_SCREEN = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.h"
-        
+@implementation ProgressCanvasFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/paint/NullPaintable.h>
-
-      
-#include <org/allbinary/graphics/paint/PaintableInterface.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
-
-
-ProgressCanvasFactory::ProgressCanvasFactory() {
++ (ProgressCanvas*) getInstance {
+        if ((ProgressCanvasFactory_staticInit(), ProgressCanvasFactory_PROGRESS_FORM_SCREEN) == [NullUtil getInstance]->NULL_OBJECT) {
+            ProgressCanvasFactory_PROGRESS_FORM_SCREEN = [((ProgressCanvas*) [ProgressCanvas alloc]) init:[StringUtil getInstance]->EMPTY_STRING :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE];
         }
-        Object* ProgressCanvasFactory::PROGRESS_FORM_SCREEN = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto ProgressCanvasFactory::getInstance() -> ProgressCanvas*{
-
-                        if(ProgressCanvasFactory::PROGRESS_FORM_SCREEN == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    ProgressCanvasFactory::PROGRESS_FORM_SCREEN= new ProgressCanvas(StringUtil::getInstance()->EMPTY_STRING, BasicColorFactory::getInstance()->BLACK, BasicColorFactory::getInstance()->WHITE);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<ProgressCanvas*>(ProgressCanvasFactory::PROGRESS_FORM_SCREEN);
-    
+        return ((ProgressCanvas*) (ProgressCanvasFactory_staticInit(), ProgressCanvasFactory_PROGRESS_FORM_SCREEN));
 }
 
 
-    auto ProgressCanvasFactory::getLazyInstance() -> PaintableInterface*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullPaintable::getInstance();;
-    
++ (PaintableInterface*) getLazyInstance {
+        return [NullPaintable getInstance];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_CANVAS_TRANSITION_PROGRESS_PROGRESSCANVASFACTORY_CPP

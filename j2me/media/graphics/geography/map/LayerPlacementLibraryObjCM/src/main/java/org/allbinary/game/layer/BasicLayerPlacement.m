@@ -1,114 +1,54 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/BasicLayerPlacement.h"
+#include "org/allbinary/game/layer/LayerPlacementType.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_BASICLAYERPLACEMENT_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_BASICLAYERPLACEMENT_CPP
+void BasicLayerPlacement_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/BasicLayerPlacement.h"
-        
+@implementation BasicLayerPlacement
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/LayerPlacementType.h"
-
-
-BasicLayerPlacement::BasicLayerPlacement(LayerPlacementType* layerType, int32_t width, int32_t height){
-this->layerType= layerType;
+- (void) initFields {
     
-this->width= width;
     
-this->height= height;
     
 }
 
 
-    auto BasicLayerPlacement::getWidth() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->width;
-    
+- (instancetype) init:(LayerPlacementType*)layerType :(int32_t)width :(int32_t)height {
+    self = [super init];
+    [self initFields];
+        self->layerType = layerType;
+        self->width = width;
+        self->height = height;
+    return self;
 }
 
 
-    auto BasicLayerPlacement::getHeight() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->height;
-    
+- (int32_t) getWidth {
+        return self->width;
 }
 
 
-    auto BasicLayerPlacement::getLayerType() -> LayerPlacementType*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->layerType;
-    
+- (int32_t) getHeight {
+        return self->height;
 }
 
 
-    auto BasicLayerPlacement::setLayerType(LayerPlacementType* layerType) -> void{
-this->layerType= layerType;
-    
+- (LayerPlacementType*) getLayerType {
+        return self->layerType;
 }
 
 
+- (void) setLayerType:(LayerPlacementType*)layerType {
+        self->layerType = layerType;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_BASICLAYERPLACEMENT_CPP

@@ -1,156 +1,58 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/data/CamelCaseUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringValidationUtil.h"
+#include "org/allbinary/logic/string/tokens/Tokenizer.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
+static CamelCaseUtil* CamelCaseUtil_instance;
 
-        #ifndef ORG_ALLBINARY_DATA_CAMELCASEUTIL_CPP
-        #define ORG_ALLBINARY_DATA_CAMELCASEUTIL_CPP
+void CamelCaseUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CamelCaseUtil_instance = [((CamelCaseUtil*) [CamelCaseUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/data/CamelCaseUtil.h"
-        
+@implementation CamelCaseUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->commonSeps = [CommonSeps getInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Character.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringValidationUtil.h>
-
-      
-#include <org/allbinary/logic/string/tokens/Tokenizer.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (CamelCaseUtil*) getInstance {
+        return (CamelCaseUtil_staticInit(), CamelCaseUtil_instance);
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CamelCaseUtil::CamelCaseUtil() : commonSeps(CommonSeps::getInstance()) {
+// throws Exception
+- (const char*) getAsCamelCase:(const char*)string :(StringMaker*)stringBuilder {
+        StringValidationUtil* stringValidationUtil = [StringValidationUtil getInstance];
+        [stringBuilder delete:0 :[stringBuilder length]];
+        BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        Tokenizer* tokenizer = [((Tokenizer*) [Tokenizer alloc]) init:self->commonSeps->UNDERSCORE];
+        [tokenizer getTokensFromString:string :list];
+        int32_t size = [list size];
+        const char* word = nullptr;
+        for (int32_t i = 0; i < size; i++) {
+            word = ((const char*) [list get:i]);
+            word = ([stringValidationUtil isEmpty:word] ? word : [[[[((StringMaker*) [StringMaker alloc]) init] appendchar:((uint16_t) toupper(((uint16_t) word[0])))] append:java_string_toLowerCase(java_substring(word, 1, (int32_t) strlen(word)))] toString]);
+            [stringBuilder append:word];
         }
-        auto CamelCaseUtil::instance_owner() -> CamelCaseUtil* { static std::unique_ptr<CamelCaseUtil> value(new CamelCaseUtil()); return value.get(); }
-CamelCaseUtil* CamelCaseUtil::instance = CamelCaseUtil::instance_owner();
-
-    auto CamelCaseUtil::getInstance() -> CamelCaseUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CamelCaseUtil::instance;
-    
+        return [stringBuilder toString];
 }
 
+@end
 
-                //@Throws(Exception.constructor)
-            
-    auto CamelCaseUtil::getAsCamelCase(std::string string, StringMaker* stringBuilder) -> std::string{
-
-    StringValidationUtil* stringValidationUtil = StringValidationUtil::getInstance();;
-    
-stringBuilder->delete_(0, stringBuilder->length());
-    
-
-    BasicArrayList* list = new BasicArrayListD();;
-    
-
-    Tokenizer* tokenizer = new Tokenizer(this->commonSeps->UNDERSCORE);;
-    
-tokenizer->getTokensFromString(string, list);
-    
-
-    int32_t size = list->size();;
-    
-
-    std::string word;;
-    
-
-
-
-
-                        for (
-    int32_t i = 0;i < size; i++)
-        {
-word= JavaBoxes::unbox<std::string>(list->get(i));
-    
-word= stringValidationUtil->isEmpty(word)
-                        ?       
-                                word
-                                :
-
-                            JavaString::valueOf((new StringMaker())->appendchar(Character::toUpperCase(word[0]))->append(JavaString::toLowerCase(JavaString::toLowerCase(JavaString::substring(word, 1)))));;
-    
-stringBuilder->append(word);
-    
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuilder);;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_DATA_CAMELCASEUTIL_CPP

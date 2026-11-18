@@ -1,95 +1,43 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEMINDEXDX_H
+#define ORG_ALLBINARY_GRAPHICS_FORM_ITEMINDEXDX_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.form
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ItemIndexDx;
+@class ABCustomItem;
 
+@interface ItemIndexDx : ABObject {
+@public
+}
+- (instancetype) init;
++ (ItemIndexDx*) getInstance;
+- (int32_t) getDx:(int32_t)index :(ABCustomItem*)item :(int32_t)dx :(int32_t)dy;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEMINDEXDX_H
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEMINDEXDX_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-class ABCustomItem;
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ItemIndexDx_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ItemIndexDx
-            : public virtual Object
-         {
-
-    private: static ItemIndexDx* instance_owner();
-    private: static ItemIndexDx* instance;
-
-    public: static ItemIndexDx* getInstance();
-
-
-            
-    public: ItemIndexDx();
-        
-                //@Throws(Exception.constructor)
-            
-    public: int32_t getDx(int32_t index, ABCustomItem* item, int32_t dx, int32_t dy);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEMINDEXDX_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_FORM_ITEMINDEXDX_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEMINDEXDX_H_COMPLETE
-        #if __has_include(<org/allbinary/graphics/form/item/ABCustomItem.h>)
-#include <org/allbinary/graphics/form/item/ABCustomItem.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_FORM_ITEMINDEXDX_H

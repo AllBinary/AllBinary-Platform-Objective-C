@@ -1,134 +1,53 @@
+#ifndef ORG_ALLBINARY_GAME_LAYER_SPECIAL_SPECIALGAMEINPUTINTERFACE_H
+#define ORG_ALLBINARY_GAME_LAYER_SPECIAL_SPECIALGAMEINPUTINTERFACE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.layer.special
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class SpecialGameInputInterface;
+@class GameKeyEvent;
+@class PaintableInterface;
+@class AllBinaryLayerManager;
+#include "org/allbinary/graphics/paint/PaintableInterface.h"
 
+@protocol SpecialGameInputInterface <PaintableInterface>
+- (void) up;
+- (void) down;
+- (void) right;
+- (void) left;
+- (void) strafeLeft;
+- (void) strafeRight;
+- (void) fire:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent;
+- (void) special1:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent;
+- (void) special2:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent;
+- (void) special3:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent;
+- (void) special4:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent;
+- (void) special5:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_LAYER_SPECIAL_SPECIALGAMEINPUTINTERFACE_H
-        #define ORG_ALLBINARY_GAME_LAYER_SPECIAL_SPECIALGAMEINPUTINTERFACE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class GameKeyEvent;
-#include <org/allbinary/graphics/paint/PaintableInterface.h>
-class AllBinaryLayerManager;
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void SpecialGameInputInterface_staticInit(void);
 
 
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class SpecialGameInputInterface: public virtual PaintableInterface {
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void up() = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void down() = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void right() = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void left() = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void strafeLeft() = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void strafeRight() = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void fire(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void special1(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void special2(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void special3(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void special4(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual void special5(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) = 0;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_LAYER_SPECIAL_SPECIALGAMEINPUTINTERFACE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_LAYER_SPECIAL_SPECIALGAMEINPUTINTERFACE_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_LAYER_SPECIAL_SPECIALGAMEINPUTINTERFACE_H_COMPLETE
-        #if __has_include(<org/allbinary/game/input/event/GameKeyEvent.h>)
-#include <org/allbinary/game/input/event/GameKeyEvent.h>
-#endif
-#if __has_include(<org/allbinary/graphics/paint/PaintableInterface.h>)
-#include <org/allbinary/graphics/paint/PaintableInterface.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayerManager.h>)
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_LAYER_SPECIAL_SPECIALGAMEINPUTINTERFACE_H

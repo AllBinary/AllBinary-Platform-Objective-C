@@ -1,168 +1,62 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2026 AllBinary
-                * 
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                * 
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                * 
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/MIDPUtil.h"
+#include "javax/microedition/lcdui/Form.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "javax/microedition/lcdui/Item.h"
+#include "javax/microedition/media/Manager.h"
+#include "javax/microedition/media/MediaException.h"
+#include "javax/microedition/media/Player.h"
 
 
+static MIDPUtil* MIDPUtil_instance;
 
-        #ifndef ORG_ALLBINARY_MIDPUTIL_CPP
-        #define ORG_ALLBINARY_MIDPUTIL_CPP
+void MIDPUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    MIDPUtil_instance = [((MIDPUtil*) [MIDPUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/MIDPUtil.h"
-        
+@implementation MIDPUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <java/io/IOException.h>
-
-      
-#include <java/io/InputStream.h>
-
-      
-#include <javax/microedition/lcdui/Form.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <javax/microedition/lcdui/Item.h>
-
-      
-#include <javax/microedition/media/Manager.h>
-
-      
-#include <javax/microedition/media/MediaException.h>
-
-      
-#include <javax/microedition/media/Player.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //like microemu-playn, so the languages without overloading can be generated. J2ME uses the MIDP overloads.
-
-MIDPUtil::MIDPUtil() {
-        }
-        auto MIDPUtil::instance_owner() -> MIDPUtil* { static std::unique_ptr<MIDPUtil> value(new MIDPUtil()); return value.get(); }
-MIDPUtil* MIDPUtil::instance = MIDPUtil::instance_owner();
-
-    auto MIDPUtil::getInstance() -> MIDPUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return MIDPUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto MIDPUtil::createImageWH(int32_t width, int32_t height) -> Image*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Image::createImage(width, height);;
-    
++ (MIDPUtil*) getInstance {
+        return (MIDPUtil_staticInit(), MIDPUtil_instance);
 }
 
 
-    auto MIDPUtil::createImageFromByteArray(std::vector<int8_t> imageData, int32_t imageOffset, int32_t imageLength) -> Image*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Image::createImage(imageData, imageOffset, imageLength);;
-    
+- (Image*) createImageWH:(int32_t)width :(int32_t)height {
+        return Image_createImageWH(width, height);
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto MIDPUtil::createImageFromInputStream(InputStream* inputStream) -> Image*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Image::createImage(inputStream);;
-    
+- (Image*) createImageFromByteArray:(int8_t*)imageData :(int32_t)imageOffset :(int32_t)imageLength {
+        return Image_createImageFromByteArray(imageData, imageOffset, imageLength);
 }
 
 
-                //@Throws(IOException.constructor, MediaException.constructor)
-            
-    auto MIDPUtil::createPlayerFromInputStream(InputStream* inputStream, std::string type) -> Player*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Manager::createPlayer(inputStream, type);;
-    
+// throws IOException
+- (Image*) createImageFromInputStream:(InputStream*)inputStream {
+        return Image_createImageFromInputStream(inputStream);
 }
 
 
-    auto MIDPUtil::appendItem(Form* form, Item* item) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return form->append(item);;
-    
+// throws IOException, MediaException
+- (Player*) createPlayerFromInputStream:(InputStream*)inputStream :(const char*)type {
+        return Manager_createPlayerFromInputStream(inputStream, type);
 }
 
 
+- (int32_t) appendItem:(Form*)form :(Item*)item {
+        return [form append:item];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MIDPUTIL_CPP

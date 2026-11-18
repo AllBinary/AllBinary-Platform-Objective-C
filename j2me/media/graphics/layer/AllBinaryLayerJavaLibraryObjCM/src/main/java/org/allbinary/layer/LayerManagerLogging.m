@@ -1,228 +1,114 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LAYER_LAYERMANAGERLOGGING_CPP
-        #define ORG_ALLBINARY_LAYER_LAYERMANAGERLOGGING_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/layer/LayerManagerLogging.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/layer/LayerManagerLoggingBase.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/layer/LayerManagerLogging.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/layer/LayerManagerLoggingBase.h"
 #include "org/allbinary/layer/AllBinaryLayer.h"
 #include "org/allbinary/layer/LayerManager.h"
 
 
-LayerManagerLogging::LayerManagerLogging() : logUtil(LogUtil::getInstance()), stringBuilder(new StringMaker()) {
+static LayerManagerLogging* LayerManagerLogging_instance;
+static bool LayerManagerLogging_removeFailed = false;
+
+void LayerManagerLogging_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    LayerManagerLogging_instance = [((LayerManagerLogging*) [LayerManagerLogging alloc]) init];
+}
+
+@implementation LayerManagerLogging
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
+    self->APPEND = "append";
+    self->APPEND_ = " append: ";
+    self->_AT__ = " at: ";
+    self->ATTEMPT_REMOVE_ = " Remove Attempt: ";
+    self->REMOVE_ = " Remove: ";
+    self->REMOVE = "remove";
+    self->DID_NOT_REMOVE = " Did not remove: ";
+    self->CLEAR = " Clear List";
+}
+
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
+
+
++ (LayerManagerLogging*) getInstance {
+        return (LayerManagerLogging_staticInit(), LayerManagerLogging_instance);
+}
+
+
+// throws Exception
+- (void) append:(AllBinaryLayer*)layerInterface {
+        [self->stringBuilder delete:0 :[self->stringBuilder length]];
+        [self->logUtil putF:[[[[self->stringBuilder appendint:[[TsUtil getInstance] hashCode:self]] append:self->APPEND_] append:[layerInterface getName]] toString] :self :self->APPEND];
+}
+
+
+- (void) appendAt:(AllBinaryLayer*)layerInterface :(int32_t)index {
+        [self->stringBuilder delete:0 :[self->stringBuilder length]];
+        [self->logUtil putF:[[[[[[self->stringBuilder appendint:[[TsUtil getInstance] hashCode:self]] append:self->APPEND_] append:[layerInterface getName]] append:self->_AT__] appendint:index] toString] :self :self->APPEND];
+}
+
+
+- (void) remove:(AllBinaryLayer*)layerInterface {
+        if (layerInterface == nil) {
+            [self->stringBuilder delete:0 :[self->stringBuilder length]];
+            [self->logUtil putF:[[[[self->stringBuilder appendint:[[TsUtil getInstance] hashCode:self]] append:self->ATTEMPT_REMOVE_] append:[[StringUtil getInstance] toString:layerInterface]] toString] :self :self->REMOVE];
+        } else {
+            [self->stringBuilder delete:0 :[self->stringBuilder length]];
+            [self->logUtil putF:[[[[self->stringBuilder appendint:[[TsUtil getInstance] hashCode:self]] append:self->ATTEMPT_REMOVE_] append:[layerInterface getName]] toString] :self :self->REMOVE];
         }
-        auto LayerManagerLogging::instance_owner() -> LayerManagerLogging* { static std::unique_ptr<LayerManagerLogging> value(new LayerManagerLogging()); return value.get(); }
-LayerManagerLogging* LayerManagerLogging::instance = LayerManagerLogging::instance_owner();
-
-    auto LayerManagerLogging::getInstance() -> LayerManagerLogging*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return LayerManagerLogging::instance;
-    
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto LayerManagerLogging::append(AllBinaryLayer* layerInterface) -> void{
-this->stringBuilder->delete_(0, this->stringBuilder->length());
-    
-this->logUtil->putF(JavaString::valueOf(this->stringBuilder->appendint(TsUtil::getInstance()->hashCode(this))->append(this->APPEND_)->append(layerInterface->getName())), this, this->APPEND);
-    
+- (void) removeResult:(LayerManager*)layerManager :(AllBinaryLayer*)layerInterface :(bool)result {
+        if (layerInterface == nil) {
+            [self->stringBuilder delete:0 :[self->stringBuilder length]];
+            [self->logUtil putF:[[[[self->stringBuilder appendint:[[TsUtil getInstance] hashCode:self]] append:self->REMOVE_] append:[[StringUtil getInstance] toString:layerInterface]] toString] :self :self->REMOVE];
+        } else if (result) {
+            if (LayerManagerLogging_removeFailed) {
+                [self->stringBuilder delete:0 :[self->stringBuilder length]];
+                [self->logUtil putF:[[[[self->stringBuilder appendint:[[TsUtil getInstance] hashCode:self]] append:self->REMOVE_] append:[layerInterface getName]] toString] :self :self->REMOVE];
+            }
+        } else {
+            [self->stringBuilder delete:0 :[self->stringBuilder length]];
+            [self->logUtil putF:[[[[self->stringBuilder appendint:[[TsUtil getInstance] hashCode:self]] append:self->DID_NOT_REMOVE] append:[layerInterface getName]] toString] :self :self->REMOVE];
+            LayerManagerLogging_removeFailed = true;
+        }
 }
 
 
-    auto LayerManagerLogging::appendAt(AllBinaryLayer* layerInterface, int32_t index) -> void{
-this->stringBuilder->delete_(0, this->stringBuilder->length());
-    
-this->logUtil->putF(JavaString::valueOf(this->stringBuilder->appendint(TsUtil::getInstance()->hashCode(this))->append(this->APPEND_)->append(layerInterface->getName())->append(this->_AT_)->appendint(index)), this, this->APPEND);
-    
+- (void) log:(LayerManager*)layerManager {
+        [self->stringBuilder delete:0 :[self->stringBuilder length]];
+        int32_t size = [layerManager getSize];
+        CommonSeps* commonSeps = [CommonSeps getInstance];
+        [[self->stringBuilder append:[Integer toHexString:[[TsUtil getInstance] hashCode:layerManager]]] append:commonSeps->COLON_SEP];
+        [[self->stringBuilder appendint:size] append:commonSeps->COLON_SEP];
+        AllBinaryLayer* allBinaryLayer = nullptr;
+        for (int32_t index = 0; index < size; index++) {
+            allBinaryLayer = (((AllBinaryLayer*) [layerManager getLayerAt:index]));
+            [[self->stringBuilder append:[allBinaryLayer getName]] append:commonSeps->COMMA];
+        }
+        [self->logUtil putF:[self->stringBuilder toString] :self :self->REMOVE];
 }
 
 
-    auto LayerManagerLogging::remove(AllBinaryLayer* layerInterface) -> void{
-
-                        if(layerInterface == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    this->stringBuilder->delete_(0, this->stringBuilder->length());
-    
-this->logUtil->putF(JavaString::valueOf(this->stringBuilder->appendint(TsUtil::getInstance()->hashCode(this))->append(this->ATTEMPT_REMOVE_)->append(StringUtil::getInstance()->toString(layerInterface))), this, this->REMOVE);
-    
-
-                                    }
-                                
-                        else {
-                            this->stringBuilder->delete_(0, this->stringBuilder->length());
-    
-this->logUtil->putF(JavaString::valueOf(this->stringBuilder->appendint(TsUtil::getInstance()->hashCode(this))->append(this->ATTEMPT_REMOVE_)->append(layerInterface->getName())), this, this->REMOVE);
-    
-
-                        }
-                            
+- (void) clear {
+        [self->stringBuilder delete:0 :[self->stringBuilder length]];
+        [self->logUtil putF:[[[self->stringBuilder appendint:[[TsUtil getInstance] hashCode:self]] append:self->CLEAR] toString] :self :self->CLEAR];
 }
 
+@end
 
-    auto LayerManagerLogging::removeResult(LayerManager* layerManager, AllBinaryLayer* layerInterface, bool result) -> void{
-
-                        if(layerInterface == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    this->stringBuilder->delete_(0, this->stringBuilder->length());
-    
-this->logUtil->putF(JavaString::valueOf(this->stringBuilder->appendint(TsUtil::getInstance()->hashCode(this))->append(this->REMOVE_)->append(StringUtil::getInstance()->toString(layerInterface))), this, this->REMOVE);
-    
-
-                                    }
-                                
-                             else 
-                        if(result)
-                        
-                                    {
-                                    
-                        if(LayerManagerLogging::removeFailed)
-                        
-                                    {
-                                    this->stringBuilder->delete_(0, this->stringBuilder->length());
-    
-this->logUtil->putF(JavaString::valueOf(this->stringBuilder->appendint(TsUtil::getInstance()->hashCode(this))->append(this->REMOVE_)->append(layerInterface->getName())), this, this->REMOVE);
-    
-
-                                    }
-                                
-
-                                    }
-                                
-                        else {
-                            this->stringBuilder->delete_(0, this->stringBuilder->length());
-    
-this->logUtil->putF(JavaString::valueOf(this->stringBuilder->appendint(TsUtil::getInstance()->hashCode(this))->append(this->DID_NOT_REMOVE)->append(layerInterface->getName())), this, this->REMOVE);
-    
-LayerManagerLogging::removeFailed= true;
-    
-
-                        }
-                            
-}
-
-
-    auto LayerManagerLogging::log(LayerManager* layerManager) -> void{
-this->stringBuilder->delete_(0, this->stringBuilder->length());
-    
-
-    int32_t size = layerManager->getSize();;
-    
-
-    CommonSeps* commonSeps = CommonSeps::getInstance();;
-    
-this->stringBuilder->append(Integer.toHexString(TsUtil::getInstance()->hashCode(layerManager)))->append(commonSeps->COLON_SEP);
-    
-this->stringBuilder->appendint(size)->append(commonSeps->COLON_SEP);
-    
-
-    AllBinaryLayer* allBinaryLayer;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-allBinaryLayer= (dynamic_cast<AllBinaryLayer*>(layerManager->getLayerAt(index)));
-    
-this->stringBuilder->append(allBinaryLayer->getName())->append(commonSeps->COMMA);
-    
-}
-
-this->logUtil->putF(JavaString::valueOf(this->stringBuilder), this, this->REMOVE);
-    
-}
-
-
-    auto LayerManagerLogging::clear() -> void{
-this->stringBuilder->delete_(0, this->stringBuilder->length());
-    
-this->logUtil->putF(JavaString::valueOf(this->stringBuilder->appendint(TsUtil::getInstance()->hashCode(this))->append(this->CLEAR)), this, this->CLEAR);
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_LAYER_LAYERMANAGERLOGGING_CPP

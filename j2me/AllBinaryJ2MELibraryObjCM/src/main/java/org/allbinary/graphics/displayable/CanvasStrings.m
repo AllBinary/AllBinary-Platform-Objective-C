@@ -1,84 +1,53 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/displayable/CanvasStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListUtil.h"
 
 
+static CanvasStrings* CanvasStrings_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_CANVASSTRINGS_CPP
-        #define ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_CANVASSTRINGS_CPP
+void CanvasStrings_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CanvasStrings_instance = [((CanvasStrings*) [CanvasStrings alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/displayable/CanvasStrings.h"
-        
+@implementation CanvasStrings
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->CONSTRUCTOR = "MyCanvas::MyCanvas";
+    self->PAUSE = "MyCanvas::pause";
+    self->UN_PAUSE = "MyCanvas::unPause";
+    self->SET_FULL_SCREEN_MODE = "setFullScreenMode";
+    self->SIZE_CHANGED = "sizeChanged";
+    self->SCALED_IMAGES = "scaledImages";
+    self->PAINT = "paint";
+    self->ON_DISPLAY_CHANGE_EVENT = "onDisplayChangeEvent";
+    self->UPDATE_MEASUREMENT = "updateMeasurement";
+    self->FD_WIDTH = " font/display width: ";
+    self->FD_HEIGHT = " font/display height: ";
+    self->EMPTY_CHILD_NAME_LIST = [[BasicArrayListUtil getInstance] getImmutableInstance];
+    self->ABOUT = "About";
+    self->OPTIONS = "Options";
+    self->FONT_ATLAS = "/font.png";
+    self->OBJ_MODEL = "_obj";
+    self->MD2_MODEL = "_md2";
+    self->_PNG_ = ".png";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CanvasStrings::CanvasStrings() : EMPTY_CHILD_NAME_LIST(BasicArrayListUtil::getInstance()->getImmutableInstance()) {
-        }
-        auto CanvasStrings::instance_owner() -> CanvasStrings* { static std::unique_ptr<CanvasStrings> value(new CanvasStrings()); return value.get(); }
-CanvasStrings* CanvasStrings::instance = CanvasStrings::instance_owner();
-
-    auto CanvasStrings::getInstance() -> CanvasStrings*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CanvasStrings::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (CanvasStrings*) getInstance {
+        return (CanvasStrings_staticInit(), CanvasStrings_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_CANVASSTRINGS_CPP

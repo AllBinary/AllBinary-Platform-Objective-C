@@ -1,168 +1,76 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/direction/Direction.h"
+#include "org/allbinary/logic/string/StringMaker.h"
 
 
+static Direction** Direction_directionArray;
 
-        #ifndef ORG_ALLBINARY_DIRECTION_DIRECTION_CPP
-        #define ORG_ALLBINARY_DIRECTION_DIRECTION_CPP
+void Direction_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    Direction_directionArray = ((Direction**) java_array_new(sizeof(Direction*), 13));
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/direction/Direction.h"
-        
+@implementation Direction
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-std::vector<Direction*> Direction::directionArray = std::vector<Direction*>(13);
-
-Direction::Direction(std::string name, std::string otherName, int32_t value, int32_t frameFactor){
-this->name= name;
+- (void) initFields {
     
-this->otherName= otherName;
     
-this->value= value;
     
-this->frameFactor= frameFactor;
-    
-Direction::directionArray[value]= this;
     
 }
 
 
-    auto Direction::getInstance(int32_t direction) -> Direction*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Direction::directionArray[direction];
-    
+- (instancetype) init:(const char*)name :(const char*)otherName :(int32_t)value :(int32_t)frameFactor {
+    self = [super init];
+    [self initFields];
+        self->name = name;
+        self->otherName = otherName;
+        self->value = value;
+        self->frameFactor = frameFactor;
+        (Direction_staticInit(), Direction_directionArray)[value] = self;
+    return self;
 }
 
 
-    auto Direction::getValue() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->value;
-    
++ (Direction*) getInstance:(int32_t)direction {
+        return (Direction_staticInit(), Direction_directionArray)[direction];
 }
 
 
-    auto Direction::getFrameFactor() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->frameFactor;
-    
+- (int32_t) getValue {
+        return self->value;
 }
 
 
-    auto Direction::getOtherName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->otherName;
-    
+- (int32_t) getFrameFactor {
+        return self->frameFactor;
 }
 
 
-    auto Direction::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->name;
-    
+- (const char*) getOtherName {
+        return self->otherName;
 }
 
 
-    auto Direction::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("Direction: ");
-    
-stringBuffer->append(this->getName());
-    
-stringBuffer->append(" Or: ");
-    
-stringBuffer->append(this->getOtherName());
-    
-stringBuffer->append(" Value: ");
-    
-stringBuffer->appendint(this->value);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (const char*) getName {
+        return self->name;
 }
 
 
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:"Direction: "];
+        [stringBuffer append:[self getName]];
+        [stringBuffer append:" Or: "];
+        [stringBuffer append:[self getOtherName]];
+        [stringBuffer append:" Value: "];
+        [stringBuffer appendint:self->value];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_DIRECTION_DIRECTION_CPP

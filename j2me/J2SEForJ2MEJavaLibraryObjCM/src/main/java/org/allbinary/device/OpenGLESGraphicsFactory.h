@@ -1,76 +1,29 @@
+#ifndef ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICSFACTORY_H
+#define ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICSFACTORY_H
+// Generated Code Do Not Modify
+// package org.allbinary.device
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class OpenGLESGraphicsFactory;
+@class OpenGLESNullGraphicsFactory;
+@class OpenGLESGraphics;
 
+@interface OpenGLESGraphicsFactory : ABObject {
+@public
+}
+- (instancetype) init;
+- (OpenGLESGraphics*) getOpenGLESGraphicsInstance;
+@end
 
-
-        #ifndef ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICSFACTORY_H
-        #define ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICSFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void OpenGLESGraphicsFactory_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class OpenGLESNullGraphicsFactory;
-class OpenGLESGraphics;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class OpenGLESGraphicsFactory
-            : public virtual Object
-         {
-
-
-            
-    public: OpenGLESGraphicsFactory();
-        
-    public: OpenGLESGraphics* getOpenGLESGraphicsInstance();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICSFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICSFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICSFACTORY_H_COMPLETE
-        #if __has_include("org/allbinary/device/OpenGLESNullGraphicsFactory.h")
-#include "org/allbinary/device/OpenGLESNullGraphicsFactory.h"
-#endif
-#if __has_include("org/allbinary/device/OpenGLESGraphics.h")
-#include "org/allbinary/device/OpenGLESGraphics.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_DEVICE_OPENGLESGRAPHICSFACTORY_H

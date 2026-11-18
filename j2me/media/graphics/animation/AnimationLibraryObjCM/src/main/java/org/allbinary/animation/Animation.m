@@ -1,234 +1,130 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/Animation.h"
+#include "javax/microedition/khronos/opengles/GL.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/graphics/color/BasicColorSetUtil.h"
+#include "org/allbinary/animation/AnimationInterface.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_ANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_ANIMATION_CPP
+void Animation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/Animation.h"
-        
+@implementation Animation
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/khronos/opengles/GL.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorSetUtil.h>
-
-      
-#include <org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/AnimationInterface.h"
-
-
-Animation::Animation() : basicSetColorUtil(BasicColorSetUtil::getInstance()), basicColor(BasicColorFactory::getInstance()->WHITE), changeBasicColorP(BasicColorFactory::getInstance()->NULL_COLOR){
+- (void) initFields {
+    self->basicSetColorUtil = [BasicColorSetUtil getInstance];
+    self->basicColor = [BasicColorFactory getInstance]->WHITE;
+    self->colorP = 0;
+    self->changeBasicColorP = [BasicColorFactory getInstance]->NULL_COLOR;
+    self->changeColorP = 0;
+    self->alphaP = 0;
 }
 
 
-    auto Animation::setAlpha(int32_t alpha) -> void{
-this->alphaP= alpha;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto Animation::nextFrame() -> void{
+- (void) setAlpha:(int32_t)alpha {
+        self->alphaP = alpha;
 }
 
 
-    auto Animation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-this->basicSetColorUtil->setBasicColorP3(graphics, this->getBasicColorP(), this->getColor());
-    
+// throws Exception
+- (void) nextFrame {
 }
 
 
-    auto Animation::paintThreedXYZ(Graphics* graphics, int32_t x, int32_t y, int32_t z) -> void{
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [self->basicSetColorUtil setBasicColorP3:graphics :[self getBasicColorP] :[self getColor]];
 }
 
 
-    auto Animation::isThreed() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (void) paintThreedXYZ:(Graphics*)graphics :(int32_t)x :(int32_t)y :(int32_t)z {
 }
 
 
-    auto Animation::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->basicColor;
-    
+- (bool) isThreed {
+        return false;
 }
 
 
-    auto Animation::setBasicColorP(BasicColor* basicColor) -> void{
-this->basicColor= basicColor;
-    
-this->colorP= this->basicColor->intValue();
-    
+- (BasicColor*) getBasicColorP {
+        return self->basicColor;
 }
 
 
-    auto Animation::setBackgroundBasicColorP(BasicColor* basicColor) -> void{
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        self->basicColor = basicColor;
+        self->colorP = [self->basicColor intValue];
 }
 
 
-    auto Animation::getChangeBasicColor() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->changeBasicColorP;
-    
+- (void) setBackgroundBasicColorP:(BasicColor*)basicColor {
 }
 
 
-    auto Animation::changeBasicColor(BasicColor* basicColor) -> void{
-this->changeBasicColorP= basicColor;
-    
-this->changeColorP= this->changeBasicColorP->intValue();
-    
+- (BasicColor*) getChangeBasicColor {
+        return self->changeBasicColorP;
 }
 
 
-    auto Animation::getChangeColor() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->changeColorP;
-    
+- (void) changeBasicColor:(BasicColor*)basicColor {
+        self->changeBasicColorP = basicColor;
+        self->changeColorP = [self->changeBasicColorP intValue];
 }
 
 
-    auto Animation::getColor() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->colorP;
-    
+- (int32_t) getChangeColor {
+        return self->changeColorP;
 }
 
 
-    auto Animation::setScale(float scaleX, float scaleY) -> void{
+- (int32_t) getColor {
+        return self->colorP;
 }
 
 
-    auto Animation::setMaxScale(float maxScaleX, float maxScaleY) -> void{
+- (void) setScale:(float)scaleX :(float)scaleY {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto Animation::set(GL* gl) -> void{
+- (void) setMaxScale:(float)maxScaleX :(float)maxScaleY {
 }
 
 
-    auto Animation::setDx(int32_t dx) -> void{
+// throws Exception
+- (void) set:(GL*)gl {
 }
 
 
-    auto Animation::getDx() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (void) setDx:(int32_t)dx {
 }
 
 
-    auto Animation::setDy(int32_t dy) -> void{
+- (int32_t) getDx {
+        return 0;
 }
 
 
-    auto Animation::getDy() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (void) setDy:(int32_t)dy {
 }
 
 
+- (int32_t) getDy {
+        return 0;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_ANIMATION_CPP

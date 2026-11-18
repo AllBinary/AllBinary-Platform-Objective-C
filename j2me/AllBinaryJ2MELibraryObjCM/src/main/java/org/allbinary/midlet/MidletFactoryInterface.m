@@ -1,80 +1,29 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/midlet/MidletFactoryInterface.h"
+#include "javax/microedition/midlet/MIDlet.h"
+#include "org/allbinary/midlet/AllBinaryMidlet.h"
 
 
 
-        #ifndef ORG_ALLBINARY_MIDLET_MIDLETFACTORYINTERFACE_CPP
-        #define ORG_ALLBINARY_MIDLET_MIDLETFACTORYINTERFACE_CPP
+void MidletFactoryInterface_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/midlet/MidletFactoryInterface.h"
-        
+@implementation MidletFactoryInterface
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/midlet/MIDlet.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/midlet/AllBinaryMidlet.h"
-
-
-MidletFactoryInterface::MidletFactoryInterface() {
-        }
-        
-    auto MidletFactoryInterface::getInstance() -> MIDlet*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AllBinaryMidlet::getNullInstance();;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+- (MIDlet*) getInstance {
+        return [AllBinaryMidlet getNullInstance];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MIDLET_MIDLETFACTORYINTERFACE_CPP

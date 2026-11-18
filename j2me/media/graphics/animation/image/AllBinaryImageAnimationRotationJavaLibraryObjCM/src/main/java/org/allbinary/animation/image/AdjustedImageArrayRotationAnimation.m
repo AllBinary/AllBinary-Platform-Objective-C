@@ -1,174 +1,81 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_ADJUSTEDIMAGEARRAYROTATIONANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_ADJUSTEDIMAGEARRAYROTATIONANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/AdjustedImageArrayRotationAnimation.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/math/AngleInfo.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/ImageArrayRotationAnimation.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/AdjustedImageArrayRotationAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/math/AngleInfo.h"
+#include "org/allbinary/animation/image/ImageArrayRotationAnimation.h"
 #include "org/allbinary/animation/image/ImageArrayRotationAnimationInfo.h"
-//TWB - Adjustments should be done in the resource creation and not at the animation level
-
-                //@Throws(Exception.constructor)
-            
-    auto AdjustedImageArrayRotationAnimation::createAdjustedImageArrayRotationAnimationInfo(Object* anyType, AnimationBehavior* animationBehavior) -> AdjustedImageArrayRotationAnimation*{
-
-    ImageArrayRotationAnimationInfo* imageRotationAnimationInfo = dynamic_cast<ImageArrayRotationAnimationInfo*>(anyType);;
-    
 
 
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AdjustedImageArrayRotationAnimation(imageRotationAnimationInfo->getImageArray(), imageRotationAnimationInfo->getAngleInfoP(), imageRotationAnimationInfo->getTotalAngle(), imageRotationAnimationInfo->getDx(), imageRotationAnimationInfo->getDy(), animationBehavior);
-    
+void AdjustedImageArrayRotationAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation AdjustedImageArrayRotationAnimation
+
+- (void) initFields {
+    self->dx = 0;
+    self->dy = 0;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AdjustedImageArrayRotationAnimation::createAnimation(std::vector<Image*> imageArray, AngleInfo* angleInfo, int32_t totalAngle, AnimationBehavior* animationBehavior) -> AdjustedImageArrayRotationAnimation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new AdjustedImageArrayRotationAnimation(imageArray, angleInfo, totalAngle,  -(imageArray[0]->getWidth()>>2),  -(imageArray[0]->getHeight()>>2), animationBehavior);
-    
+// throws Exception
++ (AdjustedImageArrayRotationAnimation*) createAdjustedImageArrayRotationAnimationInfo:(id)anyType :(AnimationBehavior*)animationBehavior {
+        ImageArrayRotationAnimationInfo* imageRotationAnimationInfo = ((ImageArrayRotationAnimationInfo*) anyType);
+        return [((AdjustedImageArrayRotationAnimation*) [AdjustedImageArrayRotationAnimation alloc]) init:[imageRotationAnimationInfo getImageArray] :[imageRotationAnimationInfo getAngleInfoP] :[imageRotationAnimationInfo getTotalAngle] :[imageRotationAnimationInfo getDx] :[imageRotationAnimationInfo getDy] :animationBehavior];
 }
 
 
-AdjustedImageArrayRotationAnimation::AdjustedImageArrayRotationAnimation(std::vector<Image*> imageArray, AngleInfo* angleInfo, int32_t totalAngle, int32_t dx, int32_t dy, AnimationBehavior* animationBehavior) : ImageArrayRotationAnimation(imageArray, angleInfo, totalAngle, animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->init(dx, dy);
-    
+// throws Exception
++ (AdjustedImageArrayRotationAnimation*) createAnimation:(Image**)imageArray :(AngleInfo*)angleInfo :(int32_t)totalAngle :(AnimationBehavior*)animationBehavior {
+        return [((AdjustedImageArrayRotationAnimation*) [AdjustedImageArrayRotationAnimation alloc]) init:imageArray :angleInfo :totalAngle :-([imageArray[0] getWidth] >> 2) :-([imageArray[0] getHeight] >> 2) :animationBehavior];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AdjustedImageArrayRotationAnimation::init(int32_t dx, int32_t dy) -> void{
-this->setDx(dx);
-    
-this->setDy(dy);
-    
+- (instancetype) init:(Image**)imageArray :(AngleInfo*)angleInfo :(int32_t)totalAngle :(int32_t)dx :(int32_t)dy :(AnimationBehavior*)animationBehavior {
+        self = [super init:imageArray :angleInfo :totalAngle :animationBehavior];
+        [self initFields];
+        [self init_:dx :dy];
+    return self;
 }
 
 
-    auto AdjustedImageArrayRotationAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-ImageArrayRotationAnimation::paintXY(graphics, x +this->dx, y +this->dy);
-    
+// throws Exception
+- (void) init_:(int32_t)dx :(int32_t)dy {
+        [self setDx:dx];
+        [self setDy:dy];
 }
 
 
-    auto AdjustedImageArrayRotationAnimation::setDx(int32_t dx) -> void{
-this->dx= dx;
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [super paintXY:graphics :x + self->dx :y + self->dy];
 }
 
 
-    auto AdjustedImageArrayRotationAnimation::getDx() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->dx;
-    
+- (void) setDx:(int32_t)dx {
+        self->dx = dx;
 }
 
 
-    auto AdjustedImageArrayRotationAnimation::setDy(int32_t dy) -> void{
-this->dy= dy;
-    
+- (int32_t) getDx {
+        return self->dx;
 }
 
 
-    auto AdjustedImageArrayRotationAnimation::getDy() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->dy;
-    
+- (void) setDy:(int32_t)dy {
+        self->dy = dy;
 }
 
 
+- (int32_t) getDy {
+        return self->dy;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_ADJUSTEDIMAGEARRAYROTATIONANIMATION_CPP

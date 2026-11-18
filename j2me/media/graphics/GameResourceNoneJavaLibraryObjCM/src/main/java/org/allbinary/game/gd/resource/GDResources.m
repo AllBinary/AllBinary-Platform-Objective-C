@@ -1,83 +1,35 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/gd/resource/GDResources.h"
 
 
+static GDResources* GDResources_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_GD_RESOURCE_GDRESOURCES_CPP
-        #define ORG_ALLBINARY_GAME_GD_RESOURCE_GDRESOURCES_CPP
+void GDResources_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GDResources_instance = [((GDResources*) [GDResources alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/gd/resource/GDResources.h"
-        
+@implementation GDResources
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->resourceStringArray = ((const char**) java_array_from(sizeof(const char*), sizeof((const char*[]){  }) / sizeof(const char*), (const char*[]){  }));
+    self->currentLayoutRequiredTotal = 0;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GDResources::GDResources() : resourceStringArray(
-                                                        {
-                                                            
-                                                        }) {
-        }
-        auto GDResources::instance_owner() -> GDResources* { static std::unique_ptr<GDResources> value(new GDResources()); return value.get(); }
-GDResources* GDResources::instance = GDResources::instance_owner();
-
-    auto GDResources::getInstance() -> GDResources*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GDResources::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (GDResources*) getInstance {
+        return (GDResources_staticInit(), GDResources_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_GD_RESOURCE_GDRESOURCES_CPP

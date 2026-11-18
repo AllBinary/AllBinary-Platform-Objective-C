@@ -1,262 +1,131 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/layer/Layer.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/displayable/CanvasStrings.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
+int32_t Layer_ID;
 
-        #ifndef ORG_ALLBINARY_LAYER_LAYER_CPP
-        #define ORG_ALLBINARY_LAYER_LAYER_CPP
+void Layer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    Layer_ID = [[SmallIntegerSingletonFactory getInstance] getAt:0];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/layer/Layer.h"
-        
+@implementation Layer
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/IllegalArgumentException.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/displayable/CanvasStrings.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-int32_t Layer::ID = SmallIntegerSingletonFactory::getInstance()->getAt(0);
-
-Layer::Layer(int32_t width, int32_t height) : logUtil(LogUtil::getInstance()){
-this->setLayerWidth(width);
-    
-this->setLayerHeight(height);
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->x = 0;
+    self->y = 0;
+    self->z = 3;
+    self->width = 0;
+    self->height = 0;
+    self->visible = true;
 }
 
 
-    auto Layer::setPosition(int32_t x, int32_t y, int32_t z) -> void{
-this->x= x;
-    
-this->y= y;
-    
-this->z= z;
-    
+- (instancetype) init:(int32_t)width :(int32_t)height {
+    self = [super init];
+    [self initFields];
+        [self setLayerWidth:width];
+        [self setLayerHeight:height];
+    return self;
 }
 
 
-    auto Layer::moveDXY(int32_t dx, int32_t dy) -> void{
-this->x += dx;
-    
-this->y += dy;
-    
+- (void) setPosition:(int32_t)x :(int32_t)y :(int32_t)z {
+        self->x = x;
+        self->y = y;
+        self->z = z;
 }
 
 
-    auto Layer::moveDXYZ(int32_t dx, int32_t dy, int32_t dz) -> void{
-this->x += dx;
-    
-this->y += dy;
-    
-this->z += dz;
-    
+- (void) moveDXY:(int32_t)dx :(int32_t)dy {
+        self->x += dx;
+        self->y += dy;
 }
 
 
-    auto Layer::getXP() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->x;
-    
+- (void) moveDXYZ:(int32_t)dx :(int32_t)dy :(int32_t)dz {
+        self->x += dx;
+        self->y += dy;
+        self->z += dz;
 }
 
 
-    auto Layer::getYP() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->y;
-    
+- (int32_t) getXP {
+        return self->x;
 }
 
 
-    auto Layer::getZP() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->z;
-    
+- (int32_t) getYP {
+        return self->y;
 }
 
 
-    auto Layer::getWidth() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->width;
-    
+- (int32_t) getZP {
+        return self->z;
 }
 
 
-    auto Layer::getHeight() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->height;
-    
+- (int32_t) getWidth {
+        return self->width;
 }
 
 
-    auto Layer::getDepth() -> int64_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (int32_t) getHeight {
+        return self->height;
 }
 
 
-    auto Layer::setVisible(bool visible) -> void{
-this->visible= visible;
-    
+- (int64_t) getDepth {
+        return 0LL;
 }
 
 
-    auto Layer::isVisible() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->visible;
-    
+- (void) setVisible:(bool)visible {
+        self->visible = visible;
 }
 
 
-    auto Layer::paint(Graphics* graphics) -> void{
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-
-    CanvasStrings* canvasStrings = CanvasStrings::getInstance();;
-    
-this->logUtil->putF(commonStrings->NOT_IMPLEMENTED, this, canvasStrings->PAINT);
-    
+- (bool) isVisible {
+        return self->visible;
 }
 
 
-    auto Layer::setLayerWidth(int32_t width) -> void{
-
-                        if(width < 0)
-                        
-                                    {
-                                    
-
-
-                            throw IllegalArgumentException();
-                    
-
-                                    }
-                                
-this->width= width;
-    
+- (void) paint:(Graphics*)graphics {
+        CommonStrings* commonStrings = [CommonStrings getInstance];
+        CanvasStrings* canvasStrings = [CanvasStrings getInstance];
+        [self->logUtil putF:commonStrings->NOT_IMPLEMENTED :self :canvasStrings->PAINT];
 }
 
 
-    auto Layer::setLayerHeight(int32_t height) -> void{
-
-                        if(height < 0)
-                        
-                                    {
-                                    
-
-
-                            throw IllegalArgumentException();
-                    
-
-                                    }
-                                
-this->height= height;
-    
+- (void) setLayerWidth:(int32_t)width {
+        if (width < 0) {
+            java_throw(java_exception_new("IllegalArgumentException", ""));
+        }
+        self->width = width;
 }
 
 
-    auto Layer::toStringAppend(StringMaker* stringBuffer) -> void{
+- (void) setLayerHeight:(int32_t)height {
+        if (height < 0) {
+            java_throw(java_exception_new("IllegalArgumentException", ""));
+        }
+        self->height = height;
 }
 
 
+- (void) toStringAppend:(StringMaker*)stringBuffer {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LAYER_LAYER_CPP

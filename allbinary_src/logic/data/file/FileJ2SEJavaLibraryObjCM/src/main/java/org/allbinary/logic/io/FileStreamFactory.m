@@ -1,165 +1,66 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LOGIC_IO_FILESTREAMFACTORY_CPP
-        #define ORG_ALLBINARY_LOGIC_IO_FILESTREAMFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/io/FileStreamFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/io/file/AbFile.h>
-
-      
-#include <org/allbinary/logic/io/path/AbPath.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/logic/io/AbFileInputStream.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/io/FileStreamFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/io/file/AbFile.h"
+#include "org/allbinary/logic/io/path/AbPath.h"
+#include "org/allbinary/logic/io/AbFileInputStream.h"
 #include "org/allbinary/logic/io/AbFileOutputStream.h"
 
-Object* FileStreamFactory::SINGLETON = NullUtil::getInstance()->NULL_OBJECT;
 
-    auto FileStreamFactory::getInstance() -> FileStreamFactory*{
+static id FileStreamFactory_SINGLETON;
 
-                        if(FileStreamFactory::SINGLETON == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    FileStreamFactory::SINGLETON= new FileStreamFactory();
-    
+void FileStreamFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    FileStreamFactory_SINGLETON = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-                                    }
-                                
+@implementation FileStreamFactory
 
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<FileStreamFactory*>(FileStreamFactory::SINGLETON);
-    
++ (FileStreamFactory*) getInstance {
+        if ((FileStreamFactory_staticInit(), FileStreamFactory_SINGLETON) == [NullUtil getInstance]->NULL_OBJECT) {
+            FileStreamFactory_SINGLETON = [((FileStreamFactory*) [FileStreamFactory alloc]) init];
+        }
+        return ((FileStreamFactory*) (FileStreamFactory_staticInit(), FileStreamFactory_SINGLETON));
 }
 
 
-FileStreamFactory::FileStreamFactory(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto FileStreamFactory::getFileInputStreamInstance(std::string path, std::string fileName) -> AbFileInputStream*{
-
-    AbPath* FILEABPATH = new AbPath(path, fileName);;
-    
-
-    AbFile* file = AbFile::createAbFileFromAbPath(FILEABPATH);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AbFileInputStream::createFromAbFile(file);;
-    
+// throws Exception
+- (AbFileInputStream*) getFileInputStreamInstance:(const char*)path :(const char*)fileName {
+        AbPath* FILEABPATH = [((AbPath*) [AbPath alloc]) init:path :fileName];
+        AbFile* file = [AbFile createAbFileFromAbPath:FILEABPATH];
+        return [AbFileInputStream createFromAbFile:file];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto FileStreamFactory::getFileOutputStreamInstance(std::string path, std::string fileName) -> AbFileOutputStream*{
-
-    AbPath* FILEABPATH = new AbPath(path, fileName);;
-    
-
-    AbFile* file = AbFile::createAbFileFromAbPath(FILEABPATH);;
-    
-
-                        if(file->exists())
-                        
-                                    {
-                                    file->delete_();
-    
-file->createNewFile();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AbFileOutputStream::createFromAbFile(file);;
-    
+// throws Exception
+- (AbFileOutputStream*) getFileOutputStreamInstance:(const char*)path :(const char*)fileName {
+        AbPath* FILEABPATH = [((AbPath*) [AbPath alloc]) init:path :fileName];
+        AbFile* file = [AbFile createAbFileFromAbPath:FILEABPATH];
+        if ([file exists]) {
+            [file delete];
+            [file createNewFile];
+        }
+        return [AbFileOutputStream createFromAbFile:file];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto FileStreamFactory::delete_(std::string path, std::string fileName) -> void{
-
-    AbPath* FILEABPATH = new AbPath(path, fileName);;
-    
-
-    AbFile* file = AbFile::createAbFileFromAbPath(FILEABPATH);;
-    
-file->delete_();
-    
+// throws Exception
+- (void) delete:(const char*)path :(const char*)fileName {
+        AbPath* FILEABPATH = [((AbPath*) [AbPath alloc]) init:path :fileName];
+        AbFile* file = [AbFile createAbFileFromAbPath:FILEABPATH];
+        [file delete];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_LOGIC_IO_FILESTREAMFACTORY_CPP

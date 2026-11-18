@@ -1,247 +1,106 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/BaseImageAnimationFactory.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/animation/AnimationBehaviorFactory.h"
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#include "org/allbinary/image/AnimationFactoryImageScaleUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/media/ScaleProperties.h"
+#include "org/allbinary/string/CommonLabels.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/animation/image/AnimationFactoryInitializationVisitor.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_BASEIMAGEANIMATIONFACTORY_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_BASEIMAGEANIMATIONFACTORY_CPP
+void BaseImageAnimationFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/BaseImageAnimationFactory.h"
-        
+@implementation BaseImageAnimationFactory
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/animation/AnimationBehaviorFactory.h>
-
-      
-#include <org/allbinary/animation/AnimationInterfaceFactoryInterface.h>
-
-      
-#include <org/allbinary/animation/NullAnimationFactory.h>
-
-      
-#include <org/allbinary/image/AnimationFactoryImageScaleUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/media/ScaleProperties.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/AnimationFactoryInitializationVisitor.h"
-
-
-                //@Throws(Exception.constructor)
-            
-    auto BaseImageAnimationFactory::createFactoryBase(Image* image, std::vector<int32_t> sequenceArray, int32_t width, int32_t height, AnimationBehaviorFactory* animationBehaviorFactory) -> BaseImageAnimationFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new BaseImageAnimationFactory(image, sequenceArray, width, height, 0, 0, animationBehaviorFactory);
+- (void) initFields {
+    self->animationFactoryImageScaleUtil = [AnimationFactoryImageScaleUtil getInstance];
     
+    
+    
+    
+    self->scaleProperties = (ScaleProperties_staticInit(), ScaleProperties_instance);
 }
 
 
-BaseImageAnimationFactory::BaseImageAnimationFactory(Image* image, std::vector<int32_t> sequenceArray, int32_t width, int32_t height, int32_t dx, int32_t dy, AnimationBehaviorFactory* animationBehaviorFactory) : animationFactoryImageScaleUtil(AnimationFactoryImageScaleUtil::getInstance()), scaleProperties(ScaleProperties::instance){
-this->animationFactoryInitializationVisitor= new AnimationFactoryInitializationVisitor();
-    
-this->image= image;
-    
-this->animationFactoryInitializationVisitor->width= width;
-    
-this->animationFactoryInitializationVisitor->height= height;
-    
-this->animationBehaviorFactory= animationBehaviorFactory;
-    
-this->sequenceArray= sequenceArray;
-    
-this->animationFactoryInitializationVisitor->dx= dx;
-    
-this->animationFactoryInitializationVisitor->dy= dy;
-    
+// throws Exception
++ (BaseImageAnimationFactory*) createFactoryBase:(Image*)image :(int32_t*)sequenceArray :(int32_t)width :(int32_t)height :(AnimationBehaviorFactory*)animationBehaviorFactory {
+        return [((BaseImageAnimationFactory*) [BaseImageAnimationFactory alloc]) init:image :sequenceArray :width :height :0 :0 :animationBehaviorFactory];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseImageAnimationFactory::getInstance(int32_t instanceId) -> Animation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullAnimationFactory::getFactoryInstance()->getInstance(instanceId);;
-    
+- (instancetype) init:(Image*)image :(int32_t*)sequenceArray :(int32_t)width :(int32_t)height :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory {
+    self = [super init];
+    [self initFields];
+        self->animationFactoryInitializationVisitor = [((AnimationFactoryInitializationVisitor*) [AnimationFactoryInitializationVisitor alloc]) init];
+        self->image = image;
+        self->animationFactoryInitializationVisitor->width = width;
+        self->animationFactoryInitializationVisitor->height = height;
+        self->animationBehaviorFactory = animationBehaviorFactory;
+        self->sequenceArray = sequenceArray;
+        self->animationFactoryInitializationVisitor->dx = dx;
+        self->animationFactoryInitializationVisitor->dy = dy;
+    return self;
 }
 
 
-    auto BaseImageAnimationFactory::getImage() -> Image*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->image;
-    
+// throws Exception
+- (Animation*) getInstance:(int32_t)instanceId {
+        return [[NullAnimationFactory getFactoryInstance] getInstance:instanceId];
 }
 
 
-    auto BaseImageAnimationFactory::getSequenceArray() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->sequenceArray;
-    
+- (Image*) getImage {
+        return self->image;
 }
 
 
-    auto BaseImageAnimationFactory::setInitialScale(ScaleProperties* scaleProperties) -> void{
-this->scaleProperties= scaleProperties;
-    
-
-                        if(this->scaleProperties->shouldScale)
-                        
-                                    {
-                                    this->scaleProperties->scaleWidth= static_cast<int32_t>((this->animationFactoryInitializationVisitor->width *this->scaleProperties->scaleX));
-    
-this->scaleProperties->scaleHeight= static_cast<int32_t>((this->animationFactoryInitializationVisitor->height *this->scaleProperties->scaleY));
-    
-
-                                    }
-                                
-                        else {
-                            
-                        }
-                            
+- (int32_t*) getSequenceArray {
+        return self->sequenceArray;
 }
 
 
-    auto BaseImageAnimationFactory::getAnimationFactoryInitializationVisitorP() -> AnimationFactoryInitializationVisitor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationFactoryInitializationVisitor;
-    
+- (void) setInitialScale:(ScaleProperties*)scaleProperties {
+        self->scaleProperties = scaleProperties;
+        if (self->scaleProperties->shouldScale) {
+            self->scaleProperties->scaleWidth = ((int32_t) (((float) self->animationFactoryInitializationVisitor->width) * self->scaleProperties->scaleX));
+            self->scaleProperties->scaleHeight = ((int32_t) (((float) self->animationFactoryInitializationVisitor->height) * self->scaleProperties->scaleY));
+        } else {
+        }
 }
 
 
-    auto BaseImageAnimationFactory::getScalePropertiesP() -> ScaleProperties*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->scaleProperties;
-    
+- (AnimationFactoryInitializationVisitor*) getAnimationFactoryInitializationVisitorP {
+        return self->animationFactoryInitializationVisitor;
 }
 
 
-    auto BaseImageAnimationFactory::toString() -> std::string{
-
-    CommonSeps* commonSeps = CommonSeps::getInstance();;
-    
-
-    CommonLabels* commonLabels = CommonLabels::getInstance();;
-    
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append(Object::toString());
-    
-stringBuffer->append(commonLabels->HEIGHT_LABEL);
-    
-stringBuffer->appendint(this->image->getHeight());
-    
-stringBuffer->append(commonSeps->SPACE);
-    
-stringBuffer->append(JavaString::valueOf(this->animationFactoryInitializationVisitor));
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (ScaleProperties*) getScalePropertiesP {
+        return self->scaleProperties;
 }
 
 
+- (const char*) toString {
+        CommonSeps* commonSeps = [CommonSeps getInstance];
+        CommonLabels* commonLabels = [CommonLabels getInstance];
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:[super toString]];
+        [stringBuffer append:commonLabels->HEIGHT_LABEL];
+        [stringBuffer appendint:((int32_t) [self->image getHeight])];
+        [stringBuffer append:commonSeps->SPACE];
+        [stringBuffer append:[self->animationFactoryInitializationVisitor toString]];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_BASEIMAGEANIMATIONFACTORY_CPP

@@ -1,108 +1,53 @@
+#ifndef ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDROTATIONANIMATIONINTERFACEFACTORY_H
+#define ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDROTATIONANIMATIONINTERFACEFACTORY_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.animation.compound
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDROTATIONANIMATIONINTERFACEFACTORY_H
-        #define ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDROTATIONANIMATIONINTERFACEFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class Animation;
-class AnimationBehaviorFactory;
-class AnimationInterfaceFactoryInterface;
-class RotationAnimation;
-class ForcedLogUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/compound/CompoundAnimationInterfaceFactory.h"
-class SimultaneousCompoundRotationAnimation;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class SimultaneousCompoundRotationAnimationInterfaceFactory: public CompoundAnimationInterfaceFactory {
-
-public: SimultaneousCompoundRotationAnimationInterfaceFactory(std::vector<AnimationInterfaceFactoryInterface*> basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory* animationBehaviorFactory);
-
-    /*protected*/ public: std::vector<Animation*> createArray(int32_t size);
-
-    /*protected*/ public: Animation* createAnimation(std::vector<Animation*> animationInterfaceArray);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDROTATIONANIMATIONINTERFACEFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDROTATIONANIMATIONINTERFACEFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDROTATIONANIMATIONINTERFACEFACTORY_H_COMPLETE
-        #if __has_include(<org/allbinary/animation/Animation.h>)
-#include <org/allbinary/animation/Animation.h>
-#endif
-#if __has_include(<org/allbinary/animation/AnimationBehaviorFactory.h>)
-#include <org/allbinary/animation/AnimationBehaviorFactory.h>
-#endif
-#if __has_include(<org/allbinary/animation/AnimationInterfaceFactoryInterface.h>)
-#include <org/allbinary/animation/AnimationInterfaceFactoryInterface.h>
-#endif
-#if __has_include(<org/allbinary/animation/RotationAnimation.h>)
-#include <org/allbinary/animation/RotationAnimation.h>
-#endif
-#if __has_include(<org/allbinary/logic/communication/log/ForcedLogUtil.h>)
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-#endif
-#if __has_include("org/allbinary/animation/compound/CompoundAnimationInterfaceFactory.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class SimultaneousCompoundRotationAnimationInterfaceFactory;
+@class Animation;
+@class AnimationBehaviorFactory;
+@class AnimationInterfaceFactoryInterface;
+@class RotationAnimation;
+@class ForcedLogUtil;
+@class CompoundAnimationInterfaceFactory;
+@class SimultaneousCompoundRotationAnimation;
 #include "org/allbinary/animation/compound/CompoundAnimationInterfaceFactory.h"
-#endif
-#if __has_include("org/allbinary/animation/compound/SimultaneousCompoundRotationAnimation.h")
-#include "org/allbinary/animation/compound/SimultaneousCompoundRotationAnimation.h"
+
+@interface SimultaneousCompoundRotationAnimationInterfaceFactory : CompoundAnimationInterfaceFactory {
+@public
+}
+- (instancetype) init:(AnimationInterfaceFactoryInterface**)basicAnimationInterfaceFactoryInterfaceArray :(AnimationBehaviorFactory*)animationBehaviorFactory;
+- (Animation**) createArray:(int32_t)size;
+- (Animation*) createAnimation:(Animation**)animationInterfaceArray;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void SimultaneousCompoundRotationAnimationInterfaceFactory_staticInit(void);
+
+#if __has_include("org/allbinary/animation/Animation.h")
+#include "org/allbinary/animation/Animation.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_ANIMATION_COMPOUND_SIMULTANEOUSCOMPOUNDROTATIONANIMATIONINTERFACEFACTORY_H

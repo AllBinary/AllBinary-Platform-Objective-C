@@ -1,217 +1,100 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2002 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/displayable/screen/CommandForm.h"
+#include "javax/microedition/lcdui/Command.h"
+#include "javax/microedition/lcdui/CommandListener.h"
+#include "javax/microedition/lcdui/NullCommandListener.h"
+#include "org/allbinary/canvas/Processor.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/util/ABStack.h"
+#include "org/allbinary/graphics/displayable/screen/ScreenRepaintProcessorFactory.h"
 
 
+static id CommandForm_NULL_COMMAND_FORM;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_COMMANDFORM_CPP
-        #define ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_COMMANDFORM_CPP
+void CommandForm_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CommandForm_NULL_COMMAND_FORM = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/displayable/screen/CommandForm.h"
-        
+@implementation CommandForm
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Command.h>
-
-      
-#include <javax/microedition/lcdui/CommandListener.h>
-
-      
-#include <javax/microedition/lcdui/Form.h>
-
-      
-#include <javax/microedition/lcdui/NullCommandListener.h>
-
-      
-#include <org/allbinary/canvas/Processor.h>
-
-      
-#include <org/allbinary/game/displayable/canvas/MenuListener.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/displayable/command/MyCommandInterface.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/util/ABStack.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/displayable/screen/ScreenRepaintProcessorFactory.h"
-
-Object* CommandForm::NULL_COMMAND_FORM = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto CommandForm::getNullCommandForm() -> CommandForm*{
-
-                        if(CommandForm::NULL_COMMAND_FORM == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    CommandForm::NULL_COMMAND_FORM= new CommandForm(NullCommandListener::NULL_COMMAND_LISTENER, StringUtil::getInstance()->EMPTY_STRING, BasicColorFactory::getInstance()->BLACK, BasicColorFactory::getInstance()->WHITE);
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<CommandForm*>(CommandForm::NULL_COMMAND_FORM);
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+    self->repaintProcessor = [[ScreenRepaintProcessorFactory getInstance] create:self];
     
 }
 
 
-CommandForm::CommandForm(CommandListener* commandListener, std::string formTitle, BasicColor* backgrounBasicColor, BasicColor* foregroundBasicColor) : Form(formTitle), logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), repaintProcessor(ScreenRepaintProcessorFactory::getInstance()->create(this)){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->commandStack= StdUtil::getInstance()->createStack();
-    
-
-        try {
-            this->repaintProcessor->process();
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->CONSTRUCTOR, &e);
-    
-}
-
++ (CommandForm*) getNullCommandForm {
+        if ((CommandForm_staticInit(), CommandForm_NULL_COMMAND_FORM) == [NullUtil getInstance]->NULL_OBJECT) {
+            CommandForm_NULL_COMMAND_FORM = [((CommandForm*) [CommandForm alloc]) init:(NullCommandListener_staticInit(), NullCommandListener_NULL_COMMAND_LISTENER) :[StringUtil getInstance]->EMPTY_STRING :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE];
+        }
+        return ((CommandForm*) (CommandForm_staticInit(), CommandForm_NULL_COMMAND_FORM));
 }
 
 
-    auto CommandForm::initCommands(CommandListener* cmdListener) -> void{
+- (instancetype) init:(CommandListener*)commandListener :(const char*)formTitle :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor {
+        self = [super init:formTitle];
+        [self initFields];
+        self->commandStack = [[StdUtil getInstance] createStack];
+        JAVA_TRY {
+            [self->repaintProcessor process];
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->CONSTRUCTOR :e];
+        } JAVA_END_TRY;
+    return self;
 }
 
 
-    auto CommandForm::open() -> void{
-this->logUtil->putF(this->commonStrings->START, this, "open");
-    
+- (void) initCommands:(CommandListener*)cmdListener {
 }
 
 
-    auto CommandForm::close() -> void{
-this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->CLOSE);
-    
+- (void) open {
+        [self->logUtil putF:self->commonStrings->START :self :"open"];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CommandForm::update() -> void{
-this->repaintProcessor->process();
-    
+// throws Exception
+- (void) close {
+        [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->CLOSE];
 }
 
 
-    auto CommandForm::getSourceId() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+// throws Exception
+- (void) update {
+        [self->repaintProcessor process];
 }
 
 
-    auto CommandForm::addCommand(Command* command) -> void{
-this->commandStack->push(command);
-    
-Form::addCommand(command);
-    
+- (int32_t) getSourceId {
+        return 0;
 }
 
 
-    auto CommandForm::removeAllCommands() -> void{
-
-    int32_t size = this->commandStack->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-Form::removeCommand(dynamic_cast<Command*>(this->commandStack->pop()));
-    
-}
-
+- (void) addCommand:(Command*)command {
+        [self->commandStack push:command];
+        [super addCommand:command];
 }
 
 
+- (void) removeAllCommands {
+        int32_t size = [self->commandStack size];
+        for (int32_t index = 0; index < size; index++) {
+            [super removeCommand:((Command*) [self->commandStack pop])];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_COMMANDFORM_CPP

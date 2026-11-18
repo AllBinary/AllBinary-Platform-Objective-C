@@ -1,103 +1,43 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/ai/ArtificialIntelligence.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/ai/ArtificialIntelligenceInterface.h"
 
 
 
-        #ifndef ORG_ALLBINARY_AI_ARTIFICIALINTELLIGENCE_CPP
-        #define ORG_ALLBINARY_AI_ARTIFICIALINTELLIGENCE_CPP
+static ArtificialIntelligence* ArtificialIntelligence_instance;
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/ai/ArtificialIntelligence.h"
-        
+void ArtificialIntelligence_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ArtificialIntelligence_instance = [((ArtificialIntelligence*) [ArtificialIntelligence alloc]) init];
+}
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
+@implementation ArtificialIntelligence
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/ai/ArtificialIntelligenceInterface.h"
-
-auto ArtificialIntelligence::instance_owner() -> ArtificialIntelligence* { static std::unique_ptr<ArtificialIntelligence> value(new ArtificialIntelligence()); return value.get(); }
-ArtificialIntelligence* ArtificialIntelligence::instance = ArtificialIntelligence::instance_owner();
-
-    auto ArtificialIntelligence::getInstance() -> ArtificialIntelligence*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ArtificialIntelligence::instance;
-    
++ (ArtificialIntelligence*) getInstance {
+        return (ArtificialIntelligence_staticInit(), ArtificialIntelligence_instance);
 }
 
 
-ArtificialIntelligence::ArtificialIntelligence(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ArtificialIntelligence::processAI(AllBinaryLayerManager* layerManager) -> void{
+// throws Exception
+- (void) processAI:(AllBinaryLayerManager*)layerManager {
 }
 
 
-    auto ArtificialIntelligence::getId() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 1;
-    
+- (int32_t) getId {
+        return 1;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_AI_ARTIFICIALINTELLIGENCE_CPP

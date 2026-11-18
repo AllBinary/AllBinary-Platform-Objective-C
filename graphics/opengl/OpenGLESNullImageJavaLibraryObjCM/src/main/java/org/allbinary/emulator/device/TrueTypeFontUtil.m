@@ -1,149 +1,69 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *  
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/emulator/device/TrueTypeFontUtil.h"
+#include "javax/microedition/khronos/opengles/GL10.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/image/opengles/OpenGLESImage.h"
+#include "org/allbinary/emulator/device/TrueTypeFontUtilBase.h"
 
 
+static TrueTypeFontUtil* TrueTypeFontUtil_instance;
 
-        #ifndef ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTIL_CPP
-        #define ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTIL_CPP
+void TrueTypeFontUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TrueTypeFontUtil_instance = [((TrueTypeFontUtil*) [TrueTypeFontUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/emulator/device/TrueTypeFontUtil.h"
-        
+@implementation TrueTypeFontUtil
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/RuntimeException.h"
-        
-#include <javax/microedition/khronos/opengles/GL10.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/image/opengles/OpenGLESImage.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/emulator/device/TrueTypeFontUtilBase.h"
-
-auto TrueTypeFontUtil::instance_owner() -> TrueTypeFontUtil* { static std::unique_ptr<TrueTypeFontUtil> value(new TrueTypeFontUtil()); return value.get(); }
-TrueTypeFontUtil* TrueTypeFontUtil::instance = TrueTypeFontUtil::instance_owner();
-
-    auto TrueTypeFontUtil::getInstance() -> TrueTypeFontUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TrueTypeFontUtil::instance;
-    
+- (void) initFields {
+    self->fontImage = (OpenGLESImage_staticInit(), OpenGLESImage_NULL_OPENGL_IMAGE);
 }
 
 
-TrueTypeFontUtil::TrueTypeFontUtil() : TrueTypeFontUtilBase(1), fontImage(OpenGLESImage::NULL_OPENGL_IMAGE){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
++ (TrueTypeFontUtil*) getInstance {
+        return (TrueTypeFontUtil_staticInit(), TrueTypeFontUtil_instance);
 }
 
 
-    auto TrueTypeFontUtil::getAsTextureSize(int32_t textureSize) -> int32_t{
-
-
-
-                            throw RuntimeException();
-                    
+- (instancetype) init {
+        self = [super init:1];
+        [self initFields];
+    return self;
 }
 
 
-    auto TrueTypeFontUtil::getCellSize(int32_t cellSize) -> int32_t{
-
-
-
-                            throw RuntimeException();
-                    
+- (int32_t) getAsTextureSize:(int32_t)textureSize {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-    auto TrueTypeFontUtil::getFontBitmap(std::string filename, int32_t fontSize, int32_t cellSize, BasicColor* basicColor) -> Image*{
-
-
-
-                            throw RuntimeException();
-                    
+- (int32_t) getCellSize:(int32_t)cellSize {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-    auto TrueTypeFontUtil::saveFontAtlasAsFile() -> void{
+- (Image*) getFontBitmap:(const char*)filename :(int32_t)fontSize :(int32_t)cellSize :(BasicColor*)basicColor {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-    auto TrueTypeFontUtil::getFontBitmapGL(GL10* gl, std::string filename, int32_t cellSize, BasicColor* basicColor) -> Image*{
-
-
-
-                            throw RuntimeException();
-                    
+- (void) saveFontAtlasAsFile {
 }
 
 
-    auto TrueTypeFontUtil::getFontWidths(std::string filename, int32_t fontSize) -> std::vector<int32_t>{
-
-
-
-                            throw RuntimeException();
-                    
+- (Image*) getFontBitmapGL:(GL10*)gl :(const char*)filename :(int32_t)cellSize :(BasicColor*)basicColor {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
+- (int32_t*) getFontWidths:(const char*)filename :(int32_t)fontSize {
+        java_throw(java_exception_new("RuntimeException", ""));
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTIL_CPP

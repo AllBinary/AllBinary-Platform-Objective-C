@@ -1,102 +1,53 @@
+#ifndef ORG_ALLBINARY_GAME_STATE_GAMESTATEFACTORY_H
+#define ORG_ALLBINARY_GAME_STATE_GAMESTATEFACTORY_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.state
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_STATE_GAMESTATEFACTORY_H
-        #define ORG_ALLBINARY_GAME_STATE_GAMESTATEFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class NullUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class GameState;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class GameStateFactory
-            : public virtual Object
-         {
-
-    private: static Object* instance;
-
-    public: static GameStateFactory* getInstance();
-
-    private: int32_t index = 0;
-
-    public: GameState* NO_GAME_STATE;
-
-    public: GameState* PLAYING_GAME_STATE;
-
-    public: GameState* SHOW_END_RESULT_GAME_STATE;
-
-    public: GameState* SHOW_HIGH_SCORE_GAME_STATE;
-
-private: GameStateFactory();
-
-    public: GameState* createGameState(std::string name);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_STATE_GAMESTATEFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_STATE_GAMESTATEFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_STATE_GAMESTATEFACTORY_H_COMPLETE
-        #if __has_include(<org/allbinary/logic/NullUtil.h>)
-#include <org/allbinary/logic/NullUtil.h>
-#endif
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class GameStateFactory;
+@class NullUtil;
+@class GameState;
 #if __has_include("org/allbinary/game/state/GameState.h")
 #include "org/allbinary/game/state/GameState.h"
 #endif
 
-        #endif
-    
+@interface GameStateFactory : ABObject {
+@public
+    int32_t index;
+    GameState* NO_GAME_STATE;
+    GameState* PLAYING_GAME_STATE;
+    GameState* SHOW_END_RESULT_GAME_STATE;
+    GameState* SHOW_HIGH_SCORE_GAME_STATE;
+}
+- (instancetype) init;
+- (void) initFields;
++ (GameStateFactory*) getInstance;
+- (GameState*) createGameState:(const char*)name;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void GameStateFactory_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GAME_STATE_GAMESTATEFACTORY_H

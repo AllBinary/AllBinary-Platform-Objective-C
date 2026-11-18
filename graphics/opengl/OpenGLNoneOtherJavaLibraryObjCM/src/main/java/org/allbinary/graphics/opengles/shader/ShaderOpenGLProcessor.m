@@ -1,75 +1,44 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADEROPENGLPROCESSOR_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADEROPENGLPROCESSOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/shader/ShaderOpenGLProcessor.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/khronos/opengles/GL10.h>
-
-      
-#include <org/allbinary/graphics/opengles/OpenGLProcessor.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/shader/ShaderOpenGLProcessor.h"
+#include "javax/microedition/khronos/opengles/GL10.h"
 
 
 
+void ShaderOpenGLProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation ShaderOpenGLProcessor
 
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ShaderOpenGLProcessor::ShaderOpenGLProcessor(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto ShaderOpenGLProcessor::process0(GL10* gl) -> void{
+- (void) process0:(GL10*)gl {
 }
 
 
-    auto ShaderOpenGLProcessor::process1(GL10* gl) -> void{
+- (void) process1:(GL10*)gl {
 }
 
 
-    auto ShaderOpenGLProcessor::process(GL10* gl) -> void{
+- (void) process:(GL10*)gl {
 }
 
 
-    auto ShaderOpenGLProcessor::process2(GL10* gl) -> void{
+- (void) process2:(GL10*)gl {
 }
 
 
-    auto ShaderOpenGLProcessor::process3(GL10* gl) -> void{
+- (void) process3:(GL10*)gl {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADEROPENGLPROCESSOR_CPP

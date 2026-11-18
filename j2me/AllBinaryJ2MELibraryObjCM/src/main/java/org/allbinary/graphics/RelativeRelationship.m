@@ -1,137 +1,66 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_RELATIVERELATIONSHIP_CPP
-        #define ORG_ALLBINARY_GRAPHICS_RELATIVERELATIONSHIP_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/RelativeRelationship.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/PointFactory.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/RelativeRelationship.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#include "org/allbinary/graphics/PointFactory.h"
 #include "org/allbinary/graphics/GPoint.h"
 
-auto RelativeRelationship::NULL_RELATIVE_RELATIONSHIP_owner() -> RelativeRelationship* { static std::unique_ptr<RelativeRelationship> value(new RelativeRelationship(PointFactory::getInstance()->ZERO_ZERO, BasicArrayListUtil::getInstance()->getImmutableInstance())); return value.get(); }
-RelativeRelationship* RelativeRelationship::NULL_RELATIVE_RELATIONSHIP = RelativeRelationship::NULL_RELATIVE_RELATIONSHIP_owner();
 
-RelativeRelationship::RelativeRelationship(GPoint* point, BasicArrayList* typesAllowedList){
-this->x= point->getX();
+RelativeRelationship* RelativeRelationship_NULL_RELATIVE_RELATIONSHIP;
+
+void RelativeRelationship_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    RelativeRelationship_NULL_RELATIVE_RELATIONSHIP = [((RelativeRelationship*) [RelativeRelationship alloc]) init:[PointFactory getInstance]->ZERO_ZERO :[[BasicArrayListUtil getInstance] getImmutableInstance]];
+}
+
+@implementation RelativeRelationship
+
+- (void) initFields {
     
-this->y= point->getY();
     
-this->z= point->getZ();
     
-this->typesAllowedList= typesAllowedList;
     
 }
 
 
-    auto RelativeRelationship::getX() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->x;
-    
+- (instancetype) init:(GPoint*)point :(BasicArrayList*)typesAllowedList {
+    self = [super init];
+    [self initFields];
+        self->x = [point getX];
+        self->y = [point getY];
+        self->z = [point getZ];
+        self->typesAllowedList = typesAllowedList;
+    return self;
 }
 
 
-    auto RelativeRelationship::getY() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->y;
-    
+- (int32_t) getX {
+        return self->x;
 }
 
 
-    auto RelativeRelationship::getZ() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->z;
-    
+- (int32_t) getY {
+        return self->y;
 }
 
 
-    auto RelativeRelationship::getTypesAllowedList() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->typesAllowedList;
-    
+- (int32_t) getZ {
+        return self->z;
 }
 
 
-    auto RelativeRelationship::setTypesAllowedList(BasicArrayList* typesAllowedList) -> void{
-this->typesAllowedList= typesAllowedList;
-    
+- (BasicArrayList*) getTypesAllowedList {
+        return self->typesAllowedList;
 }
 
 
+- (void) setTypesAllowedList:(BasicArrayList*)typesAllowedList {
+        self->typesAllowedList = typesAllowedList;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_RELATIVERELATIONSHIP_CPP

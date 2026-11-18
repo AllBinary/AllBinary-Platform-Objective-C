@@ -1,62 +1,27 @@
+#ifndef ORG_APACHE_XMLRPC_XMLRPCEXCEPTION_H
+#define ORG_APACHE_XMLRPC_XMLRPCEXCEPTION_H
+// Generated Code Do Not Modify
+// package org.apache.xmlrpc
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class XmlRpcException;
+#include "java/lang/Throwable.h"
 
+@interface XmlRpcException : Exception {
+@public
+}
+- (instancetype) init:(int32_t)code :(const char*)message;
+@end
 
-
-        #ifndef ORG_APACHE_XMLRPC_XMLRPCEXCEPTION_H
-        #define ORG_APACHE_XMLRPC_XMLRPCEXCEPTION_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void XmlRpcException_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class XmlRpcException: public Exception {
-
-public: XmlRpcException(int32_t code, std::string message);
-
-};
-
-            
-
-
-        #endif //ORG_APACHE_XMLRPC_XMLRPCEXCEPTION_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_APACHE_XMLRPC_XMLRPCEXCEPTION_H_COMPLETE)
-        #define ORG_APACHE_XMLRPC_XMLRPCEXCEPTION_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_APACHE_XMLRPC_XMLRPCEXCEPTION_H

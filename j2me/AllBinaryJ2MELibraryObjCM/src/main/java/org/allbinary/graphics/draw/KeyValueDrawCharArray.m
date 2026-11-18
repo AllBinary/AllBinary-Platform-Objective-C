@@ -1,115 +1,59 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/draw/KeyValueDrawCharArray.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/logic/java/character/CharArrayFactory.h"
+#include "org/allbinary/graphics/font/MyFontProcessor.h"
+#include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_DRAW_KEYVALUEDRAWCHARARRAY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_DRAW_KEYVALUEDRAWCHARARRAY_CPP
+void KeyValueDrawCharArray_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/draw/KeyValueDrawCharArray.h"
-        
+@implementation KeyValueDrawCharArray
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/logic/java/character/CharArrayFactory.h>
-
-      
-#include <org/allbinary/graphics/font/MyFontProcessor.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontInterface.h>
-
-      
-#include <org/allbinary/graphics/font/UpdateMyFontProcessor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-KeyValueDrawCharArray::KeyValueDrawCharArray(std::string label, int32_t x) : myFontProcessor(new UpdateMyFontProcessor(this)), value(CharArrayFactory::getInstance()->getZeroCharArray()){
-this->LABEL= label;
+- (void) initFields {
+    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
     
-this->labelX= x;
     
+    self->valueX = 0;
+    self->value = [[CharArrayFactory getInstance] getZeroCharArray];
+    self->len = 0;
 }
 
 
-    auto KeyValueDrawCharArray::updateMeasurement(Graphics* graphics) -> void{
-
-    int32_t labelWidth = graphics->getFont()->stringWidth(this->LABEL) -this->LABEL.size();;
-    
-this->valueX= labelWidth +this->labelX;
-    
-this->myFontProcessor= MyFontProcessor::getInstance();
-    
+- (instancetype) init:(const char*)label :(int32_t)x {
+    self = [super init];
+    [self initFields];
+        self->LABEL = label;
+        self->labelX = x;
+    return self;
 }
 
 
-    auto KeyValueDrawCharArray::paint(Graphics* graphics, int32_t y) -> void{
-this->myFontProcessor->process(graphics);
-    
-graphics->drawString(this->LABEL, this->labelX, y, 0);
-    
-graphics->drawChars(this->value, 0, this->len, this->valueX, y, 0);
-    
+- (void) updateMeasurement:(Graphics*)graphics {
+        int32_t labelWidth = [[graphics getFont] stringWidth:self->LABEL] - ((int32_t) strlen(self->LABEL));
+        self->valueX = labelWidth + self->labelX;
+        self->myFontProcessor = [MyFontProcessor getInstance];
 }
 
 
-    auto KeyValueDrawCharArray::update(std::vector<char> value, int32_t len) -> void{
-this->value= value;
-    
-this->len= len;
-    
+- (void) paint:(Graphics*)graphics :(int32_t)y {
+        [self->myFontProcessor process:graphics];
+        [graphics drawString:self->LABEL :self->labelX :y :0];
+        [graphics drawChars:self->value :0 :self->len :self->valueX :y :0];
 }
 
 
+- (void) update:(uint16_t*)value :(int32_t)len {
+        self->value = value;
+        self->len = len;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_DRAW_KEYVALUEDRAWCHARARRAY_CPP

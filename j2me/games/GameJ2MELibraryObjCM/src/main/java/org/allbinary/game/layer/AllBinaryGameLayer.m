@@ -1,284 +1,134 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_LAYER_ALLBINARYGAMELAYER_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_ALLBINARYGAMELAYER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/AllBinaryGameLayer.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/khronos/opengles/GL.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorSetUtil.h>
-
-      
-#include <org/allbinary/graphics/paint/NullPaintable.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-#include <org/allbinary/image/opengles/OpenGLSurfaceChangedInterface.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-#include <org/allbinary/view/ViewPositionBase.h>
-
-      
-#include <org/allbinary/view/event/ViewPositionEvent.h>
-
-      
-#include <org/allbinary/view/event/ViewPositionEventListenerInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/SWTUtil.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/AllBinaryGameLayer.h"
+#include "javax/microedition/khronos/opengles/GL.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/graphics/color/BasicColorSetUtil.h"
+#include "org/allbinary/graphics/paint/NullPaintable.h"
+#include "org/allbinary/graphics/paint/Paintable.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/logic/communication/log/ForcedLogUtil.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/view/ViewPositionBase.h"
+#include "org/allbinary/view/event/ViewPositionEvent.h"
+#include "org/allbinary/game/layer/SWTUtil.h"
 #include "org/allbinary/game/layer/SWTBlackPaintable.h"
 #include "org/allbinary/game/layer/GameLayerUtil.h"
 
 
-    auto AllBinaryGameLayer::createPaintable() -> Paintable*{
 
-                        if(SWTUtil::isSWT)
-                        
-                                    {
-                                    
+void AllBinaryGameLayer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation AllBinaryGameLayer
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new SWTBlackPaintable();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullPaintable::getInstance();;
-    
+- (void) initFields {
+    self->commonStrings = [CommonStrings getInstance];
+    self->basicSetColorUtil = [BasicColorSetUtil getInstance];
+    self->RED = [BasicColorFactory getInstance]->RED;
+    self->paintable = [AllBinaryGameLayer createPaintable];
+    self->gameKeyEventList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-AllBinaryGameLayer::AllBinaryGameLayer(std::string name, Rectangle* layerInfo, ViewPositionBase* viewPosition) : AllBinaryLayer(name, layerInfo, viewPosition), commonStrings(CommonStrings::getInstance()), basicSetColorUtil(BasicColorSetUtil::getInstance()), RED(BasicColorFactory::getInstance()->RED), paintable(createPaintable()), gameKeyEventList(new BasicArrayListD()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
++ (Paintable*) createPaintable {
+        if ((SWTUtil_staticInit(), SWTUtil_isSWT)) {
+            return [((SWTBlackPaintable*) [SWTBlackPaintable alloc]) init];
+        }
+        return [NullPaintable getInstance];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllBinaryGameLayer::set(GL* gl) -> void{
-
-
-
-                            throw Exception(this->commonStrings->NOT_IMPLEMENTED);
-                    
+- (instancetype) init:(const char*)name :(Rectangle*)layerInfo :(ViewPositionBase*)viewPosition {
+        self = [super init:name :layerInfo :viewPosition];
+        [self initFields];
+    return self;
 }
 
 
-    auto AllBinaryGameLayer::move() -> void{
+// throws Exception
+- (void) set:(GL*)gl {
+        java_throw(java_exception_new("Exception", self->commonStrings->NOT_IMPLEMENTED));
 }
 
 
-    auto AllBinaryGameLayer::getGameKeyEventList() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gameKeyEventList;
-    
+- (void) move {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllBinaryGameLayer::processInput(AllBinaryLayerManager* allBinaryLayerManager) -> void{
-
-
-
-                            throw Exception(this->commonStrings->NOT_IMPLEMENTED);
-                    
+- (BasicArrayList*) getGameKeyEventList {
+        return self->gameKeyEventList;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllBinaryGameLayer::processTick(AllBinaryLayerManager* allBinaryLayerManager) -> void{
-
-
-
-                            throw Exception(this->commonStrings->NOT_IMPLEMENTED);
-                    
+// throws Exception
+- (void) processInput:(AllBinaryLayerManager*)allBinaryLayerManager {
+        java_throw(java_exception_new("Exception", self->commonStrings->NOT_IMPLEMENTED));
 }
 
 
-    auto AllBinaryGameLayer::onEvent(AllBinaryEventObject* eventObject) -> void{
-ForcedLogUtil::log(EventStrings::getInstance()->PERFORMANCE_MESSAGE, this);
-    
+// throws Exception
+- (void) processTick:(AllBinaryLayerManager*)allBinaryLayerManager {
+        java_throw(java_exception_new("Exception", self->commonStrings->NOT_IMPLEMENTED));
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllBinaryGameLayer::onViewPositionChangeEvent() -> void{
-this->onChangeEvent(this->viewPositionEvent);
-    
+- (void) onEvent:(AllBinaryEventObject*)eventObject {
+        [ForcedLogUtil log:[EventStrings getInstance]->PERFORMANCE_MESSAGE :self];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllBinaryGameLayer::onChangeEvent(ViewPositionEvent* layerManagerEvent) -> void{
-
-                        if(GameLayerUtil::isOnScreen(this))
-                        
-                                    {
-                                    this->setVisible(true);
-    
-
-                                    }
-                                
-                        else {
-                            this->setVisible(false);
-    
-
-                        }
-                            
+// throws Exception
+- (void) onViewPositionChangeEvent {
+        [self onChangeEvent:self->viewPositionEvent];
 }
 
 
-    auto AllBinaryGameLayer::paintFirst(Graphics* graphics) -> void{
-this->paintable->paint(graphics);
-    
+// throws Exception
+- (void) onChangeEvent:(ViewPositionEvent*)layerManagerEvent {
+        if ([GameLayerUtil isOnScreen:self]) {
+            [self setVisible:true];
+        } else {
+            [self setVisible:false];
+        }
 }
 
 
-    auto AllBinaryGameLayer::paintDebug(Graphics* graphics) -> void{
-
-    ViewPositionBase* viewPosition = this->getViewPosition();;
-    
-
-    int32_t viewX = viewPosition->getX();;
-    
-
-    int32_t viewY = viewPosition->getY();;
-    
-this->basicSetColorUtil->setBasicColorP(graphics, this->RED);
-    
-graphics->drawRect(viewX, viewY, this->getWidth(), this->getHeight());
-    
+- (void) paintFirst:(Graphics*)graphics {
+        [self->paintable paint:graphics];
 }
 
 
-    auto AllBinaryGameLayer::setWidth(int32_t width) -> void{
-AllBinaryLayer::setLayerWidth(width);
-    
-this->setHalfWidth(width>>1);
-    
+- (void) paintDebug:(Graphics*)graphics {
+        ViewPositionBase* viewPosition = [self getViewPosition];
+        int32_t viewX = [viewPosition getX];
+        int32_t viewY = [viewPosition getY];
+        [self->basicSetColorUtil setBasicColorP:graphics :self->RED];
+        [graphics drawRect:viewX :viewY :[self getWidth] :[self getHeight]];
 }
 
 
-    auto AllBinaryGameLayer::setHeight(int32_t height) -> void{
-AllBinaryLayer::setLayerHeight(height);
-    
-this->setHalfHeight(height>>1);
-    
+- (void) setWidth:(int32_t)width {
+        [super setLayerWidth:width];
+        [self setHalfWidth:width >> 1];
 }
 
 
+- (void) setHeight:(int32_t)height {
+        [super setLayerHeight:height];
+        [self setHalfHeight:height >> 1];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_ALLBINARYGAMELAYER_CPP

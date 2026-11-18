@@ -1,84 +1,32 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_SELECTSOUND_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_SELECTSOUND_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/SelectSound.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/CompositeSound.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/SelectSound.h"
+#include "org/allbinary/media/audio/CompositeSound.h"
 #include "org/allbinary/media/audio/Sound.h"
-//Use 8hz16bitmono for most J2ME
-Sound* SelectSound::soundInterface = new SelectSound();
 
-SelectSound::SelectSound() : CompositeSound("resource:/wav/select.wav"){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+static Sound* SelectSound_soundInterface;
 
-                            //For kotlin this is before the body of the constructor.
-                    
+void SelectSound_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    SelectSound_soundInterface = [((SelectSound*) [SelectSound alloc]) init];
+}
+
+@implementation SelectSound
+
+
+- (instancetype) init {
+        self = [super init:"resource:/wav/select.wav"];
+    return self;
 }
 
 
-    auto SelectSound::getInstance() -> Sound*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return SelectSound::soundInterface;
-    
++ (Sound*) getInstance {
+        return (SelectSound_staticInit(), SelectSound_soundInterface);
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_SELECTSOUND_CPP

@@ -1,155 +1,68 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/hud/event/GameNotificationEvent.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/logic/string/StringUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_HUD_EVENT_GAMENOTIFICATIONEVENT_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_HUD_EVENT_GAMENOTIFICATIONEVENT_CPP
+void GameNotificationEvent_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/hud/event/GameNotificationEvent.h"
-        
+@implementation GameNotificationEvent
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Integer.h"
-        
-            #include "java/lang/Boolean.h"
-        
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GameNotificationEvent::GameNotificationEvent(Object* anyType, std::string string, int32_t seconds, BasicColor* basicColor, bool permanent) : AllBinaryEventObject(anyType), string(StringUtil::getInstance()->EMPTY_STRING), basicColor(BasicColorFactory::getInstance()->BLACK){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->setString(string);
+- (void) initFields {
+    self->string = [StringUtil getInstance]->EMPTY_STRING;
     
-this->seconds= seconds;
-    
-this->setBasicColorP(basicColor);
-    
-this->removeable= permanent;
+    self->basicColor = [BasicColorFactory getInstance]->BLACK;
     
 }
 
 
-    auto GameNotificationEvent::getString() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->string;
-    
+- (instancetype) init:(id)anyType :(const char*)string :(int32_t)seconds :(BasicColor*)basicColor :(bool)permanent {
+        self = [super init:anyType];
+        [self initFields];
+        [self setString:string];
+        self->seconds = seconds;
+        [self setBasicColorP:basicColor];
+        self->removeable = permanent;
+    return self;
 }
 
 
-    auto GameNotificationEvent::getSeconds() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->seconds;
-    
+- (const char*) getString {
+        return self->string;
 }
 
 
-    auto GameNotificationEvent::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->basicColor;
-    
+- (int32_t) getSeconds {
+        return self->seconds;
 }
 
 
-    auto GameNotificationEvent::getPermanent() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->removeable;
-    
+- (BasicColor*) getBasicColorP {
+        return self->basicColor;
 }
 
 
-    auto GameNotificationEvent::setString(std::string string) -> void{
-this->string= string;
-    
+- (bool) getPermanent {
+        return self->removeable;
 }
 
 
-    auto GameNotificationEvent::setBasicColorP(BasicColor* basicColor) -> void{
-this->basicColor= basicColor;
-    
+- (void) setString:(const char*)string {
+        self->string = string;
 }
 
 
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        self->basicColor = basicColor;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_HUD_EVENT_GAMENOTIFICATIONEVENT_CPP

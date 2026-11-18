@@ -1,195 +1,75 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/weapon/WeaponLayerArrayLayerCircularStaticPool.h"
+#include "org/allbinary/util/CircularIndexUtil.h"
+#include "org/allbinary/game/layer/weapon/WeaponLayer.h"
 
 
+static WeaponLayerArrayLayerCircularStaticPool* WeaponLayerArrayLayerCircularStaticPool_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_WEAPON_WEAPONLAYERARRAYLAYERCIRCULARSTATICPOOL_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_WEAPON_WEAPONLAYERARRAYLAYERCIRCULARSTATICPOOL_CPP
+void WeaponLayerArrayLayerCircularStaticPool_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    WeaponLayerArrayLayerCircularStaticPool_instance = [((WeaponLayerArrayLayerCircularStaticPool*) [WeaponLayerArrayLayerCircularStaticPool alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/weapon/WeaponLayerArrayLayerCircularStaticPool.h"
-        
+@implementation WeaponLayerArrayLayerCircularStaticPool
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->MAX = 5;
+    self->circularIndexUtil = [CircularIndexUtil createInstance:self->MAX];
+    self->WEAPONLAYER_ARRAY = nullptr;
+    self->TWO_WEAPONLAYER_ARRAY = nullptr;
+    self->THREE_WEAPONLAYER_ARRAY = nullptr;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-#include <org/allbinary/util/CircularIndexUtil.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (WeaponLayerArrayLayerCircularStaticPool*) getInstance {
+        return (WeaponLayerArrayLayerCircularStaticPool_staticInit(), WeaponLayerArrayLayerCircularStaticPool_instance);
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/weapon/WeaponLayer.h"
-
-
-WeaponLayerArrayLayerCircularStaticPool::WeaponLayerArrayLayerCircularStaticPool() : circularIndexUtil(CircularIndexUtil::createInstance(this->MAX)) {
+- (void) init_ {
+        WeaponLayer*** WEAPONLAYER_ARRAY = ((WeaponLayer***) java_array_new(sizeof(WeaponLayer**), self->MAX * 2));
+        WeaponLayer*** TWO_WEAPONLAYER_ARRAY = ((WeaponLayer***) java_array_new(sizeof(WeaponLayer**), self->MAX));
+        WeaponLayer*** THREE_WEAPONLAYER_ARRAY = ((WeaponLayer***) java_array_new(sizeof(WeaponLayer**), self->MAX));
+        for (int32_t index = 0; index < self->MAX; index++) {
+            WEAPONLAYER_ARRAY[index] = ((WeaponLayer**) java_array_new(sizeof(WeaponLayer*), 1));
+            TWO_WEAPONLAYER_ARRAY[index] = ((WeaponLayer**) java_array_new(sizeof(WeaponLayer*), 2));
+            THREE_WEAPONLAYER_ARRAY[index] = ((WeaponLayer**) java_array_new(sizeof(WeaponLayer*), 3));
         }
-        auto WeaponLayerArrayLayerCircularStaticPool::instance_owner() -> WeaponLayerArrayLayerCircularStaticPool* { static std::unique_ptr<WeaponLayerArrayLayerCircularStaticPool> value(new WeaponLayerArrayLayerCircularStaticPool()); return value.get(); }
-WeaponLayerArrayLayerCircularStaticPool* WeaponLayerArrayLayerCircularStaticPool::instance = WeaponLayerArrayLayerCircularStaticPool::instance_owner();
-
-    auto WeaponLayerArrayLayerCircularStaticPool::getInstance() -> WeaponLayerArrayLayerCircularStaticPool*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return WeaponLayerArrayLayerCircularStaticPool::instance;
-    
+        self->WEAPONLAYER_ARRAY = WEAPONLAYER_ARRAY;
+        self->TWO_WEAPONLAYER_ARRAY = TWO_WEAPONLAYER_ARRAY;
+        self->THREE_WEAPONLAYER_ARRAY = THREE_WEAPONLAYER_ARRAY;
 }
 
 
-    auto WeaponLayerArrayLayerCircularStaticPool::init() -> void{
-
-    std::vector<std::vector<WeaponLayer*>> WEAPONLAYER_ARRAY = std::vector<std::vector<WeaponLayer*>>(this->MAX *2);;
-    
-
-    std::vector<std::vector<WeaponLayer*>> TWO_WEAPONLAYER_ARRAY = std::vector<std::vector<WeaponLayer*>>(this->MAX);;
-    
-
-    std::vector<std::vector<WeaponLayer*>> THREE_WEAPONLAYER_ARRAY = std::vector<std::vector<WeaponLayer*>>(this->MAX);;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < this->MAX; index++)
-        {
-WEAPONLAYER_ARRAY[index]= std::vector<WeaponLayer*>(1);
-    
-TWO_WEAPONLAYER_ARRAY[index]= std::vector<WeaponLayer*>(2);
-    
-THREE_WEAPONLAYER_ARRAY[index]= std::vector<WeaponLayer*>(3);
-    
-}
-
-this->WEAPONLAYER_ARRAY= WEAPONLAYER_ARRAY;
-    
-this->TWO_WEAPONLAYER_ARRAY= TWO_WEAPONLAYER_ARRAY;
-    
-this->THREE_WEAPONLAYER_ARRAY= THREE_WEAPONLAYER_ARRAY;
-    
+- (WeaponLayer***) getWeaponLayerArrays:(int32_t)size {
+        if (size == 1) {
+            return self->WEAPONLAYER_ARRAY;
+        } else if (size == 2) {
+            return self->TWO_WEAPONLAYER_ARRAY;
+        } else if (size == 3) {
+            return self->THREE_WEAPONLAYER_ARRAY;
+        }
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-    auto WeaponLayerArrayLayerCircularStaticPool::getWeaponLayerArrays(int32_t size) -> std::vector<std::vector<WeaponLayer*>>{
-
-                        if(size == 1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->WEAPONLAYER_ARRAY;
-    
-
-                                    }
-                                
-                             else 
-                        if(size == 2)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->TWO_WEAPONLAYER_ARRAY;
-    
-
-                                    }
-                                
-                             else 
-                        if(size == 3)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->THREE_WEAPONLAYER_ARRAY;
-    
-
-                                    }
-                                
-
-
-
-                            throw RuntimeException();
-                    
+// throws Exception
+- (WeaponLayer**) getInstanceArray:(int32_t)size {
+        WeaponLayer** weaponLayerArray = [self getWeaponLayerArrays:size][[self->circularIndexUtil getIndex]];
+        [self->circularIndexUtil next];
+        return weaponLayerArray;
 }
 
+@end
 
-                //@Throws(Exception.constructor)
-            
-    auto WeaponLayerArrayLayerCircularStaticPool::getInstanceArray(int32_t size) -> std::vector<WeaponLayer*>{
-
-    std::vector<WeaponLayer*> weaponLayerArray = this->getWeaponLayerArrays(size)[this->circularIndexUtil->getIndex()];;
-    
-this->circularIndexUtil->next();
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return weaponLayerArray;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_LAYER_WEAPON_WEAPONLAYERARRAYLAYERCIRCULARSTATICPOOL_CPP

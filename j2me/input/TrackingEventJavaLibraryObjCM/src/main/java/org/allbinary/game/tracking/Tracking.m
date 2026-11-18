@@ -1,72 +1,28 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/tracking/Tracking.h"
+#include "javax/microedition/lcdui/Graphics.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_TRACKING_TRACKING_CPP
-        #define ORG_ALLBINARY_GAME_TRACKING_TRACKING_CPP
+void Tracking_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/tracking/Tracking.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
+@implementation Tracking
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-Tracking::Tracking(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto Tracking::paint(Graphics* graphics) -> void{
+- (void) paint:(Graphics*)graphics {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_TRACKING_TRACKING_CPP

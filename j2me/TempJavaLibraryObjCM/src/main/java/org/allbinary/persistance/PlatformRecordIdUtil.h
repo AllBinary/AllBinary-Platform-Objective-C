@@ -1,101 +1,47 @@
+#ifndef ORG_ALLBINARY_PERSISTANCE_PLATFORMRECORDIDUTIL_H
+#define ORG_ALLBINARY_PERSISTANCE_PLATFORMRECORDIDUTIL_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.persistance
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class PlatformRecordIdUtil;
+@class CommonSeps;
+@class StringMaker;
+@class AbeClientInformationInterface;
 
+@interface PlatformRecordIdUtil : ABObject {
+@public
+    const char* PLATFORM_SHORT_NAME;
+}
+- (instancetype) init;
+- (void) initFields;
++ (PlatformRecordIdUtil*) getInstance;
+- (const char*) getRecordId:(AbeClientInformationInterface*)abeClientInformation :(const char*)baseRecordId;
+@end
 
-
-        #ifndef ORG_ALLBINARY_PERSISTANCE_PLATFORMRECORDIDUTIL_H
-        #define ORG_ALLBINARY_PERSISTANCE_PLATFORMRECORDIDUTIL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class CommonSeps;
-class StringMaker;
-class AbeClientInformationInterface;
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void PlatformRecordIdUtil_staticInit(void);
 
 
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class PlatformRecordIdUtil
-            : public virtual Object
-         {
-
-    private: static PlatformRecordIdUtil* instance_owner();
-    private: static PlatformRecordIdUtil* instance;
-
-    public: static PlatformRecordIdUtil* getInstance();
-
-
-            
-    public: PlatformRecordIdUtil();
-        
-    private: const std::string PLATFORM_SHORT_NAME = "AVN";
-
-    public: std::string getRecordId(AbeClientInformationInterface* abeClientInformation, std::string baseRecordId);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_PERSISTANCE_PLATFORMRECORDIDUTIL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_PERSISTANCE_PLATFORMRECORDIDUTIL_H_COMPLETE)
-        #define ORG_ALLBINARY_PERSISTANCE_PLATFORMRECORDIDUTIL_H_COMPLETE
-        #if __has_include(<org/allbinary/string/CommonSeps.h>)
-#include <org/allbinary/string/CommonSeps.h>
-#endif
-#if __has_include(<org/allbinary/logic/string/StringMaker.h>)
-#include <org/allbinary/logic/string/StringMaker.h>
-#endif
-#if __has_include(<org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>)
-#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_PERSISTANCE_PLATFORMRECORDIDUTIL_H

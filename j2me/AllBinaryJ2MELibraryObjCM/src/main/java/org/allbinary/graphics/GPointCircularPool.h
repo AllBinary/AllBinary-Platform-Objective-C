@@ -1,88 +1,44 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_GPOINTCIRCULARPOOL_H
+#define ORG_ALLBINARY_GRAPHICS_GPOINTCIRCULARPOOL_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class GPointCircularPool;
+@class BaseCircularPool;
+@class CircularIndexUtil;
+@class CustomGPoint;
+#include "org/allbinary/logic/util/cache/BaseCircularPool.h"
 
+@interface GPointCircularPool : BaseCircularPool {
+@public
+}
+- (instancetype) init:(int32_t)size;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_GPOINTCIRCULARPOOL_H
-        #define ORG_ALLBINARY_GRAPHICS_GPOINTCIRCULARPOOL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/util/cache/BaseCircularPool.h>
-class CircularIndexUtil;
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void GPointCircularPool_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class CustomGPoint;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class GPointCircularPool: public BaseCircularPool {
-
-public: GPointCircularPool(int32_t size);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_GPOINTCIRCULARPOOL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_GPOINTCIRCULARPOOL_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_GPOINTCIRCULARPOOL_H_COMPLETE
-        #if __has_include(<org/allbinary/logic/util/cache/BaseCircularPool.h>)
-#include <org/allbinary/logic/util/cache/BaseCircularPool.h>
-#endif
-#if __has_include(<org/allbinary/util/CircularIndexUtil.h>)
-#include <org/allbinary/util/CircularIndexUtil.h>
-#endif
-#if __has_include("org/allbinary/graphics/CustomGPoint.h")
-#include "org/allbinary/graphics/CustomGPoint.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_GPOINTCIRCULARPOOL_H

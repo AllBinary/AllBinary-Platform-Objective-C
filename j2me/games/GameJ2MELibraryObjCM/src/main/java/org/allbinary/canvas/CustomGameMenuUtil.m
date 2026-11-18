@@ -1,103 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/canvas/CustomGameMenuUtil.h"
+#include "org/allbinary/AppletUtil.h"
+#include "org/allbinary/J2MEUtil.h"
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#include "org/allbinary/graphics/displayable/MyCanvas.h"
 
 
 
-        #ifndef ORG_ALLBINARY_CANVAS_CUSTOMGAMEMENUUTIL_CPP
-        #define ORG_ALLBINARY_CANVAS_CUSTOMGAMEMENUUTIL_CPP
+void CustomGameMenuUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/canvas/CustomGameMenuUtil.h"
-        
+@implementation CustomGameMenuUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/AppletUtil.h>
-
-      
-#include <org/allbinary/J2MEUtil.h>
-
-      
-#include <org/allbinary/game/commands/GameCommandsFactory.h>
-
-      
-#include <org/allbinary/graphics/displayable/MyCanvas.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CustomGameMenuUtil::CustomGameMenuUtil() {
-        }
-        
-    auto CustomGameMenuUtil::add(MyCanvas* canvas) -> void{
-
-    GameCommandsFactory* gameCommandsFactory = GameCommandsFactory::getInstance();;
-    
-
-                        if(AppletUtil::isAppletLoader(canvas))
-                        
-                                    {
-                                    
-                                    }
-                                
-                             else 
-                        if(J2MEUtil::isHTML())
-                        
-                                    {
-                                    
-                                    }
-                                
-                        else {
-                            canvas->addCommand(gameCommandsFactory->EXIT_COMMAND);
-    
-
-                        }
-                            
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
++ (void) add:(MyCanvas*)canvas {
+        GameCommandsFactory* gameCommandsFactory = [GameCommandsFactory getInstance];
+        if ([AppletUtil isAppletLoader:canvas]) {
+        } else if ([J2MEUtil isHTML]) {
+        } else {
+            [canvas addCommand:gameCommandsFactory->EXIT_COMMAND];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_CANVAS_CUSTOMGAMEMENUUTIL_CPP

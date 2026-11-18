@@ -1,79 +1,38 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/combat/damage/ExplosionResources.h"
 
 
+static ExplosionResources* ExplosionResources_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_COMBAT_DAMAGE_EXPLOSIONRESOURCES_CPP
-        #define ORG_ALLBINARY_GAME_COMBAT_DAMAGE_EXPLOSIONRESOURCES_CPP
+void ExplosionResources_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ExplosionResources_instance = [((ExplosionResources*) [ExplosionResources alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/combat/damage/ExplosionResources.h"
-        
+@implementation ExplosionResources
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto ExplosionResources::instance_owner() -> ExplosionResources* { static std::unique_ptr<ExplosionResources> value(new ExplosionResources()); return value.get(); }
-ExplosionResources* ExplosionResources::instance = ExplosionResources::instance_owner();
-
-    auto ExplosionResources::getInstance() -> ExplosionResources*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ExplosionResources::instance;
-    
+- (void) initFields {
+    self->EXPLOSION_90_RESOURCE = "/explosion_sprite_90_by_90.png";
+    self->EXPLOSION_60_RESOURCE = "/explosion_sprite_60_by_60.png";
+    self->HALF_EXPLOSION_RESOURCE = "/explosion_sprite_30_by_30.png";
+    self->THIRD_EXPLOSION_RESOURCE = "/explosion_sprite_15_by_15.png";
 }
 
 
-ExplosionResources::ExplosionResources(){
++ (ExplosionResources*) getInstance {
+        return (ExplosionResources_staticInit(), ExplosionResources_instance);
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_COMBAT_DAMAGE_EXPLOSIONRESOURCES_CPP

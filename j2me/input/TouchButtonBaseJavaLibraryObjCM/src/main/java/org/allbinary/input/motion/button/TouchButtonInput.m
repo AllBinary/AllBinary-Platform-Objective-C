@@ -1,149 +1,61 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/TouchButtonInput.h"
+#include "org/allbinary/game/input/GameKey.h"
+#include "org/allbinary/game/input/InputFactory.h"
+#include "org/allbinary/game/input/event/GameKeyEvent.h"
+#include "org/allbinary/game/input/event/GameKeyEventFactory.h"
+#include "org/allbinary/game/input/mapping/InputToGameKeyMapping.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONINPUT_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONINPUT_CPP
+void TouchButtonInput_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/TouchButtonInput.h"
-        
+@implementation TouchButtonInput
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/input/GameKey.h>
-
-      
-#include <org/allbinary/game/input/GameKeyEventSourceInterface.h>
-
-      
-#include <org/allbinary/game/input/Input.h>
-
-      
-#include <org/allbinary/game/input/InputFactory.h>
-
-      
-#include <org/allbinary/game/input/event/GameKeyEvent.h>
-
-      
-#include <org/allbinary/game/input/event/GameKeyEventFactory.h>
-
-      
-#include <org/allbinary/game/input/mapping/InputToGameKeyMapping.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-TouchButtonInput::TouchButtonInput(int32_t id, std::string name) : Input(id, name), logUtil(LogUtil::getInstance()), gameKeyEventFactory(GameKeyEventFactory::getInstance()), TOUCH_BUTTON_SOURCE_ID(this->gameKeyEventFactory->TOUCH_BUTTON_SOURCE_ID), gameKeyEvent(GameKeyEvent::NONE){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-
-    InputFactory* inputFactory = InputFactory::getInstance();;
-    
-inputFactory->add(this->getId(), this);
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->gameKeyEventFactory = [GameKeyEventFactory getInstance];
+    self->TOUCH_BUTTON_SOURCE_ID = self->gameKeyEventFactory->TOUCH_BUTTON_SOURCE_ID;
+    self->gameKeyEvent = (GameKeyEvent_staticInit(), GameKeyEvent_NONE);
 }
 
 
-    auto TouchButtonInput::update(InputToGameKeyMapping* inputToGameKeyMapping) -> void{
-
-        try {
-            
-    GameKey* gameKey = inputToGameKeyMapping->getInstance(this->getId());;
-    
-this->gameKeyEvent= this->gameKeyEventFactory->getInstanceForInput(this, gameKey);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, commonStrings->UPDATE, &e);
-    
-}
-
+- (instancetype) init:(int32_t)id_ :(const char*)name {
+        self = [super init:id_ :name];
+        [self initFields];
+        InputFactory* inputFactory = [InputFactory getInstance];
+        [inputFactory add:[self getId] :self];
+    return self;
 }
 
 
-    auto TouchButtonInput::getSourceId() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->TOUCH_BUTTON_SOURCE_ID;
-    
+- (void) update:(InputToGameKeyMapping*)inputToGameKeyMapping {
+        JAVA_TRY {
+            GameKey* gameKey = [inputToGameKeyMapping getInstance:[self getId]];
+            self->gameKeyEvent = [self->gameKeyEventFactory getInstanceForInput:self :gameKey];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->UPDATE :e];
+        } JAVA_END_TRY;
 }
 
 
-    auto TouchButtonInput::getGameKeyEvent() -> GameKeyEvent*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gameKeyEvent;
-    
+- (int32_t) getSourceId {
+        return self->TOUCH_BUTTON_SOURCE_ID;
 }
 
 
+- (GameKeyEvent*) getGameKeyEvent {
+        return self->gameKeyEvent;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONINPUT_CPP

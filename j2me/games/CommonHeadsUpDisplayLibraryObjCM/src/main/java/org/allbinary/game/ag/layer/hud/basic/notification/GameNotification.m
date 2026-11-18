@@ -1,131 +1,60 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/hud/basic/notification/GameNotification.h"
+#include "org/allbinary/game/layer/hud/event/GameNotificationEvent.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
+GameNotificationEvent* GameNotification_NULL_GAME_NOTIFICATION_EVENT;
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATION_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATION_CPP
+void GameNotification_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameNotification_NULL_GAME_NOTIFICATION_EVENT = [((GameNotificationEvent*) [GameNotificationEvent alloc]) init:[NullUtil getInstance]->NULL_OBJECT :[StringUtil getInstance]->EMPTY_STRING :0 :[BasicColorFactory getInstance]->RED :[BooleanFactory getInstance]->FALSE];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/hud/basic/notification/GameNotification.h"
-        
+@implementation GameNotification
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->stringList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->timeList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->colorList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <org/allbinary/game/layer/hud/event/GameNotificationEvent.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/java/bool/BooleanFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GameNotification::GameNotification() : stringList(new BasicArrayListD()), timeList(new BasicArrayListD()), colorList(new BasicArrayListD()) {
+- (void) add:(const char*)string :(int32_t)seconds :(BasicColor*)basicColor {
+        if (![self->stringList contains:string]) {
+            [self->stringList add:string];
+            [self->timeList add:seconds];
+            [self->colorList add:basicColor];
         }
-        auto GameNotification::NULL_GAME_NOTIFICATION_EVENT_owner() -> GameNotificationEvent* { static std::unique_ptr<GameNotificationEvent> value(new GameNotificationEvent(NullUtil::getInstance()->NULL_OBJECT, StringUtil::getInstance()->EMPTY_STRING, int32_t(0), BasicColorFactory::getInstance()->RED, BooleanFactory::getInstance()->FALSE)); return value.get(); }
-GameNotificationEvent* GameNotification::NULL_GAME_NOTIFICATION_EVENT = GameNotification::NULL_GAME_NOTIFICATION_EVENT_owner();
-
-    auto GameNotification::add(std::string string, int32_t seconds, BasicColor* basicColor) -> void{
-
-                        if(!this->stringList->contains(string))
-                        
-                                    {
-                                    this->stringList->add(string);
-    
-this->timeList->add(seconds);
-    
-this->colorList->add(basicColor);
-    
-
-                                    }
-                                
 }
 
 
-    auto GameNotification::clear() -> void{
-this->stringList->clear();
-    
-this->timeList->clear();
-    
-this->colorList->clear();
-    
+- (void) clear {
+        [self->stringList clear];
+        [self->timeList clear];
+        [self->colorList clear];
 }
 
 
-    auto GameNotification::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->stringList->size();;
-    
+- (int32_t) getSize {
+        return [self->stringList size];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATION_CPP

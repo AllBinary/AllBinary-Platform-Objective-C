@@ -1,74 +1,10 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADERCOMPOSITE_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADERCOMPOSITE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/shader/ShaderComposite.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/khronos/opengles/GL10.h>
-
-      
-#include <org/allbinary/graphics/opengles/NullOpenGLProcessorFactory.h>
-
-      
-#include <org/allbinary/graphics/opengles/OpenGLProcessor.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/opengles/shader/Shader.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/shader/ShaderComposite.h"
+#include "javax/microedition/khronos/opengles/GL10.h"
+#include "org/allbinary/graphics/opengles/NullOpenGLProcessorFactory.h"
+#include "org/allbinary/graphics/opengles/OpenGLProcessor.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/graphics/opengles/shader/Shader.h"
 #include "org/allbinary/graphics/opengles/shader/ShaderInitializer.h"
 #include "org/allbinary/graphics/opengles/shader/CompositeShaderUpdater.h"
 #include "org/allbinary/graphics/opengles/shader/ModelViewProjection.h"
@@ -76,32 +12,62 @@
 #include "org/allbinary/graphics/opengles/shader/OpenGLObject3dProcessor.h"
 
 
-ShaderComposite::ShaderComposite(std::string requiresOpenGLVersion, std::vector<Shader*> shaderArray, CompositeShaderUpdater* compositeShaderUpdater, ShaderInitializer* shaderInitializer, ModelViewProjection* modelViewProjection, OpenGLProcessor* colorOpenGLProcessor, OpenGLProcessor* vertexOpenGLProcessor, OpenGLProcessor* disableProgramShaderOpenGLProcessor) : useProgramShaderOpenGLProcessor(NullOpenGLProcessorFactory::getInstance()), shaderMatrixOpenGLProcessor(NullOpenGLProcessorFactory::getInstance()), colorEnableVertexAttribArrayOpenGLProcessor(NullOpenGLProcessorFactory::getInstance()), normalEnableVertexAttribArrayOpenGLProcessor(NullOpenGLProcessorFactory::getInstance()), vertexEnableVertexAttribArrayOpenGLProcessor(NullOpenGLProcessorFactory::getInstance()), textureEnableVertexAttribArrayOpenGLProcessor(NullOpenGLProcessorFactory::getInstance()), colorDisableVertexAttribArrayOpenGLProcessor(NullOpenGLProcessorFactory::getInstance()), normalDisableVertexAttribArrayOpenGLProcessor(NullOpenGLProcessorFactory::getInstance()), vertexDisableVertexAttribArrayOpenGLProcessor(NullOpenGLProcessorFactory::getInstance()), textureDisableVertexAttribArrayOpenGLProcessor(NullOpenGLProcessorFactory::getInstance()), uniformLightPositionOpenGLProcessor(NullOpenGLTextureProcessor::getInstance()), uniformLightColorOpenGLProcessor(NullOpenGLTextureProcessor::getInstance()), uniformCameraPositionOpenGLProcessor(NullOpenGLTextureProcessor::getInstance()), uniformTextureUnitOpenGLProcessor(NullOpenGLTextureProcessor::getInstance()){
-this->requiresOpenGLVersion= requiresOpenGLVersion;
+
+void ShaderComposite_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation ShaderComposite
+
+- (void) initFields {
     
-this->shaderArray= shaderArray;
     
-this->shaderInitializer= shaderInitializer;
     
-this->compositeShaderUpdater= compositeShaderUpdater;
     
-this->modelViewProjection= modelViewProjection;
     
-this->colorOpenGLProcessor= colorOpenGLProcessor;
     
-this->vertexOpenGLProcessor= vertexOpenGLProcessor;
     
-this->disableProgramShaderOpenGLProcessor= disableProgramShaderOpenGLProcessor;
     
+    self->useProgramShaderOpenGLProcessor = [NullOpenGLProcessorFactory getInstance];
+    self->shaderMatrixOpenGLProcessor = [NullOpenGLProcessorFactory getInstance];
+    self->colorEnableVertexAttribArrayOpenGLProcessor = [NullOpenGLProcessorFactory getInstance];
+    self->normalEnableVertexAttribArrayOpenGLProcessor = [NullOpenGLProcessorFactory getInstance];
+    self->vertexEnableVertexAttribArrayOpenGLProcessor = [NullOpenGLProcessorFactory getInstance];
+    self->textureEnableVertexAttribArrayOpenGLProcessor = [NullOpenGLProcessorFactory getInstance];
+    self->colorDisableVertexAttribArrayOpenGLProcessor = [NullOpenGLProcessorFactory getInstance];
+    self->normalDisableVertexAttribArrayOpenGLProcessor = [NullOpenGLProcessorFactory getInstance];
+    self->vertexDisableVertexAttribArrayOpenGLProcessor = [NullOpenGLProcessorFactory getInstance];
+    self->textureDisableVertexAttribArrayOpenGLProcessor = [NullOpenGLProcessorFactory getInstance];
+    self->uniformLightPositionOpenGLProcessor = [NullOpenGLTextureProcessor getInstance];
+    self->uniformLightColorOpenGLProcessor = [NullOpenGLTextureProcessor getInstance];
+    self->uniformCameraPositionOpenGLProcessor = [NullOpenGLTextureProcessor getInstance];
+    self->uniformTextureUnitOpenGLProcessor = [NullOpenGLTextureProcessor getInstance];
+    self->programHandle = 0;
 }
 
 
-    auto ShaderComposite::init(GL10* gl) -> void{
-this->programHandle= this->shaderInitializer->init(gl, this->shaderArray, StringUtil::getInstance()->getArrayInstance());
-    
+- (instancetype) init:(const char*)requiresOpenGLVersion :(Shader**)shaderArray :(CompositeShaderUpdater*)compositeShaderUpdater :(ShaderInitializer*)shaderInitializer :(ModelViewProjection*)modelViewProjection :(OpenGLProcessor*)colorOpenGLProcessor :(OpenGLProcessor*)vertexOpenGLProcessor :(OpenGLProcessor*)disableProgramShaderOpenGLProcessor {
+    self = [super init];
+    [self initFields];
+        self->requiresOpenGLVersion = requiresOpenGLVersion;
+        self->shaderArray = shaderArray;
+        self->shaderInitializer = shaderInitializer;
+        self->compositeShaderUpdater = compositeShaderUpdater;
+        self->modelViewProjection = modelViewProjection;
+        self->colorOpenGLProcessor = colorOpenGLProcessor;
+        self->vertexOpenGLProcessor = vertexOpenGLProcessor;
+        self->disableProgramShaderOpenGLProcessor = disableProgramShaderOpenGLProcessor;
+    return self;
 }
 
 
+- (void) init_:(GL10*)gl {
+        self->programHandle = [self->shaderInitializer init_:gl :self->shaderArray :[[StringUtil getInstance] getArrayInstance]];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADERCOMPOSITE_CPP

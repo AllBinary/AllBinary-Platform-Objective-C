@@ -1,117 +1,56 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/bounds/LayerBounds.h"
+#include "org/allbinary/bounds/event/BoundsChangeEvent.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/logic/communication/log/ForcedLogUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#include "org/allbinary/bounds/BoundsVisitorInterface.h"
 
 
 
-        #ifndef ORG_ALLBINARY_BOUNDS_LAYERBOUNDS_CPP
-        #define ORG_ALLBINARY_BOUNDS_LAYERBOUNDS_CPP
+void LayerBounds_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/bounds/LayerBounds.h"
-        
+@implementation LayerBounds
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/bounds/event/BoundsChangeEvent.h>
-
-      
-#include <org/allbinary/bounds/event/BoundsChangeEventListener.h>
-
-      
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/bounds/BoundsVisitorInterface.h"
-
-
-LayerBounds::LayerBounds(Rectangle* rectangle) : logUtil(LogUtil::getInstance()){
-this->rectangle= rectangle;
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
     
 }
 
 
-    auto LayerBounds::getRectangleP() -> Rectangle*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->rectangle;
-    
+- (instancetype) init:(Rectangle*)rectangle {
+    self = [super init];
+    [self initFields];
+        self->rectangle = rectangle;
+    return self;
 }
 
 
-    auto LayerBounds::visit(BoundsVisitorInterface* boundsVisitorInterface) -> void{
+- (Rectangle*) getRectangleP {
+        return self->rectangle;
 }
 
 
-    auto LayerBounds::onEvent(AllBinaryEventObject* eventObject) -> void{
-ForcedLogUtil::log(EventStrings::getInstance()->PERFORMANCE_MESSAGE, this);
-    
+- (void) visit:(BoundsVisitorInterface*)boundsVisitorInterface {
 }
 
 
-    auto LayerBounds::onBoundsChangeEvent(BoundsChangeEvent* boundsChangeEvent) -> void{
-this->rectangle= boundsChangeEvent->getRectangle();
-    
+- (void) onEvent:(AllBinaryEventObject*)eventObject {
+        [ForcedLogUtil log:[EventStrings getInstance]->PERFORMANCE_MESSAGE :self];
 }
 
 
+- (void) onBoundsChangeEvent:(BoundsChangeEvent*)boundsChangeEvent {
+        self->rectangle = [boundsChangeEvent getRectangle];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_BOUNDS_LAYERBOUNDS_CPP

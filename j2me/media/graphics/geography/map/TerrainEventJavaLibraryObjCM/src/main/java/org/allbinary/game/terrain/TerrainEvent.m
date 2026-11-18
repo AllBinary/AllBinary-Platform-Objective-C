@@ -1,128 +1,55 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/terrain/TerrainEvent.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/game/terrain/BasicTerrainInfo.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_TERRAIN_TERRAINEVENT_CPP
-        #define ORG_ALLBINARY_GAME_TERRAIN_TERRAINEVENT_CPP
+void TerrainEvent_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/terrain/TerrainEvent.h"
-        
+@implementation TerrainEvent
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/terrain/BasicTerrainInfo.h"
-
-
-TerrainEvent::TerrainEvent(Object* basicTerrainInfo) : AllBinaryEventObject(basicTerrainInfo), basicTerrainInfo(BasicTerrainInfo::NULL_BASIC_TERRAIN_INFO){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->setBasicTerrainInfo(this->basicTerrainInfo);
-    
+- (void) initFields {
+    self->basicTerrainInfo = (BasicTerrainInfo_staticInit(), BasicTerrainInfo_NULL_BASIC_TERRAIN_INFO);
 }
 
 
-    auto TerrainEvent::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("TerrainEvent: \n");
-    
-stringBuffer->append("LayerInterface: ");
-    
-stringBuffer->append(JavaString::valueOf(this->basicTerrainInfo));
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (instancetype) init:(id)basicTerrainInfo {
+        self = [super init:basicTerrainInfo];
+        [self initFields];
+        [self setBasicTerrainInfo:self->basicTerrainInfo];
+    return self;
 }
 
 
-    auto TerrainEvent::getBasicTerrainInfo() -> BasicTerrainInfo*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->basicTerrainInfo;
-    
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:"TerrainEvent: \n"];
+        [stringBuffer append:"LayerInterface: "];
+        [stringBuffer append:[self->basicTerrainInfo toString]];
+        return [stringBuffer toString];
 }
 
 
-    auto TerrainEvent::setBasicTerrainInfo(BasicTerrainInfo* basicTerrainInfo) -> void{
-this->basicTerrainInfo= basicTerrainInfo;
-    
+- (BasicTerrainInfo*) getBasicTerrainInfo {
+        return self->basicTerrainInfo;
 }
 
 
-    auto TerrainEvent::setBasicTerrainInfoForCircularStaticPool(BasicTerrainInfo* basicTerrainInfo) -> void{
-this->basicTerrainInfo= basicTerrainInfo;
-    
+- (void) setBasicTerrainInfo:(BasicTerrainInfo*)basicTerrainInfo {
+        self->basicTerrainInfo = basicTerrainInfo;
 }
 
 
+- (void) setBasicTerrainInfoForCircularStaticPool:(BasicTerrainInfo*)basicTerrainInfo {
+        self->basicTerrainInfo = basicTerrainInfo;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_TERRAIN_TERRAINEVENT_CPP

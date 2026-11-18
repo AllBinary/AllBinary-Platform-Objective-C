@@ -1,99 +1,44 @@
+#ifndef ORG_ALLBINARY_AI_ARTIFICIALINTELLIGENCEFACTORY_H
+#define ORG_ALLBINARY_AI_ARTIFICIALINTELLIGENCEFACTORY_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.ai
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_AI_ARTIFICIALINTELLIGENCEFACTORY_H
-        #define ORG_ALLBINARY_AI_ARTIFICIALINTELLIGENCEFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/ai/ArtificialIntelligenceFactoryInterface.h"
-class ArtificialIntelligence;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ArtificialIntelligenceFactory
-            : public virtual Object
-        , public virtual ArtificialIntelligenceFactoryInterface {
-
-
-            
-    public: ArtificialIntelligenceFactory();
-        
-                //@Throws(Exception.constructor)
-            
-    public: ArtificialIntelligence* getInstance(Object* anyType);
-    public: ArtificialIntelligence* getInstance(const std::string& anyType) { return getInstance(JavaString::box(anyType)); }
-    public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> ArtificialIntelligence* getInstance(BoxValue anyType) { return getInstance(JavaBoxes::toObject(anyType)); }
-    public: template<typename BoxElement> ArtificialIntelligence* getInstance(const std::vector<BoxElement>& anyType) { return getInstance(JavaBoxes::toObject(anyType)); }
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_AI_ARTIFICIALINTELLIGENCEFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_AI_ARTIFICIALINTELLIGENCEFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_AI_ARTIFICIALINTELLIGENCEFACTORY_H_COMPLETE
-        #if __has_include("org/allbinary/ai/ArtificialIntelligenceFactoryInterface.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ArtificialIntelligenceFactory;
+@class ArtificialIntelligenceFactoryInterface;
+@class ArtificialIntelligence;
 #include "org/allbinary/ai/ArtificialIntelligenceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/ai/ArtificialIntelligence.h")
-#include "org/allbinary/ai/ArtificialIntelligence.h"
-#endif
 
-        #endif
-    
+@interface ArtificialIntelligenceFactory : ABObject <ArtificialIntelligenceFactoryInterface> {
+@public
+}
+- (instancetype) init;
+- (ArtificialIntelligence*) getInstance:(id)anyType;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ArtificialIntelligenceFactory_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_AI_ARTIFICIALINTELLIGENCEFACTORY_H

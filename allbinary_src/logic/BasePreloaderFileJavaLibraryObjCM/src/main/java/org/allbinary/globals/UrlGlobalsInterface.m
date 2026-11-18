@@ -1,119 +1,44 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/globals/UrlGlobalsInterface.h"
+#include "org/allbinary/logic/string/StringUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GLOBALS_URLGLOBALSINTERFACE_CPP
-        #define ORG_ALLBINARY_GLOBALS_URLGLOBALSINTERFACE_CPP
+void UrlGlobalsInterface_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/globals/UrlGlobalsInterface.h"
-        
+@implementation UrlGlobalsInterface
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-UrlGlobalsInterface::UrlGlobalsInterface() {
-        }
-        
-                //@Throws(Exception.constructor)
-            
-    auto UrlGlobalsInterface::getMainPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->EMPTY_STRING;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto UrlGlobalsInterface::getTestHtmlPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->EMPTY_STRING;
-    
+// throws Exception
+- (const char*) getMainPath {
+        return [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-    auto UrlGlobalsInterface::getWebappPath() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->EMPTY_STRING;
-    
+- (const char*) getTestHtmlPath {
+        return [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-    auto UrlGlobalsInterface::isTestingMode() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (const char*) getWebappPath {
+        return [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
+- (bool) isTestingMode {
+        return false;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GLOBALS_URLGLOBALSINTERFACE_CPP

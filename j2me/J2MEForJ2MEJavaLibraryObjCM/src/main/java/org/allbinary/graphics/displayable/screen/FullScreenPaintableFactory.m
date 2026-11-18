@@ -1,84 +1,36 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/displayable/screen/FullScreenPaintableFactory.h"
+#include "org/allbinary/graphics/paint/NullPaintable.h"
+#include "org/allbinary/graphics/paint/Paintable.h"
 
 
+static FullScreenPaintableFactory* FullScreenPaintableFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_FULLSCREENPAINTABLEFACTORY_CPP
-        #define ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_FULLSCREENPAINTABLEFACTORY_CPP
+void FullScreenPaintableFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    FullScreenPaintableFactory_instance = [((FullScreenPaintableFactory*) [FullScreenPaintableFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/displayable/screen/FullScreenPaintableFactory.h"
-        
+@implementation FullScreenPaintableFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->paintable = [NullPaintable getInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/graphics/paint/NullPaintable.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-FullScreenPaintableFactory::FullScreenPaintableFactory() : paintable(NullPaintable::getInstance()) {
-        }
-        auto FullScreenPaintableFactory::instance_owner() -> FullScreenPaintableFactory* { static std::unique_ptr<FullScreenPaintableFactory> value(new FullScreenPaintableFactory()); return value.get(); }
-FullScreenPaintableFactory* FullScreenPaintableFactory::instance = FullScreenPaintableFactory::instance_owner();
-
-    auto FullScreenPaintableFactory::getInstance() -> FullScreenPaintableFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return FullScreenPaintableFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (FullScreenPaintableFactory*) getInstance {
+        return (FullScreenPaintableFactory_staticInit(), FullScreenPaintableFactory_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_DISPLAYABLE_SCREEN_FULLSCREENPAINTABLEFACTORY_CPP

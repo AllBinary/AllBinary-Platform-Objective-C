@@ -1,79 +1,30 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/NoButtonsTouchInputFactory.h"
+#include "org/allbinary/input/motion/button/BaseTouchInput.h"
 
 
+static BaseTouchInput* NoButtonsTouchInputFactory_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_NOBUTTONSTOUCHINPUTFACTORY_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_NOBUTTONSTOUCHINPUTFACTORY_CPP
+void NoButtonsTouchInputFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NoButtonsTouchInputFactory_instance = [((BaseTouchInput*) [BaseTouchInput alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/NoButtonsTouchInputFactory.h"
-        
+@implementation NoButtonsTouchInputFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/button/BaseTouchInput.h"
-
-
-NoButtonsTouchInputFactory::NoButtonsTouchInputFactory() {
-        }
-        auto NoButtonsTouchInputFactory::instance_owner() -> BaseTouchInput* { static std::unique_ptr<BaseTouchInput> value(new BaseTouchInput()); return value.get(); }
-BaseTouchInput* NoButtonsTouchInputFactory::instance = NoButtonsTouchInputFactory::instance_owner();
-
-    auto NoButtonsTouchInputFactory::getInstance() -> BaseTouchInput*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NoButtonsTouchInputFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
++ (BaseTouchInput*) getInstance {
+        return (NoButtonsTouchInputFactory_staticInit(), NoButtonsTouchInputFactory_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_NOBUTTONSTOUCHINPUTFACTORY_CPP

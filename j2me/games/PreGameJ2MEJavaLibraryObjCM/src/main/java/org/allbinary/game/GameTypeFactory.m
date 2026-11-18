@@ -1,84 +1,40 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/GameTypeFactory.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/game/GameType.h"
 
 
+static GameTypeFactory* GameTypeFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_GAMETYPEFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_GAMETYPEFACTORY_CPP
+void GameTypeFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameTypeFactory_instance = [((GameTypeFactory*) [GameTypeFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/GameTypeFactory.h"
-        
+@implementation GameTypeFactory
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->NULL_GAME_TYPE_ARRAY = ((GameType**) java_array_new(sizeof(GameType*), 0));
+    self->NONE = [((GameType*) [GameType alloc]) init:[StringUtil getInstance]->NULL_STRING];
+    self->SINGLE_PLAYER = [((GameType*) [GameType alloc]) init:"Single Player"];
+    self->MULTI_PLAYER = [((GameType*) [GameType alloc]) init:"Multi Player"];
+    self->BOT = [((GameType*) [GameType alloc]) init:"Artificial Player"];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/GameType.h"
-
-
-GameTypeFactory::GameTypeFactory() : NULL_GAME_TYPE_ARRAY({}), NONE(new GameType(StringUtil::getInstance()->NULL_STRING)), SINGLE_PLAYER(new GameType("Single Player")), MULTI_PLAYER(new GameType("Multi Player")), BOT(new GameType("Artificial Player")) {
-        }
-        auto GameTypeFactory::instance_owner() -> GameTypeFactory* { static std::unique_ptr<GameTypeFactory> value(new GameTypeFactory()); return value.get(); }
-GameTypeFactory* GameTypeFactory::instance = GameTypeFactory::instance_owner();
-
-    auto GameTypeFactory::getInstance() -> GameTypeFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameTypeFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (GameTypeFactory*) getInstance {
+        return (GameTypeFactory_staticInit(), GameTypeFactory_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_GAMETYPEFACTORY_CPP

@@ -1,86 +1,31 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/TouchButtonsPaintableCompositeFactory.h"
+#include "org/allbinary/game/input/mapping/InputMappingInterface.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/paint/ProcessPaintable.h"
+#include "org/allbinary/input/motion/button/TouchButtonsPaintableComposite.h"
 
 
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONSPAINTABLECOMPOSITEFACTORY_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONSPAINTABLECOMPOSITEFACTORY_CPP
+void TouchButtonsPaintableCompositeFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/TouchButtonsPaintableCompositeFactory.h"
-        
+@implementation TouchButtonsPaintableCompositeFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/input/mapping/InputMappingInterface.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/paint/ProcessPaintable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/button/TouchButtonsPaintableComposite.h"
-
-
-TouchButtonsPaintableCompositeFactory::TouchButtonsPaintableCompositeFactory() {
-        }
-        
-    auto TouchButtonsPaintableCompositeFactory::getInstance(InputMappingInterface* inputMappingInterface, BasicColor* basicColor) -> ProcessPaintable*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new TouchButtonsPaintableComposite(inputMappingInterface, basicColor);
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
++ (ProcessPaintable*) getInstance:(InputMappingInterface*)inputMappingInterface :(BasicColor*)basicColor {
+        return [((TouchButtonsPaintableComposite*) [TouchButtonsPaintableComposite alloc]) init:inputMappingInterface :basicColor];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONSPAINTABLECOMPOSITEFACTORY_CPP

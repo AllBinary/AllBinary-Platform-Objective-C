@@ -1,91 +1,33 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORECOMMANDSFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORECOMMANDSFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/HighScoreCommandsFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Command.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/score/HighScoreCommandsBaseFactory.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/HighScoreCommandsFactory.h"
+#include "javax/microedition/lcdui/Command.h"
+#include "org/allbinary/game/score/HighScoreCommandsBaseFactory.h"
 #include "org/allbinary/game/score/HighScoreCommands.h"
 
-auto HighScoreCommandsFactory::instance_owner() -> HighScoreCommandsFactory* { static std::unique_ptr<HighScoreCommandsFactory> value(new HighScoreCommandsFactory()); return value.get(); }
-HighScoreCommandsFactory* HighScoreCommandsFactory::instance = HighScoreCommandsFactory::instance_owner();
 
-    auto HighScoreCommandsFactory::getInstance() -> HighScoreCommandsFactory*{
+static HighScoreCommandsFactory* HighScoreCommandsFactory_instance;
+
+void HighScoreCommandsFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    HighScoreCommandsFactory_instance = [((HighScoreCommandsFactory*) [HighScoreCommandsFactory alloc]) init];
+}
+
+@implementation HighScoreCommandsFactory
 
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return HighScoreCommandsFactory::instance;
-    
++ (HighScoreCommandsFactory*) getInstance {
+        return (HighScoreCommandsFactory_staticInit(), HighScoreCommandsFactory_instance);
 }
 
 
-HighScoreCommandsFactory::HighScoreCommandsFactory() : HighScoreCommandsBaseFactory(std::vector<Command*>
-                                                {
-                                                    HighScoreCommands::getInstance()->PERSONAL,HighScoreCommands::getInstance()->WORLD
-                                                }){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init {
+        self = [super init:((Command**) java_array_from(sizeof(Command*), sizeof((Command*[]){ [HighScoreCommands getInstance]->PERSONAL, [HighScoreCommands getInstance]->WORLD }) / sizeof(Command*), (Command*[]){ [HighScoreCommands getInstance]->PERSONAL, [HighScoreCommands getInstance]->WORLD }))];
+    return self;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_SCORE_HIGHSCORECOMMANDSFACTORY_CPP

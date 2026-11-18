@@ -1,235 +1,125 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_PAINT_HELP_BASICINPUTMAPPINGHELPPAINTABLE_CPP
-        #define ORG_ALLBINARY_GAME_PAINT_HELP_BASICINPUTMAPPINGHELPPAINTABLE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/paint/help/BasicInputMappingHelpPaintable.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/game/input/GameKey.h>
-
-      
-#include <org/allbinary/game/input/GameKeyFactory.h>
-
-      
-#include <org/allbinary/game/input/Input.h>
-
-      
-#include <org/allbinary/game/input/PlatformInputMappingFactory.h>
-
-      
-#include <org/allbinary/game/input/mapping/GameInputMapping.h>
-
-      
-#include <org/allbinary/game/input/mapping/PersistentInputMapping.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/game/paint/help/BasicInputMappingHelpPaintable.h"
+#include "org/allbinary/game/input/GameKey.h"
+#include "org/allbinary/game/input/GameKeyFactory.h"
+#include "org/allbinary/game/input/Input.h"
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
+#include "org/allbinary/game/input/mapping/GameInputMapping.h"
+#include "org/allbinary/game/input/mapping/PersistentInputMapping.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/game/paint/help/HelpPaintable.h"
+#if __has_include("org/allbinary/game/paint/help/InputToGameKeyMapping.h")
+#include "org/allbinary/game/paint/help/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/InputToGameKeyMapping.h")
+#include "org/allbinary/game/input/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/InputToGameKeyMapping.h")
+#include "org/allbinary/game/input/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/InputToGameKeyMapping.h")
+#include "org/allbinary/game/input/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/InputToGameKeyMapping.h")
+#include "org/allbinary/game/input/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/mapping/InputToGameKeyMapping.h")
+#include "org/allbinary/game/input/mapping/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/mapping/InputToGameKeyMapping.h")
+#include "org/allbinary/game/input/mapping/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/InputToGameKeyMapping.h")
+#include "org/allbinary/graphics/color/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/InputToGameKeyMapping.h")
+#include "org/allbinary/graphics/color/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/logic/string/InputToGameKeyMapping.h")
+#include "org/allbinary/logic/string/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/string/InputToGameKeyMapping.h")
+#include "org/allbinary/string/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/util/InputToGameKeyMapping.h")
+#include "org/allbinary/util/InputToGameKeyMapping.h"
+#endif
 
 
 
+void BasicInputMappingHelpPaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation BasicInputMappingHelpPaintable
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/paint/help/HelpPaintable.h"
-
-
-BasicInputMappingHelpPaintable::BasicInputMappingHelpPaintable(std::vector<GameInputMapping*> gameInputMappingArray, BasicColor* basicColor) : HelpPaintable("Help Screen", BasicColorFactory::getInstance()->BLACK, basicColor), NONE(GameKeyFactory::getInstance()->NONE){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->gameInputMappingArray= gameInputMappingArray;
+- (void) initFields {
     
-this->update(this->NONE, this->NONE);
-    
+    self->NONE = [GameKeyFactory getInstance]->NONE;
 }
 
 
-    auto BasicInputMappingHelpPaintable::update(GameKey* selectedGameKey, Input* selectedInput) -> void{
-
-    PersistentInputMapping* gameKeyMapping = PlatformInputMappingFactory::getInstance()->getPersistentInputMappingInstance();;
-    
-
-    std::string EQUAL = " = ";;
-    
-
-    StringMaker* stringMaker = new StringMaker();;
-    
-
-    int32_t size = this->gameInputMappingArray.size();;
-    
-
-    std::vector<std::string> keyInfo = std::vector<std::string>(size);;
-    
-
-    GameInputMapping* gameInputMapping;;
-    
-
-    GameKey* gameKey;;
-    
-
-    BasicArrayList* list;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-gameInputMapping= this->gameInputMappingArray[index];
-    
-gameKey= gameInputMapping->getGameKey();
-    
-list= gameKeyMapping->getInputMapping()->getMappedInput(gameKey);
-    
-stringMaker->delete_(0, stringMaker->length());
-    
-keyInfo[index]= JavaString::valueOf(stringMaker->append(gameInputMapping->getName())->append(EQUAL)->append(this->get(list)));
-    
-}
-
-HelpPaintable::setInputInfoP(keyInfo);
-    
+- (instancetype) init:(GameInputMapping**)gameInputMappingArray :(BasicColor*)basicColor {
+        self = [super init:"Help Screen" :[BasicColorFactory getInstance]->BLACK :basicColor];
+        [self initFields];
+        self->gameInputMappingArray = gameInputMappingArray;
+        [self update:self->NONE :self->NONE];
+    return self;
 }
 
 
-    auto BasicInputMappingHelpPaintable::get(BasicArrayList* keyList) -> std::string{
-
-    CommonSeps* commonSeps = CommonSeps::getInstance();;
-    
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-
-    std::string AND = "and ";;
-    
-
-    Input* key;;
-    
-
-    int32_t size = keyList->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-key= dynamic_cast<Input*>(keyList->objectArray[index]);
-    
-stringBuffer->append(key->getName());
-    
-
-                        if(index +1 < keyList->size())
-                        
-                                    {
-                                    
-                        if(keyList->size() == 2)
-                        
-                                    {
-                                    stringBuffer->append(commonSeps->SPACE)->append(AND);
-    
-
-                                    }
-                                
-                        else {
-                            
-                        if(index +2 == keyList->size())
-                        
-                                    {
-                                    stringBuffer->append(commonSeps->COMMA_SEP);
-    
-stringBuffer->append(AND);
-    
-
-                                    }
-                                
-                        else {
-                            stringBuffer->append(commonSeps->COMMA_SEP);
-    
-
-                        }
-                            
-
-                        }
-                            
-
-                                    }
-                                
+- (void) update:(GameKey*)selectedGameKey :(Input*)selectedInput {
+        PersistentInputMapping* gameKeyMapping = [[PlatformInputMappingFactory getInstance] getPersistentInputMappingInstance];
+        const char* EQUAL = " = ";
+        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        int32_t size = java_array_length(self->gameInputMappingArray);
+        const char** keyInfo = ((const char**) java_array_new(sizeof(const char*), size));
+        GameInputMapping* gameInputMapping = nullptr;
+        GameKey* gameKey = nullptr;
+        BasicArrayList* list = nullptr;
+        for (int32_t index = 0; index < size; index++) {
+            gameInputMapping = self->gameInputMappingArray[index];
+            gameKey = [gameInputMapping getGameKey];
+            list = [[gameKeyMapping getInputMapping] getMappedInput:gameKey];
+            [stringMaker delete:0 :[stringMaker length]];
+            keyInfo[index] = [[[[stringMaker append:[gameInputMapping getName]] append:EQUAL] append:[self get:list]] toString];
+        }
+        [super setInputInfoP:keyInfo];
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (const char*) get:(BasicArrayList*)keyList {
+        CommonSeps* commonSeps = [CommonSeps getInstance];
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        const char* AND = "and ";
+        Input* key = nullptr;
+        int32_t size = [keyList size];
+        for (int32_t index = 0; index < size; index++) {
+            key = ((Input*) keyList->objectArray[index]);
+            [stringBuffer append:[key getName]];
+            if (index + 1 < [keyList size]) {
+                if ([keyList size] == 2) {
+                    [[stringBuffer append:commonSeps->SPACE] append:AND];
+                } else {
+                    if (index + 2 == [keyList size]) {
+                        [stringBuffer append:commonSeps->COMMA_SEP];
+                        [stringBuffer append:AND];
+                    } else {
+                        [stringBuffer append:commonSeps->COMMA_SEP];
+                    }
+                }
+            }
+        }
+        return [stringBuffer toString];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_PAINT_HELP_BASICINPUTMAPPINGHELPPAINTABLE_CPP

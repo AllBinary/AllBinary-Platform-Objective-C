@@ -1,77 +1,29 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/ai/NullAI.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_AI_NULLAI_CPP
-        #define ORG_ALLBINARY_GAME_AG_AI_NULLAI_CPP
+void NullAI_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/ai/NullAI.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/ai/ArtificialIntelligence.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
+@implementation NullAI
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-NullAI::NullAI(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto NullAI::processAI(AllBinaryLayerManager* allBinaryLayerManager) -> void{
+// throws Exception
+- (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_AG_AI_NULLAI_CPP

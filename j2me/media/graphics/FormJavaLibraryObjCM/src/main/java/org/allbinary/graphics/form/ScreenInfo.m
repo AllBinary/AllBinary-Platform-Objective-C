@@ -1,64 +1,37 @@
-
-        /* Generated Code Do Not Modify */
-        
-
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/ScreenInfo.h"
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_SCREENINFO_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_SCREENINFO_CPP
+static ScreenInfo* ScreenInfo_instance;
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/ScreenInfo.h"
-        
+void ScreenInfo_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ScreenInfo_instance = [((ScreenInfo*) [ScreenInfo alloc]) init];
+}
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+@implementation ScreenInfo
 
-        
-            #include "java/lang/Object.h"
-        
+- (void) initFields {
+    self->SMALL_WIDTH = 320;
+    self->SMALL_HEIGHT = 240;
+    self->MEDIUM_WIDTH = 800;
+    self->MEDIUM_HEIGHT = 600;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ScreenInfo::ScreenInfo() {
-        }
-        auto ScreenInfo::instance_owner() -> ScreenInfo* { static std::unique_ptr<ScreenInfo> value(new ScreenInfo()); return value.get(); }
-ScreenInfo* ScreenInfo::instance = ScreenInfo::instance_owner();
-
-    auto ScreenInfo::getInstance() -> ScreenInfo*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ScreenInfo::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (ScreenInfo*) getInstance {
+        return (ScreenInfo_staticInit(), ScreenInfo_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_SCREENINFO_CPP

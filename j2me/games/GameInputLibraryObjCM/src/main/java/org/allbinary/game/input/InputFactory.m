@@ -1,163 +1,71 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/InputFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/game/input/Input.h"
 
 
+static id InputFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_INPUTFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_INPUTFACTORY_CPP
+void InputFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    InputFactory_instance = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/InputFactory.h"
-        
+@implementation InputFactory
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/Input.h"
-
-Object* InputFactory::instance = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto InputFactory::getInstance() -> InputFactory*{
-
-                        if(InputFactory::instance == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    InputFactory::instance= new InputFactory();
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<InputFactory*>(InputFactory::instance);
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+    self->KEY_CODE_LABEL = "KeyCode: ";
+    self->DEVICE_ID_LABEL = "DeviceId: ";
+    self->MAX = [[SmallIntegerSingletonFactory getInstance] getMin];
+    self->inputIntegerArray = ((Input**) java_array_new(sizeof(Input*), self->MAX));
+    self->NO_INPUT = [((Input*) [Input alloc]) init:0 :self->commonStrings->UNKNOWN];
 }
 
 
-InputFactory::InputFactory() : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), MAX(SmallIntegerSingletonFactory::getInstance()->getMin()), inputIntegerArray(std::vector<Input*>(this->MAX)), NO_INPUT(new Input(0, this->commonStrings->UNKNOWN)){
-
-    int32_t size = this->inputIntegerArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-this->inputIntegerArray[index]= this->NO_INPUT;
-    
-}
-
++ (InputFactory*) getInstance {
+        if ((InputFactory_staticInit(), InputFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
+            InputFactory_instance = [((InputFactory*) [InputFactory alloc]) init];
+        }
+        return ((InputFactory*) (InputFactory_staticInit(), InputFactory_instance));
 }
 
 
-    auto InputFactory::add(int32_t id, Input* input) -> void{
-this->inputIntegerArray[id]= input;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        int32_t size = java_array_length(self->inputIntegerArray);
+        for (int32_t index = 0; index < size; index++) {
+            self->inputIntegerArray[index] = self->NO_INPUT;
+        }
+    return self;
 }
 
 
-    auto InputFactory::getInstanceById(int32_t id) -> Input*{
-
-                        if(id < 0)
-                        
-                                    {
-                                    id=  -id;
-    
-
-                                    }
-                                
-
-                        if(id > this->inputIntegerArray.size())
-                        
-                                    {
-                                    this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("Warning id: ")->appendint(id)), this, this->commonStrings->GET_INSTANCE);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->NO_INPUT;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->inputIntegerArray[id];
-    
+- (void) add:(int32_t)id_ :(Input*)input {
+        self->inputIntegerArray[id_] = input;
 }
 
 
+- (Input*) getInstanceById:(int32_t)id_ {
+        if (id_ < 0) {
+            id_ = -id_;
+        }
+        if (id_ > java_array_length(self->inputIntegerArray)) {
+            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Warning id: "] appendint:id_] toString] :self :self->commonStrings->GET_INSTANCE];
+            return self->NO_INPUT;
+        }
+        return self->inputIntegerArray[id_];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_INPUTFACTORY_CPP

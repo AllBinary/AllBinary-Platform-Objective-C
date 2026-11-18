@@ -1,554 +1,209 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/identification/GroupLayerManagerListener.h"
+#include "org/allbinary/game/identification/Group.h"
+#include "org/allbinary/game/identification/GroupInterfaceCompositeInterface.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/layer/event/LayerManagerEvent.h"
+#include "org/allbinary/layer/event/LayerManagerEventHandler.h"
+#include "org/allbinary/logic/communication/log/ForcedLogUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#include "org/allbinary/string/CommonLabels.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_IDENTIFICATION_GROUPLAYERMANAGERLISTENER_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_IDENTIFICATION_GROUPLAYERMANAGERLISTENER_CPP
+static GroupLayerManagerListener* GroupLayerManagerListener_SINGLETON;
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/identification/GroupLayerManagerListener.h"
-        
+void GroupLayerManagerListener_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GroupLayerManagerListener_SINGLETON = [((GroupLayerManagerListener*) [GroupLayerManagerListener alloc]) init];
+}
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+@implementation GroupLayerManagerListener
 
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/identification/Group.h>
-
-      
-#include <org/allbinary/game/identification/GroupInterfaceCompositeInterface.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/event/LayerManagerEvent.h>
-
-      
-#include <org/allbinary/layer/event/LayerManagerEventHandler.h>
-
-      
-#include <org/allbinary/layer/event/LayerManagerEventListener.h>
-
-      
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto GroupLayerManagerListener::SINGLETON_owner() -> GroupLayerManagerListener* { static std::unique_ptr<GroupLayerManagerListener> value(new GroupLayerManagerListener()); return value.get(); }
-GroupLayerManagerListener* GroupLayerManagerListener::SINGLETON = GroupLayerManagerListener::SINGLETON_owner();
-
-    auto GroupLayerManagerListener::getInstance() -> GroupLayerManagerListener*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GroupLayerManagerListener::SINGLETON;
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-GroupLayerManagerListener::GroupLayerManagerListener() : logUtil(LogUtil::getInstance()), list(new BasicArrayListD()){
-LayerManagerEventHandler::getInstance()->addListener(this);
-    
++ (GroupLayerManagerListener*) getInstance {
+        return (GroupLayerManagerListener_staticInit(), GroupLayerManagerListener_SINGLETON);
 }
 
 
-    auto GroupLayerManagerListener::clear() -> void{
-
-    BasicArrayList* groupList;;
-    
-
-    int32_t size = this->list->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = size -1;index >= 0; index--)
-        {
-groupList= dynamic_cast<BasicArrayList*>(this->list->objectArray[index]);
-    
-groupList->clear();
-    
-}
-
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        [[LayerManagerEventHandler getInstance] addListener:self];
+    return self;
 }
 
 
-    auto GroupLayerManagerListener::getGroupSizeFromInterface(GroupInterfaceCompositeInterface* groupInterfaceCompositeInterface) -> int32_t{
-
-    std::vector<Group*> groupInterfaceArray = groupInterfaceCompositeInterface->getGroupInterface();;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getGroupSize(groupInterfaceArray[0]);;
-    
+- (void) clear {
+        BasicArrayList* groupList = nullptr;
+        int32_t size = [self->list size];
+        for (int32_t index = size - 1; index >= 0; index--) {
+            groupList = ((BasicArrayList*) self->list->objectArray[index]);
+            [groupList clear];
+        }
 }
 
 
-    auto GroupLayerManagerListener::getGroupSize(Group* groupInterface) -> int32_t{
-
-    int32_t id = static_cast<int32_t>(groupInterface->getGroupId());;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getGroupSizeById(id);;
-    
+- (int32_t) getGroupSizeFromInterface:(GroupInterfaceCompositeInterface*)groupInterfaceCompositeInterface {
+        Group** groupInterfaceArray = [groupInterfaceCompositeInterface getGroupInterface];
+        return [self getGroupSize:groupInterfaceArray[0]];
 }
 
 
-    auto GroupLayerManagerListener::getList(Group* groupInterface) -> BasicArrayList*{
-
-    int32_t id = static_cast<int32_t>(groupInterface->getGroupId());;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getListById(id);;
-    
+- (int32_t) getGroupSize:(Group*)groupInterface {
+        int32_t id_ = ((int32_t) [groupInterface getGroupId]);
+        return [self getGroupSizeById:id_];
 }
 
 
-    auto GroupLayerManagerListener::getListById(int32_t groupId) -> BasicArrayList*{
-
-    BasicArrayList* groupList = dynamic_cast<BasicArrayList*>(this->list->objectArray[groupId]);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return groupList;
-    
+- (BasicArrayList*) getList:(Group*)groupInterface {
+        int32_t id_ = ((int32_t) [groupInterface getGroupId]);
+        return [self getListById:id_];
 }
 
 
-    auto GroupLayerManagerListener::getGroupSizeById(int32_t groupId) -> int32_t{
-
-    BasicArrayList* groupList = dynamic_cast<BasicArrayList*>(this->list->objectArray[groupId]);;
-    
-
-    int32_t size = groupList->size();;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return size;
-    
+- (BasicArrayList*) getListById:(int32_t)groupId {
+        BasicArrayList* groupList = ((BasicArrayList*) self->list->objectArray[groupId]);
+        return groupList;
 }
 
 
-    auto GroupLayerManagerListener::areAllOtherGroupsEmpty(Group* groupInterface) -> bool{
-
-    int32_t id = static_cast<int32_t>(groupInterface->getGroupId());;
-    
-
-    int32_t size = this->list->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = size -1;index >= 0; index--)
-        {
-
-                        if(id != index)
-                        
-                                    {
-                                    
-    int32_t groupSize = this->getGroupSizeById(index);;
-    
-
-                        if(groupSize != 0)
-                        
-                                    {
-                                    this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("Group Size: ")->appendint(groupSize)), this, "areAllOtherGroupsEmpty");
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                                    }
-                                
-
-                                    }
-                                
+- (int32_t) getGroupSizeById:(int32_t)groupId {
+        BasicArrayList* groupList = ((BasicArrayList*) self->list->objectArray[groupId]);
+        int32_t size = [groupList size];
+        return size;
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
+- (bool) areAllOtherGroupsEmpty:(Group*)groupInterface {
+        int32_t id_ = ((int32_t) [groupInterface getGroupId]);
+        int32_t size = [self->list size];
+        for (int32_t index = size - 1; index >= 0; index--) {
+            if (id_ != index) {
+                int32_t groupSize = [self getGroupSizeById:index];
+                if (groupSize != 0) {
+                    [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Group Size: "] appendint:groupSize] toString] :self :"areAllOtherGroupsEmpty"];
+                    return false;
+                }
+            }
+        }
+        return true;
 }
 
 
-    auto GroupLayerManagerListener::isIdInList(int32_t id, BasicArrayList* excludeGroupList) -> bool{
-
-    int32_t size = excludeGroupList->size();;
-    
-
-    std::vector<Group*> groupInterfaceArray;;
-    
-
-    Group* groupInterface;;
-    
-
-    int32_t groupId= 0;;
-    
-
-
-
-
-                        for (
-    int32_t index = size -1;index >= 0; index--)
-        {
-groupInterfaceArray= JavaBoxes::unbox<std::vector<Group*>>(excludeGroupList->objectArray[index]);
-    
-
-    int32_t size2 = groupInterfaceArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index2 = 0;index2 < size2; index2++)
-        {
-groupInterface= groupInterfaceArray[index2];
-    
-groupId= static_cast<int32_t>(groupInterface->getGroupId());
-    
-
-                        if(groupId == id)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-}
-
+- (bool) isIdInList:(int32_t)id_ :(BasicArrayList*)excludeGroupList {
+        int32_t size = [excludeGroupList size];
+        Group** groupInterfaceArray = nullptr;
+        Group* groupInterface = nullptr;
+        int32_t groupId = 0;
+        for (int32_t index = size - 1; index >= 0; index--) {
+            groupInterfaceArray = ((Group**) excludeGroupList->objectArray[index]);
+            int32_t size2 = java_array_length(groupInterfaceArray);
+            for (int32_t index2 = 0; index2 < size2; index2++) {
+                groupInterface = groupInterfaceArray[index2];
+                groupId = ((int32_t) [groupInterface getGroupId]);
+                if (groupId == id_) {
+                    return true;
+                }
+            }
+        }
+        return false;
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) areAllOtherGroupsLessThan:(BasicArrayList*)excludeGroupList :(int32_t)maxSize {
+        int32_t size = [self->list size];
+        for (int32_t index = size - 1; index >= 0; index--) {
+            if (![self isIdInList:index :excludeGroupList]) {
+                int32_t groupSize = [self getGroupSizeById:index];
+                if (groupSize >= maxSize) {
+                    return false;
+                }
+            }
+        }
+        return true;
 }
 
 
-    auto GroupLayerManagerListener::areAllOtherGroupsLessThan(BasicArrayList* excludeGroupList, int32_t maxSize) -> bool{
-
-    int32_t size = this->list->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = size -1;index >= 0; index--)
-        {
-
-                        if(!this->isIdInList(index, excludeGroupList))
-                        
-                                    {
-                                    
-    int32_t groupSize = this->getGroupSizeById(index);;
-    
-
-                        if(groupSize >= maxSize)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                                    }
-                                
-
-                                    }
-                                
+- (void) init_:(int32_t)total {
+        while ([self->list size] <= total + 1) {
+            [self->list add:[((BasicArrayListD*) [BasicArrayListD alloc]) init]];
+        }
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
+- (void) onEvent:(AllBinaryEventObject*)eventObject {
+        [ForcedLogUtil log:[EventStrings getInstance]->PERFORMANCE_MESSAGE :self];
 }
 
 
-    auto GroupLayerManagerListener::init(int32_t total) -> void{
-
-        while(this->list->size() <= total +1)
-        {
-this->list->add(new BasicArrayListD());
-    
-}
-
-}
-
-
-    auto GroupLayerManagerListener::onEvent(AllBinaryEventObject* eventObject) -> void{
-ForcedLogUtil::log(EventStrings::getInstance()->PERFORMANCE_MESSAGE, this);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    auto GroupLayerManagerListener::onCreateLayerManagerEvent(LayerManagerEvent* layerManagerEvent) -> void{
-
-    AllBinaryLayer* layerInterface = layerManagerEvent->getLayerInterface();;
-    
-
-    std::vector<Group*> groupInterfaceArray = layerInterface->getGroupInterface();;
-    
-
-    int32_t size = groupInterfaceArray.size();;
-    
-
-    int32_t id= 0;;
-    
-
-    BasicArrayList* groupList;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-id= static_cast<int32_t>(groupInterfaceArray[index]->getGroupId());
-    
-groupList= dynamic_cast<BasicArrayList*>(this->list->objectArray[id]);
-    
-
-                        if(groupList == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    this->logUtil->putF(JavaString::valueOf((new StringMaker())->append("id: ")->appendint(id)), this, "onCreateLayerManagerEvent");
-    
-
-                                    }
-                                
-
-                        if(!groupList->contains(layerInterface))
-                        
-                                    {
-                                    groupList->add(layerInterface);
-    
-
-                                    }
-                                
-                        else {
-                            
-                        }
-                            
-}
-
+// throws Exception
+- (void) onCreateLayerManagerEvent:(LayerManagerEvent*)layerManagerEvent {
+        AllBinaryLayer* layerInterface = [layerManagerEvent getLayerInterface];
+        Group** groupInterfaceArray = [layerInterface getGroupInterface];
+        int32_t size = java_array_length(groupInterfaceArray);
+        int32_t id_ = 0;
+        BasicArrayList* groupList = nullptr;
+        for (int32_t index = 0; index < size; index++) {
+            id_ = ((int32_t) [groupInterfaceArray[index] getGroupId]);
+            groupList = ((BasicArrayList*) self->list->objectArray[id_]);
+            if (groupList == nil) {
+                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"id: "] appendint:id_] toString] :self :"onCreateLayerManagerEvent"];
+            }
+            if (![groupList contains:layerInterface]) {
+                [groupList add:layerInterface];
+            } else {
+            }
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GroupLayerManagerListener::onDeleteLayerManagerEvent(LayerManagerEvent* layerManagerEvent) -> void{
-
-    AllBinaryLayer* layerInterface = layerManagerEvent->getLayerInterface();;
-    
-
-    std::vector<Group*> groupInterfaceArray = layerInterface->getGroupInterface();;
-    
-
-    int32_t size = groupInterfaceArray.size();;
-    
-
-    int32_t id= 0;;
-    
-
-    BasicArrayList* groupList;;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-id= static_cast<int32_t>(groupInterfaceArray[index]->getGroupId());
-    
-groupList= dynamic_cast<BasicArrayList*>(this->list->objectArray[id]);
-    
-groupList->remove(layerInterface);
-    
-}
-
+// throws Exception
+- (void) onDeleteLayerManagerEvent:(LayerManagerEvent*)layerManagerEvent {
+        AllBinaryLayer* layerInterface = [layerManagerEvent getLayerInterface];
+        Group** groupInterfaceArray = [layerInterface getGroupInterface];
+        int32_t size = java_array_length(groupInterfaceArray);
+        int32_t id_ = 0;
+        BasicArrayList* groupList = nullptr;
+        for (int32_t index = 0; index < size; index++) {
+            id_ = ((int32_t) [groupInterfaceArray[index] getGroupId]);
+            groupList = ((BasicArrayList*) self->list->objectArray[id_]);
+            [groupList remove:layerInterface];
+        }
 }
 
 
-    auto GroupLayerManagerListener::log() -> void{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-
-    std::string GROUP = "Group: ";;
-    
-
-    std::string SPACE = CommonSeps::getInstance()->SPACE;;
-    
-
-    std::string TOTAL_LABEL = CommonLabels::getInstance()->TOTAL_LABEL;;
-    
-
-    int32_t size = this->list->size();;
-    
-
-
-
-
-                        for (
-    int32_t index = size -1;index >= 0; index--)
-        {
-
-    BasicArrayList* groupList = dynamic_cast<BasicArrayList*>(this->list->objectArray[index]);;
-    
-stringBuffer->append(GROUP);
-    
-stringBuffer->appendint(index);
-    
-stringBuffer->append(SPACE);
-    
-stringBuffer->append(TOTAL_LABEL);
-    
-stringBuffer->appendint(groupList->size());
-    
-stringBuffer->append(SPACE);
-    
+- (void) log {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        const char* GROUP = "Group: ";
+        const char* SPACE = [CommonSeps getInstance]->SPACE;
+        const char* TOTAL_LABEL = [CommonLabels getInstance]->TOTAL_LABEL;
+        int32_t size = [self->list size];
+        for (int32_t index = size - 1; index >= 0; index--) {
+            BasicArrayList* groupList = ((BasicArrayList*) self->list->objectArray[index]);
+            [stringBuffer append:GROUP];
+            [stringBuffer appendint:index];
+            [stringBuffer append:SPACE];
+            [stringBuffer append:TOTAL_LABEL];
+            [stringBuffer appendint:[groupList size]];
+            [stringBuffer append:SPACE];
+        }
+        [self->logUtil putF:[stringBuffer toString] :self :"log"];
 }
 
-this->logUtil->putF(JavaString::valueOf(stringBuffer), this, "log");
-    
-}
+@end
 
-
-
-
-        #endif //ORG_ALLBINARY_GAME_LAYER_IDENTIFICATION_GROUPLAYERMANAGERLISTENER_CPP

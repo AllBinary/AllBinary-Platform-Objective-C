@@ -1,306 +1,184 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_PCKEYFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_PCKEYFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/PCKeyFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/math/PositionStrings.h>
-
-      
-#include <org/allbinary/string/CommonPhoneStrings.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/ABKeyEventWrapper.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/PCKeyFactory.h"
+#include "org/allbinary/math/PositionStrings.h"
+#include "org/allbinary/string/CommonPhoneStrings.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/game/input/ABKeyEventWrapper.h"
 #include "org/allbinary/game/input/PCGameKey.h"
 #include "org/allbinary/game/input/Input.h"
 
 
-PCKeyFactory::PCKeyFactory() : keyEventWrapper(ABKeyEventWrapper::getInstance()), UNKNOWN(new PCGameKey(this->keyEventWrapper->VK_UNDEFINED, "UNKNOWN")), ENTER(new PCGameKey(5, "Enter")), _A(new PCGameKey(this->keyEventWrapper->VK_A, "A")), _B(new PCGameKey(this->keyEventWrapper->VK_B, "B")), _C(new PCGameKey(this->keyEventWrapper->VK_C, "C")), _D(new PCGameKey(this->keyEventWrapper->VK_D, "D")), _E(new PCGameKey(this->keyEventWrapper->VK_E, "E")), _F(new PCGameKey(this->keyEventWrapper->VK_F, "F")), _G(new PCGameKey(this->keyEventWrapper->VK_G, "G")), _H(new PCGameKey(this->keyEventWrapper->VK_H, "H")), _I(new PCGameKey(this->keyEventWrapper->VK_I, "I")), _J(new PCGameKey(this->keyEventWrapper->VK_J, "J")), _K(new PCGameKey(this->keyEventWrapper->VK_K, "K")), _L(new PCGameKey(this->keyEventWrapper->VK_L, "L")), _M(new PCGameKey(this->keyEventWrapper->VK_M, "M")), _N(new PCGameKey(this->keyEventWrapper->VK_N, "N")), _O(new PCGameKey(this->keyEventWrapper->VK_O, "O")), _P(new PCGameKey(this->keyEventWrapper->VK_P, "P")), _Q(new PCGameKey(this->keyEventWrapper->VK_Q, "Q")), _R(new PCGameKey(this->keyEventWrapper->VK_R, "R")), _S(new PCGameKey(this->keyEventWrapper->VK_S, "S")), _T(new PCGameKey(this->keyEventWrapper->VK_T, "T")), _U(new PCGameKey(this->keyEventWrapper->VK_U, "U")), _V(new PCGameKey(this->keyEventWrapper->VK_V, "V")), _W(new PCGameKey(this->keyEventWrapper->VK_W, "W")), _X(new PCGameKey(this->keyEventWrapper->VK_X, "X")), _Y(new PCGameKey(this->keyEventWrapper->VK_Y, "Y")), _Z(new PCGameKey(this->keyEventWrapper->VK_Z, "Z")), a(new PCGameKey(97, "a")), b(new PCGameKey(98, "b")), c(new PCGameKey(99, "c")), d(new PCGameKey(100, "d")), e(new PCGameKey(101, "e")), f(new PCGameKey(102, "f")), g(new PCGameKey(103, "g")), h(new PCGameKey(104, "h")), i(new PCGameKey(105, "i")), j(new PCGameKey(106, "j")), k(new PCGameKey(107, "k")), l(new PCGameKey(108, "l")), m(new PCGameKey(109, "m")), n(new PCGameKey(110, "n")), o(new PCGameKey(111, "o")), p(new PCGameKey(112, "p")), q(new PCGameKey(113, "q")), r(new PCGameKey(114, "r")), s(new PCGameKey(115, "s")), t(new PCGameKey(116, "t")), u(new PCGameKey(117, "u")), v(new PCGameKey(118, "v")), w(new PCGameKey(119, "w")), x(new PCGameKey(120, PositionStrings::getInstance()->X)), y(new PCGameKey(121, PositionStrings::getInstance()->Y)), z(new PCGameKey(122, "z")), ZERO(new PCGameKey(this->keyEventWrapper->VK_0, CommonPhoneStrings::getInstance()->ZERO)), ONE(new PCGameKey(this->keyEventWrapper->VK_1, CommonPhoneStrings::getInstance()->ONE)), TWO(new PCGameKey(this->keyEventWrapper->VK_2, CommonPhoneStrings::getInstance()->TWO)), THREE(new PCGameKey(this->keyEventWrapper->VK_3, CommonPhoneStrings::getInstance()->THREE)), FOUR(new PCGameKey(this->keyEventWrapper->VK_4, CommonPhoneStrings::getInstance()->FOUR)), FIVE(new PCGameKey(this->keyEventWrapper->VK_5, CommonPhoneStrings::getInstance()->FIVE)), SIX(new PCGameKey(this->keyEventWrapper->VK_6, CommonPhoneStrings::getInstance()->SIX)), SEVEN(new PCGameKey(this->keyEventWrapper->VK_7, CommonPhoneStrings::getInstance()->SEVEN)), EIGHT(new PCGameKey(this->keyEventWrapper->VK_8, CommonPhoneStrings::getInstance()->EIGHT)), NINE(new PCGameKey(this->keyEventWrapper->VK_9, CommonPhoneStrings::getInstance()->NINE)), DPAD_UP(new PCGameKey(this->keyEventWrapper->VK_UP, CommonPhoneStrings::getInstance()->UP)), DPAD_DOWN(new PCGameKey(this->keyEventWrapper->VK_DOWN, CommonPhoneStrings::getInstance()->DOWN)), DPAD_LEFT(new PCGameKey(this->keyEventWrapper->VK_LEFT, CommonPhoneStrings::getInstance()->LEFT)), DPAD_RIGHT(new PCGameKey(this->keyEventWrapper->VK_RIGHT, CommonPhoneStrings::getInstance()->RIGHT)), DPAD_UP2(this->DPAD_UP), DPAD_DOWN2(this->DPAD_DOWN), DPAD_LEFT2(this->DPAD_LEFT), DPAD_RIGHT2(this->DPAD_RIGHT), COMMA(new PCGameKey(this->keyEventWrapper->VK_COMMA, "COMMA")), SPACE(new PCGameKey(this->keyEventWrapper->VK_SPACE, "SPACE")), DEL(new PCGameKey(this->keyEventWrapper->VK_DELETE, "DEL")), STAR(new PCGameKey(42, CommonPhoneStrings::getInstance()->STAR)), QUESTION(new PCGameKey(47, "?")), PERIOD(new PCGameKey(this->keyEventWrapper->VK_PERIOD, CommonSeps::getInstance()->PERIOD)), ESCAPE(new PCGameKey(this->keyEventWrapper->VK_ESCAPE, "Esc")), BACK_SPACE(new PCGameKey(this->keyEventWrapper->VK_BACK_SPACE, "Backspace")) {
+static PCKeyFactory* PCKeyFactory_SINGLETON;
+
+void PCKeyFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PCKeyFactory_SINGLETON = [((PCKeyFactory*) [PCKeyFactory alloc]) init];
+}
+
+@implementation PCKeyFactory
+
+- (void) initFields {
+    self->keyEventWrapper = [ABKeyEventWrapper getInstance];
+    self->UNKNOWN = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_UNDEFINED :"UNKNOWN"];
+    self->ENTER = [((PCGameKey*) [PCGameKey alloc]) init:5 :"Enter"];
+    self->_A_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_A :"A"];
+    self->_B_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_B :"B"];
+    self->_C_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_C :"C"];
+    self->_D_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_D :"D"];
+    self->_E_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_E :"E"];
+    self->_F_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_F :"F"];
+    self->_G_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_G :"G"];
+    self->_H_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_H :"H"];
+    self->_I_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_I :"I"];
+    self->_J_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_J :"J"];
+    self->_K_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_K :"K"];
+    self->_L_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_L :"L"];
+    self->_M_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_M :"M"];
+    self->_N_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_N :"N"];
+    self->_O_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_O :"O"];
+    self->_P_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_P :"P"];
+    self->_Q_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_Q :"Q"];
+    self->_R_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_R :"R"];
+    self->_S_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_S :"S"];
+    self->_T_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_T :"T"];
+    self->_U_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_U :"U"];
+    self->_V_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_V :"V"];
+    self->_W_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_W :"W"];
+    self->_X_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_X :"X"];
+    self->_Y_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_Y :"Y"];
+    self->_Z_ = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_Z :"Z"];
+    self->a = [((PCGameKey*) [PCGameKey alloc]) init:97 :"a"];
+    self->b = [((PCGameKey*) [PCGameKey alloc]) init:98 :"b"];
+    self->c = [((PCGameKey*) [PCGameKey alloc]) init:99 :"c"];
+    self->d = [((PCGameKey*) [PCGameKey alloc]) init:100 :"d"];
+    self->e = [((PCGameKey*) [PCGameKey alloc]) init:101 :"e"];
+    self->f = [((PCGameKey*) [PCGameKey alloc]) init:102 :"f"];
+    self->g = [((PCGameKey*) [PCGameKey alloc]) init:103 :"g"];
+    self->h = [((PCGameKey*) [PCGameKey alloc]) init:104 :"h"];
+    self->i = [((PCGameKey*) [PCGameKey alloc]) init:105 :"i"];
+    self->j = [((PCGameKey*) [PCGameKey alloc]) init:106 :"j"];
+    self->k = [((PCGameKey*) [PCGameKey alloc]) init:107 :"k"];
+    self->l = [((PCGameKey*) [PCGameKey alloc]) init:108 :"l"];
+    self->m = [((PCGameKey*) [PCGameKey alloc]) init:109 :"m"];
+    self->n = [((PCGameKey*) [PCGameKey alloc]) init:110 :"n"];
+    self->o = [((PCGameKey*) [PCGameKey alloc]) init:111 :"o"];
+    self->p = [((PCGameKey*) [PCGameKey alloc]) init:112 :"p"];
+    self->q = [((PCGameKey*) [PCGameKey alloc]) init:113 :"q"];
+    self->r = [((PCGameKey*) [PCGameKey alloc]) init:114 :"r"];
+    self->s = [((PCGameKey*) [PCGameKey alloc]) init:115 :"s"];
+    self->t = [((PCGameKey*) [PCGameKey alloc]) init:116 :"t"];
+    self->u = [((PCGameKey*) [PCGameKey alloc]) init:117 :"u"];
+    self->v = [((PCGameKey*) [PCGameKey alloc]) init:118 :"v"];
+    self->w = [((PCGameKey*) [PCGameKey alloc]) init:119 :"w"];
+    self->x = [((PCGameKey*) [PCGameKey alloc]) init:120 :[PositionStrings getInstance]->X];
+    self->y = [((PCGameKey*) [PCGameKey alloc]) init:121 :[PositionStrings getInstance]->Y];
+    self->z = [((PCGameKey*) [PCGameKey alloc]) init:122 :"z"];
+    self->ZERO = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_0 :[CommonPhoneStrings getInstance]->ZERO];
+    self->ONE = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_1 :[CommonPhoneStrings getInstance]->ONE];
+    self->TWO = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_2 :[CommonPhoneStrings getInstance]->TWO];
+    self->THREE = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_3 :[CommonPhoneStrings getInstance]->THREE];
+    self->FOUR = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_4 :[CommonPhoneStrings getInstance]->FOUR];
+    self->FIVE = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_5 :[CommonPhoneStrings getInstance]->FIVE];
+    self->SIX = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_6 :[CommonPhoneStrings getInstance]->SIX];
+    self->SEVEN = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_7 :[CommonPhoneStrings getInstance]->SEVEN];
+    self->EIGHT = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_8 :[CommonPhoneStrings getInstance]->EIGHT];
+    self->NINE = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_9 :[CommonPhoneStrings getInstance]->NINE];
+    self->DPAD_UP = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_UP :[CommonPhoneStrings getInstance]->UP];
+    self->DPAD_DOWN = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_DOWN :[CommonPhoneStrings getInstance]->DOWN];
+    self->DPAD_LEFT = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_LEFT :[CommonPhoneStrings getInstance]->LEFT];
+    self->DPAD_RIGHT = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_RIGHT :[CommonPhoneStrings getInstance]->RIGHT];
+    self->DPAD_UP2 = self->DPAD_UP;
+    self->DPAD_DOWN2 = self->DPAD_DOWN;
+    self->DPAD_LEFT2 = self->DPAD_LEFT;
+    self->DPAD_RIGHT2 = self->DPAD_RIGHT;
+    self->COMMA = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_COMMA :"COMMA"];
+    self->SPACE = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_SPACE :"SPACE"];
+    self->DEL = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_DELETE :"DEL"];
+    self->STAR = [((PCGameKey*) [PCGameKey alloc]) init:42 :[CommonPhoneStrings getInstance]->STAR];
+    self->QUESTION = [((PCGameKey*) [PCGameKey alloc]) init:47 :"?"];
+    self->PERIOD = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_PERIOD :[CommonSeps getInstance]->PERIOD];
+    self->ESCAPE = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_ESCAPE :"Esc"];
+    self->BACK_SPACE = [((PCGameKey*) [PCGameKey alloc]) init:self->keyEventWrapper->VK_BACK_SPACE :"Backspace"];
+}
+
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
+
+
++ (PCKeyFactory*) getInstance {
+        return (PCKeyFactory_staticInit(), PCKeyFactory_SINGLETON);
+}
+
+
+- (bool) isSubmission:(Input*)input {
+        if (input == self->ENTER) {
+            return true;
         }
-        auto PCKeyFactory::SINGLETON_owner() -> PCKeyFactory* { static std::unique_ptr<PCKeyFactory> value(new PCKeyFactory()); return value.get(); }
-PCKeyFactory* PCKeyFactory::SINGLETON = PCKeyFactory::SINGLETON_owner();
-
-    auto PCKeyFactory::getInstance() -> PCKeyFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PCKeyFactory::SINGLETON;
-    
+        return false;
 }
 
 
-    auto PCKeyFactory::isSubmission(Input* input) -> bool{
-
-                        if(input == this->ENTER)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isDelete:(Input*)input {
+        if (input == self->DEL) {
+            return true;
+        }
+        return false;
 }
 
 
-    auto PCKeyFactory::isDelete(Input* input) -> bool{
-
-                        if(input == this->DEL)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isBackSpace:(Input*)input {
+        if (input == self->BACK_SPACE) {
+            return true;
+        }
+        return false;
 }
 
 
-    auto PCKeyFactory::isBackSpace(Input* input) -> bool{
-
-                        if(input == this->BACK_SPACE)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isUp:(Input*)input {
+        if (input == self->DPAD_UP || input == self->DPAD_UP2) {
+            return true;
+        }
+        return false;
 }
 
 
-    auto PCKeyFactory::isUp(Input* input) -> bool{
-
-                        if(input == this->DPAD_UP || input == this->DPAD_UP2)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isDown:(Input*)input {
+        if (input == self->DPAD_DOWN || input == self->DPAD_DOWN2) {
+            return true;
+        }
+        return false;
 }
 
 
-    auto PCKeyFactory::isDown(Input* input) -> bool{
-
-                        if(input == this->DPAD_DOWN || input == this->DPAD_DOWN2)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isLeft:(Input*)input {
+        if (input == self->DPAD_LEFT || input == self->DPAD_LEFT2) {
+            return true;
+        }
+        return false;
 }
 
 
-    auto PCKeyFactory::isLeft(Input* input) -> bool{
-
-                        if(input == this->DPAD_LEFT || input == this->DPAD_LEFT2)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isRight:(Input*)input {
+        if (input == self->DPAD_RIGHT || input == self->DPAD_RIGHT2) {
+            return true;
+        }
+        return false;
 }
 
 
-    auto PCKeyFactory::isRight(Input* input) -> bool{
-
-                        if(input == this->DPAD_RIGHT || input == this->DPAD_RIGHT2)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isEnter:(Input*)input {
+        if (input == self->ENTER) {
+            return true;
+        }
+        return false;
 }
 
+@end
 
-    auto PCKeyFactory::isEnter(Input* input) -> bool{
-
-                        if(input == this->ENTER)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_PCKEYFACTORY_CPP

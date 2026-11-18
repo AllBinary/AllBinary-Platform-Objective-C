@@ -1,196 +1,95 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/ImageAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/DisposalUtil.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/graphics/Anchor.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEANIMATION_CPP
+void ImageAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/ImageAnimation.h"
-        
+@implementation ImageAnimation
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Throwable.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/DisposalUtil.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/animation/IndexedAnimation.h>
-
-      
-#include <org/allbinary/graphics/Anchor.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ImageAnimation::ImageAnimation(Image* image, AnimationBehavior* animationBehavior) : IndexedAnimation(animationBehavior), anchor(Anchor::TOP_LEFT){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->image= image;
+- (void) initFields {
     
+    self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageAnimation::getAnimationSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getSize();;
-    
+- (instancetype) init:(Image*)image :(AnimationBehavior*)animationBehavior {
+        self = [super init:animationBehavior];
+        [self initFields];
+        self->image = image;
+    return self;
 }
 
 
-    auto ImageAnimation::nextFrame() -> void{
+// throws Exception
+- (int32_t) getAnimationSize {
+        return [self getSize];
 }
 
 
-    auto ImageAnimation::previousFrame() -> void{
+- (void) nextFrame {
 }
 
 
-    auto ImageAnimation::setFrame(int32_t index) -> void{
+- (void) previousFrame {
 }
 
 
-    auto ImageAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (void) setFrame:(int32_t)index {
 }
 
 
-    auto ImageAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 1;
-    
+- (int32_t) getFrame {
+        return 0;
 }
 
 
-    auto ImageAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+- (int32_t) getSize {
+        return 1;
 }
 
 
-    auto ImageAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
-    auto ImageAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-graphics->drawImage(this->image, x, y, this->anchor);
-    
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
 }
 
 
-    auto ImageAnimation::getImage() -> Image*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->image;
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [graphics drawImage:self->image :x :y :self->anchor];
 }
 
 
-    auto ImageAnimation::close() -> void{
-DisposalUtil::getInstance()->disposeImage(this->image);
-    
+- (Image*) getImage {
+        return self->image;
 }
 
 
-                //@Throws(Throwable.constructor)
-            
-    auto ImageAnimation::finalize() -> void{
-DisposalUtil::getInstance()->disposeImage(this->image);
-    
+// throws Exception
+- (void) close {
+        [[DisposalUtil getInstance] disposeImage:self->image];
 }
 
 
+// throws Throwable
+- (void) finalize {
+        [[DisposalUtil getInstance] disposeImage:self->image];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEANIMATION_CPP

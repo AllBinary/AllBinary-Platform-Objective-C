@@ -1,164 +1,72 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/globals/Globals.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringValidationUtil.h"
+#include "org/allbinary/logic/system/loader/WebappClassLoaderInfo.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/globals/AppUrlGlobals.h"
 
 
+static Globals* Globals_instance;
 
-        #ifndef ORG_ALLBINARY_GLOBALS_GLOBALS_CPP
-        #define ORG_ALLBINARY_GLOBALS_GLOBALS_CPP
+void Globals_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    Globals_instance = [((Globals*) [Globals alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/globals/Globals.h"
-        
+@implementation Globals
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/ClassLoader.h"
-        
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringValidationUtil.h>
-
-      
-#include <org/allbinary/logic/system/loader/WebappClassLoaderInfo.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/globals/AppUrlGlobals.h"
-#include "org/allbinary/globals/URLGLOBALS.h"
-
-auto Globals::instance_owner() -> Globals* { static std::unique_ptr<Globals> value(new Globals()); return value.get(); }
-Globals* Globals::instance = Globals::instance_owner();
-
-    auto Globals::getInstance() -> Globals*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Globals::instance;
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
 }
 
 
-Globals::Globals() : logUtil(LogUtil::getInstance()){
++ (Globals*) getInstance {
+        return (Globals_staticInit(), Globals_instance);
 }
 
 
-    auto Globals::init(ClassLoader* classLoader, std::string pathString) -> void{
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-
-    AppUrlGlobals* appUrlGlobals = new AppUrlGlobals();;
-    
-appUrlGlobals->setWebappPath(pathString);
-    
-URLGLOBALS::init(appUrlGlobals);
-    
-WebappClassLoaderInfo::setLoader(classLoader);
-    
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("Setting Up AllBinary System Configuration Args: ");
-    
-stringBuffer->append(pathString);
-    
-stringBuffer->append(" ClassLoader: ");
-    
-stringBuffer->append(classLoader->getClass()->getName());
-    
-this->logUtil->putF(JavaString::valueOf(stringBuffer), this, commonStrings->INIT);
-    
-
-    StringValidationUtil* stringValidationUtil = StringValidationUtil::getInstance();;
-    
-
-                        if(stringValidationUtil->isEmpty(pathString))
-                        
-                                    {
-                                    stringBuffer->delete_(0, stringBuffer->length());
-    
-stringBuffer->append("No Path Provided. Using Process Path: ");
-    
-stringBuffer->append(pathString);
-    
-stringBuffer->append(CommonSeps::getInstance()->SPACE);
-    
-stringBuffer->append(CommonSeps::getInstance()->EQUALS);
-    
-stringBuffer->append(CommonSeps::getInstance()->SPACE);
-    
-stringBuffer->append(URLGLOBALS::getWebappPath());
-    
-this->logUtil->putF(JavaString::valueOf(stringBuffer), this, commonStrings->INIT);
-    
-
-                                    }
-                                
-stringBuffer->delete_(0, stringBuffer->length());
-    
-stringBuffer->append("Webapp Path Set To: ");
-    
-stringBuffer->append(URLGLOBALS::getWebappPath());
-    
-this->logUtil->putF(JavaString::valueOf(stringBuffer), this, commonStrings->INIT);
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
+- (void) init_:(ClassLoader*)classLoader :(const char*)pathString {
+        CommonStrings* commonStrings = [CommonStrings getInstance];
+        AppUrlGlobals* appUrlGlobals = [((AppUrlGlobals*) [AppUrlGlobals alloc]) init];
+        [appUrlGlobals setWebappPath:pathString];
+        [_URLGLOBALS init_:appUrlGlobals];
+        [WebappClassLoaderInfo setLoader:classLoader];
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:"Setting Up AllBinary System Configuration Args: "];
+        [stringBuffer append:pathString];
+        [stringBuffer append:" ClassLoader: "];
+        [stringBuffer append:java_objc_class_name(classLoader)];
+        [self->logUtil putF:[stringBuffer toString] :self :commonStrings->INIT];
+        StringValidationUtil* stringValidationUtil = [StringValidationUtil getInstance];
+        if ([stringValidationUtil isEmpty:pathString]) {
+            [stringBuffer delete:0 :[stringBuffer length]];
+            [stringBuffer append:"No Path Provided. Using Process Path: "];
+            [stringBuffer append:pathString];
+            [stringBuffer append:[CommonSeps getInstance]->SPACE];
+            [stringBuffer append:[CommonSeps getInstance]->EQUALS];
+            [stringBuffer append:[CommonSeps getInstance]->SPACE];
+            [stringBuffer append:[_URLGLOBALS getWebappPath]];
+            [self->logUtil putF:[stringBuffer toString] :self :commonStrings->INIT];
+        }
+        [stringBuffer delete:0 :[stringBuffer length]];
+        [stringBuffer append:"Webapp Path Set To: "];
+        [stringBuffer append:[_URLGLOBALS getWebappPath]];
+        [self->logUtil putF:[stringBuffer toString] :self :commonStrings->INIT];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GLOBALS_GLOBALS_CPP

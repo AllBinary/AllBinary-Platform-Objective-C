@@ -1,61 +1,31 @@
-
-        /*
-                *  
-                *  To change this license header, choose License Headers in Project Properties. 
-                *  To change this template file, choose Tools | Templates  and open the template in the editor.  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/TouchButtonResource.h"
 
 
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONRESOURCE_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONRESOURCE_CPP
+void TouchButtonResource_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/TouchButtonResource.h"
-        
+@implementation TouchButtonResource
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-TouchButtonResource::TouchButtonResource(std::string resource, std::string hint){
-this->RESOURCE= resource;
+- (void) initFields {
     
-this->HINT= hint;
     
 }
 
 
+- (instancetype) init:(const char*)resource :(const char*)hint {
+    self = [super init];
+    [self initFields];
+        self->RESOURCE = resource;
+        self->HINT = hint;
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONRESOURCE_CPP

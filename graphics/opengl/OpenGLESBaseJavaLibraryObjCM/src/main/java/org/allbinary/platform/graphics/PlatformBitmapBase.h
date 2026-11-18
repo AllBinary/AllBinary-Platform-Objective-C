@@ -1,109 +1,57 @@
+#ifndef ORG_ALLBINARY_PLATFORM_GRAPHICS_PLATFORMBITMAPBASE_H
+#define ORG_ALLBINARY_PLATFORM_GRAPHICS_PLATFORMBITMAPBASE_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.platform.graphics
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_PLATFORM_GRAPHICS_PLATFORMBITMAPBASE_H
-        #define ORG_ALLBINARY_PLATFORM_GRAPHICS_PLATFORMBITMAPBASE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class Image;
-class NullImage;
-class BasicColor;
-class BasicColorFactory;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class PlatformBitmapBase
-            : public virtual Object
-         {
-
-    private: static PlatformBitmapBase* NULL_PLATFORM_BITMAP_BASE_owner();
-    public: static PlatformBitmapBase* NULL_PLATFORM_BITMAP_BASE;
-
-
-            
-    public: PlatformBitmapBase();
-        
-    public: int32_t alpha = 255;
-
-    public: BasicColor* basicColor;
-
-    public: int32_t getWidth();
-
-    public: int32_t getHeight();
-
-    public: Image* getImage();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_PLATFORM_GRAPHICS_PLATFORMBITMAPBASE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_PLATFORM_GRAPHICS_PLATFORMBITMAPBASE_H_COMPLETE)
-        #define ORG_ALLBINARY_PLATFORM_GRAPHICS_PLATFORMBITMAPBASE_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Image.h>)
-#include <javax/microedition/lcdui/Image.h>
-#endif
-#if __has_include(<javax/microedition/lcdui/NullImage.h>)
-#include <javax/microedition/lcdui/NullImage.h>
-#endif
-#if __has_include(<org/allbinary/graphics/color/BasicColor.h>)
-#include <org/allbinary/graphics/color/BasicColor.h>
-#endif
-#if __has_include(<org/allbinary/graphics/color/BasicColorFactory.h>)
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class PlatformBitmapBase;
+@class Image;
+@class NullImage;
+@class BasicColor;
+@class BasicColorFactory;
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
 #endif
 
-        #endif
-    
+@interface PlatformBitmapBase : ABObject {
+@public
+    int32_t alpha;
+    BasicColor* basicColor;
+}
+- (instancetype) init;
+- (void) initFields;
+- (int32_t) getWidth;
+- (int32_t) getHeight;
+- (Image*) getImage;
+@end
+
+extern PlatformBitmapBase* PlatformBitmapBase_NULL_PLATFORM_BITMAP_BASE;
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void PlatformBitmapBase_staticInit(void);
+
+#if __has_include("javax/microedition/lcdui/Image.h")
+#include "javax/microedition/lcdui/Image.h"
+#endif
+
+#endif // ORG_ALLBINARY_PLATFORM_GRAPHICS_PLATFORMBITMAPBASE_H

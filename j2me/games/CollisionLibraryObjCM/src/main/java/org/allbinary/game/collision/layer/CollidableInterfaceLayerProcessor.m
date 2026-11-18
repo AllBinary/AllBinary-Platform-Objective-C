@@ -1,137 +1,65 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_COLLISION_LAYER_COLLIDABLEINTERFACELAYERPROCESSOR_CPP
-        #define ORG_ALLBINARY_GAME_COLLISION_LAYER_COLLIDABLEINTERFACELAYERPROCESSOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/collision/layer/CollidableInterfaceLayerProcessor.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/collision/CollidableInterfaceCompositeInterface.h>
-
-      
-#include <org/allbinary/game/layer/CollidableCompositeLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/layer/LayerProcessor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/collision/layer/CollidableInterfaceLayerManager.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/collision/layer/CollidableInterfaceLayerProcessor.h"
+#include "org/allbinary/game/collision/CollidableInterfaceCompositeInterface.h"
+#include "org/allbinary/game/layer/CollidableCompositeLayer.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/game/collision/layer/CollidableInterfaceLayerManager.h"
 #include "org/allbinary/game/collision/layer/AllBinaryCollisionManager.h"
+#if __has_include("org/allbinary/game/collision/layer/CollidableBaseBehavior.h")
+#include "org/allbinary/game/collision/layer/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/collision/CollidableBaseBehavior.h")
+#include "org/allbinary/game/collision/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/layer/CollidableBaseBehavior.h")
+#include "org/allbinary/game/layer/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/layer/CollidableBaseBehavior.h")
+#include "org/allbinary/layer/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/layer/CollidableBaseBehavior.h")
+#include "org/allbinary/layer/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/layer/CollidableBaseBehavior.h")
+#include "org/allbinary/layer/CollidableBaseBehavior.h"
+#endif
 
 
-CollidableInterfaceLayerProcessor::CollidableInterfaceLayerProcessor() : LayerProcessor(new CollidableInterfaceLayerManager()){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void CollidableInterfaceLayerProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
+@implementation CollidableInterfaceLayerProcessor
+
+
+- (instancetype) init {
+        self = [super init:[((CollidableInterfaceLayerManager*) [CollidableInterfaceLayerManager alloc]) init]];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableInterfaceLayerProcessor::processAt(AllBinaryLayerManager* allBinaryLayerManager, AllBinaryLayer* layerInterface, int32_t index) -> void{
-
-    CollidableInterfaceCompositeInterface* collidableInterfaceCompositeInterface = dynamic_cast<CollidableInterfaceCompositeInterface*>(layerInterface);;
-    
-
-                        if(collidableInterfaceCompositeInterface->getCollidableInferface()->isCollidable(dynamic_cast<CollidableCompositeLayer*>(collidableInterfaceCompositeInterface)))
-                        
-                                    {
-                                    AllBinaryCollisionManager::getInstance()->process(this->getLayerManager(), collidableInterfaceCompositeInterface, index);
-    
-
-                                    }
-                                
+// throws Exception
+- (void) processAt:(AllBinaryLayerManager*)allBinaryLayerManager :(AllBinaryLayer*)layerInterface :(int32_t)index {
+        CollidableInterfaceCompositeInterface* collidableInterfaceCompositeInterface = ((CollidableInterfaceCompositeInterface*) layerInterface);
+        if ([[collidableInterfaceCompositeInterface getCollidableInferface] isCollidable:((CollidableCompositeLayer*) collidableInterfaceCompositeInterface)]) {
+            [[AllBinaryCollisionManager getInstance] process:[self getLayerManager] :collidableInterfaceCompositeInterface :index];
+        }
 }
 
 
-    auto CollidableInterfaceLayerProcessor::isProcessorLayer(AllBinaryLayer* layerInterface) -> bool{
-
-                        if(layerInterface->implmentsCollidableInterface())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+- (bool) isProcessorLayer:(AllBinaryLayer*)layerInterface {
+        if ([layerInterface implmentsCollidableInterface]) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_COLLISION_LAYER_COLLIDABLEINTERFACELAYERPROCESSOR_CPP

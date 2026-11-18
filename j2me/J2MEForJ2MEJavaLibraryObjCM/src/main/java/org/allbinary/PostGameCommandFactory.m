@@ -1,90 +1,36 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/PostGameCommandFactory.h"
+#include "org/allbinary/game/configuration/feature/MultiPlayerGameFeatureFactory.h"
+#include "org/allbinary/graphics/displayable/MyCanvas.h"
 
 
+static PostGameCommandFactory* PostGameCommandFactory_instance;
 
-        #ifndef ORG_ALLBINARY_POSTGAMECOMMANDFACTORY_CPP
-        #define ORG_ALLBINARY_POSTGAMECOMMANDFACTORY_CPP
+void PostGameCommandFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PostGameCommandFactory_instance = [((PostGameCommandFactory*) [PostGameCommandFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/PostGameCommandFactory.h"
-        
+@implementation PostGameCommandFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/configuration/feature/MultiPlayerGameFeatureFactory.h>
-
-      
-#include <org/allbinary/graphics/displayable/MyCanvas.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-PostGameCommandFactory::PostGameCommandFactory() {
-        }
-        auto PostGameCommandFactory::instance_owner() -> PostGameCommandFactory* { static std::unique_ptr<PostGameCommandFactory> value(new PostGameCommandFactory()); return value.get(); }
-PostGameCommandFactory* PostGameCommandFactory::instance = PostGameCommandFactory::instance_owner();
-
-    auto PostGameCommandFactory::getInstance() -> PostGameCommandFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PostGameCommandFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto PostGameCommandFactory::addCommands(MyCanvas* canvas) -> void{
-MultiPlayerGameFeatureFactory::getInstance()->addCommands(canvas);
-    
++ (PostGameCommandFactory*) getInstance {
+        return (PostGameCommandFactory_staticInit(), PostGameCommandFactory_instance);
 }
 
 
+- (void) addCommands:(MyCanvas*)canvas {
+        [[MultiPlayerGameFeatureFactory getInstance] addCommands:canvas];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_POSTGAMECOMMANDFACTORY_CPP

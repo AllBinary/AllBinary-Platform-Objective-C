@@ -1,106 +1,110 @@
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/weapon/TempExplosionWeaponLayer.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/game/combat/weapon/WeaponProperties.h"
+#include "org/allbinary/game/multiplayer/layer/RemoteInfo.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/physics/movement/Movement.h"
+#include "org/allbinary/time/GameTickTimeDelayHelperFactory.h"
+#include "org/allbinary/time/TimeDelayHelper.h"
+#include "org/allbinary/view/ViewPositionBase.h"
+#include "org/allbinary/game/layer/weapon/SimpleWeaponLayer.h"
+#if __has_include("org/allbinary/game/layer/weapon/GameTickTimeDelayHelper.h")
+#include "org/allbinary/game/layer/weapon/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/animation/GameTickTimeDelayHelper.h")
+#include "org/allbinary/animation/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/game/combat/weapon/GameTickTimeDelayHelper.h")
+#include "org/allbinary/game/combat/weapon/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/game/multiplayer/layer/GameTickTimeDelayHelper.h")
+#include "org/allbinary/game/multiplayer/layer/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/graphics/GameTickTimeDelayHelper.h")
+#include "org/allbinary/graphics/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/layer/GameTickTimeDelayHelper.h")
+#include "org/allbinary/layer/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/physics/movement/GameTickTimeDelayHelper.h")
+#include "org/allbinary/physics/movement/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/time/GameTickTimeDelayHelper.h")
+#include "org/allbinary/time/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/time/GameTickTimeDelayHelper.h")
+#include "org/allbinary/time/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/view/GameTickTimeDelayHelper.h")
+#include "org/allbinary/view/GameTickTimeDelayHelper.h"
+#endif
+#if __has_include("org/allbinary/game/layer/weapon/CollidableBaseBehavior.h")
+#include "org/allbinary/game/layer/weapon/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/animation/CollidableBaseBehavior.h")
+#include "org/allbinary/animation/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/combat/weapon/CollidableBaseBehavior.h")
+#include "org/allbinary/game/combat/weapon/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/game/multiplayer/layer/CollidableBaseBehavior.h")
+#include "org/allbinary/game/multiplayer/layer/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/graphics/CollidableBaseBehavior.h")
+#include "org/allbinary/graphics/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/layer/CollidableBaseBehavior.h")
+#include "org/allbinary/layer/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/physics/movement/CollidableBaseBehavior.h")
+#include "org/allbinary/physics/movement/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/time/CollidableBaseBehavior.h")
+#include "org/allbinary/time/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/time/CollidableBaseBehavior.h")
+#include "org/allbinary/time/CollidableBaseBehavior.h"
+#endif
+#if __has_include("org/allbinary/view/CollidableBaseBehavior.h")
+#include "org/allbinary/view/CollidableBaseBehavior.h"
+#endif
 
-        /* Generated Code Do Not Modify */
-        
 
 
+void TempExplosionWeaponLayer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef ORG_ALLBINARY_GAME_LAYER_WEAPON_TEMPEXPLOSIONWEAPONLAYER_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_WEAPON_TEMPEXPLOSIONWEAPONLAYER_CPP
+@implementation TempExplosionWeaponLayer
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/weapon/TempExplosionWeaponLayer.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/game/combat/weapon/WeaponProperties.h>
-
-      
-#include <org/allbinary/game/multiplayer/layer/RemoteInfo.h>
-
-      
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/physics/movement/Movement.h>
-
-      
-#include <org/allbinary/time/GameTickTimeDelayHelperFactory.h>
-
-      
-#include <org/allbinary/time/TimeDelayHelper.h>
-
-      
-#include <org/allbinary/view/ViewPositionBase.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/weapon/SimpleWeaponLayer.h"
-
-
-TempExplosionWeaponLayer::TempExplosionWeaponLayer(std::string name, Movement* movement, Animation* animationInterface, Rectangle* rectangle, ViewPositionBase* viewPosition, int32_t timeDelay) : SimpleWeaponLayer(name, RemoteInfo::REMOTE_INFO,  -1, movement, animationInterface, SimpleWeaponLayer::createDestroyed(), rectangle, viewPosition), weaponProperties(new WeaponProperties( -1,  -1, 0, 1000, 0)), timeDelayHelper(new TimeDelayHelper(0)){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->timeDelayHelper->delay= timeDelay;
-    
+- (void) initFields {
+    self->weaponProperties = [((WeaponProperties*) [WeaponProperties alloc]) init:-1LL :-1LL :0 :1000 :((int16_t) 0)];
+    self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto TempExplosionWeaponLayer::processTick(AllBinaryLayerManager* allBinaryLayerManager) -> void{
-
-                        if(this->timeDelayHelper->isTime(GameTickTimeDelayHelperFactory::getInstance()->startTime))
-                        
-                                    {
-                                    this->getCollidableInferface()->collide(this, this);
-    
-this->totalDamage= this->getInitDamage() +1;
-    
-
-                                    }
-                                
-SimpleWeaponLayer::processTick(allBinaryLayerManager);
-    
+- (instancetype) init:(const char*)name :(Movement*)movement :(Animation*)animationInterface :(Rectangle*)rectangle :(ViewPositionBase*)viewPosition :(int32_t)timeDelay {
+        self = [super init:name :(RemoteInfo_staticInit(), RemoteInfo_REMOTE_INFO) :-1 :movement :animationInterface :[SimpleWeaponLayer createDestroyed] :rectangle :viewPosition];
+        [self initFields];
+        self->timeDelayHelper->delay = timeDelay;
+    return self;
 }
 
 
+// throws Exception
+- (void) processTick:(AllBinaryLayerManager*)allBinaryLayerManager {
+        if ([self->timeDelayHelper isTime:[GameTickTimeDelayHelperFactory getInstance]->startTime]) {
+            [[self getCollidableInferface] collide:self :self];
+            self->totalDamage = [self getInitDamage] + 1;
+        }
+        [super processTick:allBinaryLayerManager];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_WEAPON_TEMPEXPLOSIONWEAPONLAYER_CPP

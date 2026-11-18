@@ -1,191 +1,94 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_COLLISION_COLLIDABLEBASEBEHAVIOR_CPP
-        #define ORG_ALLBINARY_GAME_COLLISION_COLLIDABLEBASEBEHAVIOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/collision/CollidableBaseBehavior.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/game/layer/CollidableCompositeLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/collision/CollidableInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/collision/CollidableBaseBehavior.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/game/layer/CollidableCompositeLayer.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonLabels.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/game/collision/CollidableInterface.h"
 #include "org/allbinary/game/collision/LayerCollisionUtil.h"
 #include "org/allbinary/game/collision/CollidableInterfaceCompositeInterface.h"
 #include "org/allbinary/game/collision/CollisionTypeFactory.h"
 #include "org/allbinary/game/collision/CollisionType.h"
 
 
-CollidableBaseBehavior::CollidableBaseBehavior(bool collidable) : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), layerCollisionUtil(LayerCollisionUtil::getInstance()){
-this->collidable= collidable;
-    
+
+void CollidableBaseBehavior_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation CollidableBaseBehavior
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+    self->layerCollisionUtil = [LayerCollisionUtil getInstance];
+    self->collidable = true;
 }
 
 
-    auto CollidableBaseBehavior::update() -> void{
+- (instancetype) init:(bool)collidable {
+    self = [super init];
+    [self initFields];
+        self->collidable = collidable;
+    return self;
 }
 
 
-    auto CollidableBaseBehavior::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getClass()->getName();;
-    
+- (void) update {
 }
 
 
-    auto CollidableBaseBehavior::setCollidable(bool collidable) -> void{
-this->collidable= collidable;
-    
+- (const char*) getName {
+        return java_objc_class_name(self);
 }
 
 
-    auto CollidableBaseBehavior::isCollidable(CollidableCompositeLayer* ownerLayer) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->collidable;
-    
+- (void) setCollidable:(bool)collidable {
+        self->collidable = collidable;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableBaseBehavior::collide(CollidableCompositeLayer* ownerLayer, CollidableCompositeLayer* allbinaryCollidableLayer) -> void{
-
-
-
-                            throw Exception(JavaString::valueOf((new StringMaker())->append(this->commonStrings->NOT_IMPLEMENTED)->append(CommonLabels::getInstance()->COLON_SEP)->append(this->getClass()->getName())));
-                    
+- (bool) isCollidable:(CollidableCompositeLayer*)ownerLayer {
+        return self->collidable;
 }
 
 
-    auto CollidableBaseBehavior::isCollision(CollidableCompositeLayer* ownerLayer, CollidableCompositeLayer* collisionLayer) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->layerCollisionUtil->isCollision(ownerLayer, collisionLayer);;
-    
+// throws Exception
+- (void) collide:(CollidableCompositeLayer*)ownerLayer :(CollidableCompositeLayer*)allbinaryCollidableLayer {
+        java_throw(java_exception_new("Exception", [[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->NOT_IMPLEMENTED] append:[CommonLabels getInstance]->COLON_SEP] append:java_objc_class_name(self)] toString]));
 }
 
 
-    auto CollidableBaseBehavior::isCollisionInterface(CollidableCompositeLayer* ownerLayer, CollidableInterfaceCompositeInterface* collidableInterfaceCompositeInterface) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->layerCollisionUtil->isCollision(ownerLayer, dynamic_cast<AllBinaryLayer*>(collidableInterfaceCompositeInterface));;
-    
+- (bool) isCollision:(CollidableCompositeLayer*)ownerLayer :(CollidableCompositeLayer*)collisionLayer {
+        return [self->layerCollisionUtil isCollision:ownerLayer :collisionLayer];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableBaseBehavior::collideInterface(CollidableCompositeLayer* ownerLayer, CollidableInterfaceCompositeInterface* collidableInterfaceCompositeInterface) -> void{
-
-
-
-                            throw Exception(this->commonStrings->NOT_IMPLEMENTED);
-                    
+- (bool) isCollisionInterface:(CollidableCompositeLayer*)ownerLayer :(CollidableInterfaceCompositeInterface*)collidableInterfaceCompositeInterface {
+        return [self->layerCollisionUtil isCollision:ownerLayer :((AllBinaryLayer*) collidableInterfaceCompositeInterface)];
 }
 
 
-    auto CollidableBaseBehavior::paint(CollidableCompositeLayer* ownerLayer, Graphics* graphics) -> void{
+// throws Exception
+- (void) collideInterface:(CollidableCompositeLayer*)ownerLayer :(CollidableInterfaceCompositeInterface*)collidableInterfaceCompositeInterface {
+        java_throw(java_exception_new("Exception", self->commonStrings->NOT_IMPLEMENTED));
 }
 
 
-    auto CollidableBaseBehavior::getCollisionTypeWith(AllBinaryLayer* layerInterface) -> CollisionType*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CollisionTypeFactory::getInstance()->NONE;
-    
+- (void) paint:(CollidableCompositeLayer*)ownerLayer :(Graphics*)graphics {
 }
 
 
+- (CollisionType*) getCollisionTypeWith:(AllBinaryLayer*)layerInterface {
+        return [CollisionTypeFactory getInstance]->NONE;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_COLLISION_COLLIDABLEBASEBEHAVIOR_CPP

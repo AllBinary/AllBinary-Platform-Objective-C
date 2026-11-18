@@ -1,106 +1,54 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *  
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/io/NullWriter.h"
 
 
+NullWriter* NullWriter_NULL_WRITER;
 
-        #ifndef ORG_ALLBINARY_LOGIC_IO_NULLWRITER_CPP
-        #define ORG_ALLBINARY_LOGIC_IO_NULLWRITER_CPP
+void NullWriter_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NullWriter_NULL_WRITER = [((NullWriter*) [NullWriter alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/io/NullWriter.h"
-        
+@implementation NullWriter
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <java/io/IOException.h>
-
-      
-#include <java/io/Writer.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-NullWriter::NullWriter() {
-        }
-        auto NullWriter::NULL_WRITER_owner() -> NullWriter* { static std::unique_ptr<NullWriter> value(new NullWriter()); return value.get(); }
-NullWriter* NullWriter::NULL_WRITER = NullWriter::NULL_WRITER_owner();
-
-                //@Throws(IOException.constructor)
-            
-    auto NullWriter::write(int32_t c) -> void{
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto NullWriter::write(std::vector<char> cbuf, int32_t off, int32_t len) -> void{
+// throws IOException
+- (void) write:(int32_t)c {
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto NullWriter::write(std::string str) -> void{
+// throws IOException
+- (void) write:(uint16_t*)cbuf :(int32_t)off :(int32_t)len {
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto NullWriter::write(std::string str, int32_t off, int32_t len) -> void{
+// throws IOException
+- (void) write_2:(const char*)str {
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto NullWriter::flush() -> void{
+// throws IOException
+- (void) write_2:(const char*)str :(int32_t)off :(int32_t)len {
 }
 
 
-    auto NullWriter::close() -> void{
+// throws IOException
+- (void) flush {
 }
 
 
+// throws IOException
+- (void) close {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_IO_NULLWRITER_CPP

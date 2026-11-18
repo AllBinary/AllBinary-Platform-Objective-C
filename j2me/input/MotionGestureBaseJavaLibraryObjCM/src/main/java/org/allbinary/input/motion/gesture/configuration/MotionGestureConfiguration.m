@@ -1,236 +1,127 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/gesture/configuration/MotionGestureConfiguration.h"
+#include "org/allbinary/game/input/CompleteMotionGestureInputEvent.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/input/motion/gesture/MotionGestureToMotionGestureActionAssociation.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
 
 
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_GESTURE_CONFIGURATION_MOTIONGESTURECONFIGURATION_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_GESTURE_CONFIGURATION_MOTIONGESTURECONFIGURATION_CPP
+void MotionGestureConfiguration_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/gesture/configuration/MotionGestureConfiguration.h"
-        
+@implementation MotionGestureConfiguration
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/input/CompleteMotionGestureInputEvent.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/input/motion/gesture/MotionGestureToMotionGestureActionAssociation.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-MotionGestureConfiguration::MotionGestureConfiguration() : button(StringUtil::getInstance()->EMPTY_STRING), color(BasicColorFactory::getInstance()->BLUE), activeCommands(new BasicArrayListD()){
+- (void) initFields {
+    self->diagonalMotionGestureAllowed = true;
+    self->diagonalTolerance = 7;
+    self->minimumMotionGesture = 9;
+    self->button = [StringUtil getInstance]->EMPTY_STRING;
+    self->color = [BasicColorFactory getInstance]->BLUE;
+    self->executingActions = true;
+    self->mouseButtonMask = 0;
+    self->activeCommands = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-    auto MotionGestureConfiguration::addMotionGestureAction(BasicArrayList* list, CompleteMotionGestureInputEvent* commandAction) -> void{
-this->activeCommands->add(new MotionGestureToMotionGestureActionAssociation(list, commandAction));
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto MotionGestureConfiguration::clearMotionGestureAction() -> void{
-this->activeCommands->clear();
-    
+- (void) addMotionGestureAction:(BasicArrayList*)list :(CompleteMotionGestureInputEvent*)commandAction {
+        [self->activeCommands add:[((MotionGestureToMotionGestureActionAssociation*) [MotionGestureToMotionGestureActionAssociation alloc]) init:list :commandAction]];
 }
 
 
-    auto MotionGestureConfiguration::getAssociateCommandActionsList() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->activeCommands;
-    
+- (void) clearMotionGestureAction {
+        [self->activeCommands clear];
 }
 
 
-    auto MotionGestureConfiguration::isDiagonalMotionGestureAllowed() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->diagonalMotionGestureAllowed;
-    
+- (BasicArrayList*) getAssociateCommandActionsList {
+        return self->activeCommands;
 }
 
 
-    auto MotionGestureConfiguration::isExecutingActionsAllowed() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->executingActions;
-    
+- (bool) isDiagonalMotionGestureAllowed {
+        return self->diagonalMotionGestureAllowed;
 }
 
 
-    auto MotionGestureConfiguration::setExecutingActionsAllowed(bool executingActionAllowed) -> void{
-this->executingActions= executingActionAllowed;
-    
+- (bool) isExecutingActionsAllowed {
+        return self->executingActions;
 }
 
 
-    auto MotionGestureConfiguration::setDiagonalMotionGestureAllowed(bool diagonalMotionGestureAllowed) -> void{
-this->diagonalMotionGestureAllowed= diagonalMotionGestureAllowed;
-    
+- (void) setExecutingActionsAllowed:(bool)executingActionAllowed {
+        self->executingActions = executingActionAllowed;
 }
 
 
-    auto MotionGestureConfiguration::getDiagonalTolerance() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->diagonalTolerance;
-    
+- (void) setDiagonalMotionGestureAllowed:(bool)diagonalMotionGestureAllowed {
+        self->diagonalMotionGestureAllowed = diagonalMotionGestureAllowed;
 }
 
 
-    auto MotionGestureConfiguration::setDiagonalTolerance(int32_t diagonalTolerance) -> void{
-this->diagonalTolerance= diagonalTolerance;
-    
+- (int32_t) getDiagonalTolerance {
+        return self->diagonalTolerance;
 }
 
 
-    auto MotionGestureConfiguration::getMinimumMotionGesture() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->minimumMotionGesture;
-    
+- (void) setDiagonalTolerance:(int32_t)diagonalTolerance {
+        self->diagonalTolerance = diagonalTolerance;
 }
 
 
-    auto MotionGestureConfiguration::setMinimumMotionGesture(int32_t minimumMotionGesture) -> void{
-this->minimumMotionGesture= minimumMotionGesture;
-    
+- (int32_t) getMinimumMotionGesture {
+        return self->minimumMotionGesture;
 }
 
 
-    auto MotionGestureConfiguration::getButton() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->button;
-    
+- (void) setMinimumMotionGesture:(int32_t)minimumMotionGesture {
+        self->minimumMotionGesture = minimumMotionGesture;
 }
 
 
-    auto MotionGestureConfiguration::setButton(std::string button) -> void{
-this->button= button;
-    
+- (const char*) getButton {
+        return self->button;
 }
 
 
-    auto MotionGestureConfiguration::getColor() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->color;
-    
+- (void) setButton:(const char*)button {
+        self->button = button;
 }
 
 
-    auto MotionGestureConfiguration::setColor(BasicColor* color) -> void{
-this->color= color;
-    
+- (BasicColor*) getColor {
+        return self->color;
 }
 
 
-    auto MotionGestureConfiguration::getMouseButtonMask() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->mouseButtonMask;
-    
+- (void) setColor:(BasicColor*)color {
+        self->color = color;
 }
 
 
-    auto MotionGestureConfiguration::setMouseButtonMask(int32_t mouseButtonMask) -> void{
-this->mouseButtonMask= mouseButtonMask;
-    
+- (int32_t) getMouseButtonMask {
+        return self->mouseButtonMask;
 }
 
 
+- (void) setMouseButtonMask:(int32_t)mouseButtonMask {
+        self->mouseButtonMask = mouseButtonMask;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_GESTURE_CONFIGURATION_MOTIONGESTURECONFIGURATION_CPP

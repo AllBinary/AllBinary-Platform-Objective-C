@@ -1,105 +1,52 @@
+#ifndef ORG_ALLBINARY_GAME_GAMESTRINGS_H
+#define ORG_ALLBINARY_GAME_GAMESTRINGS_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class GameStrings;
 
+@interface GameStrings : ABObject {
+@public
+    const char* PROCESS_TICK;
+    const char* ON_GAME_INITIALIZED;
+    const char* UPDATESURFACE;
+    const char* ON_SET_DISPLAYABLE;
+    const char* UNPAUSE;
+    const char* TOGGLE_MENU;
+    const char* SET_GAME_OVER;
+    const char* GAME_STATE;
+    const char* SET_GAME_STATE;
+    const char* STOP_GAME_CANVAS_RUNNABLE_INTERFACE;
+}
+- (instancetype) init;
+- (void) initFields;
++ (GameStrings*) getInstance;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_GAMESTRINGS_H
-        #define ORG_ALLBINARY_GAME_GAMESTRINGS_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class GameStrings
-            : public virtual Object
-         {
-
-    private: static GameStrings* instance_owner();
-    private: static GameStrings* instance;
-
-    public: static GameStrings* getInstance();
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void GameStrings_staticInit(void);
 
 
-            
-    public: GameStrings();
-        
-    public: const std::string PROCESS_TICK = "processTick";
-
-    public: const std::string ON_GAME_INITIALIZED = "onGameInitialized";
-
-    public: const std::string UPDATESURFACE = "updateSurface";
-
-    public: const std::string ON_SET_DISPLAYABLE = "onSetDisplayable";
-
-    public: const std::string UNPAUSE = "unPause";
-
-    public: const std::string TOGGLE_MENU = "toggleMenu";
-
-    public: const std::string SET_GAME_OVER = "setGameOver";
-
-    public: const std::string GAME_STATE = "Game State: ";
-
-    public: const std::string SET_GAME_STATE = "setGameState";
-
-    public: const std::string STOP_GAME_CANVAS_RUNNABLE_INTERFACE = "stopGameCanvasRunnableInterface";
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_GAMESTRINGS_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_GAMESTRINGS_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_GAMESTRINGS_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_GAMESTRINGS_H

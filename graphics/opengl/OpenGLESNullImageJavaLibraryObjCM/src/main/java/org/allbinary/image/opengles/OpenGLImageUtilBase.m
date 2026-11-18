@@ -1,118 +1,46 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/image/opengles/OpenGLImageUtilBase.h"
+#include "org/allbinary/graphics/OpenGLBitmap.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
 
 
 
-        #ifndef ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLIMAGEUTILBASE_CPP
-        #define ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLIMAGEUTILBASE_CPP
+void OpenGLImageUtilBase_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/image/opengles/OpenGLImageUtilBase.h"
-        
+@implementation OpenGLImageUtilBase
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-#include <java/io/IOException.h>
-
-      
-#include <java/io/InputStream.h>
-
-      
-#include <org/allbinary/graphics/OpenGLBitmap.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-OpenGLImageUtilBase::OpenGLImageUtilBase() {
-        }
-        
-    auto OpenGLImageUtilBase::paint(OpenGLBitmap* alphaBitmap, OpenGLBitmap* originalBitmap, int32_t index) -> OpenGLBitmap*{
-
-
-
-                            throw RuntimeException();
-                    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto OpenGLImageUtilBase::paint(OpenGLBitmap* colorBitmap, OpenGLBitmap* originalBitmap, int32_t alpha, BasicColor* basicColor) -> OpenGLBitmap*{
-
-
-
-                            throw RuntimeException();
-                    
+- (OpenGLBitmap*) paint:(OpenGLBitmap*)alphaBitmap :(OpenGLBitmap*)originalBitmap :(int32_t)index {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto OpenGLImageUtilBase::createImage(std::string name) -> OpenGLBitmap*{
-
-
-
-                            throw RuntimeException();
-                    
+- (OpenGLBitmap*) paint:(OpenGLBitmap*)colorBitmap :(OpenGLBitmap*)originalBitmap :(int32_t)alpha :(BasicColor*)basicColor {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-                //@Throws(IOException.constructor)
-            
-    auto OpenGLImageUtilBase::createImageFromInputStream(InputStream* inputStream) -> OpenGLBitmap*{
-
-
-
-                            throw RuntimeException();
-                    
+// throws IOException
+- (OpenGLBitmap*) createImage:(const char*)name {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
+// throws IOException
+- (OpenGLBitmap*) createImageFromInputStream:(InputStream*)inputStream {
+        java_throw(java_exception_new("RuntimeException", ""));
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLIMAGEUTILBASE_CPP

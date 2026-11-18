@@ -1,66 +1,27 @@
+#ifndef JAVA_LANG_DEPRECATED_H
+#define JAVA_LANG_DEPRECATED_H
+// Generated Code Do Not Modify
+// package java.lang
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class Deprecated;
 
+//J2SE to J2ME compatibility
+@interface Deprecated : ABObject {
+@public
+}
+- (instancetype) init;
+@end
 
-
-        #ifndef JAVA_LANG_DEPRECATED_H
-        #define JAVA_LANG_DEPRECATED_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void Deprecated_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        //J2SE to J2ME compatibility
-class Deprecated
-            : public virtual Object
-         {
-
-
-            
-    public: Deprecated();
-        
-};
-
-            
-
-
-        #endif //JAVA_LANG_DEPRECATED_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(JAVA_LANG_DEPRECATED_H_COMPLETE)
-        #define JAVA_LANG_DEPRECATED_H_COMPLETE
-        
-        #endif
-    
+#endif // JAVA_LANG_DEPRECATED_H

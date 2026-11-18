@@ -1,94 +1,49 @@
+#ifndef ORG_ALLBINARY_GAME_INPUT_INPUTPROCESSOR_H
+#define ORG_ALLBINARY_GAME_INPUT_INPUTPROCESSOR_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.input
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_INPUTPROCESSOR_H
-        #define ORG_ALLBINARY_GAME_INPUT_INPUTPROCESSOR_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class Canvas;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class GameInputStrings;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class InputProcessor
-            : public virtual Object
-         {
-
-
-            
-    public: InputProcessor();
-        
-    /*protected*/ public: GameInputStrings* gameInputStrings;
-
-    public: void keyPressedByDevice(int32_t keyCode, int32_t deviceId);
-
-    public: void keyReleasedByDevice(Canvas* canvas, int32_t keyCode, int32_t deviceId);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_INPUTPROCESSOR_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_INPUT_INPUTPROCESSOR_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_INPUT_INPUTPROCESSOR_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Canvas.h>)
-#include <javax/microedition/lcdui/Canvas.h>
-#endif
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class InputProcessor;
+@class Canvas;
+@class GameInputStrings;
 #if __has_include("org/allbinary/game/input/GameInputStrings.h")
 #include "org/allbinary/game/input/GameInputStrings.h"
 #endif
 
-        #endif
-    
+@interface InputProcessor : ABObject {
+@public
+    GameInputStrings* gameInputStrings;
+}
+- (instancetype) init;
+- (void) initFields;
+- (void) keyPressedByDevice:(int32_t)keyCode :(int32_t)deviceId;
+- (void) keyReleasedByDevice:(Canvas*)canvas :(int32_t)keyCode :(int32_t)deviceId;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void InputProcessor_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_GAME_INPUT_INPUTPROCESSOR_H

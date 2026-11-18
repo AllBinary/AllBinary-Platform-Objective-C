@@ -1,68 +1,27 @@
+#ifndef ORG_ALLBINARY_GRAPH_V_H
+#define ORG_ALLBINARY_GRAPH_V_H
+// Generated Code Do Not Modify
+// package org.allbinary.graph
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class V;
 
+@interface V : ABObject {
+@public
+}
+- (instancetype) init;
+- (int32_t) getId;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GRAPH_V_H
-        #define ORG_ALLBINARY_GRAPH_V_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void V_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class V
-            : public virtual Object
-         {
-
-
-            
-    public: V();
-        
-    public: int32_t getId();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPH_V_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPH_V_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPH_V_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPH_V_H

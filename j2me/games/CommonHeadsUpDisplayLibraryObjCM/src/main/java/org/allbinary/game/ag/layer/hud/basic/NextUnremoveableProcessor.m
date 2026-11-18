@@ -1,79 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                * 
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                * 
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                * 
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/hud/basic/NextUnremoveableProcessor.h"
+#include "org/allbinary/game/ag/layer/hud/basic/PlayerGameNotificationHud.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NEXTUNREMOVEABLEPROCESSOR_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NEXTUNREMOVEABLEPROCESSOR_CPP
+void NextUnremoveableProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/hud/basic/NextUnremoveableProcessor.h"
-        
+@implementation NextUnremoveableProcessor
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/canvas/Processor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/ag/layer/hud/basic/PlayerGameNotificationHud.h"
-
-
-NextUnremoveableProcessor::NextUnremoveableProcessor(PlayerGameNotificationHud* updateMeasurementProcessor){
-this->updateMeasurementProcessor= updateMeasurementProcessor;
+- (void) initFields {
     
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto NextUnremoveableProcessor::process() -> void{
-this->updateMeasurementProcessor->setNextUnremoveableProcess();
-    
+- (instancetype) init:(PlayerGameNotificationHud*)updateMeasurementProcessor {
+    self = [super init];
+    [self initFields];
+        self->updateMeasurementProcessor = updateMeasurementProcessor;
+    return self;
 }
 
 
+// throws Exception
+- (void) process {
+        [self->updateMeasurementProcessor setNextUnremoveableProcess];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NEXTUNREMOVEABLEPROCESSOR_CPP

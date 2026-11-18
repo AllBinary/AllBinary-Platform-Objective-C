@@ -1,115 +1,47 @@
+#ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_INAPPLICATIONPURCHASEFACTORY_H
+#define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_INAPPLICATIONPURCHASEFACTORY_H
+/*
+ * 
+ * To change this license header, choose License Headers in Project Properties. 
+ * To change this template file, choose Tools | Templates 
+ * and open the template in the editor.  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.logic.system.security.licensing
 
-        /*
-                *  
-                *  To change this license header, choose License Headers in Project Properties. 
-                *  To change this template file, choose Tools | Templates  and open the template in the editor.  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class InApplicationPurchaseFactory;
+@class StringUtil;
+@class LockableFeature;
 
+@interface InApplicationPurchaseFactory : ABObject {
+@public
+}
+- (instancetype) init;
++ (InApplicationPurchaseFactory*) getInstance;
+- (void) init_:(id)anyType :(id)stateObject;
+- (void) onCreate:(id)anyType :(id)stateObject;
+- (void) onStart;
+- (void) onResult:(int32_t)requestCode :(int32_t)resultCode :(id)data;
+- (void) onSaveState:(id)anyType;
+- (void) onStop;
+- (void) onDestroy;
+- (void) purchase:(LockableFeature*)lockableFeature;
+- (bool) isPurchased:(LockableFeature*)lockableFeature;
+- (void) add:(LockableFeature*)lockableFeature;
+- (const char*) getUserName;
+- (bool) isEnabled;
+@end
 
-
-        #ifndef ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_INAPPLICATIONPURCHASEFACTORY_H
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_INAPPLICATIONPURCHASEFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class StringUtil;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class LockableFeature;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class InApplicationPurchaseFactory
-            : public virtual Object
-         {
-
-    private: static InApplicationPurchaseFactory* instance_owner();
-    private: static InApplicationPurchaseFactory* instance;
-
-    public: static InApplicationPurchaseFactory* getInstance();
-
-private: InApplicationPurchaseFactory();
-
-    public: void init(Object* anyType, Object* stateObject);
-    public: void init(const std::string& anyType, Object* stateObject) { return init(JavaString::box(anyType), stateObject); }
-
-    public: void onCreate(Object* anyType, Object* stateObject);
-    public: void onCreate(const std::string& anyType, Object* stateObject) { return onCreate(JavaString::box(anyType), stateObject); }
-
-    public: void onStart();
-
-    public: void onResult(int32_t requestCode, int32_t resultCode, Object* data);
-    public: void onResult(int32_t requestCode, int32_t resultCode, const std::string& data) { return onResult(requestCode, resultCode, JavaString::box(data)); }
-    public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> void onResult(int32_t requestCode, int32_t resultCode, BoxValue data) { return onResult(requestCode, resultCode, JavaBoxes::toObject(data)); }
-    public: template<typename BoxElement> void onResult(int32_t requestCode, int32_t resultCode, const std::vector<BoxElement>& data) { return onResult(requestCode, resultCode, JavaBoxes::toObject(data)); }
-
-    public: void onSaveState(Object* anyType);
-    public: void onSaveState(const std::string& anyType) { return onSaveState(JavaString::box(anyType)); }
-    public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> void onSaveState(BoxValue anyType) { return onSaveState(JavaBoxes::toObject(anyType)); }
-    public: template<typename BoxElement> void onSaveState(const std::vector<BoxElement>& anyType) { return onSaveState(JavaBoxes::toObject(anyType)); }
-
-    public: void onStop();
-
-    public: void onDestroy();
-
-    public: void purchase(LockableFeature* lockableFeature);
-
-    public: bool isPurchased(LockableFeature* lockableFeature);
-
-    public: void add(LockableFeature* lockableFeature);
-
-    public: std::string getUserName();
-
-    public: bool isEnabled();
-
-};
-
-            
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void InApplicationPurchaseFactory_staticInit(void);
 
 
-        #endif //ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_INAPPLICATIONPURCHASEFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_INAPPLICATIONPURCHASEFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_INAPPLICATIONPURCHASEFACTORY_H_COMPLETE
-        #if __has_include(<org/allbinary/logic/string/StringUtil.h>)
-#include <org/allbinary/logic/string/StringUtil.h>
-#endif
-#if __has_include("org/allbinary/logic/system/security/licensing/LockableFeature.h")
-#include "org/allbinary/logic/system/security/licensing/LockableFeature.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_LOGIC_SYSTEM_SECURITY_LICENSING_INAPPLICATIONPURCHASEFACTORY_H

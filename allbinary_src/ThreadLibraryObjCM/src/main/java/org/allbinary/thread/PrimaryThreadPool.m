@@ -31,7 +31,7 @@ void PrimaryThreadPool_staticInit(void) {
 
 
 - (void) runTask:(Runnable*)task {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[[StringUtil getInstance] toString:task]] appendlong:((int64_t) java_current_time_millis())] toString] :self :self->threadPoolStrings->ADD_TASK];
+        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[[StringUtil getInstance] toString:task]] appendlong:java_current_time_millis()] toString] :self :self->threadPoolStrings->ADD_TASK];
         [super runTask:task];
 }
 

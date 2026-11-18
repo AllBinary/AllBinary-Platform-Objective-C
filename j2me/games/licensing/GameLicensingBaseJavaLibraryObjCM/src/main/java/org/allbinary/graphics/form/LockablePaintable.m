@@ -1,120 +1,71 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_LOCKABLEPAINTABLE_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_LOCKABLEPAINTABLE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/LockablePaintable.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/LockedResources.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/LockedUtil.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/LockablePaintable.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h"
+#include "org/allbinary/logic/system/security/licensing/LockedResources.h"
+#include "org/allbinary/logic/system/security/licensing/LockedUtil.h"
+#include "org/allbinary/graphics/form/ItemPaintable.h"
+#if __has_include("org/allbinary/graphics/form/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/graphics/form/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AnimationInterfaceFactoryInterface.h")
+#include "javax/microedition/lcdui/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/logic/system/security/licensing/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/logic/system/security/licensing/AnimationInterfaceFactoryInterface.h"
+#endif
 
 
 
+void LockablePaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation LockablePaintable
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/ItemPaintable.h"
-
-
-LockablePaintable::LockablePaintable(int32_t lockedIndex) : animation(FeaturedAnimationInterfaceFactoryInterfaceFactory::getInstance()->get(LockedResources::getInstance()->LOCKED_DEMO_GAME_FEATURE_RESOURCE)->getInstance(0)){
-this->lockedIndex= lockedIndex;
+- (void) initFields {
+    self->animation = [[[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[LockedResources getInstance]->LOCKED_DEMO_GAME_FEATURE_RESOURCE] getInstance:0];
     
 }
 
 
-    auto LockablePaintable::paint(Graphics* graphics, int32_t currentIndex, int32_t x, int32_t y) -> void{
-
-                        if(LockedUtil::getInstance()->isLocked() && currentIndex >= this->getLockedIndex())
-                        
-                                    {
-                                    this->getAnimation()->paintXY(graphics, x, y);
-    
-
-                                    }
-                                
+- (instancetype) init:(int32_t)lockedIndex {
+    self = [super init];
+    [self initFields];
+        self->lockedIndex = lockedIndex;
+    return self;
 }
 
 
-    auto LockablePaintable::getLockedIndex() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->lockedIndex;
-    
+- (void) paint:(Graphics*)graphics :(int32_t)currentIndex :(int32_t)x :(int32_t)y {
+        if ([[LockedUtil getInstance] isLocked] && currentIndex >= [self getLockedIndex]) {
+            [[self getAnimation] paintXY:graphics :x :y];
+        }
 }
 
 
-    auto LockablePaintable::getAnimation() -> Animation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animation;
-    
+- (int32_t) getLockedIndex {
+        return self->lockedIndex;
 }
 
 
+- (Animation*) getAnimation {
+        return self->animation;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_LOCKABLEPAINTABLE_CPP

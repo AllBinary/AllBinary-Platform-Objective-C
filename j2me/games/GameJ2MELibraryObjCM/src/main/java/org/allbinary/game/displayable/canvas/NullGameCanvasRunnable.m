@@ -1,281 +1,147 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/displayable/canvas/NullGameCanvasRunnable.h"
+#include "javax/microedition/lcdui/CommandListener.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Item.h"
+#include "org/allbinary/game/state/GameState.h"
+#include "org/allbinary/game/state/GameStateFactory.h"
+#include "org/allbinary/logic/StdUtil.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/game/displayable/canvas/GameCanvasRunnableInterface.h"
 
 
+NullGameCanvasRunnable* NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE;
 
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLGAMECANVASRUNNABLE_CPP
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLGAMECANVASRUNNABLE_CPP
+void NullGameCanvasRunnable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE = [((NullGameCanvasRunnable*) [NullGameCanvasRunnable alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/displayable/canvas/NullGameCanvasRunnable.h"
-        
+@implementation NullGameCanvasRunnable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->gameStateFactory = [GameStateFactory getInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Thread.h"
-        
-#include <javax/microedition/lcdui/CommandListener.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Item.h>
-
-      
-#include <org/allbinary/game/state/GameState.h>
-
-      
-#include <org/allbinary/game/state/GameStateFactory.h>
-
-      
-#include <org/allbinary/logic/StdUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/displayable/canvas/GameCanvasRunnableInterface.h"
-
-
-NullGameCanvasRunnable::NullGameCanvasRunnable() : gameStateFactory(GameStateFactory::getInstance()) {
-        }
-        auto NullGameCanvasRunnable::NULL_GAME_CANVAS_RUNNABLE_owner() -> NullGameCanvasRunnable* { static std::unique_ptr<NullGameCanvasRunnable> value(new NullGameCanvasRunnable()); return value.get(); }
-NullGameCanvasRunnable* NullGameCanvasRunnable::NULL_GAME_CANVAS_RUNNABLE = NullGameCanvasRunnable::NULL_GAME_CANVAS_RUNNABLE_owner();
-
-    auto NullGameCanvasRunnable::getTitle() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StringUtil::getInstance()->EMPTY_STRING;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto NullGameCanvasRunnable::isInitialized() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (const char*) getTitle {
+        return [StringUtil getInstance]->EMPTY_STRING;
 }
 
 
-    auto NullGameCanvasRunnable::isPaused() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (bool) isInitialized {
+        return false;
 }
 
 
-    auto NullGameCanvasRunnable::unPause() -> void{
+- (bool) isPaused {
+        return false;
 }
 
 
-    auto NullGameCanvasRunnable::pause() -> void{
+- (void) unPause {
 }
 
 
-    auto NullGameCanvasRunnable::isHighScoreSubmitted() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (void) pause {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto NullGameCanvasRunnable::setHighScoreSubmitted(bool highScoreSubmitted) -> void{
+- (bool) isHighScoreSubmitted {
+        return false;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto NullGameCanvasRunnable::processGameOver() -> void{
+// throws Exception
+- (void) setHighScoreSubmitted:(bool)highScoreSubmitted {
 }
 
 
-    auto NullGameCanvasRunnable::isGameOver() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+// throws Exception
+- (void) processGameOver {
 }
 
 
-    auto NullGameCanvasRunnable::initCommands(CommandListener* cmdListener) -> void{
+- (bool) isGameOver {
+        return false;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto NullGameCanvasRunnable::getCurrentStateHashtable() -> ABHashtable<Object*, Object*>*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StdUtil::getInstance()->NULL_TABLE;
-    
+- (void) initCommands:(CommandListener*)cmdListener {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto NullGameCanvasRunnable::getLoadStateHashtable() -> ABHashtable<Object*, Object*>*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return StdUtil::getInstance()->NULL_TABLE;
-    
+// throws Exception
+- (ABHashtable*) getCurrentStateHashtable {
+        return [StdUtil getInstance]->NULL_TABLE;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto NullGameCanvasRunnable::setLoadStateHashtable(ABHashtable<Object*, Object*>* hashtable) -> void{
+// throws Exception
+- (ABHashtable*) getLoadStateHashtable {
+        return [StdUtil getInstance]->NULL_TABLE;
 }
 
 
-    auto NullGameCanvasRunnable::getType() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+// throws Exception
+- (void) setLoadStateHashtable:(ABHashtable*)hashtable {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto NullGameCanvasRunnable::setGameState(GameState* gameState) -> void{
+- (int32_t) getType {
+        return -1;
 }
 
 
-    auto NullGameCanvasRunnable::getGameState() -> GameState*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gameStateFactory->NO_GAME_STATE;
-    
+// throws Exception
+- (void) setGameState:(GameState*)gameState {
 }
 
 
-    auto NullGameCanvasRunnable::itemStateChanged(Item* item) -> void{
+- (GameState*) getGameState {
+        return self->gameStateFactory->NO_GAME_STATE;
 }
 
 
-    auto NullGameCanvasRunnable::paint(Graphics* graphics) -> void{
+- (void) itemStateChanged:(Item*)item {
 }
 
 
-    auto NullGameCanvasRunnable::paintThreed(Graphics* graphics) -> void{
+- (void) paint:(Graphics*)graphics {
 }
 
 
-    auto NullGameCanvasRunnable::isRunning() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
+- (void) paintThreed:(Graphics*)graphics {
 }
 
 
-    auto NullGameCanvasRunnable::setRunning(bool isRunning) -> void{
+- (bool) isRunning {
+        return false;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto NullGameCanvasRunnable::setThread(Thread* thread) -> void{
+- (void) setRunning:(bool)isRunning {
 }
 
 
-    auto NullGameCanvasRunnable::run() -> void{
+// throws Exception
+- (void) setThread:(Thread*)thread {
 }
 
 
+- (void) run {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_NULLGAMECANVASRUNNABLE_CPP

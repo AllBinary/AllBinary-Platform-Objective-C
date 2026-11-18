@@ -1,317 +1,149 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LAYER_LAYERMANAGER_CPP
-        #define ORG_ALLBINARY_LAYER_LAYERMANAGER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/layer/LayerManager.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/TsUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/thread/SynchObject.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-#include <org/allbinary/logic/ABSystemWrapper.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/layer/LayerManagerLoggingBase.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/layer/LayerManager.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/TsUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/thread/SynchObject.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/logic/ABSystemWrapper.h"
+#include "org/allbinary/layer/LayerManagerLoggingBase.h"
 #include "org/allbinary/layer/AllBinaryLayer.h"
 #include "org/allbinary/layer/Layer.h"
 
 
-LayerManager::LayerManager(LayerManagerLoggingBase* layerManagerLogging) : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), systemWrapper(ABSystemWrapper::getInstance()), tsUtil(TsUtil::getInstance()), list(new BasicArrayListD()), anyType(new SynchObject()){
-this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->CONSTRUCTOR);
+
+void LayerManager_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation LayerManager
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+    self->systemWrapper = [ABSystemWrapper getInstance];
+    self->tsUtil = [TsUtil getInstance];
     
-this->layerManagerLogging= layerManagerLogging;
-    
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->anyType = [((SynchObject*) [SynchObject alloc]) init];
 }
 
 
-    auto LayerManager::contains(AllBinaryLayer* layerInterface) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list->contains(layerInterface);;
-    
+- (instancetype) init:(LayerManagerLoggingBase*)layerManagerLogging {
+    self = [super init];
+    [self initFields];
+        [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->CONSTRUCTOR];
+        self->layerManagerLogging = layerManagerLogging;
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto LayerManager::update(AllBinaryLayer* layerInterface) -> void{
-
-    bool had = this->list->remove(layerInterface);;
-    
-
-                        if(had)
-                        
-                                    {
-                                    
-    AllBinaryLayer* nextLayerInterface;;
-    
-
-    int32_t size = this->list->size();;
-    
+- (bool) contains:(AllBinaryLayer*)layerInterface {
+        return [self->list contains:layerInterface];
+}
 
 
+// throws Exception
+- (void) update:(AllBinaryLayer*)layerInterface {
+        bool had = [self->list remove:layerInterface];
+        if (had) {
+            AllBinaryLayer* nextLayerInterface = nullptr;
+            int32_t size = [self->list size];
+            for (int32_t index = 0; index < size; index++) {
+                nextLayerInterface = ((AllBinaryLayer*) [self->list get:index]);
+                if ([layerInterface getZP] > [nextLayerInterface getZP]) {
+                    [self->list addAt:index :layerInterface];
+                    return;
+                }
+            }
+            [self->list add:layerInterface];
+        }
+}
 
 
-                        for (
-    int32_t index = 0;index < size; index++)
+// throws Exception
+- (void) insert:(AllBinaryLayer*)layerInterface {
+        AllBinaryLayer* nextLayerInterface = nullptr;
+        int32_t size = [self->list size];
+        for (int32_t index = 0; index < size; index++) {
+            nextLayerInterface = ((AllBinaryLayer*) [self->list get:index]);
+            if ([layerInterface getZP] > [nextLayerInterface getZP]) {
+                [self appendAt:layerInterface :index];
+                return;
+            }
+        }
+        [self append:layerInterface];
+}
+
+
+// throws Exception
+- (void) append:(AllBinaryLayer*)layerInterface {
+        [self->layerManagerLogging append:layerInterface];
+        [self->list add:layerInterface];
+}
+
+
+// throws Exception
+- (void) appendAt:(AllBinaryLayer*)layerInterface :(int32_t)index {
+        [self->layerManagerLogging appendAt:layerInterface :index];
+        [self->list addAt:index :layerInterface];
+}
+
+
+// throws Exception
+- (void) remove:(AllBinaryLayer*)layerInterface {
+        java_monitor_enter(self->anyType);
         {
-nextLayerInterface= dynamic_cast<AllBinaryLayer*>(this->list->get(index));
-    
-
-                        if(layerInterface->getZP() > nextLayerInterface->getZP())
-                        
-                                    {
-                                    this->list->addAt(index, layerInterface);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ;
-    
-
-                                    }
-                                
-}
-
-this->list->add(layerInterface);
-    
-
-                                    }
-                                
+            [self->layerManagerLogging remove:layerInterface];
+            bool result = [self->list remove:layerInterface];
+            [self->layerManagerLogging removeResult:self :layerInterface :result];
+        }
+        java_monitor_exit(self->anyType);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto LayerManager::insert(AllBinaryLayer* layerInterface) -> void{
-
-    AllBinaryLayer* nextLayerInterface;;
-    
-
-    int32_t size = this->list->size();;
-    
+- (Layer*) getLayerAt:(int32_t)index {
+        return ((Layer*) self->list->objectArray[index]);
+}
 
 
+- (int32_t) getSize {
+        return [self->list size];
+}
 
 
-                        for (
-    int32_t index = 0;index < size; index++)
+// throws Exception
+- (void) cleanup {
+        java_monitor_enter(self->anyType);
         {
-nextLayerInterface= dynamic_cast<AllBinaryLayer*>(this->list->get(index));
-    
-
-                        if(layerInterface->getZP() > nextLayerInterface->getZP())
-                        
-                                    {
-                                    this->appendAt(layerInterface, index);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ;
-    
-
-                                    }
-                                
-}
-
-this->append(layerInterface);
-    
+            [self->list clear];
+            [self->layerManagerLogging clear];
+            [self->tsUtil gc];
+            [self->tsUtil gc];
+        }
+        java_monitor_exit(self->anyType);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto LayerManager::append(AllBinaryLayer* layerInterface) -> void{
-this->layerManagerLogging->append(layerInterface);
-    
-this->list->add(layerInterface);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    auto LayerManager::appendAt(AllBinaryLayer* layerInterface, int32_t index) -> void{
-this->layerManagerLogging->appendAt(layerInterface, index);
-    
-this->list->addAt(index, layerInterface);
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    auto LayerManager::remove(AllBinaryLayer* layerInterface) -> void{
-
-        
-        //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-        //synchronized(this->anyType) 
-
-        //mutex.withLock
-        
-this->layerManagerLogging->remove(layerInterface);
-    
-
-    bool result = this->list->remove(layerInterface);;
-    
-this->layerManagerLogging->removeResult(this, layerInterface, result);
-    
-
-
-}
-
-
-    auto LayerManager::getLayerAt(int32_t index) -> Layer*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<Layer*>(this->list->objectArray[index]);
-    
-}
-
-
-    auto LayerManager::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list->size();;
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    auto LayerManager::cleanup() -> void{
-
-        
-        //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-        //synchronized(this->anyType) 
-
-        //mutex.withLock
-        
-this->list->clear();
-    
-this->layerManagerLogging->clear();
-    
-this->tsUtil->gc();
-    
-this->tsUtil->gc();
-    
-
-
-}
-
-
-    auto LayerManager::paint(Graphics* g, int32_t x, int32_t y) -> void{
-
-        
-        //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-        //synchronized(this->anyType) 
-
-        //mutex.withLock
-        
-
-    Layer* comp;;
-    
-
-
-
-
-                        for (
-    int32_t index = this->list->size();--index >= 0; )
+- (void) paint:(Graphics*)g :(int32_t)x :(int32_t)y {
+        java_monitor_enter(self->anyType);
         {
-comp= dynamic_cast<Layer*>(this->list->objectArray[index]);
-    
-
-                        if(comp != 
-                                    nullptr
-                                 && comp->isVisible())
-                        
-                                    {
-                                    comp->paint(g);
-    
-
-                                    }
-                                
+            Layer* comp = nullptr;
+            for (int32_t index = [self->list size]; --index >= 0; ) {
+                comp = ((Layer*) self->list->objectArray[index]);
+                if (comp != nil && [comp isVisible]) {
+                    [comp paint:g];
+                }
+            }
+        }
+        java_monitor_exit(self->anyType);
 }
 
+@end
 
-
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_LAYER_LAYERMANAGER_CPP

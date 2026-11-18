@@ -1,101 +1,46 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/hud/basic/score/ScoreableAddOnlyForHud.h"
+#include "org/allbinary/game/ag/layer/hud/basic/score/ScoreHudWidget.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_SCORE_SCOREABLEADDONLYFORHUD_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_SCORE_SCOREABLEADDONLYFORHUD_CPP
+void ScoreableAddOnlyForHud_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/hud/basic/score/ScoreableAddOnlyForHud.h"
-        
+@implementation ScoreableAddOnlyForHud
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/game/score/Scoreable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/ag/layer/hud/basic/score/ScoreHudWidget.h"
-
-
-ScoreableAddOnlyForHud::ScoreableAddOnlyForHud(ScoreHudWidget* scoreVectorGraphic) : Scoreable(0){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->scoreHudWidget= scoreVectorGraphic;
-    
-this->getScoreHudWidget()->set(0);
+- (void) initFields {
     
 }
 
 
-    auto ScoreableAddOnlyForHud::removePoints(int32_t points) -> void{
+- (instancetype) init:(ScoreHudWidget*)scoreVectorGraphic {
+        self = [super init:0];
+        [self initFields];
+        self->scoreHudWidget = scoreVectorGraphic;
+        [[self getScoreHudWidget] set:0];
+    return self;
 }
 
 
-    auto ScoreableAddOnlyForHud::addPoints(int32_t points) -> void{
-Scoreable::addPoints(points);
-    
-this->getScoreHudWidget()->add(points);
-    
+- (void) removePoints:(int32_t)points {
 }
 
 
-    auto ScoreableAddOnlyForHud::getScoreHudWidget() -> ScoreHudWidget*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->scoreHudWidget;
-    
+- (void) addPoints:(int32_t)points {
+        [super addPoints:points];
+        [[self getScoreHudWidget] add:points];
 }
 
 
+- (ScoreHudWidget*) getScoreHudWidget {
+        return self->scoreHudWidget;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_SCORE_SCOREABLEADDONLYFORHUD_CPP

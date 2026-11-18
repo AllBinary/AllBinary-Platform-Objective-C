@@ -1,168 +1,75 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/event/UpGameKeyEventHandler.h"
+#include "org/allbinary/game/input/LocalPlayerInputIdFactory.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/game/input/event/UpGameKeyEventHandlerBase.h"
 
 
+static UpGameKeyEventHandler* UpGameKeyEventHandler_instance;
+static UpGameKeyEventHandlerBase** UpGameKeyEventHandler_instanceArray;
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_EVENT_UPGAMEKEYEVENTHANDLER_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_EVENT_UPGAMEKEYEVENTHANDLER_CPP
+void UpGameKeyEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    UpGameKeyEventHandler_instance = [((UpGameKeyEventHandler*) [UpGameKeyEventHandler alloc]) init];
+    UpGameKeyEventHandler_instanceArray = ((UpGameKeyEventHandlerBase**) java_array_from(sizeof(UpGameKeyEventHandlerBase*), sizeof((UpGameKeyEventHandlerBase*[]){ [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init], [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init], [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init], [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init], [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init], [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init] }) / sizeof(UpGameKeyEventHandlerBase*), (UpGameKeyEventHandlerBase*[]){ [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init], [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init], [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init], [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init], [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init], [((UpGameKeyEventHandlerBase*) [UpGameKeyEventHandlerBase alloc]) init] }));
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/event/UpGameKeyEventHandler.h"
-        
+@implementation UpGameKeyEventHandler
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/game/input/LocalPlayerInputIdFactory.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/event/UpGameKeyEventHandlerBase.h"
-
-auto UpGameKeyEventHandler::instance_owner() -> UpGameKeyEventHandler* { static std::unique_ptr<UpGameKeyEventHandler> value(new UpGameKeyEventHandler()); return value.get(); }
-UpGameKeyEventHandler* UpGameKeyEventHandler::instance = UpGameKeyEventHandler::instance_owner();
-std::vector<UpGameKeyEventHandlerBase*> UpGameKeyEventHandler::instanceArray = 
-                                                        {
-                                                            new UpGameKeyEventHandlerBase(),new UpGameKeyEventHandlerBase(),new UpGameKeyEventHandlerBase(),new UpGameKeyEventHandlerBase(),new UpGameKeyEventHandlerBase(),new UpGameKeyEventHandlerBase()
-                                                        };
-
-    auto UpGameKeyEventHandler::getInstance() -> UpGameKeyEventHandler*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return UpGameKeyEventHandler::instance;
-    
+- (void) initFields {
+    self->playerInputIdFactory = [LocalPlayerInputIdFactory getInstance];
 }
 
 
-    auto UpGameKeyEventHandler::getInstanceForDevice(int32_t deviceId) -> UpGameKeyEventHandlerBase*{
-
-    int32_t playerInputId = this->playerInputIdFactory->getPlayerForDevice(deviceId);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return UpGameKeyEventHandler::instanceArray[playerInputId];
-    
++ (UpGameKeyEventHandler*) getInstance {
+        return (UpGameKeyEventHandler_staticInit(), UpGameKeyEventHandler_instance);
 }
 
 
-    auto UpGameKeyEventHandler::getInstanceForPlayer(int32_t playerInputId) -> UpGameKeyEventHandlerBase*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return UpGameKeyEventHandler::instanceArray[playerInputId];
-    
+- (UpGameKeyEventHandlerBase*) getInstanceForDevice:(int32_t)deviceId {
+        int32_t playerInputId = [self->playerInputIdFactory getPlayerForDevice:deviceId];
+        return (UpGameKeyEventHandler_staticInit(), UpGameKeyEventHandler_instanceArray)[playerInputId];
 }
 
 
-UpGameKeyEventHandler::UpGameKeyEventHandler() : playerInputIdFactory(LocalPlayerInputIdFactory::getInstance()){
+- (UpGameKeyEventHandlerBase*) getInstanceForPlayer:(int32_t)playerInputId {
+        return (UpGameKeyEventHandler_staticInit(), UpGameKeyEventHandler_instanceArray)[playerInputId];
 }
 
 
-    auto UpGameKeyEventHandler::removeAllListeners() -> void{
-UpGameKeyEventHandlerBase::removeAllListeners();
-    
-
-
-
-
-                        for (
-    int32_t index = UpGameKeyEventHandler::instanceArray.size() -1;index >= 0; index--)
-        {
-UpGameKeyEventHandler::instanceArray[index]->removeAllListeners();
-    
-}
-
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto UpGameKeyEventHandler::removeListenerSingleThreaded(EventListenerInterface* eventListenerInterface) -> void{
-UpGameKeyEventHandlerBase::removeListenerSingleThreaded(eventListenerInterface);
-    
-
-
-
-
-                        for (
-    int32_t index = UpGameKeyEventHandler::instanceArray.size() -1;index >= 0; index--)
-        {
-UpGameKeyEventHandler::instanceArray[index]->removeListenerSingleThreaded(eventListenerInterface);
-    
-}
-
+- (void) removeAllListeners {
+        [super removeAllListeners];
+        for (int32_t index = java_array_length((UpGameKeyEventHandler_staticInit(), UpGameKeyEventHandler_instanceArray)) - 1; index >= 0; index--) {
+            [(UpGameKeyEventHandler_staticInit(), UpGameKeyEventHandler_instanceArray)[index] removeAllListeners];
+        }
 }
 
 
-    auto UpGameKeyEventHandler::removeListener(EventListenerInterface* eventListenerInterface) -> void{
-UpGameKeyEventHandlerBase::removeListener(eventListenerInterface);
-    
-
-
-
-
-                        for (
-    int32_t index = UpGameKeyEventHandler::instanceArray.size() -1;index >= 0; index--)
-        {
-UpGameKeyEventHandler::instanceArray[index]->removeListener(eventListenerInterface);
-    
-}
-
+- (void) removeListenerSingleThreaded:(EventListenerInterface*)eventListenerInterface {
+        [super removeListenerSingleThreaded:eventListenerInterface];
+        for (int32_t index = java_array_length((UpGameKeyEventHandler_staticInit(), UpGameKeyEventHandler_instanceArray)) - 1; index >= 0; index--) {
+            [(UpGameKeyEventHandler_staticInit(), UpGameKeyEventHandler_instanceArray)[index] removeListenerSingleThreaded:eventListenerInterface];
+        }
 }
 
 
+- (void) removeListener:(EventListenerInterface*)eventListenerInterface {
+        [super removeListener:eventListenerInterface];
+        for (int32_t index = java_array_length((UpGameKeyEventHandler_staticInit(), UpGameKeyEventHandler_instanceArray)) - 1; index >= 0; index--) {
+            [(UpGameKeyEventHandler_staticInit(), UpGameKeyEventHandler_instanceArray)[index] removeListener:eventListenerInterface];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_EVENT_UPGAMEKEYEVENTHANDLER_CPP

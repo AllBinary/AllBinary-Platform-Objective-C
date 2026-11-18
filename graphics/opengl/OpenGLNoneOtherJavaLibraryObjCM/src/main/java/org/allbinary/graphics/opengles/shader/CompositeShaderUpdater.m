@@ -1,103 +1,49 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/shader/CompositeShaderUpdater.h"
+#include "javax/microedition/khronos/egl/EGLConfig.h"
+#include "javax/microedition/khronos/opengles/GL10.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/graphics/opengles/shader/ShaderUpdater.h"
 
 
+static CompositeShaderUpdater* CompositeShaderUpdater_instanceC;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_COMPOSITESHADERUPDATER_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_COMPOSITESHADERUPDATER_CPP
+void CompositeShaderUpdater_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CompositeShaderUpdater_instanceC = [((CompositeShaderUpdater*) [CompositeShaderUpdater alloc]) init:[[StringUtil getInstance] getArrayInstance] :[[StringUtil getInstance] getArrayInstance] :[[StringUtil getInstance] getArrayInstance] :[NullUtil getInstance]->NULL_INT_ARRAY];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/shader/CompositeShaderUpdater.h"
-        
+@implementation CompositeShaderUpdater
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/khronos/egl/EGLConfig.h>
-
-      
-#include <javax/microedition/khronos/opengles/GL10.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/opengles/shader/ShaderUpdater.h"
-
-auto CompositeShaderUpdater::instanceC_owner() -> CompositeShaderUpdater* { static std::unique_ptr<CompositeShaderUpdater> value(new CompositeShaderUpdater(StringUtil::getInstance()->getArrayInstance(), StringUtil::getInstance()->getArrayInstance(), StringUtil::getInstance()->getArrayInstance(), NullUtil::getInstance()->NULL_INT_ARRAY)); return value.get(); }
-CompositeShaderUpdater* CompositeShaderUpdater::instanceC = CompositeShaderUpdater::instanceC_owner();
-
-    auto CompositeShaderUpdater::getInstance() -> CompositeShaderUpdater*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CompositeShaderUpdater::instanceC;
-    
+- (void) initFields {
+    self->commonSeps = [CommonSeps getInstance];
 }
 
 
-CompositeShaderUpdater::CompositeShaderUpdater(std::vector<std::string> uniformBlockArray, std::vector<std::string> uniformArray, std::vector<std::string> attributeArray, std::vector<int32_t> attributeHandleArray) : commonSeps(CommonSeps::getInstance()){
++ (CompositeShaderUpdater*) getInstance {
+        return (CompositeShaderUpdater_staticInit(), CompositeShaderUpdater_instanceC);
 }
 
 
-    auto CompositeShaderUpdater::onSurfaceCreated(GL10* gl, EGLConfig* eglConfig, int32_t programHandle) -> void{
+- (instancetype) init:(const char**)uniformBlockArray :(const char**)uniformArray :(const char**)attributeArray :(int32_t*)attributeHandleArray {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto CompositeShaderUpdater::onSurfaceDestroyed(GL10* gl) -> void{
+- (void) onSurfaceCreated:(GL10*)gl :(EGLConfig*)eglConfig :(int32_t)programHandle {
 }
 
 
+- (void) onSurfaceDestroyed:(GL10*)gl {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_COMPOSITESHADERUPDATER_CPP

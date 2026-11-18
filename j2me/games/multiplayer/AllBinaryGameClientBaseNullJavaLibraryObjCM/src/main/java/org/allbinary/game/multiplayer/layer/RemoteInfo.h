@@ -1,79 +1,35 @@
+#ifndef ORG_ALLBINARY_GAME_MULTIPLAYER_LAYER_REMOTEINFO_H
+#define ORG_ALLBINARY_GAME_MULTIPLAYER_LAYER_REMOTEINFO_H
+/*
+ * 
+ * To change this license header, choose License Headers in Project Properties. 
+ * To change this template file, choose Tools | Templates 
+ * and open the template in the editor.  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.multiplayer.layer
 
-        /*
-                *  
-                *  To change this license header, choose License Headers in Project Properties. 
-                *  To change this template file, choose Tools | Templates  and open the template in the editor.  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class RemoteInfo;
+@class StringUtil;
 
+@interface RemoteInfo : ABObject {
+@public
+}
+- (instancetype) init:(const char*)username :(int32_t)actorSessionId :(int32_t)playerInputId :(int32_t)id_;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_MULTIPLAYER_LAYER_REMOTEINFO_H
-        #define ORG_ALLBINARY_GAME_MULTIPLAYER_LAYER_REMOTEINFO_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class StringUtil;
-
-
-
-
-
+static constexpr int32_t RemoteInfo_NEW_PLAYER_ID = 0;
+extern RemoteInfo* RemoteInfo_REMOTE_INFO;
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void RemoteInfo_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class RemoteInfo
-            : public virtual Object
-         {
-
-    public: static inline const int32_t NEW_PLAYER_ID = 0;
-
-    private: static RemoteInfo* REMOTE_INFO_owner();
-    public: static RemoteInfo* REMOTE_INFO;
-
-public: RemoteInfo(std::string username, int32_t actorSessionId, int32_t playerInputId, int32_t id);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_MULTIPLAYER_LAYER_REMOTEINFO_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_MULTIPLAYER_LAYER_REMOTEINFO_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_MULTIPLAYER_LAYER_REMOTEINFO_H_COMPLETE
-        #if __has_include(<org/allbinary/logic/string/StringUtil.h>)
-#include <org/allbinary/logic/string/StringUtil.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_MULTIPLAYER_LAYER_REMOTEINFO_H

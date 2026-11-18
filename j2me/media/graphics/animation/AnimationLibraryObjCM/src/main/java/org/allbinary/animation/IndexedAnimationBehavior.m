@@ -1,74 +1,39 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/IndexedAnimationBehavior.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_INDEXEDANIMATIONBEHAVIOR_CPP
-        #define ORG_ALLBINARY_ANIMATION_INDEXEDANIMATIONBEHAVIOR_CPP
+void IndexedAnimationBehavior_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/IndexedAnimationBehavior.h"
-        
+@implementation IndexedAnimationBehavior
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/AnimationBehavior.h"
-
-
-IndexedAnimationBehavior::IndexedAnimationBehavior(int32_t loopTotal, int64_t frameDelayTime){
-this->loopTotal= loopTotal;
+- (void) initFields {
     
-this->frameDelayTime= frameDelayTime;
     
+    self->elapsedTime = 0;
+    self->loopIndex = 0;
 }
 
 
-    auto IndexedAnimationBehavior::reset() -> void{
-this->loopIndex= 0;
-    
+- (instancetype) init:(int32_t)loopTotal :(int64_t)frameDelayTime {
+    self = [super init];
+    [self initFields];
+        self->loopTotal = loopTotal;
+        self->frameDelayTime = frameDelayTime;
+    return self;
 }
 
 
+- (void) reset {
+        self->loopIndex = 0;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_INDEXEDANIMATIONBEHAVIOR_CPP

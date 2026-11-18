@@ -1,209 +1,108 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_PLAYERQUEUE_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_PLAYERQUEUE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/PlayerQueue.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/communication/log/PreLogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/Sound.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#include "org/allbinary/logic/communication/log/PreLogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/media/audio/Sound.h"
 #include "org/allbinary/media/audio/NoSound.h"
+#if __has_include("org/allbinary/media/audio/Player.h")
+#include "org/allbinary/media/audio/Player.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/Player.h")
+#include "org/allbinary/logic/communication/log/Player.h"
+#endif
+#if __has_include("org/allbinary/logic/string/Player.h")
+#include "org/allbinary/logic/string/Player.h"
+#endif
+#if __has_include("org/allbinary/logic/string/Player.h")
+#include "org/allbinary/logic/string/Player.h"
+#endif
+#if __has_include("org/allbinary/string/Player.h")
+#include "org/allbinary/string/Player.h"
+#endif
+#if __has_include("org/allbinary/util/Player.h")
+#include "org/allbinary/util/Player.h"
+#endif
+#if __has_include("org/allbinary/util/Player.h")
+#include "org/allbinary/util/Player.h"
+#endif
 
 
-PlayerQueue::PlayerQueue(int32_t max) : commonStrings(CommonStrings::getInstance()), list(new BasicArrayListD()){
-this->max= max;
+static const char* PlayerQueue_TOTAL = "Sounds In Queue: ";
+
+void PlayerQueue_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation PlayerQueue
+
+- (void) initFields {
+    self->commonStrings = [CommonStrings getInstance];
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
     
 }
 
 
-    auto PlayerQueue::add(Sound* sound) -> void{
-
-        try {
-            
-                        if(!this->list->contains(sound))
-                        
-                                    {
-                                    this->list->add(sound);
-    
-
-                                    }
-                                
-
-                //: 
-} catch(Exception& e) 
-            {
-PreLogUtil::put(this->commonStrings->EXCEPTION, this, this->commonStrings->ADD);
-    
-}
-
+- (instancetype) init:(int32_t)max {
+    self = [super init];
+    [self initFields];
+        self->max = max;
+    return self;
 }
 
 
-    auto PlayerQueue::process() -> bool{
-
-    Sound* sound = NoSound::getInstance();;
-    
-
-        try {
-            
-    bool played = false;;
-    
-
-                        if(this->list->size() > 0)
-                        
-                                    {
-                                    sound= dynamic_cast<Sound*>(this->list->removeAt(0));
-    
-
-                        if(sound != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    sound->getPlayerP()->start();
-    
-
-                                    }
-                                
-
-        while(this->list->size() > this->max)
-        {
-this->list->removeAt(0);
-    
-}
-
-played= true;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return played;
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    std::string resource = StringUtil::getInstance()->EMPTY_STRING;;
-    
-
-                        if(sound != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    resource= sound->getResource();
-    
-
-                                    }
-                                
-PreLogUtil::put(JavaString::valueOf((new StringMaker())->append(this->commonStrings->EXCEPTION_LABEL)->append(resource)), this, this->commonStrings->PROCESS);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-}
-
+- (void) add:(Sound*)sound {
+        JAVA_TRY {
+            if (![self->list contains:sound]) {
+                [self->list add:sound];
+            }
+        } JAVA_CATCH(Exception, e) {
+            [PreLogUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->ADD];
+        } JAVA_END_TRY;
 }
 
 
-    auto PlayerQueue::clear() -> void{
-this->list->clear();
-    
+- (bool) process {
+        Sound* sound = [NoSound getInstance];
+        JAVA_TRY {
+            bool played = false;
+            if ([self->list size] > 0) {
+                sound = ((Sound*) [self->list removeAt:0]);
+                if (sound != nil) {
+                    [[sound getPlayerP] start];
+                }
+                while ([self->list size] > self->max) {
+                    [self->list removeAt:0];
+                }
+                played = true;
+            }
+            return played;
+        } JAVA_CATCH(Exception, e) {
+            const char* resource = [StringUtil getInstance]->EMPTY_STRING;
+            if (sound != nil) {
+                resource = [sound getResource];
+            }
+            [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->EXCEPTION_LABEL] append:resource] toString] :self :self->commonStrings->PROCESS];
+            return false;
+        } JAVA_END_TRY;
 }
 
 
-    auto PlayerQueue::toString() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf((new StringMaker())->append(PlayerQueue::TOTAL)->appendint(this->list->size()));;
-    
+- (void) clear {
+        [self->list clear];
 }
 
 
+- (const char*) toString {
+        return [[[[((StringMaker*) [StringMaker alloc]) init] append:PlayerQueue_TOTAL] appendint:[self->list size]] toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_PLAYERQUEUE_CPP

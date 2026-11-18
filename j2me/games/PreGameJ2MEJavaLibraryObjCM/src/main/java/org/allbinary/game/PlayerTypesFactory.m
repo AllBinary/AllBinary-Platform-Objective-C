@@ -1,79 +1,37 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/PlayerTypesFactory.h"
+#include "org/allbinary/game/PlayerType.h"
 
 
+static PlayerTypesFactory* PlayerTypesFactory_SINGLETON;
 
-        #ifndef ORG_ALLBINARY_GAME_PLAYERTYPESFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_PLAYERTYPESFACTORY_CPP
+void PlayerTypesFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    PlayerTypesFactory_SINGLETON = [((PlayerTypesFactory*) [PlayerTypesFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/PlayerTypesFactory.h"
-        
+@implementation PlayerTypesFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->PLAYER_TYPE_ONE = [((PlayerType*) [PlayerType alloc]) init:"Player Type One" :0];
+    self->PLAYER_TYPE_TWO = [((PlayerType*) [PlayerType alloc]) init:"Player Type Two" :1];
+    self->PLAYER_TYPE_THREE = [((PlayerType*) [PlayerType alloc]) init:"Player Type Three" :2];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/PlayerType.h"
-
-
-PlayerTypesFactory::PlayerTypesFactory() : PLAYER_TYPE_ONE(new PlayerType("Player Type One", 0)), PLAYER_TYPE_TWO(new PlayerType("Player Type Two", 1)), PLAYER_TYPE_THREE(new PlayerType("Player Type Three", 2)) {
-        }
-        auto PlayerTypesFactory::SINGLETON_owner() -> PlayerTypesFactory* { static std::unique_ptr<PlayerTypesFactory> value(new PlayerTypesFactory()); return value.get(); }
-PlayerTypesFactory* PlayerTypesFactory::SINGLETON = PlayerTypesFactory::SINGLETON_owner();
-
-    auto PlayerTypesFactory::getInstance() -> PlayerTypesFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PlayerTypesFactory::SINGLETON;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (PlayerTypesFactory*) getInstance {
+        return (PlayerTypesFactory_staticInit(), PlayerTypesFactory_SINGLETON);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_PLAYERTYPESFACTORY_CPP

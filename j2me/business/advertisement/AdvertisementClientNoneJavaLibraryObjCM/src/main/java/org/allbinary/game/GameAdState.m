@@ -1,103 +1,38 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/GameAdState.h"
+#include "org/allbinary/business/advertisement/AdConfiguration.h"
+#include "org/allbinary/input/event/VirtualKeyboardEvent.h"
+#include "org/allbinary/input/event/VirtualKeyboardEventHandler.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_GAMEADSTATE_CPP
-        #define ORG_ALLBINARY_GAME_GAMEADSTATE_CPP
+void GameAdState_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/GameAdState.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/business/advertisement/GameAdStateBase.h>
-
-      
-#include <org/allbinary/business/advertisement/AdConfiguration.h>
-
-      
-#include <org/allbinary/input/event/VirtualKeyboardEvent.h>
-
-      
-#include <org/allbinary/input/event/VirtualKeyboardEventHandler.h>
-
-      
-#include <org/allbinary/input/event/VirtualKeyboardEventListenerInterface.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
+@implementation GameAdState
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GameAdState::GameAdState(AdConfiguration* adConfiguration) : GameAdStateBase(adConfiguration){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-VirtualKeyboardEventHandler::getInstance()->addListenerInterface(this);
-    
+- (instancetype) init:(AdConfiguration*)adConfiguration {
+        self = [super init:adConfiguration];
+        [[VirtualKeyboardEventHandler getInstance] addListenerInterface:self];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GameAdState::onVirtualKeyboardEvent(VirtualKeyboardEvent* virtualKeyboardEvent) -> void{
+// throws Exception
+- (void) onVirtualKeyboardEvent:(VirtualKeyboardEvent*)virtualKeyboardEvent {
 }
 
 
-    auto GameAdState::onEvent(AllBinaryEventObject* eventObject) -> void{
-GameAdStateBase::onEvent(eventObject);
-    
+- (void) onEvent:(AllBinaryEventObject*)eventObject {
+        [super onEvent:eventObject];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_GAMEADSTATE_CPP

@@ -1,68 +1,8 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_LAYER_SPECIAL_ANALOGINPUTBUILDER_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_SPECIAL_ANALOGINPUTBUILDER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/special/AnalogInputBuilder.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Canvas.h>
-
-      
-#include <org/allbinary/game/input/GameInputProcessor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/special/SpecialUpGameInputProcessor.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/special/AnalogInputBuilder.h"
+#include "javax/microedition/lcdui/Canvas.h"
+#include "org/allbinary/game/input/GameInputProcessor.h"
+#include "org/allbinary/game/layer/special/SpecialUpGameInputProcessor.h"
 #include "org/allbinary/game/layer/special/SpecialDownGameInputProcessor.h"
 #include "org/allbinary/game/layer/special/SpecialRightGameInputProcessor.h"
 #include "org/allbinary/game/layer/special/SpecialLeftGameInputProcessor.h"
@@ -77,55 +17,48 @@
 #include "org/allbinary/game/layer/special/SpecialAnalogRightTriggerGameInputProcessor.h"
 
 
-AnalogInputBuilder::AnalogInputBuilder() {
-        }
-        auto AnalogInputBuilder::instance_owner() -> AnalogInputBuilder* { static std::unique_ptr<AnalogInputBuilder> value(new AnalogInputBuilder()); return value.get(); }
-AnalogInputBuilder* AnalogInputBuilder::instance = AnalogInputBuilder::instance_owner();
+static AnalogInputBuilder* AnalogInputBuilder_instance;
 
-    auto AnalogInputBuilder::getInstance() -> AnalogInputBuilder*{
+void AnalogInputBuilder_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AnalogInputBuilder_instance = [((AnalogInputBuilder*) [AnalogInputBuilder alloc]) init];
+}
 
+@implementation AnalogInputBuilder
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AnalogInputBuilder::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto AnalogInputBuilder::disable(std::vector<GameInputProcessor*> inputProcessorArray, CollidableDestroyableDamageableLayer* collidableDestroyableDamageableLayer) -> void{
-inputProcessorArray[Canvas::UP]= new SpecialUpGameInputProcessor(collidableDestroyableDamageableLayer);
-    
-inputProcessorArray[Canvas::DOWN]= new SpecialDownGameInputProcessor(collidableDestroyableDamageableLayer);
-    
-inputProcessorArray[Canvas::RIGHT]= new SpecialRightGameInputProcessor(collidableDestroyableDamageableLayer);
-    
-inputProcessorArray[Canvas::LEFT]= new SpecialLeftGameInputProcessor(collidableDestroyableDamageableLayer);
-    
-inputProcessorArray[Canvas::KEY_NUM0]= new Special1GameInputProcessor(collidableDestroyableDamageableLayer);
-    
-inputProcessorArray[Canvas::KEY_NUM5]= new Special3GameInputProcessor(collidableDestroyableDamageableLayer);
-    
++ (AnalogInputBuilder*) getInstance {
+        return (AnalogInputBuilder_staticInit(), AnalogInputBuilder_instance);
 }
 
 
-    auto AnalogInputBuilder::enable(std::vector<GameInputProcessor*> inputProcessorArray, CollidableDestroyableDamageableLayer* collidableDestroyableDamageableLayer) -> void{
-inputProcessorArray[Canvas::UP]= new SpecialAnalogUpGameInputProcessor(collidableDestroyableDamageableLayer);
-    
-inputProcessorArray[Canvas::DOWN]= new SpecialAnalogDownGameInputProcessor(collidableDestroyableDamageableLayer);
-    
-inputProcessorArray[Canvas::RIGHT]= new SpecialAnalogRightGameInputProcessor(collidableDestroyableDamageableLayer);
-    
-inputProcessorArray[Canvas::LEFT]= new SpecialAnalogLeftGameInputProcessor(collidableDestroyableDamageableLayer);
-    
-inputProcessorArray[Canvas::KEY_NUM0]= new SpecialAnalogLeftTriggerGameInputProcessor(collidableDestroyableDamageableLayer);
-    
-inputProcessorArray[Canvas::KEY_NUM5]= new SpecialAnalogRightTriggerGameInputProcessor(collidableDestroyableDamageableLayer);
-    
+- (void) disable:(GameInputProcessor**)inputProcessorArray :(CollidableDestroyableDamageableLayer*)collidableDestroyableDamageableLayer {
+        inputProcessorArray[(Canvas_staticInit(), Canvas_UP)] = [((SpecialUpGameInputProcessor*) [SpecialUpGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_DOWN)] = [((SpecialDownGameInputProcessor*) [SpecialDownGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_RIGHT)] = [((SpecialRightGameInputProcessor*) [SpecialRightGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_LEFT)] = [((SpecialLeftGameInputProcessor*) [SpecialLeftGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM0)] = [((Special1GameInputProcessor*) [Special1GameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM5)] = [((Special3GameInputProcessor*) [Special3GameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
 }
 
 
+- (void) enable:(GameInputProcessor**)inputProcessorArray :(CollidableDestroyableDamageableLayer*)collidableDestroyableDamageableLayer {
+        inputProcessorArray[(Canvas_staticInit(), Canvas_UP)] = [((SpecialAnalogUpGameInputProcessor*) [SpecialAnalogUpGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_DOWN)] = [((SpecialAnalogDownGameInputProcessor*) [SpecialAnalogDownGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_RIGHT)] = [((SpecialAnalogRightGameInputProcessor*) [SpecialAnalogRightGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_LEFT)] = [((SpecialAnalogLeftGameInputProcessor*) [SpecialAnalogLeftGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM0)] = [((SpecialAnalogLeftTriggerGameInputProcessor*) [SpecialAnalogLeftTriggerGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM5)] = [((SpecialAnalogRightTriggerGameInputProcessor*) [SpecialAnalogRightTriggerGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_SPECIAL_ANALOGINPUTBUILDER_CPP

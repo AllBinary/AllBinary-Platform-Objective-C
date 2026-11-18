@@ -1,105 +1,51 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_BOUNDS_TOPULAYERBOUNDS_CPP
-        #define ORG_ALLBINARY_BOUNDS_TOPULAYERBOUNDS_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/bounds/TopULayerBounds.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/bounds/LayerBounds.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/bounds/TopULayerBounds.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/bounds/LayerBounds.h"
 #include "org/allbinary/bounds/BoundsVisitorInterface.h"
+#if __has_include("org/allbinary/bounds/GPoint.h")
+#include "org/allbinary/bounds/GPoint.h"
+#endif
+#if __has_include("org/allbinary/graphics/GPoint.h")
+#include "org/allbinary/graphics/GPoint.h"
+#endif
+#if __has_include("org/allbinary/bounds/GPoint.h")
+#include "org/allbinary/bounds/GPoint.h"
+#endif
+#if __has_include("org/allbinary/graphics/GPoint.h")
+#include "org/allbinary/graphics/GPoint.h"
+#endif
 
 
-TopULayerBounds::TopULayerBounds(Rectangle* rectangle) : LayerBounds(rectangle){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void TopULayerBounds_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
+@implementation TopULayerBounds
+
+
+- (instancetype) init:(Rectangle*)rectangle {
+        self = [super init:rectangle];
+    return self;
 }
 
 
-    auto TopULayerBounds::visit(BoundsVisitorInterface* boundsVisitorInterface) -> void{
-
-                        if(boundsVisitorInterface->getX() > this->rectangle->getMaxX())
-                        
-                                    {
-                                    boundsVisitorInterface->maxX();
-    
-
-                                    }
-                                
-
-                        if(boundsVisitorInterface->getX() < this->rectangle->getPoint()->getX())
-                        
-                                    {
-                                    boundsVisitorInterface->minX();
-    
-
-                                    }
-                                
-
-                        if(boundsVisitorInterface->getY() < this->rectangle->getPoint()->getY())
-                        
-                                    {
-                                    boundsVisitorInterface->minY();
-    
-
-                                    }
-                                
+- (void) visit:(BoundsVisitorInterface*)boundsVisitorInterface {
+        if ([boundsVisitorInterface getX] > [self->rectangle getMaxX]) {
+            [boundsVisitorInterface maxX];
+        }
+        if ([boundsVisitorInterface getX] < [[self->rectangle getPoint] getX]) {
+            [boundsVisitorInterface minX];
+        }
+        if ([boundsVisitorInterface getY] < [[self->rectangle getPoint] getY]) {
+            [boundsVisitorInterface minY];
+        }
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_BOUNDS_TOPULAYERBOUNDS_CPP

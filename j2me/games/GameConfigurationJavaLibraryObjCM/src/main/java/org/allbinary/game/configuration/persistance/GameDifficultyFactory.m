@@ -1,96 +1,44 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/persistance/GameDifficultyFactory.h"
 
 
+static GameDifficultyFactory* GameDifficultyFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_GAMEDIFFICULTYFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_GAMEDIFFICULTYFACTORY_CPP
+void GameDifficultyFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameDifficultyFactory_instance = [((GameDifficultyFactory*) [GameDifficultyFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/persistance/GameDifficultyFactory.h"
-        
+@implementation GameDifficultyFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->level = 0;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GameDifficultyFactory::GameDifficultyFactory() {
-        }
-        auto GameDifficultyFactory::instance_owner() -> GameDifficultyFactory* { static std::unique_ptr<GameDifficultyFactory> value(new GameDifficultyFactory()); return value.get(); }
-GameDifficultyFactory* GameDifficultyFactory::instance = GameDifficultyFactory::instance_owner();
-
-    auto GameDifficultyFactory::getInstance() -> GameDifficultyFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameDifficultyFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto GameDifficultyFactory::setLevel(int32_t level) -> void{
-this->level= level;
-    
++ (GameDifficultyFactory*) getInstance {
+        return (GameDifficultyFactory_staticInit(), GameDifficultyFactory_instance);
 }
 
 
-    auto GameDifficultyFactory::getLevel() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->level;
-    
+- (void) setLevel:(int32_t)level {
+        self->level = level;
 }
 
 
+- (int32_t) getLevel {
+        return self->level;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_PERSISTANCE_GAMEDIFFICULTYFACTORY_CPP

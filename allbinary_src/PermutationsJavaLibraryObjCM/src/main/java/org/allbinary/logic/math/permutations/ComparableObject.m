@@ -1,111 +1,33 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/math/permutations/ComparableObject.h"
+#include "org/allbinary/TsUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_LOGIC_MATH_PERMUTATIONS_COMPARABLEOBJECT_CPP
-        #define ORG_ALLBINARY_LOGIC_MATH_PERMUTATIONS_COMPARABLEOBJECT_CPP
+void ComparableObject_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/math/permutations/ComparableObject.h"
-        
+@implementation ComparableObject
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Comparable.h"
-        
-#include <org/allbinary/TsUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ComparableObject::ComparableObject() {
-        }
-        
-    auto ComparableObject::compareTo(Object* anyType) -> int32_t{
-
-                        if(TsUtil::getInstance()->hashCode(this) < TsUtil::getInstance()->hashCode(anyType))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
-
-                                    }
-                                
-                             else 
-                        if(TsUtil::getInstance()->hashCode(this) > TsUtil::getInstance()->hashCode(anyType))
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 1;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
+- (int32_t) compareTo:(id)anyType {
+        if ([[TsUtil getInstance] hashCode:self] < [[TsUtil getInstance] hashCode:anyType]) {
+            return -1;
+        } else if ([[TsUtil getInstance] hashCode:self] > [[TsUtil getInstance] hashCode:anyType]) {
+            return 1;
+        }
+        return 0;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_MATH_PERMUTATIONS_COMPARABLEOBJECT_CPP

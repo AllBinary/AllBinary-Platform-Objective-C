@@ -1,331 +1,146 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/sprite/SpriteIndexedAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "javax/microedition/lcdui/game/Sprite.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonLabels.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_SPRITEINDEXEDANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_SPRITEINDEXEDANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/sprite/SpriteIndexedAnimation.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Throwable.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <javax/microedition/lcdui/game/Sprite.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/animation/IndexedAnimation.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/color/ColorCompositeInterface.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-SpriteIndexedAnimation::SpriteIndexedAnimation(Sprite* sprite, Image* image, std::vector<BasicColor*> basicColorArray, AnimationBehavior* animationBehavior) : IndexedAnimation(animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->sprite= sprite;
-    
-this->image= image;
-    
-this->basicColorArray= basicColorArray;
-    
-
-                        if(this->basicColorArray.size() != 0 && this->getSize() != this->basicColorArray.size())
-                        
-                                    {
-                                    
-
-
-                            throw Exception(JavaString::valueOf((new StringMaker())->append(CommonLabels::getInstance()->TOTAL_LABEL)->appendint(this->getSize())->append("!=")->appendint(this->basicColorArray.size())));
-                    
-
-                                    }
-                                
+void SpriteIndexedAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
 }
 
+@implementation SpriteIndexedAnimation
 
-                //@Throws(Exception.constructor)
-            
-    auto SpriteIndexedAnimation::getAnimationSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getSize();;
+- (void) initFields {
+    
+    
     
 }
 
 
-    auto SpriteIndexedAnimation::setBasicColorP(BasicColor* basicColor) -> void{
-
-
-
-
-                        for (
-    int32_t index = 0;index < this->basicColorArray.size(); index++)
-        {
-
-                        if(basicColor == this->basicColorArray[index])
-                        
-                                    {
-                                    this->setFrame(index);
-    
-break;
-
-                    
-
-                                    }
-                                
-}
-
+- (instancetype) init:(Sprite*)sprite :(Image*)image :(BasicColor**)basicColorArray :(AnimationBehavior*)animationBehavior {
+        self = [super init:animationBehavior];
+        [self initFields];
+        self->sprite = sprite;
+        self->image = image;
+        self->basicColorArray = basicColorArray;
+        if (java_array_length(self->basicColorArray) != 0 && [self getSize] != java_array_length(self->basicColorArray)) {
+            java_throw(java_exception_new("Exception", [[[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->TOTAL_LABEL] appendint:[self getSize]] append:"!="] appendint:java_array_length(self->basicColorArray)] toString]));
+        }
+    return self;
 }
 
 
-    auto SpriteIndexedAnimation::getBasicColorP() -> BasicColor*{
-
-                        if(this->basicColorArray.size() < this->getFrame())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->basicColorArray[this->getFrame()];
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return BasicColorFactory::getInstance()->WHITE;
-    
-
-                        }
-                            
+// throws Exception
+- (int32_t) getAnimationSize {
+        return [self getSize];
 }
 
 
-    auto SpriteIndexedAnimation::paintFrame(Graphics* graphics, int32_t frame, int32_t x, int32_t y) -> void{
-this->setFrame(frame);
-    
-this->sprite->setPosition(x, y);
-    
-this->sprite->paint(graphics);
-    
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        for (int32_t index = 0; index < java_array_length(self->basicColorArray); index++) {
+            if (basicColor == self->basicColorArray[index]) {
+                [self setFrame:index];
+                break;
+            }
+        }
 }
 
 
-    auto SpriteIndexedAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-this->sprite->setPosition(x, y);
-    
-this->sprite->paint(graphics);
-    
+- (BasicColor*) getBasicColorP {
+        if (java_array_length(self->basicColorArray) < [self getFrame]) {
+            return self->basicColorArray[[self getFrame]];
+        } else {
+            return [BasicColorFactory getInstance]->WHITE;
+        }
 }
 
 
-    auto SpriteIndexedAnimation::paint(Graphics* graphics) -> void{
-this->sprite->paint(graphics);
-    
+- (void) paintFrame:(Graphics*)graphics :(int32_t)frame :(int32_t)x :(int32_t)y {
+        [self setFrame:frame];
+        [self->sprite setPosition:x :y];
+        [self->sprite paint:graphics];
 }
 
 
-    auto SpriteIndexedAnimation::nextFrame() -> void{
-this->sprite->nextFrame();
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [self->sprite setPosition:x :y];
+        [self->sprite paint:graphics];
 }
 
 
-    auto SpriteIndexedAnimation::previousFrame() -> void{
-this->sprite->prevFrame();
-    
+- (void) paint:(Graphics*)graphics {
+        [self->sprite paint:graphics];
 }
 
 
-    auto SpriteIndexedAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->sprite->getRawFrameCount();;
-    
+- (void) nextFrame {
+        [self->sprite nextFrame];
 }
 
 
-    auto SpriteIndexedAnimation::setFrame(int32_t frame) -> void{
-this->sprite->setFrame(frame);
-    
+- (void) previousFrame {
+        [self->sprite prevFrame];
 }
 
 
-    auto SpriteIndexedAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->sprite->getFrame();;
-    
+- (int32_t) getSize {
+        return [self->sprite getRawFrameCount];
 }
 
 
-    auto SpriteIndexedAnimation::isLastFrame() -> bool{
-
-                        if(this->sprite->getFrame() == this->getSize() -1)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+- (void) setFrame:(int32_t)frame {
+        [self->sprite setFrame:frame];
 }
 
 
-    auto SpriteIndexedAnimation::getLastFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getSize();;
-    
+- (int32_t) getFrame {
+        return [self->sprite getFrame];
 }
 
 
-    auto SpriteIndexedAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+- (bool) isLastFrame {
+        if ([self->sprite getFrame] == [self getSize] - 1) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 
-    auto SpriteIndexedAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (int32_t) getLastFrame {
+        return [self getSize];
 }
 
 
-    auto SpriteIndexedAnimation::close() -> void{
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
-                //@Throws(Throwable.constructor)
-            
-    auto SpriteIndexedAnimation::finalize() -> void{
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
 }
 
 
+// throws Exception
+- (void) close {
+}
 
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_SPRITE_SPRITEINDEXEDANIMATION_CPP
+// throws Throwable
+- (void) finalize {
+}
+
+@end
+

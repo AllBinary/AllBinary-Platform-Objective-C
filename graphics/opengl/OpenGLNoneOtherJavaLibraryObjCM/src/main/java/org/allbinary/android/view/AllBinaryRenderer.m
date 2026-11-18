@@ -1,88 +1,37 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/android/view/AllBinaryRenderer.h"
 
 
+static AllBinaryRenderer* AllBinaryRenderer_instance;
 
-        #ifndef ORG_ALLBINARY_ANDROID_VIEW_ALLBINARYRENDERER_CPP
-        #define ORG_ALLBINARY_ANDROID_VIEW_ALLBINARYRENDERER_CPP
+void AllBinaryRenderer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AllBinaryRenderer_instance = [((AllBinaryRenderer*) [AllBinaryRenderer alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/android/view/AllBinaryRenderer.h"
-        
+@implementation AllBinaryRenderer
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Runnable.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-AllBinaryRenderer::AllBinaryRenderer() {
-        }
-        auto AllBinaryRenderer::instance_owner() -> AllBinaryRenderer* { static std::unique_ptr<AllBinaryRenderer> value(new AllBinaryRenderer()); return value.get(); }
-AllBinaryRenderer* AllBinaryRenderer::instance = AllBinaryRenderer::instance_owner();
-
-    auto AllBinaryRenderer::getInstance() -> AllBinaryRenderer*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AllBinaryRenderer::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto AllBinaryRenderer::setRunnable(Runnable* runnable) -> void{
++ (AllBinaryRenderer*) getInstance {
+        return (AllBinaryRenderer_staticInit(), AllBinaryRenderer_instance);
 }
 
 
-    auto AllBinaryRenderer::clearRunnable() -> void{
+- (void) setRunnable:(Runnable*)runnable {
 }
 
 
+- (void) clearRunnable {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANDROID_VIEW_ALLBINARYRENDERER_CPP

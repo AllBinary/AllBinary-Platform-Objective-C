@@ -1,64 +1,15 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_PROCEDURALANIMATIONINTERFACEFACTORYINTERFACE_CPP
-        #define ORG_ALLBINARY_ANIMATION_PROCEDURALANIMATIONINTERFACEFACTORYINTERFACE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/ProceduralAnimationInterfaceFactoryInterface.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/BasicAnimationInterfaceFactoryInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/ProceduralAnimationInterfaceFactoryInterface.h"
+#include "org/allbinary/animation/BasicAnimationInterfaceFactoryInterface.h"
 #include "org/allbinary/animation/Animation.h"
 
-//Interface - declared in the header
 
 
+void ProceduralAnimationInterfaceFactoryInterface_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #endif //ORG_ALLBINARY_ANIMATION_PROCEDURALANIMATIONINTERFACEFACTORYINTERFACE_CPP

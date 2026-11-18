@@ -31,18 +31,18 @@ void SecondaryThreadPool_staticInit(void) {
 
 
 - (void) runTask:(Runnable*)task {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[[StringUtil getInstance] toString:task]] appendlong:((int64_t) java_current_time_millis())] toString] :self :self->threadPoolStrings->ADD_TASK];
+        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[[StringUtil getInstance] toString:task]] appendlong:java_current_time_millis()] toString] :self :self->threadPoolStrings->ADD_TASK];
         [super runTask:task];
 }
 
 
 - (void) startTask:(Runnable*)task {
-        [self->logUtil putF:[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->threadPoolStrings->START_TASK] append:[[StringUtil getInstance] toString:task]] appendlong:((int64_t) java_current_time_millis())] toString] :self :self->commonStrings->RUN];
+        [self->logUtil putF:[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->threadPoolStrings->START_TASK] append:[[StringUtil getInstance] toString:task]] appendlong:java_current_time_millis()] toString] :self :self->commonStrings->RUN];
 }
 
 
 - (void) completedTask:(Runnable*)task {
-        [self->logUtil putF:[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->threadPoolStrings->COMPLETE_TASK] append:[[StringUtil getInstance] toString:task]] appendlong:((int64_t) java_current_time_millis())] toString] :self :self->commonStrings->RUN];
+        [self->logUtil putF:[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->threadPoolStrings->COMPLETE_TASK] append:[[StringUtil getInstance] toString:task]] appendlong:java_current_time_millis()] toString] :self :self->commonStrings->RUN];
 }
 
 @end

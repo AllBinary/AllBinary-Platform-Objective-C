@@ -1,86 +1,40 @@
+#ifndef ORG_ALLBINARY_ANIMATION_VECTORANIMATIONFACTORYINTERFACE_H
+#define ORG_ALLBINARY_ANIMATION_VECTORANIMATIONFACTORYINTERFACE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.animation
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class VectorAnimationFactoryInterface;
+@class BasicColor;
+@class VectorAnimation;
 
+@protocol VectorAnimationFactoryInterface
+- (VectorAnimation*) getInstance:(int32_t***)points :(BasicColor*)basicColor;
+@end
 
-
-        #ifndef ORG_ALLBINARY_ANIMATION_VECTORANIMATIONFACTORYINTERFACE_H
-        #define ORG_ALLBINARY_ANIMATION_VECTORANIMATIONFACTORYINTERFACE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class BasicColor;
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void VectorAnimationFactoryInterface_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class VectorAnimation;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class VectorAnimationFactoryInterface
-            : public virtual Object
-         {
-
-    public: virtual VectorAnimation* getInstance(std::vector<std::vector<std::vector<int32_t>>> points, BasicColor* basicColor) = 0;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_VECTORANIMATIONFACTORYINTERFACE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_ANIMATION_VECTORANIMATIONFACTORYINTERFACE_H_COMPLETE)
-        #define ORG_ALLBINARY_ANIMATION_VECTORANIMATIONFACTORYINTERFACE_H_COMPLETE
-        #if __has_include(<org/allbinary/graphics/color/BasicColor.h>)
-#include <org/allbinary/graphics/color/BasicColor.h>
-#endif
-#if __has_include("org/allbinary/animation/VectorAnimation.h")
-#include "org/allbinary/animation/VectorAnimation.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_ANIMATION_VECTORANIMATIONFACTORYINTERFACE_H

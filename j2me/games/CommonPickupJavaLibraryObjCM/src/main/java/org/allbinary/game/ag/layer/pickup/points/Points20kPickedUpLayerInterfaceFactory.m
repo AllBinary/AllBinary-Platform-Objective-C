@@ -1,142 +1,122 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_POINTS_POINTS20KPICKEDUPLAYERINTERFACEFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_POINTS_POINTS20KPICKEDUPLAYERINTERFACEFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/pickup/points/Points20kPickedUpLayerInterfaceFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h>
-
-      
-#include <org/allbinary/game/configuration/GameConfigurationUtil.h>
-
-      
-#include <org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.h>
-
-      
-#include <org/allbinary/game/layer/pickup/IconLayerFactory.h>
-
-      
-#include <org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactory.h>
-
-      
-#include <org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.h>
-
-      
-#include <org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.h>
-
-      
-#include <org/allbinary/game/layer/pickup/PickupProcessorInterface.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/ag/layer/pickup/points/PointsLayerCircularStaticPool.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/pickup/points/Points20kPickedUpLayerInterfaceFactory.h"
+#include "org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h"
+#include "org/allbinary/game/configuration/GameConfigurationUtil.h"
+#include "org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.h"
+#include "org/allbinary/game/layer/pickup/IconLayerFactory.h"
+#include "org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.h"
+#include "org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/game/ag/layer/pickup/points/PointsLayerCircularStaticPool.h"
 #include "org/allbinary/game/ag/layer/pickup/points/PointsLayerFactory.h"
 #include "org/allbinary/game/ag/layer/pickup/points/PointsResources.h"
+#if __has_include("org/allbinary/game/ag/layer/pickup/points/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/ag/layer/pickup/points/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/configuration/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/layer/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/layer/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/ag/layer/pickup/points/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/ag/layer/pickup/points/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/configuration/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/layer/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/layer/AnimationInterfaceFactoryInterface.h"
+#endif
 
-PickedUpLayerInterfaceFactoryInterface* Points20kPickedUpLayerInterfaceFactory::pickedUpLayerInterfaceFactoryInterface = CountedPickedUpLayerInterfaceFactory::NULL_COUNTED_PICKUP_LAYER_FACTORY;
 
-                //@Throws(Exception.constructor)
-            
-    auto Points20kPickedUpLayerInterfaceFactory::init() -> void{
-Points20kPickedUpLayerInterfaceFactory::pickedUpLayerInterfaceFactoryInterface= new Points20kPickedUpLayerInterfaceFactory();
-    
+static PickedUpLayerInterfaceFactoryInterface* Points20kPickedUpLayerInterfaceFactory_pickedUpLayerInterfaceFactoryInterface;
+
+void Points20kPickedUpLayerInterfaceFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    Points20kPickedUpLayerInterfaceFactory_pickedUpLayerInterfaceFactoryInterface = (CountedPickedUpLayerInterfaceFactory_staticInit(), CountedPickedUpLayerInterfaceFactory_NULL_COUNTED_PICKUP_LAYER_FACTORY);
+}
+
+@implementation Points20kPickedUpLayerInterfaceFactory
+
+- (void) initFields {
+    self->pool = [((PointsLayerCircularStaticPool*) [PointsLayerCircularStaticPool alloc]) init:[((PointsLayerFactory*) [PointsLayerFactory alloc]) init:[[GameConfigurationUtil getInstance] getCompetitionValue] * 20000] :1];
 }
 
 
-Points20kPickedUpLayerInterfaceFactory::Points20kPickedUpLayerInterfaceFactory() : PickedUpLayerInterfaceFactory(PickedUpLayerTypeFactory::getInstance()->POINTS, IconLayerFactory::getInstance(FeaturedAnimationInterfaceFactoryInterfaceFactory::getInstance()->get(PointsResources::getInstance()->RESOURCE_2)->getInstance(0), 10, 10), FeaturedAnimationInterfaceFactoryInterfaceFactory::getInstance()->get(PointsResources::getInstance()->RESOURCE_2)->getInstance(0)), pool(new PointsLayerCircularStaticPool(new PointsLayerFactory(GameConfigurationUtil::getInstance()->getCompetitionValue() *20000), 1)){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+// throws Exception
++ (void) init_ {
+        Points20kPickedUpLayerInterfaceFactory_pickedUpLayerInterfaceFactoryInterface = [((Points20kPickedUpLayerInterfaceFactory*) [Points20kPickedUpLayerInterfaceFactory alloc]) init];
 }
 
 
-    auto Points20kPickedUpLayerInterfaceFactory::getTotal() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 1;
-    
+- (instancetype) init {
+        self = [super init:[PickedUpLayerTypeFactory getInstance]->POINTS :[IconLayerFactory getInstance:[[[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[PointsResources getInstance]->RESOURCE_2] getInstance:0] :10 :10] :[[[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[PointsResources getInstance]->RESOURCE_2] getInstance:0]];
+        [self initFields];
+    return self;
 }
 
 
-    auto Points20kPickedUpLayerInterfaceFactory::getInstance() -> PickedUpLayerInterfaceFactoryInterface*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Points20kPickedUpLayerInterfaceFactory::pickedUpLayerInterfaceFactoryInterface;
-    
+- (int32_t) getTotal {
+        return 1;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto Points20kPickedUpLayerInterfaceFactory::process(AllBinaryLayer* sourceLayerInterface) -> void{
-this->pool->visit(sourceLayerInterface);
-    
++ (PickedUpLayerInterfaceFactoryInterface*) getInstance {
+        return (Points20kPickedUpLayerInterfaceFactory_staticInit(), Points20kPickedUpLayerInterfaceFactory_pickedUpLayerInterfaceFactoryInterface);
 }
 
 
+// throws Exception
+- (void) process:(AllBinaryLayer*)sourceLayerInterface {
+        [self->pool visit:sourceLayerInterface];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_POINTS_POINTS20KPICKEDUPLAYERINTERFACEFACTORY_CPP

@@ -1,94 +1,46 @@
+#ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORESINTERFACE_H
+#define ORG_ALLBINARY_GAME_SCORE_HIGHSCORESINTERFACE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.score
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class HighScoresInterface;
+@class BasicArrayList;
+@class HighScore;
 
+@protocol HighScoresInterface
+- (BasicArrayList*) getList;
+- (void) addHighScore:(HighScore*)newHighScore;
+- (int32_t) getTotal;
+- (bool) isBestScore:(HighScore*)newHighScore;
+@end
 
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void HighScoresInterface_staticInit(void);
 
-        #ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORESINTERFACE_H
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORESINTERFACE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class BasicArrayList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class HighScore;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class HighScoresInterface
-            : public virtual Object
-         {
-
-    public: virtual BasicArrayList* getList() = 0;
-
-    public: virtual void addHighScore(HighScore* newHighScore) = 0;
-
-    public: virtual int32_t getTotal() = 0;
-
-                //@Throws(Exception.constructor)
-            
-    public: virtual bool isBestScore(HighScore* newHighScore) = 0;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_SCORE_HIGHSCORESINTERFACE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_SCORE_HIGHSCORESINTERFACE_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORESINTERFACE_H_COMPLETE
-        #if __has_include(<org/allbinary/util/BasicArrayList.h>)
-#include <org/allbinary/util/BasicArrayList.h>
-#endif
-#if __has_include("org/allbinary/game/score/HighScore.h")
-#include "org/allbinary/game/score/HighScore.h"
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_SCORE_HIGHSCORESINTERFACE_H

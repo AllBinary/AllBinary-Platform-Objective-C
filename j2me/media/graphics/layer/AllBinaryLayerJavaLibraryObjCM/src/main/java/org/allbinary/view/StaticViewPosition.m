@@ -1,106 +1,39 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/view/StaticViewPosition.h"
+#include "org/allbinary/view/ViewPosition.h"
 
 
 
-        #ifndef ORG_ALLBINARY_VIEW_STATICVIEWPOSITION_CPP
-        #define ORG_ALLBINARY_VIEW_STATICVIEWPOSITION_CPP
+void StaticViewPosition_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/view/StaticViewPosition.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
+@implementation StaticViewPosition
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/view/ViewPosition.h"
-
-
-StaticViewPosition::StaticViewPosition(int32_t x, int32_t y, int32_t z) : ViewPosition(x, y, z){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init:(int32_t)x :(int32_t)y :(int32_t)z {
+        self = [super init:x :y :z];
+    return self;
 }
 
 
-    auto StaticViewPosition::getX() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getRawX();;
-    
+- (int32_t) getX {
+        return [self getRawX];
 }
 
 
-    auto StaticViewPosition::getY() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getRawY();;
-    
+- (int32_t) getY {
+        return [self getRawY];
 }
 
 
-    auto StaticViewPosition::getZ() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getRawZ();;
-    
+- (int32_t) getZ {
+        return [self getRawZ];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_VIEW_STATICVIEWPOSITION_CPP

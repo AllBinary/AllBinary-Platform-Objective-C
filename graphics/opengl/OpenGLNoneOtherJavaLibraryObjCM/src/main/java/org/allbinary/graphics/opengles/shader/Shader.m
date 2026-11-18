@@ -1,73 +1,33 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/shader/Shader.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListUtil.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADER_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADER_CPP
+void Shader_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/shader/Shader.h"
-        
+@implementation Shader
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->shaderName = [StringUtil getInstance]->EMPTY_STRING;
+    self->shaderStringList = [[BasicArrayListUtil getInstance] getImmutableInstance];
+    self->shaderAsString = [StringUtil getInstance]->EMPTY_STRING;
+    self->shaderHandle = 0;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringUtil.h>
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
-      
-#include <org/allbinary/util/BasicArrayList.h>
+@end
 
-      
-#include <org/allbinary/util/BasicArrayListUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-Shader::Shader() : shaderName(StringUtil::getInstance()->EMPTY_STRING), shaderStringList(BasicArrayListUtil::getInstance()->getImmutableInstance()), shaderAsString(StringUtil::getInstance()->EMPTY_STRING) {
-        }
-        
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADER_CPP

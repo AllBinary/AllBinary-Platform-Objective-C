@@ -1,162 +1,75 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/TopToBottomImageAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "javax/microedition/lcdui/game/Sprite.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/graphics/Anchor.h"
+#include "org/allbinary/animation/image/ImageSegmentAnimation.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_TOPTOBOTTOMIMAGEANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_TOPTOBOTTOMIMAGEANIMATION_CPP
+void TopToBottomImageAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/TopToBottomImageAnimation.h"
-        
+@implementation TopToBottomImageAnimation
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <javax/microedition/lcdui/game/Sprite.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/graphics/Anchor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/ImageSegmentAnimation.h"
-
-
-TopToBottomImageAnimation::TopToBottomImageAnimation(Image* image, std::vector<int32_t> sequenceArray, AnimationBehavior* animationBehavior) : ImageSegmentAnimation(image, sequenceArray, animationBehavior), anchor(Anchor::TOP_LEFT){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->currentHeight= 0;
+- (void) initFields {
     
-
-                        if(this->getSequence()[0] ==  -1)
-                        
-                                    {
-                                    this->setFrame(this->getSize() -1);
-    
-
-                                    }
-                                
+    self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
 }
 
 
-    auto TopToBottomImageAnimation::nextFrame() -> void{
-
-                        if(this->getSequence()[0] ==  -1)
-                        
-                                    {
-                                    ImageSegmentAnimation::previousFrame();
-    
-
-                                    }
-                                
-                        else {
-                            ImageSegmentAnimation::nextFrame();
-    
-
-                        }
-                            
-this->update();
-    
+- (instancetype) init:(Image*)image :(int32_t*)sequenceArray :(AnimationBehavior*)animationBehavior {
+        self = [super init:image :sequenceArray :animationBehavior];
+        [self initFields];
+        self->currentHeight = 0;
+        if ([self getSequence][0] == -1) {
+            [self setFrame:[self getSize] - 1];
+        }
+    return self;
 }
 
 
-    auto TopToBottomImageAnimation::previousFrame() -> void{
-
-                        if(this->getSequence()[0] ==  -1)
-                        
-                                    {
-                                    ImageSegmentAnimation::nextFrame();
-    
-
-                                    }
-                                
-                        else {
-                            ImageSegmentAnimation::previousFrame();
-    
-
-                        }
-                            
-this->update();
-    
+- (void) nextFrame {
+        if ([self getSequence][0] == -1) {
+            [super previousFrame];
+        } else {
+            [super nextFrame];
+        }
+        [self update];
 }
 
 
-    auto TopToBottomImageAnimation::setFrame(int32_t index) -> void{
-ImageSegmentAnimation::setFrame(index);
-    
-this->update();
-    
+- (void) previousFrame {
+        if ([self getSequence][0] == -1) {
+            [super nextFrame];
+        } else {
+            [super previousFrame];
+        }
+        [self update];
 }
 
 
-    auto TopToBottomImageAnimation::update() -> void{
-this->currentHeight= this->getDrawHeight() *this->getFrame() /this->getSize();
-    
+- (void) setFrame:(int32_t)index {
+        [super setFrame:index];
+        [self update];
 }
 
 
-    auto TopToBottomImageAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-graphics->drawRegion(this->getImage(), this->getStartX(), this->getStartY(), this->getDrawWidth(), this->currentHeight, Sprite::TRANS_NONE, x, y, this->anchor);
-    
+- (void) update {
+        self->currentHeight = [self getDrawHeight] * [self getFrame] / [self getSize];
 }
 
 
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [graphics drawRegion:[self getImage] :[self getStartX] :[self getStartY] :[self getDrawWidth] :self->currentHeight :(Sprite_staticInit(), Sprite_TRANS_NONE) :x :y :self->anchor];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_TOPTOBOTTOMIMAGEANIMATION_CPP

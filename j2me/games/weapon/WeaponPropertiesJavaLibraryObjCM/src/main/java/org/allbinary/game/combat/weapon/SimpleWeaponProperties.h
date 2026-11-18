@@ -1,100 +1,51 @@
+#ifndef ORG_ALLBINARY_GAME_COMBAT_WEAPON_SIMPLEWEAPONPROPERTIES_H
+#define ORG_ALLBINARY_GAME_COMBAT_WEAPON_SIMPLEWEAPONPROPERTIES_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.combat.weapon
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class SimpleWeaponProperties;
 
+@interface SimpleWeaponProperties : ABObject {
+@public
+    int32_t damage;
+    int16_t dissipation;
+    int32_t range;
+}
+- (instancetype) init;
+- (void) initFields;
+- (void) set:(SimpleWeaponProperties*)simpleWeaponProperties;
+- (void) setDamage:(int32_t)damage;
+- (int32_t) getDamage;
+- (void) setDissipation:(int16_t)dissipation;
+- (int16_t) getDissipation;
+- (int32_t) getRange;
+- (void) setRange:(int32_t)range;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_COMBAT_WEAPON_SIMPLEWEAPONPROPERTIES_H
-        #define ORG_ALLBINARY_GAME_COMBAT_WEAPON_SIMPLEWEAPONPROPERTIES_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void SimpleWeaponProperties_staticInit(void);
 
 
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class SimpleWeaponProperties
-            : public virtual Object
-         {
-
-
-            
-    public: SimpleWeaponProperties();
-        
-    private: int32_t damage= 0;
-
-    private: int16_t dissipation= 0;
-
-    private: int32_t range= 0;
-
-    public: void set(SimpleWeaponProperties* simpleWeaponProperties);
-
-    public: void setDamage(int32_t damage);
-
-    public: int32_t getDamage();
-
-    public: void setDissipation(int16_t dissipation);
-
-    public: int16_t getDissipation();
-
-    public: int32_t getRange();
-
-    public: void setRange(int32_t range);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_COMBAT_WEAPON_SIMPLEWEAPONPROPERTIES_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_COMBAT_WEAPON_SIMPLEWEAPONPROPERTIES_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_COMBAT_WEAPON_SIMPLEWEAPONPROPERTIES_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_COMBAT_WEAPON_SIMPLEWEAPONPROPERTIES_H

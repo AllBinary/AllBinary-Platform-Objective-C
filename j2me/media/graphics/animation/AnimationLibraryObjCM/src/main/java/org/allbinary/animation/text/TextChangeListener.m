@@ -1,82 +1,33 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/text/TextChangeListener.h"
 
 
+static TextChangeListener* TextChangeListener_instance;
 
-        #ifndef ORG_ALLBINARY_ANIMATION_TEXT_TEXTCHANGELISTENER_CPP
-        #define ORG_ALLBINARY_ANIMATION_TEXT_TEXTCHANGELISTENER_CPP
+void TextChangeListener_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TextChangeListener_instance = [((TextChangeListener*) [TextChangeListener alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/text/TextChangeListener.h"
-        
+@implementation TextChangeListener
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-TextChangeListener::TextChangeListener() {
-        }
-        auto TextChangeListener::instance_owner() -> TextChangeListener* { static std::unique_ptr<TextChangeListener> value(new TextChangeListener()); return value.get(); }
-TextChangeListener* TextChangeListener::instance = TextChangeListener::instance_owner();
-
-    auto TextChangeListener::getInstance() -> TextChangeListener*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TextChangeListener::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto TextChangeListener::onMeasure() -> void{
++ (TextChangeListener*) getInstance {
+        return (TextChangeListener_staticInit(), TextChangeListener_instance);
 }
 
 
+- (void) onMeasure {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_TEXT_TEXTCHANGELISTENER_CPP

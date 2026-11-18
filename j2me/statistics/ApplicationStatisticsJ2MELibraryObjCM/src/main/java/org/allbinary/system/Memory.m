@@ -23,9 +23,9 @@ void Memory_staticInit(void) {
 + (const char*) getInfo {
         StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
         [stringBuffer append:"Memory: Free: "];
-        [stringBuffer appendlong:((int64_t) [[Runtime getRuntime] freeMemory])];
+        [stringBuffer appendlong:[[Runtime getRuntime] freeMemory]];
         [stringBuffer append:" Total: "];
-        [stringBuffer appendlong:((int64_t) [[Runtime getRuntime] totalMemory])];
+        [stringBuffer appendlong:[[Runtime getRuntime] totalMemory]];
         return [stringBuffer toString];
 }
 

@@ -1,92 +1,44 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/content/CommandUriAction.h"
+#include "javax/microedition/lcdui/Command.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
 
 
+static CommandUriAction* CommandUriAction_instance;
 
-        #ifndef ORG_ALLBINARY_CONTENT_COMMANDURIACTION_CPP
-        #define ORG_ALLBINARY_CONTENT_COMMANDURIACTION_CPP
+void CommandUriAction_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CommandUriAction_instance = [((CommandUriAction*) [CommandUriAction alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/content/CommandUriAction.h"
-        
+@implementation CommandUriAction
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Command.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-CommandUriAction::CommandUriAction() : logUtil(LogUtil::getInstance()) {
-        }
-        auto CommandUriAction::instance_owner() -> CommandUriAction* { static std::unique_ptr<CommandUriAction> value(new CommandUriAction()); return value.get(); }
-CommandUriAction* CommandUriAction::instance = CommandUriAction::instance_owner();
-
-    auto CommandUriAction::getInstance() -> CommandUriAction*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CommandUriAction::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto CommandUriAction::add(Command* command, std::string url) -> void{
++ (CommandUriAction*) getInstance {
+        return (CommandUriAction_staticInit(), CommandUriAction_instance);
 }
 
 
-    auto CommandUriAction::process(Command* command) -> void{
+- (void) add:(Command*)command :(const char*)url {
 }
 
 
+- (void) process:(Command*)command {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_CONTENT_COMMANDURIACTION_CPP

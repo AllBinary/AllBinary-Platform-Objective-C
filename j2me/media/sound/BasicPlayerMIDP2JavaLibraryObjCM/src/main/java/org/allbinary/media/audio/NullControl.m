@@ -1,67 +1,22 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/NullControl.h"
 
 
 
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_NULLCONTROL_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_NULLCONTROL_CPP
+void NullControl_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/NullControl.h"
-        
+@implementation NullControl
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
 
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/media/Control.h>
+@end
 
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-NullControl::NullControl() {
-        }
-        
-
-
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_NULLCONTROL_CPP

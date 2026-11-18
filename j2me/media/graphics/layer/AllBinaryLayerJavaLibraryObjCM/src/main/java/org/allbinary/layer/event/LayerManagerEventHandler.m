@@ -1,238 +1,113 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LAYER_EVENT_LAYERMANAGEREVENTHANDLER_CPP
-        #define ORG_ALLBINARY_LAYER_EVENT_LAYERMANAGEREVENTHANDLER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/layer/event/LayerManagerEventHandler.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/layer/event/LayerManagerEventListener.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/layer/event/LayerManagerEventHandler.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventListenerInterface.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/layer/event/LayerManagerEventListener.h"
 #include "org/allbinary/layer/event/LayerManagerEvent.h"
 #include "org/allbinary/layer/event/LayerManagerEventListenerInterface.h"
 
-auto LayerManagerEventHandler::instance_owner() -> LayerManagerEventHandler* { static std::unique_ptr<LayerManagerEventHandler> value(new LayerManagerEventHandler()); return value.get(); }
-LayerManagerEventHandler* LayerManagerEventHandler::instance = LayerManagerEventHandler::instance_owner();
 
-    auto LayerManagerEventHandler::getInstance() -> LayerManagerEventHandler*{
+static LayerManagerEventHandler* LayerManagerEventHandler_instance;
 
+void LayerManagerEventHandler_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    LayerManagerEventHandler_instance = [((LayerManagerEventHandler*) [LayerManagerEventHandler alloc]) init];
+}
 
+@implementation LayerManagerEventHandler
 
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return LayerManagerEventHandler::instance;
-    
+- (void) initFields {
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->CREATE = "Create";
+    self->DELETE = "Delete";
 }
 
 
-LayerManagerEventHandler::LayerManagerEventHandler() : list(new BasicArrayListD()){
++ (LayerManagerEventHandler*) getInstance {
+        return (LayerManagerEventHandler_staticInit(), LayerManagerEventHandler_instance);
 }
 
 
-    auto LayerManagerEventHandler::addListener(LayerManagerEventListener* layerManagerEventListener) -> void{
-
-                        if(!this->list->contains(layerManagerEventListener))
-                        
-                                    {
-                                    this->list->add(layerManagerEventListener);
-    
-
-                                    }
-                                
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto LayerManagerEventHandler::removeAllListeners() -> void{
-this->list->clear();
-    
-BasicEventHandler::removeAllListeners();
-    
+- (void) addListener:(LayerManagerEventListener*)layerManagerEventListener {
+        if (![self->list contains:layerManagerEventListener]) {
+            [self->list add:layerManagerEventListener];
+        }
 }
 
 
-    auto LayerManagerEventHandler::removeListener(EventListenerInterface* eventListenerInterface) -> void{
-this->list->remove(eventListenerInterface);
-    
-BasicEventHandler::removeListener(eventListenerInterface);
-    
+- (void) removeAllListeners {
+        [self->list clear];
+        [super removeAllListeners];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto LayerManagerEventHandler::fireEvent(AllBinaryEventObject* eventObject) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->list->size();--index >= 0; )
-        {
-
-        try {
-            
-    LayerManagerEventListener* layerManagerEventListener = dynamic_cast<LayerManagerEventListener*>(this->list->objectArray[index]);;
-    
-layerManagerEventListener->onCreateLayerManagerEvent(dynamic_cast<LayerManagerEvent*>(eventObject));
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, EventStrings::getInstance()->FIRE_EVENT, &e);
-    
-}
-
-}
-
-BasicEventHandler::fireEvent(eventObject);
-    
+- (void) removeListener:(EventListenerInterface*)eventListenerInterface {
+        [self->list remove:eventListenerInterface];
+        [super removeListener:eventListenerInterface];
 }
 
 
-                //@Throws(Exception.constructor)
-            //@Synchronized //TWB - This is not allowed for CPP native. Instead use Coroutine logic instead.
-
-    auto LayerManagerEventHandler::fireDeleteEvent(AllBinaryEventObject* eventObject) -> void{
-
-
-
-
-                        for (
-    int32_t index = this->list->size();--index >= 0; )
-        {
-
-        try {
-            
-    LayerManagerEventListener* layerManagerEventListener = dynamic_cast<LayerManagerEventListener*>(this->list->objectArray[index]);;
-    
-layerManagerEventListener->onDeleteLayerManagerEvent(dynamic_cast<LayerManagerEvent*>(eventObject));
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, EventStrings::getInstance()->FIRE_EVENT, &e);
-    
-}
-
+// throws Exception
+- (void) fireEvent:(AllBinaryEventObject*)eventObject {
+        for (int32_t index = [self->list size]; --index >= 0; ) {
+            JAVA_TRY {
+                LayerManagerEventListener* layerManagerEventListener = ((LayerManagerEventListener*) self->list->objectArray[index]);
+                [layerManagerEventListener onCreateLayerManagerEvent:((LayerManagerEvent*) eventObject)];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
+            } JAVA_END_TRY;
+        }
+        [super fireEvent:eventObject];
 }
 
 
-    BasicArrayList* eventListenerInterfaceList = this->eventListenerInterfaceList;;
-    
-
-    EventListenerInterface* eventListenerInterface;;
-    
-
-    LayerManagerEventListenerInterface* layerManagerEventListenerInterface;;
-    
-
-    int32_t listenerIndex = 0;;
-    
-
-        while(listenerIndex < eventListenerInterfaceList->size())
-        {
-
-        try {
-            eventListenerInterface= dynamic_cast<EventListenerInterface*>(eventListenerInterfaceList->objectArray[listenerIndex]);
-    
-layerManagerEventListenerInterface= (dynamic_cast<LayerManagerEventListenerInterface*>(eventListenerInterface));
-    
-layerManagerEventListenerInterface->onDeleteLayerManagerEvent(dynamic_cast<LayerManagerEvent*>(eventObject));
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, EventStrings::getInstance()->FIRE_EVENT, &e);
-    
-}
-
-listenerIndex++;
-    
-}
-
+// throws Exception
+// synchronized
+- (void) fireDeleteEvent:(AllBinaryEventObject*)eventObject {
+        for (int32_t index = [self->list size]; --index >= 0; ) {
+            JAVA_TRY {
+                LayerManagerEventListener* layerManagerEventListener = ((LayerManagerEventListener*) self->list->objectArray[index]);
+                [layerManagerEventListener onDeleteLayerManagerEvent:((LayerManagerEvent*) eventObject)];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
+            } JAVA_END_TRY;
+        }
+        BasicArrayList* eventListenerInterfaceList = self->eventListenerInterfaceList;
+        EventListenerInterface* eventListenerInterface = nullptr;
+        LayerManagerEventListenerInterface* layerManagerEventListenerInterface = nullptr;
+        int32_t listenerIndex = 0;
+        while (listenerIndex < [eventListenerInterfaceList size]) {
+            JAVA_TRY {
+                eventListenerInterface = ((EventListenerInterface*) eventListenerInterfaceList->objectArray[listenerIndex]);
+                layerManagerEventListenerInterface = (((LayerManagerEventListenerInterface*) eventListenerInterface));
+                [layerManagerEventListenerInterface onDeleteLayerManagerEvent:((LayerManagerEvent*) eventObject)];
+            } JAVA_CATCH(Exception, e) {
+                [self->logUtil put:self->commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
+            } JAVA_END_TRY;
+            listenerIndex++;
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto LayerManagerEventHandler::process(AllBinaryEventObject* eventObject, EventListenerInterface* eventListenerInterface) -> void{
-
-    LayerManagerEventListenerInterface* layerManagerEventListenerInterface = (dynamic_cast<LayerManagerEventListenerInterface*>(eventListenerInterface));;
-    
-layerManagerEventListenerInterface->onCreateLayerManagerEvent(dynamic_cast<LayerManagerEvent*>(eventObject));
-    
+// throws Exception
+- (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
+        LayerManagerEventListenerInterface* layerManagerEventListenerInterface = (((LayerManagerEventListenerInterface*) eventListenerInterface));
+        [layerManagerEventListenerInterface onCreateLayerManagerEvent:((LayerManagerEvent*) eventObject)];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_LAYER_EVENT_LAYERMANAGEREVENTHANDLER_CPP

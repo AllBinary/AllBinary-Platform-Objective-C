@@ -1,152 +1,68 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/CurrentlyPressedTouchButtonSingleton.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/input/motion/button/TouchButtonInput.h"
 
 
+static CurrentlyPressedTouchButtonSingleton* CurrentlyPressedTouchButtonSingleton_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_CURRENTLYPRESSEDTOUCHBUTTONSINGLETON_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_CURRENTLYPRESSEDTOUCHBUTTONSINGLETON_CPP
+void CurrentlyPressedTouchButtonSingleton_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CurrentlyPressedTouchButtonSingleton_instance = [((CurrentlyPressedTouchButtonSingleton*) [CurrentlyPressedTouchButtonSingleton alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/CurrentlyPressedTouchButtonSingleton.h"
-        
+@implementation CurrentlyPressedTouchButtonSingleton
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/button/TouchButtonInput.h"
-
-auto CurrentlyPressedTouchButtonSingleton::instance_owner() -> CurrentlyPressedTouchButtonSingleton* { static std::unique_ptr<CurrentlyPressedTouchButtonSingleton> value(new CurrentlyPressedTouchButtonSingleton()); return value.get(); }
-CurrentlyPressedTouchButtonSingleton* CurrentlyPressedTouchButtonSingleton::instance = CurrentlyPressedTouchButtonSingleton::instance_owner();
-
-    auto CurrentlyPressedTouchButtonSingleton::getInstance() -> CurrentlyPressedTouchButtonSingleton*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return CurrentlyPressedTouchButtonSingleton::instance;
-    
+- (void) initFields {
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-CurrentlyPressedTouchButtonSingleton::CurrentlyPressedTouchButtonSingleton() : list(new BasicArrayListD()){
++ (CurrentlyPressedTouchButtonSingleton*) getInstance {
+        return (CurrentlyPressedTouchButtonSingleton_staticInit(), CurrentlyPressedTouchButtonSingleton_instance);
 }
 
 
-    auto CurrentlyPressedTouchButtonSingleton::size() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list->size();;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto CurrentlyPressedTouchButtonSingleton::removeAt(int32_t index) -> TouchButtonInput*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<TouchButtonInput*>(this->list->removeAt(index));
-    
+- (int32_t) size {
+        return [self->list size];
 }
 
 
-    auto CurrentlyPressedTouchButtonSingleton::remove(TouchButtonInput* touchButtonInput) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list->remove(touchButtonInput);;
-    
+- (TouchButtonInput*) removeAt:(int32_t)index {
+        return ((TouchButtonInput*) [self->list removeAt:index]);
 }
 
 
-    auto CurrentlyPressedTouchButtonSingleton::get(int32_t index) -> TouchButtonInput*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<TouchButtonInput*>(this->list->objectArray[index]);
-    
+- (bool) remove:(TouchButtonInput*)touchButtonInput {
+        return [self->list remove:touchButtonInput];
 }
 
 
-    auto CurrentlyPressedTouchButtonSingleton::contains(TouchButtonInput* touchButtonInput) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list->contains(touchButtonInput);;
-    
+- (TouchButtonInput*) get:(int32_t)index {
+        return ((TouchButtonInput*) self->list->objectArray[index]);
 }
 
 
-    auto CurrentlyPressedTouchButtonSingleton::add(TouchButtonInput* touchButtonInput) -> void{
-this->list->add(touchButtonInput);
-    
+- (bool) contains:(TouchButtonInput*)touchButtonInput {
+        return [self->list contains:touchButtonInput];
 }
 
 
+- (void) add:(TouchButtonInput*)touchButtonInput {
+        [self->list add:touchButtonInput];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_CURRENTLYPRESSEDTOUCHBUTTONSINGLETON_CPP

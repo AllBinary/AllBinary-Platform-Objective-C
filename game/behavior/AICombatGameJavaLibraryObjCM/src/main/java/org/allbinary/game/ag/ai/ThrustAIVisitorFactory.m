@@ -1,79 +1,30 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/ai/ThrustAIVisitorFactory.h"
+#include "org/allbinary/game/ag/ai/ThrustAIVisitor.h"
 
 
+static ThrustAIVisitor* ThrustAIVisitorFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_AG_AI_THRUSTAIVISITORFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_AG_AI_THRUSTAIVISITORFACTORY_CPP
+void ThrustAIVisitorFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ThrustAIVisitorFactory_instance = [((ThrustAIVisitor*) [ThrustAIVisitor alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/ai/ThrustAIVisitorFactory.h"
-        
+@implementation ThrustAIVisitorFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/ag/ai/ThrustAIVisitor.h"
-
-
-ThrustAIVisitorFactory::ThrustAIVisitorFactory() {
-        }
-        auto ThrustAIVisitorFactory::instance_owner() -> ThrustAIVisitor* { static std::unique_ptr<ThrustAIVisitor> value(new ThrustAIVisitor()); return value.get(); }
-ThrustAIVisitor* ThrustAIVisitorFactory::instance = ThrustAIVisitorFactory::instance_owner();
-
-    auto ThrustAIVisitorFactory::getInstance() -> ThrustAIVisitor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ThrustAIVisitorFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
++ (ThrustAIVisitor*) getInstance {
+        return (ThrustAIVisitorFactory_staticInit(), ThrustAIVisitorFactory_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_AI_THRUSTAIVISITORFACTORY_CPP

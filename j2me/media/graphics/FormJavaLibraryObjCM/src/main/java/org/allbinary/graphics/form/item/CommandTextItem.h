@@ -1,92 +1,54 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_COMMANDTEXTITEM_H
+#define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_COMMANDTEXTITEM_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_COMMANDTEXTITEM_H
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_COMMANDTEXTITEM_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-class Command;
-class BasicColor;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/form/item/ABTextItem.h"
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class CommandTextItem: public ABTextItem {
-
-    private: Command* command;
-
-public: CommandTextItem(Command* command, int32_t layout, std::string altText, BasicColor* backgroundBasicColor, BasicColor* foregroundBasicColor);
-
-    public: bool isFocusable();
-
-    public: Command* getCommand();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_COMMANDTEXTITEM_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_FORM_ITEM_COMMANDTEXTITEM_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_COMMANDTEXTITEM_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Command.h>)
-#include <javax/microedition/lcdui/Command.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class CommandTextItem;
+@class Command;
+@class BasicColor;
+@class ABTextItem;
+#if __has_include("javax/microedition/lcdui/Command.h")
+#include "javax/microedition/lcdui/Command.h"
 #endif
-#if __has_include(<org/allbinary/graphics/color/BasicColor.h>)
-#include <org/allbinary/graphics/color/BasicColor.h>
-#endif
-#if __has_include("org/allbinary/graphics/form/item/ABTextItem.h")
 #include "org/allbinary/graphics/form/item/ABTextItem.h"
+
+@interface CommandTextItem : ABTextItem {
+@public
+    Command* command;
+}
+- (instancetype) init:(Command*)command :(int32_t)layout :(const char*)altText :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor;
+- (void) initFields;
+- (bool) isFocusable;
+- (Command*) getCommand;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void CommandTextItem_staticInit(void);
+
+#if __has_include("javax/microedition/lcdui/Command.h")
+#include "javax/microedition/lcdui/Command.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_FORM_ITEM_COMMANDTEXTITEM_H

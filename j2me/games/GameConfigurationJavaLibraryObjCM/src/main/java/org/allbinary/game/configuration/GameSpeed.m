@@ -1,110 +1,43 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_GAMESPEED_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_GAMESPEED_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/GameSpeed.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/GameSpeed.h"
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
 #include "org/allbinary/game/configuration/GameConfiguration.h"
 
 
-GameSpeed::GameSpeed() {
-        }
-        auto GameSpeed::instance_owner() -> GameSpeed* { static std::unique_ptr<GameSpeed> value(new GameSpeed()); return value.get(); }
-GameSpeed* GameSpeed::instance = GameSpeed::instance_owner();
+static GameSpeed* GameSpeed_instance;
 
-    auto GameSpeed::getSpeed() -> int32_t{
+void GameSpeed_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameSpeed_instance = [((GameSpeed*) [GameSpeed alloc]) init];
+}
 
-    GameConfiguration* speedGameConfiguration = GameConfigurationCentral::getInstance()->SPEED;;
-    
+@implementation GameSpeed
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return (JavaBoxes::value<int32_t>(speedGameConfiguration->getMaxValue()) -JavaBoxes::value<int32_t>(speedGameConfiguration->getValue()) +1);
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto GameSpeed::getDelay() -> int32_t{
-
-    GameConfiguration* speedGameConfiguration = GameConfigurationCentral::getInstance()->SPEED;;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 19 *(JavaBoxes::value<int32_t>(speedGameConfiguration->getMaxValue()) -JavaBoxes::value<int32_t>(speedGameConfiguration->getValue()));
-    
+- (int32_t) getSpeed {
+        GameConfiguration* speedGameConfiguration = [GameConfigurationCentral getInstance]->SPEED;
+        return (((int32_t) ([speedGameConfiguration getMaxValue])) - ((int32_t) ([speedGameConfiguration getValue])) + 1);
 }
 
 
-    auto GameSpeed::getInstance() -> GameSpeed*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameSpeed::instance;
-    
+- (int32_t) getDelay {
+        GameConfiguration* speedGameConfiguration = [GameConfigurationCentral getInstance]->SPEED;
+        return 19 * (((int32_t) ([speedGameConfiguration getMaxValue])) - ((int32_t) ([speedGameConfiguration getValue])));
 }
 
 
++ (GameSpeed*) getInstance {
+        return (GameSpeed_staticInit(), GameSpeed_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_GAMESPEED_CPP

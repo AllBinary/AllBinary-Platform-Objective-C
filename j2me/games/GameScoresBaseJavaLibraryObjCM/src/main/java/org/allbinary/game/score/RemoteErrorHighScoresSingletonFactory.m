@@ -1,82 +1,31 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/RemoteErrorHighScoresSingletonFactory.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/game/score/HighScores.h"
 
 
+static HighScores* RemoteErrorHighScoresSingletonFactory_SINGLETON;
 
-        #ifndef ORG_ALLBINARY_GAME_SCORE_REMOTEERRORHIGHSCORESSINGLETONFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_REMOTEERRORHIGHSCORESSINGLETONFACTORY_CPP
+void RemoteErrorHighScoresSingletonFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    RemoteErrorHighScoresSingletonFactory_SINGLETON = [((HighScores*) [HighScores alloc]) init:[CommonStrings getInstance]->LOADING :"Remote High Scores Did Not Load" :[CommonStrings getInstance]->PERIODS];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/RemoteErrorHighScoresSingletonFactory.h"
-        
+@implementation RemoteErrorHighScoresSingletonFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/score/HighScores.h"
-
-
-RemoteErrorHighScoresSingletonFactory::RemoteErrorHighScoresSingletonFactory() {
-        }
-        auto RemoteErrorHighScoresSingletonFactory::SINGLETON_owner() -> HighScores* { static std::unique_ptr<HighScores> value(new HighScores(CommonStrings::getInstance()->LOADING, "Remote High Scores Did Not Load", CommonStrings::getInstance()->PERIODS)); return value.get(); }
-HighScores* RemoteErrorHighScoresSingletonFactory::SINGLETON = RemoteErrorHighScoresSingletonFactory::SINGLETON_owner();
-
-    auto RemoteErrorHighScoresSingletonFactory::getInstance() -> HighScores*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return RemoteErrorHighScoresSingletonFactory::SINGLETON;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
++ (HighScores*) getInstance {
+        return (RemoteErrorHighScoresSingletonFactory_staticInit(), RemoteErrorHighScoresSingletonFactory_SINGLETON);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_SCORE_REMOTEERRORHIGHSCORESSINGLETONFACTORY_CPP

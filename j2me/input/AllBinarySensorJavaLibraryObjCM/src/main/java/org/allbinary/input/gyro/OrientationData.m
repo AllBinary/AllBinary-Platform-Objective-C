@@ -1,79 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/gyro/OrientationData.h"
 
 
+static OrientationData* OrientationData_SINGLETON;
 
-        #ifndef ORG_ALLBINARY_INPUT_GYRO_ORIENTATIONDATA_CPP
-        #define ORG_ALLBINARY_INPUT_GYRO_ORIENTATIONDATA_CPP
+void OrientationData_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    OrientationData_SINGLETON = [((OrientationData*) [OrientationData alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/gyro/OrientationData.h"
-        
+@implementation OrientationData
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto OrientationData::SINGLETON_owner() -> OrientationData* { static std::unique_ptr<OrientationData> value(new OrientationData()); return value.get(); }
-OrientationData* OrientationData::SINGLETON = OrientationData::SINGLETON_owner();
-
-OrientationData::OrientationData(){
+- (void) initFields {
+    self->ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
+    self->ORIENTATION_TYPE = "Orientation Type";
 }
 
 
-    auto OrientationData::getInstance() -> OrientationData*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return OrientationData::SINGLETON;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (OrientationData*) getInstance {
+        return (OrientationData_staticInit(), OrientationData_SINGLETON);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_GYRO_ORIENTATIONDATA_CPP

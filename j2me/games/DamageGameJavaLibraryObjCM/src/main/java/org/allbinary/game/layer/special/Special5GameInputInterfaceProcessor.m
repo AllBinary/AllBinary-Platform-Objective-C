@@ -1,87 +1,33 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_LAYER_SPECIAL_SPECIAL5GAMEINPUTINTERFACEPROCESSOR_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_SPECIAL_SPECIAL5GAMEINPUTINTERFACEPROCESSOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/special/Special5GameInputInterfaceProcessor.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/input/event/GameKeyEvent.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/special/SpecialGameInputInterfaceProcessor.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/special/Special5GameInputInterfaceProcessor.h"
+#include "org/allbinary/game/input/event/GameKeyEvent.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/game/layer/special/SpecialGameInputInterfaceProcessor.h"
 #include "org/allbinary/game/layer/special/SpecialGameInputInterface.h"
 
 
-Special5GameInputInterfaceProcessor::Special5GameInputInterfaceProcessor(SpecialGameInputInterface* collidableDestroyableDamageableLayer) : SpecialGameInputInterfaceProcessor(collidableDestroyableDamageableLayer){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void Special5GameInputInterfaceProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
+@implementation Special5GameInputInterfaceProcessor
+
+
+- (instancetype) init:(SpecialGameInputInterface*)collidableDestroyableDamageableLayer {
+        self = [super init:collidableDestroyableDamageableLayer];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto Special5GameInputInterfaceProcessor::processEvent(AllBinaryLayerManager* allbinaryLayerManager, GameKeyEvent* gameKeyEvent) -> void{
-this->specialGameInputInterface->special5(allbinaryLayerManager, gameKeyEvent);
-    
+// throws Exception
+- (void) processEvent:(AllBinaryLayerManager*)allbinaryLayerManager :(GameKeyEvent*)gameKeyEvent {
+        [self->specialGameInputInterface special5:allbinaryLayerManager :gameKeyEvent];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_LAYER_SPECIAL_SPECIAL5GAMEINPUTINTERFACEPROCESSOR_CPP

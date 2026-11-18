@@ -1,79 +1,44 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/graphics/hud/BasicHudFactory.h"
 
 
+static BasicHudFactory* BasicHudFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_GRAPHICS_HUD_BASICHUDFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_GRAPHICS_HUD_BASICHUDFACTORY_CPP
+void BasicHudFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    BasicHudFactory_instance = [((BasicHudFactory*) [BasicHudFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/graphics/hud/BasicHudFactory.h"
-        
+@implementation BasicHudFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto BasicHudFactory::instance_owner() -> BasicHudFactory* { static std::unique_ptr<BasicHudFactory> value(new BasicHudFactory()); return value.get(); }
-BasicHudFactory* BasicHudFactory::instance = BasicHudFactory::instance_owner();
-
-    auto BasicHudFactory::getInstance() -> BasicHudFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return BasicHudFactory::instance;
-    
+- (void) initFields {
+    self->DIRECTION_EXCEPTION = "Only Horizontal Direction is Allowed Currently";
+    self->VERTICAL = 0;
+    self->HORIZONTAL = 1;
+    self->BOTTOMLEFT = 0;
+    self->BOTTOMRIGHT = 1;
+    self->TOPLEFT = 2;
+    self->TOPRIGHT = 3;
+    self->BOTTOMCENTER = 4;
+    self->TOPCENTER = 5;
+    self->ABSOLUTE = 6;
 }
 
 
-BasicHudFactory::BasicHudFactory(){
++ (BasicHudFactory*) getInstance {
+        return (BasicHudFactory_staticInit(), BasicHudFactory_instance);
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_GRAPHICS_HUD_BASICHUDFACTORY_CPP

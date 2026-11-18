@@ -1,90 +1,44 @@
+#ifndef ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_VELOCITYBEHAVIORBASE_H
+#define ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_VELOCITYBEHAVIORBASE_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2022 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.physics.velocity
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class VelocityBehaviorBase;
+@class BasicVelocityProperties;
 
+@interface VelocityBehaviorBase : ABObject {
+@public
+}
+- (instancetype) init;
+- (void) reduce:(BasicVelocityProperties*)velocityProperties :(int32_t)nominator :(int32_t)denominator;
+- (void) reduceX:(BasicVelocityProperties*)velocityProperties :(int32_t)nominator :(int32_t)denominator;
+- (void) reduceY:(BasicVelocityProperties*)velocityProperties :(int32_t)nominator :(int32_t)denominator;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_VELOCITYBEHAVIORBASE_H
-        #define ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_VELOCITYBEHAVIORBASE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void VelocityBehaviorBase_staticInit(void);
 
 
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class BasicVelocityProperties;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class VelocityBehaviorBase
-            : public virtual Object
-         {
-
-
-            
-    public: VelocityBehaviorBase();
-        
-    public: void reduce(BasicVelocityProperties* velocityProperties, int32_t nominator, int32_t denominator);
-
-    public: void reduceX(BasicVelocityProperties* velocityProperties, int32_t nominator, int32_t denominator);
-
-    public: void reduceY(BasicVelocityProperties* velocityProperties, int32_t nominator, int32_t denominator);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_VELOCITYBEHAVIORBASE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_VELOCITYBEHAVIORBASE_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_VELOCITYBEHAVIORBASE_H_COMPLETE
-        #if __has_include("org/allbinary/game/physics/velocity/BasicVelocityProperties.h")
-#include "org/allbinary/game/physics/velocity/BasicVelocityProperties.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_PHYSICS_VELOCITY_VELOCITYBEHAVIORBASE_H

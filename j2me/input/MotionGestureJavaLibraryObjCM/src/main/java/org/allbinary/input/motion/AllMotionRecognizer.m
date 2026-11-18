@@ -1,242 +1,117 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/AllMotionRecognizer.h"
+#include "org/allbinary/graphics/CustomGPoint.h"
+#include "org/allbinary/graphics/GPointCircularPool.h"
+#include "org/allbinary/input/motion/button/TouchButtonRecognizer.h"
+#include "org/allbinary/input/motion/gesture/MotionGestureRecognizer.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/input/motion/MotionRecognizer.h"
 
 
+static int32_t AllMotionRecognizer_index = 0;
+static GPointCircularPool* AllMotionRecognizer_pointCircularPool;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_CPP
+void AllMotionRecognizer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AllMotionRecognizer_pointCircularPool = [((GPointCircularPool*) [GPointCircularPool alloc]) init:40];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/AllMotionRecognizer.h"
-        
+@implementation AllMotionRecognizer
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/graphics/CustomGPoint.h>
-
-      
-#include <org/allbinary/graphics/GPointCircularPool.h>
-
-      
-#include <org/allbinary/input/motion/button/TouchButtonRecognizer.h>
-
-      
-#include <org/allbinary/input/motion/gesture/MotionGestureRecognizer.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/MotionRecognizer.h"
-
-auto AllMotionRecognizer::pointCircularPool_owner() -> GPointCircularPool* { static std::unique_ptr<GPointCircularPool> value(new GPointCircularPool(40)); return value.get(); }
-GPointCircularPool* AllMotionRecognizer::pointCircularPool = AllMotionRecognizer::pointCircularPool_owner();
-
-AllMotionRecognizer::AllMotionRecognizer() : logUtil(LogUtil::getInstance()){
-this->id= AllMotionRecognizer::index++;
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
     
-this->motionGestureRecognizer= new MotionGestureRecognizer(this->id);
+    self->touchButtonProcessing = false;
     
-this->touchButtonRecognizer= new TouchButtonRecognizer();
     
+    self->lastX = 0;
+    self->lastY = 0;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllMotionRecognizer::processStartMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
-
-                        if(this->touchButtonRecognizer->pressTouchButtonInput(x, y, deviceId))
-                        
-                                    {
-                                    this->touchButtonProcessing= true;
-    
-
-                                    }
-                                
-
-                        if(!this->touchButtonProcessing)
-                        
-                                    {
-                                    
-    CustomGPoint* point = dynamic_cast<CustomGPoint*>(AllMotionRecognizer::pointCircularPool->getNextInstance());;
-    
-point->setX(x);
-    
-point->setY(y);
-    
-this->motionGestureRecognizer->processPressedMotionEvent(point, deviceId, modifiers);
-    
-
-                                    }
-                                
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        self->id_ = AllMotionRecognizer_index++;
+        self->motionGestureRecognizer = [((MotionGestureRecognizer*) [MotionGestureRecognizer alloc]) init:self->id_];
+        self->touchButtonRecognizer = [((TouchButtonRecognizer*) [TouchButtonRecognizer alloc]) init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllMotionRecognizer::processEndMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
-
-                        if(this->touchButtonRecognizer->releaseTouchButtonInput(x, y, deviceId))
-                        
-                                    {
-                                    
-                                    }
-                                
-
-                        if(!this->touchButtonProcessing)
-                        
-                                    {
-                                    
-    CustomGPoint* point = dynamic_cast<CustomGPoint*>(AllMotionRecognizer::pointCircularPool->getNextInstance());;
-    
-point->setX(x);
-    
-point->setY(y);
-    
-this->motionGestureRecognizer->processReleasedMotionEvent(point, deviceId, modifiers);
-    
-
-                                    }
-                                
-
-                        if(this->touchButtonProcessing)
-                        
-                                    {
-                                    this->touchButtonProcessing= false;
-    
-
-                                    }
-                                
+// throws Exception
+- (void) processStartMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
+        if ([self->touchButtonRecognizer pressTouchButtonInput:x :y :deviceId]) {
+            self->touchButtonProcessing = true;
+        }
+        if (!self->touchButtonProcessing) {
+            CustomGPoint* point = ((CustomGPoint*) [(AllMotionRecognizer_staticInit(), AllMotionRecognizer_pointCircularPool) getNextInstance]);
+            [point setX:x];
+            [point setY:y];
+            [self->motionGestureRecognizer processPressedMotionEvent:point :deviceId :modifiers];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllMotionRecognizer::processDraggedMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
-
-                        if(this->touchButtonProcessing)
-                        
-                                    {
-                                    this->touchButtonRecognizer->pressTouchButtonInput(x, y, deviceId);
-    
-
-                                    }
-                                
-
-                        if(!this->touchButtonProcessing)
-                        
-                                    {
-                                    
-    CustomGPoint* point = dynamic_cast<CustomGPoint*>(AllMotionRecognizer::pointCircularPool->getNextInstance());;
-    
-point->setX(x);
-    
-point->setY(y);
-    
-this->motionGestureRecognizer->processDraggedMotionEvent(point, deviceId, modifiers);
-    
-
-                                    }
-                                
+// throws Exception
+- (void) processEndMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
+        if ([self->touchButtonRecognizer releaseTouchButtonInput:x :y :deviceId]) {
+        }
+        if (!self->touchButtonProcessing) {
+            CustomGPoint* point = ((CustomGPoint*) [(AllMotionRecognizer_staticInit(), AllMotionRecognizer_pointCircularPool) getNextInstance]);
+            [point setX:x];
+            [point setY:y];
+            [self->motionGestureRecognizer processReleasedMotionEvent:point :deviceId :modifiers];
+        }
+        if (self->touchButtonProcessing) {
+            self->touchButtonProcessing = false;
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllMotionRecognizer::processMovedMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
-
-                        if(x != this->lastX || y != this->lastY)
-                        
-                                    {
-                                    this->lastX= x;
-    
-this->lastY= y;
-    
-
-    CustomGPoint* point = dynamic_cast<CustomGPoint*>(AllMotionRecognizer::pointCircularPool->getNextInstance());;
-    
-point->setX(x);
-    
-point->setY(y);
-    
-this->motionGestureRecognizer->processMovedMotionEvent(point, deviceId, modifiers);
-    
-
-                                    }
-                                
+// throws Exception
+- (void) processDraggedMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
+        if (self->touchButtonProcessing) {
+            [self->touchButtonRecognizer pressTouchButtonInput:x :y :deviceId];
+        }
+        if (!self->touchButtonProcessing) {
+            CustomGPoint* point = ((CustomGPoint*) [(AllMotionRecognizer_staticInit(), AllMotionRecognizer_pointCircularPool) getNextInstance]);
+            [point setX:x];
+            [point setY:y];
+            [self->motionGestureRecognizer processDraggedMotionEvent:point :deviceId :modifiers];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AllMotionRecognizer::processScrolledMotionEvent(int32_t x, int32_t y, int32_t deviceId, int32_t modifiers) -> void{
-
-    CustomGPoint* point = dynamic_cast<CustomGPoint*>(AllMotionRecognizer::pointCircularPool->getNextInstance());;
-    
-point->setX(x);
-    
-point->setY(y);
-    
-this->motionGestureRecognizer->processScrolledMotionEvent(point, deviceId, modifiers);
-    
+// throws Exception
+- (void) processMovedMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
+        if (x != self->lastX || y != self->lastY) {
+            self->lastX = x;
+            self->lastY = y;
+            CustomGPoint* point = ((CustomGPoint*) [(AllMotionRecognizer_staticInit(), AllMotionRecognizer_pointCircularPool) getNextInstance]);
+            [point setX:x];
+            [point setY:y];
+            [self->motionGestureRecognizer processMovedMotionEvent:point :deviceId :modifiers];
+        }
 }
 
 
-    auto AllMotionRecognizer::getMotionGestureRecognizer() -> MotionGestureRecognizer*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->motionGestureRecognizer;
-    
+// throws Exception
+- (void) processScrolledMotionEvent:(int32_t)x :(int32_t)y :(int32_t)deviceId :(int32_t)modifiers {
+        CustomGPoint* point = ((CustomGPoint*) [(AllMotionRecognizer_staticInit(), AllMotionRecognizer_pointCircularPool) getNextInstance]);
+        [point setX:x];
+        [point setY:y];
+        [self->motionGestureRecognizer processScrolledMotionEvent:point :deviceId :modifiers];
 }
 
 
+- (MotionGestureRecognizer*) getMotionGestureRecognizer {
+        return self->motionGestureRecognizer;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_ALLMOTIONRECOGNIZER_CPP

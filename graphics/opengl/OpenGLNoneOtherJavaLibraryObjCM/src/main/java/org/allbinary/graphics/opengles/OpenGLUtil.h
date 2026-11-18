@@ -1,83 +1,35 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLUTIL_H
+#define ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLUTIL_H
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.opengles
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class OpenGLUtil;
+@class Image;
+#include "java/lang/Runnable.h"
 
+@interface OpenGLUtil : ABObject {
+@public
+}
+- (instancetype) init;
++ (OpenGLUtil*) getInstance;
+- (Image*) addImage:(Image*)image;
+- (void) clear;
+- (void) addRunnable:(Runnable*)runnable;
+@end
 
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void OpenGLUtil_staticInit(void);
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLUTIL_H
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLUTIL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Runnable.h"
-        
-class Image;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class OpenGLUtil
-            : public virtual Object
-         {
-
-    private: static OpenGLUtil* instance_owner();
-    private: static OpenGLUtil* instance;
-
-    public: static OpenGLUtil* getInstance();
-
-
-            
-    public: OpenGLUtil();
-        
-    public: Image* addImage(Image* image);
-
-    public: void clear();
-
-    public: void addRunnable(Runnable* runnable);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLUTIL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLUTIL_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLUTIL_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Image.h>)
-#include <javax/microedition/lcdui/Image.h>
+#if __has_include("javax/microedition/lcdui/Image.h")
+#include "javax/microedition/lcdui/Image.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_OPENGLES_OPENGLUTIL_H

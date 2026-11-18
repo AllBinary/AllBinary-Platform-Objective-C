@@ -1,123 +1,60 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_ANALOG_ANALOGLOCATIONINPUTFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_ANALOG_ANALOGLOCATIONINPUTFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/analog/AnalogLocationInputFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/analog/AnalogLocationInputFactory.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/game/input/analog/AnalogLocationInput.h"
 
 
+static AnalogLocationInputFactory* AnalogLocationInputFactory_instance;
 
+void AnalogLocationInputFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AnalogLocationInputFactory_instance = [((AnalogLocationInputFactory*) [AnalogLocationInputFactory alloc]) init];
+}
 
+@implementation AnalogLocationInputFactory
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/analog/AnalogLocationInput.h"
-
-auto AnalogLocationInputFactory::instance_owner() -> AnalogLocationInputFactory* { static std::unique_ptr<AnalogLocationInputFactory> value(new AnalogLocationInputFactory()); return value.get(); }
-AnalogLocationInputFactory* AnalogLocationInputFactory::instance = AnalogLocationInputFactory::instance_owner();
-
-    auto AnalogLocationInputFactory::getInstance() -> AnalogLocationInputFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AnalogLocationInputFactory::instance;
-    
+- (void) initFields {
+    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
 }
 
 
-AnalogLocationInputFactory::AnalogLocationInputFactory() : list(new BasicArrayListD()){
++ (AnalogLocationInputFactory*) getInstance {
+        return (AnalogLocationInputFactory_staticInit(), AnalogLocationInputFactory_instance);
 }
 
 
-    auto AnalogLocationInputFactory::addPlayer(int32_t playerInputId) -> void{
-
-    AnalogLocationInput* analogLocationInput = AnalogLocationInput::NULL_ANALOG_LOCATION_INPUT;;
-    
-
-                        if(playerInputId < this->list->size())
-                        
-                                    {
-                                    analogLocationInput= dynamic_cast<AnalogLocationInput*>(this->list->get(playerInputId));
-    
-
-                                    }
-                                
-
-                        if(analogLocationInput == AnalogLocationInput::NULL_ANALOG_LOCATION_INPUT)
-                        
-                                    {
-                                    analogLocationInput= new AnalogLocationInput(playerInputId);
-    
-this->list->add(analogLocationInput);
-    
-
-                                    }
-                                
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-    auto AnalogLocationInputFactory::getInstanceForPlayer(int32_t playerInputId) -> AnalogLocationInput*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<AnalogLocationInput*>(this->list->get(playerInputId));
-    
+- (void) addPlayer:(int32_t)playerInputId {
+        AnalogLocationInput* analogLocationInput = (AnalogLocationInput_staticInit(), AnalogLocationInput_NULL_ANALOG_LOCATION_INPUT);
+        if (playerInputId < [self->list size]) {
+            analogLocationInput = ((AnalogLocationInput*) [self->list get:playerInputId]);
+        }
+        if (analogLocationInput == (AnalogLocationInput_staticInit(), AnalogLocationInput_NULL_ANALOG_LOCATION_INPUT)) {
+            analogLocationInput = [((AnalogLocationInput*) [AnalogLocationInput alloc]) init:playerInputId];
+            [self->list add:analogLocationInput];
+        }
 }
 
 
-    auto AnalogLocationInputFactory::getList() -> BasicArrayList*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list;
-    
+- (AnalogLocationInput*) getInstanceForPlayer:(int32_t)playerInputId {
+        return ((AnalogLocationInput*) [self->list get:playerInputId]);
 }
 
 
+- (BasicArrayList*) getList {
+        return self->list;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_ANALOG_ANALOGLOCATIONINPUTFACTORY_CPP

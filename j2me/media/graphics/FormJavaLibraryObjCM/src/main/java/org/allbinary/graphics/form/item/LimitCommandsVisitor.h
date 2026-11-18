@@ -1,107 +1,50 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_LIMITCOMMANDSVISITOR_H
+#define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_LIMITCOMMANDSVISITOR_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class LimitCommandsVisitor;
+@class Command;
+@class GameCommandsFactory;
+@class DisplayInfoSingleton;
+@class ScreenInfo;
+@class BooleanFactory;
+@class Visitor;
+#include "org/allbinary/logic/util/visitor/Visitor.h"
 
+@interface LimitCommandsVisitor : Visitor {
+@public
+    bool isNotSmallDisplay;
+}
+- (instancetype) init;
+- (void) initFields;
+- (id) visit:(id)anyType;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_LIMITCOMMANDSVISITOR_H
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_LIMITCOMMANDSVISITOR_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class Command;
-class GameCommandsFactory;
-class DisplayInfoSingleton;
-class ScreenInfo;
-class BooleanFactory;
-#include <org/allbinary/logic/util/visitor/Visitor.h>
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void LimitCommandsVisitor_staticInit(void);
 
 
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class LimitCommandsVisitor: public Visitor {
-
-    private: bool isNotSmallDisplay;
-
-public: LimitCommandsVisitor();
-
-    public: Object* visit(Object* anyType);
-    public: Object* visit(const std::string& anyType) { return visit(JavaString::box(anyType)); }
-    public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> Object* visit(BoxValue anyType) { return visit(JavaBoxes::toObject(anyType)); }
-    public: template<typename BoxElement> Object* visit(const std::vector<BoxElement>& anyType) { return visit(JavaBoxes::toObject(anyType)); }
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_LIMITCOMMANDSVISITOR_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_FORM_ITEM_LIMITCOMMANDSVISITOR_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_LIMITCOMMANDSVISITOR_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Command.h>)
-#include <javax/microedition/lcdui/Command.h>
-#endif
-#if __has_include(<org/allbinary/game/commands/GameCommandsFactory.h>)
-#include <org/allbinary/game/commands/GameCommandsFactory.h>
-#endif
-#if __has_include(<org/allbinary/graphics/displayable/DisplayInfoSingleton.h>)
-#include <org/allbinary/graphics/displayable/DisplayInfoSingleton.h>
-#endif
-#if __has_include(<org/allbinary/graphics/form/ScreenInfo.h>)
-#include <org/allbinary/graphics/form/ScreenInfo.h>
-#endif
-#if __has_include(<org/allbinary/logic/java/bool/BooleanFactory.h>)
-#include <org/allbinary/logic/java/bool/BooleanFactory.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/visitor/Visitor.h>)
-#include <org/allbinary/logic/util/visitor/Visitor.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_FORM_ITEM_LIMITCOMMANDSVISITOR_H

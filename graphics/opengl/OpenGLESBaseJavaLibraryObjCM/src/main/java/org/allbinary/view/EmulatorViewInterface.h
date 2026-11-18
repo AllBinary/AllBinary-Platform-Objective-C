@@ -1,79 +1,28 @@
+#ifndef ORG_ALLBINARY_VIEW_EMULATORVIEWINTERFACE_H
+#define ORG_ALLBINARY_VIEW_EMULATORVIEWINTERFACE_H
+// Generated Code Do Not Modify
+// package org.allbinary.view
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class EmulatorViewInterface;
+@class Displayable;
+@class MIDlet;
 
+@protocol EmulatorViewInterface
+- (void) setMidlet:(MIDlet*)midlet;
+- (void) onEmulatorInitComplete:(id)midletActivity;
+- (void) onSetDisplayable:(Displayable*)displayable;
+@end
 
-
-        #ifndef ORG_ALLBINARY_VIEW_EMULATORVIEWINTERFACE_H
-        #define ORG_ALLBINARY_VIEW_EMULATORVIEWINTERFACE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class Displayable;
-class MIDlet;
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void EmulatorViewInterface_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class EmulatorViewInterface
-            : public virtual Object
-         {
-
-    public: virtual void setMidlet(MIDlet* midlet) = 0;
-
-    public: virtual void onEmulatorInitComplete(Object* midletActivity) = 0;
-    public: void onEmulatorInitComplete(const std::string& midletActivity) { return onEmulatorInitComplete(JavaString::box(midletActivity)); }
-    public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> void onEmulatorInitComplete(BoxValue midletActivity) { return onEmulatorInitComplete(JavaBoxes::toObject(midletActivity)); }
-    public: template<typename BoxElement> void onEmulatorInitComplete(const std::vector<BoxElement>& midletActivity) { return onEmulatorInitComplete(JavaBoxes::toObject(midletActivity)); }
-
-    public: virtual void onSetDisplayable(Displayable* displayable) = 0;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_VIEW_EMULATORVIEWINTERFACE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_VIEW_EMULATORVIEWINTERFACE_H_COMPLETE)
-        #define ORG_ALLBINARY_VIEW_EMULATORVIEWINTERFACE_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Displayable.h>)
-#include <javax/microedition/lcdui/Displayable.h>
-#endif
-#if __has_include(<javax/microedition/midlet/MIDlet.h>)
-#include <javax/microedition/midlet/MIDlet.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_VIEW_EMULATORVIEWINTERFACE_H

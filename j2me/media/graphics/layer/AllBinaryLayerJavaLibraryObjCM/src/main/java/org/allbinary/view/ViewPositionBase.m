@@ -1,116 +1,44 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2011 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/view/ViewPositionBase.h"
 
 
+ViewPositionBase* ViewPositionBase_NULL_VIEW_POSITION;
 
-        #ifndef ORG_ALLBINARY_VIEW_VIEWPOSITIONBASE_CPP
-        #define ORG_ALLBINARY_VIEW_VIEWPOSITIONBASE_CPP
+void ViewPositionBase_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ViewPositionBase_NULL_VIEW_POSITION = [((ViewPositionBase*) [ViewPositionBase alloc]) init:0 :0 :0];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/view/ViewPositionBase.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/graphics/GPoint.h>
-
-      
+@implementation ViewPositionBase
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto ViewPositionBase::NULL_VIEW_POSITION_owner() -> ViewPositionBase* { static std::unique_ptr<ViewPositionBase> value(new ViewPositionBase(0, 0, 0)); return value.get(); }
-ViewPositionBase* ViewPositionBase::NULL_VIEW_POSITION = ViewPositionBase::NULL_VIEW_POSITION_owner();
-
-ViewPositionBase::ViewPositionBase(int32_t x, int32_t y, int32_t z) : GPoint(x, y, z){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init:(int32_t)x :(int32_t)y :(int32_t)z {
+        self = [super init:x :y :z];
+    return self;
 }
 
 
-    auto ViewPositionBase::getX2() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getX();;
-    
+- (int32_t) getX2 {
+        return [self getX];
 }
 
 
-    auto ViewPositionBase::getY2() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getY();;
-    
+- (int32_t) getY2 {
+        return [self getY];
 }
 
 
-    auto ViewPositionBase::getZ2() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getZ();;
-    
+- (int32_t) getZ2 {
+        return [self getZ];
 }
 
 
-    auto ViewPositionBase::setAllbinaryLayer(Object* allbinaryLayer) -> void{
+- (void) setAllbinaryLayer:(id)allbinaryLayer {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_VIEW_VIEWPOSITIONBASE_CPP

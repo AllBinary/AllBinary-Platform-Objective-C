@@ -1,261 +1,100 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/media/image/ImageCopyUtil.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/game/configuration/feature/Features.h"
+#include "org/allbinary/game/configuration/feature/GameFeatureFactory.h"
+#include "org/allbinary/graphics/Anchor.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/media/image/ImageCreationUtil.h"
 
 
+static ImageCopyUtil* ImageCopyUtil_instance;
 
-        #ifndef ORG_ALLBINARY_MEDIA_IMAGE_IMAGECOPYUTIL_CPP
-        #define ORG_ALLBINARY_MEDIA_IMAGE_IMAGECOPYUTIL_CPP
+void ImageCopyUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ImageCopyUtil_instance = [((ImageCopyUtil*) [ImageCopyUtil alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/image/ImageCopyUtil.h"
-        
+@implementation ImageCopyUtil
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/game/configuration/feature/Features.h>
-
-      
-#include <org/allbinary/game/configuration/feature/GameFeatureFactory.h>
-
-      
-#include <org/allbinary/graphics/Anchor.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/image/ImageCreationUtil.h"
-
-auto ImageCopyUtil::instance_owner() -> ImageCopyUtil* { static std::unique_ptr<ImageCopyUtil> value(new ImageCopyUtil()); return value.get(); }
-ImageCopyUtil* ImageCopyUtil::instance = ImageCopyUtil::instance_owner();
-
-    auto ImageCopyUtil::getInstance() -> ImageCopyUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ImageCopyUtil::instance;
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+    self->imageCreationUtil = [ImageCreationUtil getInstance];
+    self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
+    self->gameFeatureFactory = [GameFeatureFactory getInstance];
+    self->features = [Features getInstance];
+    self->NO_COPY = "J2ME does not need to copy images after initial loading";
 }
 
 
-ImageCopyUtil::ImageCopyUtil() : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), imageCreationUtil(ImageCreationUtil::getInstance()), anchor(Anchor::TOP_LEFT), gameFeatureFactory(GameFeatureFactory::getInstance()), features(Features::getInstance()){
++ (ImageCopyUtil*) getInstance {
+        return (ImageCopyUtil_staticInit(), ImageCopyUtil_instance);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageCopyUtil::createImageForRotation(Image* originalImage) -> Image*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->createImage(originalImage);;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageCopyUtil::createImage(Image* originalImage) -> Image*{
-
-                        if(!this->features->isFeature(this->gameFeatureFactory->POST_IMAGE_LOADING_MODIFICATION))
-                        
-                                    {
-                                    this->logUtil->put(this->NO_COPY, this, this->commonStrings->CONSTRUCTOR, new Exception());
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return originalImage;
-    
-
-                                    }
-                                
-
-    Image* image = this->imageCreationUtil->createImageWH(originalImage->getWidth(), originalImage->getHeight());;
-    
-
-                        if(image->isMutable())
-                        
-                                    {
-                                    image->getGraphics()->drawImage(originalImage, 0, 0, this->anchor);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return image;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw Exception("Not Mutable");
-                    
-
-                        }
-                            
+// throws Exception
+- (Image*) createImageForRotation:(Image*)originalImage {
+        return [self createImage:originalImage];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageCopyUtil::createImageScale(Image* originalImage, float canvasScale, bool resize) -> Image*{
-
-                        if(!this->features->isFeature(this->gameFeatureFactory->POST_IMAGE_LOADING_MODIFICATION))
-                        
-                                    {
-                                    this->logUtil->put(this->NO_COPY, this, this->commonStrings->CONSTRUCTOR, new Exception());
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return originalImage;
-    
-
-                                    }
-                                
-
-    int32_t newWidth = static_cast<int32_t>((originalImage->getWidth() *canvasScale));;
-    
-
-    int32_t newHeight = static_cast<int32_t>((originalImage->getHeight() *canvasScale));;
-    
-
-                        if(resize)
-                        
-                                    {
-                                    
-                        if(newWidth < newHeight)
-                        
-                                    {
-                                    newWidth= newHeight;
-    
-
-                                    }
-                                
-
-                        if(newHeight < newWidth)
-                        
-                                    {
-                                    newHeight= newWidth;
-    
-
-                                    }
-                                
-
-                                    }
-                                
-
-    Image* image = this->imageCreationUtil->createImageWH(newWidth, newHeight);;
-    
-
-                        if(image->isMutable())
-                        
-                                    {
-                                    
-    int32_t halfWidthDelta = (newWidth -originalImage->getWidth()) /2;;
-    
-
-    int32_t halfHeightDelta = (newHeight -originalImage->getHeight()) /2;;
-    
-
-    Graphics* graphics = image->getGraphics();;
-    
-graphics->drawImage(originalImage, halfWidthDelta, halfHeightDelta, this->anchor);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return image;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                            throw Exception("Not Mutable");
-                    
-
-                        }
-                            
+// throws Exception
+- (Image*) createImage:(Image*)originalImage {
+        if (![self->features isFeature:self->gameFeatureFactory->POST_IMAGE_LOADING_MODIFICATION]) {
+            [self->logUtil put:self->NO_COPY :self :self->commonStrings->CONSTRUCTOR :java_exception_new("Exception", "")];
+            return originalImage;
+        }
+        Image* image = [self->imageCreationUtil createImageWH:[originalImage getWidth] :[originalImage getHeight]];
+        if ([image isMutable]) {
+            [[image getGraphics] drawImage:originalImage :0 :0 :self->anchor];
+            return image;
+        } else {
+            java_throw(java_exception_new("Exception", "Not Mutable"));
+        }
 }
 
 
+// throws Exception
+- (Image*) createImageScale:(Image*)originalImage :(float)canvasScale :(bool)resize {
+        if (![self->features isFeature:self->gameFeatureFactory->POST_IMAGE_LOADING_MODIFICATION]) {
+            [self->logUtil put:self->NO_COPY :self :self->commonStrings->CONSTRUCTOR :java_exception_new("Exception", "")];
+            return originalImage;
+        }
+        int32_t newWidth = ((int32_t) ([originalImage getWidth] * canvasScale));
+        int32_t newHeight = ((int32_t) ([originalImage getHeight] * canvasScale));
+        if (resize) {
+            if (newWidth < newHeight) {
+                newWidth = newHeight;
+            }
+            if (newHeight < newWidth) {
+                newHeight = newWidth;
+            }
+        }
+        Image* image = [self->imageCreationUtil createImageWH:newWidth :newHeight];
+        if ([image isMutable]) {
+            int32_t halfWidthDelta = (newWidth - [originalImage getWidth]) / 2;
+            int32_t halfHeightDelta = (newHeight - [originalImage getHeight]) / 2;
+            Graphics* graphics = [image getGraphics];
+            [graphics drawImage:originalImage :halfWidthDelta :halfHeightDelta :self->anchor];
+            return image;
+        } else {
+            java_throw(java_exception_new("Exception", "Not Mutable"));
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MEDIA_IMAGE_IMAGECOPYUTIL_CPP

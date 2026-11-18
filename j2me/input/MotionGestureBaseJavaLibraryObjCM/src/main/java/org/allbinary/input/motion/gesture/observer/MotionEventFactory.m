@@ -1,127 +1,50 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/gesture/observer/MotionEventFactory.h"
+#include "org/allbinary/game/input/Input.h"
+#include "org/allbinary/game/input/InputFactory.h"
+#include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
 
 
+static int32_t MotionEventFactory_index = 0;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONEVENTFACTORY_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONEVENTFACTORY_CPP
+void MotionEventFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/gesture/observer/MotionEventFactory.h"
-        
+@implementation MotionEventFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/input/Input.h>
-
-      
-#include <org/allbinary/game/input/InputFactory.h>
-
-      
-#include <org/allbinary/input/motion/gesture/MotionGestureInput.h>
-
-      
-#include <org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObjectFactoryInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
-
-
-MotionEventFactory::MotionEventFactory(Object* source, int32_t id){
-this->source= source;
+- (void) initFields {
     
-this->id= id;
-    
-MotionEventFactory::index= TouchMotionGestureFactory::getInstance()->LAST_MOTION->getId();
     
 }
 
 
-    auto MotionEventFactory::getInstance() -> AllBinaryEventObject*{
-
-    InputFactory* inputFactory = InputFactory::getInstance();;
-    
-
-    Input* input = inputFactory->getInstanceById(MotionEventFactory::index++);;
-    
-
-                        if(input == inputFactory->NO_INPUT)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new MotionGestureEvent(this->source, this->id, dynamic_cast<MotionGestureInput*>(TouchMotionGestureFactory::getInstance()->NO_MOTION));
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new MotionGestureEvent(this->source, this->id, dynamic_cast<MotionGestureInput*>(input));
-    
-
-                        }
-                            
+- (instancetype) init:(id)source :(int32_t)id_ {
+    self = [super init];
+    [self initFields];
+        self->source = source;
+        self->id_ = id_;
+        MotionEventFactory_index = [[TouchMotionGestureFactory getInstance]->LAST_MOTION getId];
+    return self;
 }
 
 
+- (AllBinaryEventObject*) getInstance {
+        InputFactory* inputFactory = [InputFactory getInstance];
+        Input* input = [inputFactory getInstanceById:MotionEventFactory_index++];
+        if (input == inputFactory->NO_INPUT) {
+            return [((MotionGestureEvent*) [MotionGestureEvent alloc]) init:self->source :self->id_ :((MotionGestureInput*) [TouchMotionGestureFactory getInstance]->NO_MOTION)];
+        } else {
+            return [((MotionGestureEvent*) [MotionGestureEvent alloc]) init:self->source :self->id_ :((MotionGestureInput*) input)];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONEVENTFACTORY_CPP

@@ -1,319 +1,150 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_FEATURES_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_FEATURES_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/feature/Features.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/configuration/event/GameFeatureEvent.h>
-
-      
-#include <org/allbinary/game/configuration/event/GameFeatureEventHandler.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/communication/log/PreLogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/system/os/GenericOperatingSystem.h>
-
-      
-#include <org/allbinary/logic/system/os/OperatingSystemFactory.h>
-
-      
-#include <org/allbinary/string/CommonLabels.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/configuration/feature/Feature.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/feature/Features.h"
+#include "org/allbinary/game/configuration/event/GameFeatureEvent.h"
+#include "org/allbinary/game/configuration/event/GameFeatureEventHandler.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/communication/log/PreLogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/system/os/GenericOperatingSystem.h"
+#include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
+#include "org/allbinary/string/CommonLabels.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/util/BasicArrayListD.h"
+#include "org/allbinary/game/configuration/feature/Feature.h"
 #include "org/allbinary/game/configuration/feature/GameFeatureFactory.h"
 #include "org/allbinary/game/configuration/feature/InputFeatureFactory.h"
 #include "org/allbinary/game/configuration/feature/SensorFeatureFactory.h"
 #include "org/allbinary/game/configuration/feature/TouchFeatureFactory.h"
 #include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
 
-Object* Features::SINGLETON = NullUtil::getInstance()->NULL_OBJECT;
 
-    auto Features::getInstance() -> Features*{
+static id Features_SINGLETON;
 
-                        if(Features::SINGLETON == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    Features::SINGLETON= new Features();
+void Features_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    Features_SINGLETON = [NullUtil getInstance]->NULL_OBJECT;
+}
+
+@implementation Features
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
     
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<Features*>(Features::SINGLETON);
     
 }
 
 
-Features::Features() : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()){
-this->list= new BasicArrayListD();
-    
-this->defaultList= new BasicArrayListD();
-    
-this->init();
-    
++ (Features*) getInstance {
+        if ((Features_staticInit(), Features_SINGLETON) == [NullUtil getInstance]->NULL_OBJECT) {
+            Features_SINGLETON = [((Features*) [Features alloc]) init];
+        }
+        return ((Features*) (Features_staticInit(), Features_SINGLETON));
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto Features::addDefault(Feature* gameFeature) -> void{
-this->add(gameFeature);
-    
-
-                        if(!this->defaultList->contains(gameFeature))
-                        
-                                    {
-                                    this->defaultList->add(gameFeature);
-    
-
-                                    }
-                                
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->defaultList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        [self init_];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto Features::add(Feature* gameFeature) -> void{
-
-                        if(!this->list->contains(gameFeature))
-                        
-                                    {
-                                    this->logUtil->putF(JavaString::valueOf((new StringMaker())->append(CommonLabels::getInstance()->START_LABEL)->append(JavaString::valueOf(gameFeature))), this, this->commonStrings->ADD);
-    
-this->list->add(gameFeature);
-    
-GameFeatureEventHandler::getInstance()->fireEvent(new GameFeatureEvent(gameFeature, JavaString::valueOf(gameFeature)));
-    
-
-                                    }
-                                
+// throws Exception
+- (void) addDefault:(Feature*)gameFeature {
+        [self add:gameFeature];
+        if (![self->defaultList contains:gameFeature]) {
+            [self->defaultList add:gameFeature];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto Features::removeDefault(Feature* gameFeature) -> void{
-this->logUtil->putF(JavaString::valueOf((new StringMaker())->append(CommonLabels::getInstance()->START_LABEL)->append(JavaString::valueOf(gameFeature))), this, "removeDefault");
-    
-this->remove(gameFeature);
-    
-this->defaultList->remove(gameFeature);
-    
+// throws Exception
+- (void) add:(Feature*)gameFeature {
+        if (![self->list contains:gameFeature]) {
+            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->START_LABEL] append:[gameFeature toString]] toString] :self :self->commonStrings->ADD];
+            [self->list add:gameFeature];
+            [[GameFeatureEventHandler getInstance] fireEvent:[((GameFeatureEvent*) [GameFeatureEvent alloc]) init:gameFeature :[gameFeature toString]]];
+        }
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto Features::remove(Feature* gameFeature) -> void{
-
-                        if(this->list->contains(gameFeature))
-                        
-                                    {
-                                    this->logUtil->putF(this->commonStrings->START, this, this->commonStrings->REMOVE);
-    
-this->list->remove(gameFeature);
-    
-GameFeatureEventHandler::getInstance()->fireEvent(new GameFeatureEvent(gameFeature, JavaString::valueOf(gameFeature)));
-    
-
-                                    }
-                                
+// throws Exception
+- (void) removeDefault:(Feature*)gameFeature {
+        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->START_LABEL] append:[gameFeature toString]] toString] :self :"removeDefault"];
+        [self remove:gameFeature];
+        [self->defaultList remove:gameFeature];
 }
 
 
-    auto Features::init() -> void{
-
-        try {
-            
-    GameFeatureFactory* gameFeatureFactory = GameFeatureFactory::getInstance();;
-    
-
-    InputFeatureFactory* inputFeatureFactory = InputFeatureFactory::getInstance();;
-    
-
-    SensorFeatureFactory* sensorFeatureFactory = SensorFeatureFactory::getInstance();;
-    
-
-    TouchFeatureFactory* touchFeatureFactory = TouchFeatureFactory::getInstance();;
-    
-this->addDefault(gameFeatureFactory->ARTIFICIAL_INTELLEGENCE_PROCESSOR);
-    
-this->addDefault(gameFeatureFactory->COLLIDABLE_INTERFACE_LAYER_PROCESSOR);
-    
-this->addDefault(gameFeatureFactory->GAME_INPUT_LAYER_PROCESSOR);
-    
-this->addDefault(gameFeatureFactory->TICKABLE_LAYER_PROCESSOR);
-    
-this->addDefault(inputFeatureFactory->MULTI_KEY_PRESS);
-    
-this->addDefault(inputFeatureFactory->REMOVE_DUPLICATE_KEY_PRESSES);
-    
-this->addDefault(gameFeatureFactory->SCREEN_SHAKE);
-    
-this->addDefault(gameFeatureFactory->POST_IMAGE_LOADING_MODIFICATION);
-    
-
-    GenericOperatingSystem* operatingSystemInterface = OperatingSystemFactory::getInstance()->getOperatingSystemInstance();;
-    
-
-                        if(operatingSystemInterface->isOverScan())
-                        
-                                    {
-                                    this->addDefault(sensorFeatureFactory->NO_ORIENTATION);
-    
-this->addDefault(touchFeatureFactory->HIDE_SCREEN_BUTTONS);
-    
-
-                                    }
-                                
-                        else {
-                            this->addDefault(sensorFeatureFactory->ORIENTATION_SENSORS);
-    
-this->addDefault(touchFeatureFactory->AUTO_HIDE_SHOW_SCREEN_BUTTONS);
-    
-
-                        }
-                            
-this->addDefault(touchFeatureFactory->TOUCH_ENABLED);
-    
-this->addDefault(MainFeatureFactory::getInstance()->FULL_SCREEN);
-    
-this->addDefault(MainFeatureFactory::getInstance()->LOAD_ONDEMAND);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-PreLogUtil::putOE(this->commonStrings->EXCEPTION, this, this->commonStrings->INIT, &e);
-    
-}
-
+// throws Exception
+- (void) remove:(Feature*)gameFeature {
+        if ([self->list contains:gameFeature]) {
+            [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->REMOVE];
+            [self->list remove:gameFeature];
+            [[GameFeatureEventHandler getInstance] fireEvent:[((GameFeatureEvent*) [GameFeatureEvent alloc]) init:gameFeature :[gameFeature toString]]];
+        }
 }
 
 
-    auto Features::isDefault(Feature* gameFeature) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->defaultList->contains(gameFeature);;
-    
+- (void) init_ {
+        JAVA_TRY {
+            GameFeatureFactory* gameFeatureFactory = [GameFeatureFactory getInstance];
+            InputFeatureFactory* inputFeatureFactory = [InputFeatureFactory getInstance];
+            SensorFeatureFactory* sensorFeatureFactory = [SensorFeatureFactory getInstance];
+            TouchFeatureFactory* touchFeatureFactory = [TouchFeatureFactory getInstance];
+            [self addDefault:gameFeatureFactory->ARTIFICIAL_INTELLEGENCE_PROCESSOR];
+            [self addDefault:gameFeatureFactory->COLLIDABLE_INTERFACE_LAYER_PROCESSOR];
+            [self addDefault:gameFeatureFactory->GAME_INPUT_LAYER_PROCESSOR];
+            [self addDefault:gameFeatureFactory->TICKABLE_LAYER_PROCESSOR];
+            [self addDefault:inputFeatureFactory->MULTI_KEY_PRESS];
+            [self addDefault:inputFeatureFactory->REMOVE_DUPLICATE_KEY_PRESSES];
+            [self addDefault:gameFeatureFactory->SCREEN_SHAKE];
+            [self addDefault:gameFeatureFactory->POST_IMAGE_LOADING_MODIFICATION];
+            GenericOperatingSystem* operatingSystemInterface = [[OperatingSystemFactory getInstance] getOperatingSystemInstance];
+            if ([operatingSystemInterface isOverScan]) {
+                [self addDefault:sensorFeatureFactory->NO_ORIENTATION];
+                [self addDefault:touchFeatureFactory->HIDE_SCREEN_BUTTONS];
+            } else {
+                [self addDefault:sensorFeatureFactory->ORIENTATION_SENSORS];
+                [self addDefault:touchFeatureFactory->AUTO_HIDE_SHOW_SCREEN_BUTTONS];
+            }
+            [self addDefault:touchFeatureFactory->TOUCH_ENABLED];
+            [self addDefault:[MainFeatureFactory getInstance]->FULL_SCREEN];
+            [self addDefault:[MainFeatureFactory getInstance]->LOAD_ONDEMAND];
+        } JAVA_CATCH(Exception, e) {
+            [PreLogUtil putOE:self->commonStrings->EXCEPTION :self :self->commonStrings->INIT :e];
+        } JAVA_END_TRY;
 }
 
 
-    auto Features::isFeature(Feature* gameFeature) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list->contains(gameFeature);;
-    
+- (bool) isDefault:(Feature*)gameFeature {
+        return [self->defaultList contains:gameFeature];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto Features::toggle(Feature* gameFeature) -> void{
-
-                        if(this->isFeature(gameFeature))
-                        
-                                    {
-                                    this->remove(gameFeature);
-    
-
-                                    }
-                                
-                        else {
-                            this->add(gameFeature);
-    
-
-                        }
-                            
+- (bool) isFeature:(Feature*)gameFeature {
+        return [self->list contains:gameFeature];
 }
 
 
+// throws Exception
+- (void) toggle:(Feature*)gameFeature {
+        if ([self isFeature:gameFeature]) {
+            [self remove:gameFeature];
+        } else {
+            [self add:gameFeature];
+        }
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_FEATURE_FEATURES_CPP

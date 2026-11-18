@@ -1,130 +1,83 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_MIDLET_CREATEGAMERUNNABLE_CPP
-        #define ORG_ALLBINARY_GAME_MIDLET_CREATEGAMERUNNABLE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/midlet/CreateGameRunnable.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Runnable.h"
-        
-#include <org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h>
-
-      
-#include <org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.h>
-
-      
-#include <org/allbinary/graphics/displayable/command/MyCommandsFactory.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/ABHashtable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/midlet/DemoGameMidlet.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/midlet/CreateGameRunnable.h"
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.h"
+#include "org/allbinary/graphics/displayable/command/MyCommandsFactory.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/ABHashtable.h"
+#include "org/allbinary/game/midlet/DemoGameMidlet.h"
 #include "org/allbinary/game/midlet/DemoGameMidletEvent.h"
 #include "org/allbinary/game/midlet/DemoGameMidletStateFactory.h"
 #include "org/allbinary/game/midlet/DemoGameMidletEventHandler.h"
+#if __has_include("org/allbinary/game/midlet/GameCanvasRunnableInterface.h")
+#include "org/allbinary/game/midlet/GameCanvasRunnableInterface.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/GameCanvasRunnableInterface.h")
+#include "org/allbinary/graphics/canvas/transition/progress/GameCanvasRunnableInterface.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/GameCanvasRunnableInterface.h")
+#include "org/allbinary/graphics/canvas/transition/progress/GameCanvasRunnableInterface.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/command/GameCanvasRunnableInterface.h")
+#include "org/allbinary/graphics/displayable/command/GameCanvasRunnableInterface.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/GameCanvasRunnableInterface.h")
+#include "org/allbinary/logic/communication/log/GameCanvasRunnableInterface.h"
+#endif
+#if __has_include("org/allbinary/string/GameCanvasRunnableInterface.h")
+#include "org/allbinary/string/GameCanvasRunnableInterface.h"
+#endif
+#if __has_include("org/allbinary/util/GameCanvasRunnableInterface.h")
+#include "org/allbinary/util/GameCanvasRunnableInterface.h"
+#endif
 
 
-CreateGameRunnable::CreateGameRunnable(DemoGameMidlet* demoGameMidlet, ABHashtable<Object*, Object*>* hashtable) : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()){
-this->demoGameMidlet= demoGameMidlet;
+
+void CreateGameRunnable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation CreateGameRunnable
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
     
-this->hashtable= hashtable;
     
-this->startGameMidletEvent= new DemoGameMidletEvent(this, DemoGameMidletStateFactory::getInstance()->START_GAME);
     
 }
 
 
-    auto CreateGameRunnable::run() -> void{
-
-        try {
-            this->logUtil->putF(this->commonStrings->START_RUNNABLE, this, this->commonStrings->RUN);
-    
-
-    ProgressCanvas* progressCanvas = ProgressCanvasFactory::getInstance();;
-    
-this->demoGameMidlet->commandAction(MyCommandsFactory::getInstance()->SET_DISPLAYABLE, progressCanvas);
-    
-this->demoGameMidlet->stopGameCanvasRunnableInterface();
-    
-this->demoGameMidlet->setGameCanvasRunnableInterface(this->demoGameMidlet->createGameCanvasRunnableInterface());
-    
-this->demoGameMidlet->getGameCanvasRunnableInterface()->setLoadStateHashtable(this->hashtable);
-    
-this->demoGameMidlet->startGameCanvasRunnableInterface();
-    
-DemoGameMidletEventHandler::getInstance()->fireEvent(this->startGameMidletEvent);
-    
-this->logUtil->putF(this->commonStrings->END_RUNNABLE, this, this->commonStrings->RUN);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, this->commonStrings->RUN, &e);
-    
-}
-
+- (instancetype) init:(DemoGameMidlet*)demoGameMidlet :(ABHashtable*)hashtable {
+    self = [super init];
+    [self initFields];
+        self->demoGameMidlet = demoGameMidlet;
+        self->hashtable = hashtable;
+        self->startGameMidletEvent = [((DemoGameMidletEvent*) [DemoGameMidletEvent alloc]) init:self :[DemoGameMidletStateFactory getInstance]->START_GAME];
+    return self;
 }
 
 
+- (void) run {
+        JAVA_TRY {
+            [self->logUtil putF:self->commonStrings->START_RUNNABLE :self :self->commonStrings->RUN];
+            ProgressCanvas* progressCanvas = [ProgressCanvasFactory getInstance];
+            [self->demoGameMidlet commandAction:[MyCommandsFactory getInstance]->SET_DISPLAYABLE :progressCanvas];
+            [self->demoGameMidlet stopGameCanvasRunnableInterface];
+            [self->demoGameMidlet setGameCanvasRunnableInterface:[self->demoGameMidlet createGameCanvasRunnableInterface]];
+            [[self->demoGameMidlet getGameCanvasRunnableInterface] setLoadStateHashtable:self->hashtable];
+            [self->demoGameMidlet startGameCanvasRunnableInterface];
+            [[DemoGameMidletEventHandler getInstance] fireEvent:self->startGameMidletEvent];
+            [self->logUtil putF:self->commonStrings->END_RUNNABLE :self :self->commonStrings->RUN];
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->RUN :e];
+        } JAVA_END_TRY;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_MIDLET_CREATEGAMERUNNABLE_CPP

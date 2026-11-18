@@ -1,117 +1,55 @@
+#ifndef ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONEVENTFACTORY_H
+#define ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONEVENTFACTORY_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.input.motion.gesture.observer
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class MotionEventFactory;
+@class Input;
+@class InputFactory;
+@class MotionGestureInput;
+@class TouchMotionGestureFactory;
+@class AllBinaryEventObject;
+@class AllBinaryEventObjectFactoryInterface;
+@class MotionGestureEvent;
+#include "org/allbinary/logic/util/event/AllBinaryEventObjectFactoryInterface.h"
 
+@interface MotionEventFactory : ABObject <AllBinaryEventObjectFactoryInterface> {
+@public
+    id source;
+    int32_t id_;
+}
+- (instancetype) init:(id)source :(int32_t)id_;
+- (void) initFields;
+- (AllBinaryEventObject*) getInstance;
+@end
 
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void MotionEventFactory_staticInit(void);
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONEVENTFACTORY_H
-        #define ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONEVENTFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class Input;
-class InputFactory;
-class MotionGestureInput;
-class TouchMotionGestureFactory;
-class AllBinaryEventObject;
-#include <org/allbinary/logic/util/event/AllBinaryEventObjectFactoryInterface.h>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class MotionGestureEvent;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class MotionEventFactory
-            : public virtual Object
-        , public virtual AllBinaryEventObjectFactoryInterface {
-
-    private: static inline int32_t index = 0;
-
-    private: Object* source;
-
-    private: int32_t id;
-
-public: MotionEventFactory(Object* source, int32_t id);
-public: MotionEventFactory(const std::string& source, int32_t id) : MotionEventFactory(JavaString::box(source), id) { }
-public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> MotionEventFactory(BoxValue source, int32_t id) : MotionEventFactory(JavaBoxes::toObject(source), id) { }
-public: template<typename BoxElement> MotionEventFactory(const std::vector<BoxElement>& source, int32_t id) : MotionEventFactory(JavaBoxes::toObject(source), id) { }
-
-    public: AllBinaryEventObject* getInstance();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONEVENTFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONEVENTFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONEVENTFACTORY_H_COMPLETE
-        #if __has_include(<org/allbinary/game/input/Input.h>)
-#include <org/allbinary/game/input/Input.h>
-#endif
-#if __has_include(<org/allbinary/game/input/InputFactory.h>)
-#include <org/allbinary/game/input/InputFactory.h>
-#endif
-#if __has_include(<org/allbinary/input/motion/gesture/MotionGestureInput.h>)
-#include <org/allbinary/input/motion/gesture/MotionGestureInput.h>
-#endif
-#if __has_include(<org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h>)
-#include <org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/AllBinaryEventObject.h>)
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/AllBinaryEventObjectFactoryInterface.h>)
-#include <org/allbinary/logic/util/event/AllBinaryEventObjectFactoryInterface.h>
-#endif
-#if __has_include("org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h")
-#include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
+#if __has_include("org/allbinary/logic/util/event/AllBinaryEventObject.h")
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_INPUT_MOTION_GESTURE_OBSERVER_MOTIONEVENTFACTORY_H

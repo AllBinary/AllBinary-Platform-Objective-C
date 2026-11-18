@@ -52,5 +52,8 @@
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.
 void LinuxOperatingSystemFactory_staticInit(void);
 
+#if __has_include("org/allbinary/logic/system/os/GenericOperatingSystem.h")
+#include "org/allbinary/logic/system/os/GenericOperatingSystem.h"
+#endif
 
 #endif // ORG_ALLBINARY_LOGIC_SYSTEM_OS_LINUX_LINUXOPERATINGSYSTEMFACTORY_H

@@ -1,176 +1,79 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/hud/basic/life/LivesHudWidget.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/game/ag/life/Life.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/graphics/displayable/event/DisplayChangeEvent.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_LIFE_LIVESHUDWIDGET_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_LIFE_LIVESHUDWIDGET_CPP
+void LivesHudWidget_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/hud/basic/life/LivesHudWidget.h"
-        
+@implementation LivesHudWidget
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/game/ag/life/Life.h>
-
-      
-#include <org/allbinary/game/graphics/hud/BasicHud.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/displayable/event/DisplayChangeEvent.h>
-
-      
-#include <org/allbinary/graphics/paint/PaintableInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-LivesHudWidget::LivesHudWidget(Animation* animationInterface, Life* lifeInterface, int32_t location, int32_t direction) : BasicHud(location, direction, 2, BasicColorFactory::getInstance()->WHITE){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->lifeInterface= lifeInterface;
+- (void) initFields {
     
-
-    int32_t size = static_cast<int32_t>(this->getLifeInterface()->getMaxlives());;
     
-this->xArray= std::vector<int32_t>(size);
-    
-this->animationInterface= animationInterface;
-    
-this->updateMaxWidth= this->lifeInterface->getMaxlives() *16;
-    
-this->updateMaxHeight= 16;
     
 }
 
 
-    auto LivesHudWidget::updateMeasurement(Graphics* graphics) -> void{
-BasicHud::updateMeasurement(graphics);
-    
-
-    int32_t maxLives = static_cast<int32_t>(this->getLifeInterface()->getMaxlives());;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < maxLives; index++)
-        {
-this->xArray[index]= this->getX() +(index *16);
-    
-}
-
+- (instancetype) init:(Animation*)animationInterface :(Life*)lifeInterface :(int32_t)location :(int32_t)direction {
+        self = [super init:location :direction :2 :[BasicColorFactory getInstance]->WHITE];
+        [self initFields];
+        self->lifeInterface = lifeInterface;
+        int32_t size = ((int32_t) [[self getLifeInterface] getMaxlives]);
+        self->xArray = ((int32_t*) java_array_new(sizeof(int32_t), size));
+        self->animationInterface = animationInterface;
+        self->updateMaxWidth = ((int32_t) [self->lifeInterface getMaxlives]) * 16;
+        self->updateMaxHeight = 16;
+    return self;
 }
 
 
-    auto LivesHudWidget::onDisplayChangeEvent(DisplayChangeEvent* displayChangeEvent) -> void{
-BasicHud::onDisplayChangeEvent(displayChangeEvent);
-    
-this->myFontProcessor= this->updateMyFontProcessor;
-    
+- (void) updateMeasurement:(Graphics*)graphics {
+        [super updateMeasurement:graphics];
+        int32_t maxLives = ((int32_t) [[self getLifeInterface] getMaxlives]);
+        for (int32_t index = 0; index < maxLives; index++) {
+            self->xArray[index] = [self getX] + (index * 16);
+        }
 }
 
 
-    auto LivesHudWidget::setX(int32_t x) -> void{
-BasicHud::setX(x);
-    
-this->myFontProcessor= this->updateMyFontProcessor;
-    
+- (void) onDisplayChangeEvent:(DisplayChangeEvent*)displayChangeEvent {
+        [super onDisplayChangeEvent:displayChangeEvent];
+        self->myFontProcessor = self->updateMyFontProcessor;
 }
 
 
-    auto LivesHudWidget::paint(Graphics* graphics) -> void{
-this->myFontProcessor->process(graphics);
-    
-
-
-
-
-                        for (
-    int32_t index = static_cast<int32_t>(this->getLifeInterface()->get());--index >= 0; )
-        {
-this->animationInterface->paintXY(graphics, this->xArray[index], this->getY());
-    
-}
-
+- (void) setX:(int32_t)x {
+        [super setX:x];
+        self->myFontProcessor = self->updateMyFontProcessor;
 }
 
 
-    auto LivesHudWidget::paintThreed(Graphics* graphics) -> void{
+- (void) paint:(Graphics*)graphics {
+        [self->myFontProcessor process:graphics];
+        for (int32_t index = ((int32_t) [[self getLifeInterface] get]); --index >= 0; ) {
+            [self->animationInterface paintXY:graphics :self->xArray[index] :[self getY]];
+        }
 }
 
 
-    auto LivesHudWidget::getLifeInterface() -> Life*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->lifeInterface;
-    
+- (void) paintThreed:(Graphics*)graphics {
 }
 
 
+- (Life*) getLifeInterface {
+        return self->lifeInterface;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_LIFE_LIVESHUDWIDGET_CPP

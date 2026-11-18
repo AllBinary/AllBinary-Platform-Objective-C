@@ -1,97 +1,65 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_GAMEKEYFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_GAMEKEYFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/GameKeyFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/lcdui/Canvas.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/string/CommonPhoneStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/input/GameKey.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/GameKeyFactory.h"
+#include "javax/microedition/lcdui/Canvas.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/string/CommonPhoneStrings.h"
+#include "org/allbinary/game/input/GameKey.h"
 #include "org/allbinary/game/input/InputFactory.h"
 
 
-GameKeyFactory::GameKeyFactory() : NONE(new GameKey(InputFactory::getInstance()->MAX -1, "None")), UP(new GameKey(Canvas::UP, CommonPhoneStrings::getInstance()->UP)), DOWN(new GameKey(Canvas::DOWN, CommonPhoneStrings::getInstance()->DOWN)), LEFT(new GameKey(Canvas::LEFT, CommonPhoneStrings::getInstance()->LEFT)), RIGHT(new GameKey(Canvas::RIGHT, CommonPhoneStrings::getInstance()->RIGHT)), KEY_POUND(new GameKey(Canvas::KEY_POUND, "POUND")), KEY_STAR(new GameKey(Canvas::KEY_STAR, "STAR")), KEY_NUM0(new GameKey(Canvas::KEY_NUM0, CommonPhoneStrings::getInstance()->ZERO)), KEY_NUM1(new GameKey(Canvas::KEY_NUM1, CommonPhoneStrings::getInstance()->ONE)), KEY_NUM2(new GameKey(Canvas::KEY_NUM2, CommonPhoneStrings::getInstance()->TWO)), KEY_NUM3(new GameKey(Canvas::KEY_NUM3, CommonPhoneStrings::getInstance()->THREE)), KEY_NUM4(new GameKey(Canvas::KEY_NUM4, CommonPhoneStrings::getInstance()->FOUR)), KEY_NUM5(new GameKey(Canvas::KEY_NUM5, CommonPhoneStrings::getInstance()->FIVE)), KEY_NUM6(new GameKey(Canvas::KEY_NUM6, CommonPhoneStrings::getInstance()->SIX)), KEY_NUM7(new GameKey(Canvas::KEY_NUM7, CommonPhoneStrings::getInstance()->SEVEN)), KEY_NUM8(new GameKey(Canvas::KEY_NUM8, CommonPhoneStrings::getInstance()->EIGHT)), KEY_NUM9(new GameKey(Canvas::KEY_NUM9, CommonPhoneStrings::getInstance()->NINE)), GAME_A(new GameKey(Canvas::GAME_A, "Game A")), GAME_B(new GameKey(Canvas::GAME_B, "Game B")), GAME_C(new GameKey(Canvas::GAME_C, "Game C")), GAME_D(new GameKey(Canvas::GAME_D, "Game D")), FIRE(new GameKey(Canvas::FIRE, CommonPhoneStrings::getInstance()->FIRE)), LEVEL_DOWN(new GameKey(Canvas::KEY_NUM9 +1, "Cheat Level Up")), LEVEL_UP(new GameKey(Canvas::KEY_NUM9 +2, "Cheat Level Down")) {
-        }
-        Object* GameKeyFactory::instance = NullUtil::getInstance()->NULL_OBJECT;
+static id GameKeyFactory_instance;
 
-    auto GameKeyFactory::getInstance() -> GameKeyFactory*{
+void GameKeyFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameKeyFactory_instance = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-                        if(GameKeyFactory::instance == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    GameKeyFactory::instance= new GameKeyFactory();
-    
+@implementation GameKeyFactory
 
-                                    }
-                                
+- (void) initFields {
+    self->NONE = [((GameKey*) [GameKey alloc]) init:[InputFactory getInstance]->MAX - 1 :"None"];
+    self->UP = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_UP) :[CommonPhoneStrings getInstance]->UP];
+    self->DOWN = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_DOWN) :[CommonPhoneStrings getInstance]->DOWN];
+    self->LEFT = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_LEFT) :[CommonPhoneStrings getInstance]->LEFT];
+    self->RIGHT = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_RIGHT) :[CommonPhoneStrings getInstance]->RIGHT];
+    self->KEY_POUND = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_POUND) :"POUND"];
+    self->KEY_STAR = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_STAR) :"STAR"];
+    self->KEY_NUM0 = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM0) :[CommonPhoneStrings getInstance]->ZERO];
+    self->KEY_NUM1 = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM1) :[CommonPhoneStrings getInstance]->ONE];
+    self->KEY_NUM2 = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM2) :[CommonPhoneStrings getInstance]->TWO];
+    self->KEY_NUM3 = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM3) :[CommonPhoneStrings getInstance]->THREE];
+    self->KEY_NUM4 = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM4) :[CommonPhoneStrings getInstance]->FOUR];
+    self->KEY_NUM5 = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM5) :[CommonPhoneStrings getInstance]->FIVE];
+    self->KEY_NUM6 = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM6) :[CommonPhoneStrings getInstance]->SIX];
+    self->KEY_NUM7 = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM7) :[CommonPhoneStrings getInstance]->SEVEN];
+    self->KEY_NUM8 = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM8) :[CommonPhoneStrings getInstance]->EIGHT];
+    self->KEY_NUM9 = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM9) :[CommonPhoneStrings getInstance]->NINE];
+    self->GAME_A = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_GAME_A) :"Game A"];
+    self->GAME_B = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_GAME_B) :"Game B"];
+    self->GAME_C = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_GAME_C) :"Game C"];
+    self->GAME_D = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_GAME_D) :"Game D"];
+    self->FIRE = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_FIRE) :[CommonPhoneStrings getInstance]->FIRE];
+    self->LEVEL_DOWN = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM9) + 1 :"Cheat Level Up"];
+    self->LEVEL_UP = [((GameKey*) [GameKey alloc]) init:(Canvas_staticInit(), Canvas_KEY_NUM9) + 2 :"Cheat Level Down"];
+}
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<GameKeyFactory*>(GameKeyFactory::instance);
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (GameKeyFactory*) getInstance {
+        if ((GameKeyFactory_staticInit(), GameKeyFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
+            GameKeyFactory_instance = [((GameKeyFactory*) [GameKeyFactory alloc]) init];
+        }
+        return ((GameKeyFactory*) (GameKeyFactory_staticInit(), GameKeyFactory_instance));
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_INPUT_GAMEKEYFACTORY_CPP

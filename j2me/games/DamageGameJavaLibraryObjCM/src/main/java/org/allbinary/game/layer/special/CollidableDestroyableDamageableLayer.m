@@ -1,589 +1,319 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_LAYER_SPECIAL_COLLIDABLEDESTROYABLEDAMAGEABLELAYER_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_SPECIAL_COLLIDABLEDESTROYABLEDAMAGEABLELAYER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/game/collision/CollidableNeverCollideBehaviorFactory.h>
-
-      
-#include <org/allbinary/game/combat/damage/DamageableInterface.h>
-
-      
-#include <org/allbinary/game/combat/destroy/DestroyableInterface.h>
-
-      
-#include <org/allbinary/game/combat/destroy/event/DestroyedEvent.h>
-
-      
-#include <org/allbinary/game/identification/BasicGroupFactory.h>
-
-      
-#include <org/allbinary/game/identification/Group.h>
-
-      
-#include <org/allbinary/game/input/event/GameKeyEvent.h>
-
-      
-#include <org/allbinary/game/layer/AllBinaryGameLayerManager.h>
-
-      
-#include <org/allbinary/game/layer/CollidableCompositeLayer.h>
-
-      
-#include <org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.h>
-
-      
-#include <org/allbinary/game/layer/pickup/PickupBehavior.h>
-
-      
-#include <org/allbinary/game/layer/pickup/PickupCompositeInterface.h>
-
-      
-#include <org/allbinary/game/part/PartInterface.h>
-
-      
-#include <org/allbinary/game/part/PartInterfaceUtil.h>
-
-      
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-#include <org/allbinary/graphics/RectangleFactory.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/math/PositionStrings.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/view/ViewPositionBase.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/special/CollidableDestroyableDamageableLayer.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/game/collision/CollidableNeverCollideBehaviorFactory.h"
+#include "org/allbinary/game/combat/destroy/event/DestroyedEvent.h"
+#include "org/allbinary/game/identification/BasicGroupFactory.h"
+#include "org/allbinary/game/identification/Group.h"
+#include "org/allbinary/game/input/event/GameKeyEvent.h"
+#include "org/allbinary/game/layer/AllBinaryGameLayerManager.h"
+#include "org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.h"
+#include "org/allbinary/game/layer/pickup/PickupBehavior.h"
+#include "org/allbinary/game/part/PartInterface.h"
+#include "org/allbinary/game/part/PartInterfaceUtil.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/graphics/RectangleFactory.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/math/PositionStrings.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/view/ViewPositionBase.h"
+#include "org/allbinary/game/layer/special/SpecialGameInputInterface.h"
 
 
+static id CollidableDestroyableDamageableLayer_NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
+static const char* CollidableDestroyableDamageableLayer_READYFOREXPLOSION = "ReadyForExplosion: ";
 
+void CollidableDestroyableDamageableLayer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    CollidableDestroyableDamageableLayer_NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = [NullUtil getInstance]->NULL_OBJECT;
+}
 
+@implementation CollidableDestroyableDamageableLayer
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/special/SpecialGameInputInterface.h"
-
-Object* CollidableDestroyableDamageableLayer::NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto CollidableDestroyableDamageableLayer::getNullInstance() -> CollidableDestroyableDamageableLayer*{
-
-                        if(CollidableDestroyableDamageableLayer::NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    CollidableDestroyableDamageableLayer::NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER= new CollidableDestroyableDamageableLayer(BasicGroupFactory::getInstance()->NONE_ARRAY, StringUtil::getInstance()->EMPTY_STRING, RectangleFactory::SINGLETON, ViewPositionBase::NULL_VIEW_POSITION);
+- (void) initFields {
     
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<CollidableDestroyableDamageableLayer*>(CollidableDestroyableDamageableLayer::NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER);
+    self->readyForExplosion = false;
     
+    
+    self->initX = 0;
+    self->initY = 0;
+    self->initZ = 0;
+    self->partInterfaceArrayP = [PartInterfaceUtil getZeroArray];
+    
+    self->allBinaryGameLayerManagerP = [AllBinaryGameLayerManager getNullInstance];
+    self->isDraggable = false;
+    self->isDragged = false;
+    self->isDropped = false;
 }
 
 
-CollidableDestroyableDamageableLayer::CollidableDestroyableDamageableLayer(std::vector<Group*> groupInterface, std::string name, Rectangle* layerInfo, ViewPositionBase* viewPosition) : CollidableCompositeLayer(name, layerInfo, viewPosition, CollidableNeverCollideBehaviorFactory::getInstance()), partInterfaceArrayP(PartInterfaceUtil::getZeroArray()), allBinaryGameLayerManagerP(AllBinaryGameLayerManager::getNullInstance()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->initWidth= layerInfo->getWidth();
-    
-this->initHeight= layerInfo->getHeight();
-    
-this->groupInterface= groupInterface;
-    
-this->pickupBehavior= PickupBehavior::getNullInstance();
-    
++ (CollidableDestroyableDamageableLayer*) getNullInstance {
+        if ((CollidableDestroyableDamageableLayer_staticInit(), CollidableDestroyableDamageableLayer_NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER) == [NullUtil getInstance]->NULL_OBJECT) {
+            CollidableDestroyableDamageableLayer_NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = [((CollidableDestroyableDamageableLayer*) [CollidableDestroyableDamageableLayer alloc]) init:[BasicGroupFactory getInstance]->NONE_ARRAY :[StringUtil getInstance]->EMPTY_STRING :(RectangleFactory_staticInit(), RectangleFactory_SINGLETON) :(ViewPositionBase_staticInit(), ViewPositionBase_NULL_VIEW_POSITION)];
+        }
+        return ((CollidableDestroyableDamageableLayer*) (CollidableDestroyableDamageableLayer_staticInit(), CollidableDestroyableDamageableLayer_NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER));
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::initPosition() -> void{
-this->setPosition(this->initX, this->initY, this->initZ);
-    
+- (instancetype) init:(Group**)groupInterface :(const char*)name :(Rectangle*)layerInfo :(ViewPositionBase*)viewPosition {
+        self = [super init:name :layerInfo :viewPosition :[CollidableNeverCollideBehaviorFactory getInstance]];
+        [self initFields];
+        self->initWidth = [layerInfo getWidth];
+        self->initHeight = [layerInfo getHeight];
+        self->groupInterface = groupInterface;
+        self->pickupBehavior = [PickupBehavior getNullInstance];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::initPositionXYZ(int32_t x, int32_t y, int32_t z) -> void{
-this->initX= x;
-    
-this->initY= y;
-    
-this->initZ= z;
-    
+// throws Exception
+- (void) initPosition {
+        [self setPosition:self->initX :self->initY :self->initZ];
 }
 
 
-    auto CollidableDestroyableDamageableLayer::paint(Graphics* graphics) -> void{
-CollidableCompositeLayer::paint(graphics);
-    
+// throws Exception
+- (void) initPositionXYZ:(int32_t)x :(int32_t)y :(int32_t)z {
+        self->initX = x;
+        self->initY = y;
+        self->initZ = z;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::damage(int32_t damage, int32_t damageType) -> void{
-
-
-
-                            throw Exception(this->commonStrings->NOT_IMPLEMENTED);
-                    
+- (void) paint:(Graphics*)graphics {
+        [super paint:graphics];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::getDamage(int32_t damageType) -> int32_t{
-
-
-
-                            throw Exception(this->commonStrings->NOT_IMPLEMENTED);
-                    
+// throws Exception
+- (void) damage:(int32_t)damage :(int32_t)damageType {
+        java_throw(java_exception_new("Exception", self->commonStrings->NOT_IMPLEMENTED));
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::isDestroyed() -> bool{
-
-
-
-                            throw Exception(this->commonStrings->NOT_IMPLEMENTED);
-                    
+// throws Exception
+- (int32_t) getDamage:(int32_t)damageType {
+        java_throw(java_exception_new("Exception", self->commonStrings->NOT_IMPLEMENTED));
 }
 
 
-    auto CollidableDestroyableDamageableLayer::getGroupInterface() -> std::vector<Group*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->groupInterface;
-    
+// throws Exception
+- (bool) isDestroyed {
+        java_throw(java_exception_new("Exception", self->commonStrings->NOT_IMPLEMENTED));
 }
 
 
-    auto CollidableDestroyableDamageableLayer::setGroupInterface(std::vector<Group*> teamInterface) -> void{
-this->groupInterface= teamInterface;
-    
+- (Group**) getGroupInterface {
+        return self->groupInterface;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::setAllBinaryGameLayerManager(AllBinaryGameLayerManager* allBinaryGameLayerManager) -> void{
-this->allBinaryGameLayerManagerP= allBinaryGameLayerManager;
-    
-
-                        if(this->allBinaryGameLayerManagerP == 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    
-
-
-                            throw RuntimeException();
-                    
-
-                                    }
-                                
+- (void) setGroupInterface:(Group**)teamInterface {
+        self->groupInterface = teamInterface;
 }
 
 
-    auto CollidableDestroyableDamageableLayer::isReadyForExplosion() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->readyForExplosion;
-    
+// throws Exception
+- (void) setAllBinaryGameLayerManager:(AllBinaryGameLayerManager*)allBinaryGameLayerManager {
+        self->allBinaryGameLayerManagerP = allBinaryGameLayerManager;
+        if (self->allBinaryGameLayerManagerP == nil) {
+            java_throw(java_exception_new("RuntimeException", ""));
+        }
 }
 
 
-    auto CollidableDestroyableDamageableLayer::setReadyForExplosion(bool isReadyForExplosion) -> void{
-this->readyForExplosion= isReadyForExplosion;
-    
+- (bool) isReadyForExplosion {
+        return self->readyForExplosion;
 }
 
 
-    auto CollidableDestroyableDamageableLayer::getInitWidth() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->initWidth;
-    
+- (void) setReadyForExplosion:(bool)isReadyForExplosion {
+        self->readyForExplosion = isReadyForExplosion;
 }
 
 
-    auto CollidableDestroyableDamageableLayer::getInitHeight() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->initHeight;
-    
+- (int32_t) getInitWidth {
+        return self->initWidth;
 }
 
 
-    auto CollidableDestroyableDamageableLayer::getInitX() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->initX;
-    
+- (int32_t) getInitHeight {
+        return self->initHeight;
 }
 
 
-    auto CollidableDestroyableDamageableLayer::getInitY() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->initY;
-    
+- (int32_t) getInitX {
+        return self->initX;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::up() -> void{
+- (int32_t) getInitY {
+        return self->initY;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::down() -> void{
+// throws Exception
+- (void) up {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::right() -> void{
+// throws Exception
+- (void) down {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::left() -> void{
+// throws Exception
+- (void) right {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::strafeLeft() -> void{
+// throws Exception
+- (void) left {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::strafeRight() -> void{
+// throws Exception
+- (void) strafeLeft {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::fire(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) -> void{
+// throws Exception
+- (void) strafeRight {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::special1(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) -> void{
+// throws Exception
+- (void) fire:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::special2(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) -> void{
+// throws Exception
+- (void) special1:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::special3(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) -> void{
+// throws Exception
+- (void) special2:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::special4(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) -> void{
+// throws Exception
+- (void) special3:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::special5(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent) -> void{
+// throws Exception
+- (void) special4:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::upAnalog(int32_t yAnalogValue) -> void{
+// throws Exception
+- (void) special5:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::downAnalog(int32_t yAnalogValue) -> void{
+// throws Exception
+- (void) upAnalog:(int32_t)yAnalogValue {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::rightAnalog(int32_t xAnalogValue) -> void{
+// throws Exception
+- (void) downAnalog:(int32_t)yAnalogValue {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::leftAnalog(int32_t xAnalogValue) -> void{
+// throws Exception
+- (void) rightAnalog:(int32_t)xAnalogValue {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::rightTrigger(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent, int32_t xAnalogValue) -> void{
+// throws Exception
+- (void) leftAnalog:(int32_t)xAnalogValue {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::leftTrigger(AllBinaryLayerManager* layerManager, GameKeyEvent* gameKeyEvent, int32_t xAnalogValue) -> void{
+// throws Exception
+- (void) rightTrigger:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent :(int32_t)xAnalogValue {
 }
 
 
-    auto CollidableDestroyableDamageableLayer::onDestroyed(DestroyedEvent* destroyedEvent) -> void{
+// throws Exception
+- (void) leftTrigger:(AllBinaryLayerManager*)layerManager :(GameKeyEvent*)gameKeyEvent :(int32_t)xAnalogValue {
 }
 
 
-    auto CollidableDestroyableDamageableLayer::getPickupBehavior() -> PickupBehavior*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->pickupBehavior;
-    
+- (void) onDestroyed:(DestroyedEvent*)destroyedEvent {
 }
 
 
-    auto CollidableDestroyableDamageableLayer::setPickupBehavior(PickupBehavior* pickupBehavior) -> void{
-this->pickupBehavior= pickupBehavior;
-    
+- (PickupBehavior*) getPickupBehavior {
+        return self->pickupBehavior;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto CollidableDestroyableDamageableLayer::addPart(PickedUpLayerInterfaceFactoryInterface* pickedUpLayerInterfaceFactoryInterface) -> void{
+- (void) setPickupBehavior:(PickupBehavior*)pickupBehavior {
+        self->pickupBehavior = pickupBehavior;
 }
 
 
-    auto CollidableDestroyableDamageableLayer::setPartInterfaceArray(std::vector<PartInterface*> partInterfaceArray) -> void{
-this->partInterfaceArrayP= partInterfaceArray;
-    
+// throws Exception
+- (void) addPart:(PickedUpLayerInterfaceFactoryInterface*)pickedUpLayerInterfaceFactoryInterface {
 }
 
 
-    auto CollidableDestroyableDamageableLayer::getPartInterfaceArray() -> std::vector<PartInterface*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->partInterfaceArrayP;
-    
+- (void) setPartInterfaceArray:(PartInterface**)partInterfaceArray {
+        self->partInterfaceArrayP = partInterfaceArray;
 }
 
 
-    auto CollidableDestroyableDamageableLayer::toStringAppend(StringMaker* stringBuffer) -> void{
-
-    CommonSeps* commonSeps = CommonSeps::getInstance();;
-    
-
-    PositionStrings* positionStrings = PositionStrings::getInstance();;
-    
-CollidableCompositeLayer::toStringAppend(stringBuffer);
-    
-stringBuffer->append(commonSeps->NEW_LINE);
-    
-
-    std::vector<Group*> groupInterfaceArray = this->getGroupInterface();;
-    
-
-    int32_t size = groupInterfaceArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-stringBuffer->append(JavaString::valueOf(groupInterfaceArray[index]));
-    
-stringBuffer->append(commonSeps->COMMA);
-    
+- (PartInterface**) getPartInterfaceArray {
+        return self->partInterfaceArrayP;
 }
 
 
-    PickupBehavior* pickupBehavior = this->getPickupBehavior();;
-    
-
-                        if(pickupBehavior != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    stringBuffer->append(commonSeps->NEW_LINE);
-    
-stringBuffer->append(JavaString::valueOf(pickupBehavior));
-    
-
-                                    }
-                                
-stringBuffer->append(commonSeps->NEW_LINE);
-    
-stringBuffer->append(CollidableDestroyableDamageableLayer::READYFOREXPLOSION);
-    
-stringBuffer->appendboolean(this->readyForExplosion);
-    
-stringBuffer->append(commonSeps->NEW_LINE);
-    
-stringBuffer->append(this->commonStrings->INIT);
-    
-stringBuffer->append(commonSeps->SPACE);
-    
-stringBuffer->append(positionStrings->X_LABEL);
-    
-stringBuffer->appendint(this->initX);
-    
-stringBuffer->append(positionStrings->Y_LABEL);
-    
-stringBuffer->appendint(this->initX);
-    
-stringBuffer->append(positionStrings->Z_LABEL);
-    
-stringBuffer->appendint(this->initZ);
-    
+- (void) toStringAppend:(StringMaker*)stringBuffer {
+        CommonSeps* commonSeps = [CommonSeps getInstance];
+        PositionStrings* positionStrings = [PositionStrings getInstance];
+        [super toStringAppend:stringBuffer];
+        [stringBuffer append:commonSeps->NEW_LINE];
+        Group** groupInterfaceArray = [self getGroupInterface];
+        int32_t size = java_array_length(groupInterfaceArray);
+        for (int32_t index = 0; index < size; index++) {
+            [stringBuffer append:[groupInterfaceArray[index] toString]];
+            [stringBuffer append:commonSeps->COMMA];
+        }
+        PickupBehavior* pickupBehavior = [self getPickupBehavior];
+        if (pickupBehavior != nil) {
+            [stringBuffer append:commonSeps->NEW_LINE];
+            [stringBuffer append:[pickupBehavior toString]];
+        }
+        [stringBuffer append:commonSeps->NEW_LINE];
+        [stringBuffer append:CollidableDestroyableDamageableLayer_READYFOREXPLOSION];
+        [stringBuffer appendboolean:self->readyForExplosion];
+        [stringBuffer append:commonSeps->NEW_LINE];
+        [stringBuffer append:self->commonStrings->INIT];
+        [stringBuffer append:commonSeps->SPACE];
+        [stringBuffer append:positionStrings->X_LABEL];
+        [stringBuffer appendint:self->initX];
+        [stringBuffer append:positionStrings->Y_LABEL];
+        [stringBuffer appendint:self->initX];
+        [stringBuffer append:positionStrings->Z_LABEL];
+        [stringBuffer appendint:self->initZ];
 }
 
 
-    auto CollidableDestroyableDamageableLayer::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-this->toStringAppend(stringBuffer);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [self toStringAppend:stringBuffer];
+        return [stringBuffer toString];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_LAYER_SPECIAL_COLLIDABLEDESTROYABLEDAMAGEABLELAYER_CPP

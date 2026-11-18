@@ -1,110 +1,50 @@
+#ifndef ORG_ALLBINARY_GAME_COLLISION_OPTIMIZEDALLBINARYCOLLISIONLAYERPROCESSORFORCOLLIDABLELAYER_H
+#define ORG_ALLBINARY_GAME_COLLISION_OPTIMIZEDALLBINARYCOLLISIONLAYERPROCESSORFORCOLLIDABLELAYER_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.collision
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer;
+@class CollidableCompositeLayer;
+@class AllBinaryLayer;
+@class AllBinaryLayerManager;
+@class LayerManager;
+@class LayerProcessor;
+@class OptimizedAllBinaryCollisionLayerManager;
+@class CollidableBaseBehavior;
+#include "org/allbinary/layer/LayerProcessor.h"
 
+@interface OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer : LayerProcessor {
+@public
+}
+- (instancetype) init;
+- (void) processAt:(AllBinaryLayerManager*)allBinaryLayerManager :(AllBinaryLayer*)layerInterface :(int32_t)startIndex;
+- (bool) isProcessorLayer:(AllBinaryLayer*)layerInterface;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_COLLISION_OPTIMIZEDALLBINARYCOLLISIONLAYERPROCESSORFORCOLLIDABLELAYER_H
-        #define ORG_ALLBINARY_GAME_COLLISION_OPTIMIZEDALLBINARYCOLLISIONLAYERPROCESSORFORCOLLIDABLELAYER_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class CollidableCompositeLayer;
-class AllBinaryLayer;
-class AllBinaryLayerManager;
-class LayerManager;
-#include <org/allbinary/layer/LayerProcessor.h>
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer_staticInit(void);
 
 
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class OptimizedAllBinaryCollisionLayerManager;
-class CollidableBaseBehavior;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer: public LayerProcessor {
-
-public: OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer();
-
-                //@Throws(Exception.constructor)
-            
-    public: void processAt(AllBinaryLayerManager* allBinaryLayerManager, AllBinaryLayer* layerInterface, int32_t startIndex);
-
-    public: bool isProcessorLayer(AllBinaryLayer* layerInterface);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_COLLISION_OPTIMIZEDALLBINARYCOLLISIONLAYERPROCESSORFORCOLLIDABLELAYER_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_COLLISION_OPTIMIZEDALLBINARYCOLLISIONLAYERPROCESSORFORCOLLIDABLELAYER_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_COLLISION_OPTIMIZEDALLBINARYCOLLISIONLAYERPROCESSORFORCOLLIDABLELAYER_H_COMPLETE
-        #if __has_include(<org/allbinary/game/layer/CollidableCompositeLayer.h>)
-#include <org/allbinary/game/layer/CollidableCompositeLayer.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayer.h>)
-#include <org/allbinary/layer/AllBinaryLayer.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayerManager.h>)
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-#endif
-#if __has_include(<org/allbinary/layer/LayerManager.h>)
-#include <org/allbinary/layer/LayerManager.h>
-#endif
-#if __has_include(<org/allbinary/layer/LayerProcessor.h>)
-#include <org/allbinary/layer/LayerProcessor.h>
-#endif
-#if __has_include("org/allbinary/game/collision/OptimizedAllBinaryCollisionLayerManager.h")
-#include "org/allbinary/game/collision/OptimizedAllBinaryCollisionLayerManager.h"
-#endif
-#if __has_include("org/allbinary/game/collision/CollidableBaseBehavior.h")
-#include "org/allbinary/game/collision/CollidableBaseBehavior.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_COLLISION_OPTIMIZEDALLBINARYCOLLISIONLAYERPROCESSORFORCOLLIDABLELAYER_H

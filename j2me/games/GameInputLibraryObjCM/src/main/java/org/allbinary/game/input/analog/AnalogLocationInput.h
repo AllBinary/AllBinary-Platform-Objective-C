@@ -1,97 +1,48 @@
+#ifndef ORG_ALLBINARY_GAME_INPUT_ANALOG_ANALOGLOCATIONINPUT_H
+#define ORG_ALLBINARY_GAME_INPUT_ANALOG_ANALOGLOCATIONINPUT_H
+// Generated Code Do Not Modify
+// package org.allbinary.game.input.analog
 
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_ANALOG_ANALOGLOCATIONINPUT_H
-        #define ORG_ALLBINARY_GAME_INPUT_ANALOG_ANALOGLOCATIONINPUT_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class CustomGPoint;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class AnalogLocationInput
-            : public virtual Object
-         {
-
-    private: static AnalogLocationInput* NULL_ANALOG_LOCATION_INPUT_owner();
-    public: static AnalogLocationInput* NULL_ANALOG_LOCATION_INPUT;
-
-    private: int32_t playerId;
-
-    private: CustomGPoint* customGPoint;
-
-    private: int32_t rz= 0;
-
-    private: int32_t rightTrigger= 0;
-
-    private: int32_t leftTrigger= 0;
-
-public: AnalogLocationInput(int32_t playerId);
-
-    public: int32_t getPlayerId();
-
-    public: CustomGPoint* getCustomGPoint();
-
-    public: int32_t getRz();
-
-    public: void setRz(int32_t rz);
-
-    public: int32_t getRightTrigger();
-
-    public: void setRightTrigger(int32_t rightTrigger);
-
-    public: int32_t getLeftTrigger();
-
-    public: void setLeftTrigger(int32_t leftTrigger);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_ANALOG_ANALOGLOCATIONINPUT_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_INPUT_ANALOG_ANALOGLOCATIONINPUT_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_INPUT_ANALOG_ANALOGLOCATIONINPUT_H_COMPLETE
-        #if __has_include(<org/allbinary/graphics/CustomGPoint.h>)
-#include <org/allbinary/graphics/CustomGPoint.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class AnalogLocationInput;
+@class CustomGPoint;
+#if __has_include("org/allbinary/graphics/CustomGPoint.h")
+#include "org/allbinary/graphics/CustomGPoint.h"
 #endif
 
-        #endif
-    
+@interface AnalogLocationInput : ABObject {
+@public
+    int32_t playerId;
+    CustomGPoint* customGPoint;
+    int32_t rz;
+    int32_t rightTrigger;
+    int32_t leftTrigger;
+}
+- (instancetype) init:(int32_t)playerId;
+- (void) initFields;
+- (int32_t) getPlayerId;
+- (CustomGPoint*) getCustomGPoint;
+- (int32_t) getRz;
+- (void) setRz:(int32_t)rz;
+- (int32_t) getRightTrigger;
+- (void) setRightTrigger:(int32_t)rightTrigger;
+- (int32_t) getLeftTrigger;
+- (void) setLeftTrigger:(int32_t)leftTrigger;
+@end
+
+extern AnalogLocationInput* AnalogLocationInput_NULL_ANALOG_LOCATION_INPUT;
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void AnalogLocationInput_staticInit(void);
+
+#if __has_include("org/allbinary/graphics/CustomGPoint.h")
+#include "org/allbinary/graphics/CustomGPoint.h"
+#endif
+
+#endif // ORG_ALLBINARY_GAME_INPUT_ANALOG_ANALOGLOCATIONINPUT_H

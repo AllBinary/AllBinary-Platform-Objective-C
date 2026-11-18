@@ -1,102 +1,43 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/input/motion/action/NoCompleteMotionGestureInputEventListener.h"
+#include "org/allbinary/game/input/CompleteMotionGestureInputEvent.h"
+#include "org/allbinary/logic/communication/log/ForcedLogUtil.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
 
 
+static NoCompleteMotionGestureInputEventListener* NoCompleteMotionGestureInputEventListener_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_NOCOMPLETEMOTIONGESTUREINPUTEVENTLISTENER_CPP
-        #define ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_NOCOMPLETEMOTIONGESTUREINPUTEVENTLISTENER_CPP
+void NoCompleteMotionGestureInputEventListener_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NoCompleteMotionGestureInputEventListener_instance = [((NoCompleteMotionGestureInputEventListener*) [NoCompleteMotionGestureInputEventListener alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/input/motion/action/NoCompleteMotionGestureInputEventListener.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/game/input/CompleteMotionGestureInputEvent.h>
-
-      
-#include <org/allbinary/game/input/CompleteMotionGestureInputEventListener.h>
-
-      
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
+@implementation NoCompleteMotionGestureInputEventListener
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto NoCompleteMotionGestureInputEventListener::instance_owner() -> NoCompleteMotionGestureInputEventListener* { static std::unique_ptr<NoCompleteMotionGestureInputEventListener> value(new NoCompleteMotionGestureInputEventListener()); return value.get(); }
-NoCompleteMotionGestureInputEventListener* NoCompleteMotionGestureInputEventListener::instance = NoCompleteMotionGestureInputEventListener::instance_owner();
-
-NoCompleteMotionGestureInputEventListener::NoCompleteMotionGestureInputEventListener(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto NoCompleteMotionGestureInputEventListener::onEvent(AllBinaryEventObject* eventObject) -> void{
-ForcedLogUtil::log(EventStrings::getInstance()->PERFORMANCE_MESSAGE, this);
-    
+- (void) onEvent:(AllBinaryEventObject*)eventObject {
+        [ForcedLogUtil log:[EventStrings getInstance]->PERFORMANCE_MESSAGE :self];
 }
 
 
-    auto NoCompleteMotionGestureInputEventListener::onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent* completeMotionGestureInputEvent) -> void{
+- (void) onCompleteMotionGestureInputEvent:(CompleteMotionGestureInputEvent*)completeMotionGestureInputEvent {
 }
 
 
-    auto NoCompleteMotionGestureInputEventListener::getInstance() -> NoCompleteMotionGestureInputEventListener*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NoCompleteMotionGestureInputEventListener::instance;
-    
++ (NoCompleteMotionGestureInputEventListener*) getInstance {
+        return (NoCompleteMotionGestureInputEventListener_staticInit(), NoCompleteMotionGestureInputEventListener_instance);
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_MOTION_ACTION_NOCOMPLETEMOTIONGESTUREINPUTEVENTLISTENER_CPP

@@ -1,102 +1,48 @@
+#ifndef ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERPROCESSORFORCOLLIDABLELAYER_H
+#define ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERPROCESSORFORCOLLIDABLELAYER_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.input
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class OptimizedGameInputLayerProcessorForCollidableLayer;
+@class AllBinaryGameLayer;
+@class AllBinaryLayer;
+@class AllBinaryLayerManager;
+@class LayerProcessor;
+@class OptimizedGameInputLayerManager;
+#include "org/allbinary/layer/LayerProcessor.h"
 
+@interface OptimizedGameInputLayerProcessorForCollidableLayer : LayerProcessor {
+@public
+}
+- (instancetype) init;
+- (void) processAt:(AllBinaryLayerManager*)allBinaryLayerManager :(AllBinaryLayer*)layerInterface :(int32_t)index;
+- (bool) isProcessorLayer:(AllBinaryLayer*)layerInterface;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERPROCESSORFORCOLLIDABLELAYER_H
-        #define ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERPROCESSORFORCOLLIDABLELAYER_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class AllBinaryGameLayer;
-class AllBinaryLayer;
-class AllBinaryLayerManager;
-#include <org/allbinary/layer/LayerProcessor.h>
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void OptimizedGameInputLayerProcessorForCollidableLayer_staticInit(void);
 
 
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class OptimizedGameInputLayerManager;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class OptimizedGameInputLayerProcessorForCollidableLayer: public LayerProcessor {
-
-public: OptimizedGameInputLayerProcessorForCollidableLayer();
-
-                //@Throws(Exception.constructor)
-            
-    public: void processAt(AllBinaryLayerManager* allBinaryLayerManager, AllBinaryLayer* layerInterface, int32_t index);
-
-    public: bool isProcessorLayer(AllBinaryLayer* layerInterface);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERPROCESSORFORCOLLIDABLELAYER_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERPROCESSORFORCOLLIDABLELAYER_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERPROCESSORFORCOLLIDABLELAYER_H_COMPLETE
-        #if __has_include(<org/allbinary/game/layer/AllBinaryGameLayer.h>)
-#include <org/allbinary/game/layer/AllBinaryGameLayer.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayer.h>)
-#include <org/allbinary/layer/AllBinaryLayer.h>
-#endif
-#if __has_include(<org/allbinary/layer/AllBinaryLayerManager.h>)
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-#endif
-#if __has_include(<org/allbinary/layer/LayerProcessor.h>)
-#include <org/allbinary/layer/LayerProcessor.h>
-#endif
-#if __has_include("org/allbinary/game/input/OptimizedGameInputLayerManager.h")
-#include "org/allbinary/game/input/OptimizedGameInputLayerManager.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERPROCESSORFORCOLLIDABLELAYER_H

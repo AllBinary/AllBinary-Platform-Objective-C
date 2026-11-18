@@ -1,74 +1,30 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_UNIFORMTEXTUREOPENGLPROCESSOR_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_UNIFORMTEXTUREOPENGLPROCESSOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/shader/UniformTextureOpenGLProcessor.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/khronos/opengles/GL10.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/graphics/opengles/shader/OpenGLObject3dProcessor.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/shader/UniformTextureOpenGLProcessor.h"
+#include "javax/microedition/khronos/opengles/GL10.h"
+#include "org/allbinary/graphics/opengles/shader/OpenGLObject3dProcessor.h"
 #include "org/allbinary/graphics/opengles/shader/ShaderComposite.h"
 
 
-UniformTextureOpenGLProcessor::UniformTextureOpenGLProcessor(ShaderComposite* shaderComposite, int32_t handleIndex){
+
+void UniformTextureOpenGLProcessor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation UniformTextureOpenGLProcessor
+
+
+- (instancetype) init:(ShaderComposite*)shaderComposite :(int32_t)handleIndex {
+    self = [super init];
+    return self;
 }
 
 
-    auto UniformTextureOpenGLProcessor::process(GL10* gl, Object* unused, int32_t index) -> void{
+- (void) process:(GL10*)gl :(id)unused :(int32_t)index {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_UNIFORMTEXTUREOPENGLPROCESSOR_CPP

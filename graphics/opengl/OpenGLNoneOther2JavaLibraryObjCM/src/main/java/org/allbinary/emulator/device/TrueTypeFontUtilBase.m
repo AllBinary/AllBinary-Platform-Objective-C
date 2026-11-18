@@ -1,89 +1,33 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/emulator/device/TrueTypeFontUtilBase.h"
 
 
 
-        #ifndef ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTILBASE_CPP
-        #define ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTILBASE_CPP
+void TrueTypeFontUtilBase_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/emulator/device/TrueTypeFontUtilBase.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
+@implementation TrueTypeFontUtilBase
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-TrueTypeFontUtilBase::TrueTypeFontUtilBase(int32_t scale){
+- (instancetype) init:(int32_t)scale {
+    self = [super init];
+    return self;
 }
 
 
-    auto TrueTypeFontUtilBase::getAsTextureSize(int32_t textureSize) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+- (int32_t) getAsTextureSize:(int32_t)textureSize {
+        return -1;
 }
 
 
-    auto TrueTypeFontUtilBase::getCellSize(int32_t cellSize) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+- (int32_t) getCellSize:(int32_t)cellSize {
+        return -1;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_EMULATOR_DEVICE_TRUETYPEFONTUTILBASE_CPP

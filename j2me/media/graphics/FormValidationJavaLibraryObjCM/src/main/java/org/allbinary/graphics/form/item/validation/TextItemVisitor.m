@@ -1,105 +1,34 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/form/item/validation/TextItemVisitor.h"
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_TEXTITEMVISITOR_CPP
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_TEXTITEMVISITOR_CPP
+void TextItemVisitor_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/form/item/validation/TextItemVisitor.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/java/bool/BooleanFactory.h>
-
-      
-#include <org/allbinary/logic/util/visitor/Visitor.h>
-
-      
+@implementation TextItemVisitor
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-TextItemVisitor::TextItemVisitor(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto TextItemVisitor::visit(Object* anyType) -> Object*{
-
-    std::string value = JavaBoxes::unbox<std::string>(anyType);;
-    
-
-                        if(value.size() < 2)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::toObject(BooleanFactory::getInstance()->TRUE);
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::toObject(BooleanFactory::getInstance()->FALSE);
-    
-
-                        }
-                            
+- (id) visit:(id)anyType {
+        const char* value = ((const char*) anyType);
+        if (((int32_t) strlen(value)) < 2) {
+            return [BooleanFactory getInstance]->TRUE;
+        } else {
+            return [BooleanFactory getInstance]->FALSE;
+        }
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_TEXTITEMVISITOR_CPP

@@ -1,119 +1,51 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                * 
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                * 
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                * 
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_MULTITOUCHRELEASEHELPER_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_MULTITOUCHRELEASEHELPER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/MultitouchReleaseHelper.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/input/event/GameKeyEvent.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/button/ReleaseHelper.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/MultitouchReleaseHelper.h"
+#include "org/allbinary/game/input/event/GameKeyEvent.h"
+#include "org/allbinary/input/motion/button/ReleaseHelper.h"
 #include "org/allbinary/input/motion/button/TouchButtonRecognizer.h"
 #include "org/allbinary/input/motion/button/CancelTouchButtonInputFactory.h"
 #include "org/allbinary/input/motion/button/TouchButtonInput.h"
+#if __has_include("org/allbinary/input/motion/button/UpGameKeyEventHandlerBase.h")
+#include "org/allbinary/input/motion/button/UpGameKeyEventHandlerBase.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/UpGameKeyEventHandlerBase.h")
+#include "org/allbinary/game/input/event/UpGameKeyEventHandlerBase.h"
+#endif
 
 
-MultitouchReleaseHelper::MultitouchReleaseHelper(TouchButtonRecognizer* touchButtonRecognizer) : ReleaseHelper(touchButtonRecognizer){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void MultitouchReleaseHelper_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
+@implementation MultitouchReleaseHelper
+
+
+- (instancetype) init:(TouchButtonRecognizer*)touchButtonRecognizer {
+        self = [super init:touchButtonRecognizer];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto MultitouchReleaseHelper::release(TouchButtonInput* touchButtonInput, int32_t deviceId) -> void{
-
-    TouchButtonInput* cancelTouchButtonInput = CancelTouchButtonInputFactory::getInstance()->getCancel(touchButtonInput);;
-    
-
-    TouchButtonInput* nextTouchButtonInput;;
-    
-
-    GameKeyEvent* gameKeyEvent;;
-    
-
-
-
-
-                        for (
-    int32_t index = this->touchButtonRecognizer->currentlyPressedTouchButtonSingleton->size() -1;index >= 0; index--)
-        {
-nextTouchButtonInput= this->touchButtonRecognizer->currentlyPressedTouchButtonSingleton->get(index);
-    
-
-                        if(cancelTouchButtonInput == nextTouchButtonInput)
-                        
-                                    {
-                                    gameKeyEvent= nextTouchButtonInput->getGameKeyEvent();
-    
-this->touchButtonRecognizer->upGameKeyEventHandler->fireEvent(gameKeyEvent);
-    
-this->touchButtonRecognizer->upGameKeyEventHandler->getInstanceForDevice(deviceId)->fireEvent(gameKeyEvent);
-    
-this->touchButtonRecognizer->currentlyPressedTouchButtonSingleton->removeAt(index);
-    
-
-                                    }
-                                
+// throws Exception
+- (void) release:(TouchButtonInput*)touchButtonInput :(int32_t)deviceId {
+        TouchButtonInput* cancelTouchButtonInput = [[CancelTouchButtonInputFactory getInstance] getCancel:touchButtonInput];
+        TouchButtonInput* nextTouchButtonInput = nullptr;
+        GameKeyEvent* gameKeyEvent = nullptr;
+        for (int32_t index = [self->touchButtonRecognizer->currentlyPressedTouchButtonSingleton size] - 1; index >= 0; index--) {
+            nextTouchButtonInput = [self->touchButtonRecognizer->currentlyPressedTouchButtonSingleton get:index];
+            if (cancelTouchButtonInput == nextTouchButtonInput) {
+                gameKeyEvent = [nextTouchButtonInput getGameKeyEvent];
+                [self->touchButtonRecognizer->upGameKeyEventHandler fireEvent:gameKeyEvent];
+                [[self->touchButtonRecognizer->upGameKeyEventHandler getInstanceForDevice:deviceId] fireEvent:gameKeyEvent];
+                [self->touchButtonRecognizer->currentlyPressedTouchButtonSingleton removeAt:index];
+            }
+        }
 }
 
-}
+@end
 
-
-
-
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_MULTITOUCHRELEASEHELPER_CPP

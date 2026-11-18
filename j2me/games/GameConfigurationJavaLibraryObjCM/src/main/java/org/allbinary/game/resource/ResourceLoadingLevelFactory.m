@@ -1,122 +1,51 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/resource/ResourceLoadingLevelFactory.h"
+#include "org/allbinary/game/resource/ResourceLoadingLevel.h"
 
 
+static ResourceLoadingLevelFactory* ResourceLoadingLevelFactory_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_RESOURCE_RESOURCELOADINGLEVELFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_RESOURCE_RESOURCELOADINGLEVELFACTORY_CPP
+void ResourceLoadingLevelFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ResourceLoadingLevelFactory_instance = [((ResourceLoadingLevelFactory*) [ResourceLoadingLevelFactory alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/resource/ResourceLoadingLevelFactory.h"
-        
+@implementation ResourceLoadingLevelFactory
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->LOAD_EARLY = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load Early" :(Integer_staticInit(), Integer_MAX_VALUE)];
+    self->LOAD_TOUCH = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load Touch" :(Integer_staticInit(), Integer_MAX_VALUE) - 1];
+    self->LOAD_GAME = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load Game" :(Integer_staticInit(), Integer_MAX_VALUE) - 2];
+    self->LEVEL = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Level" :(Integer_staticInit(), Integer_MAX_VALUE) - 99];
+    self->MAX_LEVEL = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Max Level" :(Integer_staticInit(), Integer_MAX_VALUE) - 100];
+    self->LOAD_ALL = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load All" :-1];
+    self->RESOURCE_LOADING_LEVEL_ARRAY = ((ResourceLoadingLevel**) java_array_from(sizeof(ResourceLoadingLevel*), sizeof((ResourceLoadingLevel*[]){ self->LOAD_ALL, self->MAX_LEVEL, self->LEVEL, self->LOAD_GAME, self->LOAD_TOUCH, self->LOAD_EARLY }) / sizeof(ResourceLoadingLevel*), (ResourceLoadingLevel*[]){ self->LOAD_ALL, self->MAX_LEVEL, self->LEVEL, self->LOAD_GAME, self->LOAD_TOUCH, self->LOAD_EARLY }));
+}
 
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Integer.h"
-        
-
-
-
-
-
-
-
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
 
 
++ (ResourceLoadingLevelFactory*) getInstance {
+        return (ResourceLoadingLevelFactory_staticInit(), ResourceLoadingLevelFactory_instance);
+}
 
 
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/resource/ResourceLoadingLevel.h"
-
-
-ResourceLoadingLevelFactory::ResourceLoadingLevelFactory() : LOAD_EARLY(new ResourceLoadingLevel("Load Early", Integer.MAX_VALUE)), LOAD_TOUCH(new ResourceLoadingLevel("Load Touch", Integer.MAX_VALUE -1)), LOAD_GAME(new ResourceLoadingLevel("Load Game", Integer.MAX_VALUE -2)), LEVEL(new ResourceLoadingLevel("Level", Integer.MAX_VALUE -99)), MAX_LEVEL(new ResourceLoadingLevel("Max Level", Integer.MAX_VALUE -100)), LOAD_ALL(new ResourceLoadingLevel("Load All",  -1)), RESOURCE_LOADING_LEVEL_ARRAY(
-                                                        {
-                                                            this->LOAD_ALL,this->MAX_LEVEL,this->LEVEL,this->LOAD_GAME,this->LOAD_TOUCH,this->LOAD_EARLY
-                                                        }) {
+- (const char*) getLevelString:(int32_t)level {
+        for (int32_t index = 0; index < java_array_length(self->RESOURCE_LOADING_LEVEL_ARRAY); index++) {
+            if (level == [self->RESOURCE_LOADING_LEVEL_ARRAY[index] getLevel]) {
+                return [self->RESOURCE_LOADING_LEVEL_ARRAY[index] getName];
+            }
         }
-        auto ResourceLoadingLevelFactory::instance_owner() -> ResourceLoadingLevelFactory* { static std::unique_ptr<ResourceLoadingLevelFactory> value(new ResourceLoadingLevelFactory()); return value.get(); }
-ResourceLoadingLevelFactory* ResourceLoadingLevelFactory::instance = ResourceLoadingLevelFactory::instance_owner();
-
-    auto ResourceLoadingLevelFactory::getInstance() -> ResourceLoadingLevelFactory*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ResourceLoadingLevelFactory::instance;
-    
+        return java_string_of(level);
 }
 
+@end
 
-    auto ResourceLoadingLevelFactory::getLevelString(int32_t level) -> std::string{
-
-
-
-
-                        for (
-    int32_t index = 0;index < this->RESOURCE_LOADING_LEVEL_ARRAY.size(); index++)
-        {
-
-                        if(level == this->RESOURCE_LOADING_LEVEL_ARRAY[index]->getLevel())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->RESOURCE_LOADING_LEVEL_ARRAY[index]->getName();;
-    
-
-                                    }
-                                
-}
-
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return std::to_string(level);;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_RESOURCE_RESOURCELOADINGLEVELFACTORY_CPP

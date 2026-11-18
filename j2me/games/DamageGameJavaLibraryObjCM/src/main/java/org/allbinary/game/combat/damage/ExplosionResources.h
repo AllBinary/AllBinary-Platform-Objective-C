@@ -1,91 +1,46 @@
+#ifndef ORG_ALLBINARY_GAME_COMBAT_DAMAGE_EXPLOSIONRESOURCES_H
+#define ORG_ALLBINARY_GAME_COMBAT_DAMAGE_EXPLOSIONRESOURCES_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.combat.damage
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class ExplosionResources;
 
+@interface ExplosionResources : ABObject {
+@public
+    const char* EXPLOSION_90_RESOURCE;
+    const char* EXPLOSION_60_RESOURCE;
+    const char* HALF_EXPLOSION_RESOURCE;
+    const char* THIRD_EXPLOSION_RESOURCE;
+}
+- (instancetype) init;
+- (void) initFields;
++ (ExplosionResources*) getInstance;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_COMBAT_DAMAGE_EXPLOSIONRESOURCES_H
-        #define ORG_ALLBINARY_GAME_COMBAT_DAMAGE_EXPLOSIONRESOURCES_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void ExplosionResources_staticInit(void);
 
 
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class ExplosionResources
-            : public virtual Object
-         {
-
-    private: static ExplosionResources* instance_owner();
-    private: static ExplosionResources* instance;
-
-    public: static ExplosionResources* getInstance();
-
-private: ExplosionResources();
-
-    public: const std::string EXPLOSION_90_RESOURCE = "/explosion_sprite_90_by_90.png";
-
-    public: const std::string EXPLOSION_60_RESOURCE = "/explosion_sprite_60_by_60.png";
-
-    public: const std::string HALF_EXPLOSION_RESOURCE = "/explosion_sprite_30_by_30.png";
-
-    public: const std::string THIRD_EXPLOSION_RESOURCE = "/explosion_sprite_15_by_15.png";
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_COMBAT_DAMAGE_EXPLOSIONRESOURCES_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_COMBAT_DAMAGE_EXPLOSIONRESOURCES_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_COMBAT_DAMAGE_EXPLOSIONRESOURCES_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_COMBAT_DAMAGE_EXPLOSIONRESOURCES_H

@@ -1,64 +1,25 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_APPNAMELICENSINGADCONFIGURATION_CPP
-        #define ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_APPNAMELICENSINGADCONFIGURATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/business/advertisement/AppNameLicensingAdConfiguration.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/business/advertisement/AppNameLicensingAdConfiguration.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/business/advertisement/AdConfiguration.h"
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/business/advertisement/AdConfiguration.h"
-
-
-AppNameLicensingAdConfiguration::AppNameLicensingAdConfiguration() : AdConfiguration(std::vector<Object*>
-                                                {
-                                                    JavaBoxes::toObject(StringUtil::getInstance()->EMPTY_STRING),JavaBoxes::toObject(StringUtil::getInstance()->EMPTY_STRING),JavaBoxes::toObject(StringUtil::getInstance()->EMPTY_STRING)
-                                                }){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+void AppNameLicensingAdConfiguration_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
 }
 
+@implementation AppNameLicensingAdConfiguration
 
 
+- (instancetype) init {
+        self = [super init:((id*) java_array_from(sizeof(id), sizeof((id[]){ [StringUtil getInstance]->EMPTY_STRING, [StringUtil getInstance]->EMPTY_STRING, [StringUtil getInstance]->EMPTY_STRING }) / sizeof(id), (id[]){ [StringUtil getInstance]->EMPTY_STRING, [StringUtil getInstance]->EMPTY_STRING, [StringUtil getInstance]->EMPTY_STRING }))];
+    return self;
+}
 
-        #endif //ORG_ALLBINARY_BUSINESS_ADVERTISEMENT_APPNAMELICENSINGADCONFIGURATION_CPP
+@end
+

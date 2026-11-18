@@ -1,105 +1,49 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/gesture/TrackballMotionGestureFactory.h"
+#include "org/allbinary/game/input/InputFactory.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
 
 
+static id TrackballMotionGestureFactory_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_GESTURE_TRACKBALLMOTIONGESTUREFACTORY_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_GESTURE_TRACKBALLMOTIONGESTUREFACTORY_CPP
+void TrackballMotionGestureFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TrackballMotionGestureFactory_instance = [NullUtil getInstance]->NULL_OBJECT;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/gesture/TrackballMotionGestureFactory.h"
-        
+@implementation TrackballMotionGestureFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/input/InputFactory.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
-
-Object* TrackballMotionGestureFactory::instance = NullUtil::getInstance()->NULL_OBJECT;
-
-    auto TrackballMotionGestureFactory::getInstance() -> TrackballMotionGestureFactory*{
-
-                        if(TrackballMotionGestureFactory::instance == NullUtil::getInstance()->NULL_OBJECT)
-                        
-                                    {
-                                    TrackballMotionGestureFactory::instance= new TrackballMotionGestureFactory();
+- (void) initFields {
     
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return dynamic_cast<TrackballMotionGestureFactory*>(TrackballMotionGestureFactory::instance);
+    
+    
     
 }
 
 
-TrackballMotionGestureFactory::TrackballMotionGestureFactory(){
-
-    int32_t MAX = InputFactory::getInstance()->MAX;;
-    
-this->LEFT= new MotionGestureInput(MAX -26, "L Trackball");
-    
-this->RIGHT= new MotionGestureInput(MAX -27, "R Trackball");
-    
-this->UP= new MotionGestureInput(MAX -28, "Up Trackball");
-    
-this->DOWN= new MotionGestureInput(MAX -29, "D Trackball");
-    
++ (TrackballMotionGestureFactory*) getInstance {
+        if ((TrackballMotionGestureFactory_staticInit(), TrackballMotionGestureFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
+            TrackballMotionGestureFactory_instance = [((TrackballMotionGestureFactory*) [TrackballMotionGestureFactory alloc]) init];
+        }
+        return ((TrackballMotionGestureFactory*) (TrackballMotionGestureFactory_staticInit(), TrackballMotionGestureFactory_instance));
 }
 
 
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        int32_t MAX = [InputFactory getInstance]->MAX;
+        self->LEFT = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 26 :"L Trackball"];
+        self->RIGHT = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 27 :"R Trackball"];
+        self->UP = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 28 :"Up Trackball"];
+        self->DOWN = [((MotionGestureInput*) [MotionGestureInput alloc]) init:MAX - 29 :"D Trackball"];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_MOTION_GESTURE_TRACKBALLMOTIONGESTUREFACTORY_CPP

@@ -1,122 +1,59 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/text/AdjustCustomTextAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/animation/text/CustomTextAnimation.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_TEXT_ADJUSTCUSTOMTEXTANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_TEXT_ADJUSTCUSTOMTEXTANIMATION_CPP
+void AdjustCustomTextAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/text/AdjustCustomTextAnimation.h"
-        
+@implementation AdjustCustomTextAnimation
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/text/CustomTextAnimation.h"
-
-
-AdjustCustomTextAnimation::AdjustCustomTextAnimation(std::string text, int32_t fontSize, int32_t dx, int32_t dy, AnimationBehavior* animationBehavior) : CustomTextAnimation(text, fontSize, animationBehavior){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->dx= dx;
+- (void) initFields {
     
-this->dy= dy;
     
 }
 
 
-    auto AdjustCustomTextAnimation::getDx() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->dx;
-    
+- (instancetype) init:(const char*)text :(int32_t)fontSize :(int32_t)dx :(int32_t)dy :(AnimationBehavior*)animationBehavior {
+        self = [super init:text :fontSize :animationBehavior];
+        [self initFields];
+        self->dx = dx;
+        self->dy = dy;
+    return self;
 }
 
 
-    auto AdjustCustomTextAnimation::setDx(int32_t dx) -> void{
-this->dx= dx;
-    
+- (int32_t) getDx {
+        return self->dx;
 }
 
 
-    auto AdjustCustomTextAnimation::getDy() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->dy;
-    
+- (void) setDx:(int32_t)dx {
+        self->dx = dx;
 }
 
 
-    auto AdjustCustomTextAnimation::setDy(int32_t dy) -> void{
-this->dy= dy;
-    
+- (int32_t) getDy {
+        return self->dy;
 }
 
 
-    auto AdjustCustomTextAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-CustomTextAnimation::paintXY(graphics, x +this->dx, y +this->dy);
-    
+- (void) setDy:(int32_t)dy {
+        self->dy = dy;
 }
 
 
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [super paintXY:graphics :x + self->dx :y + self->dy];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_TEXT_ADJUSTCUSTOMTEXTANIMATION_CPP

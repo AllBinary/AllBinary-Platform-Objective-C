@@ -1,104 +1,54 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_CELLPOSITION_H
+#define ORG_ALLBINARY_GRAPHICS_CELLPOSITION_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class CellPosition;
+@class V;
+@class StringMaker;
+@class CommonSeps;
+#include "org/allbinary/graph/V.h"
 
+@interface CellPosition : V {
+@public
+    int32_t id_;
+    int32_t column;
+    int32_t row;
+}
+- (instancetype) init:(int32_t)column :(int32_t)row :(int32_t)columns :(int32_t)rows;
+- (void) initFields;
+- (int32_t) getColumn;
+- (int32_t) getRow;
+- (const char*) toString;
++ (const char*) toStringCellPosition:(CellPosition*)basicGeographicMapCellPosition;
++ (const char*) toStringColRow:(int32_t)i_column :(int32_t)i_row;
+- (int32_t) getId;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_CELLPOSITION_H
-        #define ORG_ALLBINARY_GRAPHICS_CELLPOSITION_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/graph/V.h>
-class StringMaker;
-class CommonSeps;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class CellPosition: public V {
-
-    public: static std::string toStringCellPosition(CellPosition* basicGeographicMapCellPosition);
-
-    public: static std::string toStringColRow(int32_t i_column, int32_t i_row);
-
-    private: int32_t id;
-
-    private: int32_t column;
-
-    private: int32_t row;
-
-public: CellPosition(int32_t column, int32_t row, int32_t columns, int32_t rows);
-
-    public: int32_t getColumn();
-
-    public: int32_t getRow();
-
-    public: std::string toString();
-
-    public: int32_t getId();
-
-};
-
-            
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void CellPosition_staticInit(void);
 
 
-        #endif //ORG_ALLBINARY_GRAPHICS_CELLPOSITION_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_CELLPOSITION_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_CELLPOSITION_H_COMPLETE
-        #if __has_include(<org/allbinary/graph/V.h>)
-#include <org/allbinary/graph/V.h>
-#endif
-#if __has_include(<org/allbinary/logic/string/StringMaker.h>)
-#include <org/allbinary/logic/string/StringMaker.h>
-#endif
-#if __has_include(<org/allbinary/string/CommonSeps.h>)
-#include <org/allbinary/string/CommonSeps.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_CELLPOSITION_H

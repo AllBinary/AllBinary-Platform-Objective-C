@@ -1,161 +1,75 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_SCORE_HIGHSCORESHELPERBASE_CPP
-        #define ORG_ALLBINARY_GAME_SCORE_HIGHSCORESHELPERBASE_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/score/HighScoresHelperBase.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/RuntimeException.h"
-        
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/score/HighScoresHelperBaseInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/score/HighScoresHelperBase.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/game/score/HighScoresHelperBaseInterface.h"
 #include "org/allbinary/game/score/LastFetchHighScoresFactory.h"
 #include "org/allbinary/game/score/HighScores.h"
 #include "org/allbinary/game/score/NullHighScoresSingletonFactory.h"
 
 
-HighScoresHelperBase::HighScoresHelperBase() : logUtil(LogUtil::getInstance()), highScoresArrayP(LastFetchHighScoresFactory::getInstance()->highScoresArray) {
+
+void HighScoresHelperBase_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
+
+@implementation HighScoresHelperBase
+
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->highScoresArrayP = [LastFetchHighScoresFactory getInstance]->highScoresArray;
+}
+
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
+}
+
+
+- (void) setHighScoresArray:(HighScores**)highScoresArrayP {
+        if (highScoresArrayP != nil) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:commonStrings->START] appendint:java_array_length(highScoresArrayP)] toString] :self :"setHighScoresArray"];
+        } else {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil putF:commonStrings->START :self :"setHighScoresArray"];
         }
-        
-    auto HighScoresHelperBase::setHighScoresArray(std::vector<HighScores*> highScoresArrayP) -> void{
-
-                        if(!highScoresArrayP.empty())
-                        
-                                    {
-                                    
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->putF(JavaString::valueOf((new StringMaker())->append(commonStrings->START)->appendint(highScoresArrayP.size())), this, "setHighScoresArray");
-    
-
-                                    }
-                                
-                        else {
-                            
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->putF(commonStrings->START, this, "setHighScoresArray");
-    
-
-                        }
-                            
-this->highScoresArrayP= highScoresArrayP;
-    
+        self->highScoresArrayP = highScoresArrayP;
 }
 
 
-    auto HighScoresHelperBase::getNextHighScores() -> HighScores*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullHighScoresSingletonFactory::getInstance();;
-    
+- (HighScores*) getNextHighScores {
+        return [NullHighScoresSingletonFactory getInstance];
 }
 
 
-    auto HighScoresHelperBase::isAnyHighScores() -> bool{
-
-
-
-                            throw RuntimeException();
-                    
+- (bool) isAnyHighScores {
+        java_throw(java_exception_new("RuntimeException", ""));
 }
 
 
-    auto HighScoresHelperBase::setSelectedHighScores(HighScores* selectedHighScores) -> void{
+- (void) setSelectedHighScores:(HighScores*)selectedHighScores {
 }
 
 
-    auto HighScoresHelperBase::getSelectedHighScores() -> HighScores*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullHighScoresSingletonFactory::getInstance();;
-    
+- (HighScores*) getSelectedHighScores {
+        return [NullHighScoresSingletonFactory getInstance];
 }
 
 
-    auto HighScoresHelperBase::getHighScoresArray() -> std::vector<HighScores*>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->highScoresArrayP;
-    
+- (HighScores**) getHighScoresArray {
+        return self->highScoresArrayP;
 }
 
 
-    auto HighScoresHelperBase::selectHighScores() -> void{
+- (void) selectHighScores {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_SCORE_HIGHSCORESHELPERBASE_CPP

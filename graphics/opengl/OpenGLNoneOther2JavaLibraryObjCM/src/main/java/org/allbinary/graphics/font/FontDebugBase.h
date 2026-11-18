@@ -1,90 +1,35 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_FONT_FONTDEBUGBASE_H
+#define ORG_ALLBINARY_GRAPHICS_FONT_FONTDEBUGBASE_H
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.font
 
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class FontDebugBase;
+@class Font;
+@class StringMaker;
 
+//OpenGLNoneOther2JavaLibrary
+@interface FontDebugBase : ABObject {
+@public
+    const char* SET_FONT;
+}
+- (instancetype) init;
+- (void) initFields;
++ (FontDebugBase*) getInstance;
+- (void) debugMetrics:(Font*)currentFont :(float)convertedTextSize :(id)displayMetrics :(StringMaker*)stringBuffer;
+- (void) debugDpi:(int32_t)densityDpi :(StringMaker*)stringBuffer;
+- (void) debugDimension:(Font*)currentFont :(float)convertedTextSize :(int32_t)longestDimensionTotalPixels :(StringMaker*)stringBuffer;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FONT_FONTDEBUGBASE_H
-        #define ORG_ALLBINARY_GRAPHICS_FONT_FONTDEBUGBASE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class Font;
-class StringMaker;
-
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void FontDebugBase_staticInit(void);
 
 
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        //OpenGLNoneOther2JavaLibrary
-class FontDebugBase
-            : public virtual Object
-         {
-
-    private: static FontDebugBase* instanceBase_owner();
-    private: static FontDebugBase* instanceBase;
-
-    public: static FontDebugBase* getInstance();
-
-
-            
-    public: FontDebugBase();
-        
-    public: const std::string SET_FONT = "setFont";
-
-    public: void debugMetrics(Font* currentFont, float convertedTextSize, Object* displayMetrics, StringMaker* stringBuffer);
-    public: void debugMetrics(Font* currentFont, float convertedTextSize, const std::string& displayMetrics, StringMaker* stringBuffer) { return debugMetrics(currentFont, convertedTextSize, JavaString::box(displayMetrics), stringBuffer); }
-    public: template<typename BoxValue, typename std::enable_if<std::is_arithmetic<BoxValue>::value, int>::type = 0> void debugMetrics(Font* currentFont, float convertedTextSize, BoxValue displayMetrics, StringMaker* stringBuffer) { return debugMetrics(currentFont, convertedTextSize, JavaBoxes::toObject(displayMetrics), stringBuffer); }
-    public: template<typename BoxElement> void debugMetrics(Font* currentFont, float convertedTextSize, const std::vector<BoxElement>& displayMetrics, StringMaker* stringBuffer) { return debugMetrics(currentFont, convertedTextSize, JavaBoxes::toObject(displayMetrics), stringBuffer); }
-
-    public: void debugDpi(int32_t densityDpi, StringMaker* stringBuffer);
-
-    public: void debugDimension(Font* currentFont, float convertedTextSize, int32_t longestDimensionTotalPixels, StringMaker* stringBuffer);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FONT_FONTDEBUGBASE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_FONT_FONTDEBUGBASE_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_FONT_FONTDEBUGBASE_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Font.h>)
-#include <javax/microedition/lcdui/Font.h>
-#endif
-#if __has_include(<org/allbinary/logic/string/StringMaker.h>)
-#include <org/allbinary/logic/string/StringMaker.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_FONT_FONTDEBUGBASE_H

@@ -1,308 +1,135 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_HEALTH_HEALTH_CPP
-        #define ORG_ALLBINARY_GAME_HEALTH_HEALTH_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/health/Health.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/health/HealthInterface.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/health/Health.h"
+#include "org/allbinary/logic/communication/log/ForcedLogUtil.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/game/health/HealthInterface.h"
 #include "org/allbinary/game/health/NullHealthListener.h"
 #include "org/allbinary/game/health/HealthListenerInterface.h"
 
-auto Health::NULL_HEALTH_owner() -> Health* { static std::unique_ptr<Health> value(new Health(0)); return value.get(); }
-Health* Health::NULL_HEALTH = Health::NULL_HEALTH_owner();
 
-Health::Health(int32_t maxHealth) : healthListenerInterface(NullHealthListener::NULL_HEALTH_LISTENER){
-this->setMaxHealth(maxHealth);
-    
-this->setHealth(maxHealth);
-    
+Health* Health_NULL_HEALTH;
+const char* Health_NAME = "Health Resource";
+static const char* Health_HEALTH_LABEL = "Health: ";
+static const char* Health_MAX_HEALTH_LABEL = " Max: ";
+
+void Health_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    Health_NULL_HEALTH = [((Health*) [Health alloc]) init:0];
+}
+
+@implementation Health
+
+- (void) initFields {
+    self->health = 0;
+    self->maxHealth = 0;
+    self->healthListenerInterface = (NullHealthListener_staticInit(), NullHealthListener_NULL_HEALTH_LISTENER);
 }
 
 
-    auto Health::heal(int32_t ahealth) -> void{
-
-    int32_t newHealth = this->getHealth() +ahealth;;
-    
-
-                        if(newHealth > this->getMaxHealth())
-                        
-                                    {
-                                    this->setHealth(this->getMaxHealth());
-    
-
-                                    }
-                                
-                        else {
-                            this->setHealth(newHealth);
-    
-
-                        }
-                            
+- (instancetype) init:(int32_t)maxHealth {
+    self = [super init];
+    [self initFields];
+        [self setMaxHealth:maxHealth];
+        [self setHealth:maxHealth];
+    return self;
 }
 
 
-    auto Health::healMax() -> void{
-this->setHealth(this->getMaxHealth());
-    
+- (void) heal:(int32_t)ahealth {
+        int32_t newHealth = [self getHealth] + ahealth;
+        if (newHealth > [self getMaxHealth]) {
+            [self setHealth:[self getMaxHealth]];
+        } else {
+            [self setHealth:newHealth];
+        }
 }
 
 
-    auto Health::isDamaged() -> bool{
-
-                        if(this->getHealth() != this->getMaxHealth())
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+- (void) healMax {
+        [self setHealth:[self getMaxHealth]];
 }
 
 
-    auto Health::damage(int32_t ahealth) -> void{
-
-                        if(ahealth < 0)
-                        
-                                    {
-                                    
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append("******* Trying to heal when damaging. Damage: ");
-    
-stringBuffer->appendint(ahealth);
-    
-stringBuffer->append(CommonSeps::getInstance()->SPACE);
-    
-stringBuffer->append(JavaString::valueOf(this));
-    
-ForcedLogUtil::log(JavaString::valueOf(stringBuffer), this);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ;
-    
-
-                                    }
-                                
-
-    int32_t health = this->getHealth() -ahealth;;
-    
-this->setHealth(health);
-    
+- (bool) isDamaged {
+        if ([self getHealth] != [self getMaxHealth]) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 
-    auto Health::isAlive() -> bool{
-
-                        if(this->getHealth() <= 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                        }
-                            
+- (void) damage:(int32_t)ahealth {
+        if (ahealth < 0) {
+            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            [stringBuffer append:"******* Trying to heal when damaging. Damage: "];
+            [stringBuffer appendint:ahealth];
+            [stringBuffer append:[CommonSeps getInstance]->SPACE];
+            [stringBuffer append:[self toString]];
+            [ForcedLogUtil log:[stringBuffer toString] :self];
+            return;
+        }
+        int32_t health = [self getHealth] - ahealth;
+        [self setHealth:health];
 }
 
 
-    auto Health::getMaxHealth() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->maxHealth;
-    
+- (bool) isAlive {
+        if ([self getHealth] <= 0) {
+            return false;
+        } else {
+            return true;
+        }
 }
 
 
-    auto Health::setMaxHealth(int32_t maxHealth) -> void{
-this->maxHealth= maxHealth;
-    
+- (int32_t) getMaxHealth {
+        return self->maxHealth;
 }
 
 
-    auto Health::setHealth(int32_t health) -> void{
-
-                        if(health > this->getMaxHealth())
-                        
-                                    {
-                                    this->health= this->getMaxHealth();
-    
-
-                                    }
-                                
-                             else 
-                        if(health < 0)
-                        
-                                    {
-                                    this->health= 0;
-    
-
-                                    }
-                                
-                        else {
-                            this->health= health;
-    
-
-                        }
-                            
-
-                        if(this->healthListenerInterface != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    this->healthListenerInterface->onHealthChange();
-    
-
-                                    }
-                                
+- (void) setMaxHealth:(int32_t)maxHealth {
+        self->maxHealth = maxHealth;
 }
 
 
-    auto Health::getHealth() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->health;
-    
+- (void) setHealth:(int32_t)health {
+        if (health > [self getMaxHealth]) {
+            self->health = [self getMaxHealth];
+        } else if (health < 0) {
+            self->health = 0;
+        } else {
+            self->health = health;
+        }
+        if (self->healthListenerInterface != nil) {
+            [self->healthListenerInterface onHealthChange];
+        }
 }
 
 
-    auto Health::addListener(HealthListenerInterface* healthGraphic) -> void{
-this->healthListenerInterface= healthGraphic;
-    
+- (int32_t) getHealth {
+        return self->health;
 }
 
 
-    auto Health::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append(Health::HEALTH_LABEL);
-    
-stringBuffer->appendint(this->health);
-    
-stringBuffer->append(Health::MAX_HEALTH_LABEL);
-    
-stringBuffer->appendint(this->maxHealth);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (void) addListener:(HealthListenerInterface*)healthGraphic {
+        self->healthListenerInterface = healthGraphic;
 }
 
 
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:Health_HEALTH_LABEL];
+        [stringBuffer appendint:self->health];
+        [stringBuffer append:Health_MAX_HEALTH_LABEL];
+        [stringBuffer appendint:self->maxHealth];
+        return [stringBuffer toString];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_HEALTH_HEALTH_CPP

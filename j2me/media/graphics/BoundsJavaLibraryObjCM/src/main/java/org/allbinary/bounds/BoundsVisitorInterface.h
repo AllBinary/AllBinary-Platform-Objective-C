@@ -1,86 +1,43 @@
+#ifndef ORG_ALLBINARY_BOUNDS_BOUNDSVISITORINTERFACE_H
+#define ORG_ALLBINARY_BOUNDS_BOUNDSVISITORINTERFACE_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.bounds
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class BoundsVisitorInterface;
 
+@protocol BoundsVisitorInterface
+- (int32_t) getX;
+- (int32_t) getY;
+- (void) maxX;
+- (void) maxY;
+- (void) minX;
+- (void) minY;
+@end
 
-
-        #ifndef ORG_ALLBINARY_BOUNDS_BOUNDSVISITORINTERFACE_H
-        #define ORG_ALLBINARY_BOUNDS_BOUNDSVISITORINTERFACE_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void BoundsVisitorInterface_staticInit(void);
 
 
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class BoundsVisitorInterface
-            : public virtual Object
-         {
-
-    public: virtual int32_t getX() = 0;
-
-    public: virtual int32_t getY() = 0;
-
-    public: virtual void maxX() = 0;
-
-    public: virtual void maxY() = 0;
-
-    public: virtual void minX() = 0;
-
-    public: virtual void minY() = 0;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_BOUNDS_BOUNDSVISITORINTERFACE_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_BOUNDS_BOUNDSVISITORINTERFACE_H_COMPLETE)
-        #define ORG_ALLBINARY_BOUNDS_BOUNDSVISITORINTERFACE_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_BOUNDS_BOUNDSVISITORINTERFACE_H

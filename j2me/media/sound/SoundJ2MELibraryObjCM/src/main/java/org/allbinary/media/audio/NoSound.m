@@ -1,90 +1,34 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_MEDIA_AUDIO_NOSOUND_CPP
-        #define ORG_ALLBINARY_MEDIA_AUDIO_NOSOUND_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/media/audio/NoSound.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/media/audio/Sound.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/media/audio/NoSound.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/media/audio/Sound.h"
 #include "org/allbinary/media/audio/NoPlayer.h"
 
 
-    auto NoSound::getInstance() -> NoSound*{
+static NoSound* NoSound_instance;
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NoSound::instance;
-    
+void NoSound_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NoSound_instance = [((NoSound*) [NoSound alloc]) init];
 }
 
-auto NoSound::instance_owner() -> NoSound* { static std::unique_ptr<NoSound> value(new NoSound()); return value.get(); }
-NoSound* NoSound::instance = NoSound::instance_owner();
+@implementation NoSound
 
-NoSound::NoSound() : Sound(StringUtil::getInstance()->EMPTY_STRING){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->setPlayerP(NoPlayer::NO_PLAYER);
-    
++ (NoSound*) getInstance {
+        return (NoSound_staticInit(), NoSound_instance);
 }
 
 
+- (instancetype) init {
+        self = [super init:[StringUtil getInstance]->EMPTY_STRING];
+        [self setPlayerP:(NoPlayer_staticInit(), NoPlayer_NO_PLAYER)];
+    return self;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_MEDIA_AUDIO_NOSOUND_CPP

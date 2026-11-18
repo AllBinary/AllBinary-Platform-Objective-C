@@ -1,208 +1,109 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2022 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASEGAMEBEHAVIOR_CPP
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASEGAMEBEHAVIOR_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/displayable/canvas/BaseGameBehavior.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/business/advertisement/GameAdStateFactory.h>
-
-      
-#include <org/allbinary/game/GameAdState.h>
-
-      
-#include <org/allbinary/game/configuration/feature/Features.h>
-
-      
-#include <org/allbinary/graphics/opengles/CurrentDisplayableFactory.h>
-
-      
-#include <org/allbinary/graphics/opengles/OpenGLFeatureFactory.h>
-
-      
-#include <org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/displayable/canvas/DemoGameBehavior.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/game/displayable/canvas/BaseGameBehavior.h"
+#include "org/allbinary/business/advertisement/GameAdStateFactory.h"
+#include "org/allbinary/game/GameAdState.h"
+#include "org/allbinary/game/configuration/feature/Features.h"
+#include "org/allbinary/graphics/opengles/CurrentDisplayableFactory.h"
+#include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
+#include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
+#include "org/allbinary/game/displayable/canvas/DemoGameBehavior.h"
 #include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
 
 
-BaseGameBehavior::BaseGameBehavior() {
+static BaseGameBehavior* BaseGameBehavior_instanceC;
+
+void BaseGameBehavior_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    BaseGameBehavior_instanceC = [((BaseGameBehavior*) [BaseGameBehavior alloc]) init];
+}
+
+@implementation BaseGameBehavior
+
+- (instancetype) init {
+    self = [super init];
+    return self;
+}
+
+
++ (DemoGameBehavior*) getInstance {
+        return (BaseGameBehavior_staticInit(), BaseGameBehavior_instanceC);
+}
+
+
+// throws Exception
+- (void) init_ {
+        GameAdState* gameAdState = [[GameAdStateFactory getInstance] getCurrentInstance];
+        [gameAdState playingAdState];
+}
+
+
+- (void) pause:(AllBinaryGameCanvas*)allBinaryGameCanvas {
+        Features* features = [Features getInstance];
+        if ([features isDefault:[OpenGLFeatureFactory getInstance]->OPENGL_AS_GAME_THREAD]) {
+            CurrentDisplayableFactory* currentDisplayableFactory = [CurrentDisplayableFactory getInstance];
+            [currentDisplayableFactory setRunnable:allBinaryGameCanvas->gamePauseRunnable];
         }
-        auto BaseGameBehavior::instanceC_owner() -> BaseGameBehavior* { static std::unique_ptr<BaseGameBehavior> value(new BaseGameBehavior()); return value.get(); }
-BaseGameBehavior* BaseGameBehavior::instanceC = BaseGameBehavior::instanceC_owner();
-
-    auto BaseGameBehavior::getInstance() -> DemoGameBehavior*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return BaseGameBehavior::instanceC;
-    
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseGameBehavior::init() -> void{
-
-    GameAdState* gameAdState = GameAdStateFactory::getInstance()->getCurrentInstance();;
-    
-gameAdState->playingAdState();
-    
+- (void) unPause:(AllBinaryGameCanvas*)allBinaryGameCanvas {
+        if ([[Features getInstance] isDefault:[OpenGLFeatureFactory getInstance]->OPENGL_AS_GAME_THREAD]) {
+            CurrentDisplayableFactory* currentDisplayableFactory = [CurrentDisplayableFactory getInstance];
+            [currentDisplayableFactory setRunnable:allBinaryGameCanvas->gameRunnable];
+            [currentDisplayableFactory setDisplayable:allBinaryGameCanvas];
+        }
 }
 
 
-    auto BaseGameBehavior::pause(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
-
-    Features* features = Features::getInstance();;
-    
-
-                        if(features->isDefault(OpenGLFeatureFactory::getInstance()->OPENGL_AS_GAME_THREAD))
-                        
-                                    {
-                                    
-    CurrentDisplayableFactory* currentDisplayableFactory = CurrentDisplayableFactory::getInstance();;
-    
-currentDisplayableFactory->setRunnable(allBinaryGameCanvas->gamePauseRunnable);
-    
-
-                                    }
-                                
+// throws Exception
+- (void) updateTouch:(AllBinaryGameCanvas*)allBinaryGameCanvas {
+        [allBinaryGameCanvas updateTouch2];
 }
 
 
-    auto BaseGameBehavior::unPause(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
-
-                        if(Features::getInstance()->isDefault(OpenGLFeatureFactory::getInstance()->OPENGL_AS_GAME_THREAD))
-                        
-                                    {
-                                    
-    CurrentDisplayableFactory* currentDisplayableFactory = CurrentDisplayableFactory::getInstance();;
-    
-currentDisplayableFactory->setRunnable(allBinaryGameCanvas->gameRunnable);
-    
-currentDisplayableFactory->setDisplayable(allBinaryGameCanvas);
-    
-
-                                    }
-                                
+// throws Exception
+- (void) updateScreenButtonPaintable:(AllBinaryGameCanvas*)allBinaryGameCanvas {
+        [allBinaryGameCanvas updateScreenButtonPaintable2];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseGameBehavior::updateTouch(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
-allBinaryGameCanvas->updateTouch2();
-    
+// throws Exception
+- (void) setGameState:(AllBinaryGameCanvas*)allBinaryGameCanvas {
+        [allBinaryGameCanvas updateGameState];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseGameBehavior::updateScreenButtonPaintable(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
-allBinaryGameCanvas->updateScreenButtonPaintable2();
-    
+- (void) removeAllGameKeyInputListeners:(AllBinaryGameCanvas*)allBinaryGameCanvas {
+        [allBinaryGameCanvas removeAllGameKeyInputListeners2];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseGameBehavior::setGameState(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
-allBinaryGameCanvas->updateGameState();
-    
+// throws Exception
+- (void) updateEndGameProcessor:(AllBinaryGameCanvas*)allBinaryGameCanvas {
+        [allBinaryGameCanvas updateEndGameProcessor2];
 }
 
 
-    auto BaseGameBehavior::removeAllGameKeyInputListeners(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
-allBinaryGameCanvas->removeAllGameKeyInputListeners2();
-    
+// throws Exception
+- (void) buildGame:(AllBinaryGameCanvas*)allBinaryGameCanvas {
+        [allBinaryGameCanvas buildGame2];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseGameBehavior::updateEndGameProcessor(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
-allBinaryGameCanvas->updateEndGameProcessor2();
-    
+// throws Exception
+- (void) run:(AllBinaryGameCanvas*)allBinaryGameCanvas {
+        [allBinaryGameCanvas run2];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseGameBehavior::buildGame(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
-allBinaryGameCanvas->buildGame2();
-    
+// throws Exception
+- (void) setHighScore:(AbeClientInformationInterface*)abeClientInformation :(AllBinaryGameCanvas*)allBinaryGameCanvas :(const char*)name :(int64_t)score :(bool)autoSubmit :(bool)isLast {
+        [allBinaryGameCanvas setHighScore2:abeClientInformation :name :score :autoSubmit :isLast];
 }
 
+@end
 
-                //@Throws(Exception.constructor)
-            
-    auto BaseGameBehavior::run(AllBinaryGameCanvas* allBinaryGameCanvas) -> void{
-allBinaryGameCanvas->run2();
-    
-}
-
-
-                //@Throws(Exception.constructor)
-            
-    auto BaseGameBehavior::setHighScore(AbeClientInformationInterface* abeClientInformation, AllBinaryGameCanvas* allBinaryGameCanvas, std::string name, int64_t score, bool autoSubmit, bool isLast) -> void{
-allBinaryGameCanvas->setHighScore2(abeClientInformation, name, score, autoSubmit, isLast);
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_BASEGAMEBEHAVIOR_CPP

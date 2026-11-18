@@ -1,75 +1,31 @@
+#ifndef ORG_ALLBINARY_DEVICE_OPENGLESNULLGRAPHICSFACTORY_H
+#define ORG_ALLBINARY_DEVICE_OPENGLESNULLGRAPHICSFACTORY_H
+// Generated Code Do Not Modify
+// package org.allbinary.device
 
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_DEVICE_OPENGLESNULLGRAPHICSFACTORY_H
-        #define ORG_ALLBINARY_DEVICE_OPENGLESNULLGRAPHICSFACTORY_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class OpenGLESGraphics;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class OpenGLESNullGraphicsFactory
-            : public virtual Object
-         {
-
-    private: static OpenGLESGraphics* instance_owner();
-    private: static OpenGLESGraphics* instance;
-
-    public: static OpenGLESGraphics* getInstance();
-
-
-            
-    public: OpenGLESNullGraphicsFactory();
-        
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_DEVICE_OPENGLESNULLGRAPHICSFACTORY_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_DEVICE_OPENGLESNULLGRAPHICSFACTORY_H_COMPLETE)
-        #define ORG_ALLBINARY_DEVICE_OPENGLESNULLGRAPHICSFACTORY_H_COMPLETE
-        #if __has_include("org/allbinary/device/OpenGLESGraphics.h")
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class OpenGLESNullGraphicsFactory;
+@class OpenGLESGraphics;
+#if __has_include("org/allbinary/device/OpenGLESGraphics.h")
 #include "org/allbinary/device/OpenGLESGraphics.h"
 #endif
 
-        #endif
-    
+@interface OpenGLESNullGraphicsFactory : ABObject {
+@public
+}
+- (instancetype) init;
++ (OpenGLESGraphics*) getInstance;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void OpenGLESNullGraphicsFactory_staticInit(void);
+
+
+#endif // ORG_ALLBINARY_DEVICE_OPENGLESNULLGRAPHICSFACTORY_H

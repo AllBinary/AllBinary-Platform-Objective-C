@@ -1,83 +1,31 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/input/motion/button/TouchButtonGenericActionResource.h"
+#include "org/allbinary/input/motion/button/TouchButtonResource.h"
 
 
+static TouchButtonResource* TouchButtonGenericActionResource_instance;
 
-        #ifndef ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONGENERICACTIONRESOURCE_CPP
-        #define ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONGENERICACTIONRESOURCE_CPP
+void TouchButtonGenericActionResource_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    TouchButtonGenericActionResource_instance = [((TouchButtonGenericActionResource*) [TouchButtonGenericActionResource alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/motion/button/TouchButtonGenericActionResource.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
+@implementation TouchButtonGenericActionResource
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/input/motion/button/TouchButtonResource.h"
-
-TouchButtonResource* TouchButtonGenericActionResource::instance = new TouchButtonGenericActionResource();
-
-    auto TouchButtonGenericActionResource::getInstance() -> TouchButtonResource*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return TouchButtonGenericActionResource::instance;
-    
++ (TouchButtonResource*) getInstance {
+        return (TouchButtonGenericActionResource_staticInit(), TouchButtonGenericActionResource_instance);
 }
 
 
-TouchButtonGenericActionResource::TouchButtonGenericActionResource() : TouchButtonResource("/touch_button_generic_action_64_by_64.png", "/touch_button_generic_action_hint_64_by_64.png"){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init {
+        self = [super init:"/touch_button_generic_action_64_by_64.png" :"/touch_button_generic_action_hint_64_by_64.png"];
+    return self;
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_INPUT_MOTION_BUTTON_TOUCHBUTTONGENERICACTIONRESOURCE_CPP

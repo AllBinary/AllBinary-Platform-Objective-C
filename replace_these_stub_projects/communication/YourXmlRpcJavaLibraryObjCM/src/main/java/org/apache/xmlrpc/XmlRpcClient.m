@@ -1,119 +1,55 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_APACHE_XMLRPC_XMLRPCCLIENT_CPP
-        #define ORG_APACHE_XMLRPC_XMLRPCCLIENT_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/apache/xmlrpc/XmlRpcClient.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <java/io/IOException.h>
-
-      
-#include <java/net/MalformedURLException.h>
-
-      
-#include <java/net/URL.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-#include <org/allbinary/util/BasicArrayListD.h>
-
-      
-#include <org/allbinary/init/crypt/jcehelper/CryptInterface.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/apache/xmlrpc/XmlRpcClient.h"
+#include "org/allbinary/util/BasicArrayList.h"
+#include "org/allbinary/init/crypt/jcehelper/CryptInterface.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/apache/xmlrpc/XmlRpcHandler.h"
+#include "org/apache/xmlrpc/XmlRpcException.h"
 
 
 
+void XmlRpcClient_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation XmlRpcClient
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/apache/xmlrpc/XmlRpcHandler.h"
-
-
-XmlRpcClient::XmlRpcClient(std::string url){
-this->url= new URL(url);
+- (void) initFields {
     
 }
 
 
-    auto XmlRpcClient::getURL() -> URL*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->url;
-    
+- (instancetype) init:(const char*)url {
+    self = [super init];
+    [self initFields];
+        self->url = [((URL*) [URL alloc]) init:url];
+    return self;
 }
 
 
-    auto XmlRpcClient::setBasicAuthentication(std::string user, std::string password) -> void{
+- (URL*) getURL {
+        return self->url;
 }
 
 
-                //@Throws(XmlRpcException.constructor, IOException.constructor)
-            
-    auto XmlRpcClient::execute(std::string method, BasicArrayList* params) -> Object*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::toObject(NullUtil::getInstance()->NULL_OBJECT);
-    
+- (void) setBasicAuthentication:(const char*)user :(const char*)password {
 }
 
 
-                //@Throws(XmlRpcException.constructor, IOException.constructor)
-            
-    auto XmlRpcClient::executeWithCrypt(std::string method, BasicArrayList* params, CryptInterface* cryptInterface) -> Object*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaBoxes::toObject(NullUtil::getInstance()->NULL_OBJECT);
-    
+// throws XmlRpcException, IOException
+- (id) execute:(const char*)method :(BasicArrayList*)params {
+        return [NullUtil getInstance]->NULL_OBJECT;
 }
 
 
+// throws XmlRpcException, IOException
+- (id) executeWithCrypt:(const char*)method :(BasicArrayList*)params :(CryptInterface*)cryptInterface {
+        return [NullUtil getInstance]->NULL_OBJECT;
+}
 
+@end
 
-        #endif //ORG_APACHE_XMLRPC_XMLRPCCLIENT_CPP

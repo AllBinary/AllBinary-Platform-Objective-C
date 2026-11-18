@@ -1,105 +1,48 @@
+#ifndef ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEFEATUREEVENTHANDLER_H
+#define ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEFEATUREEVENTHANDLER_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.configuration.event
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class GameFeatureEventHandler;
+@class AllBinaryEventObject;
+@class EventListenerInterface;
+@class BasicEventHandler;
+@class GameFeatureListenerInterface;
+@class GameFeatureEvent;
+#include "org/allbinary/logic/util/event/handler/BasicEventHandler.h"
 
+@interface GameFeatureEventHandler : BasicEventHandler {
+@public
+}
+- (instancetype) init;
++ (GameFeatureEventHandler*) getInstance;
+- (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEFEATUREEVENTHANDLER_H
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEFEATUREEVENTHANDLER_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-class AllBinaryEventObject;
-class EventListenerInterface;
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void GameFeatureEventHandler_staticInit(void);
 
 
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        class GameFeatureListenerInterface;
-class GameFeatureEvent;
-
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class GameFeatureEventHandler: public BasicEventHandler {
-
-    private: static GameFeatureEventHandler* gameKeyEventHandler_owner();
-    private: static GameFeatureEventHandler* gameKeyEventHandler;
-
-    public: static GameFeatureEventHandler* getInstance();
-
-private: GameFeatureEventHandler();
-
-                //@Throws(Exception.constructor)
-            
-    /*protected*/ public: void process(AllBinaryEventObject* eventObject, EventListenerInterface* eventListenerInterface);
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEFEATUREEVENTHANDLER_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEFEATUREEVENTHANDLER_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEFEATUREEVENTHANDLER_H_COMPLETE
-        #if __has_include(<org/allbinary/logic/util/event/AllBinaryEventObject.h>)
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/EventListenerInterface.h>)
-#include <org/allbinary/logic/util/event/EventListenerInterface.h>
-#endif
-#if __has_include(<org/allbinary/logic/util/event/handler/BasicEventHandler.h>)
-#include <org/allbinary/logic/util/event/handler/BasicEventHandler.h>
-#endif
-#if __has_include("org/allbinary/game/configuration/event/GameFeatureListenerInterface.h")
-#include "org/allbinary/game/configuration/event/GameFeatureListenerInterface.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/event/GameFeatureEvent.h")
-#include "org/allbinary/game/configuration/event/GameFeatureEvent.h"
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_GAMEFEATUREEVENTHANDLER_H

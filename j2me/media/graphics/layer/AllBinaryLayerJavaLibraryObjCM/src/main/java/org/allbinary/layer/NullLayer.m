@@ -1,91 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/layer/NullLayer.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/layer/Layer.h"
 
 
+static NullLayer* NullLayer_instance;
 
-        #ifndef ORG_ALLBINARY_LAYER_NULLLAYER_CPP
-        #define ORG_ALLBINARY_LAYER_NULLLAYER_CPP
+void NullLayer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    NullLayer_instance = [((NullLayer*) [NullLayer alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/layer/NullLayer.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
+@implementation NullLayer
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/layer/Layer.h"
-
-auto NullLayer::instance_owner() -> NullLayer* { static std::unique_ptr<NullLayer> value(new NullLayer()); return value.get(); }
-NullLayer* NullLayer::instance = NullLayer::instance_owner();
-
-    auto NullLayer::getInstance() -> NullLayer*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return NullLayer::instance;
-    
++ (NullLayer*) getInstance {
+        return (NullLayer_staticInit(), NullLayer_instance);
 }
 
 
-NullLayer::NullLayer() : Layer(0, 0){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init {
+        self = [super init:0 :0];
+    return self;
 }
 
 
-    auto NullLayer::paint(Graphics* graphics) -> void{
+- (void) paint:(Graphics*)graphics {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_LAYER_NULLLAYER_CPP

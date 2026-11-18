@@ -1,100 +1,51 @@
+#ifndef ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGEPROPERTIES_H
+#define ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGEPROPERTIES_H
+/*
+ * 
+ * AllBinary Open License Version 1 
+ * Copyright (c) 2025 AllBinary 
+ *  
+ * By agreeing to this license you and any business entity you represent are 
+ * legally bound to the AllBinary Open License Version 1 legal agreement. 
+ *  
+ * You may obtain the AllBinary Open License Version 1 legal agreement from 
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
+ *  
+ * Created By: Travis Berthelot 
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.image.opengles
 
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class OpenGLESImageProperties;
 
+@interface OpenGLESImageProperties : ABObject {
+@public
+    int32_t textureID;
+    float scaleX;
+    float scaleY;
+    float scaleX2;
+    float scaleY2;
+    int32_t angle;
+    float redf;
+    float greenf;
+    float bluef;
+    float alphaf;
+}
+- (instancetype) init;
+- (void) initFields;
+@end
 
-
-        #ifndef ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGEPROPERTIES_H
-        #define ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGEPROPERTIES_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void OpenGLESImageProperties_staticInit(void);
 
 
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class OpenGLESImageProperties
-            : public virtual Object
-         {
-
-
-            
-    public: OpenGLESImageProperties();
-        
-    public: int32_t textureID =  -1;
-
-    public: float scaleX = 1.0;
-
-    public: float scaleY = 1.0;
-
-    public: float scaleX2 = 1.0;
-
-    public: float scaleY2 = 1.0;
-
-    public: int32_t angle= 0;
-
-    public: float redf = 1.0;
-
-    public: float greenf = 1.0;
-
-    public: float bluef = 1.0;
-
-    public: float alphaf = 1.0;
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGEPROPERTIES_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGEPROPERTIES_H_COMPLETE)
-        #define ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGEPROPERTIES_H_COMPLETE
-        
-        #endif
-    
+#endif // ORG_ALLBINARY_IMAGE_OPENGLES_OPENGLESIMAGEPROPERTIES_H

@@ -1,118 +1,53 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/graphics/opengles/shader/ShaderManager.h"
+#include "javax/microedition/khronos/opengles/GL10.h"
+#include "org/allbinary/string/CommonStrings.h"
+#include "org/allbinary/util/BasicArrayList.h"
 
 
+static ShaderManager* ShaderManager_instance;
 
-        #ifndef ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADERMANAGER_CPP
-        #define ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADERMANAGER_CPP
+void ShaderManager_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ShaderManager_instance = [((ShaderManager*) [ShaderManager alloc]) init:-1 :-1];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/graphics/opengles/shader/ShaderManager.h"
-        
+@implementation ShaderManager
 
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <javax/microedition/khronos/opengles/GL10.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-#include <org/allbinary/util/BasicArrayList.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-auto ShaderManager::instance_owner() -> ShaderManager* { static std::unique_ptr<ShaderManager> value(new ShaderManager( -1,  -1)); return value.get(); }
-ShaderManager* ShaderManager::instance = ShaderManager::instance_owner();
-
-    auto ShaderManager::getInstance() -> ShaderManager*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ShaderManager::instance;
+- (void) initFields {
+    self->LOAD_SHADER = "loadShader";
+    self->commonStrings = [CommonStrings getInstance];
+    
     
 }
 
 
-ShaderManager::ShaderManager(int32_t GL_VERTEX_SHADER, int32_t GL_FRAGMENT_SHADER) : commonStrings(CommonStrings::getInstance()){
-this->GL_VERTEX_SHADER= GL_VERTEX_SHADER;
-    
-this->GL_FRAGMENT_SHADER= GL_FRAGMENT_SHADER;
-    
++ (ShaderManager*) getInstance {
+        return (ShaderManager_staticInit(), ShaderManager_instance);
 }
 
 
-    auto ShaderManager::load(GL10* gl, std::string resource, std::vector<std::string> shaderAsStringArray, int32_t shaderType) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+- (instancetype) init:(int32_t)GL_VERTEX_SHADER :(int32_t)GL_FRAGMENT_SHADER {
+    self = [super init];
+    [self initFields];
+        self->GL_VERTEX_SHADER = GL_VERTEX_SHADER;
+        self->GL_FRAGMENT_SHADER = GL_FRAGMENT_SHADER;
+    return self;
 }
 
 
-    auto ShaderManager::loadShader(GL10* gl, std::string resource, BasicArrayList* stringList, int32_t shaderType) -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return  -1;
-    
+- (int32_t) load_:(GL10*)gl :(const char*)resource :(const char**)shaderAsStringArray :(int32_t)shaderType {
+        return -1;
 }
 
 
+- (int32_t) loadShader:(GL10*)gl :(const char*)resource :(BasicArrayList*)stringList :(int32_t)shaderType {
+        return -1;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GRAPHICS_OPENGLES_SHADER_SHADERMANAGER_CPP

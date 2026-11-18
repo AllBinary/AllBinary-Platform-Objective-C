@@ -1,88 +1,43 @@
+#ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_CANVASUTIL_H
+#define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_CANVASUTIL_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *   
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.displayable.canvas
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class CanvasUtil;
+@class Canvas;
+@class CommonPhoneStrings;
 
+@interface CanvasUtil : ABObject {
+@public
+}
+- (instancetype) init;
++ (const char*) getKeyName:(int32_t)key;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_CANVASUTIL_H
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_CANVASUTIL_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-class Canvas;
-class CommonPhoneStrings;
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void CanvasUtil_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class CanvasUtil
-            : public virtual Object
-         {
-
-    public: static std::string getKeyName(int32_t key);
-
-private: CanvasUtil();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_CANVASUTIL_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_CANVASUTIL_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_CANVASUTIL_H_COMPLETE
-        #if __has_include(<javax/microedition/lcdui/Canvas.h>)
-#include <javax/microedition/lcdui/Canvas.h>
-#endif
-#if __has_include(<org/allbinary/string/CommonPhoneStrings.h>)
-#include <org/allbinary/string/CommonPhoneStrings.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_DISPLAYABLE_CANVAS_CANVASUTIL_H

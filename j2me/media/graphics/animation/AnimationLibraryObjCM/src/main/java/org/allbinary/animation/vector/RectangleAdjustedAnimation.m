@@ -1,139 +1,78 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/vector/RectangleAdjustedAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
 
 
 
-        #ifndef ORG_ALLBINARY_ANIMATION_VECTOR_RECTANGLEADJUSTEDANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_VECTOR_RECTANGLEADJUSTEDANIMATION_CPP
+void RectangleAdjustedAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/vector/RectangleAdjustedAnimation.h"
-        
+@implementation RectangleAdjustedAnimation
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/ColorCompositeInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-RectangleAdjustedAnimation::RectangleAdjustedAnimation(int32_t width, int32_t height, int32_t offsetX, int32_t offsetY, BasicColor* basicColor){
-this->width= width;
+- (void) initFields {
     
-this->height= height;
     
-this->offsetX= offsetX;
     
-this->offsetY= offsetY;
-    
-this->setBasicColorP(basicColor);
     
 }
 
 
-    auto RectangleAdjustedAnimation::nextFrame() -> void{
+- (instancetype) init:(int32_t)width :(int32_t)height :(int32_t)offsetX :(int32_t)offsetY :(BasicColor*)basicColor {
+    self = [super init];
+    [self initFields];
+        self->width = width;
+        self->height = height;
+        self->offsetX = offsetX;
+        self->offsetY = offsetY;
+        [self setBasicColorP:basicColor];
+    return self;
 }
 
 
-    auto RectangleAdjustedAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-this->basicSetColorUtil->setBasicColorP3(graphics, this->getBasicColorP(), this->getColor());
-    
-graphics->drawRect(x +this->offsetX, y +this->offsetY, this->width, this->height);
-    
+- (void) nextFrame {
 }
 
 
-    auto RectangleAdjustedAnimation::setWidth(int32_t width) -> void{
-this->width= width;
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [self->basicSetColorUtil setBasicColorP3:graphics :[self getBasicColorP] :[self getColor]];
+        [graphics drawRect:x + self->offsetX :y + self->offsetY :self->width :self->height];
 }
 
 
-    auto RectangleAdjustedAnimation::setHeight(int32_t height) -> void{
-this->height= height;
-    
+- (void) setWidth:(int32_t)width {
+        self->width = width;
 }
 
 
-    auto RectangleAdjustedAnimation::setOffsetX(int32_t offsetX) -> void{
-this->offsetX= offsetX;
-    
+- (void) setHeight:(int32_t)height {
+        self->height = height;
 }
 
 
-    auto RectangleAdjustedAnimation::setOffsetY(int32_t offsetY) -> void{
-this->offsetY= offsetY;
-    
+- (void) setOffsetX:(int32_t)offsetX {
+        self->offsetX = offsetX;
 }
 
 
-    auto RectangleAdjustedAnimation::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return Animation::getBasicColorP();;
-    
+- (void) setOffsetY:(int32_t)offsetY {
+        self->offsetY = offsetY;
 }
 
 
-    auto RectangleAdjustedAnimation::setBasicColorP(BasicColor* basicColor) -> void{
-Animation::setBasicColorP(basicColor);
-    
+- (BasicColor*) getBasicColorP {
+        return [super getBasicColorP];
 }
 
 
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        [super setBasicColorP:basicColor];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_VECTOR_RECTANGLEADJUSTEDANIMATION_CPP

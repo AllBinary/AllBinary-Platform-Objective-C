@@ -1,118 +1,42 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/pickup/health/HealLayer.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/game/health/HealthInterface.h"
+#include "org/allbinary/graphics/PointFactory.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/logic/string/StringUtil.h"
+#include "org/allbinary/view/ViewPosition.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_HEALTH_HEALLAYER_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_HEALTH_HEALLAYER_CPP
+void HealLayer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/pickup/health/HealLayer.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/game/health/HealthInterface.h>
-
-      
-#include <org/allbinary/game/health/HealthVisitorInterface.h>
-
-      
-#include <org/allbinary/graphics/PointFactory.h>
-
-      
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/logic/string/StringUtil.h>
-
-      
-#include <org/allbinary/view/ViewPosition.h>
-
-      
+@implementation HealLayer
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-HealLayer::HealLayer() : AllBinaryLayer(StringUtil::getInstance()->EMPTY_STRING, new Rectangle(PointFactory::getInstance()->ZERO_ZERO, 0, 0), ViewPosition::getInstanceD()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init {
+        self = [super init:[StringUtil getInstance]->EMPTY_STRING :[((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :0 :0] :[ViewPosition getInstanceD]];
+    return self;
 }
 
 
-    auto HealLayer::paint(Graphics* graphics) -> void{
+- (void) paint:(Graphics*)graphics {
 }
 
 
-    auto HealLayer::visit(HealthInterface* healthInterface) -> void{
-
-                        if(healthInterface->isAlive())
-                        
-                                    {
-                                    healthInterface->healMax();
-    
-
-                                    }
-                                
-                        else {
-                            this->logUtil->putF("Heal attempt on dead: Does not currently occur", this, "visit");
-    
-
-                        }
-                            
+- (void) visit:(HealthInterface*)healthInterface {
+        if ([healthInterface isAlive]) {
+            [healthInterface healMax];
+        } else {
+            [self->logUtil putF:"Heal attempt on dead: Does not currently occur" :self :"visit"];
+        }
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_PICKUP_HEALTH_HEALLAYER_CPP

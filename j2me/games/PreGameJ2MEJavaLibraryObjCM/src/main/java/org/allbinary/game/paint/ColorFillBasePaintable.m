@@ -1,122 +1,58 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/paint/ColorFillBasePaintable.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_PAINT_COLORFILLBASEPAINTABLE_CPP
-        #define ORG_ALLBINARY_GAME_PAINT_COLORFILLBASEPAINTABLE_CPP
+void ColorFillBasePaintable_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/paint/ColorFillBasePaintable.h"
-        
+@implementation ColorFillBasePaintable
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/graphics/color/ColorCompositeInterface.h>
-
-      
-#include <org/allbinary/graphics/paint/Paintable.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ColorFillBasePaintable::ColorFillBasePaintable(BasicColor* basicColor) : basicColor(BasicColorFactory::getInstance()->WHITE){
-this->setBasicColorP(basicColor);
-    
+- (void) initFields {
+    self->basicColor = [BasicColorFactory getInstance]->WHITE;
+    self->colorP = 0;
 }
 
 
-    auto ColorFillBasePaintable::setBasicColorP(BasicColor* basicColor) -> void{
-this->basicColor= basicColor;
-    
-this->setColor(JavaBoxes::value<int32_t>(this->getBasicColorP()));
-    
+- (instancetype) init:(BasicColor*)basicColor {
+    self = [super init];
+    [self initFields];
+        [self setBasicColorP:basicColor];
+    return self;
 }
 
 
-    auto ColorFillBasePaintable::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->basicColor;
-    
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        self->basicColor = basicColor;
+        [self setColor:[[self getBasicColorP] intValue]];
 }
 
 
-    auto ColorFillBasePaintable::getColor() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->colorP;
-    
+- (BasicColor*) getBasicColorP {
+        return self->basicColor;
 }
 
 
-    auto ColorFillBasePaintable::setColor(int32_t color) -> void{
-this->colorP= color;
-    
+- (int32_t) getColor {
+        return self->colorP;
 }
 
 
-    auto ColorFillBasePaintable::paint(Graphics* graphics) -> void{
+- (void) setColor:(int32_t)color {
+        self->colorP = color;
 }
 
 
+- (void) paint:(Graphics*)graphics {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_PAINT_COLORFILLBASEPAINTABLE_CPP

@@ -1,151 +1,72 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot   
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ag/layer/hud/basic/notification/GameNotificationHud.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/game/graphics/hud/BasicHudFactory.h"
+#include "org/allbinary/game/layer/hud/event/GameNotificationEvent.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/logic/communication/log/ForcedLogUtil.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#include "org/allbinary/game/ag/layer/hud/basic/notification/GameNotification.h"
 
 
+GameNotificationHud* GameNotificationHud_NULL_GAME_NOTIFICATION;
 
-        #ifndef ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATIONHUD_CPP
-        #define ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATIONHUD_CPP
+void GameNotificationHud_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameNotificationHud_NULL_GAME_NOTIFICATION = [((GameNotificationHud*) [GameNotificationHud alloc]) init:[BasicHudFactory getInstance]->TOPCENTER :[BasicHudFactory getInstance]->HORIZONTAL :0 :[BasicColorFactory getInstance]->RED];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ag/layer/hud/basic/notification/GameNotificationHud.h"
-        
+@implementation GameNotificationHud
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-            #include "java/lang/Boolean.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/game/graphics/hud/BasicHud.h>
-
-      
-#include <org/allbinary/game/graphics/hud/BasicHudFactory.h>
-
-      
-#include <org/allbinary/game/layer/hud/event/GameNotificationEvent.h>
-
-      
-#include <org/allbinary/game/layer/hud/event/GameNotificationListenerInterface.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
-#include <org/allbinary/logic/communication/log/ForcedLogUtil.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/EventStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/ag/layer/hud/basic/notification/GameNotification.h"
-
-auto GameNotificationHud::NULL_GAME_NOTIFICATION_owner() -> GameNotificationHud* { static std::unique_ptr<GameNotificationHud> value(new GameNotificationHud(BasicHudFactory::getInstance()->TOPCENTER, BasicHudFactory::getInstance()->HORIZONTAL, 0, BasicColorFactory::getInstance()->RED)); return value.get(); }
-GameNotificationHud* GameNotificationHud::NULL_GAME_NOTIFICATION = GameNotificationHud::NULL_GAME_NOTIFICATION_owner();
-
-GameNotificationHud::GameNotificationHud(int32_t location, int32_t direction, int32_t bufferZone, BasicColor* basicColor) : BasicHud(location, direction, bufferZone, basicColor), lastGameNotificationEvent(GameNotification::NULL_GAME_NOTIFICATION_EVENT){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (void) initFields {
+    self->METHOD_NAME = "onGameNotificationEvent";
+    self->lastGameNotificationEvent = (GameNotification_staticInit(), GameNotification_NULL_GAME_NOTIFICATION_EVENT);
 }
 
 
-    auto GameNotificationHud::onEvent(AllBinaryEventObject* eventObject) -> void{
-ForcedLogUtil::log(EventStrings::getInstance()->PERFORMANCE_MESSAGE, this);
-    
+- (instancetype) init:(int32_t)location :(int32_t)direction :(int32_t)bufferZone :(BasicColor*)basicColor {
+        self = [super init:location :direction :bufferZone :basicColor];
+        [self initFields];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GameNotificationHud::onGameNotificationEvent(GameNotificationEvent* gameNotificationEvent) -> void{
-
-                        if(this->lastGameNotificationEvent != gameNotificationEvent)
-                        
-                                    {
-                                    this->lastGameNotificationEvent= gameNotificationEvent;
-    
-this->logUtil->putF(gameNotificationEvent->getString(), this, this->METHOD_NAME);
-    
-
-                                    }
-                                
-this->add(gameNotificationEvent->getString(), gameNotificationEvent->getSeconds(), gameNotificationEvent->getBasicColorP(), gameNotificationEvent->getPermanent());
-    
+- (void) onEvent:(AllBinaryEventObject*)eventObject {
+        [ForcedLogUtil log:[EventStrings getInstance]->PERFORMANCE_MESSAGE :self];
 }
 
 
-    auto GameNotificationHud::add(std::string string, int32_t seconds, BasicColor* basicColor, bool permanent) -> void{
+// throws Exception
+- (void) onGameNotificationEvent:(GameNotificationEvent*)gameNotificationEvent {
+        if (self->lastGameNotificationEvent != gameNotificationEvent) {
+            self->lastGameNotificationEvent = gameNotificationEvent;
+            [self->logUtil putF:[gameNotificationEvent getString] :self :self->METHOD_NAME];
+        }
+        [self add:[gameNotificationEvent getString] :[gameNotificationEvent getSeconds] :[gameNotificationEvent getBasicColorP] :[gameNotificationEvent getPermanent]];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto GameNotificationHud::processTick() -> void{
+- (void) add:(const char*)string :(int32_t)seconds :(BasicColor*)basicColor :(bool)permanent {
 }
 
 
-    auto GameNotificationHud::paint(Graphics* graphics) -> void{
+// throws Exception
+- (void) processTick {
 }
 
 
-    auto GameNotificationHud::clear() -> void{
+- (void) paint:(Graphics*)graphics {
 }
 
 
+- (void) clear {
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AG_LAYER_HUD_BASIC_NOTIFICATION_GAMENOTIFICATIONHUD_CPP

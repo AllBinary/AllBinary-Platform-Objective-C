@@ -44,5 +44,8 @@
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.
 void OperatingSystemInterface_staticInit(void);
 
+#if __has_include("org/allbinary/logic/java/character/CharacterSet.h")
+#include "org/allbinary/logic/java/character/CharacterSet.h"
+#endif
 
 #endif // ORG_ALLBINARY_LOGIC_SYSTEM_OS_OPERATINGSYSTEMINTERFACE_H

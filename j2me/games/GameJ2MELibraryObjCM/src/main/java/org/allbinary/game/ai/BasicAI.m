@@ -1,224 +1,103 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/ai/BasicAI.h"
+#include "org/allbinary/game/displayable/canvas/CanvasUtil.h"
+#include "org/allbinary/game/input/GameInput.h"
+#include "org/allbinary/game/input/event/GameKeyEventFactory.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#include "org/allbinary/logic/string/StringMaker.h"
+#include "org/allbinary/string/CommonSeps.h"
+#include "org/allbinary/string/CommonStrings.h"
 
 
+int32_t BasicAI_AI_VISITOR;
+int32_t BasicAI_ID;
 
-        #ifndef ORG_ALLBINARY_GAME_AI_BASICAI_CPP
-        #define ORG_ALLBINARY_GAME_AI_BASICAI_CPP
+void BasicAI_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    BasicAI_AI_VISITOR = [[SmallIntegerSingletonFactory getInstance] getAt:2];
+    BasicAI_ID = [[SmallIntegerSingletonFactory getInstance] getAt:1];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/ai/BasicAI.h"
-        
+@implementation BasicAI
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-            #include "java/lang/Integer.h"
-        
-#include <org/allbinary/ai/ArtificialIntelligence.h>
-
-      
-#include <org/allbinary/game/displayable/canvas/CanvasUtil.h>
-
-      
-#include <org/allbinary/game/input/GameInput.h>
-
-      
-#include <org/allbinary/game/input/GameKeyEventSourceInterface.h>
-
-      
-#include <org/allbinary/game/input/event/GameKeyEventFactory.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-
-      
-#include <org/allbinary/logic/string/StringMaker.h>
-
-      
-#include <org/allbinary/string/CommonSeps.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-int32_t BasicAI::AI_VISITOR = SmallIntegerSingletonFactory::getInstance()->getAt(2);
-int32_t BasicAI::ID = SmallIntegerSingletonFactory::getInstance()->getAt(1);
-
-BasicAI::BasicAI(AllBinaryLayer* ownerLayerInterface, GameInput* gameInput) : logUtil(LogUtil::getInstance()), commonStrings(CommonStrings::getInstance()), gameKeyEventFactory(GameKeyEventFactory::getInstance()){
-this->ownerLayerInterface= ownerLayerInterface;
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->commonStrings = [CommonStrings getInstance];
+    self->gameKeyEventFactory = [GameKeyEventFactory getInstance];
     
-this->gameInput= gameInput;
     
+    self->lastKey = -1;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BasicAI::processAI(AllBinaryLayerManager* allBinaryLayerManager) -> void{
-
-
-
-                            throw Exception(this->commonStrings->NOT_IMPLEMENTED);
-                    
+- (instancetype) init:(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
+    self = [super init];
+    [self initFields];
+        self->ownerLayerInterface = ownerLayerInterface;
+        self->gameInput = gameInput;
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BasicAI::processKeyAI(int32_t key) -> void{
-
-                        if(key !=  -1)
-                        
-                                    {
-                                    this->gameInput->add(this->gameKeyEventFactory->getInstanceForKey(this, key));
-    
-
-                                    }
-                                
+// throws Exception
+- (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager {
+        java_throw(java_exception_new("Exception", self->commonStrings->NOT_IMPLEMENTED));
 }
 
 
-    auto BasicAI::setLastKey(int32_t lastKey) -> void{
-this->lastKey= lastKey;
-    
+// throws Exception
+- (void) processKeyAI:(int32_t)key {
+        if (key != -1) {
+            [self->gameInput add:[self->gameKeyEventFactory getInstanceForKey:self :key]];
+        }
 }
 
 
-    auto BasicAI::getLastKey() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->lastKey;
-    
+- (void) setLastKey:(int32_t)lastKey {
+        self->lastKey = lastKey;
 }
 
 
-    auto BasicAI::getOwnerLayerInterface() -> AllBinaryLayer*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->ownerLayerInterface;
-    
+- (int32_t) getLastKey {
+        return self->lastKey;
 }
 
 
-    auto BasicAI::getGameInput() -> GameInput*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->gameInput;
-    
+- (AllBinaryLayer*) getOwnerLayerInterface {
+        return self->ownerLayerInterface;
 }
 
 
-    auto BasicAI::getName() -> std::string{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getClass()->getName();;
-    
+- (GameInput*) getGameInput {
+        return self->gameInput;
 }
 
 
-    auto BasicAI::toString() -> std::string{
-
-    StringMaker* stringBuffer = new StringMaker();;
-    
-stringBuffer->append(CommonSeps::getInstance()->NEW_LINE);
-    
-stringBuffer->append(this->getName());
-    
-stringBuffer->append(" LastKey: ");
-    
-stringBuffer->append(CanvasUtil::getKeyName(this->getLastKey()));
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return JavaString::valueOf(stringBuffer);;
-    
+- (const char*) getName {
+        return java_objc_class_name(self);
 }
 
 
-    auto BasicAI::getSourceId() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 1;
-    
+- (const char*) toString {
+        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        [stringBuffer append:[CommonSeps getInstance]->NEW_LINE];
+        [stringBuffer append:[self getName]];
+        [stringBuffer append:" LastKey: "];
+        [stringBuffer append:[CanvasUtil getKeyName:[self getLastKey]]];
+        return [stringBuffer toString];
 }
 
 
+- (int32_t) getSourceId {
+        return 1;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_AI_BASICAI_CPP

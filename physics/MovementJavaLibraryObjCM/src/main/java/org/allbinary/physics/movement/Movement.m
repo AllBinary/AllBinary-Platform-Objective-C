@@ -1,88 +1,39 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/physics/movement/Movement.h"
+#include "org/allbinary/game/layer/AllBinaryGameLayer.h"
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#include "org/allbinary/physics/movement/MovementInterface.h"
 
 
 
-        #ifndef ORG_ALLBINARY_PHYSICS_MOVEMENT_MOVEMENT_CPP
-        #define ORG_ALLBINARY_PHYSICS_MOVEMENT_MOVEMENT_CPP
+void Movement_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/physics/movement/Movement.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/game/layer/AllBinaryGameLayer.h>
-
-      
-#include <org/allbinary/logic/math/BasicDecimal.h>
-
-      
+@implementation Movement
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/physics/movement/MovementInterface.h"
-
-
-Movement::Movement(){
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto Movement::init(BasicDecimal* speedBasicDecimal, int32_t angle, int32_t otherAngle) -> void{
+- (void) init_:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto Movement::process(AllBinaryGameLayer* layer) -> void{
+// throws Exception
+- (void) process:(AllBinaryGameLayer*)layer {
 }
 
 
-    auto Movement::stop() -> void{
+- (void) stop {
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_PHYSICS_MOVEMENT_MOVEMENT_CPP

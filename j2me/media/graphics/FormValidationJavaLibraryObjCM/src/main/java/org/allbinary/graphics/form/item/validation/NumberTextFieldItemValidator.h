@@ -1,124 +1,65 @@
+#ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_NUMBERTEXTFIELDITEMVALIDATOR_H
+#define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_NUMBERTEXTFIELDITEMVALIDATOR_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ *  
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.graphics.form.item.validation
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_NUMBERTEXTFIELDITEMVALIDATOR_H
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_NUMBERTEXTFIELDITEMVALIDATOR_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/NumberFormatException.h"
-        
-            #include "java/lang/Integer.h"
-        
-            #include "java/lang/Boolean.h"
-        
-class ABTextFieldItem;
-#include <org/allbinary/logic/control/validate/ValidatorBase.h>
-class BooleanFactory;
-class SmallIntegerSingletonFactory;
-class StringMaker;
-class BasicArrayList;
-class BasicArrayListD;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class NumberTextFieldItemValidator: public ValidatorBase {
-
-    private: ABTextFieldItem* textFieldItem;
-
-    private: int32_t min;
-
-    private: int32_t max;
-
-    private: int32_t maxChars;
-
-public: NumberTextFieldItemValidator(ABTextFieldItem* textFieldItem, int32_t maxChars, int32_t min, int32_t max);
-
-    /*protected*/ public: bool isNumberValid(int32_t value);
-
-    /*protected*/ public: BasicArrayList* toNumberVector(int32_t value);
-
-    public: bool isValid();
-
-    public: BasicArrayList* toList();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_NUMBERTEXTFIELDITEMVALIDATOR_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_NUMBERTEXTFIELDITEMVALIDATOR_H_COMPLETE)
-        #define ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_NUMBERTEXTFIELDITEMVALIDATOR_H_COMPLETE
-        #if __has_include(<org/allbinary/graphics/form/item/ABTextFieldItem.h>)
-#include <org/allbinary/graphics/form/item/ABTextFieldItem.h>
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class NumberTextFieldItemValidator;
+@class ABTextFieldItem;
+@class ValidatorBase;
+@class BooleanFactory;
+@class SmallIntegerSingletonFactory;
+@class StringMaker;
+@class BasicArrayList;
+@class BasicArrayListD;
+#if __has_include("org/allbinary/graphics/form/item/ABTextFieldItem.h")
+#include "org/allbinary/graphics/form/item/ABTextFieldItem.h"
 #endif
-#if __has_include(<org/allbinary/logic/control/validate/ValidatorBase.h>)
-#include <org/allbinary/logic/control/validate/ValidatorBase.h>
-#endif
-#if __has_include(<org/allbinary/logic/java/bool/BooleanFactory.h>)
-#include <org/allbinary/logic/java/bool/BooleanFactory.h>
-#endif
-#if __has_include(<org/allbinary/logic/math/SmallIntegerSingletonFactory.h>)
-#include <org/allbinary/logic/math/SmallIntegerSingletonFactory.h>
-#endif
-#if __has_include(<org/allbinary/logic/string/StringMaker.h>)
-#include <org/allbinary/logic/string/StringMaker.h>
-#endif
-#if __has_include(<org/allbinary/util/BasicArrayList.h>)
-#include <org/allbinary/util/BasicArrayList.h>
-#endif
-#if __has_include(<org/allbinary/util/BasicArrayListD.h>)
-#include <org/allbinary/util/BasicArrayListD.h>
+#include "org/allbinary/logic/control/validate/ValidatorBase.h"
+#include "java/lang/Integer.h"
+#include "java/lang/Boolean.h"
+
+@interface NumberTextFieldItemValidator : ValidatorBase {
+@public
+    ABTextFieldItem* textFieldItem;
+    int32_t min;
+    int32_t max;
+    int32_t maxChars;
+}
+- (instancetype) init:(ABTextFieldItem*)textFieldItem :(int32_t)maxChars :(int32_t)min :(int32_t)max;
+- (void) initFields;
+- (bool) isNumberValid:(int32_t)value;
+- (BasicArrayList*) toNumberVector:(int32_t)value;
+- (bool) isValid;
+- (BasicArrayList*) toList;
+@end
+
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void NumberTextFieldItemValidator_staticInit(void);
+
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
 #endif
 
-        #endif
-    
+#endif // ORG_ALLBINARY_GRAPHICS_FORM_ITEM_VALIDATION_NUMBERTEXTFIELDITEMVALIDATOR_H

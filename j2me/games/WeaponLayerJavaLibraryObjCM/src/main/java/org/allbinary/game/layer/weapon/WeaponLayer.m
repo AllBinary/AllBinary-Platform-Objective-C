@@ -1,587 +1,339 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_GAME_LAYER_WEAPON_WEAPONLAYER_CPP
-        #define ORG_ALLBINARY_GAME_LAYER_WEAPON_WEAPONLAYER_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/layer/weapon/WeaponLayer.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/khronos/opengles/GL.h>
-
-      
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/animation/IndexedAnimation.h>
-
-      
-#include <org/allbinary/animation/NullAnimationFactory.h>
-
-      
-#include <org/allbinary/game/collision/CollidableBaseBehavior.h>
-
-      
-#include <org/allbinary/game/combat/destroy/DestroyedLayerProcessor.h>
-
-      
-#include <org/allbinary/game/combat/weapon/WeaponProperties.h>
-
-      
-#include <org/allbinary/game/configuration/GameConfigurationUtil.h>
-
-      
-#include <org/allbinary/game/identification/BasicGroupFactory.h>
-
-      
-#include <org/allbinary/game/multiplayer/layer/MultiPlayerGameLayer.h>
-
-      
-#include <org/allbinary/game/multiplayer/layer/RemoteInfo.h>
-
-      
-#include <org/allbinary/game/score/NoScoreable.h>
-
-      
-#include <org/allbinary/game/score/ScoreableInterface.h>
-
-      
-#include <org/allbinary/game/tick/TickableInterface.h>
-
-      
-#include <org/allbinary/graphics/Rectangle.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayerManager.h>
-
-      
-#include <org/allbinary/physics/movement/Movement.h>
-
-      
-#include <org/allbinary/view/ViewPosition.h>
-
-      
-#include <org/allbinary/view/ViewPositionBase.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/game/layer/weapon/WeaponLayer.h"
+#include "javax/microedition/khronos/opengles/GL.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/animation/IndexedAnimation.h"
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#include "org/allbinary/game/collision/CollidableBaseBehavior.h"
+#include "org/allbinary/game/combat/destroy/DestroyedLayerProcessor.h"
+#include "org/allbinary/game/combat/weapon/WeaponProperties.h"
+#include "org/allbinary/game/configuration/GameConfigurationUtil.h"
+#include "org/allbinary/game/identification/BasicGroupFactory.h"
+#include "org/allbinary/game/multiplayer/layer/RemoteInfo.h"
+#include "org/allbinary/game/score/NoScoreable.h"
+#include "org/allbinary/game/score/ScoreableInterface.h"
+#include "org/allbinary/graphics/Rectangle.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/layer/AllBinaryLayerManager.h"
+#include "org/allbinary/physics/movement/Movement.h"
+#include "org/allbinary/view/ViewPositionBase.h"
+#include "org/allbinary/game/layer/weapon/CollidableWeaponBehavior.h"
+#if __has_include("org/allbinary/game/layer/weapon/BasicLayerProcessor.h")
+#include "org/allbinary/game/layer/weapon/BasicLayerProcessor.h"
+#endif
+#if __has_include("javax/microedition/khronos/opengles/BasicLayerProcessor.h")
+#include "javax/microedition/khronos/opengles/BasicLayerProcessor.h"
+#endif
+#if __has_include("javax/microedition/lcdui/BasicLayerProcessor.h")
+#include "javax/microedition/lcdui/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/animation/BasicLayerProcessor.h")
+#include "org/allbinary/animation/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/animation/BasicLayerProcessor.h")
+#include "org/allbinary/animation/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/animation/BasicLayerProcessor.h")
+#include "org/allbinary/animation/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/collision/BasicLayerProcessor.h")
+#include "org/allbinary/game/collision/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/BasicLayerProcessor.h")
+#include "org/allbinary/game/combat/destroy/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/combat/weapon/BasicLayerProcessor.h")
+#include "org/allbinary/game/combat/weapon/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/BasicLayerProcessor.h")
+#include "org/allbinary/game/configuration/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/identification/BasicLayerProcessor.h")
+#include "org/allbinary/game/identification/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/multiplayer/layer/BasicLayerProcessor.h")
+#include "org/allbinary/game/multiplayer/layer/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/multiplayer/layer/BasicLayerProcessor.h")
+#include "org/allbinary/game/multiplayer/layer/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/score/BasicLayerProcessor.h")
+#include "org/allbinary/game/score/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/score/BasicLayerProcessor.h")
+#include "org/allbinary/game/score/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/tick/BasicLayerProcessor.h")
+#include "org/allbinary/game/tick/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/graphics/BasicLayerProcessor.h")
+#include "org/allbinary/graphics/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/layer/BasicLayerProcessor.h")
+#include "org/allbinary/layer/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/layer/BasicLayerProcessor.h")
+#include "org/allbinary/layer/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/physics/movement/BasicLayerProcessor.h")
+#include "org/allbinary/physics/movement/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/view/BasicLayerProcessor.h")
+#include "org/allbinary/view/BasicLayerProcessor.h"
+#endif
+#if __has_include("org/allbinary/view/BasicLayerProcessor.h")
+#include "org/allbinary/view/BasicLayerProcessor.h"
+#endif
 
 
 
+void WeaponLayer_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation WeaponLayer
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/layer/weapon/CollidableWeaponBehavior.h"
-
-
-WeaponLayer::WeaponLayer(std::string name, RemoteInfo* remoteInfo, int32_t multiPlayerType, Movement* movement, Animation* animationInterface, Animation* destroyedAnimationInterface, Rectangle* rectangle, ViewPositionBase* viewPosition) : MultiPlayerGameLayer(remoteInfo, BasicGroupFactory::getInstance()->NONE_ARRAY, name, rectangle, viewPosition), animationInterface(NullAnimationFactory::getFactoryInstance()->getInstance(0)), sourceLayerInterface(AllBinaryLayer::NULL_ALLBINARY_LAYER), scoreableInterface(NoScoreable::getInstance()), weaponProperties(WeaponProperties::NULL_WEAPON_PROPERTIES), collidableWeaponBehavior(CollidableWeaponBehavior::getNullInstance()){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->initAnimationInterface= animationInterface;
+- (void) initFields {
+    self->animationInterface = [[NullAnimationFactory getFactoryInstance] getInstance:0];
     
-this->setAnimationInterface(animationInterface);
     
-this->destroyedAnimationInterface= destroyedAnimationInterface;
+    self->sourceLayerInterface = (AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER);
+    self->totalDamage = 0;
+    self->initDamage = 0;
+    self->destroyed = true;
+    self->scoreableInterface = [NoScoreable getInstance];
     
-this->movement= movement;
+    self->weaponProperties = (WeaponProperties_staticInit(), WeaponProperties_NULL_WEAPON_PROPERTIES);
     
-this->multiPlayerType= multiPlayerType;
-    
+    self->collidableWeaponBehavior = [CollidableWeaponBehavior getNullInstance];
 }
 
 
-    auto WeaponLayer::setCollidableInferface(CollidableBaseBehavior* collidableInferface) -> void{
-MultiPlayerGameLayer::setCollidableInferface(collidableInferface);
-    
-this->collidableWeaponBehavior= dynamic_cast<CollidableWeaponBehavior*>(this->getCollidableInferface());
-    
+- (instancetype) init:(const char*)name :(RemoteInfo*)remoteInfo :(int32_t)multiPlayerType :(Movement*)movement :(Animation*)animationInterface :(Animation*)destroyedAnimationInterface :(Rectangle*)rectangle :(ViewPositionBase*)viewPosition {
+        self = [super init:remoteInfo :[BasicGroupFactory getInstance]->NONE_ARRAY :name :rectangle :viewPosition];
+        [self initFields];
+        self->initAnimationInterface = animationInterface;
+        [self setAnimationInterface:animationInterface];
+        self->destroyedAnimationInterface = destroyedAnimationInterface;
+        self->movement = movement;
+        self->multiPlayerType = multiPlayerType;
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto WeaponLayer::initXYZ(int32_t x, int32_t y, int32_t z) -> void{
-this->x= x;
-    
-this->y= y;
-    
-this->z= z;
-    
+- (void) setCollidableInferface:(CollidableBaseBehavior*)collidableInferface {
+        [super setCollidableInferface:collidableInferface];
+        self->collidableWeaponBehavior = ((CollidableWeaponBehavior*) [self getCollidableInferface]);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto WeaponLayer::init(AllBinaryLayer* sourceLayerInterface, int32_t angle, int32_t otherAngle, WeaponProperties* weaponProperties, ScoreableInterface* scoreable) -> void{
-this->setWeaponPropertiesP(weaponProperties);
-    
-this->setReadyForExplosion(false);
-    
-this->setAnimationInterface(this->getInitAnimationInterfaceP());
-    
-this->setOwnerLayerInterface(sourceLayerInterface);
-    
-this->collidableWeaponBehavior->init(sourceLayerInterface);
-    
-this->setGroupInterfaces();
-    
-
-                        if(scoreable != 
-                                    nullptr
-                                )
-                        
-                                    {
-                                    this->scoreableInterface= scoreable;
-    
-
-                                    }
-                                
-this->totalDamage= 0;
-    
-this->initDamage= weaponProperties->getDamage();
-    
-this->setDestroyed(false);
-    
-this->movement->init(weaponProperties->getSpeed(), angle, otherAngle);
-    
+// throws Exception
+- (void) initXYZ:(int32_t)x :(int32_t)y :(int32_t)z {
+        self->x = x;
+        self->y = y;
+        self->z = z;
 }
 
 
-    auto WeaponLayer::setGroupInterfaces() -> void{
-
-    BasicGroupFactory* basicGroupFactory = BasicGroupFactory::getInstance();;
-    
-
-                        if(this->sourceLayerInterface->getGroupInterface()[0] == basicGroupFactory->ENEMY)
-                        
-                                    {
-                                    this->setGroupInterface(basicGroupFactory->ENEMY_ARRAY);
-    
-
-                                    }
-                                
-                        else {
-                            this->setGroupInterface(this->sourceLayerInterface->getGroupInterface());
-    
-
-                        }
-                            
+// throws Exception
+- (void) init_:(AllBinaryLayer*)sourceLayerInterface :(int32_t)angle :(int32_t)otherAngle :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreable {
+        [self setWeaponPropertiesP:weaponProperties];
+        [self setReadyForExplosion:false];
+        [self setAnimationInterface:[self getInitAnimationInterfaceP]];
+        [self setOwnerLayerInterface:sourceLayerInterface];
+        [self->collidableWeaponBehavior init_:sourceLayerInterface];
+        [self setGroupInterfaces];
+        if (scoreable != nil) {
+            self->scoreableInterface = scoreable;
+        }
+        self->totalDamage = 0;
+        self->initDamage = [weaponProperties getDamage];
+        [self setDestroyed:false];
+        [self->movement init_:[weaponProperties getSpeed] :angle :otherAngle];
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto WeaponLayer::processTick(AllBinaryLayerManager* allBinaryLayerManager) -> void{
-
-                        if(this->isExhausted() && !this->isDestroyed())
-                        
-                                    {
-                                    
-                        if(this->isReadyForExplosion())
-                        
-                                    {
-                                    
-    IndexedAnimation* indexedAnimationInterface = dynamic_cast<IndexedAnimation*>(this->getAnimationInterface());;
-    
-
-    int32_t currentFrame = indexedAnimationInterface->getFrame();;
-    
-
-                        if(currentFrame < indexedAnimationInterface->getAnimationSize() -1)
-                        
-                                    {
-                                    indexedAnimationInterface->nextFrame();
-    
-
-                                    }
-                                
-                        else {
-                            this->setDestroyed(true);
-    
-
-                        }
-                            
-
-                                    }
-                                
-                        else {
-                            
-    CollidableWeaponBehavior* collidableWeaponBehavior = dynamic_cast<CollidableWeaponBehavior*>(this->getCollidableInferface());;
-    
-
-                        if(collidableWeaponBehavior->isCollided())
-                        
-                                    {
-                                    this->setAnimationInterface(this->destroyedAnimationInterface);
-    
-this->getMovement()->stop();
-    
-this->setReadyForExplosion(true);
-    
-
-                                    }
-                                
-                        else {
-                            this->setDestroyed(true);
-    
-
-                        }
-                            
-
-                        }
-                            
-
-                                    }
-                                
-this->movement->process(this);
-    
-this->totalDamage += this->weaponProperties->getDissipation();
-    
+- (void) setGroupInterfaces {
+        BasicGroupFactory* basicGroupFactory = [BasicGroupFactory getInstance];
+        if ([self->sourceLayerInterface getGroupInterface][0] == basicGroupFactory->ENEMY) {
+            [self setGroupInterface:basicGroupFactory->ENEMY_ARRAY];
+        } else {
+            [self setGroupInterface:[self->sourceLayerInterface getGroupInterface]];
+        }
 }
 
 
-    auto WeaponLayer::isDestroyed() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->destroyed;
-    
+// throws Exception
+- (void) processTick:(AllBinaryLayerManager*)allBinaryLayerManager {
+        if ([self isExhausted] && ![self isDestroyed]) {
+            if ([self isReadyForExplosion]) {
+                IndexedAnimation* indexedAnimationInterface = ((IndexedAnimation*) [self getAnimationInterface]);
+                int32_t currentFrame = [indexedAnimationInterface getFrame];
+                if (currentFrame < [indexedAnimationInterface getAnimationSize] - 1) {
+                    [indexedAnimationInterface nextFrame];
+                } else {
+                    [self setDestroyed:true];
+                }
+            } else {
+                CollidableWeaponBehavior* collidableWeaponBehavior = ((CollidableWeaponBehavior*) [self getCollidableInferface]);
+                if ([collidableWeaponBehavior isCollided]) {
+                    [self setAnimationInterface:self->destroyedAnimationInterface];
+                    [[self getMovement] stop];
+                    [self setReadyForExplosion:true];
+                } else {
+                    [self setDestroyed:true];
+                }
+            }
+        }
+        [self->movement process:self];
+        self->totalDamage += ((int32_t) [self->weaponProperties getDissipation]);
 }
 
 
-    auto WeaponLayer::damage(int32_t damage, int32_t damageType) -> void{
-this->totalDamage += damage *damage;
-    
+- (bool) isDestroyed {
+        return self->destroyed;
 }
 
 
-    auto WeaponLayer::givePoints(int32_t total) -> void{
-this->scoreableInterface->addPoints(GameConfigurationUtil::getInstance()->getCompetitionValue() *total);
-    
+- (void) damage:(int32_t)damage :(int32_t)damageType {
+        self->totalDamage += damage * damage;
 }
 
 
-    auto WeaponLayer::isExhausted() -> bool{
-
-                        if(this->totalDamage > this->getInitDamage() || this->totalDamage < 0)
-                        
-                                    {
-                                    
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
-
-                                    }
-                                
-                        else {
-                            
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return false;
-    
-
-                        }
-                            
+- (void) givePoints:(int32_t)total {
+        [self->scoreableInterface addPoints:[[GameConfigurationUtil getInstance] getCompetitionValue] * total];
 }
 
 
-    auto WeaponLayer::getDamage(int32_t damageType) -> int32_t{
-
-                        if(!this->isExhausted())
-                        
-                                    {
-                                    
-    int32_t total = this->getInitDamage() -this->totalDamage;;
-    
-this->givePoints(total);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return total;
-    
-
-                                    }
-                                
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (bool) isExhausted {
+        if (self->totalDamage > [self getInitDamage] || self->totalDamage < 0) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 
-    auto WeaponLayer::setDestroyed(bool destroyed) -> void{
-this->destroyed= destroyed;
-    
-
-                        if(this->isDestroyed())
-                        
-                                    {
-                                    this->scoreableInterface= NoScoreable::getInstance();
-    
-DestroyedLayerProcessor::getInstance()->add(this);
-    
-
-                                    }
-                                
+- (int32_t) getDamage:(int32_t)damageType {
+        if (![self isExhausted]) {
+            int32_t total = [self getInitDamage] - self->totalDamage;
+            [self givePoints:total];
+            return total;
+        }
+        return 0;
 }
 
 
-    auto WeaponLayer::getInitDamage() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->initDamage;
-    
+- (void) setDestroyed:(bool)destroyed {
+        self->destroyed = destroyed;
+        if ([self isDestroyed]) {
+            self->scoreableInterface = [NoScoreable getInstance];
+            [[DestroyedLayerProcessor getInstance] add:self];
+        }
 }
 
 
-    auto WeaponLayer::setAnimationInterface(Animation* animationInterface) -> void{
-this->animationInterface= animationInterface;
-    
+- (int32_t) getInitDamage {
+        return self->initDamage;
 }
 
 
-    auto WeaponLayer::getAnimationInterface() -> Animation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->animationInterface;
-    
+- (void) setAnimationInterface:(Animation*)animationInterface {
+        self->animationInterface = animationInterface;
 }
 
 
-    auto WeaponLayer::getInitAnimationInterfaceP() -> Animation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->initAnimationInterface;
-    
+- (Animation*) getAnimationInterface {
+        return self->animationInterface;
 }
 
 
-    auto WeaponLayer::setInitAnimationInterfaceP(Animation* initAnimationInterface) -> void{
-this->initAnimationInterface= initAnimationInterface;
-    
+- (Animation*) getInitAnimationInterfaceP {
+        return self->initAnimationInterface;
 }
 
 
-    auto WeaponLayer::getDestroyedAnimationInterface() -> Animation*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->destroyedAnimationInterface;
-    
+- (void) setInitAnimationInterfaceP:(Animation*)initAnimationInterface {
+        self->initAnimationInterface = initAnimationInterface;
 }
 
 
-    auto WeaponLayer::getOwnerLayerInterface() -> AllBinaryLayer*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->sourceLayerInterface;
-    
+- (Animation*) getDestroyedAnimationInterface {
+        return self->destroyedAnimationInterface;
 }
 
 
-    auto WeaponLayer::setOwnerLayerInterface(AllBinaryLayer* sourceLayerInterface) -> void{
-this->sourceLayerInterface= sourceLayerInterface;
-    
+- (AllBinaryLayer*) getOwnerLayerInterface {
+        return self->sourceLayerInterface;
 }
 
 
-    auto WeaponLayer::paint(Graphics* graphics) -> void{
-
-    ViewPositionBase* viewPosition = this->getViewPosition();;
-    
-this->animationInterface->paintXY(graphics, viewPosition->getX() -this->getHalfWidth(), viewPosition->getY() -this->getHalfHeight());
-    
+- (void) setOwnerLayerInterface:(AllBinaryLayer*)sourceLayerInterface {
+        self->sourceLayerInterface = sourceLayerInterface;
 }
 
 
-    auto WeaponLayer::paintThreed(Graphics* graphics) -> void{
-
-    ViewPositionBase* viewPosition = this->getViewPosition();;
-    
-this->animationInterface->paintThreedXYZ(graphics, viewPosition->getX() -this->getHalfWidth(), viewPosition->getY() -this->getHalfHeight(), viewPosition->getZ() -this->getHalfDepth());
-    
+- (void) paint:(Graphics*)graphics {
+        ViewPositionBase* viewPosition = [self getViewPosition];
+        [self->animationInterface paintXY:graphics :[viewPosition getX] - [self getHalfWidth] :[viewPosition getY] - [self getHalfHeight]];
 }
 
 
-    auto WeaponLayer::getMovement() -> Movement*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->movement;
-    
+- (void) paintThreed:(Graphics*)graphics {
+        ViewPositionBase* viewPosition = [self getViewPosition];
+        [self->animationInterface paintThreedXYZ:graphics :[viewPosition getX] - [self getHalfWidth] :[viewPosition getY] - [self getHalfHeight] :[viewPosition getZ] - [self getHalfDepth]];
 }
 
 
-    auto WeaponLayer::setMovement(Movement* movement) -> void{
-this->movement= movement;
-    
+- (Movement*) getMovement {
+        return self->movement;
 }
 
 
-    auto WeaponLayer::getType() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return WeaponLayer::getStaticType();;
-    
+- (void) setMovement:(Movement*)movement {
+        self->movement = movement;
 }
 
 
-    auto WeaponLayer::getStaticType() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return 0;
-    
+- (int32_t) getType {
+        return [WeaponLayer getStaticType];
 }
 
 
-    auto WeaponLayer::getMultiPlayerType() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->multiPlayerType;
-    
++ (int32_t) getStaticType {
+        return 0;
 }
 
 
-    auto WeaponLayer::setWeaponPropertiesP(WeaponProperties* weaponProperties) -> void{
-this->weaponProperties= weaponProperties;
-    
+- (int32_t) getMultiPlayerType {
+        return self->multiPlayerType;
 }
 
 
-    auto WeaponLayer::getWeaponPropertiesP() -> WeaponProperties*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->weaponProperties;
-    
+- (void) setWeaponPropertiesP:(WeaponProperties*)weaponProperties {
+        self->weaponProperties = weaponProperties;
 }
 
 
-    auto WeaponLayer::implmentsTickableInterface() -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return true;
-    
+- (WeaponProperties*) getWeaponPropertiesP {
+        return self->weaponProperties;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto WeaponLayer::set(GL* gl) -> void{
-this->initAnimationInterface->set(gl);
-    
+- (bool) implmentsTickableInterface {
+        return true;
 }
 
 
+// throws Exception
+- (void) set:(GL*)gl {
+        [self->initAnimationInterface set:gl];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_LAYER_WEAPON_WEAPONLAYER_CPP

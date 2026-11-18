@@ -1,129 +1,50 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_LOGIC_IO_DATAOUTPUTSTREAMFACTORY_CPP
-        #define ORG_ALLBINARY_LOGIC_IO_DATAOUTPUTSTREAMFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/logic/io/DataOutputStreamFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/logic/io/file/AbFile.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/logic/io/AbFileOutputStream.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/logic/io/DataOutputStreamFactory.h"
+#include "org/allbinary/logic/io/file/AbFile.h"
+#include "org/allbinary/logic/io/AbFileOutputStream.h"
 #include "org/allbinary/logic/io/AbDataOutputStream.h"
 #include "org/allbinary/logic/io/FileStreamFactory.h"
 
 
-DataOutputStreamFactory::DataOutputStreamFactory() {
-        }
-        auto DataOutputStreamFactory::instance_owner() -> DataOutputStreamFactory* { static std::unique_ptr<DataOutputStreamFactory> value(new DataOutputStreamFactory()); return value.get(); }
-DataOutputStreamFactory* DataOutputStreamFactory::instance = DataOutputStreamFactory::instance_owner();
+static DataOutputStreamFactory* DataOutputStreamFactory_instance;
 
-    auto DataOutputStreamFactory::getInstance() -> DataOutputStreamFactory*{
+void DataOutputStreamFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    DataOutputStreamFactory_instance = [((DataOutputStreamFactory*) [DataOutputStreamFactory alloc]) init];
+}
 
+@implementation DataOutputStreamFactory
 
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return DataOutputStreamFactory::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto DataOutputStreamFactory::getInstanceForAbFile(AbFile* file) -> AbDataOutputStream*{
-
-    AbFileOutputStream* idFileOutputStream = AbFileOutputStream::createFromAbFile(file);;
-    
-
-    AbDataOutputStream* idOutData = new AbDataOutputStream(idFileOutputStream);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return idOutData;
-    
++ (DataOutputStreamFactory*) getInstance {
+        return (DataOutputStreamFactory_staticInit(), DataOutputStreamFactory_instance);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto DataOutputStreamFactory::getInstance(std::string filePath, std::string fileName) -> AbDataOutputStream*{
-
-    FileStreamFactory* fileStreamFactory = FileStreamFactory::getInstance();;
-    
-
-    AbFileOutputStream* fileOutputStream = fileStreamFactory->getFileOutputStreamInstance(filePath, fileName);;
-    
-
-    AbDataOutputStream* idOutData = new AbDataOutputStream(fileOutputStream);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return idOutData;
-    
+// throws Exception
+- (AbDataOutputStream*) getInstanceForAbFile:(AbFile*)file {
+        AbFileOutputStream* idFileOutputStream = [AbFileOutputStream createFromAbFile:file];
+        AbDataOutputStream* idOutData = [((AbDataOutputStream*) [AbDataOutputStream alloc]) init:idFileOutputStream];
+        return idOutData;
 }
 
 
+// throws Exception
+- (AbDataOutputStream*) getInstance:(const char*)filePath :(const char*)fileName {
+        FileStreamFactory* fileStreamFactory = [FileStreamFactory getInstance];
+        AbFileOutputStream* fileOutputStream = [fileStreamFactory getFileOutputStreamInstance:filePath :fileName];
+        AbDataOutputStream* idOutData = [((AbDataOutputStream*) [AbDataOutputStream alloc]) init:fileOutputStream];
+        return idOutData;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_LOGIC_IO_DATAOUTPUTSTREAMFACTORY_CPP

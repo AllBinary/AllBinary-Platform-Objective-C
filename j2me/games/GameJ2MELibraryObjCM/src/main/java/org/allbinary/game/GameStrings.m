@@ -1,78 +1,43 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/GameStrings.h"
 
 
+static GameStrings* GameStrings_instance;
 
-        #ifndef ORG_ALLBINARY_GAME_GAMESTRINGS_CPP
-        #define ORG_ALLBINARY_GAME_GAMESTRINGS_CPP
+void GameStrings_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    GameStrings_instance = [((GameStrings*) [GameStrings alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/GameStrings.h"
-        
+@implementation GameStrings
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
+- (void) initFields {
+    self->PROCESS_TICK = "processTick";
+    self->ON_GAME_INITIALIZED = "onGameInitialized";
+    self->UPDATESURFACE = "updateSurface";
+    self->ON_SET_DISPLAYABLE = "onSetDisplayable";
+    self->UNPAUSE = "unPause";
+    self->TOGGLE_MENU = "toggleMenu";
+    self->SET_GAME_OVER = "setGameOver";
+    self->GAME_STATE = "Game State: ";
+    self->SET_GAME_STATE = "setGameState";
+    self->STOP_GAME_CANVAS_RUNNABLE_INTERFACE = "stopGameCanvasRunnableInterface";
+}
 
-        
-            #include "java/lang/Object.h"
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-GameStrings::GameStrings() {
-        }
-        auto GameStrings::instance_owner() -> GameStrings* { static std::unique_ptr<GameStrings> value(new GameStrings()); return value.get(); }
-GameStrings* GameStrings::instance = GameStrings::instance_owner();
-
-    auto GameStrings::getInstance() -> GameStrings*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return GameStrings::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+    return self;
 }
 
 
++ (GameStrings*) getInstance {
+        return (GameStrings_staticInit(), GameStrings_instance);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_GAMESTRINGS_CPP

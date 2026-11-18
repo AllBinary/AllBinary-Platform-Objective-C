@@ -1,165 +1,70 @@
-
-        /*
-                *  
-                *  AllBinary Open License Version 1 
-                *  Copyright (c) 2025 AllBinary 
-                *   
-                *  By agreeing to this license you and any business entity you represent are 
-                *  legally bound to the AllBinary Open License Version 1 legal agreement. 
-                *   
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from 
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository. 
-                *   
-                *  Created By: Travis Berthelot    
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/view/ViewPosition.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/view/ViewPositionBase.h"
 
 
 
-        #ifndef ORG_ALLBINARY_VIEW_VIEWPOSITION_CPP
-        #define ORG_ALLBINARY_VIEW_VIEWPOSITION_CPP
+void ViewPosition_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/view/ViewPosition.h"
-        
+@implementation ViewPosition
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/view/ViewPositionBase.h"
-
-
-    auto ViewPosition::getInstanceD() -> ViewPosition*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new ViewPosition(0, 0, 0);
-    
+- (void) initFields {
+    self->allbinaryLayer = (AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER);
 }
 
 
-ViewPosition::ViewPosition(int32_t x, int32_t y, int32_t z) : ViewPositionBase(x, y, z), allbinaryLayer(AllBinaryLayer::NULL_ALLBINARY_LAYER){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
++ (ViewPosition*) getInstanceD {
+        return [((ViewPosition*) [ViewPosition alloc]) init:0 :0 :0];
 }
 
 
-    auto ViewPosition::getX() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->allbinaryLayer->getXP();;
-    
+- (instancetype) init:(int32_t)x :(int32_t)y :(int32_t)z {
+        self = [super init:x :y :z];
+        [self initFields];
+    return self;
 }
 
 
-    auto ViewPosition::getY() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->allbinaryLayer->getYP();;
-    
+- (int32_t) getX {
+        return [self->allbinaryLayer getXP];
 }
 
 
-    auto ViewPosition::getZ() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->allbinaryLayer->getZP();;
-    
+- (int32_t) getY {
+        return [self->allbinaryLayer getYP];
 }
 
 
-    auto ViewPosition::getX2() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getX() +this->allbinaryLayer->getWidth();
-    
+- (int32_t) getZ {
+        return [self->allbinaryLayer getZP];
 }
 
 
-    auto ViewPosition::getY2() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getY() +this->allbinaryLayer->getHeight();
-    
+- (int32_t) getX2 {
+        return [self getX] + [self->allbinaryLayer getWidth];
 }
 
 
-    auto ViewPosition::getZ2() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return static_cast<int32_t>((this->getZ() +this->allbinaryLayer->getDepth()));
-    
+- (int32_t) getY2 {
+        return [self getY] + [self->allbinaryLayer getHeight];
 }
 
 
-    auto ViewPosition::setAllbinaryLayer(Object* allbinaryLayer) -> void{
-this->allbinaryLayer= dynamic_cast<AllBinaryLayer*>(allbinaryLayer);
-    
+- (int32_t) getZ2 {
+        return ((int32_t) (((int64_t) [self getZ]) + [self->allbinaryLayer getDepth]));
 }
 
 
+- (void) setAllbinaryLayer:(id)allbinaryLayer {
+        self->allbinaryLayer = ((AllBinaryLayer*) allbinaryLayer);
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_VIEW_VIEWPOSITION_CPP

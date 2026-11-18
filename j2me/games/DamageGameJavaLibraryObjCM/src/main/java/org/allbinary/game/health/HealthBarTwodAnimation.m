@@ -1,89 +1,42 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/health/HealthBarTwodAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#include "org/allbinary/game/health/HealthBarAnimation.h"
+#if __has_include("org/allbinary/game/health/ViewPositionBase.h")
+#include "org/allbinary/game/health/ViewPositionBase.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ViewPositionBase.h")
+#include "javax/microedition/lcdui/ViewPositionBase.h"
+#endif
+#if __has_include("org/allbinary/layer/ViewPositionBase.h")
+#include "org/allbinary/layer/ViewPositionBase.h"
+#endif
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_HEALTH_HEALTHBARTWODANIMATION_CPP
-        #define ORG_ALLBINARY_GAME_HEALTH_HEALTHBARTWODANIMATION_CPP
+void HealthBarTwodAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/health/HealthBarTwodAnimation.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/layer/AllBinaryLayer.h>
-
-      
+@implementation HealthBarTwodAnimation
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/health/HealthBarAnimation.h"
-
-
-HealthBarTwodAnimation::HealthBarTwodAnimation(AllBinaryLayer* layerInterface, int32_t location) : HealthBarAnimation(layerInterface, location){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (instancetype) init:(AllBinaryLayer*)layerInterface :(int32_t)location {
+        self = [super init:layerInterface :location];
+    return self;
 }
 
 
-    auto HealthBarTwodAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-
-    int32_t ax = this->allbinaryLayer->getViewPosition()->getX();;
-    
-this->basicSetColorUtil->setBasicColorP3(graphics, this->basicColor, this->colorP);
-    
-graphics->fillRect(ax, this->getY() -1, this->x2, this->thickness);
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        int32_t ax = [[self->allbinaryLayer getViewPosition] getX];
+        [self->basicSetColorUtil setBasicColorP3:graphics :self->basicColor :self->colorP];
+        [graphics fillRect:ax :[self getY] - 1 :self->x2 :self->thickness];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_GAME_HEALTH_HEALTHBARTWODANIMATION_CPP

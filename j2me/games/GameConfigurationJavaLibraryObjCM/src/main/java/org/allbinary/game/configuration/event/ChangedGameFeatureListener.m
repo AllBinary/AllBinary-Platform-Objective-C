@@ -1,92 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/configuration/event/ChangedGameFeatureListener.h"
+#include "org/allbinary/game/configuration/GameConfiguration.h"
+#include "org/allbinary/game/configuration/event/BaseChangedGameFeatureListener.h"
 
 
+static ChangedGameFeatureListener* ChangedGameFeatureListener_gameFeatureListener;
 
-        #ifndef ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_CHANGEDGAMEFEATURELISTENER_CPP
-        #define ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_CHANGEDGAMEFEATURELISTENER_CPP
+void ChangedGameFeatureListener_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    ChangedGameFeatureListener_gameFeatureListener = [((ChangedGameFeatureListener*) [ChangedGameFeatureListener alloc]) init];
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/configuration/event/ChangedGameFeatureListener.h"
-        
+@implementation ChangedGameFeatureListener
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/game/configuration/GameConfiguration.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/configuration/event/BaseChangedGameFeatureListener.h"
-
-
-ChangedGameFeatureListener::ChangedGameFeatureListener() {
-        }
-        auto ChangedGameFeatureListener::gameFeatureListener_owner() -> ChangedGameFeatureListener* { static std::unique_ptr<ChangedGameFeatureListener> value(new ChangedGameFeatureListener()); return value.get(); }
-ChangedGameFeatureListener* ChangedGameFeatureListener::gameFeatureListener = ChangedGameFeatureListener::gameFeatureListener_owner();
-
-    auto ChangedGameFeatureListener::getInstance() -> ChangedGameFeatureListener*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return ChangedGameFeatureListener::gameFeatureListener;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-    auto ChangedGameFeatureListener::isChangedGameConfiguration(GameConfiguration* gameConfiguration) -> bool{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->list->contains(gameConfiguration);;
-    
++ (ChangedGameFeatureListener*) getInstance {
+        return (ChangedGameFeatureListener_staticInit(), ChangedGameFeatureListener_gameFeatureListener);
 }
 
 
+- (bool) isChangedGameConfiguration:(GameConfiguration*)gameConfiguration {
+        return [self->list contains:gameConfiguration];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_CONFIGURATION_EVENT_CHANGEDGAMEFEATURELISTENER_CPP

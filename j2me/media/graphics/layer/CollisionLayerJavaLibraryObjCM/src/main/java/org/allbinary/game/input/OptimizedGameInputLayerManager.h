@@ -1,82 +1,43 @@
+#ifndef ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERMANAGER_H
+#define ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERMANAGER_H
+/*
+ *
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
+// Generated Code Do Not Modify
+// package org.allbinary.game.input
 
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot 
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+#include <math.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include "allbinary_java.h"
+#include "ABObject.h"
+@class OptimizedGameInputLayerManager;
+@class LayerManager;
+@class LayerManagerNoDebug;
+#include "org/allbinary/layer/LayerManager.h"
 
+@interface OptimizedGameInputLayerManager : LayerManager {
+@public
+}
+- (instancetype) init;
+@end
 
-
-        #ifndef ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERMANAGER_H
-        #define ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERMANAGER_H
-
-        
-        #pragma push_macro("JAVA_COMPLETE_TYPES")
-        #undef JAVA_COMPLETE_TYPES
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <org/allbinary/layer/LayerManager.h>
-class LayerManagerNoDebug;
-
-
-
-
-
-
+// Runs the Java static initialization of the class once. Reads of its static fields call it first.
+void OptimizedGameInputLayerManager_staticInit(void);
 
 
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-                                
-        #pragma pop_macro("JAVA_COMPLETE_TYPES")
-
-        
-class OptimizedGameInputLayerManager: public LayerManager {
-
-public: OptimizedGameInputLayerManager();
-
-};
-
-            
-
-
-        #endif //ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERMANAGER_H
-
-        
-        #if defined(JAVA_COMPLETE_TYPES) && !defined(ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERMANAGER_H_COMPLETE)
-        #define ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERMANAGER_H_COMPLETE
-        #if __has_include(<org/allbinary/layer/LayerManager.h>)
-#include <org/allbinary/layer/LayerManager.h>
-#endif
-#if __has_include(<org/allbinary/layer/LayerManagerNoDebug.h>)
-#include <org/allbinary/layer/LayerManagerNoDebug.h>
-#endif
-
-        #endif
-    
+#endif // ORG_ALLBINARY_GAME_INPUT_OPTIMIZEDGAMEINPUTLAYERMANAGER_H

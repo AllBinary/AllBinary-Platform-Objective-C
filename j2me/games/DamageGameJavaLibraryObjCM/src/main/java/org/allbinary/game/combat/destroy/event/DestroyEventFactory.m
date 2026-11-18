@@ -1,89 +1,37 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
+// Generated Code Do Not Modify
+#include "org/allbinary/game/combat/destroy/event/DestroyEventFactory.h"
+#include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
+#include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#include "org/allbinary/game/combat/destroy/event/DestroyedEvent.h"
 
 
 
-        #ifndef ORG_ALLBINARY_GAME_COMBAT_DESTROY_EVENT_DESTROYEVENTFACTORY_CPP
-        #define ORG_ALLBINARY_GAME_COMBAT_DESTROY_EVENT_DESTROYEVENTFACTORY_CPP
+void DestroyEventFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/game/combat/destroy/event/DestroyEventFactory.h"
-        
+@implementation DestroyEventFactory
 
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-#include <org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObject.h>
-
-      
-#include <org/allbinary/logic/util/event/AllBinaryEventObjectFactoryInterface.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/game/combat/destroy/event/DestroyedEvent.h"
-
-
-DestroyEventFactory::DestroyEventFactory(AllBinaryGameCanvas* combatGameCanvas){
-this->combatGameCanvas= combatGameCanvas;
+- (void) initFields {
     
 }
 
 
-    auto DestroyEventFactory::getInstance() -> AllBinaryEventObject*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new DestroyedEvent(this->combatGameCanvas);
-    
+- (instancetype) init:(AllBinaryGameCanvas*)combatGameCanvas {
+    self = [super init];
+    [self initFields];
+        self->combatGameCanvas = combatGameCanvas;
+    return self;
 }
 
 
+- (AllBinaryEventObject*) getInstance {
+        return [((DestroyedEvent*) [DestroyedEvent alloc]) init:self->combatGameCanvas];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_GAME_COMBAT_DESTROY_EVENT_DESTROYEVENTFACTORY_CPP

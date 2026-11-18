@@ -1,144 +1,79 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_IMAGE_ANIMATIONFRAMETOIMAGEUTIL_CPP
-        #define ORG_ALLBINARY_IMAGE_ANIMATIONFRAMETOIMAGEUTIL_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/image/AnimationFrameToImageUtil.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/image/AnimationFrameToImageUtil.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/image/GameFeatureImageCacheFactory.h"
+#if __has_include("org/allbinary/image/ImageCache.h")
+#include "org/allbinary/image/ImageCache.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ImageCache.h")
+#include "javax/microedition/lcdui/ImageCache.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ImageCache.h")
+#include "javax/microedition/lcdui/ImageCache.h"
+#endif
+#if __has_include("org/allbinary/animation/ImageCache.h")
+#include "org/allbinary/animation/ImageCache.h"
+#endif
+#if __has_include("org/allbinary/image/ImageCache.h")
+#include "org/allbinary/image/ImageCache.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ImageCache.h")
+#include "javax/microedition/lcdui/ImageCache.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ImageCache.h")
+#include "javax/microedition/lcdui/ImageCache.h"
+#endif
+#if __has_include("org/allbinary/animation/ImageCache.h")
+#include "org/allbinary/animation/ImageCache.h"
+#endif
 
 
+static AnimationFrameToImageUtil* AnimationFrameToImageUtil_instance;
 
+void AnimationFrameToImageUtil_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+    AnimationFrameToImageUtil_instance = [((AnimationFrameToImageUtil*) [AnimationFrameToImageUtil alloc]) init];
+}
 
+@implementation AnimationFrameToImageUtil
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/image/GameFeatureImageCacheFactory.h"
-
-
-AnimationFrameToImageUtil::AnimationFrameToImageUtil() {
-        }
-        auto AnimationFrameToImageUtil::instance_owner() -> AnimationFrameToImageUtil* { static std::unique_ptr<AnimationFrameToImageUtil> value(new AnimationFrameToImageUtil()); return value.get(); }
-AnimationFrameToImageUtil* AnimationFrameToImageUtil::instance = AnimationFrameToImageUtil::instance_owner();
-
-    auto AnimationFrameToImageUtil::getInstance() -> AnimationFrameToImageUtil*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return AnimationFrameToImageUtil::instance;
-    
+- (instancetype) init {
+    self = [super init];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AnimationFrameToImageUtil::getInstanceTranslate(int32_t width, int32_t height, Animation* animationInterface) -> Image*{
-
-    Image* image = GameFeatureImageCacheFactory::getInstance()->get(AnimationFrameToImageUtil::instance->getClass()->getName(), ((width *3)>>1), ((height *3)>>1));;
-    
-
-    Graphics* graphics = image->getGraphics();;
-    
-
-    int32_t tranlateX = (width>>2);;
-    
-
-    int32_t tranlateY = (height>>2);;
-    
-graphics->translate(tranlateX, tranlateY);
-    
-animationInterface->paintXY(graphics, 0, 0);
-    
-graphics->translate( -tranlateX,  -tranlateY);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return image;
-    
++ (AnimationFrameToImageUtil*) getInstance {
+        return (AnimationFrameToImageUtil_staticInit(), AnimationFrameToImageUtil_instance);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto AnimationFrameToImageUtil::getInstanceWH(int32_t width, int32_t height, Animation* animationInterface) -> Image*{
-
-    Image* image = GameFeatureImageCacheFactory::getInstance()->get(AnimationFrameToImageUtil::instance->getClass()->getName(), width, height);;
-    
-
-    Graphics* graphics = image->getGraphics();;
-    
-animationInterface->paintXY(graphics, 0, 0);
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return image;
-    
+// throws Exception
+- (Image*) getInstanceTranslate:(int32_t)width :(int32_t)height :(Animation*)animationInterface {
+        Image* image = [[GameFeatureImageCacheFactory getInstance] get:java_objc_class_name((AnimationFrameToImageUtil_staticInit(), AnimationFrameToImageUtil_instance)) :((width * 3) >> 1) :((height * 3) >> 1)];
+        Graphics* graphics = [image getGraphics];
+        int32_t tranlateX = (width >> 2);
+        int32_t tranlateY = (height >> 2);
+        [graphics translate:tranlateX :tranlateY];
+        [animationInterface paintXY:graphics :0 :0];
+        [graphics translate:-tranlateX :-tranlateY];
+        return image;
 }
 
 
+// throws Exception
+- (Image*) getInstanceWH:(int32_t)width :(int32_t)height :(Animation*)animationInterface {
+        Image* image = [[GameFeatureImageCacheFactory getInstance] get:java_objc_class_name((AnimationFrameToImageUtil_staticInit(), AnimationFrameToImageUtil_instance)) :width :height];
+        Graphics* graphics = [image getGraphics];
+        [animationInterface paintXY:graphics :0 :0];
+        return image;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_IMAGE_ANIMATIONFRAMETOIMAGEUTIL_CPP

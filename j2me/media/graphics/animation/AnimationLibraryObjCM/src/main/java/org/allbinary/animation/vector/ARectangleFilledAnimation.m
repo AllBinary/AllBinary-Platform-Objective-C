@@ -1,72 +1,41 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_VECTOR_ARECTANGLEFILLEDANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_VECTOR_ARECTANGLEFILLEDANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/vector/ARectangleFilledAnimation.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColorFactory.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/vector/ARectangleFilledAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#include "org/allbinary/animation/vector/RectangleFilledAnimation.h"
 
 
 
+void ARectangleFilledAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation ARectangleFilledAnimation
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/vector/RectangleFilledAnimation.h"
-
-
-ARectangleFilledAnimation::ARectangleFilledAnimation() : RectangleFilledAnimation(0, 0, BasicColorFactory::getInstance()->BLACK){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
+- (void) initFields {
+    self->x = 0;
+    self->y = 0;
 }
 
 
-    auto ARectangleFilledAnimation::nextFrame() -> void{
+- (instancetype) init {
+        self = [super init:0 :0 :[BasicColorFactory getInstance]->BLACK];
+        [self initFields];
+    return self;
 }
 
 
-    auto ARectangleFilledAnimation::paintXY(Graphics* graphics, int32_t unusedX, int32_t unusedY) -> void{
-RectangleFilledAnimation::paintXY(graphics, this->x, this->y);
-    
+- (void) nextFrame {
 }
 
 
+- (void) paintXY:(Graphics*)graphics :(int32_t)unusedX :(int32_t)unusedY {
+        [super paintXY:graphics :self->x :self->y];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_VECTOR_ARECTANGLEFILLEDANIMATION_CPP

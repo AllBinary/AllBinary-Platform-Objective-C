@@ -1,401 +1,186 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_VECTORANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_VECTORANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/VectorAnimation.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/NullImage.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-#include <org/allbinary/util/CircularIndexUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/IndexedAnimation.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/VectorAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/util/CircularIndexUtil.h"
+#include "org/allbinary/animation/IndexedAnimation.h"
 #include "org/allbinary/animation/VectorAnimationInterface.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
 
 
-    auto VectorAnimation::createVectorAnimation(std::vector<std::vector<int32_t>> currentPoints2, BasicColor* basicColor, AnimationBehavior* animationBehavior) -> VectorAnimation*{
 
-    std::vector<std::vector<std::vector<int32_t>>> currentPoints = std::vector<std::vector<std::vector<int32_t>>>(1, std::vector<std::vector<int32_t>>(currentPoints2.size(), std::vector<int32_t>(2)));;
-    
+void VectorAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-    int32_t size = currentPoints2.size();;
-    
+@implementation VectorAnimation
 
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-currentPoints[0][index][0]= currentPoints2[index][0];
-    
-currentPoints[0][index][1]= currentPoints2[index][1];
-    
+- (void) initFields {
+    self->currentPoints = [NullUtil getInstance]->NULL_INT_ARRAY_ARRAY_ARRAY;
+    self->circularIndexUtil = [CircularIndexUtil createInstance:0];
 }
 
 
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new VectorAnimation(currentPoints, basicColor, animationBehavior);
-    
++ (VectorAnimation*) createVectorAnimation:(int32_t**)currentPoints2 :(BasicColor*)basicColor :(AnimationBehavior*)animationBehavior {
+        int32_t*** currentPoints = ((int32_t***) java_array_new3(sizeof(int32_t), 1, java_array_length(currentPoints2), 2));
+        int32_t size = java_array_length(currentPoints2);
+        for (int32_t index = 0; index < size; index++) {
+            currentPoints[0][index][0] = currentPoints2[index][0];
+            currentPoints[0][index][1] = currentPoints2[index][1];
+        }
+        return [((VectorAnimation*) [VectorAnimation alloc]) init:currentPoints :basicColor :animationBehavior];
 }
 
 
-VectorAnimation::VectorAnimation(std::vector<std::vector<std::vector<int32_t>>> currentPoints, BasicColor* basicColor, AnimationBehavior* animationBehavior) : IndexedAnimation(animationBehavior), currentPoints(NullUtil::getInstance()->NULL_INT_ARRAY_ARRAY_ARRAY), circularIndexUtil(CircularIndexUtil::createInstance(0)){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->setPoints(currentPoints);
-    
-this->setBasicColorP(basicColor);
-    
+- (instancetype) init:(int32_t***)currentPoints :(BasicColor*)basicColor :(AnimationBehavior*)animationBehavior {
+        self = [super init:animationBehavior];
+        [self initFields];
+        [self setPoints:currentPoints];
+        [self setBasicColorP:basicColor];
+    return self;
 }
 
 
-    auto VectorAnimation::setBasicColorP(BasicColor* basicColor) -> void{
-
-    bool changed = false;;
-    
-
-                        if(this->getBasicColorP() == 
-                                    nullptr
-                                 || JavaBoxes::value<int32_t>(this->getBasicColorP()) != basicColor->intValue())
-                        
-                                    {
-                                    changed= true;
-    
-
-                                    }
-                                
-IndexedAnimation::setBasicColorP(basicColor);
-    
-
-                        if(changed)
-                        
-                                    {
-                                    this->updateModifiers();
-    
-
-                                    }
-                                
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        bool changed = false;
+        if ([self getBasicColorP] == nil || [[self getBasicColorP] intValue] != [basicColor intValue]) {
+            changed = true;
+        }
+        [super setBasicColorP:basicColor];
+        if (changed) {
+            [self updateModifiers];
+        }
 }
 
 
-    auto VectorAnimation::changeBasicColor(BasicColor* basicColor) -> void{
-
-    bool changed = false;;
-    
-
-                        if(this->getChangeBasicColor() == 
-                                    nullptr
-                                 || JavaBoxes::value<int32_t>(this->getChangeBasicColor()) != basicColor->intValue())
-                        
-                                    {
-                                    changed= true;
-    
-
-                                    }
-                                
-IndexedAnimation::changeBasicColor(basicColor);
-    
-
-                        if(changed)
-                        
-                                    {
-                                    this->updateModifiers();
-    
-
-                                    }
-                                
+- (void) changeBasicColor:(BasicColor*)basicColor {
+        bool changed = false;
+        if ([self getChangeBasicColor] == nil || [[self getChangeBasicColor] intValue] != [basicColor intValue]) {
+            changed = true;
+        }
+        [super changeBasicColor:basicColor];
+        if (changed) {
+            [self updateModifiers];
+        }
 }
 
 
-    auto VectorAnimation::setAlpha(int32_t alpha) -> void{
-
-    bool changed = false;;
-    
-
-                        if(this->alphaP != alpha)
-                        
-                                    {
-                                    changed= true;
-    
-
-                                    }
-                                
-IndexedAnimation::setAlpha(alpha);
-    
-
-                        if(changed)
-                        
-                                    {
-                                    this->updateModifiers();
-    
-
-                                    }
-                                
+- (void) setAlpha:(int32_t)alpha {
+        bool changed = false;
+        if (self->alphaP != alpha) {
+            changed = true;
+        }
+        [super setAlpha:alpha];
+        if (changed) {
+            [self updateModifiers];
+        }
 }
 
 
-    auto VectorAnimation::setScale(float scaleX, float scaleY) -> void{
+- (void) setScale:(float)scaleX :(float)scaleY {
 }
 
 
-    auto VectorAnimation::setMaxScale(float maxScaleX, float maxScaleY) -> void{
+- (void) setMaxScale:(float)maxScaleX :(float)maxScaleY {
 }
 
 
-    auto VectorAnimation::updateModifiers() -> void{
+- (void) updateModifiers {
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto VectorAnimation::getAnimationSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getSize();;
-    
+// throws Exception
+- (int32_t) getAnimationSize {
+        return [self getSize];
 }
 
 
-    auto VectorAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->currentPoints.size();
-    
+- (int32_t) getSize {
+        return java_array_length(self->currentPoints);
 }
 
 
-    auto VectorAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
-    auto VectorAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
 }
 
 
-    auto VectorAnimation::nextFrame() -> void{
-this->circularIndexUtil->next();
-    
+- (void) nextFrame {
+        [self->circularIndexUtil next];
 }
 
 
-    auto VectorAnimation::previousFrame() -> void{
-this->circularIndexUtil->previous();
-    
+- (void) previousFrame {
+        [self->circularIndexUtil previous];
 }
 
 
-    auto VectorAnimation::paintVectors(Graphics* graphics, int32_t x, int32_t y) -> void{
-
-        try {
-            
-    int32_t nextPointX = 0;;
-    
-
-    int32_t nextPointY = 0;;
-    
-
-    std::vector<int32_t> nextPoint;;
-    
-
-    std::vector<int32_t> point;;
-    
-
-    std::vector<std::vector<int32_t>> currentPointsFrame = this->currentPoints[this->circularIndexUtil->getIndex()];;
-    
-
-    int32_t size = currentPointsFrame.size();;
-    
-
-    int32_t index = size -2;;
-    
-
-        while(--index >= 0)
-        {
-nextPoint= currentPointsFrame[index];
-    
-point= currentPointsFrame[index +1];
-    
-nextPointX= nextPoint[0];
-    
-nextPointY= nextPoint[1];
-    
-
-                        if(nextPointX != 1000)
-                        
-                                    {
-                                    graphics->drawLine(point[0] +x, point[1] +y, nextPointX +x, nextPointY +y);
-    
-
-                                    }
-                                
-                        else {
-                            index--;
-    
-
-                        }
-                            
+- (void) paintVectors:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        JAVA_TRY {
+            int32_t nextPointX = 0;
+            int32_t nextPointY = 0;
+            int32_t* nextPoint = nullptr;
+            int32_t* point = nullptr;
+            int32_t** currentPointsFrame = self->currentPoints[[self->circularIndexUtil getIndex]];
+            int32_t size = java_array_length(currentPointsFrame);
+            int32_t index = size - 2;
+            while (--index >= 0) {
+                nextPoint = currentPointsFrame[index];
+                point = currentPointsFrame[index + 1];
+                nextPointX = nextPoint[0];
+                nextPointY = nextPoint[1];
+                if (nextPointX != 1000) {
+                    [graphics drawLine:point[0] + x :point[1] + y :nextPointX + x :nextPointY + y];
+                } else {
+                    index--;
+                }
+            }
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :"paintVectors" :e];
+        } JAVA_END_TRY;
 }
 
 
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, "paintVectors", &e);
-    
-}
-
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [self->basicSetColorUtil setBasicColorP:graphics :self->basicColor];
+        [self paintVectors:graphics :x :y];
 }
 
 
-    auto VectorAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-this->basicSetColorUtil->setBasicColorP(graphics, this->basicColor);
-    
-this->paintVectors(graphics, x, y);
-    
+- (int32_t) getFrame {
+        return [self->circularIndexUtil getIndex];
 }
 
 
-    auto VectorAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->circularIndexUtil->getIndex();;
-    
+- (void) setFrame:(int32_t)index {
+        [self->circularIndexUtil setIndex:index];
 }
 
 
-    auto VectorAnimation::setFrame(int32_t index) -> void{
-this->circularIndexUtil->setIndex(index);
-    
+- (int32_t**) getPoints:(int32_t)frame {
+        return self->currentPoints[frame];
 }
 
 
-    auto VectorAnimation::getPoints(int32_t frame) -> std::vector<std::vector<int32_t>>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->currentPoints[frame];
-    
+- (void) setPoints:(int32_t***)currentPoints {
+        self->currentPoints = currentPoints;
+        self->circularIndexUtil = [CircularIndexUtil createInstance:java_array_length(currentPoints)];
 }
 
 
-    auto VectorAnimation::setPoints(std::vector<std::vector<std::vector<int32_t>>> currentPoints) -> void{
-this->currentPoints= currentPoints;
-    
-this->circularIndexUtil= CircularIndexUtil::createInstance(currentPoints.size());
-    
+- (BasicColor*) getBasicColorP {
+        return [super getBasicColorP];
 }
 
+@end
 
-    auto VectorAnimation::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return IndexedAnimation::getBasicColorP();;
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_VECTORANIMATION_CPP

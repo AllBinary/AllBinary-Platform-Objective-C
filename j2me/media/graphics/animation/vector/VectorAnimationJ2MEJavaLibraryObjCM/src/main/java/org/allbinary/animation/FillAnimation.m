@@ -1,174 +1,90 @@
-
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_FILLANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_FILLANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/FillAnimation.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/IndexedAnimation.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/FillAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/animation/IndexedAnimation.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
 
 
-FillAnimation::FillAnimation(std::vector<int32_t> pixelBuffer, int32_t width, int32_t height, AnimationBehavior* animationBehavior) : IndexedAnimation(animationBehavior){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void FillAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
-this->width= 100;
+@implementation FillAnimation
+
+- (void) initFields {
     
-this->height= 100;
     
-this->pixelBuffer= pixelBuffer;
     
 }
 
 
-    auto FillAnimation::setBasicColorP(BasicColor* basicColor) -> void{
-
-    bool changed = false;;
-    
-
-                        if(this->getBasicColorP() == 
-                                    nullptr
-                                 || JavaBoxes::value<int32_t>(this->getBasicColorP()) != basicColor->intValue())
-                        
-                                    {
-                                    changed= true;
-    
-
-                                    }
-                                
-IndexedAnimation::setBasicColorP(basicColor);
-    
-
-                        if(changed)
-                        
-                                    {
-                                    this->updateModifiers();
-    
-
-                                    }
-                                
+- (instancetype) init:(int32_t*)pixelBuffer :(int32_t)width :(int32_t)height :(AnimationBehavior*)animationBehavior {
+        self = [super init:animationBehavior];
+        [self initFields];
+        self->width = 100;
+        self->height = 100;
+        self->pixelBuffer = pixelBuffer;
+    return self;
 }
 
 
-    auto FillAnimation::changeBasicColor(BasicColor* basicColor) -> void{
-
-    bool changed = false;;
-    
-
-                        if(this->getChangeBasicColor() == 
-                                    nullptr
-                                 || JavaBoxes::value<int32_t>(this->getChangeBasicColor()) != basicColor->intValue())
-                        
-                                    {
-                                    changed= true;
-    
-
-                                    }
-                                
-IndexedAnimation::changeBasicColor(basicColor);
-    
-
-                        if(changed)
-                        
-                                    {
-                                    this->updateModifiers();
-    
-
-                                    }
-                                
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        bool changed = false;
+        if ([self getBasicColorP] == nil || [[self getBasicColorP] intValue] != [basicColor intValue]) {
+            changed = true;
+        }
+        [super setBasicColorP:basicColor];
+        if (changed) {
+            [self updateModifiers];
+        }
 }
 
 
-    auto FillAnimation::setAlpha(int32_t alpha) -> void{
-
-    bool changed = false;;
-    
-
-                        if(this->alphaP != alpha)
-                        
-                                    {
-                                    changed= true;
-    
-
-                                    }
-                                
-IndexedAnimation::setAlpha(alpha);
-    
-
-                        if(changed)
-                        
-                                    {
-                                    this->updateModifiers();
-    
-
-                                    }
-                                
+- (void) changeBasicColor:(BasicColor*)basicColor {
+        bool changed = false;
+        if ([self getChangeBasicColor] == nil || [[self getChangeBasicColor] intValue] != [basicColor intValue]) {
+            changed = true;
+        }
+        [super changeBasicColor:basicColor];
+        if (changed) {
+            [self updateModifiers];
+        }
 }
 
 
-    auto FillAnimation::setScale(float scaleX, float scaleY) -> void{
+- (void) setAlpha:(int32_t)alpha {
+        bool changed = false;
+        if (self->alphaP != alpha) {
+            changed = true;
+        }
+        [super setAlpha:alpha];
+        if (changed) {
+            [self updateModifiers];
+        }
 }
 
 
-    auto FillAnimation::setMaxScale(float maxScaleX, float maxScaleY) -> void{
+- (void) setScale:(float)scaleX :(float)scaleY {
 }
 
 
-    auto FillAnimation::updateModifiers() -> void{
+- (void) setMaxScale:(float)maxScaleX :(float)maxScaleY {
 }
 
 
-    auto FillAnimation::paint(Graphics* g) -> void{
-g->drawRGB(pixelBuffer, 0, width, 0, 0, width, height, true);
-    
+- (void) updateModifiers {
 }
 
 
+- (void) paint:(Graphics*)g {
+        [g drawRGB:self->pixelBuffer :0 :self->width :0 :0 :self->width :self->height :true];
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_ANIMATION_FILLANIMATION_CPP

@@ -1,102 +1,36 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_BOTTOMTOTOPIMAGEANIMATIONFACTORY_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_BOTTOMTOTOPIMAGEANIMATIONFACTORY_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/BottomToTopImageAnimationFactory.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <org/allbinary/animation/Animation.h>
-
-      
-#include <org/allbinary/animation/AnimationBehaviorFactory.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/image/BaseImageAnimationFactory.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/BottomToTopImageAnimationFactory.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "org/allbinary/animation/Animation.h"
+#include "org/allbinary/animation/AnimationBehaviorFactory.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/animation/image/BaseImageAnimationFactory.h"
 #include "org/allbinary/animation/image/BottomToTopImageAnimation.h"
 
 
-BottomToTopImageAnimationFactory::BottomToTopImageAnimationFactory(Image* image, AnimationBehaviorFactory* animationBehaviorFactory) : BaseImageAnimationFactory(image, PrimitiveIntUtil::getArrayInstance(), image->getWidth(), image->getHeight(), 0, 0, animationBehaviorFactory){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void BottomToTopImageAnimationFactory_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
+@implementation BottomToTopImageAnimationFactory
+
+
+- (instancetype) init:(Image*)image :(AnimationBehaviorFactory*)animationBehaviorFactory {
+        self = [super init:image :[PrimitiveIntUtil getArrayInstance] :[image getWidth] :[image getHeight] :0 :0 :animationBehaviorFactory];
+    return self;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto BottomToTopImageAnimationFactory::getInstance(int32_t instanceId) -> Animation*{
-
-    Image* scaledImage = this->animationFactoryImageScaleUtil->createImage(this->getImage(), this->animationFactoryInitializationVisitor->width, this->animationFactoryInitializationVisitor->height, this->scaleProperties->scaleWidth, this->scaleProperties->scaleHeight);;
-    
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return new BottomToTopImageAnimation(scaledImage, this->animationBehaviorFactory->getOrCreateInstance());
-    
+// throws Exception
+- (Animation*) getInstance:(int32_t)instanceId {
+        Image* scaledImage = [self->animationFactoryImageScaleUtil createImage:[self getImage] :self->animationFactoryInitializationVisitor->width :self->animationFactoryInitializationVisitor->height :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
+        return [((BottomToTopImageAnimation*) [BottomToTopImageAnimation alloc]) init:scaledImage :[self->animationBehaviorFactory getOrCreateInstance]];
 }
 
+@end
 
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_BOTTOMTOTOPIMAGEANIMATIONFACTORY_CPP

@@ -1,273 +1,148 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_VECTORBASEROTATIONANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_VECTORBASEROTATIONANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/VectorBaseRotationAnimation.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <org/allbinary/graphics/color/BasicColor.h>
-
-      
-#include <org/allbinary/logic/NullUtil.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-#include <org/allbinary/math/AngleInfo.h>
-
-      
-#include <org/allbinary/util/CircularIndexUtil.h>
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        #include "org/allbinary/animation/RotationAnimation.h"
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/VectorBaseRotationAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "org/allbinary/graphics/color/BasicColor.h"
+#include "org/allbinary/logic/NullUtil.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/math/AngleInfo.h"
+#include "org/allbinary/util/CircularIndexUtil.h"
+#include "org/allbinary/animation/RotationAnimation.h"
 #include "org/allbinary/animation/VectorAnimationInterface.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
+#if __has_include("org/allbinary/animation/AngleIncrementInfo.h")
+#include "org/allbinary/animation/AngleIncrementInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AngleIncrementInfo.h")
+#include "javax/microedition/lcdui/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/AngleIncrementInfo.h")
+#include "org/allbinary/graphics/color/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/logic/AngleIncrementInfo.h")
+#include "org/allbinary/logic/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/logic/math/AngleIncrementInfo.h")
+#include "org/allbinary/logic/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/util/AngleIncrementInfo.h")
+#include "org/allbinary/util/AngleIncrementInfo.h"
+#endif
 
 
-VectorBaseRotationAnimation::VectorBaseRotationAnimation(AngleInfo* angleInfo, std::vector<std::vector<std::vector<int32_t>>> currentPoints, BasicColor* basicColor, AnimationBehavior* animationBehavior) : RotationAnimation(angleInfo, CircularIndexUtil::createInstance(360 /angleInfo->getAngleIncrementInfo()->getAngleIncrement()), animationBehavior), currentPoints(NullUtil::getInstance()->NULL_INT_ARRAY_ARRAY_ARRAY){
 
-                        //super/this constructor call is in the constructor initializer list.
-                    
+void VectorBaseRotationAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
-                            //For kotlin this is before the body of the constructor.
-                    
-this->setPoints(currentPoints);
-    
-this->setBasicColorP(basicColor);
-    
+@implementation VectorBaseRotationAnimation
+
+- (void) initFields {
+    self->currentPoints = [NullUtil getInstance]->NULL_INT_ARRAY_ARRAY_ARRAY;
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto VectorBaseRotationAnimation::getAnimationSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getSize();;
-    
+- (instancetype) init:(AngleInfo*)angleInfo :(int32_t***)currentPoints :(BasicColor*)basicColor :(AnimationBehavior*)animationBehavior {
+        self = [super init:angleInfo :[CircularIndexUtil createInstance:360 / ((int32_t) [[angleInfo getAngleIncrementInfo] getAngleIncrement])] :animationBehavior];
+        [self initFields];
+        [self setPoints:currentPoints];
+        [self setBasicColorP:basicColor];
+    return self;
 }
 
 
-    auto VectorBaseRotationAnimation::getFrame() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->circularIndexUtil->getIndex();;
-    
+// throws Exception
+- (int32_t) getAnimationSize {
+        return [self getSize];
 }
 
 
-    auto VectorBaseRotationAnimation::setFrame(int32_t index) -> void{
-this->circularIndexUtil->setIndex(index);
-    
+- (int32_t) getFrame {
+        return [self->circularIndexUtil getIndex];
 }
 
 
-    auto VectorBaseRotationAnimation::nextFrame() -> void{
-this->circularIndexUtil->next();
-    
+- (void) setFrame:(int32_t)index {
+        [self->circularIndexUtil setIndex:index];
 }
 
 
-    auto VectorBaseRotationAnimation::previousFrame() -> void{
-this->circularIndexUtil->previous();
-    
+- (void) nextFrame {
+        [self->circularIndexUtil next];
 }
 
 
-    auto VectorBaseRotationAnimation::getSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->currentPoints.size();
-    
+- (void) previousFrame {
+        [self->circularIndexUtil previous];
 }
 
 
-    auto VectorBaseRotationAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+- (int32_t) getSize {
+        return java_array_length(self->currentPoints);
 }
 
 
-    auto VectorBaseRotationAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
-    auto VectorBaseRotationAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-this->basicSetColorUtil->setBasicColorP(graphics, this->basicColor);
-    
-
-        try {
-            
-    int32_t nextPointX = 0;;
-    
-
-    int32_t nextPointY = 0;;
-    
-
-    std::vector<int32_t> nextPoint;;
-    
-
-    std::vector<int32_t> point;;
-    
-
-    std::vector<std::vector<int32_t>> currentPointsFrame = this->currentPoints[this->circularIndexUtil->getIndex()];;
-    
-
-    int32_t size = currentPointsFrame.size();;
-    
-
-    int32_t index = size -2;;
-    
-
-        while(--index >= 0)
-        {
-nextPoint= currentPointsFrame[index];
-    
-point= currentPointsFrame[index +1];
-    
-nextPointX= nextPoint[0];
-    
-nextPointY= nextPoint[1];
-    
-
-                        if(nextPointX != 1000)
-                        
-                                    {
-                                    graphics->drawLine(point[0] +x, point[1] +y, nextPointX +x, nextPointY +y);
-    
-
-                                    }
-                                
-                        else {
-                            index--;
-    
-
-                        }
-                            
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
 }
 
 
-                //: 
-} catch(Exception& e) 
-            {
-this->logUtil->put(this->commonStrings->EXCEPTION, this, "paintVectors", &e);
-    
-}
-
-}
-
-
-    auto VectorBaseRotationAnimation::getPoints(int32_t frame) -> std::vector<std::vector<int32_t>>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->currentPoints[frame];
-    
-}
-
-
-    auto VectorBaseRotationAnimation::setPoints(std::vector<std::vector<std::vector<int32_t>>> currentPoints) -> void{
-this->currentPoints= currentPoints;
-    
-this->circularIndexUtil= CircularIndexUtil::createInstance(this->currentPoints.size());
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [self->basicSetColorUtil setBasicColorP:graphics :self->basicColor];
+        JAVA_TRY {
+            int32_t nextPointX = 0;
+            int32_t nextPointY = 0;
+            int32_t* nextPoint = nullptr;
+            int32_t* point = nullptr;
+            int32_t** currentPointsFrame = self->currentPoints[[self->circularIndexUtil getIndex]];
+            int32_t size = java_array_length(currentPointsFrame);
+            int32_t index = size - 2;
+            while (--index >= 0) {
+                nextPoint = currentPointsFrame[index];
+                point = currentPointsFrame[index + 1];
+                nextPointX = nextPoint[0];
+                nextPointY = nextPoint[1];
+                if (nextPointX != 1000) {
+                    [graphics drawLine:point[0] + x :point[1] + y :nextPointX + x :nextPointY + y];
+                } else {
+                    index--;
+                }
+            }
+        } JAVA_CATCH(Exception, e) {
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :"paintVectors" :e];
+        } JAVA_END_TRY;
 }
 
 
-    auto VectorBaseRotationAnimation::getBasicColorP() -> BasicColor*{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return RotationAnimation::getBasicColorP();;
-    
+- (int32_t**) getPoints:(int32_t)frame {
+        return self->currentPoints[frame];
 }
 
 
-    auto VectorBaseRotationAnimation::setBasicColorP(BasicColor* basicColor) -> void{
-RotationAnimation::setBasicColorP(basicColor);
-    
+- (void) setPoints:(int32_t***)currentPoints {
+        self->currentPoints = currentPoints;
+        self->circularIndexUtil = [CircularIndexUtil createInstance:java_array_length(self->currentPoints)];
 }
 
 
+- (BasicColor*) getBasicColorP {
+        return [super getBasicColorP];
+}
 
 
-        #endif //ORG_ALLBINARY_ANIMATION_VECTORBASEROTATIONANIMATION_CPP
+- (void) setBasicColorP:(BasicColor*)basicColor {
+        [super setBasicColorP:basicColor];
+}
+
+@end
+

@@ -1,147 +1,89 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_INPUT_TOUCHJ2ME_CPP
-        #define ORG_ALLBINARY_INPUT_TOUCHJ2ME_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/input/TouchJ2ME.h"
-        
-
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Object.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <org/allbinary/input/motion/AllMotionRecognizer.h>
-
-      
-#include <org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.h>
-
-      
-#include <org/allbinary/input/motion/gesture/observer/GameMotionGestureListener.h>
-
-      
-#include <org/allbinary/input/motion/gesture/observer/MotionGestureReceiveInterfaceFactory.h>
-
-      
-#include <org/allbinary/logic/communication/log/LogUtil.h>
-
-      
-#include <org/allbinary/string/CommonStrings.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/input/TouchJ2ME.h"
+#include "org/allbinary/input/motion/AllMotionRecognizer.h"
+#include "org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.h"
+#include "org/allbinary/input/motion/gesture/observer/GameMotionGestureListener.h"
+#include "org/allbinary/input/motion/gesture/observer/MotionGestureReceiveInterfaceFactory.h"
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/input/MotionGestureRecognizer.h")
+#include "org/allbinary/input/MotionGestureRecognizer.h"
+#endif
+#if __has_include("org/allbinary/input/motion/MotionGestureRecognizer.h")
+#include "org/allbinary/input/motion/MotionGestureRecognizer.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/observer/MotionGestureRecognizer.h")
+#include "org/allbinary/input/motion/gesture/observer/MotionGestureRecognizer.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/observer/MotionGestureRecognizer.h")
+#include "org/allbinary/input/motion/gesture/observer/MotionGestureRecognizer.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/observer/MotionGestureRecognizer.h")
+#include "org/allbinary/input/motion/gesture/observer/MotionGestureRecognizer.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/MotionGestureRecognizer.h")
+#include "org/allbinary/logic/communication/log/MotionGestureRecognizer.h"
+#endif
+#if __has_include("org/allbinary/string/MotionGestureRecognizer.h")
+#include "org/allbinary/string/MotionGestureRecognizer.h"
+#endif
 
 
 
+void TouchJ2ME_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation TouchJ2ME
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        //TouchJ2ME
-
-TouchJ2ME::TouchJ2ME() : logUtil(LogUtil::getInstance()), motionRecognizer(new AllMotionRecognizer()){
-
-    BasicMotionGesturesHandler* motionGesturesHandler = this->motionRecognizer->getMotionGestureRecognizer()->getMotionGesturesHandler();;
-    
-motionGesturesHandler->addListenerInterface(new GameMotionGestureListener(MotionGestureReceiveInterfaceFactory::getInstance()));
-    
+- (void) initFields {
+    self->logUtil = [LogUtil getInstance];
+    self->DEVICE_ID = 0;
+    self->motionRecognizer = [((AllMotionRecognizer*) [AllMotionRecognizer alloc]) init];
 }
 
 
-    auto TouchJ2ME::pointerDragged(int32_t x, int32_t y) -> void{
-
-        try {
-            this->motionRecognizer->processDraggedMotionEvent(x, y, DEVICE_ID, 0);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, "pointerDragged", &e);
-    
-}
-
+- (instancetype) init {
+    self = [super init];
+    [self initFields];
+        BasicMotionGesturesHandler* motionGesturesHandler = [[self->motionRecognizer getMotionGestureRecognizer] getMotionGesturesHandler];
+        [motionGesturesHandler addListenerInterface:[((GameMotionGestureListener*) [GameMotionGestureListener alloc]) init:[MotionGestureReceiveInterfaceFactory getInstance]]];
+    return self;
 }
 
 
-    auto TouchJ2ME::pointerPressed(int32_t x, int32_t y) -> void{
-
-        try {
-            this->motionRecognizer->processStartMotionEvent(x, y, DEVICE_ID, 0);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, "pointerPressed", &e);
-    
-}
-
+- (void) pointerDragged:(int32_t)x :(int32_t)y {
+        JAVA_TRY {
+            [self->motionRecognizer processDraggedMotionEvent:x :y :self->DEVICE_ID :0];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :"pointerDragged" :e];
+        } JAVA_END_TRY;
 }
 
 
-    auto TouchJ2ME::pointerReleased(int32_t x, int32_t y) -> void{
-
-        try {
-            this->motionRecognizer->processEndMotionEvent(x, y, DEVICE_ID, 0);
-    
-
-                //: 
-} catch(Exception& e) 
-            {
-
-    CommonStrings* commonStrings = CommonStrings::getInstance();;
-    
-this->logUtil->put(commonStrings->EXCEPTION, this, "pointerReleased", &e);
-    
-}
-
+- (void) pointerPressed:(int32_t)x :(int32_t)y {
+        JAVA_TRY {
+            [self->motionRecognizer processStartMotionEvent:x :y :self->DEVICE_ID :0];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :"pointerPressed" :e];
+        } JAVA_END_TRY;
 }
 
 
+- (void) pointerReleased:(int32_t)x :(int32_t)y {
+        JAVA_TRY {
+            [self->motionRecognizer processEndMotionEvent:x :y :self->DEVICE_ID :0];
+        } JAVA_CATCH(Exception, e) {
+            CommonStrings* commonStrings = [CommonStrings getInstance];
+            [self->logUtil put:commonStrings->EXCEPTION :self :"pointerReleased" :e];
+        } JAVA_END_TRY;
+}
 
+@end
 
-        #endif //ORG_ALLBINARY_INPUT_TOUCHJ2ME_CPP

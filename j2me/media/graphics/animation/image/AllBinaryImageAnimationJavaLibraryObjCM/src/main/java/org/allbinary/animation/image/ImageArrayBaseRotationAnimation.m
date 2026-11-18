@@ -1,295 +1,173 @@
-
-        /*
-                * 
-                *  AllBinary Open License Version 1
-                *  Copyright (c) 2011 AllBinary
-                *  
-                *  By agreeing to this license you and any business entity you represent are
-                *  legally bound to the AllBinary Open License Version 1 legal agreement.
-                *  
-                *  You may obtain the AllBinary Open License Version 1 legal agreement from
-                *  AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-                *  
-                *  Created By: Travis Berthelot  
-        */
-        
-        /* Generated Code Do Not Modify */
-        
-
-
-
-        #ifndef ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEARRAYBASEROTATIONANIMATION_CPP
-        #define ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEARRAYBASEROTATIONANIMATION_CPP
-
-        #ifndef JAVA_COMPLETE_TYPES
-        #define JAVA_COMPLETE_TYPES
-        #endif
-        
-        #include "org/allbinary/animation/image/ImageArrayBaseRotationAnimation.h"
-        
-
-            #include <vector>
-        
-            #include <cstdint>
-            #include <memory>
-            #include <string>
-            #include "java/lang/String.h"
-
-        
-            #include "java/lang/Throwable.h"
-        
-            #include "java/lang/Exception.h"
-        
-#include <javax/microedition/lcdui/Graphics.h>
-
-      
-#include <javax/microedition/lcdui/Image.h>
-
-      
-#include <javax/microedition/lcdui/NullImage.h>
-
-      
-#include <org/allbinary/DisposalUtil.h>
-
-      
-#include <org/allbinary/animation/AnimationBehavior.h>
-
-      
-#include <org/allbinary/animation/RotationAnimation.h>
-
-      
-#include <org/allbinary/graphics/Anchor.h>
-
-      
-#include <org/allbinary/logic/math/PrimitiveIntUtil.h>
-
-      
-#include <org/allbinary/math/AngleInfo.h>
-
-      
-#include <org/allbinary/media/image/ImageModifierUtil.h>
-
-      
-#include <org/allbinary/util/CircularIndexUtil.h>
-
-      
+// Generated Code Do Not Modify
+#include "org/allbinary/animation/image/ImageArrayBaseRotationAnimation.h"
+#include "javax/microedition/lcdui/Graphics.h"
+#include "javax/microedition/lcdui/Image.h"
+#include "javax/microedition/lcdui/NullImage.h"
+#include "org/allbinary/DisposalUtil.h"
+#include "org/allbinary/animation/AnimationBehavior.h"
+#include "org/allbinary/graphics/Anchor.h"
+#include "org/allbinary/logic/math/PrimitiveIntUtil.h"
+#include "org/allbinary/math/AngleInfo.h"
+#include "org/allbinary/media/image/ImageModifierUtil.h"
+#include "org/allbinary/util/CircularIndexUtil.h"
+#if __has_include("org/allbinary/animation/image/AngleIncrementInfo.h")
+#include "org/allbinary/animation/image/AngleIncrementInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AngleIncrementInfo.h")
+#include "javax/microedition/lcdui/AngleIncrementInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AngleIncrementInfo.h")
+#include "javax/microedition/lcdui/AngleIncrementInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/AngleIncrementInfo.h")
+#include "javax/microedition/lcdui/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/AngleIncrementInfo.h")
+#include "org/allbinary/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleIncrementInfo.h")
+#include "org/allbinary/animation/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/animation/AngleIncrementInfo.h")
+#include "org/allbinary/animation/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/AngleIncrementInfo.h")
+#include "org/allbinary/graphics/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/logic/math/AngleIncrementInfo.h")
+#include "org/allbinary/logic/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/math/AngleIncrementInfo.h")
+#include "org/allbinary/math/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/media/image/AngleIncrementInfo.h")
+#include "org/allbinary/media/image/AngleIncrementInfo.h"
+#endif
+#if __has_include("org/allbinary/util/AngleIncrementInfo.h")
+#include "org/allbinary/util/AngleIncrementInfo.h"
+#endif
 
 
 
+void ImageArrayBaseRotationAnimation_staticInit(void) {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+    initialized = true;
+}
 
+@implementation ImageArrayBaseRotationAnimation
 
-
-
-
-
-
-
-
-
-
-
-
-                                        
-        //Current folder imports from return types, extended types, and scope (deduplicated)
-        
-
-ImageArrayBaseRotationAnimation::ImageArrayBaseRotationAnimation(std::vector<Image*> originalImageArray, AngleInfo* angleInfo, AnimationBehavior* animationBehavior) : RotationAnimation(angleInfo, CircularIndexUtil::createInstance(360 /angleInfo->getAngleIncrementInfo()->getAngleIncrement()), animationBehavior), imageModifierUtil(ImageModifierUtil::getInstanceOrCreate()), imageArray(NullImage::NULL_IMAGE_ARRAY), anchor(Anchor::TOP_LEFT){
-
-                        //super/this constructor call is in the constructor initializer list.
-                    
-
-                            //For kotlin this is before the body of the constructor.
-                    
-this->originalImageArray= originalImageArray;
+- (void) initFields {
+    self->imageModifierUtil = [ImageModifierUtil getInstanceOrCreate];
     
-this->setImageArray(this->imageModifierUtil->getImageArray(originalImageArray));
+    self->imageArray = (NullImage_staticInit(), NullImage_NULL_IMAGE_ARRAY);
     
-this->currentImage= this->imageArray[this->circularIndexUtil->getIndex()];
-    
+    self->totalFrames = 0;
+    self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
 }
 
 
-                //@Throws(Exception.constructor)
-            
-    auto ImageArrayBaseRotationAnimation::getAnimationSize() -> int32_t{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return this->getSize();;
-    
+- (instancetype) init:(Image**)originalImageArray :(AngleInfo*)angleInfo :(AnimationBehavior*)animationBehavior {
+        self = [super init:angleInfo :[CircularIndexUtil createInstance:360 / ((int32_t) [[angleInfo getAngleIncrementInfo] getAngleIncrement])] :animationBehavior];
+        [self initFields];
+        self->originalImageArray = originalImageArray;
+        [self setImageArray:[self->imageModifierUtil getImageArray:originalImageArray]];
+        self->currentImage = self->imageArray[[self->circularIndexUtil getIndex]];
+    return self;
 }
 
 
-    auto ImageArrayBaseRotationAnimation::setAlpha(int32_t alpha) -> void{
-
-                        if(this->alphaP != alpha)
-                        
-                                    {
-                                    RotationAnimation::setAlpha(alpha);
-    
-this->imageModifierUtil->reset();
-    
-
-    int32_t index = this->circularIndexUtil->getIndex();;
-    
-this->imageModifierUtil->setAlpha(this->originalImageArray[index], this->imageArray[index], index, this->alphaP);
-    
-
-                                    }
-                                
+// throws Exception
+- (int32_t) getAnimationSize {
+        return [self getSize];
 }
 
 
-    auto ImageArrayBaseRotationAnimation::nextRotation() -> void{
-RotationAnimation::nextRotation();
-    
-
-    int32_t index = this->circularIndexUtil->getIndex();;
-    
-this->imageModifierUtil->setAlpha(this->originalImageArray[index], this->imageArray[index], index, this->alphaP);
-    
-this->currentImage= this->imageArray[index];
-    
+- (void) setAlpha:(int32_t)alpha {
+        if (self->alphaP != alpha) {
+            [super setAlpha:alpha];
+            [self->imageModifierUtil reset];
+            int32_t index = [self->circularIndexUtil getIndex];
+            [self->imageModifierUtil setAlpha:self->originalImageArray[index] :self->imageArray[index] :index :self->alphaP];
+        }
 }
 
 
-    auto ImageArrayBaseRotationAnimation::previousRotation() -> void{
-RotationAnimation::previousRotation();
-    
-
-    int32_t index = this->circularIndexUtil->getIndex();;
-    
-this->imageModifierUtil->setAlpha(this->originalImageArray[index], this->imageArray[index], index, this->alphaP);
-    
-this->currentImage= this->imageArray[index];
-    
+- (void) nextRotation {
+        [super nextRotation];
+        int32_t index = [self->circularIndexUtil getIndex];
+        [self->imageModifierUtil setAlpha:self->originalImageArray[index] :self->imageArray[index] :index :self->alphaP];
+        self->currentImage = self->imageArray[index];
 }
 
 
-    auto ImageArrayBaseRotationAnimation::setFrame(int32_t index2) -> void{
-RotationAnimation::setFrame(index2);
-    
-
-    int32_t index = this->circularIndexUtil->getIndex();;
-    
-this->imageModifierUtil->setAlpha(this->originalImageArray[index], this->imageArray[index], index, this->alphaP);
-    
-this->currentImage= this->imageArray[index];
-    
+- (void) previousRotation {
+        [super previousRotation];
+        int32_t index = [self->circularIndexUtil getIndex];
+        [self->imageModifierUtil setAlpha:self->originalImageArray[index] :self->imageArray[index] :index :self->alphaP];
+        self->currentImage = self->imageArray[index];
 }
 
 
-    auto ImageArrayBaseRotationAnimation::setSequence(std::vector<int32_t> sequence) -> void{
+- (void) setFrame:(int32_t)index2 {
+        [super setFrame:index2];
+        int32_t index = [self->circularIndexUtil getIndex];
+        [self->imageModifierUtil setAlpha:self->originalImageArray[index] :self->imageArray[index] :index :self->alphaP];
+        self->currentImage = self->imageArray[index];
 }
 
 
-    auto ImageArrayBaseRotationAnimation::getSequence() -> std::vector<int32_t>{
-
-
-
-                        //if statement needs to be on the same line and ternary does not work the same way.
-                        
-                        
-                        return PrimitiveIntUtil::getArrayInstance();;
-    
+- (void) setSequence:(int32_t*)sequence {
 }
 
 
-    auto ImageArrayBaseRotationAnimation::setImageArray(std::vector<Image*> imageArray) -> void{
-this->imageArray= imageArray;
-    
-this->totalFrames= imageArray.size();
-    
-this->circularIndexUtil= CircularIndexUtil::createInstance(this->totalFrames);
-    
+- (int32_t*) getSequence {
+        return [PrimitiveIntUtil getArrayInstance];
 }
 
 
-    auto ImageArrayBaseRotationAnimation::paintXY(Graphics* graphics, int32_t x, int32_t y) -> void{
-graphics->drawImage(this->currentImage, x, y, this->anchor);
-    
+- (void) setImageArray:(Image**)imageArray {
+        self->imageArray = imageArray;
+        self->totalFrames = java_array_length(imageArray);
+        self->circularIndexUtil = [CircularIndexUtil createInstance:self->totalFrames];
 }
 
 
-    auto ImageArrayBaseRotationAnimation::close() -> void{
-
-    DisposalUtil* disposalUtil = DisposalUtil::getInstance();;
-    
-
-    int32_t size2 = this->imageArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size2; index++)
-        {
-disposalUtil->disposeImage(this->imageArray[index]);
-    
+- (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y {
+        [graphics drawImage:self->currentImage :x :y :self->anchor];
 }
 
 
-    int32_t size = this->originalImageArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-disposalUtil->disposeImage(this->originalImageArray[index]);
-    
-}
-
-disposalUtil->disposeImage(this->currentImage);
-    
+// throws Exception
+- (void) close {
+        DisposalUtil* disposalUtil = [DisposalUtil getInstance];
+        int32_t size2 = java_array_length(self->imageArray);
+        for (int32_t index = 0; index < size2; index++) {
+            [disposalUtil disposeImage:self->imageArray[index]];
+        }
+        int32_t size = java_array_length(self->originalImageArray);
+        for (int32_t index = 0; index < size; index++) {
+            [disposalUtil disposeImage:self->originalImageArray[index]];
+        }
+        [disposalUtil disposeImage:self->currentImage];
 }
 
 
-                //@Throws(Throwable.constructor)
-            
-    auto ImageArrayBaseRotationAnimation::finalize() -> void{
-
-    DisposalUtil* disposalUtil = DisposalUtil::getInstance();;
-    
-
-    int32_t size2 = this->imageArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size2; index++)
-        {
-disposalUtil->disposeImage(this->imageArray[index]);
-    
+// throws Throwable
+- (void) finalize {
+        DisposalUtil* disposalUtil = [DisposalUtil getInstance];
+        int32_t size2 = java_array_length(self->imageArray);
+        for (int32_t index = 0; index < size2; index++) {
+            [disposalUtil disposeImage:self->imageArray[index]];
+        }
+        int32_t size = java_array_length(self->originalImageArray);
+        for (int32_t index = 0; index < size; index++) {
+            [disposalUtil disposeImage:self->originalImageArray[index]];
+        }
+        [disposalUtil disposeImage:self->currentImage];
 }
 
+@end
 
-    int32_t size = this->originalImageArray.size();;
-    
-
-
-
-
-                        for (
-    int32_t index = 0;index < size; index++)
-        {
-disposalUtil->disposeImage(this->originalImageArray[index]);
-    
-}
-
-disposalUtil->disposeImage(this->currentImage);
-    
-}
-
-
-
-
-        #endif //ORG_ALLBINARY_ANIMATION_IMAGE_IMAGEARRAYBASEROTATIONANIMATION_CPP
