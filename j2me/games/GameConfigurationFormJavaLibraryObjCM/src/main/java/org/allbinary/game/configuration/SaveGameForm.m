@@ -6,6 +6,9 @@
 #include "org/allbinary/game/commands/GameCommandsFactory.h"
 #include "org/allbinary/graphics/color/BasicColor.h"
 #include "org/allbinary/logic/ABSystemWrapper.h"
+#if __has_include("org/allbinary/logic/ABSystemWrapper.h")
+#include "org/allbinary/logic/ABSystemWrapper.h"
+#endif
 
 
 static CommandForm* SaveGameForm_FORM;
@@ -28,7 +31,7 @@ void SaveGameForm_staticInit(void) {
 
 // throws Exception
 + (CommandForm*) createForm:(CommandListener*)commandListener :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor {
-        SaveGameForm_FORM = [((SaveGameForm*) [SaveGameForm alloc]) init:commandListener :title :backgrounBasicColor :foregroundBasicColor];
+        SaveGameForm_FORM = ((SaveGameForm*) [((SaveGameForm*) [SaveGameForm alloc]) init:commandListener :title :backgrounBasicColor :foregroundBasicColor]);
         return (SaveGameForm_staticInit(), SaveGameForm_FORM);
 }
 
@@ -43,7 +46,7 @@ void SaveGameForm_staticInit(void) {
         [self initFields];
         [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->CONSTRUCTOR];
         const char* timeString = java_string_of([[ABSystemWrapper getInstance] currentTimeMillis]);
-        [self->meUtil appendItem:self :[((TextField*) [TextField alloc]) init:"Name: " :timeString :30 :(TextField_staticInit(), TextField_ANY)]];
+        [self->meUtil appendItem:self :((TextField*) [((TextField*) [TextField alloc]) init:"Name: " :timeString :30 :(TextField_staticInit(), TextField_ANY)])];
         [self initCommands:commandListener];
     return self;
 }

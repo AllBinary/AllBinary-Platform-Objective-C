@@ -14,13 +14,13 @@ void SWTJOGLProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    SWTJOGLProcessor_instance = [((SWTJOGLProcessor*) [SWTJOGLProcessor alloc]) init];
+    SWTJOGLProcessor_instance = ((SWTJOGLProcessor*) [((SWTJOGLProcessor*) [SWTJOGLProcessor alloc]) init]);
 }
 
 @implementation SWTJOGLProcessor
 
 - (void) initFields {
-    self->glHolder = [((GLHolder*) [GLHolder alloc]) init]
+    self->glHolder = ((GLHolder*) [((GLHolder*) [GLHolder alloc]) init])
 #if 0 /* Java anonymous class body: implement it as a named subclass */
         
 
@@ -42,7 +42,7 @@ void SWTJOGLProcessor_staticInit(void) {
 }
 
 
-- (void) init_:(id)display :(id)comp {
+- (void) initMethod:(id)display :(id)comp {
 }
 
 

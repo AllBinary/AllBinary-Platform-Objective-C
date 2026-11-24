@@ -4,6 +4,9 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/string/CommonSeps.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static ArrayUtil* ArrayUtil_instance;
@@ -14,7 +17,7 @@ void ArrayUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ArrayUtil_instance = [((ArrayUtil*) [ArrayUtil alloc]) init];
+    ArrayUtil_instance = ((ArrayUtil*) [((ArrayUtil*) [ArrayUtil alloc]) init]);
 }
 
 @implementation ArrayUtil
@@ -133,7 +136,7 @@ void ArrayUtil_staticInit(void) {
 
 
 - (const char*) toStringFromTwoDimensionaArray:(int32_t**)twoDimensionalIntArray {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         CommonSeps* commonSeps = [CommonSeps getInstance];
         int32_t endIndex = java_array_length(twoDimensionalIntArray);
         int32_t endIndex2 = java_array_length(twoDimensionalIntArray[0]);
@@ -151,7 +154,7 @@ void ArrayUtil_staticInit(void) {
 
 
 - (const char*) toStringFromObjectArray:(id*)objectArray {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         CommonSeps* commonSeps = [CommonSeps getInstance];
         for (int32_t index = 0; index < java_array_length(objectArray); index++) {
             [stringBuffer append:[[StringUtil getInstance] toString:objectArray[index]]];
@@ -162,7 +165,7 @@ void ArrayUtil_staticInit(void) {
 
 
 - (const char*) toStringFromByteArray:(int8_t*)byteArray {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         CommonSeps* commonSeps = [CommonSeps getInstance];
         for (int32_t index = 0; index < java_array_length(byteArray); index++) {
             [stringBuffer appendbyte:byteArray[index]];

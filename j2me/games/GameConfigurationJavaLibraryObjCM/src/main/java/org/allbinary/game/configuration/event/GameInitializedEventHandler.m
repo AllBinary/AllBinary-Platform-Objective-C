@@ -14,7 +14,7 @@ void GameInitializedEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    GameInitializedEventHandler_gameKeyEventHandler = [((GameInitializedEventHandler*) [GameInitializedEventHandler alloc]) init];
+    GameInitializedEventHandler_gameKeyEventHandler = ((GameInitializedEventHandler*) [((GameInitializedEventHandler*) [GameInitializedEventHandler alloc]) init]);
 }
 
 @implementation GameInitializedEventHandler
@@ -34,7 +34,7 @@ void GameInitializedEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         GameInitializedListenerInterface* gameInitializedListenerInterface = (((GameInitializedListenerInterface*) eventListenerInterface));
-        [gameInitializedListenerInterface onGameInitialized:((GameInitializedEvent*) eventObject)];
+        [((id<GameInitializedListenerInterface>) gameInitializedListenerInterface) onGameInitialized:((GameInitializedEvent*) eventObject)];
 }
 
 @end

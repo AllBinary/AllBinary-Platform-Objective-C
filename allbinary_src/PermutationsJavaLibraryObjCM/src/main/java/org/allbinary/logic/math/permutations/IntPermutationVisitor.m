@@ -3,6 +3,9 @@
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonSeps.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 
@@ -18,7 +21,7 @@ void IntPermutationVisitor_staticInit(void) {
 
 - (void) initFields {
     
-    self->stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
+    self->stringBuilder = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
 }
 
 
@@ -38,7 +41,7 @@ void IntPermutationVisitor_staticInit(void) {
 
 
 - (void) print:(int32_t*)data {
-        StringMaker* stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuilder = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [self print:data :stringBuilder];
 }
 

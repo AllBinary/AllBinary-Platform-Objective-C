@@ -65,7 +65,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-- (void) init_:(int32_t)level;
+- (void) initMethod:(int32_t)level;
 - (void) clear;
 - (void) add:(GameFeatureControlledInterface*)featureInterface;
 - (BasicArrayList*) getList;

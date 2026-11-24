@@ -10,7 +10,7 @@ void ABKeyEventWrapper_staticInit(void) {
         return;
     }
     initialized = true;
-    ABKeyEventWrapper_instance = [((ABKeyEventWrapper*) [ABKeyEventWrapper alloc]) init];
+    ABKeyEventWrapper_instance = ((ABKeyEventWrapper*) [((ABKeyEventWrapper*) [ABKeyEventWrapper alloc]) init]);
 }
 
 @implementation ABKeyEventWrapper

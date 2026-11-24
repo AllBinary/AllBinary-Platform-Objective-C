@@ -8,6 +8,9 @@
 #include "org/allbinary/graphics/font/MyFontProcessor.h"
 #include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
 #include "org/allbinary/graphics/paint/Paintable.h"
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
 
 
 
@@ -23,7 +26,7 @@ void SimpleTextPaintable_staticInit(void) {
 
 - (void) initFields {
     self->displayInfoSingleton = [DisplayInfoSingleton getInstance];
-    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->updateMyFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->myFontProcessor = self->updateMyFontProcessor;
     
     

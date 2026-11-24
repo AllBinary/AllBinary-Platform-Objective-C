@@ -4,6 +4,9 @@
 #include "org/allbinary/graphics/color/BasicColor.h"
 #include "org/allbinary/graphics/form/item/ABTextItem.h"
 #include "org/allbinary/graphics/form/item/ABStringComponent.h"
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
 
 
 

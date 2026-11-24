@@ -60,7 +60,7 @@
 }
 - (instancetype) init:(const char*)name :(RemoteInfo*)remoteInfo :(int32_t)total :(PickedUpLayerInterfaceFactoryInterface*)pickedUpLayerInterfaceFactoryInterface :(Animation*)animationInterface :(Rectangle*)rectangle :(ViewPositionBase*)viewPosition;
 - (void) initFields;
-- (void) init_:(PickedUpLayerInterfaceFactoryInterface*)pickedUpLayerInterfaceFactoryInterface :(Animation*)animationInterface;
+- (void) initMethod:(PickedUpLayerInterfaceFactoryInterface*)pickedUpLayerInterfaceFactoryInterface :(Animation*)animationInterface;
 - (void) initXYZ:(int32_t)x :(int32_t)y :(int32_t)z;
 - (void) paint:(Graphics*)graphics;
 - (void) paintThreed:(Graphics*)graphics;

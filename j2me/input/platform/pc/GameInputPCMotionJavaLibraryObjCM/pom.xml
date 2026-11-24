@@ -127,6 +127,15 @@
         </dependency>
         -->
 
+        <!-- ObjC: InputPersistance.h (GameInputPersistance) embeds BasicPersitance of this optional, so not transitive, dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameConfigurationJ2MEJavaLibraryObjC</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
     </dependencies>
 
     <!-- Planned language build: PlannedLanguagePomBuildUpdater -->

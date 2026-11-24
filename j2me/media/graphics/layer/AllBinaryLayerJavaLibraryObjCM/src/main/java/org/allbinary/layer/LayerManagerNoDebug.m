@@ -11,7 +11,7 @@ void LayerManagerNoDebug_staticInit(void) {
         return;
     }
     initialized = true;
-    LayerManagerNoDebug_instance = [((LayerManagerNoDebug*) [LayerManagerNoDebug alloc]) init];
+    LayerManagerNoDebug_instance = ((LayerManagerNoDebug*) [((LayerManagerNoDebug*) [LayerManagerNoDebug alloc]) init]);
 }
 
 @implementation LayerManagerNoDebug

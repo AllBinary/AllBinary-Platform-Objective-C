@@ -59,7 +59,7 @@
 - (instancetype) init:(const char*)aPath :(const char*)name;
 - (void) initFields;
 + (AbPath*) createAbPath;
-- (void) init_;
+- (void) initMethod;
 - (const char*) getSchema:(const char*)aPath;
 - (bool) hasSchema;
 - (const char*) getPathFromPath:(const char*)aPath;

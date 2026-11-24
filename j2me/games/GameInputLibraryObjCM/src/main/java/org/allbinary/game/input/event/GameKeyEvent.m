@@ -2,6 +2,9 @@
 #include "org/allbinary/game/input/event/GameKeyEvent.h"
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/logic/string/StringMaker.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 GameKeyEvent* GameKeyEvent_NONE;
@@ -12,7 +15,7 @@ void GameKeyEvent_staticInit(void) {
         return;
     }
     initialized = true;
-    GameKeyEvent_NONE = [((GameKeyEvent*) [GameKeyEvent alloc]) init:[NullUtil getInstance]->NULL_OBJECT :-1 :-1 :-1 :-1 :false];
+    GameKeyEvent_NONE = ((GameKeyEvent*) [((GameKeyEvent*) [GameKeyEvent alloc]) init:[NullUtil getInstance]->NULL_OBJECT :-1 :-1 :-1 :-1 :false]);
 }
 
 @implementation GameKeyEvent
@@ -27,7 +30,7 @@ void GameKeyEvent_staticInit(void) {
 
 
 + (GameKeyEvent*) createEvent:(id)anyType :(int32_t)sourceId :(int32_t)key {
-        return [((GameKeyEvent*) [GameKeyEvent alloc]) init:anyType :sourceId :0 :0 :key :false];
+        return ((GameKeyEvent*) [((GameKeyEvent*) [GameKeyEvent alloc]) init:anyType :sourceId :0 :0 :key :false]);
 }
 
 
@@ -43,7 +46,7 @@ void GameKeyEvent_staticInit(void) {
 }
 
 
-- (void) init_:(id)anyType {
+- (void) initMethod:(id)anyType {
         [self setSource:anyType];
 }
 
@@ -64,7 +67,7 @@ void GameKeyEvent_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"\nKey: "];
         [stringBuffer appendint:[self getKey]];
         return [stringBuffer toString];

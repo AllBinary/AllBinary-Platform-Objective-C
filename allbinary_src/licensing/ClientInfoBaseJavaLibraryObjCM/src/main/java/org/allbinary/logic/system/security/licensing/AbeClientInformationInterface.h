@@ -31,7 +31,7 @@
 @class BasicArrayList;
 
 @protocol AbeClientInformationInterface
-- (void) init_;
+- (void) initMethod;
 - (GenericOperatingSystem*) getOperatingSystemInterface;
 - (const char*) getName;
 - (const char*) getSpecialName;

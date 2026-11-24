@@ -9,6 +9,12 @@
 #include "org/allbinary/logic/math/PrimitiveIntUtil.h"
 #include "org/allbinary/animation/image/sprite/SpriteIndexedAnimation.h"
 #include "org/allbinary/animation/image/sprite/AdjustedSpriteIndexedAnimation.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorUtil.h")
+#include "org/allbinary/graphics/color/BasicColorUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorUtil.h")
+#include "org/allbinary/graphics/color/BasicColorUtil.h"
+#endif
 
 
 
@@ -29,7 +35,7 @@ void OneRowSpriteIndexedAnimationFactory_staticInit(void) {
 
 // throws Exception
 + (OneRowSpriteIndexedAnimationFactory*) createFactoryDX:(Image*)image :(int32_t)dx :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        OneRowSpriteIndexedAnimationFactory* oneRowSpriteIndexedAnimationFactory = [((OneRowSpriteIndexedAnimationFactory*) [OneRowSpriteIndexedAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :[image getHeight] :[image getHeight] :0 :0 :animationBehaviorFactory];
+        OneRowSpriteIndexedAnimationFactory* oneRowSpriteIndexedAnimationFactory = ((OneRowSpriteIndexedAnimationFactory*) [((OneRowSpriteIndexedAnimationFactory*) [OneRowSpriteIndexedAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :[image getHeight] :[image getHeight] :0 :0 :animationBehaviorFactory]);
         [oneRowSpriteIndexedAnimationFactory initW:dx];
         return oneRowSpriteIndexedAnimationFactory;
 }
@@ -37,21 +43,21 @@ void OneRowSpriteIndexedAnimationFactory_staticInit(void) {
 
 // throws Exception
 + (OneRowSpriteIndexedAnimationFactory*) createFactoryDXY:(Image*)image :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        OneRowSpriteIndexedAnimationFactory* oneRowSpriteIndexedAnimationFactory = [((OneRowSpriteIndexedAnimationFactory*) [OneRowSpriteIndexedAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :[image getHeight] :[image getHeight] :0 :0 :animationBehaviorFactory];
-        [oneRowSpriteIndexedAnimationFactory init_:dx :dy];
+        OneRowSpriteIndexedAnimationFactory* oneRowSpriteIndexedAnimationFactory = ((OneRowSpriteIndexedAnimationFactory*) [((OneRowSpriteIndexedAnimationFactory*) [OneRowSpriteIndexedAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :[image getHeight] :[image getHeight] :0 :0 :animationBehaviorFactory]);
+        [oneRowSpriteIndexedAnimationFactory initMethod:dx :dy];
         return oneRowSpriteIndexedAnimationFactory;
 }
 
 
 // throws Exception
 + (OneRowSpriteIndexedAnimationFactory*) createFactoryWH:(Image*)image :(int32_t)width :(int32_t)height :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        return [((OneRowSpriteIndexedAnimationFactory*) [OneRowSpriteIndexedAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :width :height :0 :0 :animationBehaviorFactory];
+        return ((OneRowSpriteIndexedAnimationFactory*) [((OneRowSpriteIndexedAnimationFactory*) [OneRowSpriteIndexedAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :width :height :0 :0 :animationBehaviorFactory]);
 }
 
 
 // throws Exception
 + (OneRowSpriteIndexedAnimationFactory*) createFactory:(Image*)image :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        return [((OneRowSpriteIndexedAnimationFactory*) [OneRowSpriteIndexedAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :[image getHeight] :[image getHeight] :0 :0 :animationBehaviorFactory];
+        return ((OneRowSpriteIndexedAnimationFactory*) [((OneRowSpriteIndexedAnimationFactory*) [OneRowSpriteIndexedAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :[image getHeight] :[image getHeight] :0 :0 :animationBehaviorFactory]);
 }
 
 
@@ -62,14 +68,14 @@ void OneRowSpriteIndexedAnimationFactory_staticInit(void) {
 }
 
 
-- (void) init_:(int32_t)dx :(int32_t)dy {
+- (void) initMethod:(int32_t)dx :(int32_t)dy {
         self->animationFactoryInitializationVisitor->dx = dx;
         self->animationFactoryInitializationVisitor->dy = dy;
 }
 
 
 - (void) initW:(int32_t)dx {
-        [self init_:dx :0];
+        [self initMethod:dx :0];
         self->animationFactoryInitializationVisitor->dx += -(self->animationFactoryInitializationVisitor->width >> 2);
 }
 
@@ -78,9 +84,9 @@ void OneRowSpriteIndexedAnimationFactory_staticInit(void) {
 - (Animation*) getInstance:(int32_t)instanceId {
         Sprite* sprite = [self->animationFactorySpriteScaleUtil createImage:[self getImage] :self->animationFactoryInitializationVisitor->width :self->animationFactoryInitializationVisitor->height :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
         if (self->animationFactoryInitializationVisitor->dx != 0 || self->animationFactoryInitializationVisitor->dy != 0) {
-            return [((AdjustedSpriteIndexedAnimation*) [AdjustedSpriteIndexedAnimation alloc]) init:sprite :[self getImage] :[BasicColorUtil getInstance]->ZERO_ARRAY :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((AdjustedSpriteIndexedAnimation*) [((AdjustedSpriteIndexedAnimation*) [AdjustedSpriteIndexedAnimation alloc]) init:sprite :[self getImage] :[BasicColorUtil getInstance]->ZERO_ARRAY :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]]);
         } else {
-            return [((SpriteIndexedAnimation*) [SpriteIndexedAnimation alloc]) init:sprite :[self getImage] :[BasicColorUtil getInstance]->ZERO_ARRAY :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((SpriteIndexedAnimation*) [((SpriteIndexedAnimation*) [SpriteIndexedAnimation alloc]) init:sprite :[self getImage] :[BasicColorUtil getInstance]->ZERO_ARRAY :[self->animationBehaviorFactory getOrCreateInstance]]);
         }
 }
 

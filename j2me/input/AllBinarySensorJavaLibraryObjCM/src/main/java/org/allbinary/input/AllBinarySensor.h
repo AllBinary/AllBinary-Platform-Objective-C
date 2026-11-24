@@ -45,7 +45,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-- (void) init_;
+- (void) initMethod;
 - (void) update;
 + (void) setMax:(int32_t)max;
 + (int32_t) getMax;

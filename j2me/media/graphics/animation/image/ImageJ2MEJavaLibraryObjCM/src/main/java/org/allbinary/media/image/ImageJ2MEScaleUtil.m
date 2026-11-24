@@ -11,7 +11,7 @@ void ImageJ2MEScaleUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageJ2MEScaleUtil_instance = [((ImageJ2MEScaleUtil*) [ImageJ2MEScaleUtil alloc]) init];
+    ImageJ2MEScaleUtil_instance = ((ImageJ2MEScaleUtil*) [((ImageJ2MEScaleUtil*) [ImageJ2MEScaleUtil alloc]) init]);
 }
 
 @implementation ImageJ2MEScaleUtil

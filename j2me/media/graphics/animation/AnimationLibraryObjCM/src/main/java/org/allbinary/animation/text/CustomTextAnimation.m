@@ -8,6 +8,9 @@
 #include "org/allbinary/animation/text/TextAnimation.h"
 #include "org/allbinary/animation/text/TextInterface.h"
 #include "org/allbinary/animation/text/TextChangeListener.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 

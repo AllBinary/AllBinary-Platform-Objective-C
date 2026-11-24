@@ -5,6 +5,9 @@
 #include "org/allbinary/layer/AllBinaryLayerManager.h"
 #include "org/allbinary/util/HashtableUtil.h"
 #include "org/allbinary/util/ABHashtable.h"
+#if __has_include("org/allbinary/util/HashtableUtil.h")
+#include "org/allbinary/util/HashtableUtil.h"
+#endif
 
 
 

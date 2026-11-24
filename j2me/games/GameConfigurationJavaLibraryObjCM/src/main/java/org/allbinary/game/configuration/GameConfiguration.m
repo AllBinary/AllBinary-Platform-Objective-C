@@ -7,6 +7,15 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/game/configuration/GameConfigurationSingleton.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
 #if __has_include("org/allbinary/game/configuration/ABHashtable.h")
 #include "org/allbinary/game/configuration/ABHashtable.h"
 #endif
@@ -27,6 +36,24 @@
 #endif
 #if __has_include("org/allbinary/logic/string/ABHashtable.h")
 #include "org/allbinary/logic/string/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/GameFeatureEventHandler.h")
+#include "org/allbinary/game/configuration/event/GameFeatureEventHandler.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
 #endif
 
 
@@ -71,7 +98,7 @@ void GameConfiguration_staticInit(void) {
         if (self->value != value) {
             int32_t oldValue = self->value;
             self->value = value;
-            [[GameFeatureEventHandler getInstance] fireEvent:[((GameFeatureEvent*) [GameFeatureEvent alloc]) init:self :[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->name] append:" value: from: "] appendint:((int32_t) ((int32_t) (oldValue)))] append:" to "] appendint:((int32_t) ((int32_t) (self->value)))] toString]]];
+            [[GameFeatureEventHandler getInstance] fireEvent:((GameFeatureEvent*) [((GameFeatureEvent*) [GameFeatureEvent alloc]) init:self :[[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->name] append:" value: from: "] appendint:((int32_t) ((int32_t) (oldValue)))] append:" to "] appendint:((int32_t) ((int32_t) (self->value)))] toString]])];
         }
 }
 
@@ -128,7 +155,7 @@ void GameConfiguration_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"Name: "];
         [stringBuffer append:self->name];
         [stringBuffer append:" Min: "];

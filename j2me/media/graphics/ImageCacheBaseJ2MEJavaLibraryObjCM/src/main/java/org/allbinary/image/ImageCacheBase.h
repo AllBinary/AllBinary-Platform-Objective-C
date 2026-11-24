@@ -76,7 +76,7 @@
 - (Image*) createImageFromInputStream:(id)key :(InputStream*)inputStream;
 - (const char*) toString;
 - (ABHashtable*) getHashtableP;
-- (void) init_:(Image*)image;
+- (void) initMethod:(Image*)image;
 - (void) initProgress;
 @end
 

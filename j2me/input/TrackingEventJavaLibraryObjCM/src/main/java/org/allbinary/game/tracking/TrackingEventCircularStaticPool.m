@@ -14,13 +14,13 @@ void TrackingEventCircularStaticPool_staticInit(void) {
         return;
     }
     initialized = true;
-    TrackingEventCircularStaticPool_instance = [((TrackingEventCircularStaticPool*) [TrackingEventCircularStaticPool alloc]) init];
+    TrackingEventCircularStaticPool_instance = ((TrackingEventCircularStaticPool*) [((TrackingEventCircularStaticPool*) [TrackingEventCircularStaticPool alloc]) init]);
 }
 
 @implementation TrackingEventCircularStaticPool
 
 - (void) initFields {
-    self->EVENT_POOL = [((AllBinaryEventCircularPool*) [AllBinaryEventCircularPool alloc]) init:20];
+    self->EVENT_POOL = ((AllBinaryEventCircularPool*) [((AllBinaryEventCircularPool*) [AllBinaryEventCircularPool alloc]) init:20]);
 }
 
 - (instancetype) init {
@@ -35,8 +35,8 @@ void TrackingEventCircularStaticPool_staticInit(void) {
 }
 
 
-- (void) init_ {
-        [self->EVENT_POOL initAllBinaryEventCircularPool:[((TrackingEventFactory*) [TrackingEventFactory alloc]) init]];
+- (void) initMethod {
+        [self->EVENT_POOL initAllBinaryEventCircularPool:((TrackingEventFactory*) [((TrackingEventFactory*) [TrackingEventFactory alloc]) init])];
 }
 
 

@@ -3,6 +3,9 @@
 #include "javax/microedition/lcdui/Graphics.h"
 #include "org/allbinary/graphics/paint/PaintableInterface.h"
 #include "org/allbinary/layer/Layer.h"
+#if __has_include("org/allbinary/layer/Layer.h")
+#include "org/allbinary/layer/Layer.h"
+#endif
 
 
 
@@ -40,7 +43,7 @@ void PaintableLayerComposite_staticInit(void) {
         PaintableInterface* paintableInterface = nullptr;
         for (int32_t index = java_array_length(self->paintableArray); --index >= 0; ) {
             paintableInterface = ((PaintableInterface*) self->paintableArray[index]);
-            [paintableInterface paintThreed:graphics];
+            [((id<PaintableInterface>) paintableInterface) paintThreed:graphics];
         }
 }
 

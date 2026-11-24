@@ -10,7 +10,7 @@ void ProgressEndListener_staticInit(void) {
         return;
     }
     initialized = true;
-    ProgressEndListener_instance = [((ProgressEndListener*) [ProgressEndListener alloc]) init];
+    ProgressEndListener_instance = ((ProgressEndListener*) [((ProgressEndListener*) [ProgressEndListener alloc]) init]);
 }
 
 @implementation ProgressEndListener

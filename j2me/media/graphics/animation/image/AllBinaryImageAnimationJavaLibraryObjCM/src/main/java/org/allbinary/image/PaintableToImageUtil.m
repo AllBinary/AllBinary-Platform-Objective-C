@@ -26,7 +26,7 @@ void PaintableToImageUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    PaintableToImageUtil_instance = [((PaintableToImageUtil*) [PaintableToImageUtil alloc]) init];
+    PaintableToImageUtil_instance = ((PaintableToImageUtil*) [((PaintableToImageUtil*) [PaintableToImageUtil alloc]) init]);
 }
 
 @implementation PaintableToImageUtil
@@ -41,7 +41,7 @@ void PaintableToImageUtil_staticInit(void) {
 + (Image*) getImage:(PaintableInterface*)paintableInterface :(int32_t)width :(int32_t)height {
         Image* image = [[GameFeatureImageCacheFactory getInstance] get:java_objc_class_name((PaintableToImageUtil_staticInit(), PaintableToImageUtil_instance)) :width :height];
         Graphics* graphics = [image getGraphics];
-        [paintableInterface paint:graphics];
+        [((id<PaintableInterface>) paintableInterface) paint:graphics];
         return image;
 }
 

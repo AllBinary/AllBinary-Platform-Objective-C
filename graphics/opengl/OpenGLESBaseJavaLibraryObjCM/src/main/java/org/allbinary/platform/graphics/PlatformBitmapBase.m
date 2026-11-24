@@ -4,6 +4,9 @@
 #include "javax/microedition/lcdui/NullImage.h"
 #include "org/allbinary/graphics/color/BasicColor.h"
 #include "org/allbinary/graphics/color/BasicColorFactory.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 PlatformBitmapBase* PlatformBitmapBase_NULL_PLATFORM_BITMAP_BASE;
@@ -14,7 +17,7 @@ void PlatformBitmapBase_staticInit(void) {
         return;
     }
     initialized = true;
-    PlatformBitmapBase_NULL_PLATFORM_BITMAP_BASE = [((PlatformBitmapBase*) [PlatformBitmapBase alloc]) init];
+    PlatformBitmapBase_NULL_PLATFORM_BITMAP_BASE = ((PlatformBitmapBase*) [((PlatformBitmapBase*) [PlatformBitmapBase alloc]) init]);
 }
 
 @implementation PlatformBitmapBase

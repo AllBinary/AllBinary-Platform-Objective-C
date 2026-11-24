@@ -8,6 +8,18 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/input/event/GameKeyEvent.h"
 #include "org/allbinary/game/input/event/DownKeyEventListenerInterface.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 static const char* DownKeyEventHandlerBase_TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
@@ -24,7 +36,7 @@ void DownKeyEventHandlerBase_staticInit(void) {
 @implementation DownKeyEventHandlerBase
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -113,19 +125,19 @@ void DownKeyEventHandlerBase_staticInit(void) {
 // throws Exception
 - (void) processI:(int32_t)eventObject :(EventListenerInterface*)eventListenerInterface {
         DownKeyEventListenerInterface* downKeyEventListenerInterface = ((DownKeyEventListenerInterface*) eventListenerInterface);
-        [downKeyEventListenerInterface onDownKey:eventObject];
+        [((id<DownKeyEventListenerInterface>) downKeyEventListenerInterface) onDownKey:eventObject];
 }
 
 
 // throws Exception
 - (void) processEvent:(GameKeyEvent*)eventObject :(EventListenerInterface*)eventListenerInterface {
         DownKeyEventListenerInterface* downKeyEventListenerInterface = ((DownKeyEventListenerInterface*) eventListenerInterface);
-        [downKeyEventListenerInterface onDownKeyEvent:eventObject];
+        [((id<DownKeyEventListenerInterface>) downKeyEventListenerInterface) onDownKeyEvent:eventObject];
 }
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:[super toString]];
         [stringBuffer append:DownKeyEventHandlerBase_TOTAL_LISTENERS];
         [stringBuffer appendint:[self->list size]];
@@ -134,7 +146,7 @@ void DownKeyEventHandlerBase_staticInit(void) {
             JAVA_TRY {
                 eventListenerInterface = ((EventListenerInterface*) [self->list get:index]);
                 [stringBuffer append:DownKeyEventHandlerBase_LISTENER_LABEL];
-                [stringBuffer append:[eventListenerInterface toString]];
+                [stringBuffer append:[((id<EventListenerInterface>) eventListenerInterface) toString]];
             } JAVA_CATCH(Exception, e) {
                 [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->TOSTRING :e];
             } JAVA_END_TRY;

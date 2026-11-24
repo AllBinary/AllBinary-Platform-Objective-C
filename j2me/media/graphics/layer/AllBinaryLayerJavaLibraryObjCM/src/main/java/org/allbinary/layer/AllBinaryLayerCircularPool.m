@@ -27,7 +27,7 @@ void AllBinaryLayerCircularPool_staticInit(void) {
         self->circularIndexUtil = [CircularIndexUtil createInstance:total];
         self->OBJECT_ARRAY = ((id*) java_array_new(sizeof(id), total));
         for (int32_t localIndex = 0; localIndex < total; localIndex++) {
-            self->OBJECT_ARRAY[localIndex] = [allbinaryLayerFactoryInterface getInstance];
+            self->OBJECT_ARRAY[localIndex] = [((id<AllBinaryLayerFactoryInterface>) allbinaryLayerFactoryInterface) getInstance];
         }
 }
 

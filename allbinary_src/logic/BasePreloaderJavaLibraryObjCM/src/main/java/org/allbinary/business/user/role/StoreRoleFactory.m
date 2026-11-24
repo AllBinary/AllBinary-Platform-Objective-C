@@ -13,15 +13,15 @@ void StoreRoleFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    StoreRoleFactory_instance = [((StoreRoleFactory*) [StoreRoleFactory alloc]) init];
+    StoreRoleFactory_instance = ((StoreRoleFactory*) [((StoreRoleFactory*) [StoreRoleFactory alloc]) init]);
 }
 
 @implementation StoreRoleFactory
 
 - (void) initFields {
-    self->roles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->subscriberRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->wholesaleRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->roles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->subscriberRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->wholesaleRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 

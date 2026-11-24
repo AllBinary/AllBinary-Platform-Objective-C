@@ -16,14 +16,14 @@ void NullAnimationFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    NullAnimationFactory_NULL_NOT_FOR_USE_ANIMATION_FACTORY = [((NullAnimationFactory*) [NullAnimationFactory alloc]) init];
-    NullAnimationFactory_NULL_ANIMATION_FACTORY = [((NullAnimationFactory*) [NullAnimationFactory alloc]) init];
+    NullAnimationFactory_NULL_NOT_FOR_USE_ANIMATION_FACTORY = ((NullAnimationFactory*) [((NullAnimationFactory*) [NullAnimationFactory alloc]) init]);
+    NullAnimationFactory_NULL_ANIMATION_FACTORY = ((NullAnimationFactory*) [((NullAnimationFactory*) [NullAnimationFactory alloc]) init]);
 }
 
 @implementation NullAnimationFactory
 
 - (void) initFields {
-    self->NULL_ANIMATION = [((Animation*) [Animation alloc]) init]
+    self->NULL_ANIMATION = ((Animation*) [((Animation*) [Animation alloc]) init])
 #if 0 /* Java anonymous class body: implement it as a named subclass */
         
 

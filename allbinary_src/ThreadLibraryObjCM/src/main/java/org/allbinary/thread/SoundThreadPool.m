@@ -11,7 +11,7 @@ void SoundThreadPool_staticInit(void) {
         return;
     }
     initialized = true;
-    SoundThreadPool_instance = [((ThreadPool*) [ThreadPool alloc]) init:"Sound" :1 :(ThreadPool_staticInit(), ThreadPool_NORMAL_PRIORITY)];
+    SoundThreadPool_instance = ((ThreadPool*) [((ThreadPool*) [ThreadPool alloc]) init:"Sound" :1 :(ThreadPool_staticInit(), ThreadPool_NORMAL_PRIORITY)]);
 }
 
 @implementation SoundThreadPool

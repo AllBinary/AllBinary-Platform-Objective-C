@@ -3,6 +3,15 @@
 #include "org/allbinary/logic/math/BasicDecimal.h"
 #include "org/allbinary/game/physics/velocity/VelocityBehaviorBase.h"
 #include "org/allbinary/game/physics/velocity/BasicVelocityProperties.h"
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
 
 
 DragVelocityBehavior* DragVelocityBehavior_instance;
@@ -13,7 +22,7 @@ void DragVelocityBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    DragVelocityBehavior_instance = [((DragVelocityBehavior*) [DragVelocityBehavior alloc]) init];
+    DragVelocityBehavior_instance = ((DragVelocityBehavior*) [((DragVelocityBehavior*) [DragVelocityBehavior alloc]) init]);
 }
 
 @implementation DragVelocityBehavior

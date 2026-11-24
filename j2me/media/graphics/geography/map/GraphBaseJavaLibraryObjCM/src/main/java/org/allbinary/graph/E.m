@@ -10,7 +10,7 @@ void E_staticInit(void) {
         return;
     }
     initialized = true;
-    E_e = [((E*) [E alloc]) init];
+    E_e = ((E*) [((E*) [E alloc]) init]);
 }
 
 @implementation E

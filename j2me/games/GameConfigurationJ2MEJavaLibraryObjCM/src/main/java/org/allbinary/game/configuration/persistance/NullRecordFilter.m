@@ -10,7 +10,7 @@ void NullRecordFilter_staticInit(void) {
         return;
     }
     initialized = true;
-    NullRecordFilter_NULL_RECORD_FILTER = [((NullRecordFilter*) [NullRecordFilter alloc]) init];
+    NullRecordFilter_NULL_RECORD_FILTER = ((NullRecordFilter*) [((NullRecordFilter*) [NullRecordFilter alloc]) init]);
 }
 
 @implementation NullRecordFilter

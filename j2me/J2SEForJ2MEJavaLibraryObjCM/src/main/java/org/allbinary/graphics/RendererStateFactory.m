@@ -10,7 +10,7 @@ void RendererStateFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    RendererStateFactory_instance = [((RendererStateFactory*) [RendererStateFactory alloc]) init];
+    RendererStateFactory_instance = ((RendererStateFactory*) [((RendererStateFactory*) [RendererStateFactory alloc]) init]);
 }
 
 @implementation RendererStateFactory

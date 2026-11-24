@@ -5,6 +5,9 @@
 #include "org/allbinary/game/input/PlayerGameInputCompositeInterface.h"
 #include "org/allbinary/game/input/NoPlayerGameInput.h"
 #include "org/allbinary/game/input/PlayerGameInput.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 NullPlayerGameInputComposite* NullPlayerGameInputComposite_NULL_PLAYER_GAME_INPUT_COMPOSITE;
@@ -15,7 +18,7 @@ void NullPlayerGameInputComposite_staticInit(void) {
         return;
     }
     initialized = true;
-    NullPlayerGameInputComposite_NULL_PLAYER_GAME_INPUT_COMPOSITE = [((NullPlayerGameInputComposite*) [NullPlayerGameInputComposite alloc]) init];
+    NullPlayerGameInputComposite_NULL_PLAYER_GAME_INPUT_COMPOSITE = ((NullPlayerGameInputComposite*) [((NullPlayerGameInputComposite*) [NullPlayerGameInputComposite alloc]) init]);
 }
 
 @implementation NullPlayerGameInputComposite

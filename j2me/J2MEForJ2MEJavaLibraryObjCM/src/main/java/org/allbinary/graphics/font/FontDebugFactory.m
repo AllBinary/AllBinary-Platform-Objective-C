@@ -12,7 +12,7 @@ void FontDebugFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    FontDebugFactory_instance = [((FontDebugFactory*) [FontDebugFactory alloc]) init];
+    FontDebugFactory_instance = ((FontDebugFactory*) [((FontDebugFactory*) [FontDebugFactory alloc]) init]);
 }
 
 @implementation FontDebugFactory

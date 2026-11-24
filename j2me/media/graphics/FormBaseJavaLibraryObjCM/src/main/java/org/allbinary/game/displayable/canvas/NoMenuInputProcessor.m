@@ -5,6 +5,9 @@
 #include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
 #include "org/allbinary/util/BasicArrayListUtil.h"
 #include "org/allbinary/game/displayable/canvas/BasicMenuInputProcessor.h"
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
 
 
 static NoMenuInputProcessor* NoMenuInputProcessor_SINGLETON;
@@ -15,7 +18,7 @@ void NoMenuInputProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    NoMenuInputProcessor_SINGLETON = [((NoMenuInputProcessor*) [NoMenuInputProcessor alloc]) init];
+    NoMenuInputProcessor_SINGLETON = ((NoMenuInputProcessor*) [((NoMenuInputProcessor*) [NoMenuInputProcessor alloc]) init]);
 }
 
 @implementation NoMenuInputProcessor

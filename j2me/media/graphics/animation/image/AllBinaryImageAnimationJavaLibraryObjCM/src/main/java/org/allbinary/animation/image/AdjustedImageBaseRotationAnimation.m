@@ -27,13 +27,13 @@ void AdjustedImageBaseRotationAnimation_staticInit(void) {
 - (instancetype) init:(Image*)image :(AngleInfo*)angleInfo :(int16_t)totalAngle :(int32_t)dx :(int32_t)dy :(AnimationBehavior*)animationBehavior {
         self = [super init:image :angleInfo :totalAngle :animationBehavior];
         [self initFields];
-        [self init_:dx :dy];
+        [self initMethod:dx :dy];
     return self;
 }
 
 
 // throws Exception
-- (void) init_:(int32_t)dx :(int32_t)dy {
+- (void) initMethod:(int32_t)dx :(int32_t)dy {
         self->dx = dx;
         self->dy = dy;
 }

@@ -30,7 +30,7 @@ void ImageCreationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageCreationUtil_instance = [((ImageCreationUtil*) [ImageCreationUtil alloc]) init];
+    ImageCreationUtil_instance = ((ImageCreationUtil*) [((ImageCreationUtil*) [ImageCreationUtil alloc]) init]);
 }
 
 @implementation ImageCreationUtil

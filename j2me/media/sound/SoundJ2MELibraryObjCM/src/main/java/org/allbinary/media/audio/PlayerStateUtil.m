@@ -12,7 +12,7 @@ void PlayerStateUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    PlayerStateUtil_instance = [((PlayerStateUtil*) [PlayerStateUtil alloc]) init];
+    PlayerStateUtil_instance = ((PlayerStateUtil*) [((PlayerStateUtil*) [PlayerStateUtil alloc]) init]);
 }
 
 @implementation PlayerStateUtil

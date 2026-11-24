@@ -13,7 +13,7 @@ void BottomLimiter_staticInit(void) {
         return;
     }
     initialized = true;
-    BottomLimiter_instance = [((BottomLimiter*) [BottomLimiter alloc]) init];
+    BottomLimiter_instance = ((BottomLimiter*) [((BottomLimiter*) [BottomLimiter alloc]) init]);
 }
 
 @implementation BottomLimiter
@@ -38,7 +38,7 @@ void BottomLimiter_staticInit(void) {
 }
 
 
-- (void) init_:(int32_t)lower :(int32_t)higher {
+- (void) initMethod:(int32_t)lower :(int32_t)higher {
         self->lower = lower;
         self->higher = higher;
 }

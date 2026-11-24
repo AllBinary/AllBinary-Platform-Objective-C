@@ -6,6 +6,42 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/logic/communication/log/LogFormatUtil.h"
 #include "org/allbinary/logic/communication/log/Log.h"
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/TsUtil.h")
+#include "org/allbinary/TsUtil.h"
+#endif
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/TsUtil.h")
+#include "org/allbinary/TsUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 static LogUtil* LogUtil_instance;
@@ -16,7 +52,7 @@ void LogUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    LogUtil_instance = [((LogUtil*) [LogUtil alloc]) init];
+    LogUtil_instance = ((LogUtil*) [((LogUtil*) [LogUtil alloc]) init]);
 }
 
 @implementation LogUtil
@@ -51,7 +87,7 @@ void LogUtil_staticInit(void) {
 - (void) putF:(const char*)specialMessage :(id)anyType :(const char*)functionName {
         const char* className = [CommonStrings getInstance]->EMPTY;
         if (java_objc_class_name(anyType) != nil) {
-            className = java_string_new([[[[[((StringMaker*) [StringMaker alloc]) init] append:java_objc_class_name(anyType)] append:[CommonSeps getInstance]->COLON] append:[Integer toHexString:[[TsUtil getInstance] hashCode:anyType]]] toString]);
+            className = java_string_new([[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:java_objc_class_name(anyType)] append:[CommonSeps getInstance]->COLON] append:[Integer toHexString:[[TsUtil getInstance] hashCode:anyType]]] toString]);
         }
         const char* message = [self->logFormatUtil getS:className :functionName :specialMessage];
         fputs(java_string_of(self->LOG_SUCCESS), stdout);
@@ -71,7 +107,7 @@ void LogUtil_staticInit(void) {
         if (java_objc_class_name(anyType) != nil) {
             int32_t hashCodeValue = [[TsUtil getInstance] hashCode:anyType];
             const char* hexString = [Integer toHexString:hashCodeValue];
-            className = java_string_new([[[[[((StringMaker*) [StringMaker alloc]) init] append:java_objc_class_name(anyType)] append:[CommonSeps getInstance]->COLON] append:hexString] toString]);
+            className = java_string_new([[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:java_objc_class_name(anyType)] append:[CommonSeps getInstance]->COLON] append:hexString] toString]);
         }
         const char* message = [self->logFormatUtil get:className :functionName :specialMessage :exception];
         fputs(java_string_of(self->LOG_SUCCESS), stdout);

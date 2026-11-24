@@ -10,7 +10,7 @@ void VectorUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    VectorUtil_instance = [((VectorUtil*) [VectorUtil alloc]) init];
+    VectorUtil_instance = ((VectorUtil*) [((VectorUtil*) [VectorUtil alloc]) init]);
 }
 
 @implementation VectorUtil

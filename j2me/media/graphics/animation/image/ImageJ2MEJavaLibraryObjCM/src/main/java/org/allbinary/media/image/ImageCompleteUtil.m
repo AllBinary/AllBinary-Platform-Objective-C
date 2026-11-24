@@ -11,7 +11,7 @@ void ImageCompleteUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageCompleteUtil_instance = [((ImageCompleteUtil*) [ImageCompleteUtil alloc]) init];
+    ImageCompleteUtil_instance = ((ImageCompleteUtil*) [((ImageCompleteUtil*) [ImageCompleteUtil alloc]) init]);
 }
 
 @implementation ImageCompleteUtil

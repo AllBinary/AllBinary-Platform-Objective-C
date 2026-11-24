@@ -116,7 +116,7 @@
 - (instancetype) init:(AllBinaryLayer*)ownerLayerInterface :(ArtificialIntelligenceInterface*)artificialIntelligenceInterface :(GameInput*)gameInput :(Visitor*)visitor;
 - (void) initFields;
 - (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager;
-- (void) init_;
+- (void) initMethod;
 - (void) target:(AllBinaryLayerManager*)allBinaryLayerManager;
 - (void) verticalTargeting:(int32_t)x;
 - (void) horizontalTargeting:(int32_t)y;

@@ -10,6 +10,15 @@
 #include "org/allbinary/logic/util/event/EventStrings.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEvent.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/UpGameKeyEventHandler.h")
+#include "org/allbinary/game/input/event/UpGameKeyEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/DownGameKeyEventHandler.h")
+#include "org/allbinary/game/input/event/DownGameKeyEventHandler.h"
+#endif
 
 
 

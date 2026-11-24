@@ -11,16 +11,16 @@ void TouchFeatureFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchFeatureFactory_instance = [((TouchFeatureFactory*) [TouchFeatureFactory alloc]) init];
+    TouchFeatureFactory_instance = ((TouchFeatureFactory*) [((TouchFeatureFactory*) [TouchFeatureFactory alloc]) init]);
 }
 
 @implementation TouchFeatureFactory
 
 - (void) initFields {
-    self->TOUCH_ENABLED = [((TouchFeature*) [TouchFeature alloc]) init:"Touch Enabled"];
-    self->SHOW_SCREEN_BUTTONS = [((TouchFeature*) [TouchFeature alloc]) init:"Show"];
-    self->AUTO_HIDE_SHOW_SCREEN_BUTTONS = [((TouchFeature*) [TouchFeature alloc]) init:"Auto Hide (One Level)"];
-    self->HIDE_SCREEN_BUTTONS = [((TouchFeature*) [TouchFeature alloc]) init:"Hide"];
+    self->TOUCH_ENABLED = ((TouchFeature*) [((TouchFeature*) [TouchFeature alloc]) init:"Touch Enabled"]);
+    self->SHOW_SCREEN_BUTTONS = ((TouchFeature*) [((TouchFeature*) [TouchFeature alloc]) init:"Show"]);
+    self->AUTO_HIDE_SHOW_SCREEN_BUTTONS = ((TouchFeature*) [((TouchFeature*) [TouchFeature alloc]) init:"Auto Hide (One Level)"]);
+    self->HIDE_SCREEN_BUTTONS = ((TouchFeature*) [((TouchFeature*) [TouchFeature alloc]) init:"Hide"]);
 }
 
 

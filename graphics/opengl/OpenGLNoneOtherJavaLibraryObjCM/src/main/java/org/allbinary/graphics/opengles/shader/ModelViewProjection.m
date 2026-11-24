@@ -1,6 +1,9 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/graphics/opengles/shader/ModelViewProjection.h"
 #include "org/allbinary/logic/NullUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static ModelViewProjection* ModelViewProjection_instance;
@@ -11,7 +14,7 @@ void ModelViewProjection_staticInit(void) {
         return;
     }
     initialized = true;
-    ModelViewProjection_instance = [((ModelViewProjection*) [ModelViewProjection alloc]) init];
+    ModelViewProjection_instance = ((ModelViewProjection*) [((ModelViewProjection*) [ModelViewProjection alloc]) init]);
 }
 
 @implementation ModelViewProjection

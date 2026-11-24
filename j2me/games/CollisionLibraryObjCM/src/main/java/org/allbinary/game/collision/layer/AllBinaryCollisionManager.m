@@ -14,7 +14,7 @@ void AllBinaryCollisionManager_staticInit(void) {
         return;
     }
     initialized = true;
-    AllBinaryCollisionManager_allBinaryCollisionManager = [((AllBinaryCollisionManager*) [AllBinaryCollisionManager alloc]) init];
+    AllBinaryCollisionManager_allBinaryCollisionManager = ((AllBinaryCollisionManager*) [((AllBinaryCollisionManager*) [AllBinaryCollisionManager alloc]) init]);
 }
 
 @implementation AllBinaryCollisionManager
@@ -43,8 +43,8 @@ void AllBinaryCollisionManager_staticInit(void) {
 
 // throws Exception
 - (void) collide:(LayerManager*)layerManager :(CollidableInterfaceCompositeInterface*)collidableInterfaceCompositeInterface :(CollidableInterfaceCompositeInterface*)collidableInterfaceCompositeInterface2 {
-        CollidableBaseBehavior* collidableBase2 = [collidableInterfaceCompositeInterface2 getCollidableInferface];
-        CollidableBaseBehavior* collidableBase = [collidableInterfaceCompositeInterface getCollidableInferface];
+        CollidableBaseBehavior* collidableBase2 = [((id<CollidableInterfaceCompositeInterface>) collidableInterfaceCompositeInterface2) getCollidableInferface];
+        CollidableBaseBehavior* collidableBase = [((id<CollidableInterfaceCompositeInterface>) collidableInterfaceCompositeInterface) getCollidableInferface];
         if ([collidableBase2 isCollidable:((CollidableCompositeLayer*) collidableInterfaceCompositeInterface)]) {
             if ([collidableBase isCollisionInterface:((CollidableCompositeLayer*) collidableInterfaceCompositeInterface) :collidableInterfaceCompositeInterface2]) {
                 [collidableBase collideInterface:((CollidableCompositeLayer*) collidableInterfaceCompositeInterface) :collidableInterfaceCompositeInterface2];

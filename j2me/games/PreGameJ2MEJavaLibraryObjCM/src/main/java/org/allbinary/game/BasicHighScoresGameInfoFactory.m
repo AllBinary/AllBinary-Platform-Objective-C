@@ -14,14 +14,14 @@ void BasicHighScoresGameInfoFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicHighScoresGameInfoFactory_SINGLETON = [((BasicHighScoresGameInfoFactory*) [BasicHighScoresGameInfoFactory alloc]) init];
+    BasicHighScoresGameInfoFactory_SINGLETON = ((BasicHighScoresGameInfoFactory*) [((BasicHighScoresGameInfoFactory*) [BasicHighScoresGameInfoFactory alloc]) init]);
 }
 
 @implementation BasicHighScoresGameInfoFactory
 
 - (void) initFields {
-    self->MULTI_PLAYER_SERVER = [((GameInfo*) [GameInfo alloc]) init:[GameTypeFactory getInstance]->MULTI_PLAYER :(GameMode_staticInit(), GameMode_SERVER) :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :0 :0];
-    self->SINGLE_PLAYER_SERVER = [((GameInfo*) [GameInfo alloc]) init:[GameTypeFactory getInstance]->SINGLE_PLAYER :(GameMode_staticInit(), GameMode_SERVER) :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :0 :0];
+    self->MULTI_PLAYER_SERVER = ((GameInfo*) [((GameInfo*) [GameInfo alloc]) init:[GameTypeFactory getInstance]->MULTI_PLAYER :(GameMode_staticInit(), GameMode_SERVER) :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :0 :0]);
+    self->SINGLE_PLAYER_SERVER = ((GameInfo*) [((GameInfo*) [GameInfo alloc]) init:[GameTypeFactory getInstance]->SINGLE_PLAYER :(GameMode_staticInit(), GameMode_SERVER) :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :0 :0]);
 }
 
 - (instancetype) init {

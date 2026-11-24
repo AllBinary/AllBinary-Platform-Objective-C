@@ -42,9 +42,9 @@ void ImageArrayAnimationFactory_staticInit(void) {
 // throws Exception
 - (Animation*) getInstance:(int32_t)instanceId {
         if (self->dx != 0 || self->dy != 0) {
-            return [((AdjustedImageArrayAnimation*) [AdjustedImageArrayAnimation alloc]) init:self->imageArray :self->dx :self->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((AdjustedImageArrayAnimation*) [((AdjustedImageArrayAnimation*) [AdjustedImageArrayAnimation alloc]) init:self->imageArray :self->dx :self->dy :[self->animationBehaviorFactory getOrCreateInstance]]);
         } else {
-            return [((ImageArrayAnimation*) [ImageArrayAnimation alloc]) init:self->imageArray :[AnimationBehavior getInstance]];
+            return ((ImageArrayAnimation*) [((ImageArrayAnimation*) [ImageArrayAnimation alloc]) init:self->imageArray :[AnimationBehavior getInstance]]);
         }
 }
 

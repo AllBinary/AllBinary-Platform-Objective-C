@@ -12,7 +12,7 @@ void FullScreenPaintableFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    FullScreenPaintableFactory_instance = [((FullScreenPaintableFactory*) [FullScreenPaintableFactory alloc]) init];
+    FullScreenPaintableFactory_instance = ((FullScreenPaintableFactory*) [((FullScreenPaintableFactory*) [FullScreenPaintableFactory alloc]) init]);
 }
 
 @implementation FullScreenPaintableFactory

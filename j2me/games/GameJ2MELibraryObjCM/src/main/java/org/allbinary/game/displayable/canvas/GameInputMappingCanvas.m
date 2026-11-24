@@ -22,6 +22,36 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/game/displayable/canvas/GameCommandCanvas.h"
 #include "org/allbinary/game/displayable/canvas/GameInputMappingInstructionsCanvas.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameKeyFactory.h")
+#include "org/allbinary/game/input/GameKeyFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/PlatformInputMappingFactory.h")
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
+#endif
+#if __has_include("org/allbinary/game/paint/ColorFillPaintableFactory.h")
+#include "org/allbinary/game/paint/ColorFillPaintableFactory.h"
+#endif
+#if __has_include("org/allbinary/game/commands/GameCommandsFactory.h")
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 #if __has_include("org/allbinary/game/displayable/canvas/InputToGameKeyMapping.h")
 #include "org/allbinary/game/displayable/canvas/InputToGameKeyMapping.h"
 #endif
@@ -87,6 +117,12 @@
 #endif
 #if __has_include("org/allbinary/util/InputToGameKeyMapping.h")
 #include "org/allbinary/util/InputToGameKeyMapping.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
 #endif
 #if __has_include("org/allbinary/game/displayable/canvas/InputToGameKeyMapping.h")
 #include "org/allbinary/game/displayable/canvas/InputToGameKeyMapping.h"
@@ -364,8 +400,8 @@ void GameInputMappingCanvas_staticInit(void) {
         return;
     }
     initialized = true;
-    GameInputMappingCanvas_DISPLAY = [((Command*) [Command alloc]) init:"Controls" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :2];
-    GameInputMappingCanvas_DEFAULT = [((Command*) [Command alloc]) init:"Default" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :2];
+    GameInputMappingCanvas_DISPLAY = ((Command*) [((Command*) [Command alloc]) init:"Controls" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :2]);
+    GameInputMappingCanvas_DEFAULT = ((Command*) [((Command*) [Command alloc]) init:"Default" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :2]);
 }
 
 @implementation GameInputMappingCanvas
@@ -393,7 +429,7 @@ void GameInputMappingCanvas_staticInit(void) {
         self->abeClientInformation = abeClientInformation;
         self->helpPaintable = ((InputMappingHelpPaintable*) helpPaintable);
         self->inputMapping = [[PlatformInputMappingFactory getInstance] getPersistentInputMappingInstance];
-        self->paintable = [((ProcessPaintable*) [ProcessPaintable alloc]) init];
+        self->paintable = ((ProcessPaintable*) [((ProcessPaintable*) [ProcessPaintable alloc]) init]);
         self->colorFillPaintable = [[ColorFillPaintableFactory getInstance] getInstance:[allBinaryGameLayerManager getBackgroundBasicColor] :false];
     return self;
 }
@@ -441,7 +477,7 @@ void GameInputMappingCanvas_staticInit(void) {
 
 - (void) addGameKey:(int32_t)keyCode :(bool)repeated {
         JAVA_TRY {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Raw Device Key Code: "] append:[Integer toHexString:keyCode]] toString] :self :self->gameInputStrings->ADD_KEY_EVENT];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Raw Device Key Code: "] append:[Integer toHexString:keyCode]] toString] :self :self->gameInputStrings->ADD_KEY_EVENT];
             GameKey* gameKey = [self->inputToGameKeyMapping getInstanceForCanvas:self :keyCode];
             Input* input = [self->inputFactory getInstanceById:keyCode];
             [self processInputMapping:gameKey :input];
@@ -453,7 +489,7 @@ void GameInputMappingCanvas_staticInit(void) {
 
 // throws Exception
 - (void) processInputMapping:(GameKey*)gameKey :(Input*)input {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"Start Passed GameKey: "];
         [stringBuffer append:[self->stringUtil toString:gameKey]];
         [stringBuffer append:" Input: "];
@@ -468,7 +504,7 @@ void GameInputMappingCanvas_staticInit(void) {
 
 
 - (void) setSelectedAction:(GameKey*)gameKey {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Selected GameKey: "] append:[self->stringUtil toString:gameKey]] toString] :self :"setSelectedAction"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Selected GameKey: "] append:[self->stringUtil toString:gameKey]] toString] :self :"setSelectedAction"];
         self->selectedGameKey = gameKey;
         self->selectedInput = self->NONE;
         [self->helpPaintable update:self->selectedGameKey :self->selectedInput];
@@ -478,7 +514,7 @@ void GameInputMappingCanvas_staticInit(void) {
 
 // throws Exception
 - (void) gameActionCrud:(GameKey*)gameKey :(Input*)input {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"Start GameKey: "];
         [stringBuffer append:[self->stringUtil toString:self->selectedGameKey]];
         [stringBuffer append:" Input: "];
@@ -488,7 +524,7 @@ void GameInputMappingCanvas_staticInit(void) {
             BasicArrayList* list = [[self->inputMapping getInputMapping] getMappedInput:self->selectedGameKey];
             bool isInputAlreadyMappedToSelectedAction = [list contains:input];
             if (isInputAlreadyMappedToSelectedAction) {
-                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Already Mapped Input: "] append:[self->stringUtil toString:input]] toString] :self :"gameActionCrud"];
+                [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Already Mapped Input: "] append:[self->stringUtil toString:input]] toString] :self :"gameActionCrud"];
                 self->selectedInput = input;
                 [self->helpPaintable update:self->selectedGameKey :self->selectedInput];
                 [self->repaintBehavior onChangeRepaint:self];
@@ -509,7 +545,7 @@ void GameInputMappingCanvas_staticInit(void) {
         [self->logUtil putF:self->commonStrings->START :self :METHOD_NAME];
         bool isInputAlreadyMapped = [[self->inputMapping getInputMapping] isMapped:input];
         if (!isInputAlreadyMapped && ![self->inputMapping isSystemInput:input]) {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:"Add Key Mapping : GameKey: "];
             [stringBuffer append:[self->stringUtil toString:self->selectedGameKey]];
             [stringBuffer append:" Input: "];
@@ -530,7 +566,7 @@ void GameInputMappingCanvas_staticInit(void) {
         const char* METHOD_NAME = "deleteCurrentMapping";
         BasicArrayList* list = [[self->inputMapping getInputMapping] getMappedInput:self->selectedGameKey];
         if ([list size] > 1) {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:"Start GameKey: "];
             [stringBuffer append:"Remove Key Mapping: GameKey: "];
             [stringBuffer append:[self->stringUtil toString:self->selectedGameKey]];

@@ -8,6 +8,15 @@
 #include "org/allbinary/layer/event/LayerManagerEventListener.h"
 #include "org/allbinary/layer/event/LayerManagerEvent.h"
 #include "org/allbinary/layer/event/LayerManagerEventListenerInterface.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 static LayerManagerEventHandler* LayerManagerEventHandler_instance;
@@ -18,13 +27,13 @@ void LayerManagerEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    LayerManagerEventHandler_instance = [((LayerManagerEventHandler*) [LayerManagerEventHandler alloc]) init];
+    LayerManagerEventHandler_instance = ((LayerManagerEventHandler*) [((LayerManagerEventHandler*) [LayerManagerEventHandler alloc]) init]);
 }
 
 @implementation LayerManagerEventHandler
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->CREATE = "Create";
     self->DELETE = "Delete";
 }
@@ -94,7 +103,7 @@ void LayerManagerEventHandler_staticInit(void) {
             JAVA_TRY {
                 eventListenerInterface = ((EventListenerInterface*) eventListenerInterfaceList->objectArray[listenerIndex]);
                 layerManagerEventListenerInterface = (((LayerManagerEventListenerInterface*) eventListenerInterface));
-                [layerManagerEventListenerInterface onDeleteLayerManagerEvent:((LayerManagerEvent*) eventObject)];
+                [((id<LayerManagerEventListenerInterface>) layerManagerEventListenerInterface) onDeleteLayerManagerEvent:((LayerManagerEvent*) eventObject)];
             } JAVA_CATCH(Exception, e) {
                 [self->logUtil put:self->commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
             } JAVA_END_TRY;
@@ -106,7 +115,7 @@ void LayerManagerEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         LayerManagerEventListenerInterface* layerManagerEventListenerInterface = (((LayerManagerEventListenerInterface*) eventListenerInterface));
-        [layerManagerEventListenerInterface onCreateLayerManagerEvent:((LayerManagerEvent*) eventObject)];
+        [((id<LayerManagerEventListenerInterface>) layerManagerEventListenerInterface) onCreateLayerManagerEvent:((LayerManagerEvent*) eventObject)];
 }
 
 @end

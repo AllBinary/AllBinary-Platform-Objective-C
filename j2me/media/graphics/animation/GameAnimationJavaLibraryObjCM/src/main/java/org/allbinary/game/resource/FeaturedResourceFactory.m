@@ -12,6 +12,45 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/resource/ResourceLoadingLevelFactory.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -27,7 +66,7 @@ void FeaturedResourceFactory_staticInit(void) {
 
 - (void) initFields {
     self->logUtil = [LogUtil getInstance];
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->commonStrings = [CommonStrings getInstance];
     self->ANIMATION_FEATURES = "Animation Features: Vector: ";
     self->IMAGE_LABEL = " Image: ";
@@ -49,20 +88,20 @@ void FeaturedResourceFactory_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(int32_t)level {
+- (void) initMethod:(int32_t)level {
         int32_t size = [self->list size];
         for (int32_t index = 0; index < size; index++) {
             GameFeatureControlledInterface* featureInterface = ((GameFeatureControlledInterface*) self->list->objectArray[index]);
-            bool isLoadingLevel = [featureInterface isLoadingLevel:level];
-            bool isFeature = [featureInterface isFeature];
-            [self->logUtil putF:[[[[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->GAME_FEATURE_CONTROLLED] append:[featureInterface toString]] append:self->IS_LOADING_LEVEL_LABEL] append:[[ResourceLoadingLevelFactory getInstance] getLevelString:level]] append:[CommonSeps getInstance]->COLON_SEP] appendboolean:isLoadingLevel] append:self->IS_FEATURE] appendboolean:isFeature] toString] :self :self->commonStrings->INIT];
+            bool isLoadingLevel = [((id<GameFeatureControlledInterface>) featureInterface) isLoadingLevel:level];
+            bool isFeature = [((id<GameFeatureControlledInterface>) featureInterface) isFeature];
+            [self->logUtil putF:[[[[[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->GAME_FEATURE_CONTROLLED] append:[((id<GameFeatureControlledInterface>) featureInterface) toString]] append:self->IS_LOADING_LEVEL_LABEL] append:[[ResourceLoadingLevelFactory getInstance] getLevelString:level]] append:[CommonSeps getInstance]->COLON_SEP] appendboolean:isLoadingLevel] append:self->IS_FEATURE] appendboolean:isFeature] toString] :self :self->commonStrings->INIT];
             if (isLoadingLevel && isFeature) {
-                [featureInterface init_:level];
+                [((id<GameFeatureControlledInterface>) featureInterface) initMethod:level];
             }
         }
         Features* features = [Features getInstance];
         GraphicsFeatureFactory* graphicsFeatureFactory = [GraphicsFeatureFactory getInstance];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:self->ANIMATION_FEATURES];
         [stringBuffer appendboolean:[features isFeature:graphicsFeatureFactory->VECTOR_GRAPHICS]];
         [stringBuffer append:self->IMAGE_LABEL];
@@ -89,7 +128,7 @@ void FeaturedResourceFactory_staticInit(void) {
 
 
 - (void) add:(GameFeatureControlledInterface*)featureInterface {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->START_LABEL] append:[[StringUtil getInstance] toString:featureInterface]] toString] :self :self->commonStrings->ADD];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->START_LABEL] append:[[StringUtil getInstance] toString:featureInterface]] toString] :self :self->commonStrings->ADD];
         [self->list add:featureInterface];
 }
 

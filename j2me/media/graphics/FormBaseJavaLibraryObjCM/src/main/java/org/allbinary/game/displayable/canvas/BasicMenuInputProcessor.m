@@ -20,13 +20,13 @@ void BasicMenuInputProcessor_staticInit(void) {
 @implementation BasicMenuInputProcessor
 
 - (void) initFields {
-    self->motionGestureEventList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->motionGestureEventList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->canvas = (NullCanvas_staticInit(), NullCanvas_NULL_CANVAS);
 }
 
 
 - (instancetype) init:(BasicArrayList*)gameKeyEventList :(int32_t)playerInputId :(Canvas*)gameCanvas {
-        self = [super init:gameKeyEventList :[((BasicArrayListD*) [BasicArrayListD alloc]) init] :playerInputId];
+        self = [super init:gameKeyEventList :((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :playerInputId];
         [self initFields];
         self->canvas = gameCanvas;
     return self;

@@ -28,7 +28,7 @@
 @class GameFeatureControlledInterface;
 
 @protocol GameFeatureControlledInterface
-- (void) init_:(int32_t)level;
+- (void) initMethod:(int32_t)level;
 - (bool) isFeature;
 - (bool) isLoadingLevel:(int32_t)level;
 @end

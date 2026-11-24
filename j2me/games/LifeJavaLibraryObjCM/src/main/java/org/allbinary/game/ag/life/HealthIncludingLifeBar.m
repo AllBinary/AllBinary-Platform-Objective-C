@@ -30,7 +30,7 @@ void HealthIncludingLifeBar_staticInit(void) {
 
 // throws Exception
 + (HealthIncludingLifeBar*) createHealthIncludingLifeBar:(AllBinaryLayer*)layerInterface :(Life*)life :(Health*)healthInterface :(int32_t)location :(int32_t)direction {
-        return [((HealthIncludingLifeBar*) [HealthIncludingLifeBar alloc]) init:layerInterface :life :healthInterface :[((HealthBarTwodAnimation*) [HealthBarTwodAnimation alloc]) init:layerInterface :location] :direction];
+        return ((HealthIncludingLifeBar*) [((HealthIncludingLifeBar*) [HealthIncludingLifeBar alloc]) init:layerInterface :life :healthInterface :((HealthBarTwodAnimation*) [((HealthBarTwodAnimation*) [HealthBarTwodAnimation alloc]) init:layerInterface :location]) :direction]);
 }
 
 
@@ -41,14 +41,14 @@ void HealthIncludingLifeBar_staticInit(void) {
         self->animationInterface = animationInterface;
         self->life = life;
         self->healthInterface = healthInterface;
-        [self->healthInterface addListener:self];
+        [((id<HealthInterface>) self->healthInterface) addListener:self];
         [self onHealthChange];
     return self;
 }
 
 
 - (void) onHealthChange {
-        [self->animationInterface onHealthChange:(([self->healthInterface getHealth] + ([self->healthInterface getMaxHealth] * ((int32_t) [self->life get]))) * [self->allbinaryLayer getWidth]) / ([self->healthInterface getMaxHealth] + ([self->healthInterface getMaxHealth] * ((int32_t) [self->life getStartLives])))];
+        [self->animationInterface onHealthChange:(([((id<HealthInterface>) self->healthInterface) getHealth] + ([((id<HealthInterface>) self->healthInterface) getMaxHealth] * ((int32_t) [self->life get]))) * [self->allbinaryLayer getWidth]) / ([((id<HealthInterface>) self->healthInterface) getMaxHealth] + ([((id<HealthInterface>) self->healthInterface) getMaxHealth] * ((int32_t) [self->life getStartLives])))];
 }
 
 

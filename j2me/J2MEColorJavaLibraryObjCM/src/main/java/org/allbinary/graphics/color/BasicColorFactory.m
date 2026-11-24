@@ -3,6 +3,27 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/graphics/color/BasicColor.h"
 #include "org/allbinary/graphics/color/BasicColorUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static BasicColorFactory* BasicColorFactory_instance;
@@ -13,7 +34,7 @@ void BasicColorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicColorFactory_instance = [((BasicColorFactory*) [BasicColorFactory alloc]) init];
+    BasicColorFactory_instance = ((BasicColorFactory*) [((BasicColorFactory*) [BasicColorFactory alloc]) init]);
 }
 
 @implementation BasicColorFactory
@@ -63,23 +84,23 @@ void BasicColorFactory_staticInit(void) {
 
 
 - (BasicColor*) createInstance:(int32_t)value {
-        return [((BasicColor*) [BasicColor alloc]) init:[BasicColorUtil getInstance]->ALPHA :value :[StringUtil getInstance]->EMPTY_STRING];
+        return ((BasicColor*) [((BasicColor*) [BasicColor alloc]) init:[BasicColorUtil getInstance]->ALPHA :value :[StringUtil getInstance]->EMPTY_STRING]);
 }
 
 
 - (BasicColor*) createInstanceA:(int32_t)alphaValue :(int32_t)value {
-        return [((BasicColor*) [BasicColor alloc]) init:alphaValue :value :[StringUtil getInstance]->EMPTY_STRING];
+        return ((BasicColor*) [((BasicColor*) [BasicColor alloc]) init:alphaValue :value :[StringUtil getInstance]->EMPTY_STRING]);
 }
 
 
 - (BasicColor*) createInstanceAN:(int32_t)alphaValue :(int32_t)value :(const char*)name {
-        return [((BasicColor*) [BasicColor alloc]) init:alphaValue :value :name];
+        return ((BasicColor*) [((BasicColor*) [BasicColor alloc]) init:alphaValue :value :name]);
 }
 
 
 - (BasicColor*) createInstanceARGB:(int32_t)alphaValue :(int32_t)r :(int32_t)g :(int32_t)b :(const char*)name {
         int32_t ALPHA_MASK = 0xFF000000;
-        return [((BasicColor*) [BasicColor alloc]) init:alphaValue :((alphaValue << 24) & ALPHA_MASK) + ((r << 16) & 0x00FF0000) + ((g << 8) & 0x0000FF00) + (b & 0x000000FF) :[StringUtil getInstance]->EMPTY_STRING];
+        return ((BasicColor*) [((BasicColor*) [BasicColor alloc]) init:alphaValue :((alphaValue << 24) & ALPHA_MASK) + ((r << 16) & 0x00FF0000) + ((g << 8) & 0x0000FF00) + (b & 0x000000FF) :[StringUtil getInstance]->EMPTY_STRING]);
 }
 
 @end

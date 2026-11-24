@@ -21,7 +21,7 @@ void Memory_staticInit(void) {
 
 
 + (const char*) getInfo {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"Memory: Free: "];
         [stringBuffer appendlong:[[Runtime getRuntime] freeMemory]];
         [stringBuffer append:" Max: "];

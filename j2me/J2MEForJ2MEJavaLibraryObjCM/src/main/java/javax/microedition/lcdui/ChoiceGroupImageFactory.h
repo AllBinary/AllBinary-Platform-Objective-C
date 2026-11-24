@@ -56,7 +56,7 @@
 - (void) initFields;
 + (ChoiceGroupImageFactory*) getInstance;
 - (Image**) getImageArray;
-- (void) init_:(Image**)imageArray;
+- (void) initMethod:(Image**)imageArray;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

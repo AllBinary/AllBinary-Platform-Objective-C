@@ -19,7 +19,7 @@ void TouchButtonAndroidResources_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 @end

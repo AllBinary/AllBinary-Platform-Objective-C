@@ -5,6 +5,9 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/util/BasicArrayListUtil.h"
 #include "org/allbinary/input/motion/button/BaseTouchInput.h"
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
 
 
 static BasicTouchButtonsBuilder* BasicTouchButtonsBuilder_SINGLETON;
@@ -15,7 +18,7 @@ void BasicTouchButtonsBuilder_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicTouchButtonsBuilder_SINGLETON = [((BasicTouchButtonsBuilder*) [BasicTouchButtonsBuilder alloc]) init];
+    BasicTouchButtonsBuilder_SINGLETON = ((BasicTouchButtonsBuilder*) [((BasicTouchButtonsBuilder*) [BasicTouchButtonsBuilder alloc]) init]);
 }
 
 @implementation BasicTouchButtonsBuilder
@@ -39,7 +42,7 @@ void BasicTouchButtonsBuilder_staticInit(void) {
 - (BasicArrayList*) getList {
         JAVA_TRY {
             [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->GET_LIST];
-            BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            BasicArrayList* list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             return list;
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->GET_LIST :e];

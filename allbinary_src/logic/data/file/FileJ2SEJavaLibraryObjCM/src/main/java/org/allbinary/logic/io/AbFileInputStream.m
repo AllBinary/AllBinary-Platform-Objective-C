@@ -24,13 +24,13 @@ void AbFileInputStream_staticInit(void) {
 
 // throws FileNotFoundException
 + (AbFileInputStream*) createFromAbFile:(AbFile*)file {
-        return [((AbFileInputStream*) [AbFileInputStream alloc]) init:[[AbFileNativeUtil get:file] getPath]];
+        return ((AbFileInputStream*) [((AbFileInputStream*) [AbFileInputStream alloc]) init:[[AbFileNativeUtil get:file] getPath]]);
 }
 
 
 // throws FileNotFoundException
 + (AbFileInputStream*) createFromFile:(File*)file {
-        return [((AbFileInputStream*) [AbFileInputStream alloc]) init:[file getPath]];
+        return ((AbFileInputStream*) [((AbFileInputStream*) [AbFileInputStream alloc]) init:[file getPath]]);
 }
 
 @end

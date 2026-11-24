@@ -4,6 +4,9 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/media/audio/BasicPlayer.h"
 #include "org/allbinary/media/audio/NullControl.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 NoPlayer* NoPlayer_NO_PLAYER;
@@ -14,7 +17,7 @@ void NoPlayer_staticInit(void) {
         return;
     }
     initialized = true;
-    NoPlayer_NO_PLAYER = [((NoPlayer*) [NoPlayer alloc]) init];
+    NoPlayer_NO_PLAYER = ((NoPlayer*) [((NoPlayer*) [NoPlayer alloc]) init]);
 }
 
 @implementation NoPlayer
@@ -36,7 +39,7 @@ void NoPlayer_staticInit(void) {
 
 
 - (Control*) getControl:(const char*)controlType {
-        return [((NullControl*) [NullControl alloc]) init];
+        return ((NullControl*) [((NullControl*) [NullControl alloc]) init]);
 }
 
 

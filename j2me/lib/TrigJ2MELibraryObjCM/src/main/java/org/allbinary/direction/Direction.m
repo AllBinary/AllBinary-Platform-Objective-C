@@ -62,7 +62,7 @@ void Direction_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"Direction: "];
         [stringBuffer append:[self getName]];
         [stringBuffer append:" Or: "];

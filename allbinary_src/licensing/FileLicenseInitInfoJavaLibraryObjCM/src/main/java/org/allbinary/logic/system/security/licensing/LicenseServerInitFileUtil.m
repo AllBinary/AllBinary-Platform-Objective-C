@@ -9,6 +9,27 @@
 #include "org/allbinary/logic/io/file/SimpleFileUtil.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/business/init/LicenseInitInfoUtil.h")
+#include "org/allbinary/business/init/LicenseInitInfoUtil.h"
+#endif
+#if __has_include("org/allbinary/business/init/LicenseInitInfoUtil.h")
+#include "org/allbinary/business/init/LicenseInitInfoUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/io/file/FileFactory.h")
+#include "org/allbinary/logic/io/file/FileFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/io/StreamUtil.h")
+#include "org/allbinary/logic/io/StreamUtil.h"
+#endif
+#if __has_include("org/allbinary/business/init/LicenseInitInfoUtil.h")
+#include "org/allbinary/business/init/LicenseInitInfoUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -35,7 +56,7 @@ void LicenseServerInitFileUtil_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         JAVA_TRY {
             const char* filePath = [LicenseInitInfoUtil getInstance]->INITFILENAME;
             [[LicenseInitInfoUtil getInstance] setFilePath:[StringUtil getInstance]->EMPTY_STRING];

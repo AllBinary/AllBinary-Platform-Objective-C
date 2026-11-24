@@ -11,7 +11,7 @@ void TouchButtonDownResource_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchButtonDownResource_instance = [((TouchButtonDownResource*) [TouchButtonDownResource alloc]) init];
+    TouchButtonDownResource_instance = ((TouchButtonDownResource*) [((TouchButtonDownResource*) [TouchButtonDownResource alloc]) init]);
 }
 
 @implementation TouchButtonDownResource

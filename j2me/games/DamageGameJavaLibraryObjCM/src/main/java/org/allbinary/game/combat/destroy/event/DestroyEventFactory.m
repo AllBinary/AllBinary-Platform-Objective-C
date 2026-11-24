@@ -30,7 +30,7 @@ void DestroyEventFactory_staticInit(void) {
 
 
 - (AllBinaryEventObject*) getInstance {
-        return [((DestroyedEvent*) [DestroyedEvent alloc]) init:self->combatGameCanvas];
+        return ((DestroyedEvent*) [((DestroyedEvent*) [DestroyedEvent alloc]) init:self->combatGameCanvas]);
 }
 
 @end

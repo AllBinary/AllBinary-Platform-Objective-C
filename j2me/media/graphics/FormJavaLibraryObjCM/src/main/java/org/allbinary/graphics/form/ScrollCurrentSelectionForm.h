@@ -70,7 +70,7 @@
 }
 - (instancetype) init:(const char*)title :(ABCustomItem**)items :(ItemPaintableFactory*)formPaintableFactory :(int32_t)border :(int32_t)adjustedExtraBorder :(bool)moveForSmallScreen :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor;
 - (void) initFields;
-- (void) init_:(Rectangle*)rectangle :(FormType*)formType;
+- (void) initMethod:(Rectangle*)rectangle :(FormType*)formType;
 - (void) updateMeasurement:(Graphics*)graphics;
 - (void) processTempHorizontalForm;
 - (void) processHorizontalForm;

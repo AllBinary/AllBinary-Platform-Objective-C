@@ -7,6 +7,9 @@
 #include "org/allbinary/game/collision/CollisionProcessor.h"
 #include "org/allbinary/game/collision/Collision2DProcessor.h"
 #include "org/allbinary/game/collision/CollisionThreedProcessor.h"
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureUtil.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureUtil.h"
+#endif
 
 
 static LayerCollisionUtil* LayerCollisionUtil_instance;
@@ -17,7 +20,7 @@ void LayerCollisionUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    LayerCollisionUtil_instance = [((LayerCollisionUtil*) [LayerCollisionUtil alloc]) init];
+    LayerCollisionUtil_instance = ((LayerCollisionUtil*) [((LayerCollisionUtil*) [LayerCollisionUtil alloc]) init]);
 }
 
 @implementation LayerCollisionUtil
@@ -38,9 +41,9 @@ void LayerCollisionUtil_staticInit(void) {
         Features* features = [Features getInstance];
         GameFeatureFactory* gameFeatureFactory = [GameFeatureFactory getInstance];
         if ([[OpenGLFeatureUtil getInstance] isAnyThreed] && ![features isFeature:gameFeatureFactory->COLLISIONS_FORCED_TWO_DIMENSIONAL]) {
-            self->collisionProcessor = [((CollisionThreedProcessor*) [CollisionThreedProcessor alloc]) init];
+            self->collisionProcessor = ((CollisionThreedProcessor*) [((CollisionThreedProcessor*) [CollisionThreedProcessor alloc]) init]);
         } else {
-            self->collisionProcessor = [((Collision2DProcessor*) [Collision2DProcessor alloc]) init];
+            self->collisionProcessor = ((Collision2DProcessor*) [((Collision2DProcessor*) [Collision2DProcessor alloc]) init]);
         }
     return self;
 }

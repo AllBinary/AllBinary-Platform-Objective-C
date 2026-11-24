@@ -9,6 +9,12 @@
 #include "org/allbinary/animation/NullRotationAnimation.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
 #include "org/allbinary/animation/Animation.h"
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/GameConfigurationCentral.h")
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#endif
 
 
 
@@ -30,7 +36,7 @@ void RotationAnimationFactory_staticInit(void) {
 
 + (RotationAnimationFactory*) createFactory {
         int16_t totalAngle = [AngleFactory getInstance]->TOTAL_ANGLE;
-        return [((RotationAnimationFactory*) [RotationAnimationFactory alloc]) init:totalAngle :((int16_t) (((int32_t) totalAngle) / [[GameConfigurationCentral getInstance] getGameControlFidelity]))];
+        return ((RotationAnimationFactory*) [((RotationAnimationFactory*) [RotationAnimationFactory alloc]) init:totalAngle :((int16_t) (((int32_t) totalAngle) / [[GameConfigurationCentral getInstance] getGameControlFidelity]))]);
 }
 
 

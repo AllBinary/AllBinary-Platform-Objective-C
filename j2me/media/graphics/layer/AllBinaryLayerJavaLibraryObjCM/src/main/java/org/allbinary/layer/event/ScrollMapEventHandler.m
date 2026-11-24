@@ -14,7 +14,7 @@ void ScrollMapEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    ScrollMapEventHandler_SINGLETON = [((ScrollMapEventHandler*) [ScrollMapEventHandler alloc]) init];
+    ScrollMapEventHandler_SINGLETON = ((ScrollMapEventHandler*) [((ScrollMapEventHandler*) [ScrollMapEventHandler alloc]) init]);
 }
 
 @implementation ScrollMapEventHandler
@@ -34,7 +34,7 @@ void ScrollMapEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         ScrollMapEventListenerInterface* scrollMapEventListenerInterface = (((ScrollMapEventListenerInterface*) eventListenerInterface));
-        [scrollMapEventListenerInterface onMoveEvent:((ScrollMapEvent*) eventObject)];
+        [((id<ScrollMapEventListenerInterface>) scrollMapEventListenerInterface) onMoveEvent:((ScrollMapEvent*) eventObject)];
 }
 
 @end

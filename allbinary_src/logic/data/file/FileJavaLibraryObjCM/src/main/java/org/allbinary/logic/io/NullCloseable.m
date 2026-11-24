@@ -10,7 +10,7 @@ void NullCloseable_staticInit(void) {
         return;
     }
     initialized = true;
-    NullCloseable_NULL_CLOSEABLE = [((NullCloseable*) [NullCloseable alloc]) init];
+    NullCloseable_NULL_CLOSEABLE = ((NullCloseable*) [((NullCloseable*) [NullCloseable alloc]) init]);
 }
 
 @implementation NullCloseable

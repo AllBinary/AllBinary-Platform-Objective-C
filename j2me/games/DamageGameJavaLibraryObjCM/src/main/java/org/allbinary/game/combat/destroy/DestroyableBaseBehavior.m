@@ -2,6 +2,9 @@
 #include "org/allbinary/game/combat/destroy/DestroyableBaseBehavior.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/combat/destroy/DestroyableInterface.h"
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
 
 
 static DestroyableBaseBehavior* DestroyableBaseBehavior_instance;
@@ -12,7 +15,7 @@ void DestroyableBaseBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    DestroyableBaseBehavior_instance = [((DestroyableBaseBehavior*) [DestroyableBaseBehavior alloc]) init];
+    DestroyableBaseBehavior_instance = ((DestroyableBaseBehavior*) [((DestroyableBaseBehavior*) [DestroyableBaseBehavior alloc]) init]);
 }
 
 @implementation DestroyableBaseBehavior

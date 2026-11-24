@@ -7,6 +7,9 @@
 #include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
 #include "org/allbinary/graphics/font/MyFontProcessor.h"
 #include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
+#if __has_include("org/allbinary/graphics/displayable/CanvasStrings.h")
+#include "org/allbinary/graphics/displayable/CanvasStrings.h"
+#endif
 
 
 
@@ -26,7 +29,7 @@ void AboutPaintable_staticInit(void) {
     
     
     self->paintableArray = ((Paintable**) java_array_from(sizeof(Paintable*), sizeof((Paintable*[]){ self }) / sizeof(Paintable*), (Paintable*[]){ self }));
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->charHeight = 0;
     self->aboutBeginWidth = 0;
     
@@ -36,7 +39,7 @@ void AboutPaintable_staticInit(void) {
 
 
 + (AboutPaintable*) getInstance:(const char**)info :(const char**)developers {
-        return [((AboutPaintable*) [AboutPaintable alloc]) init:info :developers];
+        return ((AboutPaintable*) [((AboutPaintable*) [AboutPaintable alloc]) init:info :developers]);
 }
 
 

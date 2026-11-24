@@ -12,7 +12,7 @@ void LockedUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    LockedUtil_instance = [((LockedUtil*) [LockedUtil alloc]) init];
+    LockedUtil_instance = ((LockedUtil*) [((LockedUtil*) [LockedUtil alloc]) init]);
 }
 
 @implementation LockedUtil

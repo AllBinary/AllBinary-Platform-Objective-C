@@ -13,13 +13,13 @@ void CurrentlyPressedTouchButtonSingleton_staticInit(void) {
         return;
     }
     initialized = true;
-    CurrentlyPressedTouchButtonSingleton_instance = [((CurrentlyPressedTouchButtonSingleton*) [CurrentlyPressedTouchButtonSingleton alloc]) init];
+    CurrentlyPressedTouchButtonSingleton_instance = ((CurrentlyPressedTouchButtonSingleton*) [((CurrentlyPressedTouchButtonSingleton*) [CurrentlyPressedTouchButtonSingleton alloc]) init]);
 }
 
 @implementation CurrentlyPressedTouchButtonSingleton
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 

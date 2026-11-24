@@ -8,6 +8,27 @@
 #include "org/allbinary/math/Angle.h"
 #include "org/allbinary/math/NamedAngle.h"
 #include "org/allbinary/math/FrameUtil.h"
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/LogUtil.h")
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#endif
 
 
 static AngleFactory* AngleFactory_instance;
@@ -18,7 +39,7 @@ void AngleFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    AngleFactory_instance = [((AngleFactory*) [AngleFactory alloc]) init];
+    AngleFactory_instance = ((AngleFactory*) [((AngleFactory*) [AngleFactory alloc]) init]);
 }
 
 @implementation AngleFactory
@@ -29,7 +50,7 @@ void AngleFactory_staticInit(void) {
     self->QUARTER_TOTAL_ANGLE = 90;
     self->angleArray = ((Angle**) java_array_new(sizeof(Angle*), ((int32_t) self->TOTAL_ANGLE)));
     self->NEGATIVE_ONE = ((int16_t) (-1));
-    self->NOT_ANGLE = [((NamedAngle*) [NamedAngle alloc]) init:self->NEGATIVE_ONE :[CommonStrings getInstance]->EMPTY];
+    self->NOT_ANGLE = ((NamedAngle*) [((NamedAngle*) [NamedAngle alloc]) init:self->NEGATIVE_ONE :[CommonStrings getInstance]->EMPTY]);
     
     
     
@@ -48,25 +69,25 @@ void AngleFactory_staticInit(void) {
     [self initFields];
         CommonPhoneStrings* commonPhoneStrings = [CommonPhoneStrings getInstance];
         int16_t total = ((int16_t) java_array_length(self->angleArray));
-        self->UP = [((NamedAngle*) [NamedAngle alloc]) init:((int16_t) 0) :commonPhoneStrings->UP];
+        self->UP = ((NamedAngle*) [((NamedAngle*) [NamedAngle alloc]) init:((int16_t) 0) :commonPhoneStrings->UP]);
         self->angleArray[0] = self->UP;
         for (int32_t index = 1; index < 90; index++) {
-            self->angleArray[index] = [((Angle*) [Angle alloc]) init:((int16_t) index)];
+            self->angleArray[index] = ((Angle*) [((Angle*) [Angle alloc]) init:((int16_t) index)]);
         }
-        self->RIGHT = [((NamedAngle*) [NamedAngle alloc]) init:((int16_t) 90) :commonPhoneStrings->RIGHT];
+        self->RIGHT = ((NamedAngle*) [((NamedAngle*) [NamedAngle alloc]) init:((int16_t) 90) :commonPhoneStrings->RIGHT]);
         self->angleArray[90] = self->RIGHT;
         for (int32_t index = 91; index < 180; index++) {
-            self->angleArray[index] = [((Angle*) [Angle alloc]) init:((int16_t) index)];
+            self->angleArray[index] = ((Angle*) [((Angle*) [Angle alloc]) init:((int16_t) index)]);
         }
-        self->DOWN = [((NamedAngle*) [NamedAngle alloc]) init:((int16_t) 180) :commonPhoneStrings->DOWN];
+        self->DOWN = ((NamedAngle*) [((NamedAngle*) [NamedAngle alloc]) init:((int16_t) 180) :commonPhoneStrings->DOWN]);
         self->angleArray[180] = self->DOWN;
         for (int32_t index = 181; index < 270; index++) {
-            self->angleArray[index] = [((Angle*) [Angle alloc]) init:((int16_t) index)];
+            self->angleArray[index] = ((Angle*) [((Angle*) [Angle alloc]) init:((int16_t) index)]);
         }
-        self->LEFT = [((NamedAngle*) [NamedAngle alloc]) init:((int16_t) 270) :commonPhoneStrings->LEFT];
+        self->LEFT = ((NamedAngle*) [((NamedAngle*) [NamedAngle alloc]) init:((int16_t) 270) :commonPhoneStrings->LEFT]);
         self->angleArray[270] = self->LEFT;
         for (int32_t index = 271; index < ((int32_t) total); index++) {
-            self->angleArray[index] = [((Angle*) [Angle alloc]) init:((int16_t) index)];
+            self->angleArray[index] = ((Angle*) [((Angle*) [Angle alloc]) init:((int16_t) index)]);
         }
     return self;
 }
@@ -98,7 +119,7 @@ void AngleFactory_staticInit(void) {
 
 
 + (void) main:(const char**)args {
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         AngleFactory* angleFactory = [AngleFactory getInstance];
         for (int32_t index = 0; index < 360; index++) {
             [[[[stringMaker appendint:index] append:[CommonSeps getInstance]->FORWARD_SLASH] appendshort:[[angleFactory getClosestDirection:index] getValue]] append:[CommonSeps getInstance]->NEW_LINE];

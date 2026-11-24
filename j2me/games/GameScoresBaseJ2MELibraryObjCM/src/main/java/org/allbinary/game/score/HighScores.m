@@ -7,6 +7,15 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/score/HighScoresInterface.h"
 #include "org/allbinary/game/score/HighScore.h"
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
 
 
 
@@ -21,7 +30,7 @@ void HighScores_staticInit(void) {
 @implementation HighScores
 
 - (void) initFields {
-    self->orderedHighScoresList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->orderedHighScoresList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     
     
     self->columnOneHeading = "Name";
@@ -86,7 +95,7 @@ void HighScores_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"HighScores: "];
         [stringBuffer append:self->heading];
         [stringBuffer append:[CommonSeps getInstance]->SPACE];

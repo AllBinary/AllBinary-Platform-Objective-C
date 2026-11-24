@@ -24,8 +24,8 @@ void CompositeSound_staticInit(void) {
 
 
 // throws Exception
-- (void) init_ {
-        [self setPlayerP:[((PlayerComposite*) [PlayerComposite alloc]) init:[AllBinaryMediaManager createPlayer:[self getResource]] :570]];
+- (void) initMethod {
+        [self setPlayerP:((PlayerComposite*) [((PlayerComposite*) [PlayerComposite alloc]) init:[AllBinaryMediaManager createPlayer:[self getResource]] :570])];
 }
 
 @end

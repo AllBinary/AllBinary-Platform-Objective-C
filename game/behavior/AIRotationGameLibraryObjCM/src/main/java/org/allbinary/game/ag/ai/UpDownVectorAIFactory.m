@@ -26,7 +26,7 @@ void UpDownVectorAIFactory_staticInit(void) {
 
 // throws Exception
 - (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
-        return [((UpDownVectorAI*) [UpDownVectorAI alloc]) init:ownerLayerInterface :gameInput];
+        return ((UpDownVectorAI*) [((UpDownVectorAI*) [UpDownVectorAI alloc]) init:ownerLayerInterface :gameInput]);
 }
 
 @end

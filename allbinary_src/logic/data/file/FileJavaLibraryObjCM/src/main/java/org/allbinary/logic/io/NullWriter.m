@@ -10,7 +10,7 @@ void NullWriter_staticInit(void) {
         return;
     }
     initialized = true;
-    NullWriter_NULL_WRITER = [((NullWriter*) [NullWriter alloc]) init];
+    NullWriter_NULL_WRITER = ((NullWriter*) [((NullWriter*) [NullWriter alloc]) init]);
 }
 
 @implementation NullWriter

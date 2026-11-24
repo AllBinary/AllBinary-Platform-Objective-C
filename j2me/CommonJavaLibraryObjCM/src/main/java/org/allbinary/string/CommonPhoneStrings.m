@@ -10,7 +10,7 @@ void CommonPhoneStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    CommonPhoneStrings_instance = [((CommonPhoneStrings*) [CommonPhoneStrings alloc]) init];
+    CommonPhoneStrings_instance = ((CommonPhoneStrings*) [((CommonPhoneStrings*) [CommonPhoneStrings alloc]) init]);
 }
 
 @implementation CommonPhoneStrings

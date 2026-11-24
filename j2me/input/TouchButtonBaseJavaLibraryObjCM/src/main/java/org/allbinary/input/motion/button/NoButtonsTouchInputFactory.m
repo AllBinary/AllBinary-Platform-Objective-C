@@ -11,7 +11,7 @@ void NoButtonsTouchInputFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    NoButtonsTouchInputFactory_instance = [((BaseTouchInput*) [BaseTouchInput alloc]) init];
+    NoButtonsTouchInputFactory_instance = ((BaseTouchInput*) [((BaseTouchInput*) [BaseTouchInput alloc]) init]);
 }
 
 @implementation NoButtonsTouchInputFactory

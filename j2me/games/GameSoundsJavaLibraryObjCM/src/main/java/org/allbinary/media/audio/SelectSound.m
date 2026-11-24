@@ -12,7 +12,7 @@ void SelectSound_staticInit(void) {
         return;
     }
     initialized = true;
-    SelectSound_soundInterface = [((SelectSound*) [SelectSound alloc]) init];
+    SelectSound_soundInterface = ((SelectSound*) [((SelectSound*) [SelectSound alloc]) init]);
 }
 
 @implementation SelectSound

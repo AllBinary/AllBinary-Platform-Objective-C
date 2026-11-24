@@ -20,7 +20,7 @@ void SimpleFileUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    SimpleFileUtil_instance = [((SimpleFileUtil*) [SimpleFileUtil alloc]) init];
+    SimpleFileUtil_instance = ((SimpleFileUtil*) [((SimpleFileUtil*) [SimpleFileUtil alloc]) init]);
 }
 
 @implementation SimpleFileUtil
@@ -67,13 +67,13 @@ void SimpleFileUtil_staticInit(void) {
 
 
 - (BasicArrayList*) loadFileAsListReturnLine:(InputStream*)inputStream :(int32_t)max :(int8_t*)byteArray1 :(int32_t)includeReturnLine {
-        BasicArrayList* stringList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* stringList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         if (inputStream == nil) {
             return stringList;
         }
         int8_t* byteArray = self->nullUtil->NULL_BYTE_ARRAY;
         JAVA_TRY {
-            ByteArrayOutputStream* outputStream2 = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init:max];
+            ByteArrayOutputStream* outputStream2 = ((ByteArrayOutputStream*) [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init:max]);
             byteArray = [self->streamUtil getByteArray:inputStream :outputStream2 :byteArray1];
             [self->streamUtil close:inputStream];
         } JAVA_CATCH(Exception, e) {
@@ -108,7 +108,7 @@ void SimpleFileUtil_staticInit(void) {
 
 
 - (const char*) createStringFromArrayOfStrings:(const char**)stringArray {
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         int32_t size = java_array_length(stringArray);
         for (int32_t index = 0; index < size; index++) {
             [stringMaker append:stringArray[index]];

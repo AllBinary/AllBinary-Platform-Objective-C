@@ -75,7 +75,7 @@
 }
 - (instancetype) init:(const char*)poolName :(int32_t)numThreads :(int32_t)priority;
 - (void) initFields;
-- (void) init_;
+- (void) initMethod;
 - (void) runAPriorityTask;
 - (void) runTaskWithPriority:(PriorityRunnable*)task;
 - (void) runTask:(Runnable*)task;

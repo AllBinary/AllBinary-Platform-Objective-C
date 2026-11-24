@@ -6,6 +6,12 @@
 #include "org/allbinary/graphics/Rectangle.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/view/ViewPosition.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
+#endif
 
 
 
@@ -21,7 +27,7 @@ void HealLayer_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:[StringUtil getInstance]->EMPTY_STRING :[((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :0 :0] :[ViewPosition getInstanceD]];
+        self = [super init:[StringUtil getInstance]->EMPTY_STRING :((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :0 :0]) :[ViewPosition getInstanceD]];
     return self;
 }
 
@@ -31,8 +37,8 @@ void HealLayer_staticInit(void) {
 
 
 - (void) visit:(HealthInterface*)healthInterface {
-        if ([healthInterface isAlive]) {
-            [healthInterface healMax];
+        if ([((id<HealthInterface>) healthInterface) isAlive]) {
+            [((id<HealthInterface>) healthInterface) healMax];
         } else {
             [self->logUtil putF:"Heal attempt on dead: Does not currently occur" :self :"visit"];
         }

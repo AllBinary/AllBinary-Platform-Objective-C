@@ -34,7 +34,7 @@
 }
 - (instancetype) init;
 + (ImageCache*) getInstance;
-+ (void) init_;
++ (void) initMethod;
 + (void) releaseAll;
 @end
 

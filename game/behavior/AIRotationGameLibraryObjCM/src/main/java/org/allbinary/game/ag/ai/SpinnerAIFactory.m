@@ -27,7 +27,7 @@ void SpinnerAIFactory_staticInit(void) {
 
 - (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
         int32_t* direction = ((int32_t*) java_array_from(sizeof(int32_t), sizeof((int32_t[]){ (Canvas_staticInit(), Canvas_LEFT) }) / sizeof(int32_t), (int32_t[]){ (Canvas_staticInit(), Canvas_LEFT) }));
-        return [((SpinnerAI*) [SpinnerAI alloc]) init:direction :ownerLayerInterface :gameInput];
+        return ((SpinnerAI*) [((SpinnerAI*) [SpinnerAI alloc]) init:direction :ownerLayerInterface :gameInput]);
 }
 
 @end

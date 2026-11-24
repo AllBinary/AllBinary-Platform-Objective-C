@@ -14,7 +14,7 @@ void InputMappingEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    InputMappingEventHandler_gameKeyEventHandler = [((InputMappingEventHandler*) [InputMappingEventHandler alloc]) init];
+    InputMappingEventHandler_gameKeyEventHandler = ((InputMappingEventHandler*) [((InputMappingEventHandler*) [InputMappingEventHandler alloc]) init]);
 }
 
 @implementation InputMappingEventHandler
@@ -34,7 +34,7 @@ void InputMappingEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         InputMappingEventListenerInterface* inputMappingEventListenerInterface = ((InputMappingEventListenerInterface*) eventListenerInterface);
-        [inputMappingEventListenerInterface onInputMappingEvent:((InputMappingEvent*) eventObject)];
+        [((id<InputMappingEventListenerInterface>) inputMappingEventListenerInterface) onInputMappingEvent:((InputMappingEvent*) eventObject)];
 }
 
 @end

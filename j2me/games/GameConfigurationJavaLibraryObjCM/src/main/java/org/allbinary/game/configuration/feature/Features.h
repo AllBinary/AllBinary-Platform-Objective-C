@@ -68,7 +68,7 @@
 - (void) add:(Feature*)gameFeature;
 - (void) removeDefault:(Feature*)gameFeature;
 - (void) remove:(Feature*)gameFeature;
-- (void) init_;
+- (void) initMethod;
 - (bool) isDefault:(Feature*)gameFeature;
 - (bool) isFeature:(Feature*)gameFeature;
 - (void) toggle:(Feature*)gameFeature;

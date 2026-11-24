@@ -8,6 +8,15 @@
 #include "org/allbinary/animation/IndexedAnimation.h"
 #include "org/allbinary/animation/VectorAnimationInterface.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
 
 
 
@@ -34,7 +43,7 @@ void VectorAnimation_staticInit(void) {
             currentPoints[0][index][0] = currentPoints2[index][0];
             currentPoints[0][index][1] = currentPoints2[index][1];
         }
-        return [((VectorAnimation*) [VectorAnimation alloc]) init:currentPoints :basicColor :animationBehavior];
+        return ((VectorAnimation*) [((VectorAnimation*) [VectorAnimation alloc]) init:currentPoints :basicColor :animationBehavior]);
 }
 
 

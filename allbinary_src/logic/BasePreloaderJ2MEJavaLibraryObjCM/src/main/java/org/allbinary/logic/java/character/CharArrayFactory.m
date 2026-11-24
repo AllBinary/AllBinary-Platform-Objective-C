@@ -10,7 +10,7 @@ void CharArrayFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    CharArrayFactory_instance = [((CharArrayFactory*) [CharArrayFactory alloc]) init];
+    CharArrayFactory_instance = ((CharArrayFactory*) [((CharArrayFactory*) [CharArrayFactory alloc]) init]);
 }
 
 @implementation CharArrayFactory

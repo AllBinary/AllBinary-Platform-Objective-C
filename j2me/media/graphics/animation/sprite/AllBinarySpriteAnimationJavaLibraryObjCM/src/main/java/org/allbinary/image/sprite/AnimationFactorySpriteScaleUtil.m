@@ -19,7 +19,7 @@ void AnimationFactorySpriteScaleUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    AnimationFactorySpriteScaleUtil_instance = [((AnimationFactorySpriteScaleUtil*) [AnimationFactorySpriteScaleUtil alloc]) init];
+    AnimationFactorySpriteScaleUtil_instance = ((AnimationFactorySpriteScaleUtil*) [((AnimationFactorySpriteScaleUtil*) [AnimationFactorySpriteScaleUtil alloc]) init]);
 }
 
 @implementation AnimationFactorySpriteScaleUtil

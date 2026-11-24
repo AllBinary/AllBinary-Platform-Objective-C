@@ -12,6 +12,36 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/animation/resource/FeatureResourceAnimationInterfaceFactoryInterface.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 
@@ -53,9 +83,9 @@ void BaseResourceAnimationInterfaceFactoryInterfaceFactory_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(int32_t)level {
+- (void) initMethod:(int32_t)level {
         CommonStrings* commonStrings = [CommonStrings getInstance];
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Available List of Animations: "] append:[self->hashtable toString]] toString] :self :commonStrings->INIT];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Available List of Animations: "] append:[self->hashtable toString]] toString] :self :commonStrings->INIT];
         [self setInitialized:true];
 }
 
@@ -68,7 +98,7 @@ void BaseResourceAnimationInterfaceFactoryInterfaceFactory_staticInit(void) {
 // throws Exception
 - (void) add:(const char*)resource :(BasicAnimationInterfaceFactoryInterface*)animationInterfaceFactoryInterface {
         if ([self->hashtable containsKey:JAVA_BOX(((id) resource))]) {
-            java_throw(java_exception_new("Exception", [[[[((StringMaker*) [StringMaker alloc]) init] append:"Resource Already Created: "] append:resource] toString]));
+            java_throw(java_exception_new("Exception", [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Resource Already Created: "] append:resource] toString]));
         }
         [self->hashtable put:JAVA_BOX(resource) :JAVA_BOX(animationInterfaceFactoryInterface)];
 }
@@ -134,7 +164,7 @@ void BaseResourceAnimationInterfaceFactoryInterfaceFactory_staticInit(void) {
 
 
 - (const char*) toString {
-        return [[[[[[((StringMaker*) [StringMaker alloc]) init] append:java_objc_class_name(self)] append:[CommonSeps getInstance]->SEMICOLON] append:[CommonSeps getInstance]->SPACE] append:self->name] toString];
+        return [[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:java_objc_class_name(self)] append:[CommonSeps getInstance]->SEMICOLON] append:[CommonSeps getInstance]->SPACE] append:self->name] toString];
 }
 
 

@@ -30,6 +30,15 @@
 #if __has_include("org/allbinary/string/ProgressCanvas.h")
 #include "org/allbinary/string/ProgressCanvas.h"
 #endif
+#if __has_include("org/allbinary/TsUtil.h")
+#include "org/allbinary/TsUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static const char* AllBinaryMediaManager_THIS = "AllBinaryMediaManagerNoMediaMIDP1";
@@ -66,19 +75,19 @@ void AllBinaryMediaManager_staticInit(void) {
 
 
 // throws Exception
-+ (void) init_:(SoundsFactoryInterface*)soundsFactoryInterface {
++ (void) initMethod:(SoundsFactoryInterface*)soundsFactoryInterface {
         LogUtil* logUtil = [LogUtil getInstance];
         CommonStrings* commonString = [CommonStrings getInstance];
         [logUtil putF:commonString->START :AllBinaryMediaManager_THIS :commonString->INIT];
         [[ProgressCanvasFactory getInstance] addNormalPortion:50 :"Media Manager"];
-        [[((Sounds*) [Sounds alloc]) init:soundsFactoryInterface] init_];
+        [((Sounds*) [((Sounds*) [Sounds alloc]) init:soundsFactoryInterface]) initMethod];
 }
 
 
 // throws Exception
 + (void) shutdown:(SoundsFactoryInterface*)soundsFactoryInterface {
-        [[((Sounds*) [Sounds alloc]) init:soundsFactoryInterface] stopAll];
-        [[((Sounds*) [Sounds alloc]) init:soundsFactoryInterface] closeAll];
+        [((Sounds*) [((Sounds*) [Sounds alloc]) init:soundsFactoryInterface]) stopAll];
+        [((Sounds*) [((Sounds*) [Sounds alloc]) init:soundsFactoryInterface]) closeAll];
         [[TsUtil getInstance] gc];
 }
 

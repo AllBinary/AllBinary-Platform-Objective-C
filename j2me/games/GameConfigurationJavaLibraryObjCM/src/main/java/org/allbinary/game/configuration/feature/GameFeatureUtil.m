@@ -12,6 +12,21 @@
 #include "org/allbinary/game/configuration/feature/Features.h"
 #include "org/allbinary/game/configuration/feature/Feature.h"
 #include "org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.h"
+#if __has_include("org/allbinary/util/ABHashtable.h")
+#include "org/allbinary/util/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/util/HashtableUtil.h")
+#include "org/allbinary/util/HashtableUtil.h"
+#endif
 
 
 static GameFeatureUtil* GameFeatureUtil_instance;
@@ -22,7 +37,7 @@ void GameFeatureUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    GameFeatureUtil_instance = [((GameFeatureUtil*) [GameFeatureUtil alloc]) init];
+    GameFeatureUtil_instance = ((GameFeatureUtil*) [((GameFeatureUtil*) [GameFeatureUtil alloc]) init]);
 }
 
 @implementation GameFeatureUtil
@@ -49,7 +64,7 @@ void GameFeatureUtil_staticInit(void) {
 
 // throws Exception
 - (void) setDefault:(ChoiceGroup*)choiceGroup {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         const char* METHOD_NAME = "setDefault";
         const char* SELECTED_ARRAY_RETURN = "selectedArray_return[";
         const char* SELECTED_SEP = "] = ";
@@ -82,7 +97,7 @@ void GameFeatureUtil_staticInit(void) {
 
 // throws Exception
 - (void) updateMultiple:(ChoiceGroup*)choiceGroup {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         const char* METHOD_NAME = "updateMultiple";
         const char* SELECTED_ARRAY_RETURN = "selectedArray_return[";
         const char* SELECTED_SEP = "] = ";
@@ -113,7 +128,7 @@ void GameFeatureUtil_staticInit(void) {
 
 // throws Exception
 - (void) updateExclusiveForChoiceGroup:(ChoiceGroup*)choiceGroup {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         const char* METHOD_NAME = "updateExclusive";
         const char* SELECTED_ARRAY_RETURN = "selectedArray_return[";
         const char* SELECTED_SEP = "] = ";
@@ -153,7 +168,7 @@ void GameFeatureUtil_staticInit(void) {
 
 // throws Exception
 - (void) updateExclusive:(const char*)selectedChoiceLabel {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->ITEM_LABEL] append:selectedChoiceLabel] toString] :self :"updateExclusive"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->ITEM_LABEL] append:selectedChoiceLabel] toString] :self :"updateExclusive"];
         Feature* gameFeature = [Feature getInstance:selectedChoiceLabel];
         ABHashtable* hashtable = [[GameFeatureChoiceGroups getExclusiveInstance] get];
         id* objectArray = [[HashtableUtil getInstance] getKeysAsArray:hashtable];

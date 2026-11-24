@@ -48,7 +48,7 @@
 }
 - (instancetype) init:(ResourceInitialization**)resourceInitializationArray :(int32_t)portion;
 - (void) initFields;
-- (void) init_:(AbeClientInformationInterface*)abeClientInformation :(CommandListener*)commandListener :(int32_t)level;
+- (void) initMethod:(AbeClientInformationInterface*)abeClientInformation :(CommandListener*)commandListener :(int32_t)level;
 - (void) initGame;
 @end
 

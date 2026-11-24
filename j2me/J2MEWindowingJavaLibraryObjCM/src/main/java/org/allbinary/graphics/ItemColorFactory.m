@@ -10,7 +10,7 @@ void ItemColorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ItemColorFactory_instance = [((ItemColorFactory*) [ItemColorFactory alloc]) init];
+    ItemColorFactory_instance = ((ItemColorFactory*) [((ItemColorFactory*) [ItemColorFactory alloc]) init]);
 }
 
 @implementation ItemColorFactory

@@ -23,7 +23,7 @@ void HealLayerFactory_staticInit(void) {
 
 // throws Exception
 - (AllBinaryLayer*) getInstance {
-        return [((HealLayer*) [HealLayer alloc]) init];
+        return ((HealLayer*) [((HealLayer*) [HealLayer alloc]) init]);
 }
 
 @end

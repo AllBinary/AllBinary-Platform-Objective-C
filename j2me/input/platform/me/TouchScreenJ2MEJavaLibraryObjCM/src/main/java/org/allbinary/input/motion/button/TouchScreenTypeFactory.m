@@ -11,15 +11,10 @@ void TouchScreenTypeFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchScreenTypeFactory_instance = [((TouchScreenTypeFactory*) [TouchScreenTypeFactory alloc]) init];
+    TouchScreenTypeFactory_instance = ((TouchScreenTypeFactory*) [((TouchScreenTypeFactory*) [TouchScreenTypeFactory alloc]) init]);
 }
 
 @implementation TouchScreenTypeFactory
-
-- (instancetype) init {
-    self = [super init];
-    return self;
-}
 
 
 + (TouchScreenTypeFactory*) getInstance {
@@ -27,9 +22,11 @@ void TouchScreenTypeFactory_staticInit(void) {
 }
 
 
-- (void) TouchScreenTypeFactory {
+- (instancetype) init {
+    self = [super init];
         TouchScreenFactory* touchScreenFactory = [TouchScreenFactory getInstance];
         [touchScreenFactory setTouch:true];
+    return self;
 }
 
 @end

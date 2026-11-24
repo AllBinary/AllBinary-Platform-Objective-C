@@ -10,7 +10,7 @@ void BasicHudFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicHudFactory_instance = [((BasicHudFactory*) [BasicHudFactory alloc]) init];
+    BasicHudFactory_instance = ((BasicHudFactory*) [((BasicHudFactory*) [BasicHudFactory alloc]) init]);
 }
 
 @implementation BasicHudFactory

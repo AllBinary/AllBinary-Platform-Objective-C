@@ -37,9 +37,9 @@
 @class SecretComposite;
 #include "java/security/Security.h"
 #include "java/security/spec/KeySpec.h"
-// #include "javax/crypto/Cipher.h"
-// #include "javax/crypto/SecretKey.h"
-// #include "javax/crypto/SecretKeyFactory.h"
+#include "javax/crypto/Cipher.h"
+#include "javax/crypto/SecretKey.h"
+#include "javax/crypto/SecretKeyFactory.h"
 #if __has_include("org/allbinary/TsUtil.h")
 #include "org/allbinary/TsUtil.h"
 #endif
@@ -56,7 +56,7 @@
 }
 - (instancetype) init:(const char*)algorithm;
 - (void) initFields;
-- (void) init_:(const char*)keyAsString;
+- (void) initMethod:(const char*)keyAsString;
 - (int8_t*) encrypt:(int8_t*)array;
 - (int8_t*) decrypt:(int8_t*)array;
 @end

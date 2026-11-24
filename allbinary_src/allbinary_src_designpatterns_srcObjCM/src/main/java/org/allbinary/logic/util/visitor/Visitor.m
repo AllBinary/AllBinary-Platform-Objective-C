@@ -12,7 +12,7 @@ void Visitor_staticInit(void) {
         return;
     }
     initialized = true;
-    Visitor_instance = [((Visitor*) [Visitor alloc]) init];
+    Visitor_instance = ((Visitor*) [((Visitor*) [Visitor alloc]) init]);
 }
 
 @implementation Visitor

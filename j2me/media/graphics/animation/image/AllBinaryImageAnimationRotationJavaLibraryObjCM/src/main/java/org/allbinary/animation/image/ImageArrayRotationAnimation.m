@@ -38,7 +38,7 @@ void ImageArrayRotationAnimation_staticInit(void) {
 // throws Exception
 + (ImageArrayRotationAnimation*) createAnimation:(id)anyType :(AnimationBehavior*)animationBehavior {
         ImageArrayRotationAnimationInfo* imageRotationAnimationInfo = ((ImageArrayRotationAnimationInfo*) anyType);
-        return [((ImageArrayRotationAnimation*) [ImageArrayRotationAnimation alloc]) init:[imageRotationAnimationInfo getImageArray] :[imageRotationAnimationInfo getAngleInfoP] :[imageRotationAnimationInfo getTotalAngle] :animationBehavior];
+        return ((ImageArrayRotationAnimation*) [((ImageArrayRotationAnimation*) [ImageArrayRotationAnimation alloc]) init:[imageRotationAnimationInfo getImageArray] :[imageRotationAnimationInfo getAngleInfoP] :[imageRotationAnimationInfo getTotalAngle] :animationBehavior]);
 }
 
 

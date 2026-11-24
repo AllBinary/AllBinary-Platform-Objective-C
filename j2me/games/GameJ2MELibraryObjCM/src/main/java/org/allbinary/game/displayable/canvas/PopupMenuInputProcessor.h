@@ -66,7 +66,7 @@
 }
 - (instancetype) init:(BasicArrayList*)gameKeyEventList :(int32_t)playerInputId :(MyCanvas*)gameCanvas :(Rectangle*)rectangle;
 - (void) initFields;
-- (void) init_:(Rectangle*)rectangle;
+- (void) initMethod:(Rectangle*)rectangle;
 - (int32_t) processInput:(int32_t)key;
 - (int32_t) processInputList;
 - (int32_t) processMotionInputs;

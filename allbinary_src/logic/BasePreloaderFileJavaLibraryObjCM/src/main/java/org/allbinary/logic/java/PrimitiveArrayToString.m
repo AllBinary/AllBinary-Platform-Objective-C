@@ -21,7 +21,7 @@ void PrimitiveArrayToString_staticInit(void) {
 
 
 + (const char*) toString:(float*)floats {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         for (int32_t index = 0; index < java_array_length(floats); index++) {
             [stringBuffer appendfloat:floats[index]];
         }

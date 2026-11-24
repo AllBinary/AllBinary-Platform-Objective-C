@@ -12,7 +12,7 @@ void ColorTemperatureUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ColorTemperatureUtil_instance = [((ColorTemperatureUtil*) [ColorTemperatureUtil alloc]) init];
+    ColorTemperatureUtil_instance = ((ColorTemperatureUtil*) [((ColorTemperatureUtil*) [ColorTemperatureUtil alloc]) init]);
 }
 
 @implementation ColorTemperatureUtil

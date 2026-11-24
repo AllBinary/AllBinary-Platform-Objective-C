@@ -8,6 +8,9 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/input/event/GameKeyEvent.h"
 #include "org/allbinary/game/input/event/PressGameKeyEventListenerInterface.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 static PressGameKeyEventHandler* PressGameKeyEventHandler_instance;
@@ -18,13 +21,13 @@ void PressGameKeyEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    PressGameKeyEventHandler_instance = [((PressGameKeyEventHandler*) [PressGameKeyEventHandler alloc]) init];
+    PressGameKeyEventHandler_instance = ((PressGameKeyEventHandler*) [((PressGameKeyEventHandler*) [PressGameKeyEventHandler alloc]) init]);
 }
 
 @implementation PressGameKeyEventHandler
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -76,7 +79,7 @@ void PressGameKeyEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         PressGameKeyEventListenerInterface* pressGameKeyEventListenerInterface = (((PressGameKeyEventListenerInterface*) eventListenerInterface));
-        [pressGameKeyEventListenerInterface onPressGameKeyEvent:((GameKeyEvent*) eventObject)];
+        [((id<PressGameKeyEventListenerInterface>) pressGameKeyEventListenerInterface) onPressGameKeyEvent:((GameKeyEvent*) eventObject)];
 }
 
 @end

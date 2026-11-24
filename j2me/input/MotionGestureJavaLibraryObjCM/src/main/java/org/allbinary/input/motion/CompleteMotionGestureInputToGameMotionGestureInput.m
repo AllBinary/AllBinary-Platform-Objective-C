@@ -27,7 +27,7 @@ void CompleteMotionGestureInputToGameMotionGestureInput_staticInit(void) {
         return;
     }
     initialized = true;
-    CompleteMotionGestureInputToGameMotionGestureInput_instance = [((CompleteMotionGestureInputToGameMotionGestureInput*) [CompleteMotionGestureInputToGameMotionGestureInput alloc]) init];
+    CompleteMotionGestureInputToGameMotionGestureInput_instance = ((CompleteMotionGestureInputToGameMotionGestureInput*) [((CompleteMotionGestureInputToGameMotionGestureInput*) [CompleteMotionGestureInputToGameMotionGestureInput alloc]) init]);
 }
 
 @implementation CompleteMotionGestureInputToGameMotionGestureInput
@@ -48,37 +48,37 @@ void CompleteMotionGestureInputToGameMotionGestureInput_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         CommonStrings* commonStrings = [CommonStrings getInstance];
         JAVA_TRY {
             [PreLogUtil put:"Compound Motion Gestures" :self :commonStrings->INIT];
             MotionGestureConfiguration* motionGestureConfiguration = [MotionGestureConfigurationFactory getInstance];
             TouchMotionGestureFactory* touchMotionGestureFactory = [TouchMotionGestureFactory getInstance];
-            BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            BasicArrayList* list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             [list add:touchMotionGestureFactory->DIAGONAL_DOWN_LEFT];
             [motionGestureConfiguration addMotionGestureAction:list :[DiagonalDownLeftTouchInputToGameKeyEventAction getInstance]];
-            list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             [list add:touchMotionGestureFactory->DIAGONAL_DOWN_RIGHT];
             [motionGestureConfiguration addMotionGestureAction:list :[DiagonalDownRightTouchInputToGameKeyEventAction getInstance]];
-            list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             [list add:touchMotionGestureFactory->DIAGONAL_UP_LEFT];
             [motionGestureConfiguration addMotionGestureAction:list :[DiagonalUpLeftTouchInputToGameKeyEventAction getInstance]];
-            list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             [list add:touchMotionGestureFactory->DIAGONAL_UP_RIGHT];
             [motionGestureConfiguration addMotionGestureAction:list :[DiagonalUpRightTouchInputToGameKeyEventAction getInstance]];
-            list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             [list add:touchMotionGestureFactory->LEFT];
             [motionGestureConfiguration addMotionGestureAction:list :[LeftTouchInputToGameKeyEventAction getInstance]];
-            list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             [list add:touchMotionGestureFactory->RIGHT];
             [motionGestureConfiguration addMotionGestureAction:list :[RightTouchInputToGameKeyEventAction getInstance]];
-            list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             [list add:touchMotionGestureFactory->DOWN];
             [motionGestureConfiguration addMotionGestureAction:list :[DownTouchInputToGameKeyEventAction getInstance]];
-            list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             [list add:touchMotionGestureFactory->UP];
             [motionGestureConfiguration addMotionGestureAction:list :[UpTouchInputToGameKeyEventAction getInstance]];
-            list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             [list add:touchMotionGestureFactory->RELEASED];
             [motionGestureConfiguration addMotionGestureAction:list :[ReleaseTouchInputToGameKeyEventAction getInstance]];
         } JAVA_CATCH(Exception, e) {

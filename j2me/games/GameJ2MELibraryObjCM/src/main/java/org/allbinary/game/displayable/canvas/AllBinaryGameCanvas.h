@@ -449,7 +449,7 @@
 - (void) processorInit;
 - (void) setProcessGameProcessorInit;
 - (void) initSpecialPaint;
-- (void) init_:(AllBinaryGameLayerManager*)gameLayerManager :(bool)buffered;
+- (void) initMethod:(AllBinaryGameLayerManager*)gameLayerManager :(bool)buffered;
 - (void) notifyIntermission:(bool)enable;
 - (void) mediaInit;
 - (void) initConfigurable:(AbeClientInformationInterface*)abeClientInformation;

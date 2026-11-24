@@ -6,6 +6,12 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/identification/Group.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static GroupFactory* GroupFactory_instance;
@@ -16,7 +22,7 @@ void GroupFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    GroupFactory_instance = [((GroupFactory*) [GroupFactory alloc]) init];
+    GroupFactory_instance = ((GroupFactory*) [((GroupFactory*) [GroupFactory alloc]) init]);
 }
 
 @implementation GroupFactory
@@ -24,7 +30,7 @@ void GroupFactory_staticInit(void) {
 - (void) initFields {
     self->logUtil = [LogUtil getInstance];
     self->NULL_GROUP_ARRAY = ((Group**) java_array_new(sizeof(Group*), 0));
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->index = 0;
 }
 
@@ -54,8 +60,8 @@ void GroupFactory_staticInit(void) {
 }
 
 
-- (void) init_:(int16_t)groups :(const char**)nameArray {
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+- (void) initMethod:(int16_t)groups :(const char**)nameArray {
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         StringUtil* stringUtil = [StringUtil getInstance];
         const char* TEAM = "Team ";
         [self->list clear];
@@ -70,7 +76,7 @@ void GroupFactory_staticInit(void) {
                 [stringMaker delete:0 :[stringMaker length]];
                 name = [[[stringMaker append:TEAM] appendint:size] toString];
             }
-            [self->list add:[((Group*) [Group alloc]) init:name :((int16_t) (size + 3))]];
+            [self->list add:((Group*) [((Group*) [Group alloc]) init:name :((int16_t) (size + 3))])];
             size++;
         }
 }

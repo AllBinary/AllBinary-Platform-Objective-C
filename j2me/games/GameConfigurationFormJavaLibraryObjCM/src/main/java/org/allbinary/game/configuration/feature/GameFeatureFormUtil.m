@@ -16,6 +16,30 @@
 #include "org/allbinary/game/configuration/feature/Features.h"
 #include "org/allbinary/game/configuration/feature/Feature.h"
 #include "org/allbinary/game/configuration/feature/GameFeatureUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/util/HashtableUtil.h")
+#include "org/allbinary/util/HashtableUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/GameConfigurationUtil.h")
+#include "org/allbinary/game/configuration/GameConfigurationUtil.h"
+#endif
 
 
 static GameFeatureFormUtil* GameFeatureFormUtil_instance;
@@ -26,7 +50,7 @@ void GameFeatureFormUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    GameFeatureFormUtil_instance = [((GameFeatureFormUtil*) [GameFeatureFormUtil alloc]) init];
+    GameFeatureFormUtil_instance = ((GameFeatureFormUtil*) [((GameFeatureFormUtil*) [GameFeatureFormUtil alloc]) init]);
 }
 
 @implementation GameFeatureFormUtil
@@ -49,8 +73,8 @@ void GameFeatureFormUtil_staticInit(void) {
 
 
 - (ChoiceGroup*) getChoiceGroup:(ABHashtable*)hashtable :(const char*)name :(int32_t)option {
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
-        ChoiceGroup* choiceGroup = [((ChoiceGroup*) [ChoiceGroup alloc]) init:name :option :[[StringUtil getInstance] getArrayInstance] :(NullImage_staticInit(), NullImage_NULL_IMAGE_ARRAY)];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
+        ChoiceGroup* choiceGroup = ((ChoiceGroup*) [((ChoiceGroup*) [ChoiceGroup alloc]) init:name :option :[[StringUtil getInstance] getArrayInstance] :(NullImage_staticInit(), NullImage_NULL_IMAGE_ARRAY)]);
         BasicArrayList* list = ((BasicArrayList*) [hashtable get:JAVA_BOX(((id) name))]);
         Features* features = [Features getInstance];
         const char* ADD_CHOICE = ": Adding Choice: ";
@@ -70,7 +94,7 @@ void GameFeatureFormUtil_staticInit(void) {
 
 
 - (void) addChoiceGroup:(CommandForm*)form :(ABHashtable*)hashtable :(int32_t)option {
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         const char* ADDING_CHOICE_GROUP = "Adding Choice Group: ";
         const char* ADD_CHOICE_GROUP = "addChoiceGroup";
         int32_t size = [hashtable size];

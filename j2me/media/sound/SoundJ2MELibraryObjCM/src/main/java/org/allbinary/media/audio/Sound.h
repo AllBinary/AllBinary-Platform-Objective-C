@@ -47,7 +47,7 @@
 - (const char*) getResource;
 - (Player*) getPlayerP;
 - (void) setPlayerP:(Player*)player;
-- (void) init_;
+- (void) initMethod;
 - (int32_t) getDuration;
 - (void) run;
 @end

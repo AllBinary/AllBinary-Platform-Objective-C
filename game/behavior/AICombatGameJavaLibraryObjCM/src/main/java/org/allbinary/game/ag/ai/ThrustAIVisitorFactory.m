@@ -11,7 +11,7 @@ void ThrustAIVisitorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ThrustAIVisitorFactory_instance = [((ThrustAIVisitor*) [ThrustAIVisitor alloc]) init];
+    ThrustAIVisitorFactory_instance = ((ThrustAIVisitor*) [((ThrustAIVisitor*) [ThrustAIVisitor alloc]) init]);
 }
 
 @implementation ThrustAIVisitorFactory

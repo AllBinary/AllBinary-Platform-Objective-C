@@ -3,6 +3,9 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/game/input/Input.h"
 #include "org/allbinary/game/input/InputFactory.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 

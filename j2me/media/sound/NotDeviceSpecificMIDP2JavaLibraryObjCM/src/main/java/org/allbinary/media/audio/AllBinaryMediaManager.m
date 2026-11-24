@@ -54,6 +54,33 @@
 #if __has_include("org/allbinary/string/ProgressCanvas.h")
 #include "org/allbinary/string/ProgressCanvas.h"
 #endif
+#if __has_include("org/allbinary/TsUtil.h")
+#include "org/allbinary/TsUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Features.h")
+#include "org/allbinary/game/configuration/feature/Features.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/GameFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/GameFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/TsUtil.h")
+#include "org/allbinary/TsUtil.h"
+#endif
+#if __has_include("org/allbinary/data/resource/ResourceUtil.h")
+#include "org/allbinary/data/resource/ResourceUtil.h"
+#endif
+#if __has_include("org/allbinary/MIDPUtil.h")
+#include "org/allbinary/MIDPUtil.h"
+#endif
+#if __has_include("org/allbinary/audio/AudioContentTypeDataFactory.h")
+#include "org/allbinary/audio/AudioContentTypeDataFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Features.h")
+#include "org/allbinary/game/configuration/feature/Features.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/GameFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/GameFeatureFactory.h"
+#endif
 
 
 static const char* AllBinaryMediaManager_THIS = "AllBinaryMediaManagerNoMIPD2";
@@ -90,19 +117,19 @@ void AllBinaryMediaManager_staticInit(void) {
 
 
 // throws Exception
-+ (void) init_:(SoundsFactoryInterface*)soundsFactoryInterface {
++ (void) initMethod:(SoundsFactoryInterface*)soundsFactoryInterface {
         LogUtil* logUtil = [LogUtil getInstance];
         CommonStrings* commonString = [CommonStrings getInstance];
         [logUtil putF:commonString->START :AllBinaryMediaManager_THIS :commonString->INIT];
         [[ProgressCanvasFactory getInstance] addNormalPortion:50 :"Media Manager"];
-        [[((Sounds*) [Sounds alloc]) init:soundsFactoryInterface] init_];
+        [((Sounds*) [((Sounds*) [Sounds alloc]) init:soundsFactoryInterface]) initMethod];
 }
 
 
 // throws Exception
 + (void) shutdown:(SoundsFactoryInterface*)soundsFactoryInterface {
-        [[((Sounds*) [Sounds alloc]) init:soundsFactoryInterface] stopAll];
-        [[((Sounds*) [Sounds alloc]) init:soundsFactoryInterface] closeAll];
+        [((Sounds*) [((Sounds*) [Sounds alloc]) init:soundsFactoryInterface]) stopAll];
+        [((Sounds*) [((Sounds*) [Sounds alloc]) init:soundsFactoryInterface]) closeAll];
         [[TsUtil getInstance] gc];
 }
 

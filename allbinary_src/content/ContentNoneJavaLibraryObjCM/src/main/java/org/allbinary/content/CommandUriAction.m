@@ -12,7 +12,7 @@ void CommandUriAction_staticInit(void) {
         return;
     }
     initialized = true;
-    CommandUriAction_instance = [((CommandUriAction*) [CommandUriAction alloc]) init];
+    CommandUriAction_instance = ((CommandUriAction*) [((CommandUriAction*) [CommandUriAction alloc]) init]);
 }
 
 @implementation CommandUriAction

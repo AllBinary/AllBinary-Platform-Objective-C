@@ -12,13 +12,13 @@ void PoolTypeFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    PoolTypeFactory_instance = [((PoolTypeFactory*) [PoolTypeFactory alloc]) init];
+    PoolTypeFactory_instance = ((PoolTypeFactory*) [((PoolTypeFactory*) [PoolTypeFactory alloc]) init]);
 }
 
 @implementation PoolTypeFactory
 
 - (void) initFields {
-    self->VECTOR_POOL = [((PoolType*) [PoolType alloc]) init:[CacheTypeFactory getInstance]->NO_CACHE];
+    self->VECTOR_POOL = ((PoolType*) [((PoolType*) [PoolType alloc]) init:[CacheTypeFactory getInstance]->NO_CACHE]);
 }
 
 - (instancetype) init {

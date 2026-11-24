@@ -13,13 +13,13 @@ void CollidableAlwaysPickupNeverCollideBehaviorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    CollidableAlwaysPickupNeverCollideBehaviorFactory_instanceC = [((CollidableAlwaysPickupNeverCollideBehaviorFactory*) [CollidableAlwaysPickupNeverCollideBehaviorFactory alloc]) init];
+    CollidableAlwaysPickupNeverCollideBehaviorFactory_instanceC = ((CollidableAlwaysPickupNeverCollideBehaviorFactory*) [((CollidableAlwaysPickupNeverCollideBehaviorFactory*) [CollidableAlwaysPickupNeverCollideBehaviorFactory alloc]) init]);
 }
 
 @implementation CollidableAlwaysPickupNeverCollideBehaviorFactory
 
 - (void) initFields {
-    self->instance = [((CollidableAlwaysPickupNeverCollideBehavior*) [CollidableAlwaysPickupNeverCollideBehavior alloc]) init];
+    self->instance = ((CollidableAlwaysPickupNeverCollideBehavior*) [((CollidableAlwaysPickupNeverCollideBehavior*) [CollidableAlwaysPickupNeverCollideBehavior alloc]) init]);
 }
 
 - (instancetype) init {

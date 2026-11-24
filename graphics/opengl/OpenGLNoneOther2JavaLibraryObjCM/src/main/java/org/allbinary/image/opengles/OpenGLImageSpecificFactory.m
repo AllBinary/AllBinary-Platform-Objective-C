@@ -10,7 +10,7 @@ void OpenGLImageSpecificFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLImageSpecificFactory_instance = [((OpenGLImageSpecificFactory*) [OpenGLImageSpecificFactory alloc]) init];
+    OpenGLImageSpecificFactory_instance = ((OpenGLImageSpecificFactory*) [((OpenGLImageSpecificFactory*) [OpenGLImageSpecificFactory alloc]) init]);
 }
 
 @implementation OpenGLImageSpecificFactory

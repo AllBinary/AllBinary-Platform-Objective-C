@@ -7,6 +7,9 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/terrain/TerrainEventListenerInterface.h"
 #include "org/allbinary/game/terrain/TerrainEvent.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 
@@ -21,7 +24,7 @@ void TerrainEventListener_staticInit(void) {
 @implementation TerrainEventListener
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 - (instancetype) init {

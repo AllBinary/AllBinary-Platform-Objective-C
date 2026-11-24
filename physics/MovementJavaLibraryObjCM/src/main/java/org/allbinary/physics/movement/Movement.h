@@ -35,7 +35,7 @@
 @public
 }
 - (instancetype) init;
-- (void) init_:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle;
+- (void) initMethod:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle;
 - (void) process:(AllBinaryGameLayer*)layer;
 - (void) stop;
 @end

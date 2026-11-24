@@ -11,7 +11,7 @@ void NotificationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    NotificationUtil_SINGLETON = [((NotificationUtil*) [NotificationUtil alloc]) init];
+    NotificationUtil_SINGLETON = ((NotificationUtil*) [((NotificationUtil*) [NotificationUtil alloc]) init]);
 }
 
 @implementation NotificationUtil

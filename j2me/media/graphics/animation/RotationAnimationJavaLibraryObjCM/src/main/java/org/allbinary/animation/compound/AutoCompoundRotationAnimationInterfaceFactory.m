@@ -32,7 +32,7 @@ void AutoCompoundRotationAnimationInterfaceFactory_staticInit(void) {
 
 
 - (Animation*) createAnimation:(Animation**)animationInterfaceArray {
-        return [((AutoCompoundRotationAnimation*) [AutoCompoundRotationAnimation alloc]) init:((RotationAnimation**) animationInterfaceArray) :[self->animationBehaviorFactory getOrCreateInstance]];
+        return ((AutoCompoundRotationAnimation*) [((AutoCompoundRotationAnimation*) [AutoCompoundRotationAnimation alloc]) init:((RotationAnimation**) animationInterfaceArray) :[self->animationBehaviorFactory getOrCreateInstance]]);
 }
 
 @end

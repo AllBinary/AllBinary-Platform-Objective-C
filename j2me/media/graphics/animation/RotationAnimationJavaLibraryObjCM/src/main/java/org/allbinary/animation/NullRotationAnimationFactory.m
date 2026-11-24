@@ -16,14 +16,14 @@ void NullRotationAnimationFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    NullRotationAnimationFactory_NULL_ROTATION_ANIMATION_FACTORY = [((NullRotationAnimationFactory*) [NullRotationAnimationFactory alloc]) init];
+    NullRotationAnimationFactory_NULL_ROTATION_ANIMATION_FACTORY = ((NullRotationAnimationFactory*) [((NullRotationAnimationFactory*) [NullRotationAnimationFactory alloc]) init]);
 }
 
 @implementation NullRotationAnimationFactory
 
 - (void) initFields {
     self->NULL_ROTATION_ANIMATION_ARRAY = ((RotationAnimation**) java_array_new(sizeof(RotationAnimation*), 0));
-    self->NULL_ANIMATION = [((NullRotationAnimation2*) [NullRotationAnimation2 alloc]) init];
+    self->NULL_ANIMATION = ((NullRotationAnimation2*) [((NullRotationAnimation2*) [NullRotationAnimation2 alloc]) init]);
 }
 
 

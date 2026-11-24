@@ -26,7 +26,7 @@ void SpecialStrafeRightGameInputInterfaceProcessor_staticInit(void) {
 
 // throws Exception
 - (void) processEvent:(AllBinaryLayerManager*)allbinaryLayerManager :(GameKeyEvent*)gameKeyEvent {
-        [self->specialGameInputInterface strafeRight];
+        [((id<SpecialGameInputInterface>) self->specialGameInputInterface) strafeRight];
 }
 
 @end

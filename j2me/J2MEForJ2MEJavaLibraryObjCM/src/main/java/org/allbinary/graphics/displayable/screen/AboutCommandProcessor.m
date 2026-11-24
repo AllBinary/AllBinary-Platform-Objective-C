@@ -13,7 +13,7 @@ void AboutCommandProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    AboutCommandProcessor_instance = [((AboutCommandProcessor*) [AboutCommandProcessor alloc]) init];
+    AboutCommandProcessor_instance = ((AboutCommandProcessor*) [((AboutCommandProcessor*) [AboutCommandProcessor alloc]) init]);
 }
 
 @implementation AboutCommandProcessor
@@ -30,7 +30,7 @@ void AboutCommandProcessor_staticInit(void) {
 
 
 - (void) process:(CommandListener*)midletCommandListener :(Command*)command :(Canvas*)canvas {
-        [midletCommandListener commandAction:command :canvas];
+        [((id<CommandListener>) midletCommandListener) commandAction:command :canvas];
 }
 
 @end

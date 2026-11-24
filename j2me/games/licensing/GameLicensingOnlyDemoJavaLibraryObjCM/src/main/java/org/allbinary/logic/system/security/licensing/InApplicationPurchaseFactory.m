@@ -2,6 +2,9 @@
 #include "org/allbinary/logic/system/security/licensing/InApplicationPurchaseFactory.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/logic/system/security/licensing/LockableFeature.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static InApplicationPurchaseFactory* InApplicationPurchaseFactory_instance;
@@ -12,7 +15,7 @@ void InApplicationPurchaseFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    InApplicationPurchaseFactory_instance = [((InApplicationPurchaseFactory*) [InApplicationPurchaseFactory alloc]) init];
+    InApplicationPurchaseFactory_instance = ((InApplicationPurchaseFactory*) [((InApplicationPurchaseFactory*) [InApplicationPurchaseFactory alloc]) init]);
 }
 
 @implementation InApplicationPurchaseFactory
@@ -29,7 +32,7 @@ void InApplicationPurchaseFactory_staticInit(void) {
 }
 
 
-- (void) init_:(id)anyType :(id)stateObject {
+- (void) initMethod:(id)anyType :(id)stateObject {
 }
 
 

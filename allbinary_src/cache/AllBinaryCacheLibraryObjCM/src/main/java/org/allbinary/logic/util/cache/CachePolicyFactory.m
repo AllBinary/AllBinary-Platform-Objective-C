@@ -11,19 +11,19 @@ void CachePolicyFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    CachePolicyFactory_instance = [((CachePolicyFactory*) [CachePolicyFactory alloc]) init];
+    CachePolicyFactory_instance = ((CachePolicyFactory*) [((CachePolicyFactory*) [CachePolicyFactory alloc]) init]);
 }
 
 @implementation CachePolicyFactory
 
 - (void) initFields {
     self->NAME = "lru";
-    self->MAX_TIME_THOUSAND_MAX = [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :(Long_staticInit(), Long_MAX_VALUE) :1000];
-    self->THIRTY_MINUTES_TEN_THOUSAND_MAX = [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :1000 * 60 * 30 :10000];
-    self->THIRTY_MINUTES_FIFTY_THOUSAND_MAX = [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :1000 * 60 * 30 :100000];
-    self->ONE_MINUTE_FIVE_MAX = [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :1000 * 60 * 1 :5];
-    self->ONE_MINUTE_TEN_MAX = [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :1000 * 60 * 1 :10];
-    self->ONE_MINUTE_ONE_HUNDRED_MAX = [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :1000 * 60 * 1 :100];
+    self->MAX_TIME_THOUSAND_MAX = ((CachePolicy*) [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :(Long_staticInit(), Long_MAX_VALUE) :1000]);
+    self->THIRTY_MINUTES_TEN_THOUSAND_MAX = ((CachePolicy*) [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :1000 * 60 * 30 :10000]);
+    self->THIRTY_MINUTES_FIFTY_THOUSAND_MAX = ((CachePolicy*) [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :1000 * 60 * 30 :100000]);
+    self->ONE_MINUTE_FIVE_MAX = ((CachePolicy*) [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :1000 * 60 * 1 :5]);
+    self->ONE_MINUTE_TEN_MAX = ((CachePolicy*) [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :1000 * 60 * 1 :10]);
+    self->ONE_MINUTE_ONE_HUNDRED_MAX = ((CachePolicy*) [((CachePolicy*) [CachePolicy alloc]) init:self->NAME :1000 * 60 * 1 :100]);
 }
 
 - (instancetype) init {

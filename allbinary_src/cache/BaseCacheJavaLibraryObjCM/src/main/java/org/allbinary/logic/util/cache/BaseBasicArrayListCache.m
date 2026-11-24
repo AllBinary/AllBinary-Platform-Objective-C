@@ -17,7 +17,7 @@ void BaseBasicArrayListCache_staticInit(void) {
 @implementation BaseBasicArrayListCache
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 - (instancetype) init {
@@ -28,7 +28,7 @@ void BaseBasicArrayListCache_staticInit(void) {
 
 
 - (const char*) log {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"S: "];
         [stringBuffer appendint:[self->list size]];
         return [stringBuffer toString];

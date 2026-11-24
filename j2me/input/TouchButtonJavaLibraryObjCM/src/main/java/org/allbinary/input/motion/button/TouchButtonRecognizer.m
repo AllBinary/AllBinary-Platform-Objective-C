@@ -98,9 +98,9 @@ void TouchButtonRecognizer_staticInit(void) {
     self = [super init];
     [self initFields];
         if ([[TouchScreenFactory getInstance] isMultiTouch]) {
-            self->releaseHelper = [((MultitouchReleaseHelper*) [MultitouchReleaseHelper alloc]) init:self];
+            self->releaseHelper = ((MultitouchReleaseHelper*) [((MultitouchReleaseHelper*) [MultitouchReleaseHelper alloc]) init:self]);
         } else {
-            self->releaseHelper = [((ReleaseHelper*) [ReleaseHelper alloc]) init:self];
+            self->releaseHelper = ((ReleaseHelper*) [((ReleaseHelper*) [ReleaseHelper alloc]) init:self]);
         }
     return self;
 }

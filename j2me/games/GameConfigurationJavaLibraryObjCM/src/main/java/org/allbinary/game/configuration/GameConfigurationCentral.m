@@ -12,6 +12,12 @@
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/game/configuration/GameConfiguration.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static id GameConfigurationCentral_SINGLETON;
@@ -50,7 +56,7 @@ void GameConfigurationCentral_staticInit(void) {
 
 + (GameConfigurationCentral*) getInstance {
         if ((GameConfigurationCentral_staticInit(), GameConfigurationCentral_SINGLETON) == [NullUtil getInstance]->NULL_OBJECT) {
-            GameConfigurationCentral_SINGLETON = [((GameConfigurationCentral*) [GameConfigurationCentral alloc]) init];
+            GameConfigurationCentral_SINGLETON = ((GameConfigurationCentral*) [((GameConfigurationCentral*) [GameConfigurationCentral alloc]) init]);
         }
         return ((GameConfigurationCentral*) (GameConfigurationCentral_staticInit(), GameConfigurationCentral_SINGLETON));
 }
@@ -60,26 +66,26 @@ void GameConfigurationCentral_staticInit(void) {
     self = [super init];
     [self initFields];
         SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
-        self->SCALE = [((GameConfiguration*) [GameConfiguration alloc]) init:"Scale" :[smallIntegerSingletonFactory getAt:2] :[smallIntegerSingletonFactory getAt:2] :[smallIntegerSingletonFactory getAt:3]];
-        self->ORIENTATION = [((GameConfiguration*) [GameConfiguration alloc]) init:"Orientation" :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:8]];
-        self->SENSOR_UPDATE_RATE = [((GameConfiguration*) [GameConfiguration alloc]) init:"Sensor Update Rate" :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:3]];
-        self->VIBRATION = [((GameConfiguration*) [GameConfiguration alloc]) init:"Vibration" :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:3]];
-        self->CHALLENGE_LEVEL = [((GameConfiguration*) [GameConfiguration alloc]) init:"Global Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
-        self->COLLIDE_DAMAGE = [((GameConfiguration*) [GameConfiguration alloc]) init:"Collide Damage Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
-        self->DURABILITY_CHALLENGE_LEVEL = [((GameConfiguration*) [GameConfiguration alloc]) init:"Enemy Durability Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
-        self->SPEED_CHALLENGE_LEVEL = [((GameConfiguration*) [GameConfiguration alloc]) init:"Enemy Speed Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
-        self->ATTACK_CHALLENGE_LEVEL = [((GameConfiguration*) [GameConfiguration alloc]) init:"Enemy Attack Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
-        self->CONTROL_LEVEL = [((GameConfiguration*) [GameConfiguration alloc]) init:"Control Fidelity" :[smallIntegerSingletonFactory getAt:5] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
-        self->PLAYER_INPUT_WAIT = [((GameConfiguration*) [GameConfiguration alloc]) init:"Input Wait" :[smallIntegerSingletonFactory getAt:5] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
-        self->SPEED = [((GameConfiguration*) [GameConfiguration alloc]) init:"Game Speed (Device Specific)" :[smallIntegerSingletonFactory getAt:5] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]];
-        self->SOUND_VOLUME = [((GameConfiguration*) [GameConfiguration alloc]) init:"Sound Volume" :[smallIntegerSingletonFactory getAt:6] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:10]];
-        self->MAX_GAME_OBJECTS = [((GameConfiguration*) [GameConfiguration alloc]) init:"Max Game Objects" :[smallIntegerSingletonFactory getAt:20] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:50]];
-        self->MAX_LAYERS = [((GameConfiguration*) [GameConfiguration alloc]) init:"Max Layers" :[smallIntegerSingletonFactory getAt:20] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:50]];
+        self->SCALE = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Scale" :[smallIntegerSingletonFactory getAt:2] :[smallIntegerSingletonFactory getAt:2] :[smallIntegerSingletonFactory getAt:3]]);
+        self->ORIENTATION = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Orientation" :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:8]]);
+        self->SENSOR_UPDATE_RATE = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Sensor Update Rate" :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:3]]);
+        self->VIBRATION = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Vibration" :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:3]]);
+        self->CHALLENGE_LEVEL = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Global Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]]);
+        self->COLLIDE_DAMAGE = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Collide Damage Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]]);
+        self->DURABILITY_CHALLENGE_LEVEL = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Enemy Durability Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]]);
+        self->SPEED_CHALLENGE_LEVEL = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Enemy Speed Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]]);
+        self->ATTACK_CHALLENGE_LEVEL = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Enemy Attack Challenge Level" :[smallIntegerSingletonFactory getAt:3] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]]);
+        self->CONTROL_LEVEL = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Control Fidelity" :[smallIntegerSingletonFactory getAt:5] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]]);
+        self->PLAYER_INPUT_WAIT = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Input Wait" :[smallIntegerSingletonFactory getAt:5] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]]);
+        self->SPEED = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Game Speed (Device Specific)" :[smallIntegerSingletonFactory getAt:5] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:10]]);
+        self->SOUND_VOLUME = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Sound Volume" :[smallIntegerSingletonFactory getAt:6] :[smallIntegerSingletonFactory getAt:0] :[smallIntegerSingletonFactory getAt:10]]);
+        self->MAX_GAME_OBJECTS = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Max Game Objects" :[smallIntegerSingletonFactory getAt:20] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:50]]);
+        self->MAX_LAYERS = ((GameConfiguration*) [((GameConfiguration*) [GameConfiguration alloc]) init:"Max Layers" :[smallIntegerSingletonFactory getAt:20] :[smallIntegerSingletonFactory getAt:1] :[smallIntegerSingletonFactory getAt:50]]);
     return self;
 }
 
 
-- (void) load_:(AbeClientInformationInterface*)abeClientInformation {
+- (void) loadMethod:(AbeClientInformationInterface*)abeClientInformation {
         CommonStrings* commonStrings = [CommonStrings getInstance];
         JAVA_TRY {
             SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
@@ -112,7 +118,7 @@ void GameConfigurationCentral_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         CommonSeps* commonStrings = [CommonSeps getInstance];
         [stringBuffer append:commonStrings->COMMA_SEP];
         [stringBuffer append:[self->SCALE getName]];

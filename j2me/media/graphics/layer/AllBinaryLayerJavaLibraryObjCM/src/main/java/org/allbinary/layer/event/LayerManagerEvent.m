@@ -3,6 +3,9 @@
 #include "org/allbinary/layer/AllBinaryLayer.h"
 #include "org/allbinary/layer/LayerManager.h"
 #include "org/allbinary/logic/string/StringMaker.h"
+#if __has_include("org/allbinary/layer/AllBinaryLayer.h")
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#endif
 
 
 
@@ -41,7 +44,7 @@ void LayerManagerEvent_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"LayerManagerEvent: \n"];
         [stringBuffer append:"LayerInterface: "];
         [stringBuffer append:[[self getLayerInterface] toString]];

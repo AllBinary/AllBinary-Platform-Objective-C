@@ -12,7 +12,7 @@ void VectorAnimationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    VectorAnimationUtil_instance = [((VectorAnimationUtil*) [VectorAnimationUtil alloc]) init];
+    VectorAnimationUtil_instance = ((VectorAnimationUtil*) [((VectorAnimationUtil*) [VectorAnimationUtil alloc]) init]);
 }
 
 @implementation VectorAnimationUtil

@@ -4,6 +4,9 @@
 #include "org/allbinary/graphics/color/BasicColorFactory.h"
 #include "org/allbinary/animation/VectorAnimation.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 

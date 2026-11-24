@@ -19,7 +19,7 @@ void OptimizedTickableLayerProcessor_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:[((OptimizedTickableLayerManager*) [OptimizedTickableLayerManager alloc]) init]];
+        self = [super init:((OptimizedTickableLayerManager*) [((OptimizedTickableLayerManager*) [OptimizedTickableLayerManager alloc]) init])];
     return self;
 }
 

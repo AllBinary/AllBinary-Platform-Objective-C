@@ -37,9 +37,9 @@ void BasicVelocityProperties_staticInit(void) {
 - (instancetype) init {
     self = [super init];
     [self initFields];
-        self->velocityXBasicDecimal = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
-        self->velocityYBasicDecimal = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
-        self->velocityZBasicDecimal = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
+        self->velocityXBasicDecimal = ((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:0]);
+        self->velocityYBasicDecimal = ((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:0]);
+        self->velocityZBasicDecimal = ((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:0]);
     return self;
 }
 
@@ -139,7 +139,7 @@ void BasicVelocityProperties_staticInit(void) {
 - (const char*) toString {
         CommonSeps* commonSeps = [CommonSeps getInstance];
         PositionStrings* positionStrings = [PositionStrings getInstance];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         StringUtil* stringUtil = [StringUtil getInstance];
         [stringBuffer append:"Velocity "];
         [stringBuffer append:positionStrings->X_LABEL];

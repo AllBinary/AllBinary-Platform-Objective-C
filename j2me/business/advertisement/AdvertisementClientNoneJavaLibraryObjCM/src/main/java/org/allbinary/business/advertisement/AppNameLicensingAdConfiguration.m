@@ -2,6 +2,15 @@
 #include "org/allbinary/business/advertisement/AppNameLicensingAdConfiguration.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/business/advertisement/AdConfiguration.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 

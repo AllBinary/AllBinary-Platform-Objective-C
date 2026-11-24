@@ -12,7 +12,7 @@ void ChangedGameFeatureListener_staticInit(void) {
         return;
     }
     initialized = true;
-    ChangedGameFeatureListener_gameFeatureListener = [((ChangedGameFeatureListener*) [ChangedGameFeatureListener alloc]) init];
+    ChangedGameFeatureListener_gameFeatureListener = ((ChangedGameFeatureListener*) [((ChangedGameFeatureListener*) [ChangedGameFeatureListener alloc]) init]);
 }
 
 @implementation ChangedGameFeatureListener

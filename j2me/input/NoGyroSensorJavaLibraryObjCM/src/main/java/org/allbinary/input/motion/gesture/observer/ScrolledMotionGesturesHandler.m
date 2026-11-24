@@ -14,7 +14,7 @@ void ScrolledMotionGesturesHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    ScrolledMotionGesturesHandler_SINGLETON = [((ScrolledMotionGesturesHandler*) [ScrolledMotionGesturesHandler alloc]) init];
+    ScrolledMotionGesturesHandler_SINGLETON = ((ScrolledMotionGesturesHandler*) [((ScrolledMotionGesturesHandler*) [ScrolledMotionGesturesHandler alloc]) init]);
 }
 
 @implementation ScrolledMotionGesturesHandler
@@ -34,7 +34,7 @@ void ScrolledMotionGesturesHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         BaseMotionGestureEventListener* baseMotionGestureEventListener = ((BaseMotionGestureEventListener*) eventListenerInterface);
-        [baseMotionGestureEventListener onScrolledMotionGestureEvent:((MotionGestureEvent*) eventObject)];
+        [((id<BaseMotionGestureEventListener>) baseMotionGestureEventListener) onScrolledMotionGestureEvent:((MotionGestureEvent*) eventObject)];
 }
 
 @end

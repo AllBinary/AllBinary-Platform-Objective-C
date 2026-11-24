@@ -14,7 +14,7 @@ void GameFeatureEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    GameFeatureEventHandler_gameKeyEventHandler = [((GameFeatureEventHandler*) [GameFeatureEventHandler alloc]) init];
+    GameFeatureEventHandler_gameKeyEventHandler = ((GameFeatureEventHandler*) [((GameFeatureEventHandler*) [GameFeatureEventHandler alloc]) init]);
 }
 
 @implementation GameFeatureEventHandler
@@ -34,7 +34,7 @@ void GameFeatureEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         GameFeatureListenerInterface* gameFeatureListenerInterface = (((GameFeatureListenerInterface*) eventListenerInterface));
-        [gameFeatureListenerInterface onGameFeatureChange:((GameFeatureEvent*) eventObject)];
+        [((id<GameFeatureListenerInterface>) gameFeatureListenerInterface) onGameFeatureChange:((GameFeatureEvent*) eventObject)];
 }
 
 @end

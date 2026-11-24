@@ -6,6 +6,21 @@
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/TsUtil.h")
+#include "org/allbinary/TsUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -47,7 +62,7 @@ void Tokenizer_staticInit(void) {
 
 
 - (BasicArrayList*) getInsideSep:(const char*)string {
-        BasicArrayList* tokenList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* tokenList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         int32_t index = 0;
         int32_t size = ((int32_t) strlen(string));
         while (index < size) {

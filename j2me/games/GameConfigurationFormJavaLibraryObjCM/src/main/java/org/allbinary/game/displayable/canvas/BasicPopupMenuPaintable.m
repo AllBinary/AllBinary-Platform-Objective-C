@@ -20,6 +20,21 @@
 #include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
 #include "org/allbinary/graphics/opengles/OpenGLFeatureUtil.h"
 #include "org/allbinary/graphics/threed/SWTJOGLProcessor.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureFactory.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureUtil.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/threed/SWTJOGLProcessor.h")
+#include "org/allbinary/graphics/threed/SWTJOGLProcessor.h"
+#endif
 
 
 static const char* BasicPopupMenuPaintable_NAME = "MENU";
@@ -39,7 +54,7 @@ void BasicPopupMenuPaintable_staticInit(void) {
     self->drawStringUtil = [DrawVerticalStringUtil getInstance];
     
     
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     
     self->BORDER = 0;
     self->heightOffset = 0;
@@ -57,9 +72,9 @@ void BasicPopupMenuPaintable_staticInit(void) {
         if ([J2MEUtil isJ2ME] || [J2MEUtil isHTML]) {
             self->animationInterface = [[NullAnimationFactory getFactoryInstance] getInstance:0];
         } else {
-            self->animationInterface = [((RectangleFilledAnimation*) [RectangleFilledAnimation alloc]) init:[self->rectangle getWidth] :[self->rectangle getHeight] :[BasicColorFactory getInstance]->TRANSPARENT_GREY];
+            self->animationInterface = ((RectangleFilledAnimation*) [((RectangleFilledAnimation*) [RectangleFilledAnimation alloc]) init:[self->rectangle getWidth] :[self->rectangle getHeight] :[BasicColorFactory getInstance]->TRANSPARENT_GREY]);
         }
-        [self init_:rectangle];
+        [self initMethod:rectangle];
     return self;
 }
 
@@ -78,7 +93,7 @@ void BasicPopupMenuPaintable_staticInit(void) {
             BORDER = [MyFontProcessor defaultCharWidth:font] * 2;
         }
         self->BORDER = BORDER;
-        self->heightOffset = [self->rectangle getHeight] - ([font getHeight] * [BasicPopupMenuPaintable_NAME length]);
+        self->heightOffset = [self->rectangle getHeight] - ([font getHeight] * ((int32_t) strlen(BasicPopupMenuPaintable_NAME)));
         if ([[OpenGLFeatureUtil getInstance] isAnyThreed]) {
             self->heightOffset -= [font getHeight] + 2;
             if ([AndroidUtil isAndroid]) {
@@ -93,7 +108,7 @@ void BasicPopupMenuPaintable_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(Rectangle*)rectangle {
+- (void) initMethod:(Rectangle*)rectangle {
         self->rectangle = rectangle;
         int32_t width = [self->rectangle getWidth];
         int32_t height = [self->rectangle getHeight];

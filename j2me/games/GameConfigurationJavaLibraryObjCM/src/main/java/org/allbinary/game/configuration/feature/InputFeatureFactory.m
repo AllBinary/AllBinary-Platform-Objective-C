@@ -12,17 +12,17 @@ void InputFeatureFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    InputFeatureFactory_instance = [((InputFeatureFactory*) [InputFeatureFactory alloc]) init];
+    InputFeatureFactory_instance = ((InputFeatureFactory*) [((InputFeatureFactory*) [InputFeatureFactory alloc]) init]);
 }
 
 @implementation InputFeatureFactory
 
 - (void) initFields {
-    self->REMOVE_DUPLICATE_KEY_PRESSES = [((InputFeature*) [InputFeature alloc]) init:"Remove Duplicate Key Presses"];
-    self->INPUT_MAPPING = [((InputFeature*) [InputFeature alloc]) init:"Input Mapping"];
-    self->MULTI_KEY_PRESS = [((InputFeature*) [InputFeature alloc]) init:"Multi Key Press"];
-    self->SINGLE_KEY_REPEAT_PRESS = [((InputFeature*) [InputFeature alloc]) init:"Single Key Repeat Press"];
-    self->SINGLE_KEY_PRESS = [((InputFeature*) [InputFeature alloc]) init:"Single Key Press"];
+    self->REMOVE_DUPLICATE_KEY_PRESSES = ((InputFeature*) [((InputFeature*) [InputFeature alloc]) init:"Remove Duplicate Key Presses"]);
+    self->INPUT_MAPPING = ((InputFeature*) [((InputFeature*) [InputFeature alloc]) init:"Input Mapping"]);
+    self->MULTI_KEY_PRESS = ((InputFeature*) [((InputFeature*) [InputFeature alloc]) init:"Multi Key Press"]);
+    self->SINGLE_KEY_REPEAT_PRESS = ((InputFeature*) [((InputFeature*) [InputFeature alloc]) init:"Single Key Repeat Press"]);
+    self->SINGLE_KEY_PRESS = ((InputFeature*) [((InputFeature*) [InputFeature alloc]) init:"Single Key Press"]);
 }
 
 

@@ -11,7 +11,7 @@ void AnalogLocationInput_staticInit(void) {
         return;
     }
     initialized = true;
-    AnalogLocationInput_NULL_ANALOG_LOCATION_INPUT = [((AnalogLocationInput*) [AnalogLocationInput alloc]) init:-1];
+    AnalogLocationInput_NULL_ANALOG_LOCATION_INPUT = ((AnalogLocationInput*) [((AnalogLocationInput*) [AnalogLocationInput alloc]) init:-1]);
 }
 
 @implementation AnalogLocationInput
@@ -29,7 +29,7 @@ void AnalogLocationInput_staticInit(void) {
     self = [super init];
     [self initFields];
         self->playerId = playerId;
-        self->customGPoint = [((CustomGPoint*) [CustomGPoint alloc]) init:0 :0 :0];
+        self->customGPoint = ((CustomGPoint*) [((CustomGPoint*) [CustomGPoint alloc]) init:0 :0 :0]);
     return self;
 }
 

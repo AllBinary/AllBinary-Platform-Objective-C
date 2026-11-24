@@ -23,7 +23,7 @@ void IconLayerFactory_staticInit(void) {
 
 // throws Exception
 + (IconLayer*) getInstance:(Animation*)animationInterface :(int32_t)width :(int32_t)height {
-        return [((IconLayer*) [IconLayer alloc]) init:animationInterface :width :height];
+        return ((IconLayer*) [((IconLayer*) [IconLayer alloc]) init:animationInterface :width :height]);
 }
 
 @end

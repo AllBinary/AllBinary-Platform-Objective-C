@@ -19,7 +19,7 @@ void NoBasicConstantVelocityMovement_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:(BasicDecimal_staticInit(), BasicDecimal_ZERO_BIGDECIMAL) :[((BasicVelocityProperties*) [BasicVelocityProperties alloc]) init]];
+        self = [super init:(BasicDecimal_staticInit(), BasicDecimal_ZERO_BIGDECIMAL) :((BasicVelocityProperties*) [((BasicVelocityProperties*) [BasicVelocityProperties alloc]) init])];
     return self;
 }
 

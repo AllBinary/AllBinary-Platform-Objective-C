@@ -42,6 +42,9 @@
 #if __has_include("org/allbinary/time/GameTickTimeDelayHelper.h")
 #include "org/allbinary/time/GameTickTimeDelayHelper.h"
 #endif
+#if __has_include("org/allbinary/animation/AnimationEventHandler.h")
+#include "org/allbinary/animation/AnimationEventHandler.h"
+#endif
 
 
 
@@ -79,11 +82,11 @@ void CaptionIndexedAnimation_staticInit(void) {
         self->dx = dx;
         self->dy = dy;
         self->time = time;
-        self->END_EVENT = [((AllBinaryEventObject*) [AllBinaryEventObject alloc]) init:self];
+        self->END_EVENT = ((AllBinaryEventObject*) [((AllBinaryEventObject*) [AllBinaryEventObject alloc]) init:self]);
         int32_t timePerFrame = self->time / [self getSize];
-        self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:timePerFrame];
+        self->timeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:timePerFrame]);
         self->player = player;
-        [self->player start];
+        [((id<Player>) self->player) start];
     return self;
 }
 

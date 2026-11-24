@@ -10,7 +10,7 @@ void ThreedResources_staticInit(void) {
         return;
     }
     initialized = true;
-    ThreedResources_threedResources = [((ThreedResources*) [ThreedResources alloc]) init];
+    ThreedResources_threedResources = ((ThreedResources*) [((ThreedResources*) [ThreedResources alloc]) init]);
 }
 
 @implementation ThreedResources

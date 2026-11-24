@@ -8,6 +8,9 @@
 #include "org/allbinary/time/GameTickTimeDelayHelperFactory.h"
 #include "org/allbinary/time/TimeDelayHelper.h"
 #include "org/allbinary/game/ag/ai/scroller/TimeFiredInterface.h"
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
 #if __has_include("org/allbinary/game/ag/ai/scroller/GameTickTimeDelayHelper.h")
 #include "org/allbinary/game/ag/ai/scroller/GameTickTimeDelayHelper.h"
 #endif
@@ -51,7 +54,7 @@ void TimedFireAI_staticInit(void) {
 @implementation TimedFireAI
 
 - (void) initFields {
-    self->maxFireDelayTimeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
+    self->maxFireDelayTimeHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0]);
     
 }
 
@@ -67,7 +70,7 @@ void TimedFireAI_staticInit(void) {
 // throws Exception
 - (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager {
         TimeFiredInterface* timeFiredInterface = ((TimeFiredInterface*) [self getOwnerLayerInterface]);
-        if ([self->maxFireDelayTimeHelper isTime:[GameTickTimeDelayHelperFactory getInstance]->startTime] && [timeFiredInterface getLastFireTime] + self->maxFireDelayTimeHelper->delay < [self->maxFireDelayTimeHelper getStartTime]) {
+        if ([self->maxFireDelayTimeHelper isTime:[GameTickTimeDelayHelperFactory getInstance]->startTime] && [((id<TimeFiredInterface>) timeFiredInterface) getLastFireTime] + self->maxFireDelayTimeHelper->delay < [self->maxFireDelayTimeHelper getStartTime]) {
             [super processKeyAI:(Canvas_staticInit(), Canvas_KEY_NUM1)];
             self->maxFireDelayTimeHelper->delay = self->delay;
         }

@@ -26,13 +26,13 @@ void AdjustedImageArrayAnimation_staticInit(void) {
 - (instancetype) init:(Image**)imageArray :(int32_t)dx :(int32_t)dy :(AnimationBehavior*)animationBehavior {
         self = [super init:imageArray :animationBehavior];
         [self initFields];
-        [self init_:dx :dy];
+        [self initMethod:dx :dy];
     return self;
 }
 
 
 // throws Exception
-- (void) init_:(int32_t)dx :(int32_t)dy {
+- (void) initMethod:(int32_t)dx :(int32_t)dy {
         [self setDx:dx];
         [self setDy:dy];
 }

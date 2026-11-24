@@ -10,7 +10,7 @@ void BooleanFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    BooleanFactory_instance = [((BooleanFactory*) [BooleanFactory alloc]) init];
+    BooleanFactory_instance = ((BooleanFactory*) [((BooleanFactory*) [BooleanFactory alloc]) init]);
 }
 
 @implementation BooleanFactory

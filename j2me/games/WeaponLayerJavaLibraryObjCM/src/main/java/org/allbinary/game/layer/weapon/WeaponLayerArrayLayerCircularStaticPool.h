@@ -46,7 +46,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (WeaponLayerArrayLayerCircularStaticPool*) getInstance;
-- (void) init_;
+- (void) initMethod;
 - (WeaponLayer***) getWeaponLayerArrays:(int32_t)size;
 - (WeaponLayer**) getInstanceArray:(int32_t)size;
 @end

@@ -11,7 +11,7 @@ void BasicDecimal_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicDecimal_ZERO_BIGDECIMAL = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
+    BasicDecimal_ZERO_BIGDECIMAL = ((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:0]);
 }
 
 @implementation BasicDecimal
@@ -25,7 +25,7 @@ void BasicDecimal_staticInit(void) {
 
 
 + (BasicDecimal*) createBigDecimal:(BasicDecimal*)bigDecimal {
-        return [((BasicDecimal*) [BasicDecimal alloc]) init:[bigDecimal getUnscaled]];
+        return ((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:[bigDecimal getUnscaled]]);
 }
 
 

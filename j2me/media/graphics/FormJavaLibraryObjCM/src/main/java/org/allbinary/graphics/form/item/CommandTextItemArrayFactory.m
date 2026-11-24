@@ -12,6 +12,15 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/graphics/form/item/CommandTextItem.h"
 #include "org/allbinary/graphics/form/item/ABCustomItem.h"
+#if __has_include("org/allbinary/graphics/form/ScreenInfo.h")
+#include "org/allbinary/graphics/form/ScreenInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/ScreenInfo.h")
+#include "org/allbinary/graphics/form/ScreenInfo.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -26,7 +35,7 @@ void CommandTextItemArrayFactory_staticInit(void) {
 @implementation CommandTextItemArrayFactory
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     
 }
 
@@ -56,7 +65,7 @@ void CommandTextItemArrayFactory_staticInit(void) {
             if ([command getPriority] < priorityLimit) {
                 bool aBoolean = ((bool) [self->visitorInterface visit:command]);
                 if (((bool) (aBoolean))) {
-                    textItem = [((CommandTextItem*) [CommandTextItem alloc]) init:command :(ImageItem_staticInit(), ImageItem_LAYOUT_DEFAULT) :[StringUtil getInstance]->EMPTY_STRING :backgroundBasicColor :foregroundBasicColor];
+                    textItem = ((CommandTextItem*) [((CommandTextItem*) [CommandTextItem alloc]) init:command :(ImageItem_staticInit(), ImageItem_LAYOUT_DEFAULT) :[StringUtil getInstance]->EMPTY_STRING :backgroundBasicColor :foregroundBasicColor]);
                     [self->list add:textItem];
                 }
             }

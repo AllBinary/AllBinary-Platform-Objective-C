@@ -7,6 +7,18 @@
 #include "org/allbinary/logic/math/PrimitiveIntUtil.h"
 #include "org/allbinary/util/CircularIndexUtil.h"
 #include "org/allbinary/animation/compound/CompoundAnimationInterface.h"
+#if __has_include("org/allbinary/animation/Animation.h")
+#include "org/allbinary/animation/Animation.h"
+#endif
+#if __has_include("org/allbinary/animation/Animation.h")
+#include "org/allbinary/animation/Animation.h"
+#endif
+#if __has_include("org/allbinary/animation/Animation.h")
+#include "org/allbinary/animation/Animation.h"
+#endif
+#if __has_include("org/allbinary/animation/Animation.h")
+#include "org/allbinary/animation/Animation.h"
+#endif
 
 
 

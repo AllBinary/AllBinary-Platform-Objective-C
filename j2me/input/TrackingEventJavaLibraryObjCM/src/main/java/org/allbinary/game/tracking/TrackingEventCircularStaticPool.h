@@ -41,7 +41,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (TrackingEventCircularStaticPool*) getInstance;
-- (void) init_;
+- (void) initMethod;
 - (TrackingEvent*) getNextInstance:(AllBinaryLayer*)layerInterface;
 @end
 

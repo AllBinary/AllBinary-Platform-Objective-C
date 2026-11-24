@@ -1,6 +1,9 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/game/displayable/canvas/GameRunnable.h"
 #include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#if __has_include("org/allbinary/graphics/displayable/DisplayInfoSingleton.h")
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#endif
 
 
 

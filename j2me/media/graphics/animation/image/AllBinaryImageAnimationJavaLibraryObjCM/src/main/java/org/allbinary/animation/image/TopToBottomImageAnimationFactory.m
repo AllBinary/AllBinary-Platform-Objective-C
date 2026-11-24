@@ -28,7 +28,7 @@ void TopToBottomImageAnimationFactory_staticInit(void) {
 // throws Exception
 - (Animation*) getInstance:(int32_t)instanceId {
         Image* scaledImage = [self->animationFactoryImageScaleUtil createImage:[self getImage] :self->animationFactoryInitializationVisitor->width :self->animationFactoryInitializationVisitor->height :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
-        return [((TopToBottomImageAnimation*) [TopToBottomImageAnimation alloc]) init:scaledImage :[self getSequenceArray] :[self->animationBehaviorFactory getOrCreateInstance]];
+        return ((TopToBottomImageAnimation*) [((TopToBottomImageAnimation*) [TopToBottomImageAnimation alloc]) init:scaledImage :[self getSequenceArray] :[self->animationBehaviorFactory getOrCreateInstance]]);
 }
 
 @end

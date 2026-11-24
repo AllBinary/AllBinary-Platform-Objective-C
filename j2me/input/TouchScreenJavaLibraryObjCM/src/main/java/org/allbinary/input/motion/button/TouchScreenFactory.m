@@ -6,6 +6,9 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/input/motion/button/TouchScreenTypesFactory.h"
 #include "org/allbinary/input/motion/button/TouchScreenType.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static TouchScreenFactory* TouchScreenFactory_SINGLETON;
@@ -16,7 +19,7 @@ void TouchScreenFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchScreenFactory_SINGLETON = [((TouchScreenFactory*) [TouchScreenFactory alloc]) init];
+    TouchScreenFactory_SINGLETON = ((TouchScreenFactory*) [((TouchScreenFactory*) [TouchScreenFactory alloc]) init]);
 }
 
 @implementation TouchScreenFactory
@@ -90,7 +93,7 @@ void TouchScreenFactory_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"TouchScreen: "];
         [stringBuffer appendboolean:[self isTouch]];
         [stringBuffer append:" MultiTouch: "];

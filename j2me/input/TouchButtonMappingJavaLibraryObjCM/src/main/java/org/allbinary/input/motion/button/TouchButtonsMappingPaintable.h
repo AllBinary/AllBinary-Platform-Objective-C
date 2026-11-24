@@ -54,7 +54,7 @@
 }
 - (instancetype) init:(BasicColor*)basicColor;
 - (void) initFields;
-- (void) init_;
+- (void) initMethod;
 - (Paintable***) createPaintableTable;
 - (void) paint:(Graphics*)graphics;
 @end

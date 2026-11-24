@@ -10,7 +10,7 @@ void NullThread_staticInit(void) {
         return;
     }
     initialized = true;
-    NullThread_NULL_THREAD = [((Thread*) [Thread alloc]) init];
+    NullThread_NULL_THREAD = ((Thread*) [((Thread*) [Thread alloc]) init]);
 }
 
 @implementation NullThread

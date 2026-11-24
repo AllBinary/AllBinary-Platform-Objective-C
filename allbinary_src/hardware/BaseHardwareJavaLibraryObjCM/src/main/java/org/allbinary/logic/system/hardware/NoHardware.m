@@ -5,6 +5,9 @@
 #include "org/allbinary/logic/system/hardware/components/interfaces/NoHardwareComponent.h"
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/logic/system/hardware/HardwareInterface.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
 
 
 static HardwareInterface* NoHardware_instance;
@@ -15,7 +18,7 @@ void NoHardware_staticInit(void) {
         return;
     }
     initialized = true;
-    NoHardware_instance = [((NoHardware*) [NoHardware alloc]) init];
+    NoHardware_instance = ((NoHardware*) [((NoHardware*) [NoHardware alloc]) init]);
 }
 
 @implementation NoHardware

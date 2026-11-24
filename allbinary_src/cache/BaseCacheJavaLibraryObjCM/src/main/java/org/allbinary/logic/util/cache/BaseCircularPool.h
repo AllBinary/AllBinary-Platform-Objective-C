@@ -47,7 +47,7 @@
 - (instancetype) init;
 - (void) initFields;
 - (id) getNextInstance;
-- (void) init_:(AllBinaryObjectFactoryInterface*)allBinaryObjectFactoryInterface;
+- (void) initMethod:(AllBinaryObjectFactoryInterface*)allBinaryObjectFactoryInterface;
 - (id) getInstance:(int32_t)index;
 @end
 

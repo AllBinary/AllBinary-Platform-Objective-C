@@ -5,6 +5,18 @@
 #include "org/allbinary/platform/graphics/PlatformBitmapBase.h"
 #include "org/allbinary/graphics/OpenGLBitmapConfig.h"
 #include "org/allbinary/graphics/OpenGLBitmap.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static OpenGLBitmapFactory* OpenGLBitmapFactory_instance;
@@ -15,13 +27,13 @@ void OpenGLBitmapFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLBitmapFactory_instance = [((OpenGLBitmapFactory*) [OpenGLBitmapFactory alloc]) init];
+    OpenGLBitmapFactory_instance = ((OpenGLBitmapFactory*) [((OpenGLBitmapFactory*) [OpenGLBitmapFactory alloc]) init]);
 }
 
 @implementation OpenGLBitmapFactory
 
 - (void) initFields {
-    self->ARGB_8888 = [((OpenGLBitmapConfig*) [OpenGLBitmapConfig alloc]) init:[NullUtil getInstance]->NULL_OBJECT];
+    self->ARGB_8888 = ((OpenGLBitmapConfig*) [((OpenGLBitmapConfig*) [OpenGLBitmapConfig alloc]) init:[NullUtil getInstance]->NULL_OBJECT]);
 }
 
 - (instancetype) init {
@@ -37,18 +49,18 @@ void OpenGLBitmapFactory_staticInit(void) {
 
 
 - (OpenGLBitmap*) createBitmap:(int32_t)width :(int32_t)height :(OpenGLBitmapConfig*)config {
-        return [((OpenGLBitmap*) [OpenGLBitmap alloc]) init:[NullUtil getInstance]->NULL_OBJECT];
+        return ((OpenGLBitmap*) [((OpenGLBitmap*) [OpenGLBitmap alloc]) init:[NullUtil getInstance]->NULL_OBJECT]);
 }
 
 
 // throws IOException
 - (OpenGLBitmap*) decodeStream:(InputStream*)inputStream {
-        return [((OpenGLBitmap*) [OpenGLBitmap alloc]) init:[NullUtil getInstance]->NULL_OBJECT];
+        return ((OpenGLBitmap*) [((OpenGLBitmap*) [OpenGLBitmap alloc]) init:[NullUtil getInstance]->NULL_OBJECT]);
 }
 
 
 - (PlatformBitmapBase*) createBitmap:(Image*)image {
-        return [((OpenGLBitmap*) [OpenGLBitmap alloc]) init:[NullUtil getInstance]->NULL_OBJECT];
+        return ((OpenGLBitmap*) [((OpenGLBitmap*) [OpenGLBitmap alloc]) init:[NullUtil getInstance]->NULL_OBJECT]);
 }
 
 @end

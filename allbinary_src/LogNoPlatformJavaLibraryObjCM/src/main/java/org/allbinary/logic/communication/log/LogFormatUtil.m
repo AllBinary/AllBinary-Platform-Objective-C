@@ -10,7 +10,7 @@ void LogFormatUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    LogFormatUtil_instance = [((LogFormatUtil*) [LogFormatUtil alloc]) init];
+    LogFormatUtil_instance = ((LogFormatUtil*) [((LogFormatUtil*) [LogFormatUtil alloc]) init]);
 }
 
 @implementation LogFormatUtil

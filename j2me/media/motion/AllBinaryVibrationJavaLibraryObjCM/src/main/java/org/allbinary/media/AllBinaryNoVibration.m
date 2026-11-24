@@ -11,7 +11,7 @@ void AllBinaryNoVibration_staticInit(void) {
         return;
     }
     initialized = true;
-    AllBinaryNoVibration_NO_VIBRATION = [((AllBinaryNoVibration*) [AllBinaryNoVibration alloc]) init];
+    AllBinaryNoVibration_NO_VIBRATION = ((AllBinaryNoVibration*) [((AllBinaryNoVibration*) [AllBinaryNoVibration alloc]) init]);
 }
 
 @implementation AllBinaryNoVibration

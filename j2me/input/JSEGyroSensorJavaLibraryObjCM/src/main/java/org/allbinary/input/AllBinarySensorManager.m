@@ -3,6 +3,12 @@
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static id AllBinarySensorManager_instance;
@@ -21,13 +27,13 @@ void AllBinarySensorManager_staticInit(void) {
 - (void) initFields {
     self->ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
     self->ORIENTATION_TYPE = "Orientation Type";
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
 + (AllBinarySensorManager*) getInstance {
         if ((AllBinarySensorManager_staticInit(), AllBinarySensorManager_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            AllBinarySensorManager_instance = [((AllBinarySensorManager*) [AllBinarySensorManager alloc]) init];
+            AllBinarySensorManager_instance = ((AllBinarySensorManager*) [((AllBinarySensorManager*) [AllBinarySensorManager alloc]) init]);
         }
         return ((AllBinarySensorManager*) (AllBinarySensorManager_staticInit(), AllBinarySensorManager_instance));
 }
@@ -40,7 +46,7 @@ void AllBinarySensorManager_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 

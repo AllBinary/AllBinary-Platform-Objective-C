@@ -12,7 +12,7 @@ void SWTRunnableProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    SWTRunnableProcessor_instanceR = [((SWTRunnableProcessor*) [SWTRunnableProcessor alloc]) init];
+    SWTRunnableProcessor_instanceR = ((SWTRunnableProcessor*) [((SWTRunnableProcessor*) [SWTRunnableProcessor alloc]) init]);
 }
 
 @implementation SWTRunnableProcessor

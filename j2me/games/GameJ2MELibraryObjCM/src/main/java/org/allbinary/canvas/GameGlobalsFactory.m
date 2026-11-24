@@ -2,6 +2,9 @@
 #include "org/allbinary/canvas/GameGlobalsFactory.h"
 #include "org/allbinary/graphics/GPoint.h"
 #include "org/allbinary/graphics/PointFactory.h"
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
+#endif
 
 
 static GameGlobalsFactory* GameGlobalsFactory_instance;
@@ -12,7 +15,7 @@ void GameGlobalsFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    GameGlobalsFactory_instance = [((GameGlobalsFactory*) [GameGlobalsFactory alloc]) init];
+    GameGlobalsFactory_instance = ((GameGlobalsFactory*) [((GameGlobalsFactory*) [GameGlobalsFactory alloc]) init]);
 }
 
 @implementation GameGlobalsFactory

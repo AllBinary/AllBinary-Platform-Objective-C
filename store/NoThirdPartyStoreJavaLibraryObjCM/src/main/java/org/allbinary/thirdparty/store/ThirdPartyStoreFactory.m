@@ -12,7 +12,7 @@ void ThirdPartyStoreFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ThirdPartyStoreFactory_instance = [((NoThirdPartyStore*) [NoThirdPartyStore alloc]) init];
+    ThirdPartyStoreFactory_instance = ((NoThirdPartyStore*) [((NoThirdPartyStore*) [NoThirdPartyStore alloc]) init]);
 }
 
 @implementation ThirdPartyStoreFactory

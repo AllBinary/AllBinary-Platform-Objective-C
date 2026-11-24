@@ -2,6 +2,12 @@
 #include "org/allbinary/game/configuration/event/GameInitializedEvent.h"
 #include "org/allbinary/game/resource/ResourceLoadingLevel.h"
 #include "org/allbinary/game/resource/ResourceLoadingLevelFactory.h"
+#if __has_include("org/allbinary/game/resource/ResourceLoadingLevelFactory.h")
+#include "org/allbinary/game/resource/ResourceLoadingLevelFactory.h"
+#endif
+#if __has_include("org/allbinary/game/resource/ResourceLoadingLevelFactory.h")
+#include "org/allbinary/game/resource/ResourceLoadingLevelFactory.h"
+#endif
 
 
 

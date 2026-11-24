@@ -12,41 +12,8 @@
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/game/ag/layer/weapon/mine/MineLayerCircularStaticPool.h"
 #include "org/allbinary/game/ag/layer/weapon/mine/MineWeaponResources.h"
-#if __has_include("org/allbinary/game/ag/layer/weapon/mine/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/ag/layer/weapon/mine/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/animation/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/combat/weapon/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/combat/weapon/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/layer/weapon/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/layer/weapon/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/score/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/score/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/layer/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/layer/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/logic/math/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/logic/math/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/util/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/util/AnimationInterfaceFactoryInterface.h"
+#if __has_include("org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.h")
+#include "org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.h"
 #endif
 #if __has_include("org/allbinary/game/ag/layer/weapon/mine/AnimationInterfaceFactoryInterface.h")
 #include "org/allbinary/game/ag/layer/weapon/mine/AnimationInterfaceFactoryInterface.h"
@@ -83,6 +50,48 @@
 #endif
 #if __has_include("org/allbinary/util/AnimationInterfaceFactoryInterface.h")
 #include "org/allbinary/util/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h")
+#include "org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h"
+#endif
+#if __has_include("org/allbinary/game/ag/layer/weapon/mine/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/ag/layer/weapon/mine/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/combat/weapon/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/combat/weapon/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/weapon/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/weapon/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/score/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/score/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/layer/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/layer/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/logic/math/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/logic/math/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/util/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/util/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h")
+#include "org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h"
 #endif
 
 
@@ -101,19 +110,19 @@ void MineCountedPickedUpLayerInterfaceFactory_staticInit(void) {
 
 - (void) initFields {
     self->weaponLayerCircularStaticPool = [MineLayerCircularStaticPool getInstance];
-    self->weaponProperties = [((WeaponProperties*) [WeaponProperties alloc]) init:-1LL :-1LL :0 :8000 :((int16_t) 10)];
+    self->weaponProperties = ((WeaponProperties*) [((WeaponProperties*) [WeaponProperties alloc]) init:-1LL :-1LL :0 :8000 :((int16_t) 10)]);
     self->smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
 }
 
 
 // throws Exception
-+ (void) init_ {
-        MineCountedPickedUpLayerInterfaceFactory_pickedUpLayerInterfaceFactoryInterface = [((MineCountedPickedUpLayerInterfaceFactory*) [MineCountedPickedUpLayerInterfaceFactory alloc]) init];
++ (void) initMethod {
+        MineCountedPickedUpLayerInterfaceFactory_pickedUpLayerInterfaceFactoryInterface = ((MineCountedPickedUpLayerInterfaceFactory*) [((MineCountedPickedUpLayerInterfaceFactory*) [MineCountedPickedUpLayerInterfaceFactory alloc]) init]);
 }
 
 
 - (instancetype) init {
-        self = [super init:[PickedUpLayerTypeFactory getInstance]->MINE :[IconLayerFactory getInstance:[[[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[MineWeaponResources getInstance]->DROP_ICON_RESOURCE] getInstance:0] :10 :10] :[[[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[MineWeaponResources getInstance]->DROP_RESOURCE] getInstance:0]];
+        self = [super init:[PickedUpLayerTypeFactory getInstance]->MINE :[IconLayerFactory getInstance:[((id<AnimationInterfaceFactoryInterface>) [[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[MineWeaponResources getInstance]->DROP_ICON_RESOURCE]) getInstance:0] :10 :10] :[((id<AnimationInterfaceFactoryInterface>) [[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[MineWeaponResources getInstance]->DROP_RESOURCE]) getInstance:0]];
         [self initFields];
     return self;
 }

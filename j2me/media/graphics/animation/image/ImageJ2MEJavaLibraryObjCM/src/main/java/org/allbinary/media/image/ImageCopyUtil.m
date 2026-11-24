@@ -8,6 +8,9 @@
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/media/image/ImageCreationUtil.h"
+#if __has_include("javax/microedition/lcdui/Graphics.h")
+#include "javax/microedition/lcdui/Graphics.h"
+#endif
 
 
 static ImageCopyUtil* ImageCopyUtil_instance;
@@ -18,7 +21,7 @@ void ImageCopyUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageCopyUtil_instance = [((ImageCopyUtil*) [ImageCopyUtil alloc]) init];
+    ImageCopyUtil_instance = ((ImageCopyUtil*) [((ImageCopyUtil*) [ImageCopyUtil alloc]) init]);
 }
 
 @implementation ImageCopyUtil
@@ -74,8 +77,8 @@ void ImageCopyUtil_staticInit(void) {
             [self->logUtil put:self->NO_COPY :self :self->commonStrings->CONSTRUCTOR :java_exception_new("Exception", "")];
             return originalImage;
         }
-        int32_t newWidth = ((int32_t) ([originalImage getWidth] * canvasScale));
-        int32_t newHeight = ((int32_t) ([originalImage getHeight] * canvasScale));
+        int32_t newWidth = ((int32_t) (((float) [originalImage getWidth]) * canvasScale));
+        int32_t newHeight = ((int32_t) (((float) [originalImage getHeight]) * canvasScale));
         if (resize) {
             if (newWidth < newHeight) {
                 newWidth = newHeight;

@@ -20,7 +20,7 @@ void GameConfigurationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    GameConfigurationUtil_instance = [((GameConfigurationUtil*) [GameConfigurationUtil alloc]) init];
+    GameConfigurationUtil_instance = ((GameConfigurationUtil*) [((GameConfigurationUtil*) [GameConfigurationUtil alloc]) init]);
 }
 
 @implementation GameConfigurationUtil
@@ -61,7 +61,7 @@ void GameConfigurationUtil_staticInit(void) {
         GameConfiguration* gameConfiguration = [gameConfigurationSingleton getInstanceByName:[gauge getLabel]];
         SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
         int32_t value = [smallIntegerSingletonFactory getAt:[gauge getValue] + ((int32_t) ([gameConfiguration getMinValue]))];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:self->GAUGE_UPDATE];
         [stringBuffer append:[gameConfiguration getName]];
         [stringBuffer append:self->FROM];
@@ -77,7 +77,7 @@ void GameConfigurationUtil_staticInit(void) {
 - (void) setDefault:(GameConfigurationGauge*)gauge {
         GameConfigurationSingleton* gameConfigurationSingleton = [GameConfigurationSingleton getInstance];
         GameConfiguration* gameConfiguration = [gameConfigurationSingleton getInstanceByName:[gauge getLabel]];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"Gauge Default: "];
         [stringBuffer append:[gameConfiguration getName]];
         [stringBuffer append:self->TO];

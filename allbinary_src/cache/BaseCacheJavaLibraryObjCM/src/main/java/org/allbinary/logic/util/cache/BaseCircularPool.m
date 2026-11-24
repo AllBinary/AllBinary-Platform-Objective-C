@@ -3,6 +3,9 @@
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/util/CircularIndexUtil.h"
 #include "org/allbinary/logic/util/cache/AllBinaryObjectFactoryInterface.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 
@@ -37,11 +40,11 @@ void BaseCircularPool_staticInit(void) {
 }
 
 
-- (void) init_:(AllBinaryObjectFactoryInterface*)allBinaryObjectFactoryInterface {
+- (void) initMethod:(AllBinaryObjectFactoryInterface*)allBinaryObjectFactoryInterface {
         [self->circularIndexUtil setIndex:0];
         int32_t size = [self->circularIndexUtil getSize];
         for (int32_t index = 0; index < size; index++) {
-            self->OBJECT_ARRAY[index] = [allBinaryObjectFactoryInterface getInstance];
+            self->OBJECT_ARRAY[index] = [((id<AllBinaryObjectFactoryInterface>) allBinaryObjectFactoryInterface) getInstance];
         }
 }
 

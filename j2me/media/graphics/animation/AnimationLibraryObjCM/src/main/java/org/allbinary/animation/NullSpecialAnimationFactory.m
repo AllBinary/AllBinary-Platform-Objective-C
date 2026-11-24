@@ -15,7 +15,7 @@ void NullSpecialAnimationFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    NullSpecialAnimationFactory_NULL_SPECIAL_ANIMATION_FACTORY = [((NullSpecialAnimationFactory*) [NullSpecialAnimationFactory alloc]) init];
+    NullSpecialAnimationFactory_NULL_SPECIAL_ANIMATION_FACTORY = ((NullSpecialAnimationFactory*) [((NullSpecialAnimationFactory*) [NullSpecialAnimationFactory alloc]) init]);
 }
 
 @implementation NullSpecialAnimationFactory

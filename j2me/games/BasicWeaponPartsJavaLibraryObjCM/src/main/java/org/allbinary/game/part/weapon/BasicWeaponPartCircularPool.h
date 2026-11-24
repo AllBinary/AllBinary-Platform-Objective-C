@@ -42,7 +42,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-- (void) init_:(BasicWeaponPartFactoryInterface*)basicWeaponPartFactoryInterface;
+- (void) initMethod:(BasicWeaponPartFactoryInterface*)basicWeaponPartFactoryInterface;
 - (BasicWeaponPart*) getInstance:(AllBinaryLayer*)sourceLayerInterface :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreableInterface :(RelativeRelationship*)relativeRelationship;
 @end
 

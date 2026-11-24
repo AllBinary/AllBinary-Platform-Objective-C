@@ -15,13 +15,13 @@ void GameAdStateFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    GameAdStateFactory_instance = [((GameAdStateFactory*) [GameAdStateFactory alloc]) init];
+    GameAdStateFactory_instance = ((GameAdStateFactory*) [((GameAdStateFactory*) [GameAdStateFactory alloc]) init]);
 }
 
 @implementation GameAdStateFactory
 
 - (void) initFields {
-    self->gameAdStateArray = ((GameAdState**) java_array_from(sizeof(GameAdState*), sizeof((GameAdState*[]){ [((GameAdState*) [GameAdState alloc]) init:[((AppNameLicensingAdConfiguration*) [AppNameLicensingAdConfiguration alloc]) init]] }) / sizeof(GameAdState*), (GameAdState*[]){ [((GameAdState*) [GameAdState alloc]) init:[((AppNameLicensingAdConfiguration*) [AppNameLicensingAdConfiguration alloc]) init]] }));
+    self->gameAdStateArray = ((GameAdState**) java_array_from(sizeof(GameAdState*), sizeof((GameAdState*[]){ ((GameAdState*) [((GameAdState*) [GameAdState alloc]) init:((AppNameLicensingAdConfiguration*) [((AppNameLicensingAdConfiguration*) [AppNameLicensingAdConfiguration alloc]) init])]) }) / sizeof(GameAdState*), (GameAdState*[]){ ((GameAdState*) [((GameAdState*) [GameAdState alloc]) init:((AppNameLicensingAdConfiguration*) [((AppNameLicensingAdConfiguration*) [AppNameLicensingAdConfiguration alloc]) init])]) }));
     self->gameAdState = self->gameAdStateArray[0];
 }
 

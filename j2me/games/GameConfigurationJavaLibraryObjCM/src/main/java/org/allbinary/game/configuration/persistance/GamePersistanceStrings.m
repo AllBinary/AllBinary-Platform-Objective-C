@@ -10,7 +10,7 @@ void GamePersistanceStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    GamePersistanceStrings_instance = [((GamePersistanceStrings*) [GamePersistanceStrings alloc]) init];
+    GamePersistanceStrings_instance = ((GamePersistanceStrings*) [((GamePersistanceStrings*) [GamePersistanceStrings alloc]) init]);
 }
 
 @implementation GamePersistanceStrings

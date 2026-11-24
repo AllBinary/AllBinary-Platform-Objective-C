@@ -30,8 +30,8 @@ void LayerManager_staticInit(void) {
     self->systemWrapper = [ABSystemWrapper getInstance];
     self->tsUtil = [TsUtil getInstance];
     
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->anyType = [((SynchObject*) [SynchObject alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->anyType = ((SynchObject*) [((SynchObject*) [SynchObject alloc]) init]);
 }
 
 

@@ -3,6 +3,9 @@
 #include "org/allbinary/game/configuration/GameConfigurationCentral.h"
 #include "org/allbinary/media/AllBinaryVibrationME.h"
 #include "org/allbinary/media/AllBinaryNoVibration.h"
+#if __has_include("org/allbinary/game/configuration/GameConfigurationCentral.h")
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#endif
 
 
 static AllBinaryVibrationME* AllBinaryVibration_VIBRATION;
@@ -30,11 +33,11 @@ void AllBinaryVibration_staticInit(void) {
 }
 
 
-+ (void) init_ {
++ (void) initMethod {
         if (((int32_t) ([[GameConfigurationCentral getInstance]->VIBRATION getValue])) == 0) {
             AllBinaryVibration_VIBRATION = (AllBinaryNoVibration_staticInit(), AllBinaryNoVibration_NO_VIBRATION);
         } else {
-            AllBinaryVibration_VIBRATION = [((AllBinaryVibration*) [AllBinaryVibration alloc]) init];
+            AllBinaryVibration_VIBRATION = ((AllBinaryVibration*) [((AllBinaryVibration*) [AllBinaryVibration alloc]) init]);
         }
 }
 

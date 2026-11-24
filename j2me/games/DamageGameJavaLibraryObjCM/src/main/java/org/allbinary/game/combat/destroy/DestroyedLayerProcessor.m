@@ -29,8 +29,8 @@ void DestroyedLayerProcessor_staticInit(void) {
 }
 
 
-+ (void) init_ {
-        DestroyedLayerProcessor_DESTROYED_LAYER_PROCESSOR = [((DestroyedLayerProcessor*) [DestroyedLayerProcessor alloc]) init];
++ (void) initMethod {
+        DestroyedLayerProcessor_DESTROYED_LAYER_PROCESSOR = ((DestroyedLayerProcessor*) [((DestroyedLayerProcessor*) [DestroyedLayerProcessor alloc]) init]);
 }
 
 

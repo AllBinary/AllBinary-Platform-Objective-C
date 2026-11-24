@@ -9,6 +9,15 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/game/displayable/canvas/GameCanvasRunnableInterface.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
 
 
 NullGameCanvasRunnable* NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE;
@@ -19,7 +28,7 @@ void NullGameCanvasRunnable_staticInit(void) {
         return;
     }
     initialized = true;
-    NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE = [((NullGameCanvasRunnable*) [NullGameCanvasRunnable alloc]) init];
+    NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE = ((NullGameCanvasRunnable*) [((NullGameCanvasRunnable*) [NullGameCanvasRunnable alloc]) init]);
 }
 
 @implementation NullGameCanvasRunnable

@@ -10,7 +10,7 @@ void GameInputStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    GameInputStrings_instance = [((GameInputStrings*) [GameInputStrings alloc]) init];
+    GameInputStrings_instance = ((GameInputStrings*) [((GameInputStrings*) [GameInputStrings alloc]) init]);
 }
 
 @implementation GameInputStrings

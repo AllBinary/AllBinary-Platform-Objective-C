@@ -10,7 +10,7 @@ void NullGL10_staticInit(void) {
         return;
     }
     initialized = true;
-    NullGL10_NULL_GL10 = [((NullGL10*) [NullGL10 alloc]) init];
+    NullGL10_NULL_GL10 = ((NullGL10*) [((NullGL10*) [NullGL10 alloc]) init]);
 }
 
 @implementation NullGL10

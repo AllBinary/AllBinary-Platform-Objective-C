@@ -31,6 +31,12 @@
 #if __has_include("org/allbinary/time/GameTickTimeDelayHelper.h")
 #include "org/allbinary/time/GameTickTimeDelayHelper.h"
 #endif
+#if __has_include("org/allbinary/graphics/displayable/DisplayInfoSingleton.h")
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Image.h")
+#include "javax/microedition/lcdui/Image.h"
+#endif
 
 
 
@@ -45,7 +51,7 @@ void ImageArraySpecialAnimation_staticInit(void) {
 @implementation ImageArraySpecialAnimation
 
 - (void) initFields {
-    self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:270];
+    self->timeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:270]);
     self->loopCount = 0;
     self->loopCountTotal = 1;
 }

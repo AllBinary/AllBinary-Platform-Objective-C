@@ -11,7 +11,7 @@ void GameTickTimeDelayHelperFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    GameTickTimeDelayHelperFactory_instance = [((GameTickTimeDelayHelper*) [GameTickTimeDelayHelper alloc]) init:-1];
+    GameTickTimeDelayHelperFactory_instance = ((GameTickTimeDelayHelper*) [((GameTickTimeDelayHelper*) [GameTickTimeDelayHelper alloc]) init:-1]);
 }
 
 @implementation GameTickTimeDelayHelperFactory

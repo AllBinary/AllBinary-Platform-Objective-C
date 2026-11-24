@@ -5,6 +5,21 @@
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/util/ArrayUtil.h"
 #include "org/allbinary/util/BasicArrayListS.h"
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 #if __has_include("org/allbinary/util/Any.h")
 #include "org/allbinary/util/Any.h"
 #endif
@@ -60,7 +75,7 @@ void BasicArrayList_staticInit(void) {
 
 - (void) addAt:(int32_t)index :(id)element {
         if (index > self->currentIndex || index < 0) {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:[CommonLabels getInstance]->INDEX_LABEL];
             [stringBuffer appendint:index];
             [stringBuffer append:BasicArrayList_SIZE];
@@ -83,7 +98,7 @@ void BasicArrayList_staticInit(void) {
 
 - (id) removeAt:(int32_t)index {
         if (index >= self->currentIndex) {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:[CommonLabels getInstance]->INDEX_LABEL];
             [stringBuffer appendint:index];
             [stringBuffer append:BasicArrayList_SIZE];
@@ -224,7 +239,7 @@ void BasicArrayList_staticInit(void) {
 
 - (id) get:(int32_t)index {
         if (index >= self->currentIndex) {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:[CommonLabels getInstance]->INDEX_LABEL];
             [stringBuffer appendint:index];
             [stringBuffer append:BasicArrayList_SIZE];
@@ -237,7 +252,7 @@ void BasicArrayList_staticInit(void) {
 
 - (id) set:(int32_t)index :(id)element {
         if (index >= self->currentIndex) {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:[CommonLabels getInstance]->INDEX_LABEL];
             [stringBuffer appendint:index];
             [stringBuffer append:BasicArrayList_SIZE];
@@ -292,7 +307,7 @@ void BasicArrayList_staticInit(void) {
 
 - (id) clone {
         int32_t size = [self size];
-        BasicArrayList* list = [((BasicArrayListS*) [BasicArrayListS alloc]) init:size];
+        BasicArrayList* list = ((BasicArrayListS*) [((BasicArrayListS*) [BasicArrayListS alloc]) init:size]);
         id anyType = nullptr;
         for (int32_t index = 0; index < size; index++) {
             anyType = self->objectArray[index];
@@ -304,7 +319,7 @@ void BasicArrayList_staticInit(void) {
 
 - (const char*) toString {
         const char* COMMA_SEP = [CommonSeps getInstance]->COMMA_SEP;
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         for (int32_t index = 0; index < self->currentIndex; index++) {
             [stringBuffer append:[self->objectArray[index] toString]];
             [stringBuffer append:COMMA_SEP];

@@ -7,6 +7,9 @@
 #include "org/allbinary/logic/util/event/EventStrings.h"
 #include "org/allbinary/business/advertisement/AdConfiguration.h"
 #include "org/allbinary/business/advertisement/Advertisements.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 
@@ -22,7 +25,7 @@ void GameAdStateBase_staticInit(void) {
 
 - (void) initFields {
     
-    self->advertisementsP = [((Advertisements*) [Advertisements alloc]) init];
+    self->advertisementsP = ((Advertisements*) [((Advertisements*) [Advertisements alloc]) init]);
     self->okayToShowAdsP = false;
 }
 
@@ -40,11 +43,11 @@ void GameAdStateBase_staticInit(void) {
 
 
 - (void) onStart:(id)anyType {
-        [self init_];
+        [self initMethod];
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 

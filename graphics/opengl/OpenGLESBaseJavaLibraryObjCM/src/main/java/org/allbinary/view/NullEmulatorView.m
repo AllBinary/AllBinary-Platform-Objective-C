@@ -13,7 +13,7 @@ void NullEmulatorView_staticInit(void) {
         return;
     }
     initialized = true;
-    NullEmulatorView_NULL_EMULATOR_VIEW = [((NullEmulatorView*) [NullEmulatorView alloc]) init];
+    NullEmulatorView_NULL_EMULATOR_VIEW = ((NullEmulatorView*) [((NullEmulatorView*) [NullEmulatorView alloc]) init]);
 }
 
 @implementation NullEmulatorView

@@ -5,6 +5,9 @@
 #include "org/allbinary/logic/util/event/handler/BasicEventHandler.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
+#if __has_include("org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h")
+#include "org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h"
+#endif
 
 
 static GameLevelDisplayChangeEventListenersFactory* GameLevelDisplayChangeEventListenersFactory_instance;
@@ -15,13 +18,13 @@ void GameLevelDisplayChangeEventListenersFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    GameLevelDisplayChangeEventListenersFactory_instance = [((GameLevelDisplayChangeEventListenersFactory*) [GameLevelDisplayChangeEventListenersFactory alloc]) init];
+    GameLevelDisplayChangeEventListenersFactory_instance = ((GameLevelDisplayChangeEventListenersFactory*) [((GameLevelDisplayChangeEventListenersFactory*) [GameLevelDisplayChangeEventListenersFactory alloc]) init]);
 }
 
 @implementation GameLevelDisplayChangeEventListenersFactory
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 - (instancetype) init {

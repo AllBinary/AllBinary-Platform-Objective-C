@@ -52,7 +52,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-- (void) init_;
+- (void) initMethod;
 - (void) write;
 @end
 

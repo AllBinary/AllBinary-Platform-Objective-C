@@ -98,7 +98,7 @@
 - (const char*) getRecordId:(AbeClientInformationInterface*)abeClientInformation;
 - (void) addHighScore:(HighScore*)newHighScore;
 - (void) removeLowestHighScore;
-- (void) load_;
+- (void) loadMethod;
 - (bool) isTooManyHighScores;
 - (bool) isBestScore:(HighScore*)newHighScore;
 - (const char*) toString;

@@ -11,7 +11,7 @@ void ExceptionUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ExceptionUtil_instance = [((ExceptionUtil*) [ExceptionUtil alloc]) init];
+    ExceptionUtil_instance = ((ExceptionUtil*) [((ExceptionUtil*) [ExceptionUtil alloc]) init]);
     ExceptionUtil_PRETEND_EXCEPTION = java_exception_new("Exception", "Not Really An Exception");
 }
 
@@ -36,8 +36,8 @@ void ExceptionUtil_staticInit(void) {
 
 - (const char*) getStackTrace:(JavaException*)e {
         if (e != nil) {
-            ByteArrayOutputStream* byteArrayOutputStream = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init];
-            PrintStream* printStream = [((PrintStream*) [PrintStream alloc]) init:byteArrayOutputStream];
+            ByteArrayOutputStream* byteArrayOutputStream = ((ByteArrayOutputStream*) [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init]);
+            PrintStream* printStream = ((PrintStream*) [((PrintStream*) [PrintStream alloc]) init:byteArrayOutputStream]);
             java_objc_printStackTrace(e, printStream);
             const char* output = [byteArrayOutputStream toString];
             return java_string_new(output);

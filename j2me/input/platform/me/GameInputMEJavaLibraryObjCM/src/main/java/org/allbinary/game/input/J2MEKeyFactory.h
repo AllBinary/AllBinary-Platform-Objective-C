@@ -41,7 +41,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (J2MEKeyFactory*) getInstance;
-- (void) init_;
+- (void) initMethod;
 - (bool) isSubmission:(Input*)input;
 - (bool) isDelete:(Input*)input;
 - (bool) isBackSpace:(Input*)input;

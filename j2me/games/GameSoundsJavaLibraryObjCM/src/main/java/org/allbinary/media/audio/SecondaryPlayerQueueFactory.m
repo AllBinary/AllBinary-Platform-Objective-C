@@ -11,7 +11,7 @@ void SecondaryPlayerQueueFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    SecondaryPlayerQueueFactory_SINGLETON = [((PlayerQueue*) [PlayerQueue alloc]) init:4];
+    SecondaryPlayerQueueFactory_SINGLETON = ((PlayerQueue*) [((PlayerQueue*) [PlayerQueue alloc]) init:4]);
 }
 
 @implementation SecondaryPlayerQueueFactory

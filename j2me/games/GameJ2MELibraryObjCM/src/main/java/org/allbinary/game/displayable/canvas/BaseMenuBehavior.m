@@ -13,7 +13,7 @@ void BaseMenuBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    BaseMenuBehavior_instance = [((BaseMenuBehavior*) [BaseMenuBehavior alloc]) init];
+    BaseMenuBehavior_instance = ((BaseMenuBehavior*) [((BaseMenuBehavior*) [BaseMenuBehavior alloc]) init]);
 }
 
 @implementation BaseMenuBehavior

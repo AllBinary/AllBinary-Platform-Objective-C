@@ -8,6 +8,9 @@
 #include "org/allbinary/game/combat/damage/DamageableInterface.h"
 #include "org/allbinary/game/layer/CollidableCompositeLayer.h"
 #include "org/allbinary/layer/AllBinaryLayer.h"
+#if __has_include("org/allbinary/game/collision/CollisionTypeFactory.h")
+#include "org/allbinary/game/collision/CollisionTypeFactory.h"
+#endif
 
 
 
@@ -37,7 +40,7 @@ void CollidableDamageWeaponBehavior_staticInit(void) {
 }
 
 
-- (void) init_:(AllBinaryLayer*)sourceLayerInterface {
+- (void) initMethod:(AllBinaryLayer*)sourceLayerInterface {
         [self setCollided:false];
         [self->collisionHelper setOwnerLayerInterface:sourceLayerInterface];
 }

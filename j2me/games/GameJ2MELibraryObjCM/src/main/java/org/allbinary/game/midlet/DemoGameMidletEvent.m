@@ -27,7 +27,7 @@ void DemoGameMidletEvent_staticInit(void) {
 }
 
 
-- (void) init_:(id)anyType {
+- (void) initMethod:(id)anyType {
         [self setSource:anyType];
 }
 

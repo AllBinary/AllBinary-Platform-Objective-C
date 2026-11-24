@@ -25,7 +25,7 @@ void AnalogInputBuilder_staticInit(void) {
         return;
     }
     initialized = true;
-    AnalogInputBuilder_instance = [((AnalogInputBuilder*) [AnalogInputBuilder alloc]) init];
+    AnalogInputBuilder_instance = ((AnalogInputBuilder*) [((AnalogInputBuilder*) [AnalogInputBuilder alloc]) init]);
 }
 
 @implementation AnalogInputBuilder
@@ -42,22 +42,22 @@ void AnalogInputBuilder_staticInit(void) {
 
 
 - (void) disable:(GameInputProcessor**)inputProcessorArray :(CollidableDestroyableDamageableLayer*)collidableDestroyableDamageableLayer {
-        inputProcessorArray[(Canvas_staticInit(), Canvas_UP)] = [((SpecialUpGameInputProcessor*) [SpecialUpGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
-        inputProcessorArray[(Canvas_staticInit(), Canvas_DOWN)] = [((SpecialDownGameInputProcessor*) [SpecialDownGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
-        inputProcessorArray[(Canvas_staticInit(), Canvas_RIGHT)] = [((SpecialRightGameInputProcessor*) [SpecialRightGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
-        inputProcessorArray[(Canvas_staticInit(), Canvas_LEFT)] = [((SpecialLeftGameInputProcessor*) [SpecialLeftGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
-        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM0)] = [((Special1GameInputProcessor*) [Special1GameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
-        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM5)] = [((Special3GameInputProcessor*) [Special3GameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_UP)] = ((SpecialUpGameInputProcessor*) [((SpecialUpGameInputProcessor*) [SpecialUpGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
+        inputProcessorArray[(Canvas_staticInit(), Canvas_DOWN)] = ((SpecialDownGameInputProcessor*) [((SpecialDownGameInputProcessor*) [SpecialDownGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
+        inputProcessorArray[(Canvas_staticInit(), Canvas_RIGHT)] = ((SpecialRightGameInputProcessor*) [((SpecialRightGameInputProcessor*) [SpecialRightGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
+        inputProcessorArray[(Canvas_staticInit(), Canvas_LEFT)] = ((SpecialLeftGameInputProcessor*) [((SpecialLeftGameInputProcessor*) [SpecialLeftGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
+        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM0)] = ((Special1GameInputProcessor*) [((Special1GameInputProcessor*) [Special1GameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
+        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM5)] = ((Special3GameInputProcessor*) [((Special3GameInputProcessor*) [Special3GameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
 }
 
 
 - (void) enable:(GameInputProcessor**)inputProcessorArray :(CollidableDestroyableDamageableLayer*)collidableDestroyableDamageableLayer {
-        inputProcessorArray[(Canvas_staticInit(), Canvas_UP)] = [((SpecialAnalogUpGameInputProcessor*) [SpecialAnalogUpGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
-        inputProcessorArray[(Canvas_staticInit(), Canvas_DOWN)] = [((SpecialAnalogDownGameInputProcessor*) [SpecialAnalogDownGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
-        inputProcessorArray[(Canvas_staticInit(), Canvas_RIGHT)] = [((SpecialAnalogRightGameInputProcessor*) [SpecialAnalogRightGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
-        inputProcessorArray[(Canvas_staticInit(), Canvas_LEFT)] = [((SpecialAnalogLeftGameInputProcessor*) [SpecialAnalogLeftGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
-        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM0)] = [((SpecialAnalogLeftTriggerGameInputProcessor*) [SpecialAnalogLeftTriggerGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
-        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM5)] = [((SpecialAnalogRightTriggerGameInputProcessor*) [SpecialAnalogRightTriggerGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer];
+        inputProcessorArray[(Canvas_staticInit(), Canvas_UP)] = ((SpecialAnalogUpGameInputProcessor*) [((SpecialAnalogUpGameInputProcessor*) [SpecialAnalogUpGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
+        inputProcessorArray[(Canvas_staticInit(), Canvas_DOWN)] = ((SpecialAnalogDownGameInputProcessor*) [((SpecialAnalogDownGameInputProcessor*) [SpecialAnalogDownGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
+        inputProcessorArray[(Canvas_staticInit(), Canvas_RIGHT)] = ((SpecialAnalogRightGameInputProcessor*) [((SpecialAnalogRightGameInputProcessor*) [SpecialAnalogRightGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
+        inputProcessorArray[(Canvas_staticInit(), Canvas_LEFT)] = ((SpecialAnalogLeftGameInputProcessor*) [((SpecialAnalogLeftGameInputProcessor*) [SpecialAnalogLeftGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
+        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM0)] = ((SpecialAnalogLeftTriggerGameInputProcessor*) [((SpecialAnalogLeftTriggerGameInputProcessor*) [SpecialAnalogLeftTriggerGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
+        inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM5)] = ((SpecialAnalogRightTriggerGameInputProcessor*) [((SpecialAnalogRightTriggerGameInputProcessor*) [SpecialAnalogRightTriggerGameInputProcessor alloc]) init:collidableDestroyableDamageableLayer]);
 }
 
 @end

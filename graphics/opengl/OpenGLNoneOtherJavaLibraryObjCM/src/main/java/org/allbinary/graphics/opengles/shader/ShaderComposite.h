@@ -83,7 +83,7 @@
 }
 - (instancetype) init:(const char*)requiresOpenGLVersion :(Shader**)shaderArray :(CompositeShaderUpdater*)compositeShaderUpdater :(ShaderInitializer*)shaderInitializer :(ModelViewProjection*)modelViewProjection :(OpenGLProcessor*)colorOpenGLProcessor :(OpenGLProcessor*)vertexOpenGLProcessor :(OpenGLProcessor*)disableProgramShaderOpenGLProcessor;
 - (void) initFields;
-- (void) init_:(GL10*)gl;
+- (void) initMethod:(GL10*)gl;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

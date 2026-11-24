@@ -13,6 +13,24 @@
 #include "org/allbinary/logic/StdUtil.h"
 #include "org/allbinary/util/ABStack.h"
 #include "org/allbinary/graphics/displayable/screen/ScreenRepaintProcessorFactory.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
 
 
 static id CommandForm_NULL_COMMAND_FORM;
@@ -38,7 +56,7 @@ void CommandForm_staticInit(void) {
 
 + (CommandForm*) getNullCommandForm {
         if ((CommandForm_staticInit(), CommandForm_NULL_COMMAND_FORM) == [NullUtil getInstance]->NULL_OBJECT) {
-            CommandForm_NULL_COMMAND_FORM = [((CommandForm*) [CommandForm alloc]) init:(NullCommandListener_staticInit(), NullCommandListener_NULL_COMMAND_LISTENER) :[StringUtil getInstance]->EMPTY_STRING :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE];
+            CommandForm_NULL_COMMAND_FORM = ((CommandForm*) [((CommandForm*) [CommandForm alloc]) init:(NullCommandListener_staticInit(), NullCommandListener_NULL_COMMAND_LISTENER) :[StringUtil getInstance]->EMPTY_STRING :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE]);
         }
         return ((CommandForm*) (CommandForm_staticInit(), CommandForm_NULL_COMMAND_FORM));
 }

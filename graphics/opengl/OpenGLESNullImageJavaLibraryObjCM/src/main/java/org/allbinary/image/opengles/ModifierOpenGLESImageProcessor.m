@@ -11,7 +11,7 @@ void ModifierOpenGLESImageProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    ModifierOpenGLESImageProcessor_instanceC = [((ModifierOpenGLESImageProcessor*) [ModifierOpenGLESImageProcessor alloc]) init];
+    ModifierOpenGLESImageProcessor_instanceC = ((ModifierOpenGLESImageProcessor*) [((ModifierOpenGLESImageProcessor*) [ModifierOpenGLESImageProcessor alloc]) init]);
 }
 
 @implementation ModifierOpenGLESImageProcessor

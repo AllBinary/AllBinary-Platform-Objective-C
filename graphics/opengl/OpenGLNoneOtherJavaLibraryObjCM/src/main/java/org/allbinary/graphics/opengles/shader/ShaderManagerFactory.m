@@ -11,7 +11,7 @@ void ShaderManagerFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ShaderManagerFactory_instance = [((ShaderManagerFactory*) [ShaderManagerFactory alloc]) init];
+    ShaderManagerFactory_instance = ((ShaderManagerFactory*) [((ShaderManagerFactory*) [ShaderManagerFactory alloc]) init]);
 }
 
 @implementation ShaderManagerFactory

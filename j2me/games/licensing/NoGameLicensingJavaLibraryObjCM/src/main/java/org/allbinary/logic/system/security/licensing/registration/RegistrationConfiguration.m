@@ -1,6 +1,12 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/logic/system/security/licensing/registration/RegistrationConfiguration.h"
 #include "org/allbinary/logic/string/StringMaker.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static RegistrationConfiguration* RegistrationConfiguration_SINGLETON;
@@ -11,7 +17,7 @@ void RegistrationConfiguration_staticInit(void) {
         return;
     }
     initialized = true;
-    RegistrationConfiguration_SINGLETON = [((RegistrationConfiguration*) [RegistrationConfiguration alloc]) init];
+    RegistrationConfiguration_SINGLETON = ((RegistrationConfiguration*) [((RegistrationConfiguration*) [RegistrationConfiguration alloc]) init]);
 }
 
 @implementation RegistrationConfiguration
@@ -45,7 +51,7 @@ void RegistrationConfiguration_staticInit(void) {
 
 
 - (const char*) toString {
-        return [[[[((StringMaker*) [StringMaker alloc]) init] append:"Registration Code: "] append:[self getRegistrationCode]] toString];
+        return [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Registration Code: "] append:[self getRegistrationCode]] toString];
 }
 
 

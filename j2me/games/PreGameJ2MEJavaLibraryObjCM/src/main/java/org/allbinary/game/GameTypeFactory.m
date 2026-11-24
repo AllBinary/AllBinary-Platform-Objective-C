@@ -2,6 +2,9 @@
 #include "org/allbinary/game/GameTypeFactory.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/game/GameType.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static GameTypeFactory* GameTypeFactory_instance;
@@ -12,17 +15,17 @@ void GameTypeFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    GameTypeFactory_instance = [((GameTypeFactory*) [GameTypeFactory alloc]) init];
+    GameTypeFactory_instance = ((GameTypeFactory*) [((GameTypeFactory*) [GameTypeFactory alloc]) init]);
 }
 
 @implementation GameTypeFactory
 
 - (void) initFields {
     self->NULL_GAME_TYPE_ARRAY = ((GameType**) java_array_new(sizeof(GameType*), 0));
-    self->NONE = [((GameType*) [GameType alloc]) init:[StringUtil getInstance]->NULL_STRING];
-    self->SINGLE_PLAYER = [((GameType*) [GameType alloc]) init:"Single Player"];
-    self->MULTI_PLAYER = [((GameType*) [GameType alloc]) init:"Multi Player"];
-    self->BOT = [((GameType*) [GameType alloc]) init:"Artificial Player"];
+    self->NONE = ((GameType*) [((GameType*) [GameType alloc]) init:[StringUtil getInstance]->NULL_STRING]);
+    self->SINGLE_PLAYER = ((GameType*) [((GameType*) [GameType alloc]) init:"Single Player"]);
+    self->MULTI_PLAYER = ((GameType*) [((GameType*) [GameType alloc]) init:"Multi Player"]);
+    self->BOT = ((GameType*) [((GameType*) [GameType alloc]) init:"Artificial Player"]);
 }
 
 - (instancetype) init {

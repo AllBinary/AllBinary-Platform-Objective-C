@@ -5,6 +5,12 @@
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/apache/xmlrpc/XmlRpcHandler.h"
 #include "org/apache/xmlrpc/XmlRpcException.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 
@@ -26,7 +32,7 @@ void XmlRpcClient_staticInit(void) {
 - (instancetype) init:(const char*)url {
     self = [super init];
     [self initFields];
-        self->url = [((URL*) [URL alloc]) init:url];
+        self->url = ((URL*) [((URL*) [URL alloc]) init:url]);
     return self;
 }
 

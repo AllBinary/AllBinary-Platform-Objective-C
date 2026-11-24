@@ -8,6 +8,18 @@
 #include "org/allbinary/logic/math/MathUtil.h"
 #include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
 #include "org/allbinary/util/ABHashtable.h"
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
 #if __has_include("org/allbinary/game/ag/ai/scroller/BasicDecimal.h")
 #include "org/allbinary/game/ag/ai/scroller/BasicDecimal.h"
 #endif
@@ -85,7 +97,7 @@ void BasePatrolAI_staticInit(void) {
 
 - (void) updateTotalDistance {
         VelocityInterfaceCompositeInterface* velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
-        BasicVelocityProperties* velocityProperties = [velocityInterfaceCompositeInterface getVelocityProperties];
+        BasicVelocityProperties* velocityProperties = [((id<VelocityInterfaceCompositeInterface>) velocityInterfaceCompositeInterface) getVelocityProperties];
         self->xTotalDistance += [[velocityProperties getVelocityXBasicDecimalP] getScaled];
 }
 

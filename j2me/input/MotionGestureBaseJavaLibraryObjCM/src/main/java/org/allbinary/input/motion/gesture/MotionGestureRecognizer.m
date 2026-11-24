@@ -16,6 +16,12 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
 #include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/configuration/MotionGestureConfiguration.h")
+#include "org/allbinary/input/motion/gesture/configuration/MotionGestureConfiguration.h"
+#endif
 
 
 
@@ -35,7 +41,7 @@ void MotionGestureRecognizer_staticInit(void) {
     self->origin = [PointFactory getInstance]->ZERO_ZERO;
     self->previous = self->origin;
     self->intermediate = self->origin;
-    self->line = [((Line*) [Line alloc]) init:self->origin :self->origin];
+    self->line = ((Line*) [((Line*) [Line alloc]) init:self->origin :self->origin]);
     
     
     
@@ -47,7 +53,7 @@ void MotionGestureRecognizer_staticInit(void) {
     self = [super init];
     [self initFields];
         self->motionEventCircularPool = [MotionEventCircularPool createPool:id_];
-        BasicEventHandler* motionGesturesHandler = [((BasicEventHandler*) [BasicEventHandler alloc]) init];
+        BasicEventHandler* motionGesturesHandler = ((BasicEventHandler*) [((BasicEventHandler*) [BasicEventHandler alloc]) init]);
         BasicEventHandler* movedMotionGesturesHandler = motionGesturesHandler;
         BasicEventHandler* scrolledMotionGesturesHandler = motionGesturesHandler;
         JAVA_TRY {

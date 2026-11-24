@@ -28,6 +28,57 @@
 #include "org/allbinary/graphics/form/ScrollSelectionFormHorizontalPaintable.h"
 #include "org/allbinary/graphics/form/ScrollSelectionFormHorizontalDx.h"
 #include "org/allbinary/graphics/form/FormType.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
 
 
 static id ScrollSelectionForm_NULL_SCROLL_SELECTION_FORM;
@@ -63,7 +114,7 @@ void ScrollSelectionForm_staticInit(void) {
 + (PaintableForm*) createForm:(const char*)title :(ABCustomItem**)items :(ItemPaintableFactory*)formPaintableFactory :(int32_t)border :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor {
         JAVA_TRY {
             if (formPaintableFactory == [ItemPaintableFactory getInstance]) {
-                return [((ScrollSelectionForm*) [ScrollSelectionForm alloc]) init:title :items :formPaintableFactory :border :-3 :backgroundBasicColor :foregroundBasicColor];
+                return ((ScrollSelectionForm*) [((ScrollSelectionForm*) [ScrollSelectionForm alloc]) init:title :items :formPaintableFactory :border :-3 :backgroundBasicColor :foregroundBasicColor]);
             } else {
                 CommonStrings* commonStrings = [CommonStrings getInstance];
                 LogUtil* logUtil = [LogUtil getInstance];
@@ -108,18 +159,18 @@ void ScrollSelectionForm_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(Rectangle*)rectangle :(FormType*)formType {
-        [super init_:rectangle :formType];
+- (void) initMethod:(Rectangle*)rectangle :(FormType*)formType {
+        [super initMethod:rectangle :formType];
         FormTypeFactory* formTypeFactory = [FormTypeFactory getInstance];
         if (formType == formTypeFactory->HORIZONTAL_FORM) {
-            self->scrollSelectionFormFormTypeItemIndexPaintable = [((ScrollSelectionFormHorizontalPaintable*) [ScrollSelectionFormHorizontalPaintable alloc]) init:self];
-            self->formTypeItemIndexDx = [((ScrollSelectionFormHorizontalDx*) [ScrollSelectionFormHorizontalDx alloc]) init:self];
+            self->scrollSelectionFormFormTypeItemIndexPaintable = ((ScrollSelectionFormHorizontalPaintable*) [((ScrollSelectionFormHorizontalPaintable*) [ScrollSelectionFormHorizontalPaintable alloc]) init:self]);
+            self->formTypeItemIndexDx = ((ScrollSelectionFormHorizontalDx*) [((ScrollSelectionFormHorizontalDx*) [ScrollSelectionFormHorizontalDx alloc]) init:self]);
         } else if (formType == formTypeFactory->VERTICAL_CENTER_FORM) {
-            self->scrollSelectionFormFormTypeItemIndexPaintable = [((ScrollSelectionFormVerticalPaintable*) [ScrollSelectionFormVerticalPaintable alloc]) init:self];
-            self->formTypeItemIndexDx = [((ScrollSelectionFormVericalDx*) [ScrollSelectionFormVericalDx alloc]) init:self];
+            self->scrollSelectionFormFormTypeItemIndexPaintable = ((ScrollSelectionFormVerticalPaintable*) [((ScrollSelectionFormVerticalPaintable*) [ScrollSelectionFormVerticalPaintable alloc]) init:self]);
+            self->formTypeItemIndexDx = ((ScrollSelectionFormVericalDx*) [((ScrollSelectionFormVericalDx*) [ScrollSelectionFormVericalDx alloc]) init:self]);
         } else if (formType == formTypeFactory->TEMP_HORIZONTAL_FORM) {
-            self->scrollSelectionFormFormTypeItemIndexPaintable = [((ScrollSelectionFormTempHorizontalPaintable*) [ScrollSelectionFormTempHorizontalPaintable alloc]) init:self];
-            self->formTypeItemIndexDx = [((ScrollSelectionFormTempHorizontalDx*) [ScrollSelectionFormTempHorizontalDx alloc]) init:self];
+            self->scrollSelectionFormFormTypeItemIndexPaintable = ((ScrollSelectionFormTempHorizontalPaintable*) [((ScrollSelectionFormTempHorizontalPaintable*) [ScrollSelectionFormTempHorizontalPaintable alloc]) init:self]);
+            self->formTypeItemIndexDx = ((ScrollSelectionFormTempHorizontalDx*) [((ScrollSelectionFormTempHorizontalDx*) [ScrollSelectionFormTempHorizontalDx alloc]) init:self]);
         } else if (formType == formTypeFactory->NULL_FORM_TYPE) {
         } else {
             java_throw(java_exception_new("Exception", formTypeFactory->UNK));
@@ -202,7 +253,7 @@ void ScrollSelectionForm_staticInit(void) {
         int32_t dy = [self getDy];
         FormTypeFactory* formTypeFactory = [FormTypeFactory getInstance];
         CommonLabels* commonLabels = [CommonLabels getInstance];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:commonLabels->START_LABEL];
         [stringBuffer appendint:start];
         [stringBuffer append:[CommonSeps getInstance]->SPACE];
@@ -284,7 +335,7 @@ void ScrollSelectionForm_staticInit(void) {
 
 - (bool) isInForm:(GPoint*)point {
         if ([self->rectangleCollisionUtil isInside:self->x :self->y - self->halfBorder :[self->rectangle getMaxX] + self->border :[self->rectangle getMaxY] + self->border :[point getX] :[point getY]]) {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[[StringUtil getInstance] toString:point]] append:ScrollSelectionForm_INSIDE_FORM] toString] :self :ScrollSelectionForm_IS_IN_FORM];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[[StringUtil getInstance] toString:point]] append:ScrollSelectionForm_INSIDE_FORM] toString] :self :ScrollSelectionForm_IS_IN_FORM];
             return true;
         }
         return false;

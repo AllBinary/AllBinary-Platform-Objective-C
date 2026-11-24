@@ -104,7 +104,7 @@
 - (instancetype) init:(const char*)title :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor;
 - (void) initFields;
 - (void) updateMeasurement:(Graphics*)graphics;
-- (void) init_:(AllBinaryMidlet*)gameMidlet;
+- (void) initMethod:(AllBinaryMidlet*)gameMidlet;
 - (void) update:(Graphics*)graphics;
 - (void) initCommands:(CommandListener*)cmdListener;
 - (float) getMaxValue;

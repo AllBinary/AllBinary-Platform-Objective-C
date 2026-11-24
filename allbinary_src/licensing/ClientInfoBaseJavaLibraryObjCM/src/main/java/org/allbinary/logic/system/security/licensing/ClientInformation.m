@@ -14,6 +14,30 @@
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationData.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/system/hardware/SystemHardwareFactory.h")
+#include "org/allbinary/logic/system/hardware/SystemHardwareFactory.h"
+#endif
 
 
 
@@ -46,13 +70,13 @@ void ClientInformation_staticInit(void) {
         self->name = name;
         self->version = version;
         self->specialName = specialName;
-        self->shortName = [[[[[((StringMaker*) [StringMaker alloc]) init] append:shortName] append:[CommonSeps getInstance]->UNDERSCORE] append:version] toString];
-        [self init_];
+        self->shortName = [[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:shortName] append:[CommonSeps getInstance]->UNDERSCORE] append:version] toString];
+        [self initMethod];
     return self;
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 
@@ -109,7 +133,7 @@ void ClientInformation_staticInit(void) {
         [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->OSVERSION) :JAVA_BOX([genericOperatingSystem getVersion])];
         [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->OS) :JAVA_BOX([genericOperatingSystem toString])];
         HardwareInterface* hardwareInterface = [[SystemHardwareFactory getInstance] getInstance:genericOperatingSystem];
-        const char* hardwareString = [hardwareInterface toString];
+        const char* hardwareString = [((id<HardwareInterface>) hardwareInterface) toString];
         [clientInfoHashtable put:JAVA_BOX(abeClientInformationData->HARDWARE) :JAVA_BOX(hardwareString)];
         return clientInfoHashtable;
 }

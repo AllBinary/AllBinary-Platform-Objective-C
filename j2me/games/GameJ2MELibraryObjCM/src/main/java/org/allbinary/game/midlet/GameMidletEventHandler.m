@@ -13,7 +13,7 @@ void GameMidletEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    GameMidletEventHandler_gameKeyEventHandler = [((GameMidletEventHandler*) [GameMidletEventHandler alloc]) init];
+    GameMidletEventHandler_gameKeyEventHandler = ((GameMidletEventHandler*) [((GameMidletEventHandler*) [GameMidletEventHandler alloc]) init]);
 }
 
 @implementation GameMidletEventHandler
@@ -33,7 +33,7 @@ void GameMidletEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         GameMidletEventListener* gameMidletEventListener = ((GameMidletEventListener*) eventListenerInterface);
-        [gameMidletEventListener onGameEnd:eventObject];
+        [((id<GameMidletEventListener>) gameMidletEventListener) onGameEnd:eventObject];
 }
 
 @end

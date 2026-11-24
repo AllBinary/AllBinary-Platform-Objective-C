@@ -4,6 +4,9 @@
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/logic/java/bool/BooleanFactory.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
 
 
 
@@ -41,7 +44,7 @@ void LastKeyAIVisitor_staticInit(void) {
             CommonStrings* commonStrings = [CommonStrings getInstance];
             [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->VISIT :e];
         } JAVA_END_TRY;
-        return self->TRUE;
+        return JAVA_BOX(self->TRUE);
 }
 
 @end

@@ -10,7 +10,7 @@ void RendererStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    RendererStrings_instance = [((RendererStrings*) [RendererStrings alloc]) init];
+    RendererStrings_instance = ((RendererStrings*) [((RendererStrings*) [RendererStrings alloc]) init]);
 }
 
 @implementation RendererStrings

@@ -5,6 +5,12 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/logic/system/os/NoOperatingSystem.h"
 #include "org/allbinary/logic/system/os/GenericOperatingSystem.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static OperatingSystemFactory* OperatingSystemFactory_instance;
@@ -15,7 +21,7 @@ void OperatingSystemFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    OperatingSystemFactory_instance = [((OperatingSystemFactory*) [OperatingSystemFactory alloc]) init];
+    OperatingSystemFactory_instance = ((OperatingSystemFactory*) [((OperatingSystemFactory*) [OperatingSystemFactory alloc]) init]);
 }
 
 @implementation OperatingSystemFactory
@@ -42,7 +48,7 @@ void OperatingSystemFactory_staticInit(void) {
 - (GenericOperatingSystem*) getOperatingSystemInstance {
         CommonStrings* commonStrings = [CommonStrings getInstance];
         JAVA_TRY {
-            const char* osString = [[[[((StringMaker*) [StringMaker alloc]) init] append:"OperatingSystem Info: "] append:[self->genericOperatingSystem toString]] toString];
+            const char* osString = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"OperatingSystem Info: "] append:[self->genericOperatingSystem toString]] toString];
             puts(java_string_of(osString));
             [self->logUtil putF:osString :self :commonStrings->GET_INSTANCE];
         } JAVA_CATCH(Exception, e) {

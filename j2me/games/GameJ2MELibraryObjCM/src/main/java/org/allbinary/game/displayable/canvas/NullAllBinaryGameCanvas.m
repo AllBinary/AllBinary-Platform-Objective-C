@@ -14,7 +14,7 @@ void NullAllBinaryGameCanvas_staticInit(void) {
         return;
     }
     initialized = true;
-    NullAllBinaryGameCanvas_NULL_ALLBINARY_GAME_CANVAS = [((NullAllBinaryGameCanvas*) [NullAllBinaryGameCanvas alloc]) init];
+    NullAllBinaryGameCanvas_NULL_ALLBINARY_GAME_CANVAS = ((NullAllBinaryGameCanvas*) [((NullAllBinaryGameCanvas*) [NullAllBinaryGameCanvas alloc]) init]);
 }
 
 @implementation NullAllBinaryGameCanvas

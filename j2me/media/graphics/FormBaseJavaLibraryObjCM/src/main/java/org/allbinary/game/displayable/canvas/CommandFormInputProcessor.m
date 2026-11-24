@@ -24,74 +24,11 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/game/displayable/canvas/BasicMenuInputProcessor.h"
 #include "org/allbinary/game/displayable/canvas/CommandRunnable.h"
-#if __has_include("org/allbinary/game/displayable/canvas/PlayerQueue.h")
-#include "org/allbinary/game/displayable/canvas/PlayerQueue.h"
+#if __has_include("org/allbinary/game/input/event/GameKeyEventFactory.h")
+#include "org/allbinary/game/input/event/GameKeyEventFactory.h"
 #endif
-#if __has_include("javax/microedition/lcdui/PlayerQueue.h")
-#include "javax/microedition/lcdui/PlayerQueue.h"
-#endif
-#if __has_include("javax/microedition/lcdui/PlayerQueue.h")
-#include "javax/microedition/lcdui/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/game/commands/PlayerQueue.h")
-#include "org/allbinary/game/commands/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/PlayerQueue.h")
-#include "org/allbinary/game/configuration/feature/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/PlayerQueue.h")
-#include "org/allbinary/game/configuration/feature/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/game/input/event/PlayerQueue.h")
-#include "org/allbinary/game/input/event/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/game/input/event/PlayerQueue.h")
-#include "org/allbinary/game/input/event/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/game/layer/PlayerQueue.h")
-#include "org/allbinary/game/layer/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/graphics/PlayerQueue.h")
-#include "org/allbinary/graphics/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/PlayerQueue.h")
-#include "org/allbinary/graphics/displayable/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/graphics/form/PlayerQueue.h")
-#include "org/allbinary/graphics/form/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/graphics/form/PlayerQueue.h")
-#include "org/allbinary/graphics/form/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/graphics/opengles/PlayerQueue.h")
-#include "org/allbinary/graphics/opengles/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/input/motion/gesture/PlayerQueue.h")
-#include "org/allbinary/input/motion/gesture/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/input/motion/gesture/PlayerQueue.h")
-#include "org/allbinary/input/motion/gesture/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/input/motion/gesture/observer/PlayerQueue.h")
-#include "org/allbinary/input/motion/gesture/observer/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/logic/string/PlayerQueue.h")
-#include "org/allbinary/logic/string/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
-#include "org/allbinary/media/audio/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
-#include "org/allbinary/media/audio/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/thread/PlayerQueue.h")
-#include "org/allbinary/thread/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/time/PlayerQueue.h")
-#include "org/allbinary/time/PlayerQueue.h"
-#endif
-#if __has_include("org/allbinary/util/PlayerQueue.h")
-#include "org/allbinary/util/PlayerQueue.h"
+#if __has_include("org/allbinary/game/configuration/feature/InputFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/InputFeatureFactory.h"
 #endif
 #if __has_include("org/allbinary/game/displayable/canvas/PlayerQueue.h")
 #include "org/allbinary/game/displayable/canvas/PlayerQueue.h"
@@ -161,6 +98,78 @@
 #endif
 #if __has_include("org/allbinary/util/PlayerQueue.h")
 #include "org/allbinary/util/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/PlayerQueue.h")
+#include "org/allbinary/game/displayable/canvas/PlayerQueue.h"
+#endif
+#if __has_include("javax/microedition/lcdui/PlayerQueue.h")
+#include "javax/microedition/lcdui/PlayerQueue.h"
+#endif
+#if __has_include("javax/microedition/lcdui/PlayerQueue.h")
+#include "javax/microedition/lcdui/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/commands/PlayerQueue.h")
+#include "org/allbinary/game/commands/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/PlayerQueue.h")
+#include "org/allbinary/game/configuration/feature/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/PlayerQueue.h")
+#include "org/allbinary/game/configuration/feature/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/PlayerQueue.h")
+#include "org/allbinary/game/input/event/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/PlayerQueue.h")
+#include "org/allbinary/game/input/event/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/layer/PlayerQueue.h")
+#include "org/allbinary/game/layer/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/graphics/PlayerQueue.h")
+#include "org/allbinary/graphics/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/PlayerQueue.h")
+#include "org/allbinary/graphics/displayable/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/PlayerQueue.h")
+#include "org/allbinary/graphics/form/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/PlayerQueue.h")
+#include "org/allbinary/graphics/form/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/PlayerQueue.h")
+#include "org/allbinary/graphics/opengles/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/PlayerQueue.h")
+#include "org/allbinary/input/motion/gesture/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/PlayerQueue.h")
+#include "org/allbinary/input/motion/gesture/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/observer/PlayerQueue.h")
+#include "org/allbinary/input/motion/gesture/observer/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/logic/string/PlayerQueue.h")
+#include "org/allbinary/logic/string/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/media/audio/PlayerQueue.h")
+#include "org/allbinary/media/audio/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/thread/PlayerQueue.h")
+#include "org/allbinary/thread/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/time/PlayerQueue.h")
+#include "org/allbinary/time/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/util/PlayerQueue.h")
+#include "org/allbinary/util/PlayerQueue.h"
+#endif
+#if __has_include("org/allbinary/game/commands/GameCommandsFactory.h")
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
 #endif
 #if __has_include("org/allbinary/game/displayable/canvas/ThreadPool.h")
 #include "org/allbinary/game/displayable/canvas/ThreadPool.h"
@@ -231,6 +240,9 @@
 #if __has_include("org/allbinary/util/ThreadPool.h")
 #include "org/allbinary/util/ThreadPool.h"
 #endif
+#if __has_include("org/allbinary/game/commands/GameCommandsFactory.h")
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#endif
 #if __has_include("org/allbinary/game/displayable/canvas/PlayerQueue.h")
 #include "org/allbinary/game/displayable/canvas/PlayerQueue.h"
 #endif
@@ -300,6 +312,15 @@
 #if __has_include("org/allbinary/util/PlayerQueue.h")
 #include "org/allbinary/util/PlayerQueue.h"
 #endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -316,9 +337,9 @@ void CommandFormInputProcessor_staticInit(void) {
 - (void) initFields {
     self->MOTION_GESTURE_SOURCE_ID = [GameKeyEventFactory getInstance]->MOTION_GESTURE_SOURCE_ID;
     self->CLICK_DELAY = 150;
-    self->clickTimeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:self->CLICK_DELAY];
+    self->clickTimeHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:self->CLICK_DELAY]);
     self->DOUBLE_CLICK_DELAY = 1200;
-    self->doubleClickTimeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:self->DOUBLE_CLICK_DELAY];
+    self->doubleClickTimeHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:self->DOUBLE_CLICK_DELAY]);
     self->isSingleKeyProcessing = [[InputFeatureFactory getInstance] isSingleKeyProcessing];
     
     self->hasPressed = false;
@@ -356,9 +377,9 @@ void CommandFormInputProcessor_staticInit(void) {
         Features* features = [Features getInstance];
         OpenGLFeatureFactory* openGLFeatureFactory = [OpenGLFeatureFactory getInstance];
         if ((SWTUtil_staticInit(), SWTUtil_isSWT) && [features isFeature:openGLFeatureFactory->OPENGL] && command != [GameCommandsFactory getInstance]->EXIT_COMMAND) {
-            [[((CommandRunnable*) [CommandRunnable alloc]) init:self :command] run];
+            [((CommandRunnable*) [((CommandRunnable*) [CommandRunnable alloc]) init:self :command]) run];
         } else {
-            [[PrimaryThreadPool getInstance] runTask:[((CommandRunnable*) [CommandRunnable alloc]) init:self :command]];
+            [[PrimaryThreadPool getInstance] runTask:((CommandRunnable*) [((CommandRunnable*) [CommandRunnable alloc]) init:self :command])];
         }
         if (command == [GameCommandsFactory getInstance]->QUIT_COMMAND) {
             return -1;
@@ -447,7 +468,7 @@ void CommandFormInputProcessor_staticInit(void) {
 
 
 - (const char*) toString {
-        return [[[[[((StringMaker*) [StringMaker alloc]) init] append:[super toString]] append:self->NAME_LABEL] append:[self->form toString]] toString];
+        return [[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[super toString]] append:self->NAME_LABEL] append:[self->form toString]] toString];
 }
 
 @end

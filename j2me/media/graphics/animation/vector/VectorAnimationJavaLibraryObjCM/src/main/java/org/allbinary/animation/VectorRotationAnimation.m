@@ -7,6 +7,9 @@
 #include "org/allbinary/math/AngleInfo.h"
 #include "org/allbinary/animation/VectorBaseRotationAnimation.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
 #if __has_include("org/allbinary/animation/AngleIncrementInfo.h")
 #include "org/allbinary/animation/AngleIncrementInfo.h"
 #endif

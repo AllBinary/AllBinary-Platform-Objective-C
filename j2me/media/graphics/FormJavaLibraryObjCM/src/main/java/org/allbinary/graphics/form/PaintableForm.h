@@ -46,7 +46,7 @@
 - (instancetype) init:(const char*)title :(ABCustomItem**)items :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor;
 - (void) initFields;
 + (PaintableForm*) getNullPaintableForm;
-- (void) init_:(Rectangle*)rectangle :(FormType*)formType;
+- (void) initMethod:(Rectangle*)rectangle :(FormType*)formType;
 - (int32_t) getWidth;
 @end
 

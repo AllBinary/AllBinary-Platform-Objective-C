@@ -1,6 +1,12 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/game/GameMode.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 GameMode* GameMode_NONE;
@@ -13,9 +19,9 @@ void GameMode_staticInit(void) {
         return;
     }
     initialized = true;
-    GameMode_NONE = [((GameMode*) [GameMode alloc]) init:[StringUtil getInstance]->NULL_STRING];
-    GameMode_SERVER = [((GameMode*) [GameMode alloc]) init:"Server"];
-    GameMode_CLIENT = [((GameMode*) [GameMode alloc]) init:"Client"];
+    GameMode_NONE = ((GameMode*) [((GameMode*) [GameMode alloc]) init:[StringUtil getInstance]->NULL_STRING]);
+    GameMode_SERVER = ((GameMode*) [((GameMode*) [GameMode alloc]) init:"Server"]);
+    GameMode_CLIENT = ((GameMode*) [((GameMode*) [GameMode alloc]) init:"Client"]);
 }
 
 @implementation GameMode

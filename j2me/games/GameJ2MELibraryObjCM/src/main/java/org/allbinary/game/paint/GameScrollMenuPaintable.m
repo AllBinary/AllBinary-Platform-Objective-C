@@ -10,6 +10,12 @@
 #include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
 #include "org/allbinary/game/paint/BasicGameDemoPaintable.h"
 #include "org/allbinary/game/paint/MainGameDemoStatePaintable.h"
+#if __has_include("org/allbinary/graphics/color/ColorChangeEventHandler.h")
+#include "org/allbinary/graphics/color/ColorChangeEventHandler.h"
+#endif
+#if __has_include("org/allbinary/graphics/paint/Paintable.h")
+#include "org/allbinary/graphics/paint/Paintable.h"
+#endif
 
 
 

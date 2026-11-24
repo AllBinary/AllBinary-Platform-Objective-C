@@ -50,7 +50,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (GameKeyEventFactory*) getInstance;
-- (void) init_;
+- (void) initMethod;
 - (GameKeyEvent*) getInstanceForKey:(GameKeyEventSourceInterface*)anyType :(int32_t)key;
 - (GameKeyEvent*) getInstanceForInput:(GameKeyEventSourceInterface*)anyType :(Input*)input;
 @end

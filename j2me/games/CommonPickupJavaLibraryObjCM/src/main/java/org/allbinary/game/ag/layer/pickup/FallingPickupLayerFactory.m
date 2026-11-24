@@ -24,7 +24,7 @@ void FallingPickupLayerFactory_staticInit(void) {
 
 // throws Exception
 - (AllBinaryLayer*) getInstance {
-        return [((FallingPickupLayer*) [FallingPickupLayer alloc]) init:(RemoteInfo_staticInit(), RemoteInfo_REMOTE_INFO)];
+        return ((FallingPickupLayer*) [((FallingPickupLayer*) [FallingPickupLayer alloc]) init:(RemoteInfo_staticInit(), RemoteInfo_REMOTE_INFO)]);
 }
 
 @end

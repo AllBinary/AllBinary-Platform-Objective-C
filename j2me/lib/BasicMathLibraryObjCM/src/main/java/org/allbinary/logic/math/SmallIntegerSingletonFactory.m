@@ -4,6 +4,18 @@
 #include "org/allbinary/J2MEUtil.h"
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/logic/string/StringMaker.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static SmallIntegerSingletonFactory* SmallIntegerSingletonFactory_instance;
@@ -14,7 +26,7 @@ void SmallIntegerSingletonFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    SmallIntegerSingletonFactory_instance = [((SmallIntegerSingletonFactory*) [SmallIntegerSingletonFactory alloc]) init];
+    SmallIntegerSingletonFactory_instance = ((SmallIntegerSingletonFactory*) [((SmallIntegerSingletonFactory*) [SmallIntegerSingletonFactory alloc]) init]);
 }
 
 @implementation SmallIntegerSingletonFactory
@@ -41,11 +53,11 @@ void SmallIntegerSingletonFactory_staticInit(void) {
             if ([J2MEUtil isJ2ME]) {
             } else if ([AndroidUtil isAndroid]) {
                 LogUtil* logUtil = [LogUtil getInstance];
-                [logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Android InputFactory was initialized before GameMidlet: "] appendint:self->MIN] toString] :self :"getMin"];
+                [logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Android InputFactory was initialized before GameMidlet: "] appendint:self->MIN] toString] :self :"getMin"];
                 [self initWithRange:0x291 :6];
             } else {
                 LogUtil* logUtil = [LogUtil getInstance];
-                [logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"InputFactory was initialized before GameMidlet or KeyFactoryInitializer - Currently this is occurs on JS build by TouchMotionGestureFactory constructor: "] appendint:self->MIN] toString] :self :"getMin"];
+                [logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"InputFactory was initialized before GameMidlet or KeyFactoryInitializer - Currently this is occurs on JS build by TouchMotionGestureFactory constructor: "] appendint:self->MIN] toString] :self :"getMin"];
                 [self initWithRange:0x2D0 :6];
             }
         }
@@ -87,7 +99,7 @@ void SmallIntegerSingletonFactory_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         if (self->lastMin < self->POSITIVE_MAX || self->lastNegativeMin < self->NEGATIVE_MAX) {
             for (int32_t index = self->POSITIVE_MAX - 1; index >= self->lastMin; index--) {
                 self->INTEGER_ARRAY[index + self->NEGATIVE_MAX] = index;

@@ -11,15 +11,15 @@ void PlayerTypesFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    PlayerTypesFactory_SINGLETON = [((PlayerTypesFactory*) [PlayerTypesFactory alloc]) init];
+    PlayerTypesFactory_SINGLETON = ((PlayerTypesFactory*) [((PlayerTypesFactory*) [PlayerTypesFactory alloc]) init]);
 }
 
 @implementation PlayerTypesFactory
 
 - (void) initFields {
-    self->PLAYER_TYPE_ONE = [((PlayerType*) [PlayerType alloc]) init:"Player Type One" :0];
-    self->PLAYER_TYPE_TWO = [((PlayerType*) [PlayerType alloc]) init:"Player Type Two" :1];
-    self->PLAYER_TYPE_THREE = [((PlayerType*) [PlayerType alloc]) init:"Player Type Three" :2];
+    self->PLAYER_TYPE_ONE = ((PlayerType*) [((PlayerType*) [PlayerType alloc]) init:"Player Type One" :0]);
+    self->PLAYER_TYPE_TWO = ((PlayerType*) [((PlayerType*) [PlayerType alloc]) init:"Player Type Two" :1]);
+    self->PLAYER_TYPE_THREE = ((PlayerType*) [((PlayerType*) [PlayerType alloc]) init:"Player Type Three" :2]);
 }
 
 - (instancetype) init {

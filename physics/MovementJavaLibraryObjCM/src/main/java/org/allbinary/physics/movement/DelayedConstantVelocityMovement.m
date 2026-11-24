@@ -38,7 +38,7 @@ void DelayedConstantVelocityMovement_staticInit(void) {
 @implementation DelayedConstantVelocityMovement
 
 - (void) initFields {
-    self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:60];
+    self->timeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:60]);
 }
 
 
@@ -49,7 +49,7 @@ void DelayedConstantVelocityMovement_staticInit(void) {
 }
 
 
-- (void) init_:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle {
+- (void) initMethod:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle {
 }
 
 

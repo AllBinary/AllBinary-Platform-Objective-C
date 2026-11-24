@@ -12,7 +12,7 @@ void CaptionAnimationHelperBase_staticInit(void) {
         return;
     }
     initialized = true;
-    CaptionAnimationHelperBase_INSTANCE = [((CaptionAnimationHelperBase*) [CaptionAnimationHelperBase alloc]) init];
+    CaptionAnimationHelperBase_INSTANCE = ((CaptionAnimationHelperBase*) [((CaptionAnimationHelperBase*) [CaptionAnimationHelperBase alloc]) init]);
 }
 
 @implementation CaptionAnimationHelperBase

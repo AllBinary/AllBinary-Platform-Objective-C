@@ -11,7 +11,7 @@ void PointFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    PointFactory_instance = [((PointFactory*) [PointFactory alloc]) init];
+    PointFactory_instance = ((PointFactory*) [((PointFactory*) [PointFactory alloc]) init]);
 }
 
 @implementation PointFactory
@@ -26,7 +26,7 @@ void PointFactory_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 
@@ -38,12 +38,12 @@ void PointFactory_staticInit(void) {
 
 
 - (GPoint*) createXY:(int32_t)x :(int32_t)y {
-        return [((GPoint*) [GPoint alloc]) init:x :y :0];
+        return ((GPoint*) [((GPoint*) [GPoint alloc]) init:x :y :0]);
 }
 
 
 - (GPoint*) createXYZ:(int32_t)x :(int32_t)y :(int32_t)z {
-        return [((GPoint*) [GPoint alloc]) init:x :y :z];
+        return ((GPoint*) [((GPoint*) [GPoint alloc]) init:x :y :z]);
 }
 
 @end

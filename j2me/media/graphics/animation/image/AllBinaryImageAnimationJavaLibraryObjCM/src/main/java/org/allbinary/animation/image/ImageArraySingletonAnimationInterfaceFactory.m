@@ -18,7 +18,7 @@ void ImageArraySingletonAnimationInterfaceFactory_staticInit(void) {
 
 
 - (instancetype) init:(Image**)imageArray {
-        self = [super init:[((ImageArrayAnimation*) [ImageArrayAnimation alloc]) init:imageArray :[AnimationBehavior getInstance]]];
+        self = [super init:((ImageArrayAnimation*) [((ImageArrayAnimation*) [ImageArrayAnimation alloc]) init:imageArray :[AnimationBehavior getInstance]])];
     return self;
 }
 

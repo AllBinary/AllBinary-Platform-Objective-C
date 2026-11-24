@@ -4,6 +4,9 @@
 #include "org/allbinary/logic/math/PrimitiveLongUtil.h"
 #include "org/allbinary/time/GameTickTimeDelayHelper.h"
 #include "org/allbinary/time/GameTickTimeDelayHelperFactory.h"
+#if __has_include("org/allbinary/logic/math/PrimitiveLongSingleton.h")
+#include "org/allbinary/logic/math/PrimitiveLongSingleton.h"
+#endif
 
 
 

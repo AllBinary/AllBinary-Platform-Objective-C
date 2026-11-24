@@ -38,35 +38,8 @@
 #if __has_include("org/allbinary/util/ABHashtable.h")
 #include "org/allbinary/util/ABHashtable.h"
 #endif
-#if __has_include("org/allbinary/game/configuration/ABHashtable.h")
-#include "org/allbinary/game/configuration/ABHashtable.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/ABHashtable.h")
-#include "org/allbinary/game/configuration/feature/ABHashtable.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/ABHashtable.h")
-#include "org/allbinary/game/configuration/feature/ABHashtable.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/ABHashtable.h")
-#include "org/allbinary/game/configuration/feature/ABHashtable.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/ABHashtable.h")
-#include "org/allbinary/game/configuration/feature/ABHashtable.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/ABHashtable.h")
-#include "org/allbinary/game/configuration/feature/ABHashtable.h"
-#endif
-#if __has_include("org/allbinary/init/ABHashtable.h")
-#include "org/allbinary/init/ABHashtable.h"
-#endif
-#if __has_include("org/allbinary/input/gyro/ABHashtable.h")
-#include "org/allbinary/input/gyro/ABHashtable.h"
-#endif
-#if __has_include("org/allbinary/util/ABHashtable.h")
-#include "org/allbinary/util/ABHashtable.h"
-#endif
-#if __has_include("org/allbinary/util/ABHashtable.h")
-#include "org/allbinary/util/ABHashtable.h"
+#if __has_include("org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.h")
+#include "org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.h"
 #endif
 #if __has_include("org/allbinary/game/configuration/ABHashtable.h")
 #include "org/allbinary/game/configuration/ABHashtable.h"
@@ -97,6 +70,60 @@
 #endif
 #if __has_include("org/allbinary/util/ABHashtable.h")
 #include "org/allbinary/util/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/TouchFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/TouchFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/TouchFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/TouchFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/TouchFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/TouchFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/SensorFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/SensorFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/SensorFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/SensorFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.h")
+#include "org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/ABHashtable.h")
+#include "org/allbinary/game/configuration/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/ABHashtable.h")
+#include "org/allbinary/game/configuration/feature/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/ABHashtable.h")
+#include "org/allbinary/game/configuration/feature/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/ABHashtable.h")
+#include "org/allbinary/game/configuration/feature/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/ABHashtable.h")
+#include "org/allbinary/game/configuration/feature/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/ABHashtable.h")
+#include "org/allbinary/game/configuration/feature/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/init/ABHashtable.h")
+#include "org/allbinary/init/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/input/gyro/ABHashtable.h")
+#include "org/allbinary/input/gyro/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/util/ABHashtable.h")
+#include "org/allbinary/util/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/util/ABHashtable.h")
+#include "org/allbinary/util/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.h")
+#include "org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.h"
+#endif
+#if __has_include("org/allbinary/input/gyro/OrientationData.h")
+#include "org/allbinary/input/gyro/OrientationData.h"
 #endif
 
 
@@ -117,7 +144,7 @@ void InGameFeatures_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         const char* LABEL = "Screen Buttons";
         OrientationData* orientationData = [OrientationData getInstance];
         BasicArrayList* exclusiveOrientationSensorVector = ((BasicArrayList*) [[[GameFeatureChoiceGroups getExclusiveInstance] get] get:JAVA_BOX(((id) orientationData->ORIENTATION_SENSOR_INPUT))]);
@@ -135,7 +162,7 @@ void InGameFeatures_staticInit(void) {
         }
         Features* features = [Features getInstance];
         if ([features isFeature:[TouchFeatureFactory getInstance]->SHOW_SCREEN_BUTTONS] || [features isFeature:[TouchFeatureFactory getInstance]->AUTO_HIDE_SHOW_SCREEN_BUTTONS] || [features isFeature:[TouchFeatureFactory getInstance]->HIDE_SCREEN_BUTTONS]) {
-            BasicArrayList* exclusiveScreenButtonsVector = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            BasicArrayList* exclusiveScreenButtonsVector = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             TouchFeatureFactory* touchFeatureFactory = [TouchFeatureFactory getInstance];
             [exclusiveScreenButtonsVector add:touchFeatureFactory->AUTO_HIDE_SHOW_SCREEN_BUTTONS];
             [exclusiveScreenButtonsVector add:touchFeatureFactory->SHOW_SCREEN_BUTTONS];
@@ -147,7 +174,7 @@ void InGameFeatures_staticInit(void) {
 
 - (void) addToInGameMenu {
         OrientationData* orientationData = [OrientationData getInstance];
-        BasicArrayList* inGameExclusiveOrientationSensorVector = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* inGameExclusiveOrientationSensorVector = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         [inGameExclusiveOrientationSensorVector add:[SensorFeatureFactory getInstance]->ORIENTATION_SENSORS];
         [inGameExclusiveOrientationSensorVector add:[SensorFeatureFactory getInstance]->NO_ORIENTATION];
         [[InGameFeatureChoiceGroups getExclusiveInstance] add:orientationData->ORIENTATION_SENSOR_INPUT :inGameExclusiveOrientationSensorVector];

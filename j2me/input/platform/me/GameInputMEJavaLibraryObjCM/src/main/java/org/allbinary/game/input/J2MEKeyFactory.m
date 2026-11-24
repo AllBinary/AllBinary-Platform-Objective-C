@@ -14,7 +14,7 @@ void J2MEKeyFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    J2MEKeyFactory_instance = [((J2MEKeyFactory*) [J2MEKeyFactory alloc]) init];
+    J2MEKeyFactory_instance = ((J2MEKeyFactory*) [((J2MEKeyFactory*) [J2MEKeyFactory alloc]) init]);
 }
 
 @implementation J2MEKeyFactory
@@ -36,7 +36,7 @@ void J2MEKeyFactory_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         GameKey** gameKeyArray = ((GameKey**) java_array_from(sizeof(GameKey*), sizeof((GameKey*[]){ self->gameKeyFactory->DOWN, self->gameKeyFactory->FIRE, self->gameKeyFactory->GAME_A, self->gameKeyFactory->GAME_B, self->gameKeyFactory->GAME_C, self->gameKeyFactory->GAME_D, self->gameKeyFactory->KEY_NUM0, self->gameKeyFactory->KEY_NUM1, self->gameKeyFactory->KEY_NUM2, self->gameKeyFactory->KEY_NUM3, self->gameKeyFactory->KEY_NUM4, self->gameKeyFactory->KEY_NUM5, self->gameKeyFactory->KEY_NUM6, self->gameKeyFactory->KEY_NUM7, self->gameKeyFactory->KEY_NUM8, self->gameKeyFactory->KEY_NUM9, self->gameKeyFactory->KEY_POUND, self->gameKeyFactory->KEY_STAR, self->gameKeyFactory->LEFT, self->gameKeyFactory->LEVEL_DOWN, self->gameKeyFactory->LEVEL_UP, self->gameKeyFactory->NONE, self->gameKeyFactory->RIGHT, self->gameKeyFactory->UP }) / sizeof(GameKey*), (GameKey*[]){ self->gameKeyFactory->DOWN, self->gameKeyFactory->FIRE, self->gameKeyFactory->GAME_A, self->gameKeyFactory->GAME_B, self->gameKeyFactory->GAME_C, self->gameKeyFactory->GAME_D, self->gameKeyFactory->KEY_NUM0, self->gameKeyFactory->KEY_NUM1, self->gameKeyFactory->KEY_NUM2, self->gameKeyFactory->KEY_NUM3, self->gameKeyFactory->KEY_NUM4, self->gameKeyFactory->KEY_NUM5, self->gameKeyFactory->KEY_NUM6, self->gameKeyFactory->KEY_NUM7, self->gameKeyFactory->KEY_NUM8, self->gameKeyFactory->KEY_NUM9, self->gameKeyFactory->KEY_POUND, self->gameKeyFactory->KEY_STAR, self->gameKeyFactory->LEFT, self->gameKeyFactory->LEVEL_DOWN, self->gameKeyFactory->LEVEL_UP, self->gameKeyFactory->NONE, self->gameKeyFactory->RIGHT, self->gameKeyFactory->UP }));
         InputFactory* inputFactory = [InputFactory getInstance];
         for (int32_t index = java_array_length(gameKeyArray); --index >= 0; ) {

@@ -8,6 +8,9 @@
 #include "org/allbinary/layer/AllBinaryLayerManager.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static const char* SequenceAI_SEQUENCE_AI = "Sequence AI";
@@ -43,9 +46,9 @@ void SequenceAI_staticInit(void) {
 - (void) next {
         self->index++;
         ArtificialIntelligenceInterface* artificialIntelligenceInterface = [self getSelectedArtificialIntelligenceInterface];
-        if ([artificialIntelligenceInterface getId] == (ArtificialIntelligence_staticInit(), ArtificialIntelligence_AI_ID)) {
+        if ([((id<ArtificialIntelligenceInterface>) artificialIntelligenceInterface) getId] == (ArtificialIntelligence_staticInit(), ArtificialIntelligence_AI_ID)) {
             ArtificialIntelligenceTransitionInterface* artificialIntelligenceTransitionInterface = ((ArtificialIntelligenceTransitionInterface*) artificialIntelligenceInterface);
-            [artificialIntelligenceTransitionInterface transition];
+            [((id<ArtificialIntelligenceTransitionInterface>) artificialIntelligenceTransitionInterface) transition];
         }
 }
 
@@ -71,7 +74,7 @@ void SequenceAI_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:[super toString]];
         [stringBuffer append:" Selected AI: "];
         [stringBuffer append:[[StringUtil getInstance] toString:[self getSelectedArtificialIntelligenceInterface]]];

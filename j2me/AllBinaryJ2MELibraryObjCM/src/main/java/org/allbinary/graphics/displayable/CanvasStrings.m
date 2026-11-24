@@ -2,6 +2,9 @@
 #include "org/allbinary/graphics/displayable/CanvasStrings.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListUtil.h"
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
 
 
 static CanvasStrings* CanvasStrings_instance;
@@ -12,7 +15,7 @@ void CanvasStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    CanvasStrings_instance = [((CanvasStrings*) [CanvasStrings alloc]) init];
+    CanvasStrings_instance = ((CanvasStrings*) [((CanvasStrings*) [CanvasStrings alloc]) init]);
 }
 
 @implementation CanvasStrings

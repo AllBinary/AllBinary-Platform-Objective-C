@@ -4,6 +4,15 @@
 #include "org/allbinary/logic/StdUtil.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/util/ABHashtable.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static ABHashtable* GameConfigurationTextInput_hashtable;
@@ -17,8 +26,8 @@ void GameConfigurationTextInput_staticInit(void) {
     }
     initialized = true;
     GameConfigurationTextInput_hashtable = [[StdUtil getInstance] createHashtable];
-    GameConfigurationTextInput_SIMULATOR_IP = [((GameConfigurationTextInput*) [GameConfigurationTextInput alloc]) init:"IP: " :"192.168.1.3"];
-    GameConfigurationTextInput_SIMULATOR_PORT = [((GameConfigurationTextInput*) [GameConfigurationTextInput alloc]) init:"Port: " :"8010"];
+    GameConfigurationTextInput_SIMULATOR_IP = ((GameConfigurationTextInput*) [((GameConfigurationTextInput*) [GameConfigurationTextInput alloc]) init:"IP: " :"192.168.1.3"]);
+    GameConfigurationTextInput_SIMULATOR_PORT = ((GameConfigurationTextInput*) [((GameConfigurationTextInput*) [GameConfigurationTextInput alloc]) init:"Port: " :"8010"]);
 }
 
 @implementation GameConfigurationTextInput

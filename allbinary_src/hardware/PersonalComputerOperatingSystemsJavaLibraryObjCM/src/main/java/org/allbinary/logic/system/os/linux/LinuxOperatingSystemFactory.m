@@ -9,6 +9,12 @@
 #include "org/allbinary/logic/system/os/SystemProperties.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/logic/system/os/linux/LinuxOS.h"
+#if __has_include("org/allbinary/logic/system/os/SystemProperties.h")
+#include "org/allbinary/logic/system/os/SystemProperties.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h")
+#include "org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h"
+#endif
 
 
 static LinuxOperatingSystemFactory* LinuxOperatingSystemFactory_instance;
@@ -19,7 +25,7 @@ void LinuxOperatingSystemFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    LinuxOperatingSystemFactory_instance = [((LinuxOperatingSystemFactory*) [LinuxOperatingSystemFactory alloc]) init];
+    LinuxOperatingSystemFactory_instance = ((LinuxOperatingSystemFactory*) [((LinuxOperatingSystemFactory*) [LinuxOperatingSystemFactory alloc]) init]);
 }
 
 @implementation LinuxOperatingSystemFactory
@@ -47,10 +53,10 @@ void LinuxOperatingSystemFactory_staticInit(void) {
             const char* osName = [[SystemProperties getInstance] getName];
             GenericOperatingSystem* operatingSystemInterface = nullptr;
             if (strcmp(osName, operatingSystems->LINUX) == 0) {
-                operatingSystemInterface = [((LinuxOS*) [LinuxOS alloc]) init];
+                operatingSystemInterface = ((LinuxOS*) [((LinuxOS*) [LinuxOS alloc]) init]);
             } else {
                 if ([operatingSystems isUnknownSpecificOSAllowed]) {
-                    operatingSystemInterface = [((LinuxOS*) [LinuxOS alloc]) init];
+                    operatingSystemInterface = ((LinuxOS*) [((LinuxOS*) [LinuxOS alloc]) init]);
                 } else {
                     java_throw(java_exception_new("Exception", java_concat("Specific Linux OS Not Supported: ", osName)));
                 }

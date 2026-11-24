@@ -14,7 +14,7 @@ void InGameMenuBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    InGameMenuBehavior_instanceC = [((InGameMenuBehavior*) [InGameMenuBehavior alloc]) init];
+    InGameMenuBehavior_instanceC = ((InGameMenuBehavior*) [((InGameMenuBehavior*) [InGameMenuBehavior alloc]) init]);
 }
 
 @implementation InGameMenuBehavior
@@ -37,7 +37,7 @@ void InGameMenuBehavior_staticInit(void) {
 
 
 - (void) initSpecialPaint:(AllBinaryGameCanvas*)allBinaryGameCanvas {
-        [allBinaryGameCanvas setNonBotPaintableP:[((GameCanvasNonBotPaintable*) [GameCanvasNonBotPaintable alloc]) init:allBinaryGameCanvas]];
+        [allBinaryGameCanvas setNonBotPaintableP:((GameCanvasNonBotPaintable*) [((GameCanvasNonBotPaintable*) [GameCanvasNonBotPaintable alloc]) init:allBinaryGameCanvas])];
 }
 
 

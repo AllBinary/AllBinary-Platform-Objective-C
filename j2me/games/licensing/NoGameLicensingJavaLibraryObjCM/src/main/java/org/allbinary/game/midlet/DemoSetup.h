@@ -32,7 +32,7 @@
 @public
 }
 - (instancetype) init;
-- (void) init_:(GameMidlet*)gameMidlet;
+- (void) initMethod:(GameMidlet*)gameMidlet;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

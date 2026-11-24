@@ -8,6 +8,78 @@
 #include "org/allbinary/math/AngleFactory.h"
 #include "org/allbinary/math/PositionStrings.h"
 #include "org/allbinary/math/Angle.h"
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 static NoDecimalTrigTable* NoDecimalTrigTable_instance;
@@ -18,7 +90,7 @@ void NoDecimalTrigTable_staticInit(void) {
         return;
     }
     initialized = true;
-    NoDecimalTrigTable_instance = [((NoDecimalTrigTable*) [NoDecimalTrigTable alloc]) init];
+    NoDecimalTrigTable_instance = ((NoDecimalTrigTable*) [((NoDecimalTrigTable*) [NoDecimalTrigTable alloc]) init]);
 }
 
 @implementation NoDecimalTrigTable
@@ -1190,7 +1262,7 @@ void NoDecimalTrigTable_staticInit(void) {
                 }
             }
         }
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"Invalid Ratio: "];
         [stringBuffer appendlong:ratio];
         [stringBuffer append:[CommonSeps getInstance]->SPACE];
@@ -1207,7 +1279,7 @@ void NoDecimalTrigTable_staticInit(void) {
 - (int16_t) antiTanDebug:(int32_t)screenX :(int32_t)screenY :(int32_t)targetX :(int32_t)targetY {
         const char* METHOD_NAME = "antiTanDebug";
         const char* TARGET_ANGLE = " Targeting angle: ";
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [PreLogUtil put:[[[[[[[[[stringMaker append:"screenX: "] appendint:screenX] append:" screenY: "] appendint:screenY] append:" targetX: "] appendint:targetX] append:" targetY: "] appendint:targetY] toString] :self :METHOD_NAME];
         int32_t targetX2 = -targetX;
         int32_t targetY2 = -targetY;

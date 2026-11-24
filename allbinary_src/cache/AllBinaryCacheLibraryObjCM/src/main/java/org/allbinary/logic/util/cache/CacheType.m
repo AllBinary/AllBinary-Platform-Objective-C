@@ -40,7 +40,7 @@ void CacheType_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"CacheType: Vendor: "];
         [stringBuffer append:[self getVendor]];
         [stringBuffer append:" Type: "];

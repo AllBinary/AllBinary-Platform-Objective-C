@@ -4,6 +4,9 @@
 #include "javax/microedition/lcdui/Graphics.h"
 #include "org/allbinary/graphics/color/BasicColor.h"
 #include "org/allbinary/graphics/color/BasicColorFactory.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 
@@ -20,7 +23,7 @@ void ScoreHudWidget_staticInit(void) {
 
 // throws Exception
 + (ScoreHudWidget*) getInstance:(int32_t)maxscore :(int32_t)location :(int32_t)direction {
-        return [((ScoreHudWidget*) [ScoreHudWidget alloc]) init:maxscore :location :direction :2 :[BasicColorFactory getInstance]->GREY];
+        return ((ScoreHudWidget*) [((ScoreHudWidget*) [ScoreHudWidget alloc]) init:maxscore :location :direction :2 :[BasicColorFactory getInstance]->GREY]);
 }
 
 

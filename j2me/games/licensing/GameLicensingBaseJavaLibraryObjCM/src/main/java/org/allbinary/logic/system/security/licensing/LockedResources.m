@@ -10,7 +10,7 @@ void LockedResources_staticInit(void) {
         return;
     }
     initialized = true;
-    LockedResources_instance = [((LockedResources*) [LockedResources alloc]) init];
+    LockedResources_instance = ((LockedResources*) [((LockedResources*) [LockedResources alloc]) init]);
 }
 
 @implementation LockedResources

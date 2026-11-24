@@ -42,7 +42,7 @@
 + (AdjustedCircleAnimation*) createAnimation:(int32_t)width :(int32_t)height :(int32_t)xAdjustment :(int32_t)yAdjustment :(BasicColor*)basicColor;
 + (AdjustedCircleAnimation*) createW:(int32_t)width :(int32_t)height :(int32_t)innerWidth :(BasicColor*)basicColor;
 - (void) initXY:(int32_t)xAdjustment :(int32_t)yAdjustment;
-- (void) init_:(int32_t)innerWidth;
+- (void) initMethod:(int32_t)innerWidth;
 - (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y;
 @end
 

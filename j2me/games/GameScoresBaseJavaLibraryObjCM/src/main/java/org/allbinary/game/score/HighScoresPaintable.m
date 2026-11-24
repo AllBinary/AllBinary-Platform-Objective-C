@@ -14,6 +14,21 @@
 #include "org/allbinary/game/score/NullHighScoresSingletonFactory.h"
 #include "org/allbinary/game/score/HighScores.h"
 #include "org/allbinary/game/score/HighScore.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
 
 
 
@@ -29,7 +44,7 @@ void HighScoresPaintable_staticInit(void) {
 
 - (void) initFields {
     self->displayInfoSingleton = [DisplayInfoSingleton getInstance];
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->basicColor = [BasicColorFactory getInstance]->WHITE;
     self->highScores = [NullHighScoresSingletonFactory getInstance];
     self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);

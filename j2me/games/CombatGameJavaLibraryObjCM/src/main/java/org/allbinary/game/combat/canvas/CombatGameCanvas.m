@@ -14,53 +14,8 @@
 #include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvasFactory.h"
 #include "org/allbinary/layer/BasicLayerProcessor.h"
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
-#if __has_include("org/allbinary/game/combat/canvas/ProgressCanvas.h")
-#include "org/allbinary/game/combat/canvas/ProgressCanvas.h"
-#endif
-#if __has_include("javax/microedition/lcdui/ProgressCanvas.h")
-#include "javax/microedition/lcdui/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/game/combat/destroy/ProgressCanvas.h")
-#include "org/allbinary/game/combat/destroy/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/game/combat/destroy/event/ProgressCanvas.h")
-#include "org/allbinary/game/combat/destroy/event/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/game/combat/destroy/event/ProgressCanvas.h")
-#include "org/allbinary/game/combat/destroy/event/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/ProgressCanvas.h")
-#include "org/allbinary/game/configuration/feature/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/ProgressCanvas.h")
-#include "org/allbinary/game/configuration/feature/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/ProgressCanvas.h")
-#include "org/allbinary/game/displayable/canvas/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/game/init/ProgressCanvas.h")
-#include "org/allbinary/game/init/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/game/layer/ProgressCanvas.h")
-#include "org/allbinary/game/layer/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/game/layer/drop/ProgressCanvas.h")
-#include "org/allbinary/game/layer/drop/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/game/layer/identification/ProgressCanvas.h")
-#include "org/allbinary/game/layer/identification/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/game/score/ProgressCanvas.h")
-#include "org/allbinary/game/score/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h")
-#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/layer/ProgressCanvas.h")
-#include "org/allbinary/layer/ProgressCanvas.h"
-#endif
-#if __has_include("org/allbinary/logic/system/security/licensing/ProgressCanvas.h")
-#include "org/allbinary/logic/system/security/licensing/ProgressCanvas.h"
+#if __has_include("org/allbinary/game/combat/destroy/event/DestroyEventCircularStaticPool.h")
+#include "org/allbinary/game/combat/destroy/event/DestroyEventCircularStaticPool.h"
 #endif
 #if __has_include("org/allbinary/game/combat/canvas/ProgressCanvas.h")
 #include "org/allbinary/game/combat/canvas/ProgressCanvas.h"
@@ -109,6 +64,63 @@
 #endif
 #if __has_include("org/allbinary/logic/system/security/licensing/ProgressCanvas.h")
 #include "org/allbinary/logic/system/security/licensing/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/combat/canvas/ProgressCanvas.h")
+#include "org/allbinary/game/combat/canvas/ProgressCanvas.h"
+#endif
+#if __has_include("javax/microedition/lcdui/ProgressCanvas.h")
+#include "javax/microedition/lcdui/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/ProgressCanvas.h")
+#include "org/allbinary/game/combat/destroy/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/event/ProgressCanvas.h")
+#include "org/allbinary/game/combat/destroy/event/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/event/ProgressCanvas.h")
+#include "org/allbinary/game/combat/destroy/event/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/ProgressCanvas.h")
+#include "org/allbinary/game/configuration/feature/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/ProgressCanvas.h")
+#include "org/allbinary/game/configuration/feature/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/ProgressCanvas.h")
+#include "org/allbinary/game/displayable/canvas/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/init/ProgressCanvas.h")
+#include "org/allbinary/game/init/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/layer/ProgressCanvas.h")
+#include "org/allbinary/game/layer/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/layer/drop/ProgressCanvas.h")
+#include "org/allbinary/game/layer/drop/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/layer/identification/ProgressCanvas.h")
+#include "org/allbinary/game/layer/identification/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/score/ProgressCanvas.h")
+#include "org/allbinary/game/score/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h")
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/layer/ProgressCanvas.h")
+#include "org/allbinary/layer/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/ProgressCanvas.h")
+#include "org/allbinary/logic/system/security/licensing/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/layer/identification/GroupLayerManagerListener.h")
+#include "org/allbinary/game/layer/identification/GroupLayerManagerListener.h"
+#endif
+#if __has_include("org/allbinary/game/layer/identification/GroupLayerManagerListener.h")
+#include "org/allbinary/game/layer/identification/GroupLayerManagerListener.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/event/DestroyedEventHandler.h")
+#include "org/allbinary/game/combat/destroy/event/DestroyedEventHandler.h"
 #endif
 
 
@@ -133,7 +145,7 @@ void CombatGameCanvas_staticInit(void) {
 
 
 - (void) CombatGameCanvas_init {
-        [[DestroyEventCircularStaticPool getInstance] init_:self];
+        [[DestroyEventCircularStaticPool getInstance] initMethod:self];
         [[ProgressCanvasFactory getInstance] addNormalPortion:50 :"Destroy Events"];
 }
 
@@ -146,7 +158,7 @@ void CombatGameCanvas_staticInit(void) {
 
 
 - (void) initConfigurablePortion:(int32_t)portion {
-        [DestroyedLayerProcessor init_];
+        [DestroyedLayerProcessor initMethod];
         [[ProgressCanvasFactory getInstance] addNormalPortion:portion :"Basic Processors"];
         Features* features = [Features getInstance];
         GameFeatureFactory* gameFeatureFactory = [GameFeatureFactory getInstance];

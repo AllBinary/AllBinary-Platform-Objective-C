@@ -23,7 +23,7 @@ void URLGLOBALS_staticInit(void) {
 }
 
 
-+ (void) init_:(UrlGlobalsInterface*)urlGlobalsInterface {
++ (void) initMethod:(UrlGlobalsInterface*)urlGlobalsInterface {
         URLGLOBALS_urlGlobalsInterface = urlGlobalsInterface;
 }
 

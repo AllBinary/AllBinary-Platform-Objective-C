@@ -16,6 +16,21 @@
 #include "org/allbinary/graphics/displayable/DisplayableInterface.h"
 #include "org/allbinary/graphics/displayable/CanvasStrings.h"
 #include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/command/MyCommandsFactory.h")
+#include "org/allbinary/graphics/displayable/command/MyCommandsFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/command/MyCommandsFactory.h")
+#include "org/allbinary/graphics/displayable/command/MyCommandsFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/command/MyCommandsFactory.h")
+#include "org/allbinary/graphics/displayable/command/MyCommandsFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/command/MyCommandsFactory.h")
+#include "org/allbinary/graphics/displayable/command/MyCommandsFactory.h"
+#endif
 
 
 
@@ -40,7 +55,7 @@ void MyCanvas_staticInit(void) {
     
     self->commandListener = (NullCommandListener_staticInit(), NullCommandListener_NULL_COMMAND_LISTENER);
     self->paused = false;
-    self->touchME = [((TouchJ2ME*) [TouchJ2ME alloc]) init];
+    self->touchME = ((TouchJ2ME*) [((TouchJ2ME*) [TouchJ2ME alloc]) init]);
 }
 
 

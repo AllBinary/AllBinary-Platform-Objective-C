@@ -4,6 +4,9 @@
 #include "org/allbinary/logic/communication/log/ForcedLogUtil.h"
 #include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
 #include "org/allbinary/logic/util/event/EventStrings.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 static NoCompleteMotionGestureInputEventListener* NoCompleteMotionGestureInputEventListener_instance;
@@ -14,7 +17,7 @@ void NoCompleteMotionGestureInputEventListener_staticInit(void) {
         return;
     }
     initialized = true;
-    NoCompleteMotionGestureInputEventListener_instance = [((NoCompleteMotionGestureInputEventListener*) [NoCompleteMotionGestureInputEventListener alloc]) init];
+    NoCompleteMotionGestureInputEventListener_instance = ((NoCompleteMotionGestureInputEventListener*) [((NoCompleteMotionGestureInputEventListener*) [NoCompleteMotionGestureInputEventListener alloc]) init]);
 }
 
 @implementation NoCompleteMotionGestureInputEventListener

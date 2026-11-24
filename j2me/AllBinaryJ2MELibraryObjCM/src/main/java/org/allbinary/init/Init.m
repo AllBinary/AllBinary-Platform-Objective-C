@@ -27,7 +27,7 @@ void Init_staticInit(void) {
 
 
 // throws Exception
-- (void) init_ {
+- (void) initMethod {
 }
 
 @end

@@ -13,7 +13,7 @@ void OpenGLImageFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLImageFactory_NULL_OPENGL_IMAGE_FACTORY = [((OpenGLImageFactory*) [OpenGLImageFactory alloc]) init];
+    OpenGLImageFactory_NULL_OPENGL_IMAGE_FACTORY = ((OpenGLImageFactory*) [((OpenGLImageFactory*) [OpenGLImageFactory alloc]) init]);
 }
 
 @implementation OpenGLImageFactory

@@ -21,7 +21,7 @@ void AbstractArrayListPool_staticInit(void) {
 
 - (void) initFields {
     self->commonStrings = [CommonStrings getInstance];
-    self->buffers = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->buffers = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     
 }
 

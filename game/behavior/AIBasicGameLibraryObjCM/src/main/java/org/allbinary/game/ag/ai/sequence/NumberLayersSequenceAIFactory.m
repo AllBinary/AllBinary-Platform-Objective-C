@@ -24,7 +24,7 @@ void NumberLayersSequenceAIFactory_staticInit(void) {
 
 
 - (ArtificialIntelligenceInterface*) getInstance:(int32_t)numberOfEnemiesLeft :(ArtificialIntelligenceInterface**)artificialIntelligenceInterface :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
-        return [((NumberLayersSequenceAI*) [NumberLayersSequenceAI alloc]) init:numberOfEnemiesLeft :artificialIntelligenceInterface :ownerLayerInterface :gameInput];
+        return ((NumberLayersSequenceAI*) [((NumberLayersSequenceAI*) [NumberLayersSequenceAI alloc]) init:numberOfEnemiesLeft :artificialIntelligenceInterface :ownerLayerInterface :gameInput]);
 }
 
 @end

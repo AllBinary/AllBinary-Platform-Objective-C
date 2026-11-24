@@ -3,6 +3,9 @@
 #include "org/allbinary/TsUtil.h"
 #include "org/allbinary/thread/NullPriorityRunnable.h"
 #include "org/allbinary/thread/PriorityRunnable.h"
+#if __has_include("org/allbinary/TsUtil.h")
+#include "org/allbinary/TsUtil.h"
+#endif
 
 
 static ThreadObjectUtil* ThreadObjectUtil_instance;
@@ -13,13 +16,13 @@ void ThreadObjectUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ThreadObjectUtil_instance = [((ThreadObjectUtil*) [ThreadObjectUtil alloc]) init];
+    ThreadObjectUtil_instance = ((ThreadObjectUtil*) [((ThreadObjectUtil*) [ThreadObjectUtil alloc]) init]);
 }
 
 @implementation ThreadObjectUtil
 
 - (void) initFields {
-    self->NULL_PRIORITY_RUNNABLE = [((NullPriorityRunnable*) [NullPriorityRunnable alloc]) init];
+    self->NULL_PRIORITY_RUNNABLE = ((NullPriorityRunnable*) [((NullPriorityRunnable*) [NullPriorityRunnable alloc]) init]);
 }
 
 - (instancetype) init {
@@ -52,7 +55,7 @@ void ThreadObjectUtil_staticInit(void) {
 
 
 - (void) processThread:(Runnable*)runnable {
-        Thread* thread = [((Thread*) [Thread alloc]) init:runnable];
+        Thread* thread = ((Thread*) [((Thread*) [Thread alloc]) init:runnable]);
         [thread start];
 }
 

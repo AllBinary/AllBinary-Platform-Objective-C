@@ -9,6 +9,18 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 
@@ -32,7 +44,7 @@ void DatabaseEncoder_staticInit(void) {
 + (const char*) encode:(int8_t*)value {
         JAVA_TRY {
             int8_t* array = value;
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             for (int32_t index = 0; index < java_array_length(array); index++) {
                 [stringBuffer append:[array[index] toString]];
                 if (index < java_array_length(array) - 1) {
@@ -50,8 +62,8 @@ void DatabaseEncoder_staticInit(void) {
 
 + (int8_t*) decode:(const char*)value {
         JAVA_TRY {
-            Tokenizer* tokenizer = [((Tokenizer*) [Tokenizer alloc]) init:[CommonSeps getInstance]->SPACE];
-            BasicArrayList* vector = [tokenizer getTokensFromString:value :[((BasicArrayListD*) [BasicArrayListD alloc]) init]];
+            Tokenizer* tokenizer = ((Tokenizer*) [((Tokenizer*) [Tokenizer alloc]) init:[CommonSeps getInstance]->SPACE]);
+            BasicArrayList* vector = [tokenizer getTokensFromString:value :((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init])];
             int32_t size = [vector size];
             int8_t* decode = ((int8_t*) java_array_new(sizeof(int8_t), size));
             const char* byteOfData = nullptr;

@@ -18,7 +18,7 @@ void WebCommandProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    WebCommandProcessor_instance = [((WebCommandProcessor*) [WebCommandProcessor alloc]) init];
+    WebCommandProcessor_instance = ((WebCommandProcessor*) [((WebCommandProcessor*) [WebCommandProcessor alloc]) init]);
 }
 
 @implementation WebCommandProcessor
@@ -26,7 +26,7 @@ void WebCommandProcessor_staticInit(void) {
 - (void) initFields {
     self->logUtil = [LogUtil getInstance];
     self->aboutCommandProcessor = [AboutCommandProcessor getInstance];
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 - (instancetype) init {
@@ -44,7 +44,7 @@ void WebCommandProcessor_staticInit(void) {
 - (void) process:(CommandListener*)midletCommandListener :(Command*)command :(Canvas*)canvas {
         JAVA_TRY {
             if ([Desktop isDesktopSupported] && [[Desktop getDesktop] isSupported:(Desktop_staticInit(), Desktop_Action)->BROWSE]) {
-                [[Desktop getDesktop] browse:[((URI*) [URI alloc]) init:((const char*) [self->list removeAt:0])]];
+                [[Desktop getDesktop] browse:((URI*) [((URI*) [URI alloc]) init:((const char*) [self->list removeAt:0])])];
             }
         } JAVA_CATCH(Exception, e) {
             CommonStrings* commonStrings = [CommonStrings getInstance];

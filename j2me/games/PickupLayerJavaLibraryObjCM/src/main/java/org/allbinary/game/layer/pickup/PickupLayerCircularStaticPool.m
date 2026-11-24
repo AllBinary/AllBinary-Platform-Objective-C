@@ -13,7 +13,7 @@ void PickupLayerCircularStaticPool_staticInit(void) {
         return;
     }
     initialized = true;
-    PickupLayerCircularStaticPool_SINGLETON = [((PickupLayerCircularStaticPool*) [PickupLayerCircularStaticPool alloc]) init];
+    PickupLayerCircularStaticPool_SINGLETON = ((PickupLayerCircularStaticPool*) [((PickupLayerCircularStaticPool*) [PickupLayerCircularStaticPool alloc]) init]);
 }
 
 @implementation PickupLayerCircularStaticPool
@@ -34,7 +34,7 @@ void PickupLayerCircularStaticPool_staticInit(void) {
 - (PickedUpLayerInterface*) getInstanceXYZ:(PickedUpLayerInterfaceFactoryInterface*)pickedUpLayerInterfaceFactoryInterface :(int32_t)x :(int32_t)y :(int32_t)z {
         PickupLayer* pickupLayer = ((PickupLayer*) [self getNextInstance]);
         [pickupLayer initXYZ:x :y :z];
-        [pickupLayer init_:pickedUpLayerInterfaceFactoryInterface :[pickedUpLayerInterfaceFactoryInterface getAnimationInterface]];
+        [pickupLayer initMethod:pickedUpLayerInterfaceFactoryInterface :[((id<PickedUpLayerInterfaceFactoryInterface>) pickedUpLayerInterfaceFactoryInterface) getAnimationInterface]];
         return pickupLayer;
 }
 

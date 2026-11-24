@@ -24,7 +24,7 @@ void TrackingEventFactory_staticInit(void) {
 
 
 - (AllBinaryEventObject*) getInstance {
-        return [((TrackingEvent*) [TrackingEvent alloc]) init:[TrackingEventHandler getInstance]];
+        return ((TrackingEvent*) [((TrackingEvent*) [TrackingEvent alloc]) init:[TrackingEventHandler getInstance]]);
 }
 
 @end

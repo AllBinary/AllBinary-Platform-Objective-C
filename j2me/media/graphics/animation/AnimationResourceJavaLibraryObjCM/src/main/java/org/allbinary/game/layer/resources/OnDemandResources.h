@@ -40,7 +40,7 @@
 - (instancetype) init;
 - (void) initFields;
 - (void) waitFor;
-- (void) init_;
+- (void) initMethod;
 - (int32_t) initAt:(ImageCache*)imageCache :(BaseResourceAnimationInterfaceFactoryInterfaceFactory*)resourceAnimationInterfaceFactoryInterfaceFactory :(int32_t)portion :(const char*)loadingString :(int32_t)index;
 @end
 

@@ -12,7 +12,7 @@ void PlatformBitmapBaseFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    PlatformBitmapBaseFactory_NULL_PLATFORM_BITMAP_BASE_FACTORY = [((PlatformBitmapBaseFactory*) [PlatformBitmapBaseFactory alloc]) init];
+    PlatformBitmapBaseFactory_NULL_PLATFORM_BITMAP_BASE_FACTORY = ((PlatformBitmapBaseFactory*) [((PlatformBitmapBaseFactory*) [PlatformBitmapBaseFactory alloc]) init]);
 }
 
 @implementation PlatformBitmapBaseFactory

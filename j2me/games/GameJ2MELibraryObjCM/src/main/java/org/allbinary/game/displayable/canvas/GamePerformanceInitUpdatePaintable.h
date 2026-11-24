@@ -53,7 +53,7 @@
 - (instancetype) init;
 - (void) initFields;
 - (void) updateMeasurement:(Graphics*)graphics;
-- (void) init_;
+- (void) initMethod;
 - (void) update;
 - (void) paint:(Graphics*)graphics;
 @end

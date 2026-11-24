@@ -12,13 +12,13 @@ void LockableFeatureFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    LockableFeatureFactory_instance = [((LockableFeatureFactory*) [LockableFeatureFactory alloc]) init];
+    LockableFeatureFactory_instance = ((LockableFeatureFactory*) [((LockableFeatureFactory*) [LockableFeatureFactory alloc]) init]);
 }
 
 @implementation LockableFeatureFactory
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 - (instancetype) init {

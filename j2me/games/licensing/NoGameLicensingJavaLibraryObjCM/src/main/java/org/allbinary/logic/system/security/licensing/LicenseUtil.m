@@ -11,7 +11,7 @@ void LicenseUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    LicenseUtil_instance = [((LicenseUtil*) [LicenseUtil alloc]) init];
+    LicenseUtil_instance = ((LicenseUtil*) [((LicenseUtil*) [LicenseUtil alloc]) init]);
 }
 
 @implementation LicenseUtil
@@ -27,7 +27,7 @@ void LicenseUtil_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 

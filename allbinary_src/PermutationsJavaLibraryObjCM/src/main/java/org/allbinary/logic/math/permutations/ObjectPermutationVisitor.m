@@ -4,6 +4,12 @@
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonSeps.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 
@@ -19,7 +25,7 @@ void ObjectPermutationVisitor_staticInit(void) {
 
 - (void) initFields {
     
-    self->stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
+    self->stringBuilder = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
 }
 
 
@@ -39,7 +45,7 @@ void ObjectPermutationVisitor_staticInit(void) {
 
 
 - (void) print:(id*)data {
-        StringMaker* stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuilder = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [self print:data :stringBuilder];
 }
 

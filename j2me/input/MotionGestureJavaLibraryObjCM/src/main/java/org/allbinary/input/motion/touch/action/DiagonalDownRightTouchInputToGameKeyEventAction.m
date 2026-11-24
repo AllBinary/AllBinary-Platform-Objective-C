@@ -3,6 +3,15 @@
 #include "org/allbinary/game/input/PlatformInputMappingFactory.h"
 #include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
 #include "org/allbinary/logic/NullUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#endif
 #if __has_include("org/allbinary/input/motion/touch/action/PersistentInputMapping.h")
 #include "org/allbinary/input/motion/touch/action/PersistentInputMapping.h"
 #endif
@@ -17,6 +26,9 @@
 #endif
 #if __has_include("org/allbinary/logic/PersistentInputMapping.h")
 #include "org/allbinary/logic/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/PlatformInputMappingFactory.h")
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
 #endif
 
 
@@ -36,7 +48,7 @@ void DiagonalDownRightTouchInputToGameKeyEventAction_staticInit(void) {
 
 + (GameKeyCompleteMotionGestureInputEvent*) getInstance {
         if ((DiagonalDownRightTouchInputToGameKeyEventAction_staticInit(), DiagonalDownRightTouchInputToGameKeyEventAction_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            DiagonalDownRightTouchInputToGameKeyEventAction_instance = [((DiagonalDownRightTouchInputToGameKeyEventAction*) [DiagonalDownRightTouchInputToGameKeyEventAction alloc]) init];
+            DiagonalDownRightTouchInputToGameKeyEventAction_instance = ((DiagonalDownRightTouchInputToGameKeyEventAction*) [((DiagonalDownRightTouchInputToGameKeyEventAction*) [DiagonalDownRightTouchInputToGameKeyEventAction alloc]) init]);
         }
         return ((GameKeyCompleteMotionGestureInputEvent*) (DiagonalDownRightTouchInputToGameKeyEventAction_staticInit(), DiagonalDownRightTouchInputToGameKeyEventAction_instance));
 }

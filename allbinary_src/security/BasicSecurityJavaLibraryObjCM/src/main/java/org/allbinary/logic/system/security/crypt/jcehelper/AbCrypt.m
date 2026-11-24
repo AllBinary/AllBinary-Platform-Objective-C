@@ -8,6 +8,12 @@
 #include "org/allbinary/logic/system/security/crypt/jcehelper/BaseSecretComposite.h"
 #include "org/allbinary/logic/system/security/crypt/jcehelper/KeySpecFactory.h"
 #include "org/allbinary/logic/system/security/crypt/jcehelper/SecretComposite.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 
@@ -36,11 +42,11 @@ void AbCrypt_staticInit(void) {
 }
 
 
-- (void) init_:(const char*)keyAsString {
+- (void) initMethod:(const char*)keyAsString {
         CommonStrings* commonStrings = [CommonStrings getInstance];
         JAVA_TRY {
             JAVA_TRY {
-                [Security addProvider:[((BouncyCastleProvider*) [BouncyCastleProvider alloc]) init]];
+                [Security addProvider:((BouncyCastleProvider*) [((BouncyCastleProvider*) [BouncyCastleProvider alloc]) init])];
             } JAVA_CATCH(Exception, e) {
                 [PreLogUtil putOE:commonStrings->EXCEPTION :self :commonStrings->INIT :e];
             } JAVA_END_TRY;
@@ -49,7 +55,7 @@ void AbCrypt_staticInit(void) {
             SecretKeyFactory* keyFactory = [SecretKeyFactory getInstance:self->algorithm];
             SecretKey* secretKey = [keyFactory generateSecret:keySpec];
             Cipher* cipher = [Cipher getInstance:self->algorithm];
-            self->secretComposite = [((SecretComposite*) [SecretComposite alloc]) init:secretKey :cipher :key];
+            self->secretComposite = ((SecretComposite*) [((SecretComposite*) [SecretComposite alloc]) init:secretKey :cipher :key]);
         } JAVA_CATCH(Exception, e) {
             [PreLogUtil putOE:"init Failed" :self :commonStrings->INIT :e];
         } JAVA_END_TRY;

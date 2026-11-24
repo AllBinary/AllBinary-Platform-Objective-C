@@ -49,7 +49,7 @@ void BasicProbabilityAIDataFactory_staticInit(void) {
         repeatLikelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM7)] = [smallIntegerSingletonFactory getAt:0];
         repeatLikelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM9)] = [smallIntegerSingletonFactory getAt:0];
         repeatLikelyhoodIntegerArray[(Canvas_staticInit(), Canvas_KEY_NUM1)] = [smallIntegerSingletonFactory getAt:10];
-        InputProbability* inputProbability = [((InputProbability*) [InputProbability alloc]) init:likelyhoodIntegerArray :repeatLikelyhoodIntegerArray :42 :(NoTimeDelayHelper_staticInit(), NoTimeDelayHelper_SINGLETON)];
+        InputProbability* inputProbability = ((InputProbability*) [((InputProbability*) [InputProbability alloc]) init:likelyhoodIntegerArray :repeatLikelyhoodIntegerArray :42 :(NoTimeDelayHelper_staticInit(), NoTimeDelayHelper_SINGLETON)]);
         return [inputProbability toHashtable];
 }
 

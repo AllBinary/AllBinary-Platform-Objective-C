@@ -12,7 +12,7 @@ void CompleteMotionGestureInputToGameMotionGestureInput_staticInit(void) {
         return;
     }
     initialized = true;
-    CompleteMotionGestureInputToGameMotionGestureInput_instance = [((CompleteMotionGestureInputToGameMotionGestureInput*) [CompleteMotionGestureInputToGameMotionGestureInput alloc]) init];
+    CompleteMotionGestureInputToGameMotionGestureInput_instance = ((CompleteMotionGestureInputToGameMotionGestureInput*) [((CompleteMotionGestureInputToGameMotionGestureInput*) [CompleteMotionGestureInputToGameMotionGestureInput alloc]) init]);
 }
 
 @implementation CompleteMotionGestureInputToGameMotionGestureInput
@@ -33,7 +33,7 @@ void CompleteMotionGestureInputToGameMotionGestureInput_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         [PreLogUtil put:"No Touch Button = No Compound Motion Gestures" :self :self->commonStrings->INIT];
 }
 

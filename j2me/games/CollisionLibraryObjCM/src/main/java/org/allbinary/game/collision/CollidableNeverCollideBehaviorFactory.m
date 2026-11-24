@@ -13,13 +13,13 @@ void CollidableNeverCollideBehaviorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    CollidableNeverCollideBehaviorFactory_instanceC = [((CollidableNeverCollideBehaviorFactory*) [CollidableNeverCollideBehaviorFactory alloc]) init];
+    CollidableNeverCollideBehaviorFactory_instanceC = ((CollidableNeverCollideBehaviorFactory*) [((CollidableNeverCollideBehaviorFactory*) [CollidableNeverCollideBehaviorFactory alloc]) init]);
 }
 
 @implementation CollidableNeverCollideBehaviorFactory
 
 - (void) initFields {
-    self->instance = [((CollidableNeverCollideBehavior*) [CollidableNeverCollideBehavior alloc]) init:false];
+    self->instance = ((CollidableNeverCollideBehavior*) [((CollidableNeverCollideBehavior*) [CollidableNeverCollideBehavior alloc]) init:false]);
 }
 
 - (instancetype) init {

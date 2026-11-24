@@ -11,7 +11,7 @@ void TouchButtonStartResource_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchButtonStartResource_instance = [((TouchButtonStartResource*) [TouchButtonStartResource alloc]) init];
+    TouchButtonStartResource_instance = ((TouchButtonStartResource*) [((TouchButtonStartResource*) [TouchButtonStartResource alloc]) init]);
 }
 
 @implementation TouchButtonStartResource

@@ -11,7 +11,7 @@ void LogUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    LogUtil_instance = [((LogUtil*) [LogUtil alloc]) init];
+    LogUtil_instance = ((LogUtil*) [((LogUtil*) [LogUtil alloc]) init]);
 }
 
 @implementation LogUtil

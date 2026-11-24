@@ -2,6 +2,12 @@
 #include "org/allbinary/game/displayable/canvas/GameEventHandlerUtil.h"
 #include "org/allbinary/game/input/event/DownGameKeyEventHandler.h"
 #include "org/allbinary/game/input/event/UpGameKeyEventHandler.h"
+#if __has_include("org/allbinary/game/input/event/UpGameKeyEventHandler.h")
+#include "org/allbinary/game/input/event/UpGameKeyEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/DownGameKeyEventHandler.h")
+#include "org/allbinary/game/input/event/DownGameKeyEventHandler.h"
+#endif
 
 
 

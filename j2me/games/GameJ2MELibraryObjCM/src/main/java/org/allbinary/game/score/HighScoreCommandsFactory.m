@@ -13,7 +13,7 @@ void HighScoreCommandsFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    HighScoreCommandsFactory_instance = [((HighScoreCommandsFactory*) [HighScoreCommandsFactory alloc]) init];
+    HighScoreCommandsFactory_instance = ((HighScoreCommandsFactory*) [((HighScoreCommandsFactory*) [HighScoreCommandsFactory alloc]) init]);
 }
 
 @implementation HighScoreCommandsFactory

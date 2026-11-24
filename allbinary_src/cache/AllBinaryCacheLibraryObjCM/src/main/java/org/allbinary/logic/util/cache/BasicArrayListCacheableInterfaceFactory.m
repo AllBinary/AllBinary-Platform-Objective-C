@@ -24,7 +24,7 @@ void BasicArrayListCacheableInterfaceFactory_staticInit(void) {
 
 // throws Exception
 - (CacheableInterface*) getInstance:(id)key {
-        return [((BasicArrayListCacheable*) [BasicArrayListCacheable alloc]) init];
+        return ((BasicArrayListCacheable*) [((BasicArrayListCacheable*) [BasicArrayListCacheable alloc]) init]);
 }
 
 @end

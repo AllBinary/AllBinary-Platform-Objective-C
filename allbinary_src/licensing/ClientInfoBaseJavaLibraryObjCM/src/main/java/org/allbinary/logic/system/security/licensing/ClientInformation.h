@@ -66,7 +66,7 @@
 }
 - (instancetype) init:(const char*)name :(const char*)version :(const char*)specialName :(const char*)shortName;
 - (void) initFields;
-- (void) init_;
+- (void) initMethod;
 - (GenericOperatingSystem*) getOperatingSystemInterface;
 - (const char*) getName;
 - (const char*) getSpecialName;

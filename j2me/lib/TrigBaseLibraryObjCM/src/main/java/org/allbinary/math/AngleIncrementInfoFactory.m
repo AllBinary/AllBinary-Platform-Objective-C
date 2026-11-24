@@ -12,7 +12,7 @@ void AngleIncrementInfoFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    AngleIncrementInfoFactory_instance = [((AngleIncrementInfoFactory*) [AngleIncrementInfoFactory alloc]) init];
+    AngleIncrementInfoFactory_instance = ((AngleIncrementInfoFactory*) [((AngleIncrementInfoFactory*) [AngleIncrementInfoFactory alloc]) init]);
 }
 
 @implementation AngleIncrementInfoFactory
@@ -38,7 +38,7 @@ void AngleIncrementInfoFactory_staticInit(void) {
         AngleIncrementInfo* angleIncrementInfo = nullptr;
         AngleIncrementInfo* angleIncrementInfoCanBeNull = self->angleIncrementInfo[halfAngleIncrement];
         if (angleIncrementInfoCanBeNull == nil) {
-            angleIncrementInfo = [((AngleIncrementInfo*) [AngleIncrementInfo alloc]) init:angleIncrement];
+            angleIncrementInfo = ((AngleIncrementInfo*) [((AngleIncrementInfo*) [AngleIncrementInfo alloc]) init:angleIncrement]);
             self->angleIncrementInfo[halfAngleIncrement] = angleIncrementInfo;
             return angleIncrementInfo;
         } else {

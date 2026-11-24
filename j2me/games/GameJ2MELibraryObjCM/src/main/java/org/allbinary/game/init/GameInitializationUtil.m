@@ -10,6 +10,27 @@
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
 #include "org/allbinary/game/init/GameInitializationInterface.h"
 #include "org/allbinary/game/init/BasicBuildGameInitializerFactory.h"
+#if __has_include("org/allbinary/game/configuration/event/ChangedGameFeatureListener.h")
+#include "org/allbinary/game/configuration/event/ChangedGameFeatureListener.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/GameInitializedEventHandler.h")
+#include "org/allbinary/game/configuration/event/GameInitializedEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/ChangedGameFeatureListener.h")
+#include "org/allbinary/game/configuration/event/ChangedGameFeatureListener.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/MainFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/GameInitializedEventHandler.h")
+#include "org/allbinary/game/configuration/event/GameInitializedEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/ChangedGameFeatureListener.h")
+#include "org/allbinary/game/configuration/event/ChangedGameFeatureListener.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/MainFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#endif
 
 
 static GameInitializationUtil* GameInitializationUtil_instance;
@@ -20,13 +41,13 @@ void GameInitializationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    GameInitializationUtil_instance = [((GameInitializationUtil*) [GameInitializationUtil alloc]) init];
+    GameInitializationUtil_instance = ((GameInitializationUtil*) [((GameInitializationUtil*) [GameInitializationUtil alloc]) init]);
 }
 
 @implementation GameInitializationUtil
 
 - (void) initFields {
-    self->EVENT = [((GameInitializedEvent*) [GameInitializedEvent alloc]) init:self];
+    self->EVENT = ((GameInitializedEvent*) [((GameInitializedEvent*) [GameInitializedEvent alloc]) init:self]);
 }
 
 - (instancetype) init {
@@ -46,7 +67,7 @@ void GameInitializationUtil_staticInit(void) {
                 [self initGame:abeClientInformation :canvas :gameInitializationInterfaceFactoryInterface];
             } else if ([features isFeature:mainFeatureFactory->LOAD_ONDEMAND]) {
                 ResourceLoadingLevelFactory* resourceLoadingLevelFactory = [ResourceLoadingLevelFactory getInstance];
-                [gameInitializationInterface init_:abeClientInformation :[canvas getCustomCommandListener] :[resourceLoadingLevelFactory->LOAD_EARLY getLevel]];
+                [((id<GameInitializationInterface>) gameInitializationInterface) initMethod:abeClientInformation :[canvas getCustomCommandListener] :[resourceLoadingLevelFactory->LOAD_EARLY getLevel]];
                 [self->EVENT setResourceLoadingLevel:resourceLoadingLevelFactory->LOAD_EARLY];
             } else {
                 java_throw(java_exception_new("Exception", "No Loading Feature Available"));
@@ -61,7 +82,7 @@ void GameInitializationUtil_staticInit(void) {
         if ([[ChangedGameFeatureListener getInstance] isChangedFeature:[MainFeatureFactory getInstance]->STATIC]) {
             GameInitializationInterface* gameInitializationInterface = [gameInitializationInterfaceFactoryInterface getInstance];
             ResourceLoadingLevelFactory* resourceLoadingLevelFactory = [ResourceLoadingLevelFactory getInstance];
-            [gameInitializationInterface init_:abeClientInformation :[canvas getCustomCommandListener] :[resourceLoadingLevelFactory->LOAD_ALL getLevel]];
+            [((id<GameInitializationInterface>) gameInitializationInterface) initMethod:abeClientInformation :[canvas getCustomCommandListener] :[resourceLoadingLevelFactory->LOAD_ALL getLevel]];
             [self->EVENT setResourceLoadingLevel:resourceLoadingLevelFactory->LOAD_ALL];
             [[GameInitializedEventHandler getInstance] fireEvent:self->EVENT];
             [[ChangedGameFeatureListener getInstance] remove:[MainFeatureFactory getInstance]->STATIC];

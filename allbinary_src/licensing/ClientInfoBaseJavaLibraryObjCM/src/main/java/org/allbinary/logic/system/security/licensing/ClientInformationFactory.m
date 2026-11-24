@@ -28,7 +28,7 @@ void ClientInformationFactory_staticInit(void) {
         CommonStrings* commonStrings = [CommonStrings getInstance];
         [logUtil putF:commonStrings->NOT_IMPLEMENTED :self :commonStrings->GET_INSTANCE];
         StringUtil* stringUtil = [StringUtil getInstance];
-        return [((ClientInformation*) [ClientInformation alloc]) init:stringUtil->NULL_STRING :stringUtil->NULL_STRING :stringUtil->NULL_STRING :stringUtil->NULL_STRING];
+        return ((ClientInformation*) [((ClientInformation*) [ClientInformation alloc]) init:stringUtil->NULL_STRING :stringUtil->NULL_STRING :stringUtil->NULL_STRING :stringUtil->NULL_STRING]);
 }
 
 @end

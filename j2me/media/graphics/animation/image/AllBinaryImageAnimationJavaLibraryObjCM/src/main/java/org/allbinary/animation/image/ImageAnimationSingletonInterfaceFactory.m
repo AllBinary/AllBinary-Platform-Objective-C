@@ -4,6 +4,9 @@
 #include "org/allbinary/animation/AnimationBehavior.h"
 #include "org/allbinary/image/AnimationFrameToImageUtil.h"
 #include "org/allbinary/animation/image/ImageAnimation.h"
+#if __has_include("org/allbinary/image/AnimationFrameToImageUtil.h")
+#include "org/allbinary/image/AnimationFrameToImageUtil.h"
+#endif
 
 
 
@@ -19,7 +22,7 @@ void ImageAnimationSingletonInterfaceFactory_staticInit(void) {
 
 
 - (instancetype) init:(Animation*)animationInterface :(int32_t)width :(int32_t)height {
-        self = [super init:[((ImageAnimation*) [ImageAnimation alloc]) init:[[AnimationFrameToImageUtil getInstance] getInstanceWH:width :height :animationInterface] :[AnimationBehavior getInstance]]];
+        self = [super init:((ImageAnimation*) [((ImageAnimation*) [ImageAnimation alloc]) init:[[AnimationFrameToImageUtil getInstance] getInstanceWH:width :height :animationInterface] :[AnimationBehavior getInstance]])];
     return self;
 }
 

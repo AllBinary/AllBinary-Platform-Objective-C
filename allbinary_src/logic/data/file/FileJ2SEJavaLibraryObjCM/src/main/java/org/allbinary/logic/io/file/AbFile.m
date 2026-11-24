@@ -4,6 +4,18 @@
 #include "org/allbinary/logic/io/path/AbPath.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/logic/io/file/AbFileInterface.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/TsUtil.h")
+#include "org/allbinary/TsUtil.h"
+#endif
 
 
 AbFile* AbFile_NULL_FILE;
@@ -26,29 +38,29 @@ void AbFile_staticInit(void) {
 
 // throws Exception
 + (AbFile*) createAbFileWithChild:(AbFile*)file :(const char*)childPathName {
-        return [((AbFile*) [AbFile alloc]) init:[((File*) [File alloc]) init:[file getFile] :childPathName]];
+        return ((AbFile*) [((AbFile*) [AbFile alloc]) init:((File*) [((File*) [File alloc]) init:[file getFile] :childPathName])]);
 }
 
 
 // throws Exception
 + (AbFile*) createAbFile:(const char*)filePath {
-        return [((AbFile*) [AbFile alloc]) init:[((File*) [File alloc]) init:[[((AbPath*) [AbPath alloc]) init:filePath :[StringUtil getInstance]->EMPTY_STRING] toFileSystemString]]];
+        return ((AbFile*) [((AbFile*) [AbFile alloc]) init:((File*) [((File*) [File alloc]) init:[((AbPath*) [((AbPath*) [AbPath alloc]) init:filePath :[StringUtil getInstance]->EMPTY_STRING]) toFileSystemString]])]);
 }
 
 
 // throws Exception
 + (AbFile*) createAbFilePathAndName:(const char*)filePath :(const char*)fileName {
-        return [((AbFile*) [AbFile alloc]) init:[((File*) [File alloc]) init:[[((AbPath*) [AbPath alloc]) init:filePath :[StringUtil getInstance]->EMPTY_STRING] toFileSystemString] :fileName]];
+        return ((AbFile*) [((AbFile*) [AbFile alloc]) init:((File*) [((File*) [File alloc]) init:[((AbPath*) [((AbPath*) [AbPath alloc]) init:filePath :[StringUtil getInstance]->EMPTY_STRING]) toFileSystemString] :fileName])]);
 }
 
 
 + (AbFile*) createAbFileFromAbPath:(AbPath*)abPath {
-        return [((AbFile*) [AbFile alloc]) init:[((File*) [File alloc]) init:[abPath toFileSystemString]]];
+        return ((AbFile*) [((AbFile*) [AbFile alloc]) init:((File*) [((File*) [File alloc]) init:[abPath toFileSystemString]])]);
 }
 
 
 + (AbFile*) createAbFileFromRawPath:(const char*)filePath {
-        return [((AbFile*) [AbFile alloc]) init:[((File*) [File alloc]) init:filePath]];
+        return ((AbFile*) [((AbFile*) [AbFile alloc]) init:((File*) [((File*) [File alloc]) init:filePath])]);
 }
 
 

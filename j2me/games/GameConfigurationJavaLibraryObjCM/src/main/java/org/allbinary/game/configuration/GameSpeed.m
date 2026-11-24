@@ -12,7 +12,7 @@ void GameSpeed_staticInit(void) {
         return;
     }
     initialized = true;
-    GameSpeed_instance = [((GameSpeed*) [GameSpeed alloc]) init];
+    GameSpeed_instance = ((GameSpeed*) [((GameSpeed*) [GameSpeed alloc]) init]);
 }
 
 @implementation GameSpeed

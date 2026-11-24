@@ -13,6 +13,18 @@
 #include "org/allbinary/graphics/form/item/ABCustomItem.h"
 #include "org/allbinary/graphics/form/ScrollCurrentSelectionForm.h"
 #include "org/allbinary/graphics/form/ItemPaintableFactory.h"
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/item/ABCustomItem.h")
+#include "org/allbinary/graphics/form/item/ABCustomItem.h"
+#endif
+#if __has_include("org/allbinary/animation/Animation.h")
+#include "org/allbinary/animation/Animation.h"
+#endif
+#if __has_include("org/allbinary/animation/Animation.h")
+#include "org/allbinary/animation/Animation.h"
+#endif
 
 
 
@@ -76,15 +88,15 @@ void CommandCurrentSelectionForm_staticInit(void) {
         int32_t rectWidth = width + self->border - adjustedBorder;
         int32_t rectHeight = height + self->border - adjustedBorder;
         if ([J2MEUtil isJ2ME] || [J2MEUtil isHTML]) {
-            self->selectedAnimationArray[index] = [((RectangleAdjustedAnimation*) [RectangleAdjustedAnimation alloc]) init:rectWidth :rectHeight :offset :offset :selectedButtonColor];
+            self->selectedAnimationArray[index] = ((RectangleAdjustedAnimation*) [((RectangleAdjustedAnimation*) [RectangleAdjustedAnimation alloc]) init:rectWidth :rectHeight :offset :offset :selectedButtonColor]);
         } else {
-            self->selectedAnimationArray[index] = [((RectangleFilledAdjustedAnimation*) [RectangleFilledAdjustedAnimation alloc]) init:rectWidth :rectHeight :offset :offset :selectedButtonColor];
+            self->selectedAnimationArray[index] = ((RectangleFilledAdjustedAnimation*) [((RectangleFilledAdjustedAnimation*) [RectangleFilledAdjustedAnimation alloc]) init:rectWidth :rectHeight :offset :offset :selectedButtonColor]);
         }
         adjustedBorder = 4;
         if ([J2MEUtil isJ2ME] || [J2MEUtil isHTML]) {
-            self->unSelectedAnimationArray[index] = [((RectangleAdjustedAnimation*) [RectangleAdjustedAnimation alloc]) init:rectWidth :rectHeight :offset :offset :buttonColor];
+            self->unSelectedAnimationArray[index] = ((RectangleAdjustedAnimation*) [((RectangleAdjustedAnimation*) [RectangleAdjustedAnimation alloc]) init:rectWidth :rectHeight :offset :offset :buttonColor]);
         } else {
-            self->unSelectedAnimationArray[index] = [((RectangleFilledAdjustedAnimation*) [RectangleFilledAdjustedAnimation alloc]) init:rectWidth :rectHeight :offset :offset :buttonColor];
+            self->unSelectedAnimationArray[index] = ((RectangleFilledAdjustedAnimation*) [((RectangleFilledAdjustedAnimation*) [RectangleFilledAdjustedAnimation alloc]) init:rectWidth :rectHeight :offset :offset :buttonColor]);
         }
 }
 

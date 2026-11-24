@@ -12,6 +12,12 @@
 #include "org/allbinary/graphics/threed/SWTJOGLProcessor.h"
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureFactory.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/threed/SWTJOGLProcessor.h")
+#include "org/allbinary/graphics/threed/SWTJOGLProcessor.h"
+#endif
 
 
 static MyFormUtil* MyFormUtil_instance;
@@ -22,7 +28,7 @@ void MyFormUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    MyFormUtil_instance = [((MyFormUtil*) [MyFormUtil alloc]) init];
+    MyFormUtil_instance = ((MyFormUtil*) [((MyFormUtil*) [MyFormUtil alloc]) init]);
 }
 
 @implementation MyFormUtil
@@ -54,9 +60,9 @@ void MyFormUtil_staticInit(void) {
         int32_t width = [MyFontProcessor defaultStringWidth:font :TOTAL_CHAR_WIDTH];
         PointFactory* pointFactory = [PointFactory getInstance];
         if ([displayInfo getLastHeight] < 320) {
-            self->popupMenuRectangle = [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:0 :25] :width :([font getHeight] * 4) + 2];
+            self->popupMenuRectangle = ((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:0 :25] :width :([font getHeight] * 4) + 2]);
         } else {
-            self->popupMenuRectangle = [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:0 :[displayInfo getLastHalfHeight] - 70] :width :([font getHeight] * 5)];
+            self->popupMenuRectangle = ((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:0 :[displayInfo getLastHalfHeight] - 70] :width :([font getHeight] * 5)]);
         }
 }
 

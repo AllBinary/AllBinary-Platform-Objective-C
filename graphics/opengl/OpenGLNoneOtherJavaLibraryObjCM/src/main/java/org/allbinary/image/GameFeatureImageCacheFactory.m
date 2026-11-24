@@ -26,8 +26,8 @@ void GameFeatureImageCacheFactory_staticInit(void) {
 }
 
 
-+ (void) init_ {
-        [ImageCacheFactory init_];
++ (void) initMethod {
+        [ImageCacheFactory initMethod];
 }
 
 

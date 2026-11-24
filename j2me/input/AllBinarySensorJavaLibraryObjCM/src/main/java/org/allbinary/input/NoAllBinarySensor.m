@@ -11,7 +11,7 @@ void NoAllBinarySensor_staticInit(void) {
         return;
     }
     initialized = true;
-    NoAllBinarySensor_instance = [((NoAllBinarySensor*) [NoAllBinarySensor alloc]) init];
+    NoAllBinarySensor_instance = ((NoAllBinarySensor*) [((NoAllBinarySensor*) [NoAllBinarySensor alloc]) init]);
 }
 
 @implementation NoAllBinarySensor

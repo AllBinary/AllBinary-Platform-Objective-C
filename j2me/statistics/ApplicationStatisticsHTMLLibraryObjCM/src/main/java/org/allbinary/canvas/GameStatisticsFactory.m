@@ -2,6 +2,12 @@
 #include "org/allbinary/canvas/GameStatisticsFactory.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/canvas/BaseGameStatistics.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static GameStatisticsFactory* GameStatisticsFactory_instance;
@@ -12,13 +18,13 @@ void GameStatisticsFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    GameStatisticsFactory_instance = [((GameStatisticsFactory*) [GameStatisticsFactory alloc]) init];
+    GameStatisticsFactory_instance = ((GameStatisticsFactory*) [((GameStatisticsFactory*) [GameStatisticsFactory alloc]) init]);
 }
 
 @implementation GameStatisticsFactory
 
 - (void) initFields {
-    self->stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+    self->stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
 }
 
 - (instancetype) init {
@@ -43,7 +49,7 @@ void GameStatisticsFactory_staticInit(void) {
 
 
 - (const char*) toString {
-        return [[[[((StringMaker*) [StringMaker alloc]) init] append:[super toString]] append:[self->stringBuffer toString]] toString];
+        return [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[super toString]] append:[self->stringBuffer toString]] toString];
 }
 
 @end

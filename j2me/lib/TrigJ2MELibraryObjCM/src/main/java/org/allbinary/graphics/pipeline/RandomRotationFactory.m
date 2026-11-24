@@ -14,7 +14,7 @@ void RandomRotationFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    RandomRotationFactory_instance = [((RandomRotationFactory*) [RandomRotationFactory alloc]) init];
+    RandomRotationFactory_instance = ((RandomRotationFactory*) [((RandomRotationFactory*) [RandomRotationFactory alloc]) init]);
 }
 
 @implementation RandomRotationFactory
@@ -38,7 +38,7 @@ void RandomRotationFactory_staticInit(void) {
 
 // throws Exception
 - (BasicArrayList*) getInstanceList:(BasicArrayList*)vector :(int32_t)howMuch {
-        BasicGraphicsPipeline* graphicsPipe = [((BasicGraphicsPipeline*) [BasicGraphicsPipeline alloc]) init:vector];
+        BasicGraphicsPipeline* graphicsPipe = ((BasicGraphicsPipeline*) [((BasicGraphicsPipeline*) [BasicGraphicsPipeline alloc]) init:vector]);
         [graphicsPipe createMatrix];
         [graphicsPipe rotateToAngle:[self->angleFactory getAt:[self getNextRandomAngle:howMuch]]];
         return [graphicsPipe getMatrix];

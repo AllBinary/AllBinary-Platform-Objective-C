@@ -6,6 +6,12 @@
 #include "org/allbinary/logic/util/event/AllBinaryEventCircularPool.h"
 #include "org/allbinary/input/motion/gesture/observer/MotionEventFactory.h"
 #include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
+#if __has_include("org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/InputFactory.h")
+#include "org/allbinary/game/input/InputFactory.h"
+#endif
 
 
 
@@ -21,19 +27,19 @@ void MotionEventCircularPool_staticInit(void) {
 
 - (void) initFields {
     self->MIN = [[TouchMotionGestureFactory getInstance]->LAST_MOTION getId];
-    self->eventPool = [((AllBinaryEventCircularPool*) [AllBinaryEventCircularPool alloc]) init:([InputFactory getInstance]->MAX - 1) - self->MIN];
+    self->eventPool = ((AllBinaryEventCircularPool*) [((AllBinaryEventCircularPool*) [AllBinaryEventCircularPool alloc]) init:([InputFactory getInstance]->MAX - 1) - self->MIN]);
 }
 
 
 + (MotionEventCircularPool*) createPool:(int32_t)id_ {
-        return [((MotionEventCircularPool*) [MotionEventCircularPool alloc]) init:id_];
+        return ((MotionEventCircularPool*) [((MotionEventCircularPool*) [MotionEventCircularPool alloc]) init:id_]);
 }
 
 
 - (instancetype) init:(int32_t)id_ {
     self = [super init];
     [self initFields];
-        [self->eventPool initAllBinaryEventCircularPool:[((MotionEventFactory*) [MotionEventFactory alloc]) init:self->eventPool :id_]];
+        [self->eventPool initAllBinaryEventCircularPool:((MotionEventFactory*) [((MotionEventFactory*) [MotionEventFactory alloc]) init:self->eventPool :id_])];
     return self;
 }
 

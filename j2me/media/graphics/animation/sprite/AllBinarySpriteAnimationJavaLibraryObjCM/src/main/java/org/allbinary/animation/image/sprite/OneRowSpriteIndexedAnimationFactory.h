@@ -51,7 +51,7 @@
 + (OneRowSpriteIndexedAnimationFactory*) createFactoryDXY:(Image*)image :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory;
 + (OneRowSpriteIndexedAnimationFactory*) createFactoryWH:(Image*)image :(int32_t)width :(int32_t)height :(AnimationBehaviorFactory*)animationBehaviorFactory;
 + (OneRowSpriteIndexedAnimationFactory*) createFactory:(Image*)image :(AnimationBehaviorFactory*)animationBehaviorFactory;
-- (void) init_:(int32_t)dx :(int32_t)dy;
+- (void) initMethod:(int32_t)dx :(int32_t)dy;
 - (void) initW:(int32_t)dx;
 - (Animation*) getInstance:(int32_t)instanceId;
 @end

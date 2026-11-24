@@ -11,6 +11,9 @@
 #include "org/allbinary/util/BasicArrayListS.h"
 #include "org/allbinary/vector/VectorInfo.h"
 #include "org/allbinary/animation/VectorAnimationUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static VectorRotationGenerator* VectorRotationGenerator_instance;
@@ -21,7 +24,7 @@ void VectorRotationGenerator_staticInit(void) {
         return;
     }
     initialized = true;
-    VectorRotationGenerator_instance = [((VectorRotationGenerator*) [VectorRotationGenerator alloc]) init];
+    VectorRotationGenerator_instance = ((VectorRotationGenerator*) [((VectorRotationGenerator*) [VectorRotationGenerator alloc]) init]);
 }
 
 @implementation VectorRotationGenerator
@@ -54,8 +57,8 @@ void VectorRotationGenerator_staticInit(void) {
         JAVA_TRY {
             int16_t totalAngle = self->angleFactory->TOTAL_ANGLE;
             int32_t angleIncrement = ((int32_t) totalAngle) / frames;
-            BasicArrayList* pointsBasicArrayList = [((BasicArrayListS*) [BasicArrayListS alloc]) init:((int32_t) totalAngle) / angleIncrement];
-            BasicArrayList* pointBasicArrayList = [((BasicArrayListS*) [BasicArrayListS alloc]) init:java_array_length(points)];
+            BasicArrayList* pointsBasicArrayList = ((BasicArrayListS*) [((BasicArrayListS*) [BasicArrayListS alloc]) init:((int32_t) totalAngle) / angleIncrement]);
+            BasicArrayList* pointBasicArrayList = ((BasicArrayListS*) [((BasicArrayListS*) [BasicArrayListS alloc]) init:java_array_length(points)]);
             PointFactory* pointFactory = [PointFactory getInstance];
             int32_t size = java_array_length(points);
             for (int32_t index = 0; index < size; index++) {
@@ -78,7 +81,7 @@ void VectorRotationGenerator_staticInit(void) {
 
 // throws Exception
 - (BasicArrayList*) getListAtAngle:(int32_t)width :(int32_t)height :(BasicArrayList*)pointBasicArrayList :(Angle*)angle {
-        BasicGraphicsPipeline* graphicsPipe = [((BasicGraphicsPipeline*) [BasicGraphicsPipeline alloc]) init:pointBasicArrayList];
+        BasicGraphicsPipeline* graphicsPipe = ((BasicGraphicsPipeline*) [((BasicGraphicsPipeline*) [BasicGraphicsPipeline alloc]) init:pointBasicArrayList]);
         [graphicsPipe createMatrix];
         [graphicsPipe translate:-(width >> 1) :-(height >> 1)];
         [graphicsPipe rotateToAngle:angle];

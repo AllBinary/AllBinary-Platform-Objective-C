@@ -7,6 +7,9 @@
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/game/ag/ai/scroller/BasePatrolAI.h"
 #include "org/allbinary/game/ag/ai/scroller/TerrainPatrolAI.h"
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
 
 
 
@@ -29,7 +32,7 @@ void TerrainPatrolAIFactory_staticInit(void) {
 // throws Exception
 - (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
         [hashtable put:JAVA_BOX((BasePatrolAI_staticInit(), BasePatrolAI_MAX_DISTANCE)) :JAVA_BOX([[SmallIntegerSingletonFactory getInstance] getAt:220])];
-        return [((TerrainPatrolAI*) [TerrainPatrolAI alloc]) init:hashtable :ownerLayerInterface :gameInput];
+        return ((TerrainPatrolAI*) [((TerrainPatrolAI*) [TerrainPatrolAI alloc]) init:hashtable :ownerLayerInterface :gameInput]);
 }
 
 @end

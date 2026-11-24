@@ -9,6 +9,12 @@
 #include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 
@@ -24,7 +30,7 @@ void HelpPaintable_staticInit(void) {
 
 - (void) initFields {
     self->displayInfo = [DisplayInfoSingleton getInstance];
-    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->updateMyFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->myFontProcessor = self->updateMyFontProcessor;
     self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
     

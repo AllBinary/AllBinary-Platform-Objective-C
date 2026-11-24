@@ -14,6 +14,18 @@
 #include "org/allbinary/game/configuration/feature/GameFeatureFactory.h"
 #include "org/allbinary/game/configuration/feature/GameFeature.h"
 #include "org/allbinary/game/configuration/feature/GameFeatureUtil.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/GameConfigurationUtil.h")
+#include "org/allbinary/game/configuration/GameConfigurationUtil.h"
+#endif
 
 
 static BasicArrayList* GameFeatureItemStateListener_toggleList;
@@ -24,7 +36,7 @@ void GameFeatureItemStateListener_staticInit(void) {
         return;
     }
     initialized = true;
-    GameFeatureItemStateListener_toggleList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    GameFeatureItemStateListener_toggleList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 @implementation GameFeatureItemStateListener
@@ -62,7 +74,7 @@ void GameFeatureItemStateListener_staticInit(void) {
 - (void) itemStateChanged:(Item*)item {
         JAVA_TRY {
             const char* itemLabel = [item getLabel];
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->ITEM_LABEL] append:itemLabel] toString] :self :"itemStateChanged"];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->ITEM_LABEL] append:itemLabel] toString] :self :"itemStateChanged"];
             if (java_objc_instanceof(item, [GameConfigurationGauge class])) {
                 [[GameConfigurationUtil getInstance] change:self->gameOptionsForm :((GameConfigurationGauge*) item)];
             } else if (java_objc_instanceof(item, [ChoiceGroup class])) {

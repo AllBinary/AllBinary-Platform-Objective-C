@@ -13,6 +13,18 @@
 #include "org/allbinary/input/motion/gesture/observer/MotionGestureEventListener.h"
 #include "org/allbinary/input/motion/gesture/observer/CompleteMotionGestureListenerInterface.h"
 #include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -29,8 +41,8 @@ void GameMotionGestureListener_staticInit(void) {
 - (void) initFields {
     self->logUtil = [LogUtil getInstance];
     self->commonStrings = [CommonStrings getInstance];
-    self->motionGestureCollection = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->touchGestureCollection = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->motionGestureCollection = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->touchGestureCollection = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     
 }
 
@@ -97,10 +109,10 @@ void GameMotionGestureListener_staticInit(void) {
 - (void) released:(MotionGestureEvent*)ev {
         JAVA_TRY {
             [self->touchGestureCollection add:[ev getMotionGesture]];
-            [self->signed_ onMotionGestureCompleted:self->touchGestureCollection];
+            [((id<CompleteMotionGestureListenerInterface>) self->signed_) onMotionGestureCompleted:self->touchGestureCollection];
             [self->touchGestureCollection clear];
         } JAVA_CATCH(Exception, e) {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:self->commonStrings->EXCEPTION_LABEL];
             [stringBuffer append:[[StringUtil getInstance] toString:[ev getMotionGesture]]];
             [self->logUtil put:[stringBuffer toString] :self :"release" :e];
@@ -121,12 +133,12 @@ void GameMotionGestureListener_staticInit(void) {
                 [self released:ev];
             } else {
                 [self->motionGestureCollection add:motionGestureInput];
-                [self->signed_ onMotionGestureCompleted:self->motionGestureCollection];
+                [((id<CompleteMotionGestureListenerInterface>) self->signed_) onMotionGestureCompleted:self->motionGestureCollection];
                 [self->motionGestureCollection clear];
                 [self->touchGestureCollection clear];
             }
         } JAVA_CATCH(Exception, e) {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:self->commonStrings->EXCEPTION_LABEL];
             [stringBuffer append:[[StringUtil getInstance] toString:[ev getMotionGesture]]];
             [self->logUtil put:[stringBuffer toString] :self :"onMotionGestureEvent" :e];

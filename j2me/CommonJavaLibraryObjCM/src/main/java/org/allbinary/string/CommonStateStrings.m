@@ -10,7 +10,7 @@ void CommonStateStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    CommonStateStrings_instance = [((CommonStateStrings*) [CommonStateStrings alloc]) init];
+    CommonStateStrings_instance = ((CommonStateStrings*) [((CommonStateStrings*) [CommonStateStrings alloc]) init]);
 }
 
 @implementation CommonStateStrings

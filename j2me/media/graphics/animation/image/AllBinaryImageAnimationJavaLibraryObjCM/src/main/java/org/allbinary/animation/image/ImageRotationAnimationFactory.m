@@ -9,6 +9,12 @@
 #include "org/allbinary/animation/image/BaseImageAnimationFactory.h"
 #include "org/allbinary/animation/image/ImageBaseRotationAnimation.h"
 #include "org/allbinary/animation/image/AdjustedImageBaseRotationAnimation.h"
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
 
 
 
@@ -41,9 +47,9 @@ void ImageRotationAnimationFactory_staticInit(void) {
 - (Animation*) getInstance:(int32_t)instanceId {
         if (self->animationFactoryInitializationVisitor->dx != 0 || self->animationFactoryInitializationVisitor->dy != 0) {
             [self->animationFactoryImageScaleUtil processAdjust:self];
-            return [((AdjustedImageBaseRotationAnimation*) [AdjustedImageBaseRotationAnimation alloc]) init:[self getImage] :[AngleInfo getInstance:self->angleIncrement] :[AngleFactory getInstance]->TOTAL_ANGLE :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((AdjustedImageBaseRotationAnimation*) [((AdjustedImageBaseRotationAnimation*) [AdjustedImageBaseRotationAnimation alloc]) init:[self getImage] :[AngleInfo getInstance:self->angleIncrement] :[AngleFactory getInstance]->TOTAL_ANGLE :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]]);
         } else {
-            return [((ImageBaseRotationAnimation*) [ImageBaseRotationAnimation alloc]) init:[self getImage] :[AngleInfo getInstance:self->angleIncrement] :[AngleFactory getInstance]->TOTAL_ANGLE :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((ImageBaseRotationAnimation*) [((ImageBaseRotationAnimation*) [ImageBaseRotationAnimation alloc]) init:[self getImage] :[AngleInfo getInstance:self->angleIncrement] :[AngleFactory getInstance]->TOTAL_ANGLE :[self->animationBehaviorFactory getOrCreateInstance]]);
         }
 }
 

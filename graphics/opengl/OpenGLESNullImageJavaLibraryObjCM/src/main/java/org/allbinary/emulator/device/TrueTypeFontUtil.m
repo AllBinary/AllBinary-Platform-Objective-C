@@ -15,7 +15,7 @@ void TrueTypeFontUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    TrueTypeFontUtil_instance = [((TrueTypeFontUtil*) [TrueTypeFontUtil alloc]) init];
+    TrueTypeFontUtil_instance = ((TrueTypeFontUtil*) [((TrueTypeFontUtil*) [TrueTypeFontUtil alloc]) init]);
 }
 
 @implementation TrueTypeFontUtil

@@ -6,6 +6,9 @@
 #include "org/allbinary/util/BasicArrayListUtil.h"
 #include "org/allbinary/game/ai/BasicAI.h"
 #include "org/allbinary/game/ai/ArtificialIntelligenceInterfaceFactoryInterface.h"
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
 
 
 static ArtificialIntelligenceInterfaceFactoryInterfaceFactory* ArtificialIntelligenceInterfaceFactoryInterfaceFactory_SINGLETON;
@@ -16,7 +19,7 @@ void ArtificialIntelligenceInterfaceFactoryInterfaceFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ArtificialIntelligenceInterfaceFactoryInterfaceFactory_SINGLETON = [((ArtificialIntelligenceInterfaceFactoryInterfaceFactory*) [ArtificialIntelligenceInterfaceFactoryInterfaceFactory alloc]) init];
+    ArtificialIntelligenceInterfaceFactoryInterfaceFactory_SINGLETON = ((ArtificialIntelligenceInterfaceFactoryInterfaceFactory*) [((ArtificialIntelligenceInterfaceFactoryInterfaceFactory*) [ArtificialIntelligenceInterfaceFactoryInterfaceFactory alloc]) init]);
 }
 
 @implementation ArtificialIntelligenceInterfaceFactoryInterfaceFactory
@@ -33,7 +36,7 @@ void ArtificialIntelligenceInterfaceFactoryInterfaceFactory_staticInit(void) {
 
 
 - (void) clear {
-        self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 

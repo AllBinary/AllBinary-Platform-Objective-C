@@ -12,7 +12,7 @@ void EnumerationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    EnumerationUtil_instance = [((EnumerationUtil*) [EnumerationUtil alloc]) init];
+    EnumerationUtil_instance = ((EnumerationUtil*) [((EnumerationUtil*) [EnumerationUtil alloc]) init]);
 }
 
 @implementation EnumerationUtil
@@ -39,7 +39,7 @@ void EnumerationUtil_staticInit(void) {
 
 
 - (id*) getAsArray:(Enumeration*)enumeration {
-        BasicArrayList* basicArrayList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* basicArrayList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         while ([self hasMoreElements:enumeration]) {
             [basicArrayList add:[self nextElement:enumeration]];
         }

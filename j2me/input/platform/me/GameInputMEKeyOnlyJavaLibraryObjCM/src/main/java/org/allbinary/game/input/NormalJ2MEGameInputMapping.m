@@ -23,7 +23,7 @@ void NormalJ2MEGameInputMapping_staticInit(void) {
 
 
 - (InputToGameKeyMapping*) getDefault {
-        return [[((NormalJ2MEDefaultGameInputMapping*) [NormalJ2MEDefaultGameInputMapping alloc]) init] getInputMapping];
+        return [((NormalJ2MEDefaultGameInputMapping*) [((NormalJ2MEDefaultGameInputMapping*) [NormalJ2MEDefaultGameInputMapping alloc]) init]) getInputMapping];
 }
 
 @end

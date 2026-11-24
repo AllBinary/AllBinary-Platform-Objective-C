@@ -26,7 +26,7 @@ void SpecialFireGameInputInterfaceProcessor_staticInit(void) {
 
 // throws Exception
 - (void) processEvent:(AllBinaryLayerManager*)allbinaryLayerManager :(GameKeyEvent*)gameKeyEvent {
-        [self->specialGameInputInterface fire:allbinaryLayerManager :gameKeyEvent];
+        [((id<SpecialGameInputInterface>) self->specialGameInputInterface) fire:allbinaryLayerManager :gameKeyEvent];
 }
 
 @end

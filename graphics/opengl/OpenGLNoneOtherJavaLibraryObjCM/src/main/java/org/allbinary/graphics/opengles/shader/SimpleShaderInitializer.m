@@ -11,7 +11,7 @@ void SimpleShaderInitializer_staticInit(void) {
         return;
     }
     initialized = true;
-    SimpleShaderInitializer_instanceC = [((SimpleShaderInitializer*) [SimpleShaderInitializer alloc]) init];
+    SimpleShaderInitializer_instanceC = ((SimpleShaderInitializer*) [((SimpleShaderInitializer*) [SimpleShaderInitializer alloc]) init]);
 }
 
 @implementation SimpleShaderInitializer

@@ -69,7 +69,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (GameConfigurationCentral*) getInstance;
-- (void) load_:(AbeClientInformationInterface*)abeClientInformation;
+- (void) loadMethod:(AbeClientInformationInterface*)abeClientInformation;
 - (void) setGameControlFidelity:(int32_t)gameControlFidelity;
 - (int32_t) getGameControlFidelity;
 - (const char*) toString;

@@ -32,7 +32,7 @@ void LineAnimationFactory_staticInit(void) {
 
 // throws Exception
 - (Animation*) getInstance:(int32_t)instanceId {
-        return [((LineAnimation*) [LineAnimation alloc]) init:self->basicColor];
+        return ((LineAnimation*) [((LineAnimation*) [LineAnimation alloc]) init:self->basicColor]);
 }
 
 

@@ -29,7 +29,7 @@ void AllBinarySpriteRotationAnimationFactory_staticInit(void) {
 
 // throws Exception
 + (AllBinarySpriteRotationAnimationFactory*) createWHDY:(Image*)image :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        AllBinarySpriteRotationAnimationFactory* spriteRotationAnimationFactory = [((AllBinarySpriteRotationAnimationFactory*) [AllBinarySpriteRotationAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :([image getHeight] >> 2) :([image getHeight] >> 2) :0 :0 :animationBehaviorFactory];
+        AllBinarySpriteRotationAnimationFactory* spriteRotationAnimationFactory = ((AllBinarySpriteRotationAnimationFactory*) [((AllBinarySpriteRotationAnimationFactory*) [AllBinarySpriteRotationAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :([image getHeight] >> 2) :([image getHeight] >> 2) :0 :0 :animationBehaviorFactory]);
         [spriteRotationAnimationFactory initWH:dx :dy];
         return spriteRotationAnimationFactory;
 }
@@ -43,29 +43,29 @@ void AllBinarySpriteRotationAnimationFactory_staticInit(void) {
 
 // throws Exception
 + (AllBinarySpriteRotationAnimationFactory*) createDXY:(Image*)image :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        AllBinarySpriteRotationAnimationFactory* spriteRotationAnimationFactory = [((AllBinarySpriteRotationAnimationFactory*) [AllBinarySpriteRotationAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :[image getHeight] :[image getHeight] :0 :0 :animationBehaviorFactory];
-        [spriteRotationAnimationFactory init_:dx :dy];
+        AllBinarySpriteRotationAnimationFactory* spriteRotationAnimationFactory = ((AllBinarySpriteRotationAnimationFactory*) [((AllBinarySpriteRotationAnimationFactory*) [AllBinarySpriteRotationAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :[image getHeight] :[image getHeight] :0 :0 :animationBehaviorFactory]);
+        [spriteRotationAnimationFactory initMethod:dx :dy];
         return spriteRotationAnimationFactory;
 }
 
 
 // throws Exception
 + (AllBinarySpriteRotationAnimationFactory*) createDXYQ:(Image*)image :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        AllBinarySpriteRotationAnimationFactory* spriteRotationAnimationFactory = [((AllBinarySpriteRotationAnimationFactory*) [AllBinarySpriteRotationAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :([image getHeight] >> 2) :([image getHeight] >> 2) :0 :0 :animationBehaviorFactory];
-        [spriteRotationAnimationFactory init_:dx :dy];
+        AllBinarySpriteRotationAnimationFactory* spriteRotationAnimationFactory = ((AllBinarySpriteRotationAnimationFactory*) [((AllBinarySpriteRotationAnimationFactory*) [AllBinarySpriteRotationAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :([image getHeight] >> 2) :([image getHeight] >> 2) :0 :0 :animationBehaviorFactory]);
+        [spriteRotationAnimationFactory initMethod:dx :dy];
         return spriteRotationAnimationFactory;
 }
 
 
 // throws Exception
 + (AllBinarySpriteRotationAnimationFactory*) createQ:(Image*)image :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        return [((AllBinarySpriteRotationAnimationFactory*) [AllBinarySpriteRotationAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :([image getHeight] >> 2) :([image getHeight] >> 2) :0 :0 :animationBehaviorFactory];
+        return ((AllBinarySpriteRotationAnimationFactory*) [((AllBinarySpriteRotationAnimationFactory*) [AllBinarySpriteRotationAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :([image getHeight] >> 2) :([image getHeight] >> 2) :0 :0 :animationBehaviorFactory]);
 }
 
 
 // throws Exception
 + (AllBinarySpriteRotationAnimationFactory*) createWHF:(Image*)image :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        return [((AllBinarySpriteRotationAnimationFactory*) [AllBinarySpriteRotationAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :[image getHeight] :[image getHeight] :0 :0 :animationBehaviorFactory];
+        return ((AllBinarySpriteRotationAnimationFactory*) [((AllBinarySpriteRotationAnimationFactory*) [AllBinarySpriteRotationAnimationFactory alloc]) init:image :[PrimitiveIntUtil getArrayInstance] :[image getHeight] :[image getHeight] :0 :0 :animationBehaviorFactory]);
 }
 
 
@@ -79,14 +79,14 @@ void AllBinarySpriteRotationAnimationFactory_staticInit(void) {
 }
 
 
-- (void) init_:(int32_t)dx :(int32_t)dy {
+- (void) initMethod:(int32_t)dx :(int32_t)dy {
         self->animationFactoryInitializationVisitor->dx = dx;
         self->animationFactoryInitializationVisitor->dy = dy;
 }
 
 
 - (void) initWH:(int32_t)dx :(int32_t)dy {
-        [self init_:dx :dy];
+        [self initMethod:dx :dy];
         self->animationFactoryInitializationVisitor->dx += -self->animationFactoryInitializationVisitor->width / 5;
         self->animationFactoryInitializationVisitor->dy += -self->animationFactoryInitializationVisitor->height / 5;
 }
@@ -96,9 +96,9 @@ void AllBinarySpriteRotationAnimationFactory_staticInit(void) {
 - (Animation*) getInstance:(int32_t)instanceId {
         Sprite* sprite = [self->animationFactorySpriteScaleUtil createImage:[self getImage] :self->animationFactoryInitializationVisitor->width :self->animationFactoryInitializationVisitor->height :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
         if (self->animationFactoryInitializationVisitor->dx != 0 || self->animationFactoryInitializationVisitor->dy != 0) {
-            return [((AllBinaryAdjustedSpriteRotationAnimation*) [AllBinaryAdjustedSpriteRotationAnimation alloc]) init:sprite :[self getImage] :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((AllBinaryAdjustedSpriteRotationAnimation*) [((AllBinaryAdjustedSpriteRotationAnimation*) [AllBinaryAdjustedSpriteRotationAnimation alloc]) init:sprite :[self getImage] :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]]);
         } else {
-            return [((AllBinarySpriteRotationAnimation*) [AllBinarySpriteRotationAnimation alloc]) init:sprite :[self getImage] :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((AllBinarySpriteRotationAnimation*) [((AllBinarySpriteRotationAnimation*) [AllBinarySpriteRotationAnimation alloc]) init:sprite :[self getImage] :[self->animationBehaviorFactory getOrCreateInstance]]);
         }
 }
 

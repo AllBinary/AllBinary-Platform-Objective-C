@@ -3,6 +3,9 @@
 #include "javax/microedition/lcdui/Graphics.h"
 #include "org/allbinary/graphics/color/BasicColorFactory.h"
 #include "org/allbinary/animation/vector/RectangleFilledAnimation.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 

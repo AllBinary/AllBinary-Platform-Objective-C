@@ -10,7 +10,7 @@ void InitEmulatorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    InitEmulatorFactory_instance = [((InitEmulatorFactory*) [InitEmulatorFactory alloc]) init];
+    InitEmulatorFactory_instance = ((InitEmulatorFactory*) [((InitEmulatorFactory*) [InitEmulatorFactory alloc]) init]);
 }
 
 @implementation InitEmulatorFactory

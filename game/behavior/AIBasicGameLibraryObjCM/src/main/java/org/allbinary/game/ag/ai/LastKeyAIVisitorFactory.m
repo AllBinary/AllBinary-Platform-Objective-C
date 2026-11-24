@@ -11,7 +11,7 @@ void LastKeyAIVisitorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    LastKeyAIVisitorFactory_instance = [((LastKeyAIVisitor*) [LastKeyAIVisitor alloc]) init];
+    LastKeyAIVisitorFactory_instance = ((LastKeyAIVisitor*) [((LastKeyAIVisitor*) [LastKeyAIVisitor alloc]) init]);
 }
 
 @implementation LastKeyAIVisitorFactory

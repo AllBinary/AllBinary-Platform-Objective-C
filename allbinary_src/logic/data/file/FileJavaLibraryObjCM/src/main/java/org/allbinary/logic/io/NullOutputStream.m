@@ -10,7 +10,7 @@ void NullOutputStream_staticInit(void) {
         return;
     }
     initialized = true;
-    NullOutputStream_NULL_OUTPUT_STREAM = [((NullOutputStream*) [NullOutputStream alloc]) init];
+    NullOutputStream_NULL_OUTPUT_STREAM = ((NullOutputStream*) [((NullOutputStream*) [NullOutputStream alloc]) init]);
 }
 
 @implementation NullOutputStream

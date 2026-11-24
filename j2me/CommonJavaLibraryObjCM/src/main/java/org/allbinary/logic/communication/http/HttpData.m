@@ -11,7 +11,7 @@ void HttpData_staticInit(void) {
         return;
     }
     initialized = true;
-    HttpData_instance = [((HttpData*) [HttpData alloc]) init];
+    HttpData_instance = ((HttpData*) [((HttpData*) [HttpData alloc]) init]);
 }
 
 @implementation HttpData

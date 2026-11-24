@@ -60,7 +60,7 @@
 - (void) initFields;
 + (AllBinaryGameLayerManager*) getNullInstance;
 - (AllBinaryLayerManager*) getLayerManager;
-- (void) init_;
+- (void) initMethod;
 - (BasicColor*) getBackgroundBasicColor;
 - (void) setBackgroundBasicColor:(BasicColor*)backgroundBasicColor;
 - (BasicColor*) getForegroundBasicColor;

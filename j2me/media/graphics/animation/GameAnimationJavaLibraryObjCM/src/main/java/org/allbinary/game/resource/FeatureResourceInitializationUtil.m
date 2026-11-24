@@ -15,7 +15,7 @@ void FeatureResourceInitializationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    FeatureResourceInitializationUtil_instance = [((FeatureResourceInitializationUtil*) [FeatureResourceInitializationUtil alloc]) init];
+    FeatureResourceInitializationUtil_instance = ((FeatureResourceInitializationUtil*) [((FeatureResourceInitializationUtil*) [FeatureResourceInitializationUtil alloc]) init]);
 }
 
 @implementation FeatureResourceInitializationUtil
@@ -37,12 +37,12 @@ void FeatureResourceInitializationUtil_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(int32_t)level {
+- (void) initMethod:(int32_t)level {
         CommonStrings* commonStrings = [CommonStrings getInstance];
         [self->logUtil putF:commonStrings->START :self :commonStrings->INIT];
         FeaturedResourceFactory* featuredResourceFactory = [FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance];
-        [featuredResourceFactory init_:level];
-        [[FeaturedResourceRelativeRelationshipFactory getInstance] init_:level];
+        [featuredResourceFactory initMethod:level];
+        [[FeaturedResourceRelativeRelationshipFactory getInstance] initMethod:level];
 }
 
 @end

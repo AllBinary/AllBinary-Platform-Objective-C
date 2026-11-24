@@ -7,6 +7,15 @@
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/MainFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#endif
 
 
 static id ApplicationConfiguration_instance;
@@ -32,7 +41,7 @@ void ApplicationConfiguration_staticInit(void) {
 
 + (ApplicationConfiguration*) getInstance {
         if ((ApplicationConfiguration_staticInit(), ApplicationConfiguration_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            ApplicationConfiguration_instance = [((ApplicationConfiguration*) [ApplicationConfiguration alloc]) init];
+            ApplicationConfiguration_instance = ((ApplicationConfiguration*) [((ApplicationConfiguration*) [ApplicationConfiguration alloc]) init]);
         }
         return ((ApplicationConfiguration*) (ApplicationConfiguration_staticInit(), ApplicationConfiguration_instance));
 }
@@ -115,7 +124,7 @@ void ApplicationConfiguration_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"isFullscreen: "];
         [stringBuffer appendboolean:[self isFullscreen]];
         [stringBuffer append:" isProgressBarView: "];

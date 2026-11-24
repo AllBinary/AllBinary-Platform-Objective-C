@@ -10,7 +10,7 @@ void ExceptionUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ExceptionUtil_instance = [((ExceptionUtil*) [ExceptionUtil alloc]) init];
+    ExceptionUtil_instance = ((ExceptionUtil*) [((ExceptionUtil*) [ExceptionUtil alloc]) init]);
 }
 
 @implementation ExceptionUtil
@@ -34,7 +34,7 @@ void ExceptionUtil_staticInit(void) {
 
 
 - (const char*) getStackTrace:(JavaException*)e {
-        ByteArrayOutputStream* bs = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init];
+        ByteArrayOutputStream* bs = ((ByteArrayOutputStream*) [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init]);
         java_print_exception(e);
         const char* output = [bs toString];
         return java_string_new(output);

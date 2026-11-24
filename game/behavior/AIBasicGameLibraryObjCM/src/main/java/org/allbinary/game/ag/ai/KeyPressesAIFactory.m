@@ -7,6 +7,9 @@
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/game/ag/ai/MultiKeyPressesAI.h"
 #include "org/allbinary/game/ag/ai/KeyPressesAI.h"
+#if __has_include("org/allbinary/game/configuration/feature/InputFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/InputFeatureFactory.h"
+#endif
 
 
 
@@ -30,9 +33,9 @@ void KeyPressesAIFactory_staticInit(void) {
 - (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
         bool isSingleKeyProcessing = [[InputFeatureFactory getInstance] isSingleKeyProcessing];
         if (isSingleKeyProcessing) {
-            return [((KeyPressesAI*) [KeyPressesAI alloc]) init:hashtable :ownerLayerInterface :gameInput];
+            return ((KeyPressesAI*) [((KeyPressesAI*) [KeyPressesAI alloc]) init:hashtable :ownerLayerInterface :gameInput]);
         } else {
-            return [((MultiKeyPressesAI*) [MultiKeyPressesAI alloc]) init:hashtable :ownerLayerInterface :gameInput];
+            return ((MultiKeyPressesAI*) [((MultiKeyPressesAI*) [MultiKeyPressesAI alloc]) init:hashtable :ownerLayerInterface :gameInput]);
         }
 }
 

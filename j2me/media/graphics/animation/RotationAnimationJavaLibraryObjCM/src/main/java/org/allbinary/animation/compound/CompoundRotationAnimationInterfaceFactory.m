@@ -36,7 +36,7 @@ void CompoundRotationAnimationInterfaceFactory_staticInit(void) {
 
 
 - (Animation*) createAnimation:(Animation**)animationInterfaceArray {
-        return [((CompoundRotationAnimation*) [CompoundRotationAnimation alloc]) init:((RotationAnimation**) animationInterfaceArray) :[self->animationBehaviorFactory getOrCreateInstance]];
+        return ((CompoundRotationAnimation*) [((CompoundRotationAnimation*) [CompoundRotationAnimation alloc]) init:((RotationAnimation**) animationInterfaceArray) :[self->animationBehaviorFactory getOrCreateInstance]]);
 }
 
 @end

@@ -6,6 +6,15 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/thread/ThreadObjectUtil.h"
 #include "org/allbinary/thread/ThreadPool.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -59,7 +68,7 @@ void PooledThread_staticInit(void) {
                 self->threadPool->runningTask = false;
             } JAVA_CATCH(Exception, e) {
                 LogUtil* logUtil = [LogUtil getInstance];
-                [logUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->EXCEPTION_LABEL] append:[[StringUtil getInstance] toString:task2]] toString] :self :self->commonStrings->RUN :e];
+                [logUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->EXCEPTION_LABEL] append:[[StringUtil getInstance] toString:task2]] toString] :self :self->commonStrings->RUN :e];
             } JAVA_END_TRY;
         }
         [self->threadPool threadStopped];

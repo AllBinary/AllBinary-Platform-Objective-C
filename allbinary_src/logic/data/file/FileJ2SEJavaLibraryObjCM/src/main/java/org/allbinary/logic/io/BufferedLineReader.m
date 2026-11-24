@@ -23,7 +23,7 @@ void BufferedLineReader_staticInit(void) {
 - (instancetype) init:(AbFile*)file {
     self = [super init];
     [self initFields];
-        self->tmpIn = [((BufferedReader*) [BufferedReader alloc]) init:[((FileReader*) [FileReader alloc]) init:[AbFileNativeUtil get:file]]];
+        self->tmpIn = ((BufferedReader*) [((BufferedReader*) [BufferedReader alloc]) init:((FileReader*) [((FileReader*) [FileReader alloc]) init:[AbFileNativeUtil get:file]])]);
     return self;
 }
 

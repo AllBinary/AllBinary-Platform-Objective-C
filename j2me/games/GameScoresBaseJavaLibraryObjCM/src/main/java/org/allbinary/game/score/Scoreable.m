@@ -2,6 +2,9 @@
 #include "org/allbinary/game/score/Scoreable.h"
 #include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
 #include "org/allbinary/game/score/ScoreableInterface.h"
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
 
 
 int32_t Scoreable_ID;

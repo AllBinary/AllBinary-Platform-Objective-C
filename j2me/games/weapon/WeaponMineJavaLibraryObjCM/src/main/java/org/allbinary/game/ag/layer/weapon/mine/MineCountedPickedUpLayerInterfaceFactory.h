@@ -62,7 +62,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-+ (void) init_;
++ (void) initMethod;
 + (PickedUpLayerInterfaceFactoryInterface*) getInstance;
 - (int32_t) getTotal;
 - (AllBinaryLayer*) getNextInstance:(ABHashtable*)hashtable :(int32_t)x :(int32_t)y :(int32_t)z;

@@ -4,6 +4,15 @@
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/input/motion/button/TouchButtonInput.h"
 #include "org/allbinary/input/motion/button/BasicTouchInputFactory.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/game/input/InputFactory.h")
+#include "org/allbinary/game/input/InputFactory.h"
+#endif
 
 
 static id CancelTouchButtonInputFactory_instance;
@@ -26,7 +35,7 @@ void CancelTouchButtonInputFactory_staticInit(void) {
 
 + (CancelTouchButtonInputFactory*) getInstance {
         if ((CancelTouchButtonInputFactory_staticInit(), CancelTouchButtonInputFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            CancelTouchButtonInputFactory_instance = [((CancelTouchButtonInputFactory*) [CancelTouchButtonInputFactory alloc]) init];
+            CancelTouchButtonInputFactory_instance = ((CancelTouchButtonInputFactory*) [((CancelTouchButtonInputFactory*) [CancelTouchButtonInputFactory alloc]) init]);
         }
         return ((CancelTouchButtonInputFactory*) (CancelTouchButtonInputFactory_staticInit(), CancelTouchButtonInputFactory_instance));
 }

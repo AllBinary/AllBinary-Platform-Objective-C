@@ -21,7 +21,7 @@ void GameInputProcessorUtil_staticInit(void) {
 }
 
 
-+ (void) init_:(GameInputProcessor**)inputProcessorArray {
++ (void) initMethod:(GameInputProcessor**)inputProcessorArray {
         GameInputProcessor* noInputProcessor = [GameInputProcessor getInstance];
         int32_t total = [InputFactory getInstance]->MAX;
         for (int32_t index = 0; index < total; index++) {

@@ -12,7 +12,7 @@ void ItemIndexPaintable_staticInit(void) {
         return;
     }
     initialized = true;
-    ItemIndexPaintable_instance = [((ItemIndexPaintable*) [ItemIndexPaintable alloc]) init];
+    ItemIndexPaintable_instance = ((ItemIndexPaintable*) [((ItemIndexPaintable*) [ItemIndexPaintable alloc]) init]);
 }
 
 @implementation ItemIndexPaintable

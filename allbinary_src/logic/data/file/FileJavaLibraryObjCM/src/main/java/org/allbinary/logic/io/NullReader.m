@@ -10,7 +10,7 @@ void NullReader_staticInit(void) {
         return;
     }
     initialized = true;
-    NullReader_NULL_READER = [((NullReader*) [NullReader alloc]) init];
+    NullReader_NULL_READER = ((NullReader*) [((NullReader*) [NullReader alloc]) init]);
 }
 
 @implementation NullReader

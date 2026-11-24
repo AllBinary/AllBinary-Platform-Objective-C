@@ -8,6 +8,9 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/identification/Group.h"
 #include "org/allbinary/game/identification/GroupCommonFactory.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -24,7 +27,7 @@ void CompositeGroup_staticInit(void) {
 - (void) initFields {
     self->logUtil = [LogUtil getInstance];
     
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -44,7 +47,7 @@ void CompositeGroup_staticInit(void) {
 - (void) add:(Group*)groupInterface {
         CommonStrings* commonStrings = [CommonStrings getInstance];
         GroupCommonFactory* groupCommonFactory = [GroupCommonFactory getInstance];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:groupCommonFactory->ADDING_LABEL];
         [stringBuffer append:[groupInterface toString]];
         [stringBuffer append:groupCommonFactory->TO_LABEL];

@@ -15,7 +15,7 @@ void GestureOnlyMotionRecognizer_staticInit(void) {
         return;
     }
     initialized = true;
-    GestureOnlyMotionRecognizer_pointCircularPool = [((GPointCircularPool*) [GPointCircularPool alloc]) init:40];
+    GestureOnlyMotionRecognizer_pointCircularPool = ((GPointCircularPool*) [((GPointCircularPool*) [GPointCircularPool alloc]) init:40]);
 }
 
 @implementation GestureOnlyMotionRecognizer
@@ -30,7 +30,7 @@ void GestureOnlyMotionRecognizer_staticInit(void) {
     self = [super init];
     [self initFields];
         self->id_ = GestureOnlyMotionRecognizer_index++;
-        self->motionGestureRecognizer = [((MotionGestureRecognizer*) [MotionGestureRecognizer alloc]) init:self->id_];
+        self->motionGestureRecognizer = ((MotionGestureRecognizer*) [((MotionGestureRecognizer*) [MotionGestureRecognizer alloc]) init:self->id_]);
     return self;
 }
 

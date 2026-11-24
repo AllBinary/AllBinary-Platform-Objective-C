@@ -11,7 +11,7 @@ void DamageableBaseBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    DamageableBaseBehavior_instance = [((DamageableBaseBehavior*) [DamageableBaseBehavior alloc]) init];
+    DamageableBaseBehavior_instance = ((DamageableBaseBehavior*) [((DamageableBaseBehavior*) [DamageableBaseBehavior alloc]) init]);
 }
 
 @implementation DamageableBaseBehavior

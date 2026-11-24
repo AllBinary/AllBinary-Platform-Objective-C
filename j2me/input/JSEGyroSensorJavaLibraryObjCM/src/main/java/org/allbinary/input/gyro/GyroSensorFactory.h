@@ -36,7 +36,7 @@
 @public
 }
 - (instancetype) init;
-+ (void) init_;
++ (void) initMethod;
 + (AllBinaryOrientationSensor*) getInstance;
 @end
 

@@ -11,7 +11,7 @@ void NoShakeAnimationListener_staticInit(void) {
         return;
     }
     initialized = true;
-    NoShakeAnimationListener_NO_SHAKE_ANIMATION_LISTENER = [((NoShakeAnimationListener*) [NoShakeAnimationListener alloc]) init];
+    NoShakeAnimationListener_NO_SHAKE_ANIMATION_LISTENER = ((NoShakeAnimationListener*) [((NoShakeAnimationListener*) [NoShakeAnimationListener alloc]) init]);
 }
 
 @implementation NoShakeAnimationListener

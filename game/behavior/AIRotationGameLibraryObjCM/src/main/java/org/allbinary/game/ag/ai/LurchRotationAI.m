@@ -76,7 +76,7 @@ void LurchRotationAI_staticInit(void) {
         self = [super init:ownerLayerInterface :gameInput];
         [self initFields];
         RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
-        self->rotationAnimationInterface = [rotationAnimationInterfaceCompositeInterface getRotationAnimationInterface];
+        self->rotationAnimationInterface = [((id<RotationAnimationInterfaceCompositeInterface>) rotationAnimationInterfaceCompositeInterface) getRotationAnimationInterface];
         [self update];
     return self;
 }
@@ -91,14 +91,14 @@ void LurchRotationAI_staticInit(void) {
 - (void) update {
         if (self->currentRelativeAngle == 0) {
             RotationAnimationInterface* rotationAnimationInterface = ((RotationAnimationInterface*) self->rotationAnimationInterface);
-            AngleIncrementInfo* angleIncrementInfo = [[rotationAnimationInterface getAngleInfoP] getAngleIncrementInfo];
+            AngleIncrementInfo* angleIncrementInfo = [[((id<RotationAnimationInterface>) rotationAnimationInterface) getAngleInfoP] getAngleIncrementInfo];
             RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
-            [rotationAnimationInterfaceCompositeInterface setFrame:((int32_t) (angleIncrementInfo->RIGHT_FRAME))];
+            [((id<RotationAnimationInterfaceCompositeInterface>) rotationAnimationInterfaceCompositeInterface) setFrame:((int32_t) (angleIncrementInfo->RIGHT_FRAME))];
         } else if (self->currentRelativeAngle == 180) {
             RotationAnimationInterface* rotationAnimationInterface = ((RotationAnimationInterface*) self->rotationAnimationInterface);
-            AngleIncrementInfo* angleIncrementInfo = [[rotationAnimationInterface getAngleInfoP] getAngleIncrementInfo];
+            AngleIncrementInfo* angleIncrementInfo = [[((id<RotationAnimationInterface>) rotationAnimationInterface) getAngleInfoP] getAngleIncrementInfo];
             RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
-            [rotationAnimationInterfaceCompositeInterface setFrame:((int32_t) (angleIncrementInfo->LEFT_FRAME))];
+            [((id<RotationAnimationInterfaceCompositeInterface>) rotationAnimationInterfaceCompositeInterface) setFrame:((int32_t) (angleIncrementInfo->LEFT_FRAME))];
         }
 }
 

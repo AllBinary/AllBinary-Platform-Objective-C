@@ -3,6 +3,9 @@
 #include "org/allbinary/logic/StdUtil.h"
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/util/BasicArrayList.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
 
 
 static InGameFeatureChoiceGroups* InGameFeatureChoiceGroups_gameFeatureChoiceGroupsExclusive;
@@ -14,8 +17,8 @@ void InGameFeatureChoiceGroups_staticInit(void) {
         return;
     }
     initialized = true;
-    InGameFeatureChoiceGroups_gameFeatureChoiceGroupsExclusive = [((InGameFeatureChoiceGroups*) [InGameFeatureChoiceGroups alloc]) init];
-    InGameFeatureChoiceGroups_gameFeatureChoiceGroupsMultiple = [((InGameFeatureChoiceGroups*) [InGameFeatureChoiceGroups alloc]) init];
+    InGameFeatureChoiceGroups_gameFeatureChoiceGroupsExclusive = ((InGameFeatureChoiceGroups*) [((InGameFeatureChoiceGroups*) [InGameFeatureChoiceGroups alloc]) init]);
+    InGameFeatureChoiceGroups_gameFeatureChoiceGroupsMultiple = ((InGameFeatureChoiceGroups*) [((InGameFeatureChoiceGroups*) [InGameFeatureChoiceGroups alloc]) init]);
 }
 
 @implementation InGameFeatureChoiceGroups

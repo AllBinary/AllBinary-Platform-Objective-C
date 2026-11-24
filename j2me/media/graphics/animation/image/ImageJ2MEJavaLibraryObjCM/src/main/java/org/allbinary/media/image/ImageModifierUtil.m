@@ -12,7 +12,7 @@ void ImageModifierUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageModifierUtil_instance = [((ImageModifierUtil*) [ImageModifierUtil alloc]) init];
+    ImageModifierUtil_instance = ((ImageModifierUtil*) [((ImageModifierUtil*) [ImageModifierUtil alloc]) init]);
 }
 
 @implementation ImageModifierUtil

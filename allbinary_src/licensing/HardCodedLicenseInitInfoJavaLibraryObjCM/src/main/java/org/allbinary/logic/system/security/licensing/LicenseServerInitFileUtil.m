@@ -19,7 +19,7 @@ void LicenseServerInitFileUtil_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 

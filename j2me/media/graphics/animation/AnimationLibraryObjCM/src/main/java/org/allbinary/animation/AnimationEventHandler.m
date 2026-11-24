@@ -10,7 +10,7 @@ void AnimationEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    AnimationEventHandler_eventHandler = [((AnimationEventHandler*) [AnimationEventHandler alloc]) init];
+    AnimationEventHandler_eventHandler = ((AnimationEventHandler*) [((AnimationEventHandler*) [AnimationEventHandler alloc]) init]);
 }
 
 @implementation AnimationEventHandler

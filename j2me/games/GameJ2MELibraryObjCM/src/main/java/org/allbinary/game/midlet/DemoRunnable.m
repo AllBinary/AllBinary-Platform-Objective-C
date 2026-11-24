@@ -10,6 +10,18 @@
 #include "org/allbinary/game/midlet/DemoGameMidletEvent.h"
 #include "org/allbinary/game/midlet/DemoGameMidletStateFactory.h"
 #include "org/allbinary/game/midlet/DemoGameMidletEventHandler.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/command/MyCommandsFactory.h")
+#include "org/allbinary/graphics/displayable/command/MyCommandsFactory.h"
+#endif
 
 
 
@@ -35,14 +47,14 @@ void DemoRunnable_staticInit(void) {
     self = [super init];
     [self initFields];
         self->demoGameMidlet = demoGameMidlet;
-        self->startDemoGameMidletEvent = [((DemoGameMidletEvent*) [DemoGameMidletEvent alloc]) init:self->demoGameMidlet :[DemoGameMidletStateFactory getInstance]->START_DEMO];
+        self->startDemoGameMidletEvent = ((DemoGameMidletEvent*) [((DemoGameMidletEvent*) [DemoGameMidletEvent alloc]) init:self->demoGameMidlet :[DemoGameMidletStateFactory getInstance]->START_DEMO]);
     return self;
 }
 
 
 - (void) run {
         JAVA_TRY {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->START_LABEL] append:"GameCanvasRunnableInterface"] toString] :self :self->commonStrings->RUN];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->START_LABEL] append:"GameCanvasRunnableInterface"] toString] :self :self->commonStrings->RUN];
             [self->demoGameMidlet commandAction:[MyCommandsFactory getInstance]->SET_DISPLAYABLE :[ProgressCanvasFactory getInstance]];
             [self->demoGameMidlet setGameCanvasRunnableInterface:[self->demoGameMidlet createDemoGameCanvasRunnableInterface]];
             [self->demoGameMidlet demoSetup];

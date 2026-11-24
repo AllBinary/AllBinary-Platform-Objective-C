@@ -10,7 +10,7 @@ void StringUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    StringUtil_instance = [((StringUtil*) [StringUtil alloc]) init];
+    StringUtil_instance = ((StringUtil*) [((StringUtil*) [StringUtil alloc]) init]);
 }
 
 @implementation StringUtil

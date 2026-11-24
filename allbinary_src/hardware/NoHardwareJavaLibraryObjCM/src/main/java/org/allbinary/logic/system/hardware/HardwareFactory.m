@@ -13,7 +13,7 @@ void HardwareFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    HardwareFactory_instance = [((HardwareFactory*) [HardwareFactory alloc]) init];
+    HardwareFactory_instance = ((HardwareFactory*) [((HardwareFactory*) [HardwareFactory alloc]) init]);
 }
 
 @implementation HardwareFactory

@@ -11,7 +11,7 @@ void AbPathUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    AbPathUtil_instance = [((AbPathUtil*) [AbPathUtil alloc]) init];
+    AbPathUtil_instance = ((AbPathUtil*) [((AbPathUtil*) [AbPathUtil alloc]) init]);
 }
 
 @implementation AbPathUtil

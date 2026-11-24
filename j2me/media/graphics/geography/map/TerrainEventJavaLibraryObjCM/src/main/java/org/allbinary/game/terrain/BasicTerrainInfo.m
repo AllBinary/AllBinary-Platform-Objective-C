@@ -2,6 +2,9 @@
 #include "org/allbinary/game/terrain/BasicTerrainInfo.h"
 #include "org/allbinary/math/Angle.h"
 #include "org/allbinary/math/AngleFactory.h"
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
 
 
 BasicTerrainInfo* BasicTerrainInfo_NULL_BASIC_TERRAIN_INFO;
@@ -12,7 +15,7 @@ void BasicTerrainInfo_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicTerrainInfo_NULL_BASIC_TERRAIN_INFO = [((BasicTerrainInfo*) [BasicTerrainInfo alloc]) init:[AngleFactory getInstance]->NOT_ANGLE];
+    BasicTerrainInfo_NULL_BASIC_TERRAIN_INFO = ((BasicTerrainInfo*) [((BasicTerrainInfo*) [BasicTerrainInfo alloc]) init:[AngleFactory getInstance]->NOT_ANGLE]);
 }
 
 @implementation BasicTerrainInfo

@@ -42,7 +42,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (FeatureResourceInitializationUtil*) getInstance;
-- (void) init_:(int32_t)level;
+- (void) initMethod:(int32_t)level;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

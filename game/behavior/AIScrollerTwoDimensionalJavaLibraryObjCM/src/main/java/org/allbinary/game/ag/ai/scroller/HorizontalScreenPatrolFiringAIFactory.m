@@ -26,7 +26,7 @@ void HorizontalScreenPatrolFiringAIFactory_staticInit(void) {
 
 // throws Exception
 - (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
-        return [((HorizontalScreenPatrolAI*) [HorizontalScreenPatrolAI alloc]) init:hashtable :ownerLayerInterface :gameInput];
+        return ((HorizontalScreenPatrolAI*) [((HorizontalScreenPatrolAI*) [HorizontalScreenPatrolAI alloc]) init:hashtable :ownerLayerInterface :gameInput]);
 }
 
 @end

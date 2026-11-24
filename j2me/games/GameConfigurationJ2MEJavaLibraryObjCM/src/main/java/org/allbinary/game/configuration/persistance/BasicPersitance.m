@@ -11,6 +11,12 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/configuration/persistance/PersistanceStrings.h"
 #include "org/allbinary/game/configuration/persistance/NullRecordStore.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -30,8 +36,8 @@ void BasicPersitance_staticInit(void) {
     self->persistanceStrings = [PersistanceStrings getInstance];
     self->platformRecordIdUtil = [PlatformRecordIdUtil getInstance];
     
-    self->valueList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->idList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->valueList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->idList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -64,7 +70,7 @@ void BasicPersitance_staticInit(void) {
 - (void) delete:(AbeClientInformationInterface*)abeClientInformation :(int32_t)deleteId {
         RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
         JAVA_TRY {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->persistanceStrings->DELETING_WITH_ID] appendint:deleteId] toString] :self :self->commonStrings->delete];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->persistanceStrings->DELETING_WITH_ID] appendint:deleteId] toString] :self :self->commonStrings->delete];
             recordStore = [RecordStore openRecordStore:[self getRecordId:abeClientInformation] :true];
             [recordStore deleteRecord:deleteId];
         } JAVA_CATCH(Exception, e) {

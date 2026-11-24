@@ -10,6 +10,27 @@
 #include "org/allbinary/logic/ABSystemWrapper.h"
 #include "org/allbinary/logic/math/PrimitiveIntUtil.h"
 #include "org/allbinary/animation/special/SpecialAnimation.h"
+#if __has_include("org/allbinary/animation/IndexedAnimation.h")
+#include "org/allbinary/animation/IndexedAnimation.h"
+#endif
+#if __has_include("org/allbinary/animation/IndexedAnimation.h")
+#include "org/allbinary/animation/IndexedAnimation.h"
+#endif
+#if __has_include("org/allbinary/animation/IndexedAnimation.h")
+#include "org/allbinary/animation/IndexedAnimation.h"
+#endif
+#if __has_include("org/allbinary/animation/IndexedAnimation.h")
+#include "org/allbinary/animation/IndexedAnimation.h"
+#endif
+#if __has_include("org/allbinary/animation/IndexedAnimation.h")
+#include "org/allbinary/animation/IndexedAnimation.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/animation/IndexedAnimation.h")
+#include "org/allbinary/animation/IndexedAnimation.h"
+#endif
 
 
 
@@ -42,7 +63,7 @@ void TitleAnimation_staticInit(void) {
 
 
 + (TitleAnimation*) createAnimation:(IndexedAnimation**)animationInterfaceArray :(BasicColor**)basicColorArray :(int32_t*)dxArray :(int32_t*)dyArray :(int32_t)y :(int32_t)width {
-        return [((TitleAnimation*) [TitleAnimation alloc]) init:animationInterfaceArray :basicColorArray :dxArray :dyArray :y :width :[((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:1 :250]];
+        return ((TitleAnimation*) [((TitleAnimation*) [TitleAnimation alloc]) init:animationInterfaceArray :basicColorArray :dxArray :dyArray :y :width :((IndexedAnimationBehavior*) [((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:1 :250])]);
 }
 
 

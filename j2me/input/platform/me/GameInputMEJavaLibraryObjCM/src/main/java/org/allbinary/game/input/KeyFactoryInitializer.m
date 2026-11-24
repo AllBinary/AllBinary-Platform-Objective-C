@@ -25,7 +25,7 @@ void KeyFactoryInitializer_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->INIT];
 }
 

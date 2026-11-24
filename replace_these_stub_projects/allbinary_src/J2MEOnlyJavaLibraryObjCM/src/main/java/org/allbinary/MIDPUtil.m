@@ -16,7 +16,7 @@ void MIDPUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    MIDPUtil_instance = [((MIDPUtil*) [MIDPUtil alloc]) init];
+    MIDPUtil_instance = ((MIDPUtil*) [((MIDPUtil*) [MIDPUtil alloc]) init]);
 }
 
 @implementation MIDPUtil
@@ -33,24 +33,24 @@ void MIDPUtil_staticInit(void) {
 
 
 - (Image*) createImageWH:(int32_t)width :(int32_t)height {
-        return Image_createImageWH(width, height);
+        return [Image createImageWH:width :height];
 }
 
 
 - (Image*) createImageFromByteArray:(int8_t*)imageData :(int32_t)imageOffset :(int32_t)imageLength {
-        return Image_createImageFromByteArray(imageData, imageOffset, imageLength);
+        return [Image createImageFromByteArray:imageData :imageOffset :imageLength];
 }
 
 
 // throws IOException
 - (Image*) createImageFromInputStream:(InputStream*)inputStream {
-        return Image_createImageFromInputStream(inputStream);
+        return [Image createImageFromInputStream:inputStream];
 }
 
 
 // throws IOException, MediaException
 - (Player*) createPlayerFromInputStream:(InputStream*)inputStream :(const char*)type {
-        return Manager_createPlayerFromInputStream(inputStream, type);
+        return [Manager createPlayerFromInputStream:inputStream :type];
 }
 
 

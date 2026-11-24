@@ -6,6 +6,18 @@
 #include "org/allbinary/logic/math/MathUtil.h"
 #include "org/allbinary/logic/math/ScaleFactorFactory.h"
 #include "org/allbinary/physics/movement/BasicConstantVelocityMovement.h"
+#if __has_include("org/allbinary/logic/math/ScaleFactorFactory.h")
+#include "org/allbinary/logic/math/ScaleFactorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
 
 
 
@@ -34,7 +46,7 @@ void PreciseConstantVelocityMovement_staticInit(void) {
 }
 
 
-- (void) init_:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle {
+- (void) initMethod:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle {
 }
 
 

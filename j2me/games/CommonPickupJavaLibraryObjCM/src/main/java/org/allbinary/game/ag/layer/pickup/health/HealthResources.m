@@ -10,7 +10,7 @@ void HealthResources_staticInit(void) {
         return;
     }
     initialized = true;
-    HealthResources_SINGLETON = [((HealthResources*) [HealthResources alloc]) init];
+    HealthResources_SINGLETON = ((HealthResources*) [((HealthResources*) [HealthResources alloc]) init]);
 }
 
 @implementation HealthResources

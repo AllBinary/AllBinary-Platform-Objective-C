@@ -3,6 +3,18 @@
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/logic/communication/log/Log.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 Log* LogFactory_LOG;
@@ -13,7 +25,7 @@ void LogFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    LogFactory_LOG = [((Log*) [Log alloc]) init:[StringUtil getInstance]->EMPTY_STRING :[NullUtil getInstance]->NULL_OBJECT :[StringUtil getInstance]->EMPTY_STRING :[NullUtil getInstance]->NULL_OBJECT];
+    LogFactory_LOG = ((Log*) [((Log*) [Log alloc]) init:[StringUtil getInstance]->EMPTY_STRING :[NullUtil getInstance]->NULL_OBJECT :[StringUtil getInstance]->EMPTY_STRING :[NullUtil getInstance]->NULL_OBJECT]);
 }
 
 @implementation LogFactory
@@ -27,7 +39,7 @@ void LogFactory_staticInit(void) {
 + (Log*) getInstanceD {
         StringUtil* stringUtil = [StringUtil getInstance];
         NullUtil* nullUtil = [NullUtil getInstance];
-        return [((Log*) [Log alloc]) init:stringUtil->EMPTY_STRING :nullUtil->NULL_OBJECT :stringUtil->EMPTY_STRING :nullUtil->NULL_OBJECT];
+        return ((Log*) [((Log*) [Log alloc]) init:stringUtil->EMPTY_STRING :nullUtil->NULL_OBJECT :stringUtil->EMPTY_STRING :nullUtil->NULL_OBJECT]);
 }
 
 

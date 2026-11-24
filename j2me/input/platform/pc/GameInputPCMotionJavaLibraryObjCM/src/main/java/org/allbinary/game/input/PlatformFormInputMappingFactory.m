@@ -7,6 +7,12 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/input/PCKeyFactory.h"
 #include "org/allbinary/game/input/GameKeyFactory.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static id PlatformFormInputMappingFactory_instance;
@@ -36,7 +42,7 @@ void PlatformFormInputMappingFactory_staticInit(void) {
 
 + (PlatformFormInputMappingFactory*) getInstance {
         if ((PlatformFormInputMappingFactory_staticInit(), PlatformFormInputMappingFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            PlatformFormInputMappingFactory_instance = [((PlatformFormInputMappingFactory*) [PlatformFormInputMappingFactory alloc]) init];
+            PlatformFormInputMappingFactory_instance = ((PlatformFormInputMappingFactory*) [((PlatformFormInputMappingFactory*) [PlatformFormInputMappingFactory alloc]) init]);
         }
         return ((PlatformFormInputMappingFactory*) (PlatformFormInputMappingFactory_staticInit(), PlatformFormInputMappingFactory_instance));
 }
@@ -46,7 +52,7 @@ void PlatformFormInputMappingFactory_staticInit(void) {
         JAVA_TRY {
             if (self->inputToGameKeyMapping == [InputToGameKeyMapping getNullInstance]) {
                 PCKeyFactory* pcKeyFactory = [PCKeyFactory getInstance];
-                InputToGameKeyMapping* inputToGameKeyMapping = [((InputToGameKeyMapping*) [InputToGameKeyMapping alloc]) init];
+                InputToGameKeyMapping* inputToGameKeyMapping = ((InputToGameKeyMapping*) [((InputToGameKeyMapping*) [InputToGameKeyMapping alloc]) init]);
                 GameKeyFactory* gameKeyFactory = [GameKeyFactory getInstance];
                 BasicTouchInputFactory* basicTouchInputFactory = [BasicTouchInputFactory getInstance];
                 [inputToGameKeyMapping add:gameKeyFactory->UP :pcKeyFactory->DPAD_UP];

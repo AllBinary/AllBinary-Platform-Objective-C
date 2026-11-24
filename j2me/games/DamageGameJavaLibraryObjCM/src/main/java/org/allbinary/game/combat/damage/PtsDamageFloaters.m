@@ -12,6 +12,21 @@
 #include "org/allbinary/util/CircularIndexUtil.h"
 #include "org/allbinary/view/ViewPositionBase.h"
 #include "org/allbinary/game/combat/damage/DamageFloaters.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/java/character/CharArrayFactory.h")
+#include "org/allbinary/logic/java/character/CharArrayFactory.h"
+#endif
 
 
 static BasicColorArrayIndexer* PtsDamageFloaters_basicColorArrayIndexer;
@@ -22,7 +37,7 @@ void PtsDamageFloaters_staticInit(void) {
         return;
     }
     initialized = true;
-    PtsDamageFloaters_basicColorArrayIndexer = [((BasicColorArrayIndexer*) [BasicColorArrayIndexer alloc]) init:((BasicColor**) java_array_from(sizeof(BasicColor*), sizeof((BasicColor*[]){ [BasicColorFactory getInstance]->WHITE, [BasicColorFactory getInstance]->RED, [BasicColorFactory getInstance]->YELLOW, [BasicColorFactory getInstance]->BLUE }) / sizeof(BasicColor*), (BasicColor*[]){ [BasicColorFactory getInstance]->WHITE, [BasicColorFactory getInstance]->RED, [BasicColorFactory getInstance]->YELLOW, [BasicColorFactory getInstance]->BLUE }))];
+    PtsDamageFloaters_basicColorArrayIndexer = ((BasicColorArrayIndexer*) [((BasicColorArrayIndexer*) [BasicColorArrayIndexer alloc]) init:((BasicColor**) java_array_from(sizeof(BasicColor*), sizeof((BasicColor*[]){ [BasicColorFactory getInstance]->WHITE, [BasicColorFactory getInstance]->RED, [BasicColorFactory getInstance]->YELLOW, [BasicColorFactory getInstance]->BLUE }) / sizeof(BasicColor*), (BasicColor*[]){ [BasicColorFactory getInstance]->WHITE, [BasicColorFactory getInstance]->RED, [BasicColorFactory getInstance]->YELLOW, [BasicColorFactory getInstance]->BLUE }))]);
 }
 
 @implementation PtsDamageFloaters

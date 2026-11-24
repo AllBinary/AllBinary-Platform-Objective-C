@@ -10,7 +10,7 @@ void EventStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    EventStrings_instance = [((EventStrings*) [EventStrings alloc]) init];
+    EventStrings_instance = ((EventStrings*) [((EventStrings*) [EventStrings alloc]) init]);
 }
 
 @implementation EventStrings

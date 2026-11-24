@@ -38,6 +38,12 @@
 #if __has_include("org/allbinary/util/AngleIncrementInfo.h")
 #include "org/allbinary/util/AngleIncrementInfo.h"
 #endif
+#if __has_include("org/allbinary/DisposalUtil.h")
+#include "org/allbinary/DisposalUtil.h"
+#endif
+#if __has_include("org/allbinary/DisposalUtil.h")
+#include "org/allbinary/DisposalUtil.h"
+#endif
 
 
 

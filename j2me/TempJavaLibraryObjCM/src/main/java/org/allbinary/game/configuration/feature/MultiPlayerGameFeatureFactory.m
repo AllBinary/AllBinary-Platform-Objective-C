@@ -10,7 +10,7 @@ void MultiPlayerGameFeatureFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    MultiPlayerGameFeatureFactory_instance = [((MultiPlayerGameFeatureFactory*) [MultiPlayerGameFeatureFactory alloc]) init];
+    MultiPlayerGameFeatureFactory_instance = ((MultiPlayerGameFeatureFactory*) [((MultiPlayerGameFeatureFactory*) [MultiPlayerGameFeatureFactory alloc]) init]);
 }
 
 @implementation MultiPlayerGameFeatureFactory

@@ -41,7 +41,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (TerrainEventCircularStaticPool*) getInstance;
-- (void) init_;
+- (void) initMethod;
 - (TerrainEvent*) getNext:(BasicTerrainInfo*)basicTerrainInfo;
 @end
 

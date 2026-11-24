@@ -5,6 +5,9 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/logic/math/PrimitiveLongSingleton.h"
 #include "org/allbinary/logic/math/MathUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 
@@ -30,7 +33,7 @@ void PrimitiveLongUtil_staticInit(void) {
 
 
 + (PrimitiveLongUtil*) createPowerOfTen:(int32_t)powerOfTen {
-        PrimitiveLongUtil* primitiveLongUtil = [((PrimitiveLongUtil*) [PrimitiveLongUtil alloc]) init:powerOfTen :[NullUtil getInstance]->NULL_OBJECT];
+        PrimitiveLongUtil* primitiveLongUtil = ((PrimitiveLongUtil*) [((PrimitiveLongUtil*) [PrimitiveLongUtil alloc]) init:powerOfTen :[NullUtil getInstance]->NULL_OBJECT]);
         if (powerOfTen % 10 != 0) {
             LogUtil* logUtil = [LogUtil getInstance];
             CommonStrings* commonStrings = [CommonStrings getInstance];

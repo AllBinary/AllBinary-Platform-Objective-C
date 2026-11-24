@@ -20,7 +20,7 @@ void DemoSetup_staticInit(void) {
 }
 
 
-- (void) init_:(GameMidlet*)gameMidlet {
+- (void) initMethod:(GameMidlet*)gameMidlet {
 }
 
 @end

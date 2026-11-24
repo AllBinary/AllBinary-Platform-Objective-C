@@ -41,7 +41,7 @@
 }
 - (instancetype) init:(id)allBinaryLayerInterface;
 - (void) initFields;
-- (void) init_:(id)anyType;
+- (void) initMethod:(id)anyType;
 - (AllBinaryLayer*) getLayerInterface;
 - (void) setLayerInterface:(AllBinaryLayer*)layerInterface;
 - (void) setLayerInterfaceForCircularStaticPool:(AllBinaryLayer*)layerInterface;

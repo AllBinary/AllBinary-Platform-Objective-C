@@ -39,7 +39,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-- (void) load_:(GL10*)gl :(int32_t)target :(int32_t)level :(Image*)image :(int32_t)border :(bool)flip;
+- (void) loadMethod:(GL10*)gl :(int32_t)target :(int32_t)level :(Image*)image :(int32_t)border :(bool)flip;
 @end
 
 extern PlatformTextureBaseFactory* PlatformTextureBaseFactory_NULL_PLATFORM_TEXTURE_BASE_FACTORY;

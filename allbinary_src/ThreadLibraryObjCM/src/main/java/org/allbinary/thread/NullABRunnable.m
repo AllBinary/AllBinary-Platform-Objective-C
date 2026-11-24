@@ -11,7 +11,7 @@ void NullABRunnable_staticInit(void) {
         return;
     }
     initialized = true;
-    NullABRunnable_instance = [((NullABRunnable*) [NullABRunnable alloc]) init];
+    NullABRunnable_instance = ((NullABRunnable*) [((NullABRunnable*) [NullABRunnable alloc]) init]);
 }
 
 @implementation NullABRunnable

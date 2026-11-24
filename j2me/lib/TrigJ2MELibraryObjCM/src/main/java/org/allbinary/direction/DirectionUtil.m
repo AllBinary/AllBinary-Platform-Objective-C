@@ -14,7 +14,7 @@ void DirectionUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    DirectionUtil_instance = [((DirectionUtil*) [DirectionUtil alloc]) init];
+    DirectionUtil_instance = ((DirectionUtil*) [((DirectionUtil*) [DirectionUtil alloc]) init]);
 }
 
 @implementation DirectionUtil

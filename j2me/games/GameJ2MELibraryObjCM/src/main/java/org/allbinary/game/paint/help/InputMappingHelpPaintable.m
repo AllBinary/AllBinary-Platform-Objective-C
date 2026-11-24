@@ -20,6 +20,54 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/game/paint/help/HelpPaintable.h"
 #include "org/allbinary/game/paint/help/UpdateMyFontProperties.h"
+#if __has_include("org/allbinary/game/input/GameKeyFactory.h")
+#include "org/allbinary/game/input/GameKeyFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorUtil.h")
+#include "org/allbinary/graphics/color/BasicColorUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/game/input/PlatformInputMappingFactory.h")
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
+#endif
 #if __has_include("org/allbinary/game/paint/help/InputToGameKeyMapping.h")
 #include "org/allbinary/game/paint/help/InputToGameKeyMapping.h"
 #endif
@@ -80,6 +128,24 @@
 #if __has_include("org/allbinary/util/InputToGameKeyMapping.h")
 #include "org/allbinary/util/InputToGameKeyMapping.h"
 #endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
 
 
 static const char* InputMappingHelpPaintable_AND = " and ";
@@ -109,7 +175,7 @@ void InputMappingHelpPaintable_staticInit(void) {
     self->actionBasicColor = [BasicColorUtil getInstance]->ZERO_ARRAY;
     self->inputBasicColorArray = ((BasicColor***) java_array_new2(sizeof(BasicColor*), 0, 0));
     self->selectedBasicColor = nullptr;
-    self->updateMyFontProperties = [((UpdateMyFontProperties*) [UpdateMyFontProperties alloc]) init];
+    self->updateMyFontProperties = ((UpdateMyFontProperties*) [((UpdateMyFontProperties*) [UpdateMyFontProperties alloc]) init]);
 }
 
 
@@ -129,9 +195,9 @@ void InputMappingHelpPaintable_staticInit(void) {
 
 - (void) updateMeasurement:(Graphics*)graphics {
         Font* font = [graphics getFont];
-        UpdateMyFontProperties* updateMyFontProperties = [((UpdateMyFontProperties*) [UpdateMyFontProperties alloc]) init];
+        UpdateMyFontProperties* updateMyFontProperties = ((UpdateMyFontProperties*) [((UpdateMyFontProperties*) [UpdateMyFontProperties alloc]) init]);
         updateMyFontProperties->charHeight = [font getHeight];
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         const char** inputInfo = self->inputInfo;
         int32_t size = java_array_length(inputInfo);
         updateMyFontProperties->actionStringArray = ((const char**) java_array_new(sizeof(const char*), size));
@@ -184,7 +250,7 @@ void InputMappingHelpPaintable_staticInit(void) {
 
 
 - (void) update:(GameKey*)selectedGameKey :(Input*)selectedInput {
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [self->logUtil putF:[[[[[[stringMaker append:[CommonLabels getInstance]->START_LABEL] append:"selected GameKey: "] append:[self->stringUtil toString:selectedGameKey]] append:" Input: "] append:[self->stringUtil toString:selectedInput]] toString] :self :self->commonStrings->UPDATE];
         PersistentInputMapping* gameKeyMapping = [[PlatformInputMappingFactory getInstance] getPersistentInputMappingInstance];
         int32_t size = java_array_length(self->gameInputMappingArray);
@@ -229,7 +295,7 @@ void InputMappingHelpPaintable_staticInit(void) {
 
 
 - (const char*) get:(BasicArrayList*)keyList {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         Input* key = nullptr;
         int32_t size = [keyList size];
         for (int32_t index = 0; index < size; index++) {

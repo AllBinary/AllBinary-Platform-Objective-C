@@ -24,7 +24,7 @@ void ImageArrayRotationAnimationCacheableInterfaceFactory_staticInit(void) {
 
 // throws Exception
 - (CacheableInterface*) getInstance:(id)key {
-        return [((ImageArrayRotationAnimationCacheable*) [ImageArrayRotationAnimationCacheable alloc]) init:key :[AnimationBehavior getInstance]];
+        return ((ImageArrayRotationAnimationCacheable*) [((ImageArrayRotationAnimationCacheable*) [ImageArrayRotationAnimationCacheable alloc]) init:key :[AnimationBehavior getInstance]]);
 }
 
 @end

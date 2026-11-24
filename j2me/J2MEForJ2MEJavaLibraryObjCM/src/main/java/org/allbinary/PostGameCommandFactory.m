@@ -2,6 +2,9 @@
 #include "org/allbinary/PostGameCommandFactory.h"
 #include "org/allbinary/game/configuration/feature/MultiPlayerGameFeatureFactory.h"
 #include "org/allbinary/graphics/displayable/MyCanvas.h"
+#if __has_include("org/allbinary/game/configuration/feature/MultiPlayerGameFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/MultiPlayerGameFeatureFactory.h"
+#endif
 
 
 static PostGameCommandFactory* PostGameCommandFactory_instance;
@@ -12,7 +15,7 @@ void PostGameCommandFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    PostGameCommandFactory_instance = [((PostGameCommandFactory*) [PostGameCommandFactory alloc]) init];
+    PostGameCommandFactory_instance = ((PostGameCommandFactory*) [((PostGameCommandFactory*) [PostGameCommandFactory alloc]) init]);
 }
 
 @implementation PostGameCommandFactory

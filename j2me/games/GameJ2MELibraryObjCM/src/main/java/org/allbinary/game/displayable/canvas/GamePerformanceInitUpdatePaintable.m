@@ -7,6 +7,15 @@
 #include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
 #include "org/allbinary/graphics/font/MyFontProcessor.h"
 #include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
+#if __has_include("org/allbinary/graphics/displayable/DisplayInfoSingleton.h")
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#endif
+#if __has_include("org/allbinary/canvas/GameStatisticsFactory.h")
+#include "org/allbinary/canvas/GameStatisticsFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 
@@ -23,7 +32,7 @@ void GamePerformanceInitUpdatePaintable_staticInit(void) {
 - (void) initFields {
     self->halfHeight = [[DisplayInfoSingleton getInstance] getLastHalfHeight];
     self->yArray = ((int32_t*) java_array_from(sizeof(int32_t), sizeof((int32_t[]){ self->halfHeight + 30, self->halfHeight + 30, self->halfHeight + 30 + 15, self->halfHeight + 30 + 15, self->halfHeight + 30 + 30, self->halfHeight + 30 + 30, self->halfHeight + 30 + 45, self->halfHeight + 30 + 45 }) / sizeof(int32_t), (int32_t[]){ self->halfHeight + 30, self->halfHeight + 30, self->halfHeight + 30 + 15, self->halfHeight + 30 + 15, self->halfHeight + 30 + 30, self->halfHeight + 30 + 30, self->halfHeight + 30 + 45, self->halfHeight + 30 + 45 }));
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->baseRefreshHelperCharArray = ((uint16_t**) java_array_new2(sizeof(uint16_t), 0, 0));
     self->defaultStringWidth = 0;
     self->RED = [[BasicColorFactory getInstance]->RED intValue];
@@ -43,7 +52,7 @@ void GamePerformanceInitUpdatePaintable_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 

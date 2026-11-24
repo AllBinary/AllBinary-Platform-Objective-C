@@ -9,6 +9,15 @@
 #include "org/allbinary/game/layer/CollidableCompositeLayer.h"
 #include "org/allbinary/layer/AllBinaryLayer.h"
 #include "org/allbinary/logic/NullUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/game/collision/CollisionTypeFactory.h")
+#include "org/allbinary/game/collision/CollisionTypeFactory.h"
+#endif
 
 
 static id CollidableWeaponBehavior_NULL_COLLIDABLE_WEAPON_BEHAVIOR;
@@ -32,7 +41,7 @@ void CollidableWeaponBehavior_staticInit(void) {
 
 + (CollidableWeaponBehavior*) getNullInstance {
         if ((CollidableWeaponBehavior_staticInit(), CollidableWeaponBehavior_NULL_COLLIDABLE_WEAPON_BEHAVIOR) == [NullUtil getInstance]->NULL_OBJECT) {
-            CollidableWeaponBehavior_NULL_COLLIDABLE_WEAPON_BEHAVIOR = [((CollidableWeaponBehavior*) [CollidableWeaponBehavior alloc]) init:false];
+            CollidableWeaponBehavior_NULL_COLLIDABLE_WEAPON_BEHAVIOR = ((CollidableWeaponBehavior*) [((CollidableWeaponBehavior*) [CollidableWeaponBehavior alloc]) init:false]);
         }
         return ((CollidableWeaponBehavior*) (CollidableWeaponBehavior_staticInit(), CollidableWeaponBehavior_NULL_COLLIDABLE_WEAPON_BEHAVIOR));
 }
@@ -48,7 +57,7 @@ void CollidableWeaponBehavior_staticInit(void) {
 }
 
 
-- (void) init_:(AllBinaryLayer*)sourceLayerInterface {
+- (void) initMethod:(AllBinaryLayer*)sourceLayerInterface {
         [self setCollided:false];
         [self->collisionHelper setOwnerLayerInterface:sourceLayerInterface];
 }

@@ -11,7 +11,7 @@ void DistanceUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    DistanceUtil_instance = [((DistanceUtil*) [DistanceUtil alloc]) init];
+    DistanceUtil_instance = ((DistanceUtil*) [((DistanceUtil*) [DistanceUtil alloc]) init]);
 }
 
 @implementation DistanceUtil

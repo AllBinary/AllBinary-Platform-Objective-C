@@ -28,7 +28,7 @@ void PlayerComposite_staticInit(void) {
     self->logUtil = [LogUtil getInstance];
     self->commonStrings = [CommonStrings getInstance];
     
-    self->timeElapsedHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
+    self->timeElapsedHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0]);
     self->gameTickTimeDelayHelper = [GameTickTimeDelayHelperFactory getInstance];
 }
 
@@ -44,55 +44,55 @@ void PlayerComposite_staticInit(void) {
 
 // synchronized
 - (void) addPlayerListener:(PlayerListener*)playerListener {
-        [self->player addPlayerListener:playerListener];
+        [((id<Player>) self->player) addPlayerListener:playerListener];
 }
 
 
 - (void) removePlayerListener:(PlayerListener*)playerListener {
-        [self->player removePlayerListener:playerListener];
+        [((id<Player>) self->player) removePlayerListener:playerListener];
 }
 
 
 - (void) close {
-        [self->player close];
+        [((id<Player>) self->player) close];
 }
 
 
 - (void) deallocate {
-        [self->player deallocate];
+        [((id<Player>) self->player) deallocate];
 }
 
 
 - (const char*) getContentType {
-        return [self->player getContentType];
+        return [((id<Player>) self->player) getContentType];
 }
 
 
 - (int64_t) getDuration {
-        return [self->player getDuration];
+        return [((id<Player>) self->player) getDuration];
 }
 
 
 - (int64_t) getMediaTime {
-        return [self->player getMediaTime];
+        return [((id<Player>) self->player) getMediaTime];
 }
 
 
 - (TimeBase*) getTimeBase {
-        return [(((TimeBaseInterface*) self->player)) getTimeBase];
+        return [((id<TimeBaseInterface>) (((TimeBaseInterface*) self->player))) getTimeBase];
 }
 
 
 // throws MediaException
 // synchronized
 - (void) setTimeBase:(TimeBase*)timeBase {
-        [(((TimeBaseInterface*) self->player)) setTimeBase:timeBase];
+        [((id<TimeBaseInterface>) (((TimeBaseInterface*) self->player))) setTimeBase:timeBase];
 }
 
 
 - (void) prefetch {
         JAVA_TRY {
-            [self->player prefetch];
+            [((id<Player>) self->player) prefetch];
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :"prefetch" :e];
         } JAVA_END_TRY;
@@ -101,7 +101,7 @@ void PlayerComposite_staticInit(void) {
 
 - (void) realize {
         JAVA_TRY {
-            [self->player realize];
+            [((id<Player>) self->player) realize];
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :"realize" :e];
         } JAVA_END_TRY;
@@ -109,18 +109,18 @@ void PlayerComposite_staticInit(void) {
 
 
 - (int32_t) getState {
-        return [self->player getState];
+        return [((id<Player>) self->player) getState];
 }
 
 
 - (void) setLoopCount:(int32_t)count {
-        [self->player setLoopCount:count];
+        [((id<Player>) self->player) setLoopCount:count];
 }
 
 
 - (int64_t) setMediaTime:(int64_t)now {
         JAVA_TRY {
-            return [self->player setMediaTime:now];
+            return [((id<Player>) self->player) setMediaTime:now];
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :"setMediaTime" :e];
             return ((int64_t) (-1));
@@ -131,7 +131,7 @@ void PlayerComposite_staticInit(void) {
 - (void) start {
         JAVA_TRY {
             if ([self->timeElapsedHelper isTime:self->gameTickTimeDelayHelper->startTime]) {
-                [self->player start];
+                [((id<Player>) self->player) start];
             }
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->START_METHOD_NAME :e];
@@ -141,7 +141,7 @@ void PlayerComposite_staticInit(void) {
 
 - (void) stop {
         JAVA_TRY {
-            [self->player stop];
+            [((id<Player>) self->player) stop];
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :"stop" :e];
         } JAVA_END_TRY;
@@ -149,7 +149,7 @@ void PlayerComposite_staticInit(void) {
 
 
 - (Control*) getControl:(const char*)controlType {
-        return [self->player getControl:controlType];
+        return [((id<Player>) self->player) getControl:controlType];
 }
 
 
@@ -160,7 +160,7 @@ void PlayerComposite_staticInit(void) {
 
 - (void) setVolume:(int32_t)leftVolume :(int32_t)rightVolume {
         Controllable2* controllable2 = (((Controllable2*) self->player));
-        [controllable2 setVolume:leftVolume :rightVolume];
+        [((id<Controllable2>) controllable2) setVolume:leftVolume :rightVolume];
 }
 
 

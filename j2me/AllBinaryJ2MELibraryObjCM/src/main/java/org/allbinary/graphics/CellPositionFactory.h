@@ -48,7 +48,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (CellPositionFactory*) getInstance;
-- (void) init_:(int32_t)columns :(int32_t)rows;
+- (void) initMethod:(int32_t)columns :(int32_t)rows;
 - (CellPosition*) getInstanceColRow:(int32_t)i_column :(int32_t)i_row;
 - (CellPosition*) createInstance:(int32_t)i_column :(int32_t)i_row;
 - (int32_t) getColumns;

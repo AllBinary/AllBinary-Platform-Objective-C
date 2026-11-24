@@ -10,7 +10,7 @@ void PointsUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    PointsUtil_instance = [((PointsUtil*) [PointsUtil alloc]) init];
+    PointsUtil_instance = ((PointsUtil*) [((PointsUtil*) [PointsUtil alloc]) init]);
 }
 
 @implementation PointsUtil

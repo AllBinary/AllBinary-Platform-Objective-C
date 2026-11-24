@@ -8,6 +8,9 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/view/event/ViewPositionEvent.h"
 #include "org/allbinary/view/event/ViewPositionEventListenerInterface.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 static ViewPositionEventHandler* ViewPositionEventHandler_SINGLETON;
@@ -18,13 +21,13 @@ void ViewPositionEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    ViewPositionEventHandler_SINGLETON = [((ViewPositionEventHandler*) [ViewPositionEventHandler alloc]) init];
+    ViewPositionEventHandler_SINGLETON = ((ViewPositionEventHandler*) [((ViewPositionEventHandler*) [ViewPositionEventHandler alloc]) init]);
 }
 
 @implementation ViewPositionEventHandler
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -76,7 +79,7 @@ void ViewPositionEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         ViewPositionEventListenerInterface* viewPositionEventListenerInterface = (((ViewPositionEventListenerInterface*) eventListenerInterface));
-        [viewPositionEventListenerInterface onChangeEvent:((ViewPositionEvent*) eventObject)];
+        [((id<ViewPositionEventListenerInterface>) viewPositionEventListenerInterface) onChangeEvent:((ViewPositionEvent*) eventObject)];
 }
 
 @end

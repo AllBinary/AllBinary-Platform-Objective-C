@@ -12,7 +12,7 @@ void GameInputProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    GameInputProcessor_instance = [((GameInputProcessor*) [GameInputProcessor alloc]) init];
+    GameInputProcessor_instance = ((GameInputProcessor*) [((GameInputProcessor*) [GameInputProcessor alloc]) init]);
 }
 
 @implementation GameInputProcessor

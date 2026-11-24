@@ -51,7 +51,7 @@
 + (bool) isMuted;
 + (void) setMuted:(bool)aMuted;
 + (bool) update;
-+ (void) init_:(SoundsFactoryInterface*)soundsFactoryInterface;
++ (void) initMethod:(SoundsFactoryInterface*)soundsFactoryInterface;
 + (void) shutdown:(SoundsFactoryInterface*)soundsFactoryInterface;
 + (Player*) createPlayer:(const char*)resource;
 + (void) playTone:(int32_t)frequency :(int32_t)time :(int32_t)volume;

@@ -4,6 +4,12 @@
 #include "org/allbinary/game/input/GameKey.h"
 #include "org/allbinary/game/input/InputFactory.h"
 #include "org/allbinary/game/input/GameKeyFactory.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static id GameKeyMappingFactory_instance;
@@ -26,7 +32,7 @@ void GameKeyMappingFactory_staticInit(void) {
 
 + (GameKeyMappingFactory*) getInstance {
         if ((GameKeyMappingFactory_staticInit(), GameKeyMappingFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            GameKeyMappingFactory_instance = [((GameKeyMappingFactory*) [GameKeyMappingFactory alloc]) init];
+            GameKeyMappingFactory_instance = ((GameKeyMappingFactory*) [((GameKeyMappingFactory*) [GameKeyMappingFactory alloc]) init]);
         }
         return ((GameKeyMappingFactory*) (GameKeyMappingFactory_staticInit(), GameKeyMappingFactory_instance));
 }

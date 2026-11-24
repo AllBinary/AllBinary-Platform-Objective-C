@@ -29,7 +29,7 @@ void BottomToTopImageAnimationFactory_staticInit(void) {
 // throws Exception
 - (Animation*) getInstance:(int32_t)instanceId {
         Image* scaledImage = [self->animationFactoryImageScaleUtil createImage:[self getImage] :self->animationFactoryInitializationVisitor->width :self->animationFactoryInitializationVisitor->height :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
-        return [((BottomToTopImageAnimation*) [BottomToTopImageAnimation alloc]) init:scaledImage :[self->animationBehaviorFactory getOrCreateInstance]];
+        return ((BottomToTopImageAnimation*) [((BottomToTopImageAnimation*) [BottomToTopImageAnimation alloc]) init:scaledImage :[self->animationBehaviorFactory getOrCreateInstance]]);
 }
 
 @end

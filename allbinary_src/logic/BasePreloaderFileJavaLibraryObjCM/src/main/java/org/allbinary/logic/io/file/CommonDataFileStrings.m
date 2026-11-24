@@ -10,7 +10,7 @@ void CommonDataFileStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    CommonDataFileStrings_instance = [((CommonDataFileStrings*) [CommonDataFileStrings alloc]) init];
+    CommonDataFileStrings_instance = ((CommonDataFileStrings*) [((CommonDataFileStrings*) [CommonDataFileStrings alloc]) init]);
 }
 
 @implementation CommonDataFileStrings

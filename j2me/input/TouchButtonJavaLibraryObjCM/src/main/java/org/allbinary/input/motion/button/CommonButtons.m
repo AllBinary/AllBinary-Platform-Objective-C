@@ -3,6 +3,12 @@
 #include "org/allbinary/graphics/PointFactory.h"
 #include "org/allbinary/graphics/Rectangle.h"
 #include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
+#endif
 
 
 static CommonButtons* CommonButtons_instance;
@@ -13,7 +19,7 @@ void CommonButtons_staticInit(void) {
         return;
     }
     initialized = true;
-    CommonButtons_instance = [((CommonButtons*) [CommonButtons alloc]) init];
+    CommonButtons_instance = ((CommonButtons*) [((CommonButtons*) [CommonButtons alloc]) init]);
 }
 
 @implementation CommonButtons
@@ -48,8 +54,8 @@ void CommonButtons_staticInit(void) {
             commonButtonSize = commonButtonSize >> 1;
         }
         self->STANDARD_BUTTON_SIZE = commonButtonSize;
-        self->NORMAL_BUTTON = [((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :self->STANDARD_BUTTON_SIZE :self->STANDARD_BUTTON_SIZE];
-        self->LARGE_BUTTON = [((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :self->STANDARD_BUTTON_SIZE << 1 :self->STANDARD_BUTTON_SIZE << 1];
+        self->NORMAL_BUTTON = ((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :self->STANDARD_BUTTON_SIZE :self->STANDARD_BUTTON_SIZE]);
+        self->LARGE_BUTTON = ((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :self->STANDARD_BUTTON_SIZE << 1 :self->STANDARD_BUTTON_SIZE << 1]);
     return self;
 }
 

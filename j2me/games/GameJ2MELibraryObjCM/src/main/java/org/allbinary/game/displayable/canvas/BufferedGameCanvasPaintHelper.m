@@ -9,6 +9,9 @@
 #include "org/allbinary/graphics/displayable/MyCanvas.h"
 #include "org/allbinary/util/CircularIndexUtil.h"
 #include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
+#if __has_include("javax/microedition/lcdui/Image.h")
+#include "javax/microedition/lcdui/Image.h"
+#endif
 
 
 static constexpr int32_t BufferedGameCanvasPaintHelper_MAX_IMAGES = 4;

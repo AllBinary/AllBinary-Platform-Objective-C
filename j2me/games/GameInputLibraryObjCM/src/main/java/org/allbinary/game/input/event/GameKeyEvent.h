@@ -42,7 +42,7 @@
 - (instancetype) init:(id)anyType :(int32_t)sourceId :(int32_t)originalKey :(int32_t)gameActionKey :(int32_t)key :(bool)repeated;
 - (void) initFields;
 + (GameKeyEvent*) createEvent:(id)anyType :(int32_t)sourceId :(int32_t)key;
-- (void) init_:(id)anyType;
+- (void) initMethod:(id)anyType;
 - (void) setRepeatEvents:(bool)repeated;
 - (bool) hasRepeatEvents;
 - (int32_t) getKey;

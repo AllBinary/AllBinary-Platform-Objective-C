@@ -7,6 +7,9 @@
 #include "javax/microedition/rms/RecordStoreException.h"
 #include "javax/microedition/rms/RecordStoreNotOpenException.h"
 #include "org/allbinary/logic/NullUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static TsUtil* TsUtil_instance;
@@ -17,7 +20,7 @@ void TsUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    TsUtil_instance = [((TsUtil*) [TsUtil alloc]) init];
+    TsUtil_instance = ((TsUtil*) [((TsUtil*) [TsUtil alloc]) init]);
 }
 
 @implementation TsUtil

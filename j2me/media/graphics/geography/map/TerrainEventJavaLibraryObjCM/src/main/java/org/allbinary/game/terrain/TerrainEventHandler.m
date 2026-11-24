@@ -10,6 +10,15 @@
 #include "org/allbinary/game/terrain/TerrainEventListener.h"
 #include "org/allbinary/game/terrain/TerrainEvent.h"
 #include "org/allbinary/game/terrain/TerrainEventListenerInterface.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 static ABHashtable* TerrainEventHandler_hashtable;
@@ -26,11 +35,11 @@ void TerrainEventHandler_staticInit(void) {
 @implementation TerrainEventHandler
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
-+ (void) init_ {
++ (void) initMethod {
         TerrainEventHandler_hashtable = [[StdUtil getInstance] createHashtable];
 }
 
@@ -38,7 +47,7 @@ void TerrainEventHandler_staticInit(void) {
 + (TerrainEventHandler*) getInstance:(id)anyType {
         id eventHandlerCanBeNull = [(TerrainEventHandler_staticInit(), TerrainEventHandler_hashtable) get:JAVA_BOX(anyType)];
         if (eventHandlerCanBeNull == nil) {
-            eventHandlerCanBeNull = [((TerrainEventHandler*) [TerrainEventHandler alloc]) init];
+            eventHandlerCanBeNull = ((TerrainEventHandler*) [((TerrainEventHandler*) [TerrainEventHandler alloc]) init]);
             [(TerrainEventHandler_staticInit(), TerrainEventHandler_hashtable) put:JAVA_BOX(anyType) :JAVA_BOX(eventHandlerCanBeNull)];
         }
         return ((TerrainEventHandler*) eventHandlerCanBeNull);
@@ -88,7 +97,7 @@ void TerrainEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         TerrainEventListenerInterface* terrainEventListenerInterface = ((TerrainEventListenerInterface*) eventListenerInterface);
-        [terrainEventListenerInterface onTerrainEvent:((TerrainEvent*) eventObject)];
+        [((id<TerrainEventListenerInterface>) terrainEventListenerInterface) onTerrainEvent:((TerrainEvent*) eventObject)];
 }
 
 @end

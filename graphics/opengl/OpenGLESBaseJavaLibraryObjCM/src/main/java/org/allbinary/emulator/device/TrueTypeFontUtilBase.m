@@ -3,6 +3,9 @@
 #include "javax/microedition/lcdui/Font.h"
 #include "org/allbinary/AvianUtil.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 

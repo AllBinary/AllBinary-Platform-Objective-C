@@ -2,6 +2,12 @@
 #include "org/allbinary/input/motion/button/TouchButtonFactory.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListUtil.h"
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
 
 
 static TouchButtonFactory* TouchButtonFactory_SINGLETON;
@@ -12,7 +18,7 @@ void TouchButtonFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchButtonFactory_SINGLETON = [((TouchButtonFactory*) [TouchButtonFactory alloc]) init];
+    TouchButtonFactory_SINGLETON = ((TouchButtonFactory*) [((TouchButtonFactory*) [TouchButtonFactory alloc]) init]);
 }
 
 @implementation TouchButtonFactory

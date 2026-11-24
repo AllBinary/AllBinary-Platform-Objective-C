@@ -3,6 +3,9 @@
 #include "javax/microedition/lcdui/Graphics.h"
 #include "org/allbinary/graphics/paint/NullPaintable.h"
 #include "org/allbinary/graphics/paint/Paintable.h"
+#if __has_include("org/allbinary/graphics/paint/Paintable.h")
+#include "org/allbinary/graphics/paint/Paintable.h"
+#endif
 
 
 

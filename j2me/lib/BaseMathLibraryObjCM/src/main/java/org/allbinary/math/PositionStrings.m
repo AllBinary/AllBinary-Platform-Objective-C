@@ -10,7 +10,7 @@ void PositionStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    PositionStrings_instance = [((PositionStrings*) [PositionStrings alloc]) init];
+    PositionStrings_instance = ((PositionStrings*) [((PositionStrings*) [PositionStrings alloc]) init]);
 }
 
 @implementation PositionStrings

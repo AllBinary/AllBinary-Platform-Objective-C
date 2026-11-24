@@ -10,7 +10,7 @@ void GameInfoData_staticInit(void) {
         return;
     }
     initialized = true;
-    GameInfoData_instance = [((GameInfoData*) [GameInfoData alloc]) init];
+    GameInfoData_instance = ((GameInfoData*) [((GameInfoData*) [GameInfoData alloc]) init]);
 }
 
 @implementation GameInfoData

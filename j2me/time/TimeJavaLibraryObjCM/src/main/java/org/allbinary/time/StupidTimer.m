@@ -9,6 +9,30 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/thread/ThreadObjectUtil.h"
 #include "org/allbinary/time/TimeDelayHelper.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -47,11 +71,11 @@ void StupidTimer_staticInit(void) {
 - (void) visit:(Visitor*)visitorInterface :(TimeDelayHelper*)timeDelayHelper {
         bool tookTooLong = false;
         const char* WAITING_FOR = "Waiting for: ";
-        [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:WAITING_FOR] append:[[StringUtil getInstance] toString:visitorInterface]] toString] :self :self->commonStrings->VISIT];
+        [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:WAITING_FOR] append:[[StringUtil getInstance] toString:visitorInterface]] toString] :self :self->commonStrings->VISIT];
         int32_t index = 0;
         while ([self visitBool:visitorInterface]) {
             if (index % 10 == 0) {
-                [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:WAITING_FOR] appendint:index] toString] :self :self->commonStrings->VISIT];
+                [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:WAITING_FOR] appendint:index] toString] :self :self->commonStrings->VISIT];
             }
             index++;
             java_monitor_enter(self);
@@ -65,7 +89,7 @@ void StupidTimer_staticInit(void) {
             }
         }
         if (tookTooLong) {
-            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->VISIT :java_exception_new("Exception", [[[[((StringMaker*) [StringMaker alloc]) init] append:"Took Too Long: "] append:[[StringUtil getInstance] toString:visitorInterface]] toString])];
+            [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->VISIT :java_exception_new("Exception", [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Took Too Long: "] append:[[StringUtil getInstance] toString:visitorInterface]] toString])];
         } else {
             [PreLogUtil put:[timeDelayHelper toString] :self :self->commonStrings->VISIT];
         }

@@ -13,6 +13,21 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/util/BasicArrayList.h"
+#if __has_include("org/allbinary/game/configuration/persistance/GamePersistanceSingleton.h")
+#include "org/allbinary/game/configuration/persistance/GamePersistanceSingleton.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -60,7 +75,7 @@ void LoadGameForm_staticInit(void) {
             [self add:list :"Select A Saved Game" :(Choice_staticInit(), Choice_EXCLUSIVE)];
             self->areChoices = true;
         } else {
-            [self->meUtil appendItem:self :[((StringItem*) [StringItem alloc]) init:"No Saved Games" :[StringUtil getInstance]->EMPTY_STRING :(Item_staticInit(), Item_PLAIN)]];
+            [self->meUtil appendItem:self :((StringItem*) [((StringItem*) [StringItem alloc]) init:"No Saved Games" :[StringUtil getInstance]->EMPTY_STRING :(Item_staticInit(), Item_PLAIN)])];
             self->areChoices = false;
         }
         [super update];
@@ -79,11 +94,11 @@ void LoadGameForm_staticInit(void) {
 - (ChoiceGroup*) getChoiceGroup:(BasicArrayList*)list :(const char*)name :(int32_t)option {
         const char* METHOD_NAME = "getChoiceGroup";
         const char* ADDING_CHOICE = "Adding Choice: ";
-        ChoiceGroup* choiceGroup = [((ChoiceGroup*) [ChoiceGroup alloc]) init:name :option :[[StringUtil getInstance] getArrayInstance] :(NullImage_staticInit(), NullImage_NULL_IMAGE_ARRAY)];
+        ChoiceGroup* choiceGroup = ((ChoiceGroup*) [((ChoiceGroup*) [ChoiceGroup alloc]) init:name :option :[[StringUtil getInstance] getArrayInstance] :(NullImage_staticInit(), NullImage_NULL_IMAGE_ARRAY)]);
         int32_t size = [list size];
         for (int32_t index = 0; index < size; index++) {
             id anyType = list->objectArray[index];
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:ADDING_CHOICE] append:[anyType toString]] toString] :self :METHOD_NAME];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:ADDING_CHOICE] append:[anyType toString]] toString] :self :METHOD_NAME];
             [choiceGroup append:[anyType toString] :(NullImage_staticInit(), NullImage_NULL_IMAGE)];
         }
         return choiceGroup;

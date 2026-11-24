@@ -62,7 +62,7 @@
 - (instancetype) init:(const char*)name :(ABHashtable*)hashtable :(ABHashtable*)rectangleHashtable :(ABHashtable*)rectangleArrayHashtable;
 - (void) initFields;
 - (const char*) getName;
-- (void) init_:(int32_t)level;
+- (void) initMethod:(int32_t)level;
 - (void) initImageCache:(ImageCache*)imageCache :(int32_t)level;
 - (void) add:(const char*)resource :(BasicAnimationInterfaceFactoryInterface*)animationInterfaceFactoryInterface;
 - (BasicAnimationInterfaceFactoryInterface*) getBasicAnimationInterfaceFactoryInstance:(const char*)resource;

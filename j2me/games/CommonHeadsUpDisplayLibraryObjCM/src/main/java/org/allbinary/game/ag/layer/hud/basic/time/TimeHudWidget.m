@@ -6,6 +6,9 @@
 #include "org/allbinary/graphics/font/MyFontProcessor.h"
 #include "org/allbinary/logic/math/PrimitiveLongSingleton.h"
 #include "org/allbinary/game/ag/layer/hud/basic/time/HudTimer.h"
+#if __has_include("org/allbinary/logic/math/PrimitiveLongSingleton.h")
+#include "org/allbinary/logic/math/PrimitiveLongSingleton.h"
+#endif
 
 
 
@@ -31,7 +34,7 @@ void TimeHudWidget_staticInit(void) {
 
 // throws Exception
 + (TimeHudWidget*) getInstance:(int32_t)location :(int32_t)direction :(BasicColor*)basicColor :(HudTimer*)timer {
-        return [((TimeHudWidget*) [TimeHudWidget alloc]) init:location :direction :2 :basicColor :timer];
+        return ((TimeHudWidget*) [((TimeHudWidget*) [TimeHudWidget alloc]) init:location :direction :2 :basicColor :timer]);
 }
 
 

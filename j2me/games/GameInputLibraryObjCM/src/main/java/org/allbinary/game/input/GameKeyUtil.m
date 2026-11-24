@@ -11,7 +11,7 @@ void GameKeyUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    GameKeyUtil_instance = [((GameKeyUtil*) [GameKeyUtil alloc]) init];
+    GameKeyUtil_instance = ((GameKeyUtil*) [((GameKeyUtil*) [GameKeyUtil alloc]) init]);
 }
 
 @implementation GameKeyUtil

@@ -23,9 +23,9 @@ void AllBinaryVisualDebugVibration_staticInit(void) {
 
 - (void) initFields {
     self->displayInfoSingleton = [DisplayInfoSingleton getInstance];
-    self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:(Integer_staticInit(), Integer_MAX_VALUE)];
+    self->timeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:(Integer_staticInit(), Integer_MAX_VALUE)]);
     self->VIBRATING = "Vibrating";
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
     self->width = 0;
 }

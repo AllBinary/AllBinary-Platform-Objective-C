@@ -103,6 +103,15 @@
 
         </dependency>
 
+        <!-- ObjC: Animation.h (AnimationLibrary) uses OpenGLSurfaceChangedInterface of this optional, so not transitive, dependency -->
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLNoneOtherJavaLibraryObjC</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
     </dependencies>
 
     <!-- Planned language build: PlannedLanguagePomBuildUpdater -->

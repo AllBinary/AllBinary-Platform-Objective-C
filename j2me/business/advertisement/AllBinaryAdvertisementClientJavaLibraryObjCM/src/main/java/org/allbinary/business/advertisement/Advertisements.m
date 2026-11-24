@@ -5,6 +5,9 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/business/advertisement/AdvertisementProcessorInterface.h"
+#if __has_include("org/allbinary/logic/system/security/licensing/LockedUtil.h")
+#include "org/allbinary/logic/system/security/licensing/LockedUtil.h"
+#endif
 
 
 
@@ -19,8 +22,8 @@ void Advertisements_staticInit(void) {
 @implementation Advertisements
 
 - (void) initFields {
-    self->bannerList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->pageList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->bannerList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->pageList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->myRandomFactory = [MyRandomFactory getInstance];
 }
 

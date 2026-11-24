@@ -10,6 +10,9 @@
 #include "org/allbinary/string/CommonLabels.h"
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/animation/image/AnimationFactoryInitializationVisitor.h"
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
 
 
 
@@ -35,14 +38,14 @@ void BaseImageAnimationFactory_staticInit(void) {
 
 // throws Exception
 + (BaseImageAnimationFactory*) createFactoryBase:(Image*)image :(int32_t*)sequenceArray :(int32_t)width :(int32_t)height :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        return [((BaseImageAnimationFactory*) [BaseImageAnimationFactory alloc]) init:image :sequenceArray :width :height :0 :0 :animationBehaviorFactory];
+        return ((BaseImageAnimationFactory*) [((BaseImageAnimationFactory*) [BaseImageAnimationFactory alloc]) init:image :sequenceArray :width :height :0 :0 :animationBehaviorFactory]);
 }
 
 
 - (instancetype) init:(Image*)image :(int32_t*)sequenceArray :(int32_t)width :(int32_t)height :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory {
     self = [super init];
     [self initFields];
-        self->animationFactoryInitializationVisitor = [((AnimationFactoryInitializationVisitor*) [AnimationFactoryInitializationVisitor alloc]) init];
+        self->animationFactoryInitializationVisitor = ((AnimationFactoryInitializationVisitor*) [((AnimationFactoryInitializationVisitor*) [AnimationFactoryInitializationVisitor alloc]) init]);
         self->image = image;
         self->animationFactoryInitializationVisitor->width = width;
         self->animationFactoryInitializationVisitor->height = height;
@@ -93,10 +96,10 @@ void BaseImageAnimationFactory_staticInit(void) {
 - (const char*) toString {
         CommonSeps* commonSeps = [CommonSeps getInstance];
         CommonLabels* commonLabels = [CommonLabels getInstance];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:[super toString]];
         [stringBuffer append:commonLabels->HEIGHT_LABEL];
-        [stringBuffer appendint:((int32_t) [self->image getHeight])];
+        [stringBuffer appendint:[self->image getHeight]];
         [stringBuffer append:commonSeps->SPACE];
         [stringBuffer append:[self->animationFactoryInitializationVisitor toString]];
         return [stringBuffer toString];

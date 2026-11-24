@@ -22,7 +22,7 @@ void ShakeAnimationListenerFactory_staticInit(void) {
 
 
 + (ShakeAnimationListener*) getInstance {
-        return [((NoShakeAnimationListener*) [NoShakeAnimationListener alloc]) init];
+        return ((NoShakeAnimationListener*) [((NoShakeAnimationListener*) [NoShakeAnimationListener alloc]) init]);
 }
 
 @end

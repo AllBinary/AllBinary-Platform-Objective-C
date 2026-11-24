@@ -18,6 +18,39 @@
 #include "org/allbinary/game/configuration/feature/SensorFeatureFactory.h"
 #include "org/allbinary/game/configuration/feature/TouchFeatureFactory.h"
 #include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/GameFeatureEventHandler.h")
+#include "org/allbinary/game/configuration/event/GameFeatureEventHandler.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/GameFeatureEventHandler.h")
+#include "org/allbinary/game/configuration/event/GameFeatureEventHandler.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/OperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
+#endif
 
 
 static id Features_SINGLETON;
@@ -43,7 +76,7 @@ void Features_staticInit(void) {
 
 + (Features*) getInstance {
         if ((Features_staticInit(), Features_SINGLETON) == [NullUtil getInstance]->NULL_OBJECT) {
-            Features_SINGLETON = [((Features*) [Features alloc]) init];
+            Features_SINGLETON = ((Features*) [((Features*) [Features alloc]) init]);
         }
         return ((Features*) (Features_staticInit(), Features_SINGLETON));
 }
@@ -52,9 +85,9 @@ void Features_staticInit(void) {
 - (instancetype) init {
     self = [super init];
     [self initFields];
-        self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-        self->defaultList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-        [self init_];
+        self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+        self->defaultList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+        [self initMethod];
     return self;
 }
 
@@ -71,16 +104,16 @@ void Features_staticInit(void) {
 // throws Exception
 - (void) add:(Feature*)gameFeature {
         if (![self->list contains:gameFeature]) {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->START_LABEL] append:[gameFeature toString]] toString] :self :self->commonStrings->ADD];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->START_LABEL] append:[gameFeature toString]] toString] :self :self->commonStrings->ADD];
             [self->list add:gameFeature];
-            [[GameFeatureEventHandler getInstance] fireEvent:[((GameFeatureEvent*) [GameFeatureEvent alloc]) init:gameFeature :[gameFeature toString]]];
+            [[GameFeatureEventHandler getInstance] fireEvent:((GameFeatureEvent*) [((GameFeatureEvent*) [GameFeatureEvent alloc]) init:gameFeature :[gameFeature toString]])];
         }
 }
 
 
 // throws Exception
 - (void) removeDefault:(Feature*)gameFeature {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->START_LABEL] append:[gameFeature toString]] toString] :self :"removeDefault"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->START_LABEL] append:[gameFeature toString]] toString] :self :"removeDefault"];
         [self remove:gameFeature];
         [self->defaultList remove:gameFeature];
 }
@@ -91,12 +124,12 @@ void Features_staticInit(void) {
         if ([self->list contains:gameFeature]) {
             [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->REMOVE];
             [self->list remove:gameFeature];
-            [[GameFeatureEventHandler getInstance] fireEvent:[((GameFeatureEvent*) [GameFeatureEvent alloc]) init:gameFeature :[gameFeature toString]]];
+            [[GameFeatureEventHandler getInstance] fireEvent:((GameFeatureEvent*) [((GameFeatureEvent*) [GameFeatureEvent alloc]) init:gameFeature :[gameFeature toString]])];
         }
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         JAVA_TRY {
             GameFeatureFactory* gameFeatureFactory = [GameFeatureFactory getInstance];
             InputFeatureFactory* inputFeatureFactory = [InputFeatureFactory getInstance];

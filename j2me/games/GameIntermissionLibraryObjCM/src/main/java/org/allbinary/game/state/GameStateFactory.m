@@ -2,6 +2,12 @@
 #include "org/allbinary/game/state/GameStateFactory.h"
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/game/state/GameState.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static id GameStateFactory_instance;
@@ -28,7 +34,7 @@ void GameStateFactory_staticInit(void) {
 
 + (GameStateFactory*) getInstance {
         if ((GameStateFactory_staticInit(), GameStateFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            GameStateFactory_instance = [((GameStateFactory*) [GameStateFactory alloc]) init];
+            GameStateFactory_instance = ((GameStateFactory*) [((GameStateFactory*) [GameStateFactory alloc]) init]);
         }
         return ((GameStateFactory*) (GameStateFactory_staticInit(), GameStateFactory_instance));
 }
@@ -42,7 +48,7 @@ void GameStateFactory_staticInit(void) {
 
 
 - (GameState*) createGameState:(const char*)name {
-        return [((GameState*) [GameState alloc]) init:name :self->index++];
+        return ((GameState*) [((GameState*) [GameState alloc]) init:name :self->index++]);
 }
 
 @end

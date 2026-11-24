@@ -6,6 +6,12 @@
 #include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
 #include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
 #include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
+#if __has_include("org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#endif
 
 
 static int32_t MotionEventFactory_index = 0;
@@ -40,9 +46,9 @@ void MotionEventFactory_staticInit(void) {
         InputFactory* inputFactory = [InputFactory getInstance];
         Input* input = [inputFactory getInstanceById:MotionEventFactory_index++];
         if (input == inputFactory->NO_INPUT) {
-            return [((MotionGestureEvent*) [MotionGestureEvent alloc]) init:self->source :self->id_ :((MotionGestureInput*) [TouchMotionGestureFactory getInstance]->NO_MOTION)];
+            return ((MotionGestureEvent*) [((MotionGestureEvent*) [MotionGestureEvent alloc]) init:self->source :self->id_ :((MotionGestureInput*) [TouchMotionGestureFactory getInstance]->NO_MOTION)]);
         } else {
-            return [((MotionGestureEvent*) [MotionGestureEvent alloc]) init:self->source :self->id_ :((MotionGestureInput*) input)];
+            return ((MotionGestureEvent*) [((MotionGestureEvent*) [MotionGestureEvent alloc]) init:self->source :self->id_ :((MotionGestureInput*) input)]);
         }
 }
 

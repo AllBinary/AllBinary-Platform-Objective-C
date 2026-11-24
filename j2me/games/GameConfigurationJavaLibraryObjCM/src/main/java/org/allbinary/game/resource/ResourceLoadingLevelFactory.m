@@ -11,18 +11,18 @@ void ResourceLoadingLevelFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ResourceLoadingLevelFactory_instance = [((ResourceLoadingLevelFactory*) [ResourceLoadingLevelFactory alloc]) init];
+    ResourceLoadingLevelFactory_instance = ((ResourceLoadingLevelFactory*) [((ResourceLoadingLevelFactory*) [ResourceLoadingLevelFactory alloc]) init]);
 }
 
 @implementation ResourceLoadingLevelFactory
 
 - (void) initFields {
-    self->LOAD_EARLY = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load Early" :(Integer_staticInit(), Integer_MAX_VALUE)];
-    self->LOAD_TOUCH = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load Touch" :(Integer_staticInit(), Integer_MAX_VALUE) - 1];
-    self->LOAD_GAME = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load Game" :(Integer_staticInit(), Integer_MAX_VALUE) - 2];
-    self->LEVEL = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Level" :(Integer_staticInit(), Integer_MAX_VALUE) - 99];
-    self->MAX_LEVEL = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Max Level" :(Integer_staticInit(), Integer_MAX_VALUE) - 100];
-    self->LOAD_ALL = [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load All" :-1];
+    self->LOAD_EARLY = ((ResourceLoadingLevel*) [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load Early" :(Integer_staticInit(), Integer_MAX_VALUE)]);
+    self->LOAD_TOUCH = ((ResourceLoadingLevel*) [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load Touch" :(Integer_staticInit(), Integer_MAX_VALUE) - 1]);
+    self->LOAD_GAME = ((ResourceLoadingLevel*) [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load Game" :(Integer_staticInit(), Integer_MAX_VALUE) - 2]);
+    self->LEVEL = ((ResourceLoadingLevel*) [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Level" :(Integer_staticInit(), Integer_MAX_VALUE) - 99]);
+    self->MAX_LEVEL = ((ResourceLoadingLevel*) [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Max Level" :(Integer_staticInit(), Integer_MAX_VALUE) - 100]);
+    self->LOAD_ALL = ((ResourceLoadingLevel*) [((ResourceLoadingLevel*) [ResourceLoadingLevel alloc]) init:"Load All" :-1]);
     self->RESOURCE_LOADING_LEVEL_ARRAY = ((ResourceLoadingLevel**) java_array_from(sizeof(ResourceLoadingLevel*), sizeof((ResourceLoadingLevel*[]){ self->LOAD_ALL, self->MAX_LEVEL, self->LEVEL, self->LOAD_GAME, self->LOAD_TOUCH, self->LOAD_EARLY }) / sizeof(ResourceLoadingLevel*), (ResourceLoadingLevel*[]){ self->LOAD_ALL, self->MAX_LEVEL, self->LEVEL, self->LOAD_GAME, self->LOAD_TOUCH, self->LOAD_EARLY }));
 }
 

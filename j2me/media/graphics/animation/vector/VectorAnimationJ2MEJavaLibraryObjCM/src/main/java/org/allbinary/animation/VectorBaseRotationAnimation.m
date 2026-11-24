@@ -9,6 +9,9 @@
 #include "org/allbinary/animation/RotationAnimation.h"
 #include "org/allbinary/animation/VectorAnimationInterface.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 #if __has_include("org/allbinary/animation/AngleIncrementInfo.h")
 #include "org/allbinary/animation/AngleIncrementInfo.h"
 #endif

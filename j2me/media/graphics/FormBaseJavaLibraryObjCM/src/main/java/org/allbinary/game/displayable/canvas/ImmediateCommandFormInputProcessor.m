@@ -21,7 +21,7 @@ void ImmediateCommandFormInputProcessor_staticInit(void) {
 @implementation ImmediateCommandFormInputProcessor
 
 - (void) initFields {
-    self->timeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:25];
+    self->timeHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:25]);
     
 }
 

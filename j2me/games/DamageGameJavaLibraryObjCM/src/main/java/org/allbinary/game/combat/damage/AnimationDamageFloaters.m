@@ -9,6 +9,15 @@
 #include "org/allbinary/util/CircularIndexUtil.h"
 #include "org/allbinary/view/ViewPositionBase.h"
 #include "org/allbinary/game/combat/damage/DamageFloaters.h"
+#if __has_include("org/allbinary/animation/IndexedAnimation.h")
+#include "org/allbinary/animation/IndexedAnimation.h"
+#endif
+#if __has_include("org/allbinary/animation/IndexedAnimation.h")
+#include "org/allbinary/animation/IndexedAnimation.h"
+#endif
+#if __has_include("org/allbinary/animation/IndexedAnimation.h")
+#include "org/allbinary/animation/IndexedAnimation.h"
+#endif
 
 
 

@@ -23,7 +23,7 @@ void HighScoresCanvasInputProcessor_staticInit(void) {
 
 
 - (instancetype) init:(HighScoresCanvas*)highScoresCanvas {
-        self = [super init:[((BasicArrayListD*) [BasicArrayListD alloc]) init] :[((BasicArrayListD*) [BasicArrayListD alloc]) init] :-1];
+        self = [super init:((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :-1];
         [self initFields];
         self->highScoresCanvas = highScoresCanvas;
     return self;

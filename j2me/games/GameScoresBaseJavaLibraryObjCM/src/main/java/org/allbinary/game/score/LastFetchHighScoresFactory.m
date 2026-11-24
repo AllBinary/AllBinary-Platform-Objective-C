@@ -3,6 +3,12 @@
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/game/score/NoHighScoresFactory.h"
 #include "org/allbinary/game/score/HighScores.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static id LastFetchHighScoresFactory_instance;
@@ -31,7 +37,7 @@ void LastFetchHighScoresFactory_staticInit(void) {
 
 + (LastFetchHighScoresFactory*) getInstance {
         if ((LastFetchHighScoresFactory_staticInit(), LastFetchHighScoresFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            LastFetchHighScoresFactory_instance = [((LastFetchHighScoresFactory*) [LastFetchHighScoresFactory alloc]) init];
+            LastFetchHighScoresFactory_instance = ((LastFetchHighScoresFactory*) [((LastFetchHighScoresFactory*) [LastFetchHighScoresFactory alloc]) init]);
         }
         return ((LastFetchHighScoresFactory*) (LastFetchHighScoresFactory_staticInit(), LastFetchHighScoresFactory_instance));
 }

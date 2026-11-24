@@ -11,7 +11,7 @@ void OpenGLUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLUtil_instance = [((OpenGLUtil*) [OpenGLUtil alloc]) init];
+    OpenGLUtil_instance = ((OpenGLUtil*) [((OpenGLUtil*) [OpenGLUtil alloc]) init]);
 }
 
 @implementation OpenGLUtil

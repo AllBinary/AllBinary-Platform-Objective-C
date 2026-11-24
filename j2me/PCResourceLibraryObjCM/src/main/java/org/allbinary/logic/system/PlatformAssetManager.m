@@ -11,7 +11,7 @@ void PlatformAssetManager_staticInit(void) {
         return;
     }
     initialized = true;
-    PlatformAssetManager_instance = [((PlatformAssetManager*) [PlatformAssetManager alloc]) init];
+    PlatformAssetManager_instance = ((PlatformAssetManager*) [((PlatformAssetManager*) [PlatformAssetManager alloc]) init]);
 }
 
 @implementation PlatformAssetManager

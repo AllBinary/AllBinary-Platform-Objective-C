@@ -10,7 +10,7 @@ void MathUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    MathUtil_instance = [((MathUtil*) [MathUtil alloc]) init];
+    MathUtil_instance = ((MathUtil*) [((MathUtil*) [MathUtil alloc]) init]);
 }
 
 @implementation MathUtil

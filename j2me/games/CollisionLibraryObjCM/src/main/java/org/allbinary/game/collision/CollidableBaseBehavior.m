@@ -12,6 +12,18 @@
 #include "org/allbinary/game/collision/CollidableInterfaceCompositeInterface.h"
 #include "org/allbinary/game/collision/CollisionTypeFactory.h"
 #include "org/allbinary/game/collision/CollisionType.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
 
 
 
@@ -62,7 +74,7 @@ void CollidableBaseBehavior_staticInit(void) {
 
 // throws Exception
 - (void) collide:(CollidableCompositeLayer*)ownerLayer :(CollidableCompositeLayer*)allbinaryCollidableLayer {
-        java_throw(java_exception_new("Exception", [[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->NOT_IMPLEMENTED] append:[CommonLabels getInstance]->COLON_SEP] append:java_objc_class_name(self)] toString]));
+        java_throw(java_exception_new("Exception", [[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->NOT_IMPLEMENTED] append:[CommonLabels getInstance]->COLON_SEP] append:java_objc_class_name(self)] toString]));
 }
 
 

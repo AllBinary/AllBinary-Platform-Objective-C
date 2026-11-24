@@ -23,8 +23,8 @@ void GyroSensorFactory_staticInit(void) {
 
 
 // throws Exception
-+ (void) init_ {
-        GyroSensorFactory_allBinaryGyroSensor = [((NoGyroSensor*) [NoGyroSensor alloc]) init];
++ (void) initMethod {
+        GyroSensorFactory_allBinaryGyroSensor = ((NoGyroSensor*) [((NoGyroSensor*) [NoGyroSensor alloc]) init]);
 }
 
 

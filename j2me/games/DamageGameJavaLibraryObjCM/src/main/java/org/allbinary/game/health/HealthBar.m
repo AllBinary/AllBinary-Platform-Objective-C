@@ -32,14 +32,14 @@ void HealthBar_staticInit(void) {
         self->allbinaryLayer = layerInterface;
         self->animationInterface = animationInterface;
         self->healthInterface = healthInterface;
-        [self->healthInterface addListener:self];
+        [((id<HealthInterface>) self->healthInterface) addListener:self];
         [self onHealthChange];
     return self;
 }
 
 
 - (void) onHealthChange {
-        [self->animationInterface onHealthChange:[self->healthInterface getHealth] * [self->allbinaryLayer getWidth] / [self->healthInterface getMaxHealth]];
+        [self->animationInterface onHealthChange:[((id<HealthInterface>) self->healthInterface) getHealth] * [self->allbinaryLayer getWidth] / [((id<HealthInterface>) self->healthInterface) getMaxHealth]];
 }
 
 

@@ -12,6 +12,15 @@
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/game/ag/ai/scroller/PacePatrolAI.h"
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
+#if __has_include("org/allbinary/game/terrain/TerrainEventHandler.h")
+#include "org/allbinary/game/terrain/TerrainEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/terrain/TerrainEventCircularStaticPool.h")
+#include "org/allbinary/game/terrain/TerrainEventCircularStaticPool.h"
+#endif
 
 
 
@@ -26,9 +35,9 @@ void TerrainPatrolAI_staticInit(void) {
 @implementation TerrainPatrolAI
 
 - (void) initFields {
-    self->terrainEventListener = [((TerrainEventListener*) [TerrainEventListener alloc]) init];
+    self->terrainEventListener = ((TerrainEventListener*) [((TerrainEventListener*) [TerrainEventListener alloc]) init]);
     self->DOWN = [AngleFactory getInstance]->DOWN;
-    self->CLIFF = [((BasicTerrainInfo*) [BasicTerrainInfo alloc]) init:self->DOWN];
+    self->CLIFF = ((BasicTerrainInfo*) [((BasicTerrainInfo*) [BasicTerrainInfo alloc]) init:self->DOWN]);
 }
 
 

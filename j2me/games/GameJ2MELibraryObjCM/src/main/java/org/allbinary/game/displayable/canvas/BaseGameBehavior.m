@@ -8,6 +8,18 @@
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
 #include "org/allbinary/game/displayable/canvas/DemoGameBehavior.h"
 #include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
+#if __has_include("org/allbinary/business/advertisement/GameAdStateFactory.h")
+#include "org/allbinary/business/advertisement/GameAdStateFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureFactory.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Features.h")
+#include "org/allbinary/game/configuration/feature/Features.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureFactory.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
+#endif
 
 
 static BaseGameBehavior* BaseGameBehavior_instanceC;
@@ -18,7 +30,7 @@ void BaseGameBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    BaseGameBehavior_instanceC = [((BaseGameBehavior*) [BaseGameBehavior alloc]) init];
+    BaseGameBehavior_instanceC = ((BaseGameBehavior*) [((BaseGameBehavior*) [BaseGameBehavior alloc]) init]);
 }
 
 @implementation BaseGameBehavior
@@ -35,7 +47,7 @@ void BaseGameBehavior_staticInit(void) {
 
 
 // throws Exception
-- (void) init_ {
+- (void) initMethod {
         GameAdState* gameAdState = [[GameAdStateFactory getInstance] getCurrentInstance];
         [gameAdState playingAdState];
 }

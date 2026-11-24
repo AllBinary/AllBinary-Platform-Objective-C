@@ -12,6 +12,21 @@
 #include "org/allbinary/graphics/form/ABCustomForm.h"
 #include "org/allbinary/graphics/form/FormTypeFactory.h"
 #include "org/allbinary/graphics/form/FormType.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 static id PaintableForm_NULL_PAINTABLE_FORM;
@@ -38,7 +53,7 @@ void PaintableForm_staticInit(void) {
 
 + (PaintableForm*) getNullPaintableForm {
         if ((PaintableForm_staticInit(), PaintableForm_NULL_PAINTABLE_FORM) == [NullUtil getInstance]->NULL_OBJECT) {
-            PaintableForm_NULL_PAINTABLE_FORM = [((PaintableForm*) [PaintableForm alloc]) init:[StringUtil getInstance]->EMPTY_STRING :((ABCustomItem**) java_array_new(sizeof(ABCustomItem*), 0)) :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE];
+            PaintableForm_NULL_PAINTABLE_FORM = ((PaintableForm*) [((PaintableForm*) [PaintableForm alloc]) init:[StringUtil getInstance]->EMPTY_STRING :((ABCustomItem**) java_array_new(sizeof(ABCustomItem*), 0)) :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE]);
         }
         return ((PaintableForm*) (PaintableForm_staticInit(), PaintableForm_NULL_PAINTABLE_FORM));
 }
@@ -53,7 +68,7 @@ void PaintableForm_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(Rectangle*)rectangle :(FormType*)formType {
+- (void) initMethod:(Rectangle*)rectangle :(FormType*)formType {
         self->rectangle = rectangle;
         GPoint* point = [self->rectangle getPoint];
         self->x = [point getX];

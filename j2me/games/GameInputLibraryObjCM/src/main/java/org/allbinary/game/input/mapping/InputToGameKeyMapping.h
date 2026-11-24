@@ -69,7 +69,7 @@
 - (BasicArrayList*) getReverseInstance:(int32_t)id_;
 - (void) initGameKey:(Canvas*)canvas :(GameKey*)gameKey;
 - (int32_t) getSmallestCanvasGameKeyCode:(Canvas*)canvas;
-- (void) init_:(Canvas*)canvas;
+- (void) initMethod:(Canvas*)canvas;
 - (GameKey*) getInstanceForCanvas:(Canvas*)canvas :(int32_t)id_;
 - (GameKey*) getInstance:(int32_t)id_;
 @end

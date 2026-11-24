@@ -19,7 +19,7 @@ void TickableLayerProcessor_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:[((TickableLayerManager*) [TickableLayerManager alloc]) init]];
+        self = [super init:((TickableLayerManager*) [((TickableLayerManager*) [TickableLayerManager alloc]) init])];
     return self;
 }
 
@@ -27,7 +27,7 @@ void TickableLayerProcessor_staticInit(void) {
 // throws Exception
 - (void) processAt:(AllBinaryLayerManager*)allBinaryLayerManager :(AllBinaryLayer*)layerInterface :(int32_t)index {
         TickableInterface* tickableInterface = ((TickableInterface*) layerInterface);
-        [tickableInterface processTick:allBinaryLayerManager];
+        [((id<TickableInterface>) tickableInterface) processTick:allBinaryLayerManager];
 }
 
 

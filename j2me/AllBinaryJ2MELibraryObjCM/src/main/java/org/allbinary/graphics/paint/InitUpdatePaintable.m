@@ -23,7 +23,7 @@ void InitUpdatePaintable_staticInit(void) {
 
 
 // throws Exception
-- (void) init_ {
+- (void) initMethod {
 }
 
 

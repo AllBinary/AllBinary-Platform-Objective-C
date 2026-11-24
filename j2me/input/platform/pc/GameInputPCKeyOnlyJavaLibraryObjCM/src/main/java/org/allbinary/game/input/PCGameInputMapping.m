@@ -4,6 +4,9 @@
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
 #include "org/allbinary/game/input/PCKeyFactory.h"
 #include "org/allbinary/game/input/Input.h"
+#if __has_include("org/allbinary/game/configuration/persistance/GamePersistanceStrings.h")
+#include "org/allbinary/game/configuration/persistance/GamePersistanceStrings.h"
+#endif
 #if __has_include("org/allbinary/game/input/InputToGameKeyMapping.h")
 #include "org/allbinary/game/input/InputToGameKeyMapping.h"
 #endif
@@ -37,10 +40,10 @@ void PCGameInputMapping_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(AbeClientInformationInterface*)abeClientInformation {
+- (void) initMethod:(AbeClientInformationInterface*)abeClientInformation {
         [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->INIT];
         [PCKeyFactory getInstance];
-        [super init_:abeClientInformation];
+        [super initMethod:abeClientInformation];
         if ([self getTotalMapped] == 0 || [self isDefaultNew]) {
             [[self getInputMapping] addMapping:[self getDefault]];
             [self save:abeClientInformation];

@@ -8,6 +8,12 @@
 #include "org/allbinary/animation/AnimationBehaviorFactory.h"
 #include "org/allbinary/animation/VectorRotationAnimation.h"
 #include "org/allbinary/animation/Animation.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 
@@ -40,7 +46,7 @@ void VectorRotationAnimationInterfaceFactory_staticInit(void) {
 
 // throws Exception
 - (Animation*) getInstance:(int32_t)instanceId {
-        return [((VectorRotationAnimation*) [VectorRotationAnimation alloc]) init:self->currentPoints :[self getBasicColorP] :[self->animationBehaviorFactory getOrCreateInstance]];
+        return ((VectorRotationAnimation*) [((VectorRotationAnimation*) [VectorRotationAnimation alloc]) init:self->currentPoints :[self getBasicColorP] :[self->animationBehaviorFactory getOrCreateInstance]]);
 }
 
 

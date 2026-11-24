@@ -13,7 +13,7 @@ void NoPlayerGameInput_staticInit(void) {
         return;
     }
     initialized = true;
-    NoPlayerGameInput_SINGLETON = [((NoPlayerGameInput*) [NoPlayerGameInput alloc]) init];
+    NoPlayerGameInput_SINGLETON = ((NoPlayerGameInput*) [((NoPlayerGameInput*) [NoPlayerGameInput alloc]) init]);
 }
 
 @implementation NoPlayerGameInput
@@ -25,7 +25,7 @@ void NoPlayerGameInput_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:[((BasicArrayListD*) [BasicArrayListD alloc]) init] :[((BasicArrayListD*) [BasicArrayListD alloc]) init] :-1];
+        self = [super init:((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :-1];
     return self;
 }
 

@@ -10,7 +10,7 @@ void ViewPositionBase_staticInit(void) {
         return;
     }
     initialized = true;
-    ViewPositionBase_NULL_VIEW_POSITION = [((ViewPositionBase*) [ViewPositionBase alloc]) init:0 :0 :0];
+    ViewPositionBase_NULL_VIEW_POSITION = ((ViewPositionBase*) [((ViewPositionBase*) [ViewPositionBase alloc]) init:0 :0 :0]);
 }
 
 @implementation ViewPositionBase

@@ -12,7 +12,7 @@ void GamePersistanceSingleton_staticInit(void) {
         return;
     }
     initialized = true;
-    GamePersistanceSingleton_GAME_PERSISTANCE = [((GamePersistanceSingleton*) [GamePersistanceSingleton alloc]) init];
+    GamePersistanceSingleton_GAME_PERSISTANCE = ((GamePersistanceSingleton*) [((GamePersistanceSingleton*) [GamePersistanceSingleton alloc]) init]);
 }
 
 @implementation GamePersistanceSingleton

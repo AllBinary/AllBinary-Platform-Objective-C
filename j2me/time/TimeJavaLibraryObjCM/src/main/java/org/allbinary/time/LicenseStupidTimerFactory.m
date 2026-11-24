@@ -11,7 +11,7 @@ void LicenseStupidTimerFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    LicenseStupidTimerFactory_instance = [((StupidTimer*) [StupidTimer alloc]) init];
+    LicenseStupidTimerFactory_instance = ((StupidTimer*) [((StupidTimer*) [StupidTimer alloc]) init]);
 }
 
 @implementation LicenseStupidTimerFactory

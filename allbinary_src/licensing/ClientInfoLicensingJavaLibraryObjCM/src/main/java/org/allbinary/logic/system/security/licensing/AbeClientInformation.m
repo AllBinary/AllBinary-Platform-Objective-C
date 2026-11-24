@@ -9,6 +9,18 @@
 #include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/logic/system/security/licensing/ClientInformation.h"
+#if __has_include("org/allbinary/logic/system/os/OperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
+#endif
+#if __has_include("org/allbinary/business/init/LicenseInitInfoUtil.h")
+#include "org/allbinary/business/init/LicenseInitInfoUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -34,7 +46,7 @@ void AbeClientInformation_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         JAVA_TRY {
             [self setOperatingSystemInterface:[[OperatingSystemFactory getInstance] getOperatingSystemInstance]];
             LicenseInitInfo* licenseInitInfo = [[LicenseInitInfoUtil getInstance] read];
@@ -46,7 +58,7 @@ void AbeClientInformation_staticInit(void) {
                 [self setLicenseId:NONE];
             }
             CommonStrings* commonStrings = [CommonStrings getInstance];
-            [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Special Name: "] append:[self getSpecialName]] toString] :self :commonStrings->CONSTRUCTOR];
+            [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Special Name: "] append:[self getSpecialName]] toString] :self :commonStrings->CONSTRUCTOR];
         } JAVA_CATCH(Exception, e) {
             LogUtil* logUtil = [LogUtil getInstance];
             CommonStrings* commonStrings = [CommonStrings getInstance];

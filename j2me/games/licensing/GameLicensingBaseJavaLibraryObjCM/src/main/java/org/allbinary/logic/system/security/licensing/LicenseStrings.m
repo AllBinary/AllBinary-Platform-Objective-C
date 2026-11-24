@@ -10,7 +10,7 @@ void LicenseStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    LicenseStrings_instance = [((LicenseStrings*) [LicenseStrings alloc]) init];
+    LicenseStrings_instance = ((LicenseStrings*) [((LicenseStrings*) [LicenseStrings alloc]) init]);
 }
 
 @implementation LicenseStrings

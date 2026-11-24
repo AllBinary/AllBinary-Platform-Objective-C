@@ -3,6 +3,9 @@
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
 #include "org/allbinary/game/terrain/TerrainEvent.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 
@@ -24,7 +27,7 @@ void TerrainEventFactory_staticInit(void) {
 
 
 - (AllBinaryEventObject*) getInstance {
-        return [((TerrainEvent*) [TerrainEvent alloc]) init:[NullUtil getInstance]->NULL_OBJECT];
+        return ((TerrainEvent*) [((TerrainEvent*) [TerrainEvent alloc]) init:[NullUtil getInstance]->NULL_OBJECT]);
 }
 
 @end

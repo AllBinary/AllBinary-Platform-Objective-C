@@ -34,7 +34,7 @@ void BasicRandomAIFactory_staticInit(void) {
             java_throw(java_exception_new("Exception", "No Visitor Provided"));
         }
         InputProbability* inputProbability = ((InputProbability*) [hashtable get:JAVA_BOX(((id) (InputProbability_staticInit(), InputProbability_INPUT_PROBABILITY)))]);
-        return [((BasicRandomAI*) [BasicRandomAI alloc]) init:ownerLayerInterface :gameInput :inputProbability :visitor];
+        return ((BasicRandomAI*) [((BasicRandomAI*) [BasicRandomAI alloc]) init:ownerLayerInterface :gameInput :inputProbability :visitor]);
 }
 
 @end

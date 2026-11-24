@@ -42,6 +42,9 @@
 #if __has_include("org/allbinary/util/ThreadPool.h")
 #include "org/allbinary/util/ThreadPool.h"
 #endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
 #if __has_include("org/allbinary/game/midlet/ThreadPool.h")
 #include "org/allbinary/game/midlet/ThreadPool.h"
 #endif
@@ -141,7 +144,7 @@ void DemoGameMidlet_staticInit(void) {
         [self->logUtil putF:self->commonStrings->START :self :"setDemo"];
         ProgressCanvas* progressCanvas = [ProgressCanvasFactory getInstance];
         [progressCanvas start];
-        [[PrimaryThreadPool getInstance] runTask:[((DemoRunnable*) [DemoRunnable alloc]) init:self]];
+        [[PrimaryThreadPool getInstance] runTask:((DemoRunnable*) [((DemoRunnable*) [DemoRunnable alloc]) init:self])];
 }
 
 
@@ -154,7 +157,7 @@ void DemoGameMidlet_staticInit(void) {
         [progressCanvas start];
         ABHashtable* hashtable = [self getStartStateHashtable];
         [self setStartStateHashtable:[StdUtil getInstance]->NULL_TABLE];
-        [[PrimaryThreadPool getInstance] runTask:[((CreateGameRunnable*) [CreateGameRunnable alloc]) init:self :hashtable]];
+        [[PrimaryThreadPool getInstance] runTask:((CreateGameRunnable*) [((CreateGameRunnable*) [CreateGameRunnable alloc]) init:self :hashtable])];
         [self->logUtil putF:self->commonStrings->END :self :CREATE_GAME];
 }
 

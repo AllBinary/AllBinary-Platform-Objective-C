@@ -4,6 +4,27 @@
 #include "org/allbinary/logic/java/character/CharArrayFactory.h"
 #include "org/allbinary/graphics/font/MyFontProcessor.h"
 #include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
+#if __has_include("org/allbinary/logic/java/character/CharArrayFactory.h")
+#include "org/allbinary/logic/java/character/CharArrayFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/draw/Font.h")
+#include "org/allbinary/graphics/draw/Font.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
+#if __has_include("org/allbinary/logic/java/character/Font.h")
+#include "org/allbinary/logic/java/character/Font.h"
+#endif
+#if __has_include("org/allbinary/graphics/font/Font.h")
+#include "org/allbinary/graphics/font/Font.h"
+#endif
+#if __has_include("org/allbinary/graphics/font/Font.h")
+#include "org/allbinary/graphics/font/Font.h"
+#endif
+#if __has_include("org/allbinary/graphics/font/Font.h")
+#include "org/allbinary/graphics/font/Font.h"
+#endif
 
 
 
@@ -18,7 +39,7 @@ void KeyValueDrawCharArray_staticInit(void) {
 @implementation KeyValueDrawCharArray
 
 - (void) initFields {
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     
     
     self->valueX = 0;

@@ -18,7 +18,7 @@ void WebCommandProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    WebCommandProcessor_instance = [((WebCommandProcessor*) [WebCommandProcessor alloc]) init];
+    WebCommandProcessor_instance = ((WebCommandProcessor*) [((WebCommandProcessor*) [WebCommandProcessor alloc]) init]);
 }
 
 @implementation WebCommandProcessor
@@ -26,7 +26,7 @@ void WebCommandProcessor_staticInit(void) {
 - (void) initFields {
     self->logUtil = [LogUtil getInstance];
     self->aboutCommandProcessor = [AboutCommandProcessor getInstance];
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 - (instancetype) init {

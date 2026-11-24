@@ -11,7 +11,7 @@ void FrameUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    FrameUtil_instance = [((FrameUtil*) [FrameUtil alloc]) init];
+    FrameUtil_instance = ((FrameUtil*) [((FrameUtil*) [FrameUtil alloc]) init]);
 }
 
 @implementation FrameUtil

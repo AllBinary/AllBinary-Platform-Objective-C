@@ -38,7 +38,7 @@ void ColorCompositeSpriteIndexedAnimationFactory_staticInit(void) {
 // throws Exception
 - (Animation*) getInstance:(int32_t)instanceId {
         Sprite* sprite = [self->animationFactorySpriteScaleUtil createImage:[self getImage] :self->animationFactoryInitializationVisitor->width :self->animationFactoryInitializationVisitor->height :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
-        return [((SpriteIndexedAnimation*) [SpriteIndexedAnimation alloc]) init:sprite :[self getImage] :self->basicColorArray :[self->animationBehaviorFactory getOrCreateInstance]];
+        return ((SpriteIndexedAnimation*) [((SpriteIndexedAnimation*) [SpriteIndexedAnimation alloc]) init:sprite :[self getImage] :self->basicColorArray :[self->animationBehaviorFactory getOrCreateInstance]]);
 }
 
 

@@ -11,6 +11,33 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/system/Memory.h"
 #include "org/allbinary/image/ImageCacheBase.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 ImageCache* ImageCache_NULL_IMAGE_CACHE;
@@ -21,7 +48,7 @@ void ImageCache_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageCache_NULL_IMAGE_CACHE = [((ImageCache*) [ImageCache alloc]) init];
+    ImageCache_NULL_IMAGE_CACHE = ((ImageCache*) [((ImageCache*) [ImageCache alloc]) init]);
 }
 
 @implementation ImageCache
@@ -52,7 +79,7 @@ void ImageCache_staticInit(void) {
                 return index;
             }
         }
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"unable to find key: "] append:[[StringUtil getInstance] toString:key]] toString] :self :self->commonStrings->RUN];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"unable to find key: "] append:[[StringUtil getInstance] toString:key]] toString] :self :self->commonStrings->RUN];
         java_throw(java_exception_new("RuntimeException", ""));
 }
 
@@ -90,13 +117,13 @@ void ImageCache_staticInit(void) {
             ResourceUtil* resourceUtil = [ResourceUtil getInstance];
             InputStream* resourceInputStream = [resourceUtil getResourceAsStream:((const char*) key)];
             if (resourceInputStream == nil) {
-                java_throw(java_exception_new("RuntimeException", [[[[((StringMaker*) [StringMaker alloc]) init] append:"Image resource is not available for key: "] append:[[StringUtil getInstance] toString:key]] toString]));
+                java_throw(java_exception_new("RuntimeException", [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Image resource is not available for key: "] append:[[StringUtil getInstance] toString:key]] toString]));
             }
             JAVA_TRY {
                 image = [self createImageFromInputStream:key :resourceInputStream];
             } JAVA_CATCH(Exception, e) {
                 [self->logUtil put:"Exception: Trying Again After GC" :self :self->commonStrings->GET :e];
-                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"InputStream: "] append:[[StringUtil getInstance] toString:resourceInputStream]] toString] :self :self->commonStrings->GET];
+                [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"InputStream: "] append:[[StringUtil getInstance] toString:resourceInputStream]] toString] :self :self->commonStrings->GET];
                 [self->tsUtil gc];
                 [self->tsUtil gc];
                 [self->logUtil putF:[Memory getInfo] :self :self->commonStrings->GET];

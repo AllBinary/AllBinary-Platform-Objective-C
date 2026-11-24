@@ -11,6 +11,15 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/util/BasicArrayList.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -90,12 +99,12 @@ void GameDifficultyOptions_staticInit(void) {
 - (ChoiceGroup*) getChoiceGroup:(BasicArrayList*)list :(const char*)name :(int32_t)option {
         const char* METHOD_NAME = "addChoiceGroup";
         const char* NAME = "Adding Choice: ";
-        ChoiceGroup* choiceGroup = [((ChoiceGroup*) [ChoiceGroup alloc]) init:name :option :[[StringUtil getInstance] getArrayInstance] :(NullImage_staticInit(), NullImage_NULL_IMAGE_ARRAY)];
+        ChoiceGroup* choiceGroup = ((ChoiceGroup*) [((ChoiceGroup*) [ChoiceGroup alloc]) init:name :option :[[StringUtil getInstance] getArrayInstance] :(NullImage_staticInit(), NullImage_NULL_IMAGE_ARRAY)]);
         int32_t size = [list size];
         id anyType = nullptr;
         for (int32_t index = 0; index < size; index++) {
             anyType = list->objectArray[index];
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:NAME] append:[anyType toString]] toString] :self :METHOD_NAME];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:NAME] append:[anyType toString]] toString] :self :METHOD_NAME];
             [choiceGroup append:[anyType toString] :(NullImage_staticInit(), NullImage_NULL_IMAGE)];
         }
         return choiceGroup;

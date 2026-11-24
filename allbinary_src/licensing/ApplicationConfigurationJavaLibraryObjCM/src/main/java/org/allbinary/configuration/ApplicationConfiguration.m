@@ -14,6 +14,27 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/io/file/FileFactory.h")
+#include "org/allbinary/logic/io/file/FileFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/io/StreamUtil.h")
+#include "org/allbinary/logic/io/StreamUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/MainFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#endif
 
 
 static id ApplicationConfiguration_instance;
@@ -40,7 +61,7 @@ void ApplicationConfiguration_staticInit(void) {
 
 + (ApplicationConfiguration*) getInstance {
         if ((ApplicationConfiguration_staticInit(), ApplicationConfiguration_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            ApplicationConfiguration_instance = [((ApplicationConfiguration*) [ApplicationConfiguration alloc]) init];
+            ApplicationConfiguration_instance = ((ApplicationConfiguration*) [((ApplicationConfiguration*) [ApplicationConfiguration alloc]) init]);
         }
         return ((ApplicationConfiguration*) (ApplicationConfiguration_staticInit(), ApplicationConfiguration_instance));
 }
@@ -67,7 +88,7 @@ void ApplicationConfiguration_staticInit(void) {
 - (void) read {
         FileStreamFactory* fileInputStreamFactory = [FileStreamFactory getInstance];
         InputStream* fileInputStream = [fileInputStreamFactory getFileInputStreamInstance:[StringUtil getInstance]->EMPTY_STRING :self->FILE];
-        AbDataInputStream* dataInputStream = [((AbDataInputStream*) [AbDataInputStream alloc]) init:fileInputStream];
+        AbDataInputStream* dataInputStream = ((AbDataInputStream*) [((AbDataInputStream*) [AbDataInputStream alloc]) init:fileInputStream]);
         int32_t fullScreen = [dataInputStream readInt];
         if (fullScreen == 0) {
             [self setFullscreen:false];
@@ -103,7 +124,7 @@ void ApplicationConfiguration_staticInit(void) {
             [self->logUtil putF:java_concat("Write Configuration: ", [self toString]) :self :"write"];
             FileStreamFactory* fileInputStreamFactory = [FileStreamFactory getInstance];
             OutputStream* fileOutputStream = [fileInputStreamFactory getFileOutputStreamInstance:[StringUtil getInstance]->EMPTY_STRING :self->FILE];
-            AbDataOutputStream* dataOutputStream = [((AbDataOutputStream*) [AbDataOutputStream alloc]) init:fileOutputStream];
+            AbDataOutputStream* dataOutputStream = ((AbDataOutputStream*) [((AbDataOutputStream*) [AbDataOutputStream alloc]) init:fileOutputStream]);
             closeable = dataOutputStream;
             if ([self isFullscreen]) {
                 [dataOutputStream writeInt:1];
@@ -179,7 +200,7 @@ void ApplicationConfiguration_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"isFullscreen: "];
         [stringBuffer appendboolean:[self isFullscreen]];
         [stringBuffer append:" isProgressBarView: "];

@@ -9,32 +9,8 @@
 #include "org/allbinary/game/ag/layer/pickup/health/HealLayerCircularStaticPool.h"
 #include "org/allbinary/game/ag/layer/pickup/health/HealLayerFactory.h"
 #include "org/allbinary/game/ag/layer/pickup/health/HealthResources.h"
-#if __has_include("org/allbinary/game/ag/layer/pickup/health/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/ag/layer/pickup/health/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/animation/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
-#endif
-#if __has_include("org/allbinary/layer/AnimationInterfaceFactoryInterface.h")
-#include "org/allbinary/layer/AnimationInterfaceFactoryInterface.h"
+#if __has_include("org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.h")
+#include "org/allbinary/game/layer/pickup/PickedUpLayerTypeFactory.h"
 #endif
 #if __has_include("org/allbinary/game/ag/layer/pickup/health/AnimationInterfaceFactoryInterface.h")
 #include "org/allbinary/game/ag/layer/pickup/health/AnimationInterfaceFactoryInterface.h"
@@ -62,6 +38,39 @@
 #endif
 #if __has_include("org/allbinary/layer/AnimationInterfaceFactoryInterface.h")
 #include "org/allbinary/layer/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h")
+#include "org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h"
+#endif
+#if __has_include("org/allbinary/game/ag/layer/pickup/health/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/ag/layer/pickup/health/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/game/layer/pickup/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/layer/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/layer/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h")
+#include "org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h"
 #endif
 
 
@@ -79,18 +88,18 @@ void HealPickedUpLayerInterfaceFactory_staticInit(void) {
 @implementation HealPickedUpLayerInterfaceFactory
 
 - (void) initFields {
-    self->pool = [((HealLayerCircularStaticPool*) [HealLayerCircularStaticPool alloc]) init:[((HealLayerFactory*) [HealLayerFactory alloc]) init] :1];
+    self->pool = ((HealLayerCircularStaticPool*) [((HealLayerCircularStaticPool*) [HealLayerCircularStaticPool alloc]) init:((HealLayerFactory*) [((HealLayerFactory*) [HealLayerFactory alloc]) init]) :1]);
 }
 
 
 // throws Exception
-+ (void) init_ {
-        HealPickedUpLayerInterfaceFactory_pickedUpLayerInterfaceFactoryInterface = [((HealPickedUpLayerInterfaceFactory*) [HealPickedUpLayerInterfaceFactory alloc]) init];
++ (void) initMethod {
+        HealPickedUpLayerInterfaceFactory_pickedUpLayerInterfaceFactoryInterface = ((HealPickedUpLayerInterfaceFactory*) [((HealPickedUpLayerInterfaceFactory*) [HealPickedUpLayerInterfaceFactory alloc]) init]);
 }
 
 
 - (instancetype) init {
-        self = [super init:[PickedUpLayerTypeFactory getInstance]->HEAL :[IconLayerFactory getInstance:[[[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[HealthResources getInstance]->RESOURCE] getInstance:0] :10 :10] :[[[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[HealthResources getInstance]->RESOURCE] getInstance:0]];
+        self = [super init:[PickedUpLayerTypeFactory getInstance]->HEAL :[IconLayerFactory getInstance:[((id<AnimationInterfaceFactoryInterface>) [[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[HealthResources getInstance]->RESOURCE]) getInstance:0] :10 :10] :[((id<AnimationInterfaceFactoryInterface>) [[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[HealthResources getInstance]->RESOURCE]) getInstance:0]];
         [self initFields];
     return self;
 }

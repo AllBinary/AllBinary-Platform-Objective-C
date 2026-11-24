@@ -53,7 +53,7 @@ void CellPosition_staticInit(void) {
 
 
 + (const char*) toStringColRow:(int32_t)i_column :(int32_t)i_row {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         CommonSeps* commonSeps = [CommonSeps getInstance];
         [stringBuffer append:commonSeps->PARENTHESIS_OPEN];
         [stringBuffer appendint:i_column];

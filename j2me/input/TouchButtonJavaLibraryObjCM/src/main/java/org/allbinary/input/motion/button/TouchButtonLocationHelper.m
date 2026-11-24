@@ -72,7 +72,7 @@ void TouchButtonLocationHelper_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"totalColumns: "];
         [stringBuffer appendint:self->totalColumns];
         [stringBuffer append:" totalRows: "];

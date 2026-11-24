@@ -3,6 +3,9 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/logic/system/security/licensing/ThirdPartyInApplicationPurchaseInterface.h"
 #include "org/allbinary/logic/system/security/licensing/LockableFeature.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 

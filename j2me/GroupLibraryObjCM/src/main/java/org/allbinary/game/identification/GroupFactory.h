@@ -54,7 +54,7 @@
 + (GroupFactory*) getInstance;
 - (Group*) getNextGroup;
 - (Group*) getNextGroupByName:(const char*)name;
-- (void) init_:(int16_t)groups :(const char**)nameArray;
+- (void) initMethod:(int16_t)groups :(const char**)nameArray;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

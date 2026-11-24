@@ -14,13 +14,13 @@ void PlacedLayerFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    PlacedLayerFactory_instance = [((PlacedLayerFactory*) [PlacedLayerFactory alloc]) init];
+    PlacedLayerFactory_instance = ((PlacedLayerFactory*) [((PlacedLayerFactory*) [PlacedLayerFactory alloc]) init]);
 }
 
 @implementation PlacedLayerFactory
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->basicArrayListUtil = [BasicArrayListUtil getInstance];
 }
 

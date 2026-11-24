@@ -11,7 +11,7 @@ void ItemIndexDx_staticInit(void) {
         return;
     }
     initialized = true;
-    ItemIndexDx_instance = [((ItemIndexDx*) [ItemIndexDx alloc]) init];
+    ItemIndexDx_instance = ((ItemIndexDx*) [((ItemIndexDx*) [ItemIndexDx alloc]) init]);
 }
 
 @implementation ItemIndexDx

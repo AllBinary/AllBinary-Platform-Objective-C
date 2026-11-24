@@ -29,6 +29,21 @@
 #if __has_include("org/allbinary/util/Player.h")
 #include "org/allbinary/util/Player.h"
 #endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static const char* PlayerQueue_TOTAL = "Sounds In Queue: ";
@@ -45,7 +60,7 @@ void PlayerQueue_staticInit(void) {
 
 - (void) initFields {
     self->commonStrings = [CommonStrings getInstance];
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     
 }
 
@@ -76,7 +91,7 @@ void PlayerQueue_staticInit(void) {
             if ([self->list size] > 0) {
                 sound = ((Sound*) [self->list removeAt:0]);
                 if (sound != nil) {
-                    [[sound getPlayerP] start];
+                    [((id<Player>) [sound getPlayerP]) start];
                 }
                 while ([self->list size] > self->max) {
                     [self->list removeAt:0];
@@ -89,7 +104,7 @@ void PlayerQueue_staticInit(void) {
             if (sound != nil) {
                 resource = [sound getResource];
             }
-            [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->EXCEPTION_LABEL] append:resource] toString] :self :self->commonStrings->PROCESS];
+            [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->EXCEPTION_LABEL] append:resource] toString] :self :self->commonStrings->PROCESS];
             return false;
         } JAVA_END_TRY;
 }
@@ -101,7 +116,7 @@ void PlayerQueue_staticInit(void) {
 
 
 - (const char*) toString {
-        return [[[[((StringMaker*) [StringMaker alloc]) init] append:PlayerQueue_TOTAL] appendint:[self->list size]] toString];
+        return [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:PlayerQueue_TOTAL] appendint:[self->list size]] toString];
 }
 
 @end

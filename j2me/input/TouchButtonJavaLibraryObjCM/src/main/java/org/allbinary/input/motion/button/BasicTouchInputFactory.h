@@ -67,7 +67,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (BasicTouchInputFactory*) getInstance;
-- (void) init_:(InputToGameKeyMapping*)inputToGameKeyMapping;
+- (void) initMethod:(InputToGameKeyMapping*)inputToGameKeyMapping;
 - (void) updateAll:(InputToGameKeyMapping*)inputToGameKeyMapping;
 - (void) updateAllFromList:(BasicArrayList*)list :(InputToGameKeyMapping*)inputToGameKeyMapping;
 - (BasicArrayList*) getList;

@@ -2,6 +2,15 @@
 #include "org/allbinary/image/ImageFactory.h"
 #include "javax/microedition/lcdui/Image.h"
 #include "org/allbinary/MIDPUtil.h"
+#if __has_include("org/allbinary/MIDPUtil.h")
+#include "org/allbinary/MIDPUtil.h"
+#endif
+#if __has_include("org/allbinary/MIDPUtil.h")
+#include "org/allbinary/MIDPUtil.h"
+#endif
+#if __has_include("org/allbinary/MIDPUtil.h")
+#include "org/allbinary/MIDPUtil.h"
+#endif
 
 
 static ImageFactory* ImageFactory_instance;
@@ -12,7 +21,7 @@ void ImageFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageFactory_instance = [((ImageFactory*) [ImageFactory alloc]) init];
+    ImageFactory_instance = ((ImageFactory*) [((ImageFactory*) [ImageFactory alloc]) init]);
 }
 
 @implementation ImageFactory

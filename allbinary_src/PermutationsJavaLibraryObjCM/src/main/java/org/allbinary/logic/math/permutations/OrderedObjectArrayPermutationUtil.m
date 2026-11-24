@@ -14,7 +14,7 @@ void OrderedObjectArrayPermutationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    OrderedObjectArrayPermutationUtil_instance = [((OrderedObjectArrayPermutationUtil*) [OrderedObjectArrayPermutationUtil alloc]) init];
+    OrderedObjectArrayPermutationUtil_instance = ((OrderedObjectArrayPermutationUtil*) [((OrderedObjectArrayPermutationUtil*) [OrderedObjectArrayPermutationUtil alloc]) init]);
 }
 
 @implementation OrderedObjectArrayPermutationUtil
@@ -93,10 +93,10 @@ void OrderedObjectArrayPermutationUtil_staticInit(void) {
         int32_t TOTAL = 7;
         id* data = ((id*) java_array_new(sizeof(id), TOTAL));
         for (int32_t i = 0; i < TOTAL; i++) {
-            data[i] = [((ComparableObject*) [ComparableObject alloc]) init];
+            data[i] = ((ComparableObject*) [((ComparableObject*) [ComparableObject alloc]) init]);
         }
         [Arrays sort:data];
-        ObjectPermutationVisitor* permutationVisitor = [((ObjectPermutationVisitor*) [ObjectPermutationVisitor alloc]) init:data];
+        ObjectPermutationVisitor* permutationVisitor = ((ObjectPermutationVisitor*) [((ObjectPermutationVisitor*) [ObjectPermutationVisitor alloc]) init:data]);
         const char* ORIGINAL_DATA_LABEL = "Original Data: ";
         fputs(java_string_of(ORIGINAL_DATA_LABEL), stdout);
         [permutationVisitor visit:data];

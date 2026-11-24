@@ -10,7 +10,7 @@ void NullRecordStore_staticInit(void) {
         return;
     }
     initialized = true;
-    NullRecordStore_NULL_RECORD_STORE = [((NullRecordStore*) [NullRecordStore alloc]) init];
+    NullRecordStore_NULL_RECORD_STORE = ((NullRecordStore*) [((NullRecordStore*) [NullRecordStore alloc]) init]);
 }
 
 @implementation NullRecordStore

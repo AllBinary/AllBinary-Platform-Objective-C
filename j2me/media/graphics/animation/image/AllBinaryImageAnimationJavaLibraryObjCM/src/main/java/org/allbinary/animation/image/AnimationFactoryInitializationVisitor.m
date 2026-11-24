@@ -4,6 +4,18 @@
 #include "org/allbinary/math/PositionStrings.h"
 #include "org/allbinary/string/CommonLabels.h"
 #include "org/allbinary/string/CommonSeps.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/math/PositionStrings.h")
+#include "org/allbinary/math/PositionStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/math/PositionStrings.h")
+#include "org/allbinary/math/PositionStrings.h"
+#endif
 
 
 
@@ -40,7 +52,7 @@ void AnimationFactoryInitializationVisitor_staticInit(void) {
 - (const char*) toString {
         CommonSeps* commonSeps = [CommonSeps getInstance];
         CommonLabels* commonLabels = [CommonLabels getInstance];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [[stringBuffer append:[PositionStrings getInstance]->DX_LABEL] appendfloat:((float) self->dx)];
         [[stringBuffer append:[PositionStrings getInstance]->DY_LABEL] appendfloat:((float) self->dy)];
         [stringBuffer append:commonLabels->WIDTH_LABEL];

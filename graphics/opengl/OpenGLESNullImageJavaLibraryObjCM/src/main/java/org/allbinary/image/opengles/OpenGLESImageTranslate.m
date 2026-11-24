@@ -12,7 +12,7 @@ void OpenGLESImageTranslate_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLESImageTranslate_instance = [((OpenGLESImageTranslate*) [OpenGLESImageTranslate alloc]) init];
+    OpenGLESImageTranslate_instance = ((OpenGLESImageTranslate*) [((OpenGLESImageTranslate*) [OpenGLESImageTranslate alloc]) init]);
 }
 
 @implementation OpenGLESImageTranslate

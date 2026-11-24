@@ -12,7 +12,7 @@ void ImageScaleUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageScaleUtil_instance = [((ImageScaleUtil*) [ImageScaleUtil alloc]) init];
+    ImageScaleUtil_instance = ((ImageScaleUtil*) [((ImageScaleUtil*) [ImageScaleUtil alloc]) init]);
 }
 
 @implementation ImageScaleUtil

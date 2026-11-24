@@ -5,6 +5,9 @@
 #include "org/allbinary/view/ViewPosition.h"
 #include "org/allbinary/layer/AllBinaryLayerFactoryInterface.h"
 #include "org/allbinary/layer/AllBinaryLayer.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -32,7 +35,7 @@ void AllBinaryLayerFactory_staticInit(void) {
 
 
 - (AllBinaryLayer*) getInstance {
-        return [((AllBinaryLayer*) [AllBinaryLayer alloc]) init:[StringUtil getInstance]->EMPTY_STRING :self->rectangle :[ViewPosition getInstanceD]];
+        return ((AllBinaryLayer*) [((AllBinaryLayer*) [AllBinaryLayer alloc]) init:[StringUtil getInstance]->EMPTY_STRING :self->rectangle :[ViewPosition getInstanceD]]);
 }
 
 @end

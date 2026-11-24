@@ -11,7 +11,7 @@ void LicenseInitInfoUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    LicenseInitInfoUtil_instance = [((LicenseInitInfoUtil*) [LicenseInitInfoUtil alloc]) init];
+    LicenseInitInfoUtil_instance = ((LicenseInitInfoUtil*) [((LicenseInitInfoUtil*) [LicenseInitInfoUtil alloc]) init]);
 }
 
 @implementation LicenseInitInfoUtil
@@ -57,7 +57,7 @@ void LicenseInitInfoUtil_staticInit(void) {
 // throws Exception
 // synchronized
 - (LicenseInitInfo*) readAgain:(int32_t)initializeCounter {
-        LicenseInitInfo* licenseInitInfo = [((LicenseInitInfo*) [LicenseInitInfo alloc]) init];
+        LicenseInitInfo* licenseInitInfo = ((LicenseInitInfo*) [((LicenseInitInfo*) [LicenseInitInfo alloc]) init]);
         [licenseInitInfo clearServers];
         [licenseInitInfo addServer:self->OFFICIAL_ALLBINARY_SERVICES_SERVER];
         return licenseInitInfo;

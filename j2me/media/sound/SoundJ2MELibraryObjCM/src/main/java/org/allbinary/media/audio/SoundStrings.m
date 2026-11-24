@@ -10,7 +10,7 @@ void SoundStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    SoundStrings_instance = [((SoundStrings*) [SoundStrings alloc]) init];
+    SoundStrings_instance = ((SoundStrings*) [((SoundStrings*) [SoundStrings alloc]) init]);
 }
 
 @implementation SoundStrings

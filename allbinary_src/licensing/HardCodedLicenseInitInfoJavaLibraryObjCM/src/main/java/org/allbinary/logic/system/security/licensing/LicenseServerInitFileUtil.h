@@ -31,7 +31,7 @@
 @public
 }
 - (instancetype) init;
-- (void) init_;
+- (void) initMethod;
 - (void) write;
 @end
 

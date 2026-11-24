@@ -21,8 +21,8 @@ void AllBinaryLayerManager_staticInit(void) {
 
 - (void) initFields {
     self->layerManagerEventHandler = [LayerManagerEventHandler getInstance];
-    self->createLayerManagerEvent = [((LayerManagerEvent*) [LayerManagerEvent alloc]) init:self :self->layerManagerEventHandler->CREATE];
-    self->deleteLayerManagerEvent = [((LayerManagerEvent*) [LayerManagerEvent alloc]) init:self :self->layerManagerEventHandler->DELETE];
+    self->createLayerManagerEvent = ((LayerManagerEvent*) [((LayerManagerEvent*) [LayerManagerEvent alloc]) init:self :self->layerManagerEventHandler->CREATE]);
+    self->deleteLayerManagerEvent = ((LayerManagerEvent*) [((LayerManagerEvent*) [LayerManagerEvent alloc]) init:self :self->layerManagerEventHandler->DELETE]);
     self->basicLayerProcessorArray = ((LayerProcessor**) java_array_new(sizeof(LayerProcessor*), 0));
 }
 

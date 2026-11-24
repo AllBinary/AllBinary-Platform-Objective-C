@@ -24,7 +24,7 @@ void HighScoresCanvasChangeLevelInputProcessorFactory_staticInit(void) {
 
 
 - (HighScoresCanvasInputProcessor*) getInstance:(HighScoresCanvas*)highScoresCanvas {
-        return [((HighScoresCanvasLevelChangeInputProcessor*) [HighScoresCanvasLevelChangeInputProcessor alloc]) init:highScoresCanvas];
+        return ((HighScoresCanvasLevelChangeInputProcessor*) [((HighScoresCanvasLevelChangeInputProcessor*) [HighScoresCanvasLevelChangeInputProcessor alloc]) init:highScoresCanvas]);
 }
 
 @end

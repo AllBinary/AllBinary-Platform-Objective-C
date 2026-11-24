@@ -10,7 +10,7 @@ void TextChangeListener_staticInit(void) {
         return;
     }
     initialized = true;
-    TextChangeListener_instance = [((TextChangeListener*) [TextChangeListener alloc]) init];
+    TextChangeListener_instance = ((TextChangeListener*) [((TextChangeListener*) [TextChangeListener alloc]) init]);
 }
 
 @implementation TextChangeListener

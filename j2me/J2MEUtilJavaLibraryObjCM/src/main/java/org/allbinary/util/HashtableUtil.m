@@ -14,7 +14,7 @@ void HashtableUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    HashtableUtil_instance = [((HashtableUtil*) [HashtableUtil alloc]) init];
+    HashtableUtil_instance = ((HashtableUtil*) [((HashtableUtil*) [HashtableUtil alloc]) init]);
 }
 
 @implementation HashtableUtil
@@ -62,7 +62,7 @@ void HashtableUtil_staticInit(void) {
 
 
 - (BasicArrayList*) getKeysAsList:(ABHashtable*)hashtable {
-        BasicArrayList* list = [((BasicArrayListS*) [BasicArrayListS alloc]) init:[hashtable size]];
+        BasicArrayList* list = ((BasicArrayListS*) [((BasicArrayListS*) [BasicArrayListS alloc]) init:[hashtable size]]);
         Enumeration* enumeration = [hashtable keys];
         while ([self->enumerationUtil hasMoreElements:enumeration]) {
             [list add:[self->enumerationUtil nextElement:enumeration]];

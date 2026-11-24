@@ -9,6 +9,12 @@
 #include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
 #include "org/allbinary/logic/util/event/EventStrings.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/game/resource/FeatureResourceInitializationUtil.h")
+#include "org/allbinary/game/resource/FeatureResourceInitializationUtil.h"
+#endif
 
 
 
@@ -53,7 +59,7 @@ void DefaultGameInitializationListener_staticInit(void) {
                 [self->logUtil putF:commonStrings->UPDATE :self :ON_GAME_INITIALIZED];
                 java_sleep(20);
             }
-            [[FeatureResourceInitializationUtil getInstance] init_:[gameInitializedEvent getLevel]];
+            [[FeatureResourceInitializationUtil getInstance] initMethod:[gameInitializedEvent getLevel]];
             if (self->firstTime) {
                 self->firstTime = false;
             } else {

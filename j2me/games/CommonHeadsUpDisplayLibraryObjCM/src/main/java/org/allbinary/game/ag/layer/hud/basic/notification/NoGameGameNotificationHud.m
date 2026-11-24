@@ -3,6 +3,15 @@
 #include "org/allbinary/game/graphics/hud/BasicHudFactory.h"
 #include "org/allbinary/graphics/color/BasicColorFactory.h"
 #include "org/allbinary/game/ag/layer/hud/basic/notification/GameNotificationHud.h"
+#if __has_include("org/allbinary/game/graphics/hud/BasicHudFactory.h")
+#include "org/allbinary/game/graphics/hud/BasicHudFactory.h"
+#endif
+#if __has_include("org/allbinary/game/graphics/hud/BasicHudFactory.h")
+#include "org/allbinary/game/graphics/hud/BasicHudFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 

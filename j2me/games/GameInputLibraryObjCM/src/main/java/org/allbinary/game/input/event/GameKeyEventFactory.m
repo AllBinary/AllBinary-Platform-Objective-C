@@ -6,6 +6,18 @@
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/game/input/event/GameKeyEvent.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/game/input/InputFactory.h")
+#include "org/allbinary/game/input/InputFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/InputFactory.h")
+#include "org/allbinary/game/input/InputFactory.h"
+#endif
 
 
 static id GameKeyEventFactory_instance;
@@ -32,7 +44,7 @@ void GameKeyEventFactory_staticInit(void) {
 
 + (GameKeyEventFactory*) getInstance {
         if ((GameKeyEventFactory_staticInit(), GameKeyEventFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            GameKeyEventFactory_instance = [((GameKeyEventFactory*) [GameKeyEventFactory alloc]) init];
+            GameKeyEventFactory_instance = ((GameKeyEventFactory*) [((GameKeyEventFactory*) [GameKeyEventFactory alloc]) init]);
         }
         return ((GameKeyEventFactory*) (GameKeyEventFactory_staticInit(), GameKeyEventFactory_instance));
 }
@@ -45,7 +57,7 @@ void GameKeyEventFactory_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         NullUtil* nullUtil = [NullUtil getInstance];
         int32_t size = [InputFactory getInstance]->MAX;
         for (int32_t index = self->MAX_SOURCES; --index >= 0; ) {
@@ -58,14 +70,14 @@ void GameKeyEventFactory_staticInit(void) {
 
 // throws Exception
 - (GameKeyEvent*) getInstanceForKey:(GameKeyEventSourceInterface*)anyType :(int32_t)key {
-        GameKeyEvent* gameKeyEvent = self->ARRAY[[anyType getSourceId]][key];
+        GameKeyEvent* gameKeyEvent = self->ARRAY[[((id<GameKeyEventSourceInterface>) anyType) getSourceId]][key];
         return gameKeyEvent;
 }
 
 
 // throws Exception
 - (GameKeyEvent*) getInstanceForInput:(GameKeyEventSourceInterface*)anyType :(Input*)input {
-        GameKeyEvent* gameKeyEvent = self->ARRAY[[anyType getSourceId]][[input getId]];
+        GameKeyEvent* gameKeyEvent = self->ARRAY[[((id<GameKeyEventSourceInterface>) anyType) getSourceId]][[input getId]];
         return gameKeyEvent;
 }
 

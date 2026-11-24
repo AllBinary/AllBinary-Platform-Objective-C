@@ -10,7 +10,7 @@ void FileExtensionData_staticInit(void) {
         return;
     }
     initialized = true;
-    FileExtensionData_instance = [((FileExtensionData*) [FileExtensionData alloc]) init];
+    FileExtensionData_instance = ((FileExtensionData*) [((FileExtensionData*) [FileExtensionData alloc]) init]);
 }
 
 @implementation FileExtensionData

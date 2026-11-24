@@ -11,7 +11,7 @@ void NoDragVelocityBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    NoDragVelocityBehavior_instance = [((NoDragVelocityBehavior*) [NoDragVelocityBehavior alloc]) init];
+    NoDragVelocityBehavior_instance = ((NoDragVelocityBehavior*) [((NoDragVelocityBehavior*) [NoDragVelocityBehavior alloc]) init]);
 }
 
 @implementation NoDragVelocityBehavior

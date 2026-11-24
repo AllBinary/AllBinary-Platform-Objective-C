@@ -10,7 +10,7 @@ void ColorChangeEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    ColorChangeEventHandler_eventHandler = [((ColorChangeEventHandler*) [ColorChangeEventHandler alloc]) init];
+    ColorChangeEventHandler_eventHandler = ((ColorChangeEventHandler*) [((ColorChangeEventHandler*) [ColorChangeEventHandler alloc]) init]);
 }
 
 @implementation ColorChangeEventHandler

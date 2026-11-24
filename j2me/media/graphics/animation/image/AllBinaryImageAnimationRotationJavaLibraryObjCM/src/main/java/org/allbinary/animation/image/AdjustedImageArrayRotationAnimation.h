@@ -44,7 +44,7 @@
 - (void) initFields;
 + (AdjustedImageArrayRotationAnimation*) createAdjustedImageArrayRotationAnimationInfo:(id)anyType :(AnimationBehavior*)animationBehavior;
 + (AdjustedImageArrayRotationAnimation*) createAnimation:(Image**)imageArray :(AngleInfo*)angleInfo :(int32_t)totalAngle :(AnimationBehavior*)animationBehavior;
-- (void) init_:(int32_t)dx :(int32_t)dy;
+- (void) initMethod:(int32_t)dx :(int32_t)dy;
 - (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y;
 - (void) setDx:(int32_t)dx;
 - (int32_t) getDx;

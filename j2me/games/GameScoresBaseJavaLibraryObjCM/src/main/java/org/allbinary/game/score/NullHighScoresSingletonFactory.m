@@ -2,6 +2,12 @@
 #include "org/allbinary/game/score/NullHighScoresSingletonFactory.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/score/HighScores.h"
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
 
 
 static HighScores* NullHighScoresSingletonFactory_SINGLETON;
@@ -12,7 +18,7 @@ void NullHighScoresSingletonFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    NullHighScoresSingletonFactory_SINGLETON = [((HighScores*) [HighScores alloc]) init:[CommonStrings getInstance]->LOADING :"High Scores Not Loaded" :[CommonStrings getInstance]->PERIODS];
+    NullHighScoresSingletonFactory_SINGLETON = ((HighScores*) [((HighScores*) [HighScores alloc]) init:[CommonStrings getInstance]->LOADING :"High Scores Not Loaded" :[CommonStrings getInstance]->PERIODS]);
 }
 
 @implementation NullHighScoresSingletonFactory

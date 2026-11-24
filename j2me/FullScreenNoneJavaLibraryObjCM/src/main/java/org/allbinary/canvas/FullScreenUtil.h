@@ -37,7 +37,7 @@
 - (instancetype) init;
 + (FullScreenUtil*) getInstance;
 - (void) initOnRun:(Canvas*)fullScreenInterface :(CommandListener*)commandListener;
-- (void) init_:(Canvas*)fullScreenInterface;
+- (void) initMethod:(Canvas*)fullScreenInterface;
 - (bool) isScreenChange:(bool)isFullScreen;
 - (bool) isScreenChangeCanvas:(Canvas*)fullScreenInterface;
 @end

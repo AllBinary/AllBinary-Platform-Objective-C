@@ -36,7 +36,7 @@
 }
 - (instancetype) init;
 + (AllBinaryVibrationME*) getInstance;
-+ (void) init_;
++ (void) initMethod;
 - (void) vibrate:(int32_t)duration :(int32_t)type :(int32_t)volume;
 @end
 

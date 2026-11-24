@@ -15,6 +15,9 @@
 #include "org/allbinary/media/ScaleProperties.h"
 #include "org/allbinary/media/audio/Sound.h"
 #include "org/allbinary/animation/image/sprite/SpriteIndexedAnimation.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorUtil.h")
+#include "org/allbinary/graphics/color/BasicColorUtil.h"
+#endif
 
 
 
@@ -70,14 +73,14 @@ void ImageCaptionIndexedAnimationFactory_staticInit(void) {
 // throws Exception
 - (Animation*) getInstance:(int32_t)instanceId {
         Image* scaledImage = [self->animationFactoryImageScaleUtil createImage:self->captionImage :[self->captionImage getWidth] :[self->captionImage getHeight] :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
-        Animation* animationInterface = [((ImageAnimation*) [ImageAnimation alloc]) init:scaledImage :[self->animationBehaviorFactory getOrCreateInstance]];
+        Animation* animationInterface = ((ImageAnimation*) [((ImageAnimation*) [ImageAnimation alloc]) init:scaledImage :[self->animationBehaviorFactory getOrCreateInstance]]);
         Sprite* sprite = [self->animationFactorySpriteScaleUtil createImage:self->spriteMovieImage :self->frameWidth :self->frameHeight :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
-        IndexedAnimation* movieIndexedAnimationInterface = [((SpriteIndexedAnimation*) [SpriteIndexedAnimation alloc]) init:sprite :self->spriteMovieImage :[BasicColorUtil getInstance]->ZERO_ARRAY :[self->animationBehaviorFactory getOrCreateInstance]];
+        IndexedAnimation* movieIndexedAnimationInterface = ((SpriteIndexedAnimation*) [((SpriteIndexedAnimation*) [SpriteIndexedAnimation alloc]) init:sprite :self->spriteMovieImage :[BasicColorUtil getInstance]->ZERO_ARRAY :[self->animationBehaviorFactory getOrCreateInstance]]);
         Player* player = [self->soundInterface getPlayerP];
         if (player == nil) {
             java_throw(java_exception_new("Exception", "Sound Was not Initialized"));
         }
-        return [((CaptionIndexedAnimation*) [CaptionIndexedAnimation alloc]) init:animationInterface :movieIndexedAnimationInterface :player :self->captionDx :self->captionDy :self->dx :self->dy :self->time :[self->animationBehaviorFactory getOrCreateInstance]];
+        return ((CaptionIndexedAnimation*) [((CaptionIndexedAnimation*) [CaptionIndexedAnimation alloc]) init:animationInterface :movieIndexedAnimationInterface :player :self->captionDx :self->captionDy :self->dx :self->dy :self->time :[self->animationBehaviorFactory getOrCreateInstance]]);
 }
 
 

@@ -36,14 +36,14 @@ void SecretComposite_staticInit(void) {
 // throws Exception
 - (int8_t*) encrypt:(int8_t*)array {
         array = [self mutilate:array];
-        [self->cipher init_:(Cipher_staticInit(), Cipher_ENCRYPT_MODE) :self->secretKey];
+        [self->cipher initMethod:(Cipher_staticInit(), Cipher_ENCRYPT_MODE) :self->secretKey];
         return [self->cipher doFinal:array];
 }
 
 
 // throws Exception
 - (int8_t*) decrypt:(int8_t*)array {
-        [self->cipher init_:(Cipher_staticInit(), Cipher_DECRYPT_MODE) :self->secretKey];
+        [self->cipher initMethod:(Cipher_staticInit(), Cipher_DECRYPT_MODE) :self->secretKey];
         return [self mutilate:[self->cipher doFinal:array]];
 }
 

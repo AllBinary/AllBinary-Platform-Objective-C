@@ -6,6 +6,9 @@
 #include "org/allbinary/util/CircularIndexUtil.h"
 #include "org/allbinary/animation/NullRotationAnimation.h"
 #include "org/allbinary/animation/IndexedAnimationBehavior.h"
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
 
 
 
@@ -21,7 +24,7 @@ void NullRotationAnimation2_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:[AngleInfo getInstance:[AngleFactory getInstance]->QUARTER_TOTAL_ANGLE] :[CircularIndexUtil createInstance:4] :[((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:1 :250]];
+        self = [super init:[AngleInfo getInstance:[AngleFactory getInstance]->QUARTER_TOTAL_ANGLE] :[CircularIndexUtil createInstance:4] :((IndexedAnimationBehavior*) [((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:1 :250])];
     return self;
 }
 

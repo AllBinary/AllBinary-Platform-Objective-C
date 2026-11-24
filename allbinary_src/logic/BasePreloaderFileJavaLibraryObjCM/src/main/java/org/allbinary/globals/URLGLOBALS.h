@@ -36,7 +36,7 @@
 @public
 }
 - (instancetype) init;
-+ (void) init_:(UrlGlobalsInterface*)urlGlobalsInterface;
++ (void) initMethod:(UrlGlobalsInterface*)urlGlobalsInterface;
 + (bool) isTestingMode;
 + (const char*) getWebappPath;
 + (const char*) getTestHtmlPath;

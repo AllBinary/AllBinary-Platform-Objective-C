@@ -12,7 +12,7 @@ void StringValidationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    StringValidationUtil_instance = [((StringValidationUtil*) [StringValidationUtil alloc]) init];
+    StringValidationUtil_instance = ((StringValidationUtil*) [((StringValidationUtil*) [StringValidationUtil alloc]) init]);
 }
 
 @implementation StringValidationUtil

@@ -14,7 +14,7 @@ void MineLayerCircularStaticPool_staticInit(void) {
         return;
     }
     initialized = true;
-    MineLayerCircularStaticPool_WEAPON_LAYER_CIRCULAR_STATIC_POOL = [((WeaponLayerCircularPool*) [WeaponLayerCircularPool alloc]) init];
+    MineLayerCircularStaticPool_WEAPON_LAYER_CIRCULAR_STATIC_POOL = ((WeaponLayerCircularPool*) [((WeaponLayerCircularPool*) [WeaponLayerCircularPool alloc]) init]);
 }
 
 @implementation MineLayerCircularStaticPool
@@ -26,9 +26,9 @@ void MineLayerCircularStaticPool_staticInit(void) {
 
 
 // throws Exception
-+ (void) init_:(ViewPositionFactoryInterface*)viewPositionFactoryInterface {
-        [MineCountedPickedUpLayerInterfaceFactory init_];
-        [(MineLayerCircularStaticPool_staticInit(), MineLayerCircularStaticPool_WEAPON_LAYER_CIRCULAR_STATIC_POOL) initAllBinaryLayerCircularPool:[((MineLayerFactory*) [MineLayerFactory alloc]) init:viewPositionFactoryInterface] :20];
++ (void) initMethod:(ViewPositionFactoryInterface*)viewPositionFactoryInterface {
+        [MineCountedPickedUpLayerInterfaceFactory initMethod];
+        [(MineLayerCircularStaticPool_staticInit(), MineLayerCircularStaticPool_WEAPON_LAYER_CIRCULAR_STATIC_POOL) initAllBinaryLayerCircularPool:((MineLayerFactory*) [((MineLayerFactory*) [MineLayerFactory alloc]) init:viewPositionFactoryInterface]) :20];
 }
 
 

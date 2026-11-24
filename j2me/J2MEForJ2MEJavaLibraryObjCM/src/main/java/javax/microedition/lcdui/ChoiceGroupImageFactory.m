@@ -12,7 +12,7 @@ void ChoiceGroupImageFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ChoiceGroupImageFactory_instance = [((ChoiceGroupImageFactory*) [ChoiceGroupImageFactory alloc]) init];
+    ChoiceGroupImageFactory_instance = ((ChoiceGroupImageFactory*) [((ChoiceGroupImageFactory*) [ChoiceGroupImageFactory alloc]) init]);
 }
 
 @implementation ChoiceGroupImageFactory
@@ -51,7 +51,7 @@ void ChoiceGroupImageFactory_staticInit(void) {
 }
 
 
-- (void) init_:(Image**)imageArray {
+- (void) initMethod:(Image**)imageArray {
         self->imgMultiOff = imageArray[0];
         self->imageArray[0] = self->imgMultiOff;
         self->imgMultiOn = imageArray[1];

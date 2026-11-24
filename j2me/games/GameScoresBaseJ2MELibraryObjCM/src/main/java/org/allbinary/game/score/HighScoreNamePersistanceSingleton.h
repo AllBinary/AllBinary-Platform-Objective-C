@@ -84,7 +84,7 @@
 - (const char*) getRecordId:(AbeClientInformationInterface*)abeClientInformation;
 - (void) delete:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo :(int32_t)deleteId;
 - (BasicArrayList*) getIds;
-- (const char*) load_:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo;
+- (const char*) loadMethod:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo;
 - (void) save:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo :(const char*)name;
 @end
 

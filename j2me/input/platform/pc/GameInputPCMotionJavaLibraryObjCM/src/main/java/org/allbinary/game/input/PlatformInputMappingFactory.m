@@ -14,7 +14,7 @@ void PlatformInputMappingFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    PlatformInputMappingFactory_instance = [((PlatformInputMappingFactory*) [PlatformInputMappingFactory alloc]) init];
+    PlatformInputMappingFactory_instance = ((PlatformInputMappingFactory*) [((PlatformInputMappingFactory*) [PlatformInputMappingFactory alloc]) init]);
 }
 
 @implementation PlatformInputMappingFactory
@@ -39,7 +39,7 @@ void PlatformInputMappingFactory_staticInit(void) {
 - (PersistentInputMapping*) getPersistentInputMappingInstance {
         JAVA_TRY {
             if (self->inputToGameKeyMapping == [PersistentInputMapping getNullInstance]) {
-                self->inputToGameKeyMapping = [((MotionLaptopGameInputMapping*) [MotionLaptopGameInputMapping alloc]) init];
+                self->inputToGameKeyMapping = ((MotionLaptopGameInputMapping*) [((MotionLaptopGameInputMapping*) [MotionLaptopGameInputMapping alloc]) init]);
             }
         } JAVA_CATCH(Exception, e) {
             CommonStrings* commonStrings = [CommonStrings getInstance];

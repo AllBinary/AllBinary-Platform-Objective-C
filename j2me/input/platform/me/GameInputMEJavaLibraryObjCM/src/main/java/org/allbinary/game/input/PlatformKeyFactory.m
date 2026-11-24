@@ -4,6 +4,12 @@
 #include "org/allbinary/game/input/J2MEGameKey.h"
 #include "org/allbinary/game/input/J2MEKeyFactory.h"
 #include "org/allbinary/game/input/Input.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static id PlatformKeyFactory_instance;
@@ -27,7 +33,7 @@ void PlatformKeyFactory_staticInit(void) {
 
 + (PlatformKeyFactory*) getInstance {
         if ((PlatformKeyFactory_staticInit(), PlatformKeyFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            PlatformKeyFactory_instance = [((PlatformKeyFactory*) [PlatformKeyFactory alloc]) init];
+            PlatformKeyFactory_instance = ((PlatformKeyFactory*) [((PlatformKeyFactory*) [PlatformKeyFactory alloc]) init]);
         }
         return ((PlatformKeyFactory*) (PlatformKeyFactory_staticInit(), PlatformKeyFactory_instance));
 }

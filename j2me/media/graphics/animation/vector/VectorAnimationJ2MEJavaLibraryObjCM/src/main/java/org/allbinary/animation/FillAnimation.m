@@ -4,6 +4,12 @@
 #include "org/allbinary/graphics/color/BasicColor.h"
 #include "org/allbinary/animation/IndexedAnimation.h"
 #include "org/allbinary/animation/AnimationBehavior.h"
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColor.h")
+#include "org/allbinary/graphics/color/BasicColor.h"
+#endif
 
 
 

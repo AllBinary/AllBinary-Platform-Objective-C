@@ -14,13 +14,13 @@ void TerrainEventCircularStaticPool_staticInit(void) {
         return;
     }
     initialized = true;
-    TerrainEventCircularStaticPool_instance = [((TerrainEventCircularStaticPool*) [TerrainEventCircularStaticPool alloc]) init];
+    TerrainEventCircularStaticPool_instance = ((TerrainEventCircularStaticPool*) [((TerrainEventCircularStaticPool*) [TerrainEventCircularStaticPool alloc]) init]);
 }
 
 @implementation TerrainEventCircularStaticPool
 
 - (void) initFields {
-    self->EVENT_POOL = [((AllBinaryEventCircularPool*) [AllBinaryEventCircularPool alloc]) init:20];
+    self->EVENT_POOL = ((AllBinaryEventCircularPool*) [((AllBinaryEventCircularPool*) [AllBinaryEventCircularPool alloc]) init:20]);
 }
 
 - (instancetype) init {
@@ -35,8 +35,8 @@ void TerrainEventCircularStaticPool_staticInit(void) {
 }
 
 
-- (void) init_ {
-        [self->EVENT_POOL initAllBinaryEventCircularPool:[((TerrainEventFactory*) [TerrainEventFactory alloc]) init]];
+- (void) initMethod {
+        [self->EVENT_POOL initAllBinaryEventCircularPool:((TerrainEventFactory*) [((TerrainEventFactory*) [TerrainEventFactory alloc]) init])];
 }
 
 

@@ -11,7 +11,7 @@ void DisplayPointScalar_staticInit(void) {
         return;
     }
     initialized = true;
-    DisplayPointScalar_instance = [((DisplayPointScalar*) [DisplayPointScalar alloc]) init];
+    DisplayPointScalar_instance = ((DisplayPointScalar*) [((DisplayPointScalar*) [DisplayPointScalar alloc]) init]);
 }
 
 @implementation DisplayPointScalar

@@ -11,7 +11,7 @@ void NullDemoPaintable_staticInit(void) {
         return;
     }
     initialized = true;
-    NullDemoPaintable_NULL_DEMO_PAINTABLE = [((NullDemoPaintable*) [NullDemoPaintable alloc]) init];
+    NullDemoPaintable_NULL_DEMO_PAINTABLE = ((NullDemoPaintable*) [((NullDemoPaintable*) [NullDemoPaintable alloc]) init]);
 }
 
 @implementation NullDemoPaintable

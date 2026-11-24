@@ -7,6 +7,12 @@
 #include "org/allbinary/graphics/Anchor.h"
 #include "org/allbinary/logic/math/PrimitiveIntUtil.h"
 #include "org/allbinary/util/CircularIndexUtil.h"
+#if __has_include("org/allbinary/DisposalUtil.h")
+#include "org/allbinary/DisposalUtil.h"
+#endif
+#if __has_include("org/allbinary/DisposalUtil.h")
+#include "org/allbinary/DisposalUtil.h"
+#endif
 
 
 

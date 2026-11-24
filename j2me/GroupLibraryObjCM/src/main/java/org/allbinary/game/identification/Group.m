@@ -4,6 +4,12 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/game/identification/GroupInterface.h"
 #include "org/allbinary/game/identification/GroupCommonFactory.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -41,7 +47,7 @@ void Group_staticInit(void) {
 - (void) setName:(const char*)name {
         self->name = name;
         GroupCommonFactory* groupCommonFactory = [GroupCommonFactory getInstance];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:groupCommonFactory->GROUP_NAME_LABEL];
         [stringBuffer append:self->name];
         [stringBuffer append:groupCommonFactory->ID_LABEL];

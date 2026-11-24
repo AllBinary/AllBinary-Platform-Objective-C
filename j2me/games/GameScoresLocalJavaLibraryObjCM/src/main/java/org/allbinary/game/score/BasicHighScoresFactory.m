@@ -51,8 +51,8 @@ void BasicHighScoresFactory_staticInit(void) {
 
 - (void) fetchHighScoresPreload:(GameInfo*)gameInfo :(HighScoresResultsListener*)highScoresResultsListener :(bool)preload {
         JAVA_TRY {
-            self->highScoresArray[0] = [RecordStoreHighScores getInstance:self->abeClientInformation :gameInfo :self->TOP :self->PERSONAL_HIGH_SCORES :self->SCORES :[((ScoreComparator*) [ScoreComparator alloc]) init:true]];
-            [highScoresResultsListener setHighScoresArray:self->highScoresArray];
+            self->highScoresArray[0] = [RecordStoreHighScores getInstance:self->abeClientInformation :gameInfo :self->TOP :self->PERSONAL_HIGH_SCORES :self->SCORES :((ScoreComparator*) [((ScoreComparator*) [ScoreComparator alloc]) init:true])];
+            [((id<HighScoresResultsListener>) highScoresResultsListener) setHighScoresArray:self->highScoresArray];
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :self->FETCH :e];
         } JAVA_END_TRY;
@@ -60,7 +60,7 @@ void BasicHighScoresFactory_staticInit(void) {
 
 
 - (HighScoresHelperBaseInterface*) createHighScoresHelper {
-        return [((HighScoresHelper2*) [HighScoresHelper2 alloc]) init];
+        return ((HighScoresHelper2*) [((HighScoresHelper2*) [HighScoresHelper2 alloc]) init]);
 }
 
 

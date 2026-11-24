@@ -14,7 +14,7 @@ void FullScreenUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    FullScreenUtil_instance = [((FullScreenUtil*) [FullScreenUtil alloc]) init];
+    FullScreenUtil_instance = ((FullScreenUtil*) [((FullScreenUtil*) [FullScreenUtil alloc]) init]);
 }
 
 @implementation FullScreenUtil
@@ -33,12 +33,12 @@ void FullScreenUtil_staticInit(void) {
 // throws Exception
 - (void) initOnRun:(Canvas*)fullScreenInterface :(CommandListener*)commandListener {
         if (commandListener != nil) {
-            [self init_:fullScreenInterface];
+            [self initMethod:fullScreenInterface];
         }
 }
 
 
-- (void) init_:(Canvas*)fullScreenInterface {
+- (void) initMethod:(Canvas*)fullScreenInterface {
 }
 
 

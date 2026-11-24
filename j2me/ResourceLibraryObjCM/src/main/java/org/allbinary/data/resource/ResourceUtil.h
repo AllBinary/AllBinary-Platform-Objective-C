@@ -37,6 +37,7 @@
 #endif
 #include "java/lang/Integer.h"
 #include "java/lang/Thread.h"
+#include "java/lang/ClassLoader.h"
 
 //J2SE - J2ME
 @interface ResourceUtil : ABObject {

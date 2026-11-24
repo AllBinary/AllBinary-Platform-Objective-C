@@ -38,7 +38,7 @@ void FormPlayerGameInputProcessor_staticInit(void) {
 
 // throws Exception
 - (void) process {
-        [[self->playerGameInputCompositeInterface getPlayerGameInput] update];
+        [[((id<PlayerGameInputCompositeInterface>) self->playerGameInputCompositeInterface) getPlayerGameInput] update];
 }
 
 @end

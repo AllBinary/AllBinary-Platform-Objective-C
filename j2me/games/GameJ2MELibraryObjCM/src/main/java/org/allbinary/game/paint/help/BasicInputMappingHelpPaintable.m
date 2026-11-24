@@ -12,6 +12,15 @@
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/game/paint/help/HelpPaintable.h"
+#if __has_include("org/allbinary/game/input/GameKeyFactory.h")
+#include "org/allbinary/game/input/GameKeyFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/PlatformInputMappingFactory.h")
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
+#endif
 #if __has_include("org/allbinary/game/paint/help/InputToGameKeyMapping.h")
 #include "org/allbinary/game/paint/help/InputToGameKeyMapping.h"
 #endif
@@ -48,6 +57,18 @@
 #if __has_include("org/allbinary/util/InputToGameKeyMapping.h")
 #include "org/allbinary/util/InputToGameKeyMapping.h"
 #endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -79,7 +100,7 @@ void BasicInputMappingHelpPaintable_staticInit(void) {
 - (void) update:(GameKey*)selectedGameKey :(Input*)selectedInput {
         PersistentInputMapping* gameKeyMapping = [[PlatformInputMappingFactory getInstance] getPersistentInputMappingInstance];
         const char* EQUAL = " = ";
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         int32_t size = java_array_length(self->gameInputMappingArray);
         const char** keyInfo = ((const char**) java_array_new(sizeof(const char*), size));
         GameInputMapping* gameInputMapping = nullptr;
@@ -98,7 +119,7 @@ void BasicInputMappingHelpPaintable_staticInit(void) {
 
 - (const char*) get:(BasicArrayList*)keyList {
         CommonSeps* commonSeps = [CommonSeps getInstance];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         const char* AND = "and ";
         Input* key = nullptr;
         int32_t size = [keyList size];

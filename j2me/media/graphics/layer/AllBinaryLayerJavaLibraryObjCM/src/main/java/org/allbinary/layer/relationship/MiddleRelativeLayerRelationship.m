@@ -4,6 +4,12 @@
 #include "org/allbinary/layer/AllBinaryLayer.h"
 #include "org/allbinary/util/BasicArrayListUtil.h"
 #include "org/allbinary/layer/relationship/RelativeLayerRelationship.h"
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
 
 
 

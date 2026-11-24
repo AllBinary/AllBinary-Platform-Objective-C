@@ -66,7 +66,7 @@
 - (void) initFields;
 - (void) initKey:(int32_t)portion;
 - (void) initKeyMapping:(AbeClientInformationInterface*)abeClientInformation :(int32_t)portion;
-- (void) init_:(AbeClientInformationInterface*)abeClientInformation :(CommandListener*)commandListener :(int32_t)level;
+- (void) initMethod:(AbeClientInformationInterface*)abeClientInformation :(CommandListener*)commandListener :(int32_t)level;
 - (void) resourceInitialization:(int32_t)level;
 - (bool) resourceAnimationChange;
 - (void) clearResources;

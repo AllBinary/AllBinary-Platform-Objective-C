@@ -23,7 +23,7 @@ void MotionJ2MEGameInputMapping_staticInit(void) {
 
 
 - (InputToGameKeyMapping*) getDefault {
-        return [[((MotionJ2MEDefaultGameInputMapping*) [MotionJ2MEDefaultGameInputMapping alloc]) init] getInputMapping];
+        return [((MotionJ2MEDefaultGameInputMapping*) [((MotionJ2MEDefaultGameInputMapping*) [MotionJ2MEDefaultGameInputMapping alloc]) init]) getInputMapping];
 }
 
 @end

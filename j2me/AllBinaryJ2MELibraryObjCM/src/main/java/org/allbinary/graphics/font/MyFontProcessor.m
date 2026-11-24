@@ -12,7 +12,7 @@ void MyFontProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    MyFontProcessor_instance = [((MyFontProcessor*) [MyFontProcessor alloc]) init];
+    MyFontProcessor_instance = ((MyFontProcessor*) [((MyFontProcessor*) [MyFontProcessor alloc]) init]);
 }
 
 @implementation MyFontProcessor

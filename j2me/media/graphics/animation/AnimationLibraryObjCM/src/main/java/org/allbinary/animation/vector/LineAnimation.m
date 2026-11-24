@@ -3,6 +3,9 @@
 #include "javax/microedition/lcdui/Graphics.h"
 #include "org/allbinary/graphics/color/BasicColor.h"
 #include "org/allbinary/logic/NullUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 
@@ -31,7 +34,7 @@ void LineAnimation_staticInit(void) {
 }
 
 
-- (void) init_:(int32_t)x :(int32_t)y {
+- (void) initMethod:(int32_t)x :(int32_t)y {
         self->newLine[0][0] = x;
         self->newLine[0][1] = y;
         self->newLine[1][0] = x;

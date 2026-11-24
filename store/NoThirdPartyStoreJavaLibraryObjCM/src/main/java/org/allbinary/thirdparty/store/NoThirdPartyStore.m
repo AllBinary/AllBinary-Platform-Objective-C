@@ -3,6 +3,9 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
 #include "org/allbinary/thirdparty/store/ThirdPartyStore.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 

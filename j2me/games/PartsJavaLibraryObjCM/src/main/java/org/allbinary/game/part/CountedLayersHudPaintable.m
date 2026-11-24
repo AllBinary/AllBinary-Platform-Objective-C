@@ -30,7 +30,7 @@ void CountedLayersHudPaintable_staticInit(void) {
     
     
     
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->height = 0;
 }
 
@@ -76,7 +76,7 @@ void CountedLayersHudPaintable_staticInit(void) {
             countedLayerInterfaceFactory = ((CountedLayerInterfaceFactoryPart*) self->partInterfaceArray[index]);
             if ([countedLayerInterfaceFactory getTotal] > 0) {
                 pickedUpLayerInterfaceFactoryInterface = [countedLayerInterfaceFactory getCountedPickedUpLayerInterfaceFactory];
-                layerInterface = [pickedUpLayerInterfaceFactoryInterface getIconLayer];
+                layerInterface = [((id<PickedUpLayerInterfaceFactoryInterface>) pickedUpLayerInterfaceFactoryInterface) getIconLayer];
                 y = 40 + (count * self->height);
                 [layerInterface setPosition:widthEdge :y :[layerInterface getZP]];
                 [layerInterface paint:graphics];

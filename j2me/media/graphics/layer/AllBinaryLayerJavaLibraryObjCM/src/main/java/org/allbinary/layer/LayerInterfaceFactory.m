@@ -11,6 +11,18 @@
 #include "org/allbinary/layer/Layer.h"
 #include "org/allbinary/layer/LayerInterfaceFactoryInterface.h"
 #include "org/allbinary/layer/AllBinaryLayer.h"
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static LayerInterfaceFactory* LayerInterfaceFactory_SINGLETON;
@@ -21,7 +33,7 @@ void LayerInterfaceFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    LayerInterfaceFactory_SINGLETON = [((LayerInterfaceFactory*) [LayerInterfaceFactory alloc]) init];
+    LayerInterfaceFactory_SINGLETON = ((LayerInterfaceFactory*) [((LayerInterfaceFactory*) [LayerInterfaceFactory alloc]) init]);
 }
 
 @implementation LayerInterfaceFactory
@@ -44,18 +56,18 @@ void LayerInterfaceFactory_staticInit(void) {
 }
 
 
-- (void) init_ {
-        self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+- (void) initMethod {
+        self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
 // throws Exception
 - (AllBinaryLayer*) getNexInstance:(ABHashtable*)hashtable :(int32_t)x :(int32_t)y :(int32_t)z {
         CommonStrings* commonStrings = [CommonStrings getInstance];
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->HASHTABLE_LABEL] append:[[StringUtil getInstance] toString:hashtable]] toString] :self :commonStrings->GET_INSTANCE];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->HASHTABLE_LABEL] append:[[StringUtil getInstance] toString:hashtable]] toString] :self :commonStrings->GET_INSTANCE];
         int32_t typeInteger = ((int32_t) [hashtable get:JAVA_BOX(((id) (Layer_staticInit(), Layer_ID)))]);
         LayerInterfaceFactoryInterface* layerInterfaceFactoryInterface = ((LayerInterfaceFactoryInterface*) self->list->objectArray[((int32_t) (typeInteger)) - 1]);
-        return [layerInterfaceFactoryInterface getNextInstance:hashtable :x :y :z];
+        return [((id<LayerInterfaceFactoryInterface>) layerInterfaceFactoryInterface) getNextInstance:hashtable :x :y :z];
 }
 
 

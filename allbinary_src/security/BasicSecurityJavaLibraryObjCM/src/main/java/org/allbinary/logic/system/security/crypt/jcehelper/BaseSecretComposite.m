@@ -1,6 +1,12 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/logic/system/security/crypt/jcehelper/BaseSecretComposite.h"
 #include "org/allbinary/logic/NullUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 BaseSecretComposite* BaseSecretComposite_NULL_SECRET_COMPOSITE;
@@ -11,7 +17,7 @@ void BaseSecretComposite_staticInit(void) {
         return;
     }
     initialized = true;
-    BaseSecretComposite_NULL_SECRET_COMPOSITE = [((BaseSecretComposite*) [BaseSecretComposite alloc]) init];
+    BaseSecretComposite_NULL_SECRET_COMPOSITE = ((BaseSecretComposite*) [((BaseSecretComposite*) [BaseSecretComposite alloc]) init]);
 }
 
 @implementation BaseSecretComposite

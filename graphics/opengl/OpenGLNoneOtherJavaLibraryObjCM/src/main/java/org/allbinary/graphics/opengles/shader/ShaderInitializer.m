@@ -13,7 +13,7 @@ void ShaderInitializer_staticInit(void) {
         return;
     }
     initialized = true;
-    ShaderInitializer_instance = [((ShaderInitializer*) [ShaderInitializer alloc]) init];
+    ShaderInitializer_instance = ((ShaderInitializer*) [((ShaderInitializer*) [ShaderInitializer alloc]) init]);
 }
 
 @implementation ShaderInitializer
@@ -34,7 +34,7 @@ void ShaderInitializer_staticInit(void) {
 }
 
 
-- (int32_t) init_:(GL10*)gl :(Shader**)shader :(const char**)attributeArray {
+- (int32_t) initMethod:(GL10*)gl :(Shader**)shader :(const char**)attributeArray {
         return -1;
 }
 

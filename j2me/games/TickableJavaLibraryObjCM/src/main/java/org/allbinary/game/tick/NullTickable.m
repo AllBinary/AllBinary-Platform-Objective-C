@@ -12,7 +12,7 @@ void NullTickable_staticInit(void) {
         return;
     }
     initialized = true;
-    NullTickable_SINGLETON = [((NullTickable*) [NullTickable alloc]) init];
+    NullTickable_SINGLETON = ((NullTickable*) [((NullTickable*) [NullTickable alloc]) init]);
 }
 
 @implementation NullTickable

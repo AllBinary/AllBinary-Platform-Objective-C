@@ -31,7 +31,7 @@ void MineLayerFactory_staticInit(void) {
 
 // throws Exception
 - (AllBinaryLayer*) getInstance {
-        return [((MineLayer*) [MineLayer alloc]) init:[self->viewPositionFactoryInterface getInstance]];
+        return ((MineLayer*) [((MineLayer*) [MineLayer alloc]) init:[((id<ViewPositionFactoryInterface>) self->viewPositionFactoryInterface) getInstance]]);
 }
 
 @end

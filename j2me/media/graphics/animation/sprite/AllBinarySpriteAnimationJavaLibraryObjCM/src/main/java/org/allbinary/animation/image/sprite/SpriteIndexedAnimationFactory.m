@@ -11,6 +11,12 @@
 #include "org/allbinary/logic/math/PrimitiveIntUtil.h"
 #include "org/allbinary/animation/image/sprite/SpriteIndexedAnimation.h"
 #include "org/allbinary/animation/image/sprite/AdjustedSpriteIndexedAnimation.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorUtil.h")
+#include "org/allbinary/graphics/color/BasicColorUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorUtil.h")
+#include "org/allbinary/graphics/color/BasicColorUtil.h"
+#endif
 
 
 
@@ -32,13 +38,13 @@ void SpriteIndexedAnimationFactory_staticInit(void) {
 
 // throws Exception
 + (SpriteIndexedAnimationFactory*) createCWHDXY:(Image*)image :(BasicColor**)basicColorArray :(int32_t)width :(int32_t)height :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        return [((SpriteIndexedAnimationFactory*) [SpriteIndexedAnimationFactory alloc]) init:image :basicColorArray :[PrimitiveIntUtil getArrayInstance] :width :height :dx :dy :animationBehaviorFactory];
+        return ((SpriteIndexedAnimationFactory*) [((SpriteIndexedAnimationFactory*) [SpriteIndexedAnimationFactory alloc]) init:image :basicColorArray :[PrimitiveIntUtil getArrayInstance] :width :height :dx :dy :animationBehaviorFactory]);
 }
 
 
 // throws Exception
 + (SpriteIndexedAnimationFactory*) createCWH:(Image*)image :(BasicColor**)basicColorArray :(int32_t)width :(int32_t)height :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        SpriteIndexedAnimationFactory* spriteIndexedAnimationFactory = [((SpriteIndexedAnimationFactory*) [SpriteIndexedAnimationFactory alloc]) init:image :basicColorArray :[PrimitiveIntUtil getArrayInstance] :width :height :0 :0 :animationBehaviorFactory];
+        SpriteIndexedAnimationFactory* spriteIndexedAnimationFactory = ((SpriteIndexedAnimationFactory*) [((SpriteIndexedAnimationFactory*) [SpriteIndexedAnimationFactory alloc]) init:image :basicColorArray :[PrimitiveIntUtil getArrayInstance] :width :height :0 :0 :animationBehaviorFactory]);
         [spriteIndexedAnimationFactory initHWH];
         return spriteIndexedAnimationFactory;
 }
@@ -46,7 +52,7 @@ void SpriteIndexedAnimationFactory_staticInit(void) {
 
 // throws Exception
 + (SpriteIndexedAnimationFactory*) createWH:(Image*)image :(int32_t)width :(int32_t)height :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        return [((SpriteIndexedAnimationFactory*) [SpriteIndexedAnimationFactory alloc]) init:image :[BasicColorUtil getInstance]->ZERO_ARRAY :[PrimitiveIntUtil getArrayInstance] :width :height :0 :0 :animationBehaviorFactory];
+        return ((SpriteIndexedAnimationFactory*) [((SpriteIndexedAnimationFactory*) [SpriteIndexedAnimationFactory alloc]) init:image :[BasicColorUtil getInstance]->ZERO_ARRAY :[PrimitiveIntUtil getArrayInstance] :width :height :0 :0 :animationBehaviorFactory]);
 }
 
 
@@ -71,9 +77,9 @@ void SpriteIndexedAnimationFactory_staticInit(void) {
 - (Animation*) getInstance:(int32_t)instanceId {
         Sprite* sprite = [self->animationFactorySpriteScaleUtil createImage:[self getImage] :self->animationFactoryInitializationVisitor->width :self->animationFactoryInitializationVisitor->height :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
         if (self->animationFactoryInitializationVisitor->dx != 0 || self->animationFactoryInitializationVisitor->dy != 0) {
-            return [((AdjustedSpriteIndexedAnimation*) [AdjustedSpriteIndexedAnimation alloc]) init:sprite :[self getImage] :self->basicColorArray :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((AdjustedSpriteIndexedAnimation*) [((AdjustedSpriteIndexedAnimation*) [AdjustedSpriteIndexedAnimation alloc]) init:sprite :[self getImage] :self->basicColorArray :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]]);
         } else {
-            return [((SpriteIndexedAnimation*) [SpriteIndexedAnimation alloc]) init:sprite :[self getImage] :self->basicColorArray :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((SpriteIndexedAnimation*) [((SpriteIndexedAnimation*) [SpriteIndexedAnimation alloc]) init:sprite :[self getImage] :self->basicColorArray :[self->animationBehaviorFactory getOrCreateInstance]]);
         }
 }
 

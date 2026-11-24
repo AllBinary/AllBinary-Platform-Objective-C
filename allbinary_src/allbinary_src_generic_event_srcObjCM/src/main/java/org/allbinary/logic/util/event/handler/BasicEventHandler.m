@@ -10,6 +10,12 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/logic/util/event/handler/BasicEventHandlerInterface.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 const char* BasicEventHandler_PERFORMANCE_MESSAGE = "Use Custom onEvent Methods for needed optimization";
@@ -33,13 +39,13 @@ void BasicEventHandler_staticInit(void) {
 - (instancetype) init {
     self = [super init];
     [self initFields];
-        self->eventListenerInterfaceList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->eventListenerInterfaceList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     return self;
 }
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         const char* LISTENER = " Listener: ";
         [stringBuffer append:"Total Listeners: "];
         [stringBuffer appendint:[self->eventListenerInterfaceList size]];
@@ -62,7 +68,7 @@ void BasicEventHandler_staticInit(void) {
 
 // synchronized
 - (void) removeAllListeners {
-        self->eventListenerInterfaceList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->eventListenerInterfaceList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -112,7 +118,7 @@ void BasicEventHandler_staticInit(void) {
 
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
-        [eventListenerInterface onEvent:eventObject];
+        [((id<EventListenerInterface>) eventListenerInterface) onEvent:eventObject];
 }
 
 

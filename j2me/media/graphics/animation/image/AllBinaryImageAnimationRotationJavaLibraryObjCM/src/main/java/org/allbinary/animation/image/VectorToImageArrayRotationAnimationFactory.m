@@ -16,6 +16,21 @@
 #include "org/allbinary/vector/VectorInfo.h"
 #include "org/allbinary/animation/image/BaseImageAnimationFactory.h"
 #include "org/allbinary/animation/image/AdjustedImageArrayRotationAnimation.h"
+#if __has_include("org/allbinary/image/AnimationFrameToImageUtil.h")
+#include "org/allbinary/image/AnimationFrameToImageUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/GameConfigurationCentral.h")
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#endif
+#if __has_include("org/allbinary/media/image/ImageToRotationImageArrayUtil.h")
+#include "org/allbinary/media/image/ImageToRotationImageArrayUtil.h"
+#endif
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
 
 
 
@@ -38,13 +53,13 @@ void VectorToImageArrayRotationAnimationFactory_staticInit(void) {
 - (instancetype) init:(VectorInfo*)vectorInfo :(BasicColor*)basicColor :(AnimationBehaviorFactory*)animationBehaviorFactory {
         self = [super init:[[AnimationFrameToImageUtil getInstance] getInstanceTranslate:[vectorInfo getWidth] :[vectorInfo getHeight] :[VectorAnimation createVectorAnimation:[vectorInfo getPoints] :basicColor :[animationBehaviorFactory getOrCreateInstance]]] :[PrimitiveIntUtil getArrayInstance] :0 :0 :0 :0 :animationBehaviorFactory];
         [self initFields];
-        [self init_];
+        [self initMethod];
     return self;
 }
 
 
 // throws Exception
-- (void) init_ {
+- (void) initMethod {
         AngleFactory* angleFactory = [AngleFactory getInstance];
         self->angleIncrement = ((int32_t) angleFactory->TOTAL_ANGLE) / [[GameConfigurationCentral getInstance] getGameControlFidelity];
         self->imageArray = [[ImageToRotationImageArrayUtil getInstance] generate:[self getImage] :[self getAngleIncrement] :((int32_t) angleFactory->TOTAL_ANGLE)];
@@ -54,7 +69,7 @@ void VectorToImageArrayRotationAnimationFactory_staticInit(void) {
 // throws Exception
 - (Animation*) getInstance:(int32_t)instanceId {
         if (self->animationFactoryInitializationVisitor->dx != 0 || self->animationFactoryInitializationVisitor->dy != 0) {
-            return [((AdjustedImageArrayRotationAnimation*) [AdjustedImageArrayRotationAnimation alloc]) init:self->imageArray :[AngleInfo getInstance:((int16_t) [self getAngleIncrement])] :((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE) :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((AdjustedImageArrayRotationAnimation*) [((AdjustedImageArrayRotationAnimation*) [AdjustedImageArrayRotationAnimation alloc]) init:self->imageArray :[AngleInfo getInstance:((int16_t) [self getAngleIncrement])] :((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE) :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]]);
         } else {
             return [AdjustedImageArrayRotationAnimation createAnimation:self->imageArray :[AngleInfo getInstance:((int16_t) self->angleIncrement)] :((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE) :[self->animationBehaviorFactory getOrCreateInstance]];
         }

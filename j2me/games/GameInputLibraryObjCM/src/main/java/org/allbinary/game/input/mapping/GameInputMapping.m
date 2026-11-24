@@ -2,6 +2,9 @@
 #include "org/allbinary/game/input/mapping/GameInputMapping.h"
 #include "org/allbinary/game/input/GameKey.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 

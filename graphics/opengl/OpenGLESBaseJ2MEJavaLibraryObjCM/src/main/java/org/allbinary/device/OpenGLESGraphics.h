@@ -38,7 +38,7 @@
 - (void) initFields;
 - (void) updateGL:(GL*)gl;
 - (void) set:(GL*)gl;
-- (void) init_;
+- (void) initMethod;
 - (void) update;
 - (void) setOrthoginalMode;
 - (void) setCameraMode;

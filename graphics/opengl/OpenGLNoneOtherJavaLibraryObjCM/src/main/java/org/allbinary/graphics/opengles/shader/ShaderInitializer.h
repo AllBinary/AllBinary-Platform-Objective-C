@@ -40,7 +40,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (ShaderInitializer*) getInstance;
-- (int32_t) init_:(GL10*)gl :(Shader**)shader :(const char**)attributeArray;
+- (int32_t) initMethod:(GL10*)gl :(Shader**)shader :(const char**)attributeArray;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

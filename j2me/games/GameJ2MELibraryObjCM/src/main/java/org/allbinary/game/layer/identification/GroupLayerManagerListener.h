@@ -66,7 +66,7 @@
 - (bool) areAllOtherGroupsEmpty:(Group*)groupInterface;
 - (bool) isIdInList:(int32_t)id_ :(BasicArrayList*)excludeGroupList;
 - (bool) areAllOtherGroupsLessThan:(BasicArrayList*)excludeGroupList :(int32_t)maxSize;
-- (void) init_:(int32_t)total;
+- (void) initMethod:(int32_t)total;
 - (void) onEvent:(AllBinaryEventObject*)eventObject;
 - (void) onCreateLayerManagerEvent:(LayerManagerEvent*)layerManagerEvent;
 - (void) onDeleteLayerManagerEvent:(LayerManagerEvent*)layerManagerEvent;

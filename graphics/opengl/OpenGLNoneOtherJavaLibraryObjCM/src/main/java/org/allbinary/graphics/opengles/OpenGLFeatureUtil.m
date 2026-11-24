@@ -10,7 +10,7 @@ void OpenGLFeatureUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLFeatureUtil_instance = [((OpenGLFeatureUtil*) [OpenGLFeatureUtil alloc]) init];
+    OpenGLFeatureUtil_instance = ((OpenGLFeatureUtil*) [((OpenGLFeatureUtil*) [OpenGLFeatureUtil alloc]) init]);
 }
 
 @implementation OpenGLFeatureUtil

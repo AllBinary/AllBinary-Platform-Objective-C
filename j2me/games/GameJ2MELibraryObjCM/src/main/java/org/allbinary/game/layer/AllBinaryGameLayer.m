@@ -20,6 +20,12 @@
 #include "org/allbinary/game/layer/SWTUtil.h"
 #include "org/allbinary/game/layer/SWTBlackPaintable.h"
 #include "org/allbinary/game/layer/GameLayerUtil.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 
@@ -38,13 +44,13 @@ void AllBinaryGameLayer_staticInit(void) {
     self->basicSetColorUtil = [BasicColorSetUtil getInstance];
     self->RED = [BasicColorFactory getInstance]->RED;
     self->paintable = [AllBinaryGameLayer createPaintable];
-    self->gameKeyEventList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->gameKeyEventList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
 + (Paintable*) createPaintable {
         if ((SWTUtil_staticInit(), SWTUtil_isSWT)) {
-            return [((SWTBlackPaintable*) [SWTBlackPaintable alloc]) init];
+            return ((SWTBlackPaintable*) [((SWTBlackPaintable*) [SWTBlackPaintable alloc]) init]);
         }
         return [NullPaintable getInstance];
 }

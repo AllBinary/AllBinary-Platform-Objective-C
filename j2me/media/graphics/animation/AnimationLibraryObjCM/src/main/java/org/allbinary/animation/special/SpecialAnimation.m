@@ -13,7 +13,7 @@ void SpecialAnimation_staticInit(void) {
         return;
     }
     initialized = true;
-    SpecialAnimation_NULL_SPECIAL_ANIMATION = [((SpecialAnimation*) [SpecialAnimation alloc]) init:[((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:1 :250]];
+    SpecialAnimation_NULL_SPECIAL_ANIMATION = ((SpecialAnimation*) [((SpecialAnimation*) [SpecialAnimation alloc]) init:((IndexedAnimationBehavior*) [((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:1 :250])]);
 }
 
 @implementation SpecialAnimation

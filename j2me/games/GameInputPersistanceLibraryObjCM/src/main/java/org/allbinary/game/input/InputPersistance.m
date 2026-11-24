@@ -19,6 +19,21 @@
 #include "org/allbinary/game/input/Input.h"
 #include "org/allbinary/game/input/GameKeyMappingFactory.h"
 #include "org/allbinary/game/input/InputFactory.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -57,21 +72,21 @@ void InputPersistance_staticInit(void) {
             Input* input = nullptr;
             ABHashtable* hashtable = nullptr;
             GameKeyMappingFactory* gameKeyFactory = [GameKeyMappingFactory getInstance];
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             InputFactory* inputFactory = [InputFactory getInstance];
             SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
             StdUtil* stdUtil = [StdUtil getInstance];
             int8_t* recordAsBytes = nullptr;
             ByteArrayInputStream* byteArrayInputStream = nullptr;
             DataInputStream* inputStream = nullptr;
-            while ([recordEnum hasNextElement]) {
-                int32_t id_ = [recordEnum nextRecordId];
+            while ([((id<RecordEnumeration>) recordEnum) hasNextElement]) {
+                int32_t id_ = [((id<RecordEnumeration>) recordEnum) nextRecordId];
                 [stringBuffer delete:0 :[stringBuffer length]];
                 [self->logUtil putF:[[[stringBuffer append:self->persistanceStrings->LOADING_ID] appendint:id_] toString] :self :self->persistanceStrings->LOAD_ALL];
                 recordAsBytes = [self->tsUtil getRecord:recordStore :id_];
                 if (recordAsBytes != nil) {
-                    byteArrayInputStream = [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes];
-                    inputStream = [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream];
+                    byteArrayInputStream = ((ByteArrayInputStream*) [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes]);
+                    inputStream = ((DataInputStream*) [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream]);
                     hashtable = [stdUtil createHashtable];
                     int32_t value = 0;
                     while ([inputStream available] > 0) {
@@ -124,11 +139,11 @@ void InputPersistance_staticInit(void) {
 - (void) save:(AbeClientInformationInterface*)abeClientInformation :(ABHashtable*)hashtable {
         RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
         JAVA_TRY {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [PreLogUtil put:[[[stringBuffer append:self->persistanceStrings->SAVING] append:[[StringUtil getInstance] toString:hashtable]] toString] :self :self->commonStrings->SAVE];
             recordStore = [RecordStore openRecordStore:[self getRecordId:abeClientInformation] :true];
-            ByteArrayOutputStream* byteArrayOutputStream = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init];
-            DataOutputStream* outputStream = [((DataOutputStream*) [DataOutputStream alloc]) init:byteArrayOutputStream];
+            ByteArrayOutputStream* byteArrayOutputStream = ((ByteArrayOutputStream*) [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init]);
+            DataOutputStream* outputStream = ((DataOutputStream*) [((DataOutputStream*) [DataOutputStream alloc]) init:byteArrayOutputStream]);
             Input* gameActionInput = nullptr;
             BasicArrayList* list = nullptr;
             Input* input = nullptr;

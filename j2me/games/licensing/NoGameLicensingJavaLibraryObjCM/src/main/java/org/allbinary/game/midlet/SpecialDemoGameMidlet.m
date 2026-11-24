@@ -31,7 +31,7 @@ void SpecialDemoGameMidlet_staticInit(void) {
 
 
 - (void) preInit {
-        [[((LicenseServerInitFileUtil*) [LicenseServerInitFileUtil alloc]) init] init_];
+        [((LicenseServerInitFileUtil*) [((LicenseServerInitFileUtil*) [LicenseServerInitFileUtil alloc]) init]) initMethod];
 }
 
 @end

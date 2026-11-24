@@ -13,7 +13,7 @@ void NullImage_staticInit(void) {
     }
     initialized = true;
     NullImage_NULL_IMAGE_ARRAY = ((Image**) java_array_new(sizeof(Image*), 0));
-    NullImage_NULL_IMAGE = [((Image*) [Image alloc]) init];
+    NullImage_NULL_IMAGE = ((Image*) [((Image*) [Image alloc]) init]);
 }
 
 @implementation NullImage

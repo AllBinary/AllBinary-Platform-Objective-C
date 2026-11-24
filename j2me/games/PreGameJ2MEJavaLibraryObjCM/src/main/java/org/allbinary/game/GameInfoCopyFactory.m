@@ -21,12 +21,12 @@ void GameInfoCopyFactory_staticInit(void) {
 
 
 + (GameInfo*) getInstanceMaxLevel:(GameInfo*)gameInfo :(int32_t)maxLevel {
-        return [((GameInfo*) [GameInfo alloc]) init:[gameInfo getGameType] :[gameInfo getGameMode] :[gameInfo getPlayerType] :maxLevel :[gameInfo getCurrentLevel]];
+        return ((GameInfo*) [((GameInfo*) [GameInfo alloc]) init:[gameInfo getGameType] :[gameInfo getGameMode] :[gameInfo getPlayerType] :maxLevel :[gameInfo getCurrentLevel]]);
 }
 
 
 + (GameInfo*) getInstance:(GameInfo*)gameInfo {
-        return [((GameInfo*) [GameInfo alloc]) init:[gameInfo getGameType] :[gameInfo getGameMode] :[gameInfo getPlayerType] :[gameInfo getHighestLevel] :[gameInfo getCurrentLevel]];
+        return ((GameInfo*) [((GameInfo*) [GameInfo alloc]) init:[gameInfo getGameType] :[gameInfo getGameMode] :[gameInfo getPlayerType] :[gameInfo getHighestLevel] :[gameInfo getCurrentLevel]]);
 }
 
 @end

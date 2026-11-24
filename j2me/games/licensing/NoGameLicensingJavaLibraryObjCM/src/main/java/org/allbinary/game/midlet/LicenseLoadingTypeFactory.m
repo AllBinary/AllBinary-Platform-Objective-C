@@ -11,16 +11,16 @@ void LicenseLoadingTypeFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    LicenseLoadingTypeFactory_instance = [((LicenseLoadingTypeFactory*) [LicenseLoadingTypeFactory alloc]) init];
+    LicenseLoadingTypeFactory_instance = ((LicenseLoadingTypeFactory*) [((LicenseLoadingTypeFactory*) [LicenseLoadingTypeFactory alloc]) init]);
 }
 
 @implementation LicenseLoadingTypeFactory
 
 - (void) initFields {
-    self->INITIAL_LOADING = [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Initial Loading"];
-    self->GAME_START = [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Game Start"];
-    self->LOGIN = [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Login"];
-    self->OTHER = [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Other/Usually The First Non Demo Level"];
+    self->INITIAL_LOADING = ((LicenseLoadingType*) [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Initial Loading"]);
+    self->GAME_START = ((LicenseLoadingType*) [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Game Start"]);
+    self->LOGIN = ((LicenseLoadingType*) [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Login"]);
+    self->OTHER = ((LicenseLoadingType*) [((LicenseLoadingType*) [LicenseLoadingType alloc]) init:"Other/Usually The First Non Demo Level"]);
 }
 
 - (instancetype) init {

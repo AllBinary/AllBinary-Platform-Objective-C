@@ -14,7 +14,7 @@ void BoundsChangeEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    BoundsChangeEventHandler_SINGLETON = [((BoundsChangeEventHandler*) [BoundsChangeEventHandler alloc]) init];
+    BoundsChangeEventHandler_SINGLETON = ((BoundsChangeEventHandler*) [((BoundsChangeEventHandler*) [BoundsChangeEventHandler alloc]) init]);
 }
 
 @implementation BoundsChangeEventHandler
@@ -34,7 +34,7 @@ void BoundsChangeEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         BoundsChangeEventListener* boundsChangeEventListener = ((BoundsChangeEventListener*) eventListenerInterface);
-        [boundsChangeEventListener onBoundsChangeEvent:((BoundsChangeEvent*) eventObject)];
+        [((id<BoundsChangeEventListener>) boundsChangeEventListener) onBoundsChangeEvent:((BoundsChangeEvent*) eventObject)];
 }
 
 @end

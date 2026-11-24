@@ -7,6 +7,15 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/ag/layer/hud/basic/NumberStringHud.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/graphics/hud/BasicHudFactory.h")
+#include "org/allbinary/game/graphics/hud/BasicHudFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 static id NumberStringHudFactory_instance;
@@ -35,7 +44,7 @@ void NumberStringHudFactory_staticInit(void) {
 
 + (NumberStringHudFactory*) getInstance {
         if ((NumberStringHudFactory_staticInit(), NumberStringHudFactory_instance) == [NullUtil getInstance]) {
-            NumberStringHudFactory_instance = [((NumberStringHudFactory*) [NumberStringHudFactory alloc]) init];
+            NumberStringHudFactory_instance = ((NumberStringHudFactory*) [((NumberStringHudFactory*) [NumberStringHudFactory alloc]) init]);
         }
         return ((NumberStringHudFactory*) (NumberStringHudFactory_staticInit(), NumberStringHudFactory_instance));
 }
@@ -43,7 +52,7 @@ void NumberStringHudFactory_staticInit(void) {
 
 - (NumberStringHud*) createHud {
         JAVA_TRY {
-            return [((NumberStringHud*) [NumberStringHud alloc]) init:[StringUtil getInstance]->EMPTY_STRING :9 :[BasicHudFactory getInstance]->ABSOLUTE :1 :0 :[BasicColorFactory getInstance]->NULL_COLOR];
+            return ((NumberStringHud*) [((NumberStringHud*) [NumberStringHud alloc]) init:[StringUtil getInstance]->EMPTY_STRING :9 :[BasicHudFactory getInstance]->ABSOLUTE :1 :0 :[BasicColorFactory getInstance]->NULL_COLOR]);
         } JAVA_CATCH(Exception, e) {
             LogUtil* logUtil = [LogUtil getInstance];
             CommonStrings* commonStrings = [CommonStrings getInstance];

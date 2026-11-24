@@ -24,7 +24,7 @@ void ImageAnimationFactory_staticInit(void) {
 
 // throws Exception
 + (ImageAnimationFactory*) createFactory:(Image*)image {
-        return [((ImageAnimationFactory*) [ImageAnimationFactory alloc]) init:image :[image getWidth] :[image getHeight] :0 :0 :[AnimationBehaviorFactory getInstance]];
+        return ((ImageAnimationFactory*) [((ImageAnimationFactory*) [ImageAnimationFactory alloc]) init:image :[image getWidth] :[image getHeight] :0 :0 :[AnimationBehaviorFactory getInstance]]);
 }
 
 
@@ -41,9 +41,9 @@ void ImageAnimationFactory_staticInit(void) {
         scaledImage = [openGLUtil addImage:scaledImage];
         if (self->animationFactoryInitializationVisitor->dx != 0 || self->animationFactoryInitializationVisitor->dy != 0) {
             [self->animationFactoryImageScaleUtil processAdjust:self];
-            return [((AdjustedImageAnimation*) [AdjustedImageAnimation alloc]) init:scaledImage :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((AdjustedImageAnimation*) [((AdjustedImageAnimation*) [AdjustedImageAnimation alloc]) init:scaledImage :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]]);
         } else {
-            return [((ImageAnimation*) [ImageAnimation alloc]) init:scaledImage :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((ImageAnimation*) [((ImageAnimation*) [ImageAnimation alloc]) init:scaledImage :[self->animationBehaviorFactory getOrCreateInstance]]);
         }
 }
 

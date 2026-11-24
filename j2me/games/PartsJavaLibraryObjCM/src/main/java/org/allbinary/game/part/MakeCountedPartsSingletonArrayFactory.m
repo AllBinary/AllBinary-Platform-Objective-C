@@ -10,6 +10,12 @@
 #include "org/allbinary/util/BasicArrayListUtil.h"
 #include "org/allbinary/game/part/CountedLayerInterfaceFactoryPart.h"
 #include "org/allbinary/game/part/PartInterface.h"
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactoryPool.h")
+#include "org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactoryPool.h"
+#endif
 
 
 static MakeCountedPartsSingletonArrayFactory* MakeCountedPartsSingletonArrayFactory_instance;
@@ -20,7 +26,7 @@ void MakeCountedPartsSingletonArrayFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    MakeCountedPartsSingletonArrayFactory_instance = [((MakeCountedPartsSingletonArrayFactory*) [MakeCountedPartsSingletonArrayFactory alloc]) init];
+    MakeCountedPartsSingletonArrayFactory_instance = ((MakeCountedPartsSingletonArrayFactory*) [((MakeCountedPartsSingletonArrayFactory*) [MakeCountedPartsSingletonArrayFactory alloc]) init]);
 }
 
 @implementation MakeCountedPartsSingletonArrayFactory
@@ -44,7 +50,7 @@ void MakeCountedPartsSingletonArrayFactory_staticInit(void) {
 
 // throws Exception
 - (PartInterface**) getUpdated:(PartInterface**)partInterfaceArray {
-        self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         for (int32_t index = 0; index < java_array_length(partInterfaceArray); index++) {
             [self->list add:partInterfaceArray[index]];
         }
@@ -53,9 +59,9 @@ void MakeCountedPartsSingletonArrayFactory_staticInit(void) {
         int32_t size = [countedBasicArrayList size];
         for (int32_t index = 0; index < size; index++) {
             layerInterfaceFactoryInterface = ((CountedPickedUpLayerInterfaceFactory*) countedBasicArrayList->objectArray[index]);
-            [self->list add:[((CountedLayerInterfaceFactoryPart*) [CountedLayerInterfaceFactoryPart alloc]) init:0 :layerInterfaceFactoryInterface]];
+            [self->list add:((CountedLayerInterfaceFactoryPart*) [((CountedLayerInterfaceFactoryPart*) [CountedLayerInterfaceFactoryPart alloc]) init:0 :layerInterfaceFactoryInterface])];
         }
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"Total Parts: "];
         [stringBuffer appendint:[self->list size]];
         [stringBuffer append:" Counted: "];

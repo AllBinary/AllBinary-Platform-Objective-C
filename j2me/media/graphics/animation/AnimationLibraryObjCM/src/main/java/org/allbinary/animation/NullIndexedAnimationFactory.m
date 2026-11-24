@@ -18,13 +18,13 @@ void NullIndexedAnimationFactory_staticInit(void) {
     }
     initialized = true;
     NullIndexedAnimationFactory_NULL_INDEXED_ANIMATION_ARRAY = ((IndexedAnimation**) java_array_new(sizeof(IndexedAnimation*), 0));
-    NullIndexedAnimationFactory_NULL_INDEXED_ANIMATION_FACTORY = [((NullIndexedAnimationFactory*) [NullIndexedAnimationFactory alloc]) init];
+    NullIndexedAnimationFactory_NULL_INDEXED_ANIMATION_FACTORY = ((NullIndexedAnimationFactory*) [((NullIndexedAnimationFactory*) [NullIndexedAnimationFactory alloc]) init]);
 }
 
 @implementation NullIndexedAnimationFactory
 
 - (void) initFields {
-    self->NULL_ANIMATION = [((NullIndexedAnimationInner*) [NullIndexedAnimationInner alloc]) init];
+    self->NULL_ANIMATION = ((NullIndexedAnimationInner*) [((NullIndexedAnimationInner*) [NullIndexedAnimationInner alloc]) init]);
 }
 
 

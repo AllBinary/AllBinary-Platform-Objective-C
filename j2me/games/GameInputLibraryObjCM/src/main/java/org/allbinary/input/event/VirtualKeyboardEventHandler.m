@@ -5,6 +5,12 @@
 #include "org/allbinary/logic/util/event/EventListenerInterface.h"
 #include "org/allbinary/input/event/VirtualKeyboardEvent.h"
 #include "org/allbinary/input/event/VirtualKeyboardEventListenerInterface.h"
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
 
 
 static VirtualKeyboardEventHandler* VirtualKeyboardEventHandler_gameKeyEventHandler;
@@ -15,14 +21,14 @@ void VirtualKeyboardEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    VirtualKeyboardEventHandler_gameKeyEventHandler = [((VirtualKeyboardEventHandler*) [VirtualKeyboardEventHandler alloc]) init];
+    VirtualKeyboardEventHandler_gameKeyEventHandler = ((VirtualKeyboardEventHandler*) [((VirtualKeyboardEventHandler*) [VirtualKeyboardEventHandler alloc]) init]);
 }
 
 @implementation VirtualKeyboardEventHandler
 
 - (void) initFields {
-    self->SHOW_EVENT = [((VirtualKeyboardEvent*) [VirtualKeyboardEvent alloc]) init:[BooleanFactory getInstance]->TRUE];
-    self->HIDE_EVENT = [((VirtualKeyboardEvent*) [VirtualKeyboardEvent alloc]) init:[BooleanFactory getInstance]->FALSE];
+    self->SHOW_EVENT = ((VirtualKeyboardEvent*) [((VirtualKeyboardEvent*) [VirtualKeyboardEvent alloc]) init:JAVA_BOX([BooleanFactory getInstance]->TRUE)]);
+    self->HIDE_EVENT = ((VirtualKeyboardEvent*) [((VirtualKeyboardEvent*) [VirtualKeyboardEvent alloc]) init:JAVA_BOX([BooleanFactory getInstance]->FALSE)]);
 }
 
 
@@ -41,7 +47,7 @@ void VirtualKeyboardEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         VirtualKeyboardEventListenerInterface* virtualKeyboardEventListenerInterface = ((VirtualKeyboardEventListenerInterface*) eventListenerInterface);
-        [virtualKeyboardEventListenerInterface onVirtualKeyboardEvent:((VirtualKeyboardEvent*) eventObject)];
+        [((id<VirtualKeyboardEventListenerInterface>) virtualKeyboardEventListenerInterface) onVirtualKeyboardEvent:((VirtualKeyboardEvent*) eventObject)];
 }
 
 

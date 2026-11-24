@@ -7,6 +7,9 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/ImmutableBasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
 
 
 static BasicArrayListUtil* BasicArrayListUtil_instance;
@@ -17,7 +20,7 @@ void BasicArrayListUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicArrayListUtil_instance = [((BasicArrayListUtil*) [BasicArrayListUtil alloc]) init];
+    BasicArrayListUtil_instance = ((BasicArrayListUtil*) [((BasicArrayListUtil*) [BasicArrayListUtil alloc]) init]);
 }
 
 @implementation BasicArrayListUtil
@@ -25,7 +28,7 @@ void BasicArrayListUtil_staticInit(void) {
 - (void) initFields {
     self->NULL_ARRAY_OF_ARRAY = ((BasicArrayList***) java_array_new2(sizeof(BasicArrayList*), 0, 0));
     self->myRandomFactory = [MyRandomFactory getInstance];
-    self->immutableInstance = [((ImmutableBasicArrayList*) [ImmutableBasicArrayList alloc]) init:"Immutable" :0];
+    self->immutableInstance = ((ImmutableBasicArrayList*) [((ImmutableBasicArrayList*) [ImmutableBasicArrayList alloc]) init:"Immutable" :0]);
 }
 
 - (instancetype) init {
@@ -68,7 +71,7 @@ void BasicArrayListUtil_staticInit(void) {
 - (const char*) log:(BasicArrayList*)list {
         const char* S_LABEL = " s: ";
         int32_t size = [list size];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:[CommonLabels getInstance]->TOTAL_LABEL];
         [stringBuffer appendint:size];
         for (int32_t index = size - 1; index >= 0; index--) {
@@ -87,7 +90,7 @@ void BasicArrayListUtil_staticInit(void) {
 
 + (void) main:(const char**)args {
         CommonPhoneStrings* commonPhoneStrings = [CommonPhoneStrings getInstance];
-        BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         [list add:commonPhoneStrings->ONE];
         [list add:commonPhoneStrings->TWO];
         [list add:commonPhoneStrings->THREE];

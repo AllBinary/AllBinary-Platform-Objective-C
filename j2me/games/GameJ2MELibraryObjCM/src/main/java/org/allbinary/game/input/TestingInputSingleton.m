@@ -15,6 +15,12 @@
 #include "org/allbinary/game/input/InputFactory.h"
 #include "org/allbinary/game/input/GameInputProcessorUtil.h"
 #include "org/allbinary/game/input/TestInputInterface.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
+#endif
 
 
 static TestingInputSingleton* TestingInputSingleton_instance;
@@ -25,7 +31,7 @@ void TestingInputSingleton_staticInit(void) {
         return;
     }
     initialized = true;
-    TestingInputSingleton_instance = [((TestingInputSingleton*) [TestingInputSingleton alloc]) init];
+    TestingInputSingleton_instance = ((TestingInputSingleton*) [((TestingInputSingleton*) [TestingInputSingleton alloc]) init]);
 }
 
 @implementation TestingInputSingleton
@@ -44,7 +50,7 @@ void TestingInputSingleton_staticInit(void) {
 - (instancetype) init {
         self = [super init:[StringUtil getInstance]->EMPTY_STRING :(RectangleFactory_staticInit(), RectangleFactory_SINGLETON) :[ViewPosition getInstanceD]];
         [self initFields];
-        [GameInputProcessorUtil init_:self->inputProcessorArray];
+        [GameInputProcessorUtil initMethod:self->inputProcessorArray];
     return self;
 }
 
@@ -56,7 +62,7 @@ void TestingInputSingleton_staticInit(void) {
 - (void) initInputProcessorsForTestInput:(TestInputInterface*)aTestInputInterface {
         TestInputInterface* testInputInterface = aTestInputInterface;
         self->testInputPaintable = testInputInterface;
-        self->inputProcessorArray[(Canvas_staticInit(), Canvas_UP)] = [((GameInputProcessor*) [GameInputProcessor alloc]) init]
+        self->inputProcessorArray[(Canvas_staticInit(), Canvas_UP)] = ((GameInputProcessor*) [((GameInputProcessor*) [GameInputProcessor alloc]) init])
 #if 0 /* Java anonymous class body: implement it as a named subclass */
             
 
@@ -66,7 +72,7 @@ void TestingInputSingleton_staticInit(void) {
         }
 #endif
 ;
-        self->inputProcessorArray[(Canvas_staticInit(), Canvas_DOWN)] = [((GameInputProcessor*) [GameInputProcessor alloc]) init]
+        self->inputProcessorArray[(Canvas_staticInit(), Canvas_DOWN)] = ((GameInputProcessor*) [((GameInputProcessor*) [GameInputProcessor alloc]) init])
 #if 0 /* Java anonymous class body: implement it as a named subclass */
             
 
@@ -76,7 +82,7 @@ void TestingInputSingleton_staticInit(void) {
         }
 #endif
 ;
-        self->inputProcessorArray[(Canvas_staticInit(), Canvas_LEFT)] = [((GameInputProcessor*) [GameInputProcessor alloc]) init]
+        self->inputProcessorArray[(Canvas_staticInit(), Canvas_LEFT)] = ((GameInputProcessor*) [((GameInputProcessor*) [GameInputProcessor alloc]) init])
 #if 0 /* Java anonymous class body: implement it as a named subclass */
             
 
@@ -86,7 +92,7 @@ void TestingInputSingleton_staticInit(void) {
         }
 #endif
 ;
-        self->inputProcessorArray[(Canvas_staticInit(), Canvas_RIGHT)] = [((GameInputProcessor*) [GameInputProcessor alloc]) init]
+        self->inputProcessorArray[(Canvas_staticInit(), Canvas_RIGHT)] = ((GameInputProcessor*) [((GameInputProcessor*) [GameInputProcessor alloc]) init])
 #if 0 /* Java anonymous class body: implement it as a named subclass */
             
 
@@ -96,7 +102,7 @@ void TestingInputSingleton_staticInit(void) {
         }
 #endif
 ;
-        self->inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM7)] = [((GameInputProcessor*) [GameInputProcessor alloc]) init]
+        self->inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM7)] = ((GameInputProcessor*) [((GameInputProcessor*) [GameInputProcessor alloc]) init])
 #if 0 /* Java anonymous class body: implement it as a named subclass */
             
 
@@ -106,7 +112,7 @@ void TestingInputSingleton_staticInit(void) {
         }
 #endif
 ;
-        self->inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM9)] = [((GameInputProcessor*) [GameInputProcessor alloc]) init]
+        self->inputProcessorArray[(Canvas_staticInit(), Canvas_KEY_NUM9)] = ((GameInputProcessor*) [((GameInputProcessor*) [GameInputProcessor alloc]) init])
 #if 0 /* Java anonymous class body: implement it as a named subclass */
             
 
@@ -116,7 +122,7 @@ void TestingInputSingleton_staticInit(void) {
         }
 #endif
 ;
-        [GameInputProcessorUtil init_:self->inputProcessorArray];
+        [GameInputProcessorUtil initMethod:self->inputProcessorArray];
 }
 
 
@@ -143,7 +149,7 @@ void TestingInputSingleton_staticInit(void) {
 
 
 - (void) paint:(Graphics*)graphics {
-        [self->testInputPaintable paint:graphics];
+        [((id<PaintableInterface>) self->testInputPaintable) paint:graphics];
 }
 
 

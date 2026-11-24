@@ -30,7 +30,7 @@ void PointsLayerFactory_staticInit(void) {
 
 // throws Exception
 - (AllBinaryLayer*) getInstance {
-        return [((PointsLayer*) [PointsLayer alloc]) init:self->points];
+        return ((PointsLayer*) [((PointsLayer*) [PointsLayer alloc]) init:self->points]);
 }
 
 @end

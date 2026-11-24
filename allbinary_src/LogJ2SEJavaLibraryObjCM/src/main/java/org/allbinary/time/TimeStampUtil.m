@@ -10,13 +10,13 @@ void TimeStampUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    TimeStampUtil_instance = [((TimeStampUtil*) [TimeStampUtil alloc]) init];
+    TimeStampUtil_instance = ((TimeStampUtil*) [((TimeStampUtil*) [TimeStampUtil alloc]) init]);
 }
 
 @implementation TimeStampUtil
 
 - (void) initFields {
-    self->simpleDataFormat = [((SimpleDateFormat*) [SimpleDateFormat alloc]) init:"yyyy-MM-dd HH:mm:ss.SSS"];
+    self->simpleDataFormat = ((SimpleDateFormat*) [((SimpleDateFormat*) [SimpleDateFormat alloc]) init:"yyyy-MM-dd HH:mm:ss.SSS"]);
 }
 
 

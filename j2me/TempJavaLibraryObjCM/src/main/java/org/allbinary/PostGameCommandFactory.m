@@ -11,7 +11,7 @@ void PostGameCommandFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    PostGameCommandFactory_instance = [((PostGameCommandFactory*) [PostGameCommandFactory alloc]) init];
+    PostGameCommandFactory_instance = ((PostGameCommandFactory*) [((PostGameCommandFactory*) [PostGameCommandFactory alloc]) init]);
 }
 
 @implementation PostGameCommandFactory

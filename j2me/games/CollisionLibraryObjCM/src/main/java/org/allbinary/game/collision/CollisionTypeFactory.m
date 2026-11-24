@@ -11,16 +11,16 @@ void CollisionTypeFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    CollisionTypeFactory_SINGLETON = [((CollisionTypeFactory*) [CollisionTypeFactory alloc]) init];
+    CollisionTypeFactory_SINGLETON = ((CollisionTypeFactory*) [((CollisionTypeFactory*) [CollisionTypeFactory alloc]) init]);
 }
 
 @implementation CollisionTypeFactory
 
 - (void) initFields {
-    self->NONE = [((CollisionType*) [CollisionType alloc]) init:"None"];
-    self->DAMAGE = [((CollisionType*) [CollisionType alloc]) init:"Damage"];
-    self->PICKUP = [((CollisionType*) [CollisionType alloc]) init:"Pickup"];
-    self->COLLISION = [((CollisionType*) [CollisionType alloc]) init:"Collision"];
+    self->NONE = ((CollisionType*) [((CollisionType*) [CollisionType alloc]) init:"None"]);
+    self->DAMAGE = ((CollisionType*) [((CollisionType*) [CollisionType alloc]) init:"Damage"]);
+    self->PICKUP = ((CollisionType*) [((CollisionType*) [CollisionType alloc]) init:"Pickup"]);
+    self->COLLISION = ((CollisionType*) [((CollisionType*) [CollisionType alloc]) init:"Collision"]);
 }
 
 - (instancetype) init {

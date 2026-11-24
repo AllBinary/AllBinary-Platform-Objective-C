@@ -11,6 +11,12 @@
 #include "org/allbinary/math/AngleFactory.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/init/BaseGameInitialization.h"
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
+#endif
 
 
 
@@ -37,20 +43,20 @@ void CommonGameInitialization_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(AbeClientInformationInterface*)abeClientInformation :(CommandListener*)commandListener :(int32_t)level {
-        [super init_:abeClientInformation :commandListener :level];
+- (void) initMethod:(AbeClientInformationInterface*)abeClientInformation :(CommandListener*)commandListener :(int32_t)level {
+        [super initMethod:abeClientInformation :commandListener :level];
         ResourceLoadingLevelFactory* resourceLoadingLevelFactory = [ResourceLoadingLevelFactory getInstance];
         if (![self isGameInitialized] && level == [resourceLoadingLevelFactory->LOAD_ALL getLevel]) {
             [self setGameInitialized:true];
             ProgressCanvas* progressCanvas = [ProgressCanvasFactory getInstance];
-            [[SmallIntegerSingletonFactory getInstance] init_];
+            [[SmallIntegerSingletonFactory getInstance] initMethod];
             [progressCanvas addNormalPortion:50 :"Integers"];
-            [[PointFactory getInstance] init_];
+            [[PointFactory getInstance] initMethod];
             [progressCanvas addNormalPortion:50 :"Points"];
             [AngleFactory getInstance];
             [progressCanvas addNormalPortion:50 :"Angles"];
             [self initGame];
-            [self->resourceInitializationArray[self->GAME_RESOURCES] init_];
+            [self->resourceInitializationArray[self->GAME_RESOURCES] initMethod];
         }
         [super resourceInitialization:level];
 }

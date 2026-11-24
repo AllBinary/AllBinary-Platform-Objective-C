@@ -6,6 +6,12 @@
 #include "org/allbinary/graphics/color/BasicColorFactory.h"
 #include "org/allbinary/graphics/color/BasicColorSetUtil.h"
 #include "org/allbinary/animation/AnimationInterface.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 

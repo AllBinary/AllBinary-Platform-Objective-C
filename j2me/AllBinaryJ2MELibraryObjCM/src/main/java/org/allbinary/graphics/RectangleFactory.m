@@ -13,7 +13,7 @@ void RectangleFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    RectangleFactory_SINGLETON = [((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :0 :0];
+    RectangleFactory_SINGLETON = ((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :0 :0]);
     RectangleFactory_ARRAY_OF_ARRAYS = ((Rectangle***) java_array_new2(sizeof(Rectangle*), 0, 0));
 }
 

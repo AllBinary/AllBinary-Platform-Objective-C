@@ -38,6 +38,7 @@
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #endif
 #include "java/lang/Integer.h"
+#include "java/lang/ClassLoader.h"
 
 //J2SE - PC
 @interface ResourceUtil : ABObject {

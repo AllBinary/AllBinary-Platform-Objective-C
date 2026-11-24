@@ -39,7 +39,7 @@
 }
 - (instancetype) init:(id)anyType :(DemoGameMidletState*)demoGameMidletState;
 - (void) initFields;
-- (void) init_:(id)anyType;
+- (void) initMethod:(id)anyType;
 - (void) setDemoGameMidletState:(DemoGameMidletState*)demoGameMidletState;
 - (DemoGameMidletState*) getDemoGameMidletState;
 @end

@@ -1,6 +1,12 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/graphics/form/item/validation/TextItemVisitor.h"
 #include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
 
 
 
@@ -24,9 +30,9 @@ void TextItemVisitor_staticInit(void) {
 - (id) visit:(id)anyType {
         const char* value = ((const char*) anyType);
         if (((int32_t) strlen(value)) < 2) {
-            return [BooleanFactory getInstance]->TRUE;
+            return JAVA_BOX([BooleanFactory getInstance]->TRUE);
         } else {
-            return [BooleanFactory getInstance]->FALSE;
+            return JAVA_BOX([BooleanFactory getInstance]->FALSE);
         }
 }
 

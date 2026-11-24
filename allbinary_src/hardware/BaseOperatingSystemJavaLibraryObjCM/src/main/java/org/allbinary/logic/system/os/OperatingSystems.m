@@ -10,7 +10,7 @@ void OperatingSystems_staticInit(void) {
         return;
     }
     initialized = true;
-    OperatingSystems_instance = [((OperatingSystems*) [OperatingSystems alloc]) init];
+    OperatingSystems_instance = ((OperatingSystems*) [((OperatingSystems*) [OperatingSystems alloc]) init]);
 }
 
 @implementation OperatingSystems

@@ -32,7 +32,7 @@ void CheatGameInputProcessor_staticInit(void) {
 
 
 - (instancetype) init:(AllBinaryGameCanvas*)gameCanvas {
-        self = [super init:[((BasicArrayListD*) [BasicArrayListD alloc]) init] :[((BasicArrayListD*) [BasicArrayListD alloc]) init] :-1];
+        self = [super init:((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :-1];
         [self initFields];
         self->gameCanvas = gameCanvas;
     return self;
@@ -49,29 +49,29 @@ void CheatGameInputProcessor_staticInit(void) {
                 id anyType = list->objectArray[index];
                 int32_t key = [GameKeyEventUtil getKey:anyType];
                 if (key == [self->gameKeyFactory->LEVEL_DOWN getId]) {
-                    [(CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor) strafeLeft];
+                    [((id<SpecialGameInputInterface>) (CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor)) strafeLeft];
                     break;
                 } else if (key == [self->gameKeyFactory->LEVEL_UP getId]) {
-                    [(CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor) strafeRight];
+                    [((id<SpecialGameInputInterface>) (CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor)) strafeRight];
                     break;
                 }
                 if (key == [self->gameKeyFactory->LEFT getId]) {
-                    [(CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor) left];
+                    [((id<SpecialGameInputInterface>) (CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor)) left];
                     break;
                 } else if (key == [self->gameKeyFactory->RIGHT getId]) {
-                    [(CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor) right];
+                    [((id<SpecialGameInputInterface>) (CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor)) right];
                     break;
                 } else if (key == [self->gameKeyFactory->UP getId]) {
-                    [(CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor) up];
+                    [((id<SpecialGameInputInterface>) (CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor)) up];
                     break;
                 } else if (key == [self->gameKeyFactory->DOWN getId]) {
-                    [(CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor) down];
+                    [((id<SpecialGameInputInterface>) (CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor)) down];
                     break;
                 } else if (key == [self->gameKeyFactory->KEY_NUM1 getId]) {
-                    [(CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor) special1:gameLayerManager :(GameKeyEvent_staticInit(), GameKeyEvent_NONE)];
+                    [((id<SpecialGameInputInterface>) (CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor)) special1:gameLayerManager :(GameKeyEvent_staticInit(), GameKeyEvent_NONE)];
                     break;
                 } else if (key == [self->gameKeyFactory->KEY_NUM3 getId]) {
-                    [(CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor) special2:gameLayerManager :(GameKeyEvent_staticInit(), GameKeyEvent_NONE)];
+                    [((id<SpecialGameInputInterface>) (CheatGameInputProcessor_staticInit(), CheatGameInputProcessor_inputProcessor)) special2:gameLayerManager :(GameKeyEvent_staticInit(), GameKeyEvent_NONE)];
                     break;
                 }
             }

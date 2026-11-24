@@ -5,6 +5,18 @@
 #include "org/allbinary/game/ag/life/Life.h"
 #include "org/allbinary/graphics/color/BasicColorFactory.h"
 #include "org/allbinary/graphics/displayable/event/DisplayChangeEvent.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/game/ag/life/Life.h")
+#include "org/allbinary/game/ag/life/Life.h"
+#endif
+#if __has_include("org/allbinary/game/ag/life/Life.h")
+#include "org/allbinary/game/ag/life/Life.h"
+#endif
+#if __has_include("org/allbinary/game/ag/life/Life.h")
+#include "org/allbinary/game/ag/life/Life.h"
+#endif
 
 
 

@@ -26,7 +26,7 @@ void SpecialLeftGameInputInterfaceProcessor_staticInit(void) {
 
 // throws Exception
 - (void) processEvent:(AllBinaryLayerManager*)allbinaryLayerManager :(GameKeyEvent*)gameKeyEvent {
-        [self->specialGameInputInterface left];
+        [((id<SpecialGameInputInterface>) self->specialGameInputInterface) left];
 }
 
 @end

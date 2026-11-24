@@ -12,6 +12,18 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/view/ViewPositionBase.h"
 #include "org/allbinary/game/part/weapon/SalvoInterface.h"
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/layer/AllBinaryLayer.h")
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#endif
 
 
 BasicWeaponPart* BasicWeaponPart_NULL_BASIC_WEAPON_PART;
@@ -37,20 +49,20 @@ void BasicWeaponPart_staticInit(void) {
 
 
 + (BasicWeaponPart*) createBasicWeaponPart:(Animation*)animationInterface {
-        return [((BasicWeaponPart*) [BasicWeaponPart alloc]) init:animationInterface :(AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER) :(WeaponProperties_staticInit(), WeaponProperties_NULL_WEAPON_PROPERTIES) :[NoScoreable getInstance] :(RelativeRelationship_staticInit(), RelativeRelationship_NULL_RELATIVE_RELATIONSHIP)];
+        return ((BasicWeaponPart*) [((BasicWeaponPart*) [BasicWeaponPart alloc]) init:animationInterface :(AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER) :(WeaponProperties_staticInit(), WeaponProperties_NULL_WEAPON_PROPERTIES) :[NoScoreable getInstance] :(RelativeRelationship_staticInit(), RelativeRelationship_NULL_RELATIVE_RELATIONSHIP)]);
 }
 
 
 - (instancetype) init:(Animation*)animationInterface :(AllBinaryLayer*)sourceLayerInterface :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreableInterface :(RelativeRelationship*)relativeRelationship {
     self = [super init];
     [self initFields];
-        [self init_:sourceLayerInterface :weaponProperties :scoreableInterface :relativeRelationship];
+        [self initMethod:sourceLayerInterface :weaponProperties :scoreableInterface :relativeRelationship];
         [self setAnimationInterface:animationInterface];
     return self;
 }
 
 
-- (void) init_:(AllBinaryLayer*)sourceLayerInterface :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreableInterface :(RelativeRelationship*)relativeRelationship {
+- (void) initMethod:(AllBinaryLayer*)sourceLayerInterface :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreableInterface :(RelativeRelationship*)relativeRelationship {
         [self setOwnerLayerInterface:sourceLayerInterface];
         [self setWeaponProperties:weaponProperties];
         self->scoreableInterface = scoreableInterface;

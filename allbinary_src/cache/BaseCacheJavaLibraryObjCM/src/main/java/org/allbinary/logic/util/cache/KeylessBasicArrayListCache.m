@@ -56,7 +56,7 @@ void KeylessBasicArrayListCache_staticInit(void) {
 
 
 - (const char*) log {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"S: "];
         [stringBuffer appendint:[self->list size]];
         const char* S_LABEL = " s: ";

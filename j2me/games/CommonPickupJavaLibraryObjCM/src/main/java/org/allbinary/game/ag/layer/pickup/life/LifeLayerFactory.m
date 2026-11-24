@@ -23,7 +23,7 @@ void LifeLayerFactory_staticInit(void) {
 
 // throws Exception
 - (AllBinaryLayer*) getInstance {
-        return [((LifeLayer*) [LifeLayer alloc]) init];
+        return ((LifeLayer*) [((LifeLayer*) [LifeLayer alloc]) init]);
 }
 
 @end

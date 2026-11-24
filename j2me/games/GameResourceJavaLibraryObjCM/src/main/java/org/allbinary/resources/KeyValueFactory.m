@@ -2,6 +2,9 @@
 #include "org/allbinary/resources/KeyValueFactory.h"
 #include "org/allbinary/logic/StdUtil.h"
 #include "org/allbinary/util/ABHashtable.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
 
 
 static KeyValueFactory* KeyValueFactory_instance;
@@ -12,7 +15,7 @@ void KeyValueFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    KeyValueFactory_instance = [((KeyValueFactory*) [KeyValueFactory alloc]) init];
+    KeyValueFactory_instance = ((KeyValueFactory*) [((KeyValueFactory*) [KeyValueFactory alloc]) init]);
 }
 
 @implementation KeyValueFactory

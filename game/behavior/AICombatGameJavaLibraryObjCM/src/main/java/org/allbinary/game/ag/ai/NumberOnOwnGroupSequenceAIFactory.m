@@ -38,7 +38,7 @@ void NumberOnOwnGroupSequenceAIFactory_staticInit(void) {
 // throws Exception
 - (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(ArtificialIntelligenceInterface**)artificialIntelligenceInterface :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
         int32_t* integerArray = [NumberInSameGroupSequence getInstance]->NUMBER_ON_SAME_TEAM_SEQUENCE;
-        BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         for (int32_t index = 0; index < java_array_length(integerArray); index++) {
             id integerCanBeNull = [hashtable get:JAVA_BOX(((id) integerArray[index]))];
             if (integerCanBeNull == nil) {
@@ -46,7 +46,7 @@ void NumberOnOwnGroupSequenceAIFactory_staticInit(void) {
             }
             [list add:integerCanBeNull];
         }
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"Total AI Properties: "];
         [stringBuffer appendint:[list size]];
         [stringBuffer append:" == Total AI: "];
@@ -64,7 +64,7 @@ void NumberOnOwnGroupSequenceAIFactory_staticInit(void) {
         for (int32_t index = 0; index < java_array_length(numberOnSameTeam); index++) {
             numberOnSameTeam[index] = ((int32_t) list->objectArray[index]);
         }
-        return [((NumberOnOwnGroupSequenceAI*) [NumberOnOwnGroupSequenceAI alloc]) init:numberOnSameTeam :artificialIntelligenceInterface :ownerLayerInterface :gameInput];
+        return ((NumberOnOwnGroupSequenceAI*) [((NumberOnOwnGroupSequenceAI*) [NumberOnOwnGroupSequenceAI alloc]) init:numberOnSameTeam :artificialIntelligenceInterface :ownerLayerInterface :gameInput]);
 }
 
 @end

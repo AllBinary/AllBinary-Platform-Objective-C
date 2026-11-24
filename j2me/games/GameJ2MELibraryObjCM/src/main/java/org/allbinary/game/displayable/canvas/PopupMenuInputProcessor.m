@@ -14,6 +14,9 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/game/displayable/canvas/BasicMenuInputProcessor.h"
 #include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
+#if __has_include("org/allbinary/game/input/GameInputStrings.h")
+#include "org/allbinary/game/input/GameInputStrings.h"
+#endif
 
 
 
@@ -30,7 +33,7 @@ void PopupMenuInputProcessor_staticInit(void) {
 - (void) initFields {
     self->rectangleCollisionUtil = [RectangleCollisionUtil getInstance];
     self->CLICK_DELAY = 120;
-    self->clickTimeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:self->CLICK_DELAY];
+    self->clickTimeHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:self->CLICK_DELAY]);
     
 }
 
@@ -43,7 +46,7 @@ void PopupMenuInputProcessor_staticInit(void) {
 }
 
 
-- (void) init_:(Rectangle*)rectangle {
+- (void) initMethod:(Rectangle*)rectangle {
         self->rectangle = rectangle;
 }
 

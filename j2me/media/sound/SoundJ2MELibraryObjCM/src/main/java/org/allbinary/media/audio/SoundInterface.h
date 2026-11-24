@@ -31,7 +31,7 @@
 @protocol SoundInterface
 - (const char*) getResource;
 - (Player*) getPlayerP;
-- (void) init_;
+- (void) initMethod;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

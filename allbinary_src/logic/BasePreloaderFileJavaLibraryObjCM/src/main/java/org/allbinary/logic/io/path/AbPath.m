@@ -8,6 +8,12 @@
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/logic/io/path/AbPathData.h"
 #include "org/allbinary/logic/io/path/PathUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static const char* AbPath_NETWORK_SEP = ":/";
@@ -38,7 +44,7 @@ void AbPath_staticInit(void) {
 + (AbPath*) createAbPath {
         JAVA_TRY {
             const char* EMPTY_STRING = [StringUtil getInstance]->EMPTY_STRING;
-            return [((AbPath*) [AbPath alloc]) init:EMPTY_STRING :EMPTY_STRING];
+            return ((AbPath*) [((AbPath*) [AbPath alloc]) init:EMPTY_STRING :EMPTY_STRING]);
         } JAVA_CATCH(Exception, ex) {
             java_throw(java_exception_new("RuntimeException", ""));
         } JAVA_END_TRY;
@@ -54,7 +60,7 @@ void AbPath_staticInit(void) {
             self->nameP = name;
             self->path = [self->abPathUtil adjustEnd:[self->abPathUtil adjust:[self getPathFromPath:aPath]]];
         } else {
-            [self init_];
+            [self initMethod];
             if (![stringValidationUtil isEmpty:name]) {
                 self->nameP = name;
             }
@@ -63,7 +69,7 @@ void AbPath_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         self->schema = self->EMPTY_STRING;
         [self setPath:self->abPathData->SEPARATOR];
         self->nameP = self->EMPTY_STRING;
@@ -121,7 +127,7 @@ void AbPath_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         if ([self hasSchema]) {
             [stringBuffer append:self->schema];
             [stringBuffer append:AbPath_NETWORK_SEP];
@@ -135,7 +141,7 @@ void AbPath_staticInit(void) {
 - (const char*) toFileSystemString {
         if ([self hasSchema]) {
             FilePathData* filePathData = [FilePathData getInstance];
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:self->schema];
             [stringBuffer append:self->commonSeps->COLON];
             [stringBuffer append:filePathData->PATH_START];

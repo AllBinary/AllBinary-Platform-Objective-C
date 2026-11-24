@@ -22,7 +22,7 @@ void MultiKeyPressesAI_staticInit(void) {
 @implementation MultiKeyPressesAI
 
 - (void) initFields {
-    self->toggleTimeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:600];
+    self->toggleTimeHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:600]);
     self->gameTickTimeDelayHelper = [GameTickTimeDelayHelperFactory getInstance];
 }
 

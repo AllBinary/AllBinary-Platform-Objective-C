@@ -14,7 +14,7 @@ void PickedUpLayerInterfaceFactoryBase_staticInit(void) {
         return;
     }
     initialized = true;
-    PickedUpLayerInterfaceFactoryBase_NULL_PICKED_UP_LAYER_FACTORY_BASE = [((PickedUpLayerInterfaceFactoryBase*) [PickedUpLayerInterfaceFactoryBase alloc]) init];
+    PickedUpLayerInterfaceFactoryBase_NULL_PICKED_UP_LAYER_FACTORY_BASE = ((PickedUpLayerInterfaceFactoryBase*) [((PickedUpLayerInterfaceFactoryBase*) [PickedUpLayerInterfaceFactoryBase alloc]) init]);
 }
 
 @implementation PickedUpLayerInterfaceFactoryBase

@@ -11,13 +11,13 @@ void OpenGLESGraphicsCompositeFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLESGraphicsCompositeFactory_instance = [((OpenGLESGraphicsCompositeFactory*) [OpenGLESGraphicsCompositeFactory alloc]) init];
+    OpenGLESGraphicsCompositeFactory_instance = ((OpenGLESGraphicsCompositeFactory*) [((OpenGLESGraphicsCompositeFactory*) [OpenGLESGraphicsCompositeFactory alloc]) init]);
 }
 
 @implementation OpenGLESGraphicsCompositeFactory
 
 - (void) initFields {
-    self->openGLESGraphicsFactory = [((OpenGLESGraphicsFactory*) [OpenGLESGraphicsFactory alloc]) init];
+    self->openGLESGraphicsFactory = ((OpenGLESGraphicsFactory*) [((OpenGLESGraphicsFactory*) [OpenGLESGraphicsFactory alloc]) init]);
 }
 
 - (instancetype) init {

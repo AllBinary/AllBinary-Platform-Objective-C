@@ -1,6 +1,9 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
 #include "org/allbinary/logic/NullUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 AllBinaryEventObject* AllBinaryEventObject_NULL_EVENT;
@@ -11,7 +14,7 @@ void AllBinaryEventObject_staticInit(void) {
         return;
     }
     initialized = true;
-    AllBinaryEventObject_NULL_EVENT = [((AllBinaryEventObject*) [AllBinaryEventObject alloc]) init:[NullUtil getInstance]->NULL_OBJECT];
+    AllBinaryEventObject_NULL_EVENT = ((AllBinaryEventObject*) [((AllBinaryEventObject*) [AllBinaryEventObject alloc]) init:[NullUtil getInstance]->NULL_OBJECT]);
 }
 
 @implementation AllBinaryEventObject

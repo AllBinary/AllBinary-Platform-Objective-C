@@ -8,6 +8,15 @@
 #include "org/allbinary/time/GameTickTimeDelayHelper.h"
 #include "org/allbinary/time/GameTickTimeDelayHelperFactory.h"
 #include "org/allbinary/time/TimeDelayHelper.h"
+#if __has_include("org/allbinary/logic/math/ScaleFactorFactory.h")
+#include "org/allbinary/logic/math/ScaleFactorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 
@@ -22,8 +31,8 @@ void BaseGameStatistics_staticInit(void) {
 @implementation BaseGameStatistics
 
 - (void) initFields {
-    self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:(Integer_staticInit(), Integer_MAX_VALUE)];
-    self->updateDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:2000];
+    self->timeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:(Integer_staticInit(), Integer_MAX_VALUE)]);
+    self->updateDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:2000]);
     self->totalRefreshes = 0;
     self->totalFrames = 0;
     self->gameTickTimeDelayHelper = [GameTickTimeDelayHelperFactory getInstance];
@@ -46,7 +55,7 @@ void BaseGameStatistics_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         [self->timeDelayHelper setStartTimeTNT];
         self->totalRefreshes = 0LL;
         self->totalFrames = 0LL;
@@ -144,7 +153,7 @@ void BaseGameStatistics_staticInit(void) {
 
 
 - (const char*) toStringAt:(int64_t)totalTime {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:self->STRING_ARRAY[0]];
         [stringBuffer appendlong:totalTime];
         [stringBuffer append:self->STRING_ARRAY[2]];

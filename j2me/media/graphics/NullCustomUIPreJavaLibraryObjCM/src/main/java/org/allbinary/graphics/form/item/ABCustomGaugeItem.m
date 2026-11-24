@@ -4,6 +4,15 @@
 #include "org/allbinary/graphics/color/BasicColorFactory.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/graphics/form/item/ABCustomItem.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 ABCustomGaugeItem* ABCustomGaugeItem_NULL_GAUGE_ITEM;
@@ -14,7 +23,7 @@ void ABCustomGaugeItem_staticInit(void) {
         return;
     }
     initialized = true;
-    ABCustomGaugeItem_NULL_GAUGE_ITEM = [((ABCustomGaugeItem*) [ABCustomGaugeItem alloc]) init:[StringUtil getInstance]->EMPTY_STRING :1 :0 :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE];
+    ABCustomGaugeItem_NULL_GAUGE_ITEM = ((ABCustomGaugeItem*) [((ABCustomGaugeItem*) [ABCustomGaugeItem alloc]) init:[StringUtil getInstance]->EMPTY_STRING :1 :0 :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE]);
 }
 
 @implementation ABCustomGaugeItem

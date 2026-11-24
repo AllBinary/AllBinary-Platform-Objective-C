@@ -13,7 +13,7 @@ void PreResourceImageUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    PreResourceImageUtil_instance = [((PreResourceImageUtil*) [PreResourceImageUtil alloc]) init];
+    PreResourceImageUtil_instance = ((PreResourceImageUtil*) [((PreResourceImageUtil*) [PreResourceImageUtil alloc]) init]);
 }
 
 @implementation PreResourceImageUtil

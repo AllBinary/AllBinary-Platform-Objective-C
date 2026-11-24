@@ -5,6 +5,21 @@
 #include "org/allbinary/logic/java/bool/BooleanFactory.h"
 #include "org/allbinary/logic/string/StringValidationUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/TextNotificationUtil.h")
+#include "org/allbinary/game/input/TextNotificationUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
 
 
 
@@ -36,9 +51,9 @@ void TextItemUserIdentifierVisitor_staticInit(void) {
             uint16_t charValue = ((uint16_t) value[0]);
             StringValidationUtil* stringValidationUtil = [StringValidationUtil getInstance];
             if ([stringValidationUtil isNumber:value]) {
-                return [BooleanFactory getInstance]->TRUE;
+                return JAVA_BOX([BooleanFactory getInstance]->TRUE);
             } else if ([self isLetter:charValue]) {
-                return [BooleanFactory getInstance]->TRUE;
+                return JAVA_BOX([BooleanFactory getInstance]->TRUE);
             } else {
                 JAVA_TRY {
                     [[TextNotificationUtil getInstance] fireError:"Only Letters & Numbers Allowed"];
@@ -46,10 +61,10 @@ void TextItemUserIdentifierVisitor_staticInit(void) {
                     CommonStrings* commonStrings = [CommonStrings getInstance];
                     [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->VISIT :e];
                 } JAVA_END_TRY;
-                return [BooleanFactory getInstance]->FALSE;
+                return JAVA_BOX([BooleanFactory getInstance]->FALSE);
             }
         } else {
-            return [BooleanFactory getInstance]->FALSE;
+            return JAVA_BOX([BooleanFactory getInstance]->FALSE);
         }
 }
 

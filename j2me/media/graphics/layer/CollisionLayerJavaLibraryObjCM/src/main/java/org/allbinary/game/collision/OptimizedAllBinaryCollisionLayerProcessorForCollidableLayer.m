@@ -21,7 +21,7 @@ void OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer_staticInit(void
 
 
 - (instancetype) init {
-        self = [super init:[((OptimizedAllBinaryCollisionLayerManager*) [OptimizedAllBinaryCollisionLayerManager alloc]) init]];
+        self = [super init:((OptimizedAllBinaryCollisionLayerManager*) [((OptimizedAllBinaryCollisionLayerManager*) [OptimizedAllBinaryCollisionLayerManager alloc]) init])];
     return self;
 }
 

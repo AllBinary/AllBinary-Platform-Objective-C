@@ -10,7 +10,7 @@ void DamageFloaters_staticInit(void) {
         return;
     }
     initialized = true;
-    DamageFloaters_SINGLETON = [((DamageFloaters*) [DamageFloaters alloc]) init];
+    DamageFloaters_SINGLETON = ((DamageFloaters*) [((DamageFloaters*) [DamageFloaters alloc]) init]);
 }
 
 @implementation DamageFloaters

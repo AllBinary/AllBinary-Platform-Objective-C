@@ -19,14 +19,14 @@ void VectorExplosionGenerator_staticInit(void) {
         return;
     }
     initialized = true;
-    VectorExplosionGenerator_instance = [((VectorExplosionGenerator*) [VectorExplosionGenerator alloc]) init];
+    VectorExplosionGenerator_instance = ((VectorExplosionGenerator*) [((VectorExplosionGenerator*) [VectorExplosionGenerator alloc]) init]);
 }
 
 @implementation VectorExplosionGenerator
 
 - (void) initFields {
-    self->RANDOM = [((VectorExplosionType*) [VectorExplosionType alloc]) init];
-    self->ROTATION = [((VectorExplosionType*) [VectorExplosionType alloc]) init];
+    self->RANDOM = ((VectorExplosionType*) [((VectorExplosionType*) [VectorExplosionType alloc]) init]);
+    self->ROTATION = ((VectorExplosionType*) [((VectorExplosionType*) [VectorExplosionType alloc]) init]);
     self->vectorAnimationUtil = [VectorAnimationUtil getInstance];
     self->randomRotationFactory = [RandomRotationFactory getInstance];
 }
@@ -70,7 +70,7 @@ void VectorExplosionGenerator_staticInit(void) {
 // throws Exception
 - (BasicArrayList*) getInstanceStartFrame:(int32_t**)points :(int32_t)howMuch :(VectorExplosionType*)type :(bool)startFrame {
         JAVA_TRY {
-            BasicArrayList* pointsBasicArrayList = [((BasicArrayListS*) [BasicArrayListS alloc]) init:howMuch];
+            BasicArrayList* pointsBasicArrayList = ((BasicArrayListS*) [((BasicArrayListS*) [BasicArrayListS alloc]) init:howMuch]);
             [pointsBasicArrayList add:[self createPointsBasicArrayList:points]];
             int32_t frameIndex = 0;
             BasicArrayList* tempBasicArrayList = nullptr;
@@ -94,10 +94,10 @@ void VectorExplosionGenerator_staticInit(void) {
 // throws Exception
 - (BasicArrayList*) createListFromPoints:(BasicArrayList*)tempBasicArrayList :(int32_t**)points :(int32_t)howMuch :(VectorExplosionType*)type {
         int32_t index = 0;
-        BasicArrayList* pointBasicArrayList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* pointBasicArrayList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         BasicArrayList* sectionBasicArrayList = nullptr;
         while (index < java_array_length(points)) {
-            sectionBasicArrayList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            sectionBasicArrayList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             while (points[index][0] != 1000) {
                 [sectionBasicArrayList add:tempBasicArrayList->objectArray[index]];
                 index++;
@@ -129,7 +129,7 @@ void VectorExplosionGenerator_staticInit(void) {
         if (java_array_length(points) == 0) {
             java_throw(java_exception_new("Exception", "Not Points Provided"));
         }
-        BasicArrayList* firstPointBasicArrayList = [((BasicArrayListS*) [BasicArrayListS alloc]) init:java_array_length(points)];
+        BasicArrayList* firstPointBasicArrayList = ((BasicArrayListS*) [((BasicArrayListS*) [BasicArrayListS alloc]) init:java_array_length(points)]);
         PointFactory* pointFactory = [PointFactory getInstance];
         for (int32_t index = 0; index < java_array_length(points); index++) {
             [firstPointBasicArrayList add:[pointFactory createXY:points[index][0] :points[index][1]]];

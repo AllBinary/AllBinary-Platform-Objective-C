@@ -11,7 +11,7 @@ void NullLocationPaintable_staticInit(void) {
         return;
     }
     initialized = true;
-    NullLocationPaintable_instanceC = [((NullLocationPaintable*) [NullLocationPaintable alloc]) init];
+    NullLocationPaintable_instanceC = ((NullLocationPaintable*) [((NullLocationPaintable*) [NullLocationPaintable alloc]) init]);
 }
 
 @implementation NullLocationPaintable

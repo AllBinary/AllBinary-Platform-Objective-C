@@ -5,6 +5,12 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/animation/image/AdjustedImageArrayRotationAnimation.h"
 #include "org/allbinary/animation/image/ImageArrayRotationAnimationInfo.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 

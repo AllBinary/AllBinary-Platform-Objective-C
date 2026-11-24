@@ -36,7 +36,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-- (void) init_;
+- (void) initMethod;
 - (Sound**) getSoundInterfaceArray;
 - (void) setInitialized:(bool)initialized;
 - (bool) isInitialized;

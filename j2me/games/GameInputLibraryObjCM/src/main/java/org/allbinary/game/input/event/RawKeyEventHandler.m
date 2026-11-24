@@ -7,6 +7,9 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/input/event/RawKeyEventListener.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 static RawKeyEventHandler* RawKeyEventHandler_instance;
@@ -19,7 +22,7 @@ void RawKeyEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    RawKeyEventHandler_instance = [((RawKeyEventHandler*) [RawKeyEventHandler alloc]) init];
+    RawKeyEventHandler_instance = ((RawKeyEventHandler*) [((RawKeyEventHandler*) [RawKeyEventHandler alloc]) init]);
 }
 
 @implementation RawKeyEventHandler
@@ -38,13 +41,13 @@ void RawKeyEventHandler_staticInit(void) {
 - (instancetype) init {
     self = [super init];
     [self initFields];
-        self->eventListenerInterfaceList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->eventListenerInterfaceList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     return self;
 }
 
 
 - (void) removeAllListeners {
-        self->eventListenerInterfaceList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->eventListenerInterfaceList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -101,7 +104,7 @@ void RawKeyEventHandler_staticInit(void) {
 
 // throws Exception
 - (void) process:(int32_t)keyCode :(int32_t)deviceId :(bool)repeated :(RawKeyEventListener*)eventListenerInterface {
-        [eventListenerInterface onEventRaw:keyCode :deviceId :repeated];
+        [((id<RawKeyEventListener>) eventListenerInterface) onEventRaw:keyCode :deviceId :repeated];
 }
 
 
@@ -111,7 +114,7 @@ void RawKeyEventHandler_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:RawKeyEventHandler_TOTAL_LISTENERS];
         [stringBuffer appendint:[self->eventListenerInterfaceList size]];
         RawKeyEventListener* eventListenerInterface = nullptr;
@@ -120,7 +123,7 @@ void RawKeyEventHandler_staticInit(void) {
             JAVA_TRY {
                 eventListenerInterface = ((RawKeyEventListener*) [self->eventListenerInterfaceList get:index]);
                 [stringBuffer append:RawKeyEventHandler_LISTENER_LABEL];
-                [stringBuffer append:[eventListenerInterface toString]];
+                [stringBuffer append:[((id<RawKeyEventListener>) eventListenerInterface) toString]];
             } JAVA_CATCH(Exception, e) {
                 CommonStrings* commonStrings = [CommonStrings getInstance];
                 [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->TOSTRING :e];

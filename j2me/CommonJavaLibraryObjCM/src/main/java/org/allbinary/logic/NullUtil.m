@@ -10,7 +10,7 @@ void NullUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    NullUtil_instance = [((NullUtil*) [NullUtil alloc]) init];
+    NullUtil_instance = ((NullUtil*) [((NullUtil*) [NullUtil alloc]) init]);
 }
 
 @implementation NullUtil

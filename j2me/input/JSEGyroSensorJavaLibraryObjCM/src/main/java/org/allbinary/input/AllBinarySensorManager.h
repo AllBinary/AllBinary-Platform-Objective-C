@@ -42,7 +42,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (AllBinarySensorManager*) getInstance;
-- (void) init_;
+- (void) initMethod;
 - (BasicArrayList*) getSensorNamesList;
 - (void) shutdown;
 @end

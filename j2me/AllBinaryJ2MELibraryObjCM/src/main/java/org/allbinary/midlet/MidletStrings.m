@@ -10,7 +10,7 @@ void MidletStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    MidletStrings_instance = [((MidletStrings*) [MidletStrings alloc]) init];
+    MidletStrings_instance = ((MidletStrings*) [((MidletStrings*) [MidletStrings alloc]) init]);
 }
 
 @implementation MidletStrings

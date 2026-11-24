@@ -16,7 +16,7 @@ void GameOptionsFormFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    GameOptionsFormFactory_instance = [((GameOptionsFormFactory*) [GameOptionsFormFactory alloc]) init];
+    GameOptionsFormFactory_instance = ((GameOptionsFormFactory*) [((GameOptionsFormFactory*) [GameOptionsFormFactory alloc]) init]);
 }
 
 @implementation GameOptionsFormFactory
@@ -38,9 +38,9 @@ void GameOptionsFormFactory_staticInit(void) {
 }
 
 
-- (CommandForm*) init_:(CommandListener*)commandListener :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor {
+- (CommandForm*) initMethod:(CommandListener*)commandListener :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor {
         JAVA_TRY {
-            return [((GameOptionsForm*) [GameOptionsForm alloc]) init:commandListener :title :backgrounBasicColor :foregroundBasicColor];
+            return ((GameOptionsForm*) [((GameOptionsForm*) [GameOptionsForm alloc]) init:commandListener :title :backgrounBasicColor :foregroundBasicColor]);
         } JAVA_CATCH(Exception, e) {
             CommonStrings* commonStrings = [CommonStrings getInstance];
             [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->INIT :e];

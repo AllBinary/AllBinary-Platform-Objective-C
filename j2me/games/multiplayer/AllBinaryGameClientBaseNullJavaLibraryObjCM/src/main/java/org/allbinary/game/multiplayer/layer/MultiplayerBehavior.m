@@ -1,6 +1,9 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/game/multiplayer/layer/MultiplayerBehavior.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 MultiplayerBehavior* MultiplayerBehavior_NULL_MULTIPLAYER_BEHAVIOR;
@@ -11,7 +14,7 @@ void MultiplayerBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    MultiplayerBehavior_NULL_MULTIPLAYER_BEHAVIOR = [((MultiplayerBehavior*) [MultiplayerBehavior alloc]) init:[StringUtil getInstance]->EMPTY_STRING];
+    MultiplayerBehavior_NULL_MULTIPLAYER_BEHAVIOR = ((MultiplayerBehavior*) [((MultiplayerBehavior*) [MultiplayerBehavior alloc]) init:[StringUtil getInstance]->EMPTY_STRING]);
 }
 
 @implementation MultiplayerBehavior

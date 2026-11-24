@@ -17,7 +17,7 @@ void AllMotionRecognizer_staticInit(void) {
         return;
     }
     initialized = true;
-    AllMotionRecognizer_pointCircularPool = [((GPointCircularPool*) [GPointCircularPool alloc]) init:40];
+    AllMotionRecognizer_pointCircularPool = ((GPointCircularPool*) [((GPointCircularPool*) [GPointCircularPool alloc]) init:40]);
 }
 
 @implementation AllMotionRecognizer
@@ -37,8 +37,8 @@ void AllMotionRecognizer_staticInit(void) {
     self = [super init];
     [self initFields];
         self->id_ = AllMotionRecognizer_index++;
-        self->motionGestureRecognizer = [((MotionGestureRecognizer*) [MotionGestureRecognizer alloc]) init:self->id_];
-        self->touchButtonRecognizer = [((TouchButtonRecognizer*) [TouchButtonRecognizer alloc]) init];
+        self->motionGestureRecognizer = ((MotionGestureRecognizer*) [((MotionGestureRecognizer*) [MotionGestureRecognizer alloc]) init:self->id_]);
+        self->touchButtonRecognizer = ((TouchButtonRecognizer*) [((TouchButtonRecognizer*) [TouchButtonRecognizer alloc]) init]);
     return self;
 }
 

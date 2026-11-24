@@ -1,6 +1,9 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/logic/system/loader/WebappClassLoaderInfo.h"
 #include "org/allbinary/logic/NullUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static id WebappClassLoaderInfo_classLoader;

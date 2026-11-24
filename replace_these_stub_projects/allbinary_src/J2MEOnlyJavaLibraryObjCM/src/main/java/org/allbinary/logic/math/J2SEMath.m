@@ -10,7 +10,7 @@ void J2SEMath_staticInit(void) {
         return;
     }
     initialized = true;
-    J2SEMath_instance = [((J2SEMath*) [J2SEMath alloc]) init];
+    J2SEMath_instance = ((J2SEMath*) [((J2SEMath*) [J2SEMath alloc]) init]);
 }
 
 @implementation J2SEMath

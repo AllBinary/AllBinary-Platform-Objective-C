@@ -10,6 +10,9 @@
 #include "org/allbinary/graphics/opengles/shader/ModelViewProjection.h"
 #include "org/allbinary/graphics/opengles/shader/NullOpenGLTextureProcessor.h"
 #include "org/allbinary/graphics/opengles/shader/OpenGLObject3dProcessor.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -65,8 +68,8 @@ void ShaderComposite_staticInit(void) {
 }
 
 
-- (void) init_:(GL10*)gl {
-        self->programHandle = [self->shaderInitializer init_:gl :self->shaderArray :[[StringUtil getInstance] getArrayInstance]];
+- (void) initMethod:(GL10*)gl {
+        self->programHandle = [self->shaderInitializer initMethod:gl :self->shaderArray :[[StringUtil getInstance] getArrayInstance]];
 }
 
 @end

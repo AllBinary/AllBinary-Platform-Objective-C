@@ -27,7 +27,7 @@ void RandomTranslation_staticInit(void) {
         MyRandomFactory* myRandomFactory = [MyRandomFactory getInstance];
         int32_t x = -[myRandomFactory getNextInt:howMuch];
         int32_t y = [myRandomFactory getNextInt:howMuch];
-        BasicGraphicsPipeline* graphicsPipe = [((BasicGraphicsPipeline*) [BasicGraphicsPipeline alloc]) init:vector];
+        BasicGraphicsPipeline* graphicsPipe = ((BasicGraphicsPipeline*) [((BasicGraphicsPipeline*) [BasicGraphicsPipeline alloc]) init:vector]);
         [graphicsPipe createMatrix];
         [graphicsPipe translate:x :y];
         return [graphicsPipe getMatrix];

@@ -21,7 +21,7 @@ void LicensedDemoSetupFactory_staticInit(void) {
 
 
 - (DemoSetup*) getInstance {
-        return [((DemoSetup*) [DemoSetup alloc]) init];
+        return ((DemoSetup*) [((DemoSetup*) [DemoSetup alloc]) init]);
 }
 
 @end

@@ -11,7 +11,7 @@ void NullOpenGLProcessorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    NullOpenGLProcessorFactory_instance = [((OpenGLProcessor*) [OpenGLProcessor alloc]) init];
+    NullOpenGLProcessorFactory_instance = ((OpenGLProcessor*) [((OpenGLProcessor*) [OpenGLProcessor alloc]) init]);
 }
 
 @implementation NullOpenGLProcessorFactory

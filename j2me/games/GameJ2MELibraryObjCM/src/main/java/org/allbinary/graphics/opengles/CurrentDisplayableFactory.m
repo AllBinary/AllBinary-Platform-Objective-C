@@ -24,6 +24,99 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/graphics/GraphicsStrings.h")
+#include "org/allbinary/graphics/GraphicsStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 static CurrentDisplayableFactory* CurrentDisplayableFactory_instance;
@@ -34,7 +127,7 @@ void CurrentDisplayableFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    CurrentDisplayableFactory_instance = [((CurrentDisplayableFactory*) [CurrentDisplayableFactory alloc]) init];
+    CurrentDisplayableFactory_instance = ((CurrentDisplayableFactory*) [((CurrentDisplayableFactory*) [CurrentDisplayableFactory alloc]) init]);
 }
 
 @implementation CurrentDisplayableFactory
@@ -49,7 +142,7 @@ void CurrentDisplayableFactory_staticInit(void) {
     self->SET_USED_RUNNABLE = "setUsedRunnable";
     self->RUNNABLE = "Runnable: ";
     self->RUNNABLE_WAS_ALREADY_IN_USE = "Runnable was already in use: ";
-    self->DEFAULT_CHILD_NAME_LIST = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->DEFAULT_CHILD_NAME_LIST = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->displayable = [NullDisplayable getInstance];
     self->openGlReadydisplayable = [NullDisplayable getInstance];
     self->runnable = [NullWaitGameRunnable getInstance];
@@ -77,7 +170,7 @@ void CurrentDisplayableFactory_staticInit(void) {
 - (void) setMyCanvas:(MyCanvas*)displayable {
         if (java_objc_instanceof(self->displayable, [MyCanvas class])) {
             if ([displayable hasChild:((MyCanvas*) self->displayable)]) {
-                [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Child Displayable is already set for: "] append:[self->stringUtil toString:displayable]] toString] :self :self->SET_DISPLAYABLE];
+                [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Child Displayable is already set for: "] append:[self->stringUtil toString:displayable]] toString] :self :self->SET_DISPLAYABLE];
                 return;
             }
         }
@@ -103,18 +196,18 @@ void CurrentDisplayableFactory_staticInit(void) {
 
 
 - (void) setRunnable:(GameRunnable*)runnable {
-        [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->RUNNABLE] append:[self->stringUtil toString:runnable]] toString] :self :self->SET_RUNNABLE];
+        [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->RUNNABLE] append:[self->stringUtil toString:runnable]] toString] :self :self->SET_RUNNABLE];
         self->runnable = runnable;
         if (self->usedRunnable != self->runnable) {
             [self update];
         } else {
-            [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->RUNNABLE_WAS_ALREADY_IN_USE] append:[self->stringUtil toString:runnable]] toString] :self :self->SET_RUNNABLE];
+            [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->RUNNABLE_WAS_ALREADY_IN_USE] append:[self->stringUtil toString:runnable]] toString] :self :self->SET_RUNNABLE];
         }
 }
 
 
 - (void) clearRunnable {
-        [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->RUNNABLE] append:[self->stringUtil toString:[NullRunnable getInstance]]] toString] :self :self->CLEAR_RUNNABLE];
+        [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->RUNNABLE] append:[self->stringUtil toString:[NullRunnable getInstance]]] toString] :self :self->CLEAR_RUNNABLE];
         [self setUsedRunnable:[NullWaitGameRunnable getInstance]];
 }
 
@@ -124,7 +217,7 @@ void CurrentDisplayableFactory_staticInit(void) {
         {
             CommonSeps* commonSeps = [CommonSeps getInstance];
             Features* features = [Features getInstance];
-            StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringMaker append:[self->stringUtil toString:self->openGlReadydisplayable]];
             if ((SWTUtil_staticInit(), SWTUtil_isSWT) && ![features isDefault:[OpenGLFeatureFactory getInstance]->OPENGL]) {
                 [PreLogUtil put:[[[[[[stringMaker append:commonSeps->SPACE] append:(SWTUtil_staticInit(), SWTUtil_SWT)] append:commonSeps->SPACE] append:self->RUNNABLE] append:[self->stringUtil toString:[NullRunnable getInstance]]] toString] :self :self->commonStrings->UPDATE];
@@ -155,7 +248,7 @@ void CurrentDisplayableFactory_staticInit(void) {
 
 
 - (void) setUsedRunnable:(GameRunnable*)usedRunnable {
-        [PreLogUtil put:[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->RUNNABLE] append:[self->stringUtil toString:self->runnable]] append:[CommonSeps getInstance]->COLON_SEP] append:[self->stringUtil toString:usedRunnable]] toString] :self :self->SET_USED_RUNNABLE];
+        [PreLogUtil put:[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->RUNNABLE] append:[self->stringUtil toString:self->runnable]] append:[CommonSeps getInstance]->COLON_SEP] append:[self->stringUtil toString:usedRunnable]] toString] :self :self->SET_USED_RUNNABLE];
         self->usedRunnable = usedRunnable;
 }
 

@@ -7,6 +7,9 @@
 #include "org/allbinary/animation/AnimationBehaviorFactory.h"
 #include "org/allbinary/animation/VectorAnimation.h"
 #include "org/allbinary/animation/Animation.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 
@@ -39,7 +42,7 @@ void VectorAnimationInterfaceFactory_staticInit(void) {
 
 // throws Exception
 - (Animation*) getInstance:(int32_t)instanceId {
-        return [((VectorAnimation*) [VectorAnimation alloc]) init:self->currentPoints :[self getBasicColorP] :[self->animationBehaviorFactory getOrCreateInstance]];
+        return ((VectorAnimation*) [((VectorAnimation*) [VectorAnimation alloc]) init:self->currentPoints :[self getBasicColorP] :[self->animationBehaviorFactory getOrCreateInstance]]);
 }
 
 

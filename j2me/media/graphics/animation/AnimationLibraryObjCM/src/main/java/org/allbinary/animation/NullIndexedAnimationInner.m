@@ -18,7 +18,7 @@ void NullIndexedAnimationInner_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:[((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:1 :250]];
+        self = [super init:((IndexedAnimationBehavior*) [((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:1 :250])];
     return self;
 }
 

@@ -25,7 +25,7 @@ void HorizontalRotationManeuverAIFactory_staticInit(void) {
 
 
 - (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
-        return [((HorizontaRotationManeuverAI*) [HorizontaRotationManeuverAI alloc]) init:ownerLayerInterface :gameInput];
+        return ((HorizontaRotationManeuverAI*) [((HorizontaRotationManeuverAI*) [HorizontaRotationManeuverAI alloc]) init:ownerLayerInterface :gameInput]);
 }
 
 @end

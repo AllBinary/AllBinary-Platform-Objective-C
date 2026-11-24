@@ -30,7 +30,7 @@ void LifeLayerCircularStaticPool_staticInit(void) {
 - (void) visit:(AllBinaryLayer*)sourceLayerInterface {
         LifeLayer* lifeLayer = ((LifeLayer*) [self getNextInstance]);
         LifeInterfaceCompositeInterface* lifeInterfaceCompositeInterface = ((LifeInterfaceCompositeInterface*) sourceLayerInterface);
-        Life* lifeInterface = [lifeInterfaceCompositeInterface getLifeInterface];
+        Life* lifeInterface = [((id<LifeInterfaceCompositeInterface>) lifeInterfaceCompositeInterface) getLifeInterface];
         [lifeLayer visit:lifeInterface];
 }
 

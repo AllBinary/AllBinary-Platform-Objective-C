@@ -70,9 +70,9 @@ void StartIntermissionProcessor_staticInit(void) {
 
 // throws Exception
 - (void) process {
-        if ([[[self->gameCanvas getStartIntermissionInterface] getTimeDelayHelper] isElapsedTNT:self->WAIT]) {
+        if ([[((id<IntermissionInterface>) [self->gameCanvas getStartIntermissionInterface]) getTimeDelayHelper] isElapsedTNT:self->WAIT]) {
             [self->logUtil putF:"Intermission End" :self :self->commonStrings->PROCESS];
-            [[self->gameCanvas getStartIntermissionInterface] setEnabled:false];
+            [((id<IntermissionInterface>) [self->gameCanvas getStartIntermissionInterface]) setEnabled:false];
         }
 }
 

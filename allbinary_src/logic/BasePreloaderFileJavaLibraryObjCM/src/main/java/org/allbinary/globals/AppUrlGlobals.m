@@ -2,6 +2,12 @@
 #include "org/allbinary/globals/AppUrlGlobals.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/globals/UrlGlobalsInterface.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 AppUrlGlobals* AppUrlGlobals_NULL_APP_URL_GLOBALS;
@@ -12,7 +18,7 @@ void AppUrlGlobals_staticInit(void) {
         return;
     }
     initialized = true;
-    AppUrlGlobals_NULL_APP_URL_GLOBALS = [((AppUrlGlobals*) [AppUrlGlobals alloc]) init];
+    AppUrlGlobals_NULL_APP_URL_GLOBALS = ((AppUrlGlobals*) [((AppUrlGlobals*) [AppUrlGlobals alloc]) init]);
 }
 
 @implementation AppUrlGlobals

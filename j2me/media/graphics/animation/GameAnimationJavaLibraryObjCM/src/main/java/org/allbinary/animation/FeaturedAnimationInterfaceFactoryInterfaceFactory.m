@@ -14,6 +14,39 @@
 #include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
 #include "org/allbinary/animation/BasicAnimationInterfaceFactoryInterface.h"
 #include "org/allbinary/animation/NullAnimationFactory.h"
+#if __has_include("org/allbinary/game/configuration/GameConfigurationCentral.h")
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 #if __has_include("org/allbinary/animation/Any.h")
 #include "org/allbinary/animation/Any.h"
 #endif
@@ -49,6 +82,15 @@
 #endif
 #if __has_include("org/allbinary/util/Any.h")
 #include "org/allbinary/util/Any.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
 #endif
 #if __has_include("org/allbinary/animation/ABHashtable.h")
 #include "org/allbinary/animation/ABHashtable.h"
@@ -96,7 +138,7 @@ void FeaturedAnimationInterfaceFactoryInterfaceFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    FeaturedAnimationInterfaceFactoryInterfaceFactory_INSTANCE = [((FeaturedAnimationInterfaceFactoryInterfaceFactory*) [FeaturedAnimationInterfaceFactoryInterfaceFactory alloc]) init];
+    FeaturedAnimationInterfaceFactoryInterfaceFactory_INSTANCE = ((FeaturedAnimationInterfaceFactoryInterfaceFactory*) [((FeaturedAnimationInterfaceFactoryInterfaceFactory*) [FeaturedAnimationInterfaceFactoryInterfaceFactory alloc]) init]);
 }
 
 @implementation FeaturedAnimationInterfaceFactoryInterfaceFactory
@@ -127,14 +169,14 @@ void FeaturedAnimationInterfaceFactoryInterfaceFactory_staticInit(void) {
         int32_t size = [[self getList] size];
         for (int32_t index = 0; index < size; index++) {
             FeatureResourceAnimationInterfaceFactoryInterface* featureInterface = ((FeatureResourceAnimationInterfaceFactoryInterface*) list->objectArray[index]);
-            if ([featureInterface isFeature]) {
-                Rectangle* rectangle = [featureInterface getRectangle:resource];
+            if ([((id<FeatureResourceAnimationInterfaceFactoryInterface>) featureInterface) isFeature]) {
+                Rectangle* rectangle = [((id<FeatureResourceAnimationInterfaceFactoryInterface>) featureInterface) getRectangle:resource];
                 if (rectangle != (RectangleFactory_staticInit(), RectangleFactory_SINGLETON)) {
-                    return [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:x :y] :(([rectangle getWidth] * scale) >> 1) :(([rectangle getHeight] * scale) >> 1)];
+                    return ((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:x :y] :(([rectangle getWidth] * scale) >> 1) :(([rectangle getHeight] * scale) >> 1)]);
                 }
             }
         }
-        java_throw(java_exception_new("Exception", [[[[((StringMaker*) [StringMaker alloc]) init] append:"No rectangle available for current feature selection or Resource: "] append:resource] toString]));
+        java_throw(java_exception_new("Exception", [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"No rectangle available for current feature selection or Resource: "] append:resource] toString]));
 }
 
 
@@ -153,15 +195,15 @@ void FeaturedAnimationInterfaceFactoryInterfaceFactory_staticInit(void) {
 // throws Exception
 - (BasicAnimationInterfaceFactoryInterface*) getBasicAnimationInterfaceFactoryInstance:(const char*)resource {
         BasicArrayList* list = [self getList];
-        BasicArrayList* resourceTypeAvailableList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* resourceTypeAvailableList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         int32_t size = [[self getList] size];
         FeatureResourceAnimationInterfaceFactoryInterface* featureInterface = nullptr;
         BasicAnimationInterfaceFactoryInterface* animationInterfaceFactoryInterface = nullptr;
         for (int32_t index = 0; index < size; index++) {
             featureInterface = ((FeatureResourceAnimationInterfaceFactoryInterface*) list->objectArray[index]);
-            if ([featureInterface isFeature]) {
+            if ([((id<FeatureResourceAnimationInterfaceFactoryInterface>) featureInterface) isFeature]) {
                 [resourceTypeAvailableList add:featureInterface];
-                animationInterfaceFactoryInterface = [featureInterface getBasicAnimationInterfaceFactoryInstance:resource];
+                animationInterfaceFactoryInterface = [((id<FeatureResourceAnimationInterfaceFactoryInterface>) featureInterface) getBasicAnimationInterfaceFactoryInstance:resource];
                 if (animationInterfaceFactoryInterface != (NullAnimationFactory_staticInit(), NullAnimationFactory_NULL_NOT_FOR_USE_ANIMATION_FACTORY)) {
                     return animationInterfaceFactoryInterface;
                 }
@@ -173,7 +215,7 @@ void FeaturedAnimationInterfaceFactoryInterfaceFactory_staticInit(void) {
             const char* FOR_RESOURCE = " for Resource: ";
             const char* HAS_KEY = " has: ";
             const char* RESOURCES_LABEL = " resources ";
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:NO_ANIMATION_AVAILABLE_FROM];
             [stringBuffer appendint:[resourceTypeAvailableList size]];
             [stringBuffer append:[CommonSeps getInstance]->FORWARD_SLASH];
@@ -189,19 +231,19 @@ void FeaturedAnimationInterfaceFactoryInterfaceFactory_staticInit(void) {
             for (int32_t index = 0; index < size; index++) {
                 [stringBuffer append:[CommonSeps getInstance]->NEW_LINE];
                 featureInterface = ((FeatureResourceAnimationInterfaceFactoryInterface*) list->objectArray[index]);
-                if ([featureInterface isFeature]) {
+                if ([((id<FeatureResourceAnimationInterfaceFactoryInterface>) featureInterface) isFeature]) {
                     [stringBuffer append:[[StringUtil getInstance] toString:featureInterface]];
                     [stringBuffer append:HAS_KEY];
-                    [stringBuffer appendint:[[featureInterface getHashtable] size]];
+                    [stringBuffer appendint:[[((id<FeatureResourceAnimationInterfaceFactoryInterface>) featureInterface) getHashtable] size]];
                     [stringBuffer append:RESOURCES_LABEL];
                 }
             }
             java_throw(java_exception_new("Exception", [stringBuffer toString]));
         } else {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             for (int32_t index = 0; index < size; index++) {
                 featureInterface = ((FeatureResourceAnimationInterfaceFactoryInterface*) list->objectArray[index]);
-                [stringBuffer append:[featureInterface toString]];
+                [stringBuffer append:[((id<FeatureResourceAnimationInterfaceFactoryInterface>) featureInterface) toString]];
                 [stringBuffer append:[CommonSeps getInstance]->SPACE];
             }
             const char* result = [stringBuffer toString];

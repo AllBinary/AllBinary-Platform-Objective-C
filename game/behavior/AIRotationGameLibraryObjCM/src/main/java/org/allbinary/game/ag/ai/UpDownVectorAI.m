@@ -6,6 +6,12 @@
 #include "org/allbinary/layer/AllBinaryLayer.h"
 #include "org/allbinary/layer/AllBinaryLayerManager.h"
 #include "org/allbinary/logic/math/BasicDecimal.h"
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/layer/AllBinaryLayer.h")
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#endif
 
 
 
@@ -29,7 +35,7 @@ void UpDownVectorAI_staticInit(void) {
         self = [super init:ownerLayerInterface :gameInput];
         [self initFields];
         VelocityInterfaceCompositeInterface* velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
-        self->velocityInterface = [velocityInterfaceCompositeInterface getVelocityProperties];
+        self->velocityInterface = [((id<VelocityInterfaceCompositeInterface>) velocityInterfaceCompositeInterface) getVelocityProperties];
         [[self->velocityInterface getVelocityYBasicDecimalP] setint:0];
     return self;
 }

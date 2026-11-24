@@ -26,7 +26,7 @@ void AccelerometerSensorFactory_staticInit(void) {
 
 
 // throws Exception
-+ (void) init_ {
++ (void) initMethod {
         Features* features = [Features getInstance];
         SensorFeatureFactory* sensorFeatureFactory = [SensorFeatureFactory getInstance];
         if ([features isFeature:sensorFeatureFactory->ORIENTATION_SENSORS]) {
@@ -34,7 +34,7 @@ void AccelerometerSensorFactory_staticInit(void) {
         } else if ([features isFeature:sensorFeatureFactory->SIMULATED_ORIENTATION_SENSORS]) {
             java_throw(java_exception_new("Exception", "No Simulation Sensors"));
         } else if ([features isFeature:sensorFeatureFactory->NO_ORIENTATION]) {
-            AccelerometerSensorFactory_allBinaryAccelerometerSensor = [((NoAccelerometerSensor*) [NoAccelerometerSensor alloc]) init];
+            AccelerometerSensorFactory_allBinaryAccelerometerSensor = ((NoAccelerometerSensor*) [((NoAccelerometerSensor*) [NoAccelerometerSensor alloc]) init]);
         } else {
             java_throw(java_exception_new("Exception", "Not Such SensorFeature"));
         }

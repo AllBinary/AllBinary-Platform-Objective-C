@@ -52,7 +52,7 @@
 - (void) initFields;
 + (AllBinaryArrayImageRotationAnimationFactory*) createFactory:(Image*)image :(int32_t)dx :(int32_t)dy;
 + (AllBinaryArrayImageRotationAnimationFactory*) createFactoryA:(Image*)image :(int32_t)dx :(int32_t)dy :(int32_t)angleIncrement;
-- (void) init_;
+- (void) initMethod;
 - (void) initDXY:(int32_t)dx :(int32_t)dy;
 - (Animation*) getInstance:(int32_t)instanceId;
 - (void) setImageArray:(Image**)imageArray;

@@ -27,7 +27,7 @@ void OpenGLImageCacheFactory_staticInit(void) {
 }
 
 
-+ (void) init_ {
++ (void) initMethod {
         if ((OpenGLImageCacheFactory_staticInit(), OpenGLImageCacheFactory_IMAGE_CACHE) == nil) {
         }
 }

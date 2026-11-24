@@ -17,7 +17,7 @@ void NoHighScoresFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    NoHighScoresFactory_instance = [((NoHighScoresFactory*) [NoHighScoresFactory alloc]) init];
+    NoHighScoresFactory_instance = ((NoHighScoresFactory*) [((NoHighScoresFactory*) [NoHighScoresFactory alloc]) init]);
 }
 
 @implementation NoHighScoresFactory
@@ -42,12 +42,12 @@ void NoHighScoresFactory_staticInit(void) {
 
 - (void) fetchHighScores:(GameInfo*)gameInfo :(HighScoresResultsListener*)highScoresResultsListener {
         [self->logUtil putF:"Getting No HighScores" :self :"fetchHighScores"];
-        [highScoresResultsListener setHighScoresArray:self->NO_HIGH_SCORES];
+        [((id<HighScoresResultsListener>) highScoresResultsListener) setHighScoresArray:self->NO_HIGH_SCORES];
 }
 
 
 - (HighScoresHelperBaseInterface*) createHighScoresHelper {
-        return [((HighScoresHelperBase*) [HighScoresHelperBase alloc]) init];
+        return ((HighScoresHelperBase*) [((HighScoresHelperBase*) [HighScoresHelperBase alloc]) init]);
 }
 
 @end

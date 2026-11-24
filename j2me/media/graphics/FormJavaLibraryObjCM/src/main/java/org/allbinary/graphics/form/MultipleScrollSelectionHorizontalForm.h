@@ -59,7 +59,7 @@
 - (void) initFields;
 + (ScrollSelectionForm*) createForm:(const char*)title :(ABCustomItem**)items :(Rectangle*)rectangle :(FormType*)formType :(int32_t)border :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor;
 - (void) fillRect:(Graphics*)graphics;
-- (void) init_:(Rectangle*)rectangle :(FormType*)formType;
+- (void) initMethod:(Rectangle*)rectangle :(FormType*)formType;
 - (void) updateMeasurement:(Graphics*)graphics;
 - (int32_t) paintHorizontal:(Graphics*)graphics :(int32_t)index :(ABCustomItem*)item :(int32_t)dx :(int32_t)dy;
 - (int32_t) paintVertical:(Graphics*)graphics :(int32_t)index :(ABCustomItem*)item :(int32_t)dx :(int32_t)dy;

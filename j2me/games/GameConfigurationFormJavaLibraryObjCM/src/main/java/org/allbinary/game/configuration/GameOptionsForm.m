@@ -29,6 +29,36 @@
 #include "org/allbinary/game/configuration/GameConfigurationGauge.h"
 #include "org/allbinary/game/configuration/GameConfigurationUtil.h"
 #include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#if __has_include("org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.h")
+#include "org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.h")
+#include "org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.h"
+#endif
+#if __has_include("org/allbinary/input/gyro/OrientationData.h")
+#include "org/allbinary/input/gyro/OrientationData.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.h")
+#include "org/allbinary/game/configuration/feature/GameFeatureChoiceGroups.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/SensorFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/SensorFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/util/HashtableUtil.h")
+#include "org/allbinary/util/HashtableUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/command/MyCommandsFactory.h")
+#include "org/allbinary/graphics/displayable/command/MyCommandsFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
 
 
 
@@ -56,7 +86,7 @@ void GameOptionsForm_staticInit(void) {
         [gameFeatureFormUtil addChoiceGroup:self :[[GameFeatureChoiceGroups getExclusiveInstance] get] :(Choice_staticInit(), Choice_EXCLUSIVE)];
         [gameFeatureFormUtil addChoiceGroup:self :[[GameFeatureChoiceGroups getMultipleInstance] get] :(Choice_staticInit(), Choice_MULTIPLE)];
         [self initCommands:commandListener];
-        [self setItemStateListener:[((GameFeatureItemStateListener*) [GameFeatureItemStateListener alloc]) init:self]];
+        [self setItemStateListener:((GameFeatureItemStateListener*) [((GameFeatureItemStateListener*) [GameFeatureItemStateListener alloc]) init:self])];
         [self addTextFieldsIfSimulated];
     return self;
 }
@@ -92,7 +122,7 @@ void GameOptionsForm_staticInit(void) {
         TextField* textField = nullptr;
         for (int32_t index = 0; index < size; index++) {
             gameConfigurationTextInput = ((GameConfigurationTextInput*) [hashtable get:JAVA_BOX(((id) objectArray[index]))]);
-            textField = [((TextField*) [TextField alloc]) init:[gameConfigurationTextInput getLabel] :[gameConfigurationTextInput getText] :30 :(TextField_staticInit(), TextField_ANY)];
+            textField = ((TextField*) [((TextField*) [TextField alloc]) init:[gameConfigurationTextInput getLabel] :[gameConfigurationTextInput getText] :30 :(TextField_staticInit(), TextField_ANY)]);
             [self->meUtil appendItem:self :textField];
         }
 }
@@ -103,7 +133,7 @@ void GameOptionsForm_staticInit(void) {
         const char* NAME = "Name: ";
         BasicArrayList* list = [[GameConfigurationSingleton getInstance] getOptionsBasicArrayList];
         Command* GAUGE_CHANGE = [MyCommandsFactory getInstance]->GAUGE_CHANGE;
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         int32_t size = [list size];
         GameConfiguration* gameConfiguration = nullptr;
         GameConfigurationGauge* gauge = nullptr;
@@ -111,9 +141,9 @@ void GameOptionsForm_staticInit(void) {
             gameConfiguration = ((GameConfiguration*) list->objectArray[index]);
             [stringMaker delete:0 :[stringMaker length]];
             [self->logUtil putF:[[[stringMaker append:NAME] append:[gameConfiguration toString]] toString] :self :METHOD_NAME];
-            gauge = [((GameConfigurationGauge*) [GameConfigurationGauge alloc]) init:gameConfiguration];
+            gauge = ((GameConfigurationGauge*) [((GameConfigurationGauge*) [GameConfigurationGauge alloc]) init:gameConfiguration]);
             [gauge setDefaultCommand:GAUGE_CHANGE];
-            [gauge setItemCommandListener:[((GameFeatureItemCommandListener*) [GameFeatureItemCommandListener alloc]) init:self]];
+            [gauge setItemCommandListener:((GameFeatureItemCommandListener*) [((GameFeatureItemCommandListener*) [GameFeatureItemCommandListener alloc]) init:self])];
             [self->meUtil appendItem:self :gauge];
         }
 }

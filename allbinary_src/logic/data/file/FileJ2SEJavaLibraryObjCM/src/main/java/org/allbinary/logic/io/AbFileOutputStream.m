@@ -17,25 +17,25 @@ void AbFileOutputStream_staticInit(void) {
 
 // throws FileNotFoundException
 + (AbFileOutputStream*) createFromAbFile:(AbFile*)file {
-        return [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:[file getPath] :false];
+        return ((AbFileOutputStream*) [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:[file getPath] :false]);
 }
 
 
 // throws FileNotFoundException
 + (AbFileOutputStream*) createFromAbFileAppend:(AbFile*)file :(bool)append {
-        return [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:[file getPath] :append];
+        return ((AbFileOutputStream*) [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:[file getPath] :append]);
 }
 
 
 // throws FileNotFoundException
 + (AbFileOutputStream*) createFromFilePath:(const char*)name {
-        return [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:name :false];
+        return ((AbFileOutputStream*) [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:name :false]);
 }
 
 
 // throws FileNotFoundException
 + (AbFileOutputStream*) createFromFilePathAppend:(const char*)name :(bool)append {
-        return [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:name :append];
+        return ((AbFileOutputStream*) [((AbFileOutputStream*) [AbFileOutputStream alloc]) init:name :append]);
 }
 
 

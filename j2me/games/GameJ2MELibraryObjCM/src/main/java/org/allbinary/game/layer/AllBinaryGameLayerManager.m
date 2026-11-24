@@ -10,6 +10,27 @@
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
 #include "org/allbinary/util/BasicArrayList.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/ItemColorFactory.h")
+#include "org/allbinary/graphics/ItemColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/ItemColorFactory.h")
+#include "org/allbinary/graphics/ItemColorFactory.h"
+#endif
 
 
 static id AllBinaryGameLayerManager_NULL_ALLBINARY_LAYER_MANAGER;
@@ -37,7 +58,7 @@ void AllBinaryGameLayerManager_staticInit(void) {
 
 + (AllBinaryGameLayerManager*) getNullInstance {
         if ((AllBinaryGameLayerManager_staticInit(), AllBinaryGameLayerManager_NULL_ALLBINARY_LAYER_MANAGER) == [NullUtil getInstance]->NULL_OBJECT) {
-            AllBinaryGameLayerManager_NULL_ALLBINARY_LAYER_MANAGER = [((AllBinaryGameLayerManager*) [AllBinaryGameLayerManager alloc]) init:[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE :(GameInfo_staticInit(), GameInfo_NONE)];
+            AllBinaryGameLayerManager_NULL_ALLBINARY_LAYER_MANAGER = ((AllBinaryGameLayerManager*) [((AllBinaryGameLayerManager*) [AllBinaryGameLayerManager alloc]) init:[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE :(GameInfo_staticInit(), GameInfo_NONE)]);
         }
         return ((AllBinaryGameLayerManager*) (AllBinaryGameLayerManager_staticInit(), AllBinaryGameLayerManager_NULL_ALLBINARY_LAYER_MANAGER));
 }
@@ -61,7 +82,7 @@ void AllBinaryGameLayerManager_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 

@@ -25,8 +25,8 @@ void OpenGLESImage_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLESImage_NULL_OPENGL_IMAGE = [((OpenGLESImage*) [OpenGLESImage alloc]) init:(NullImage_staticInit(), NullImage_NULL_IMAGE) :(PlatformBitmapBaseFactory_staticInit(), PlatformBitmapBaseFactory_NULL_PLATFORM_BITMAP_BASE_FACTORY) :(PlatformTextureBaseFactory_staticInit(), PlatformTextureBaseFactory_NULL_PLATFORM_TEXTURE_BASE_FACTORY)];
-    OpenGLESImage_texture2dList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    OpenGLESImage_NULL_OPENGL_IMAGE = ((OpenGLESImage*) [((OpenGLESImage*) [OpenGLESImage alloc]) init:(NullImage_staticInit(), NullImage_NULL_IMAGE) :(PlatformBitmapBaseFactory_staticInit(), PlatformBitmapBaseFactory_NULL_PLATFORM_BITMAP_BASE_FACTORY) :(PlatformTextureBaseFactory_staticInit(), PlatformTextureBaseFactory_NULL_PLATFORM_TEXTURE_BASE_FACTORY)]);
+    OpenGLESImage_texture2dList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 @implementation OpenGLESImage
@@ -35,7 +35,7 @@ void OpenGLESImage_staticInit(void) {
     self->commonStrings = [CommonStrings getInstance];
     
     
-    self->openGLESImageProperties = [((OpenGLESImageProperties*) [OpenGLESImageProperties alloc]) init];
+    self->openGLESImageProperties = ((OpenGLESImageProperties*) [((OpenGLESImageProperties*) [OpenGLESImageProperties alloc]) init]);
     self->imageProcessor = [OpenGLESImageProcessor getInstance];
     self->openGLESImageTranslate = [OpenGLESImageTranslate getInstance];
 }

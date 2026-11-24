@@ -19,7 +19,7 @@ void AllBinaryRendererBase3_staticInit(void) {
 @implementation AllBinaryRendererBase3
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 - (instancetype) init {

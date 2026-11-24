@@ -30,8 +30,8 @@
 @class PreLogUtil;
 @class CommonStrings;
 #include "java/security/spec/KeySpec.h"
-// #include "javax/crypto/spec/DESKeySpec.h"
-// #include "javax/crypto/spec/DESedeKeySpec.h"
+#include "javax/crypto/spec/DESKeySpec.h"
+#include "javax/crypto/spec/DESedeKeySpec.h"
 
 @interface KeySpecFactory : ABObject {
 @public

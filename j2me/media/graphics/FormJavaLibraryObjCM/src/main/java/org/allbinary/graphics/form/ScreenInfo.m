@@ -10,7 +10,7 @@ void ScreenInfo_staticInit(void) {
         return;
     }
     initialized = true;
-    ScreenInfo_instance = [((ScreenInfo*) [ScreenInfo alloc]) init];
+    ScreenInfo_instance = ((ScreenInfo*) [((ScreenInfo*) [ScreenInfo alloc]) init]);
 }
 
 @implementation ScreenInfo

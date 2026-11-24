@@ -46,7 +46,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (PointFactory*) getInstance;
-- (void) init_;
+- (void) initMethod;
 - (GPoint*) createXY:(int32_t)x :(int32_t)y;
 - (GPoint*) createXYZ:(int32_t)x :(int32_t)y :(int32_t)z;
 @end

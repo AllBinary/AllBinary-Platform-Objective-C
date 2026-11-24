@@ -3,6 +3,15 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/game/input/Input.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 GameKey* GameKey_NULL_GAME_KEY;
@@ -13,7 +22,7 @@ void GameKey_staticInit(void) {
         return;
     }
     initialized = true;
-    GameKey_NULL_GAME_KEY = [((GameKey*) [GameKey alloc]) init:-1 :[StringUtil getInstance]->NULL_STRING];
+    GameKey_NULL_GAME_KEY = ((GameKey*) [((GameKey*) [GameKey alloc]) init:-1 :[StringUtil getInstance]->NULL_STRING]);
 }
 
 @implementation GameKey
@@ -26,7 +35,7 @@ void GameKey_staticInit(void) {
 
 
 - (const char*) toString {
-        return [[[[((StringMaker*) [StringMaker alloc]) init] append:"GameKey "] append:[super toString]] toString];
+        return [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"GameKey "] append:[super toString]] toString];
 }
 
 @end

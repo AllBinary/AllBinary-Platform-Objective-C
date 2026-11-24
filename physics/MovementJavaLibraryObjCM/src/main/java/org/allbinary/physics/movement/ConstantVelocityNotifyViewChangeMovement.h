@@ -52,7 +52,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-- (void) init_:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle;
+- (void) initMethod:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle;
 - (void) moveOutsideRadius:(AllBinaryLayer*)layer :(int64_t)radius :(int32_t)angle :(int32_t)otherAngle;
 - (void) process:(AllBinaryGameLayer*)layer;
 - (void) stop;

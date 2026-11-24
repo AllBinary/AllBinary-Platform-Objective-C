@@ -32,7 +32,7 @@ void IndexedAnimationBehaviorFactory_staticInit(void) {
 
 
 - (AnimationBehavior*) getOrCreateInstance {
-        return [((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:self->loopTotal :self->frameDelayTime];
+        return ((IndexedAnimationBehavior*) [((IndexedAnimationBehavior*) [IndexedAnimationBehavior alloc]) init:self->loopTotal :self->frameDelayTime]);
 }
 
 @end

@@ -38,7 +38,7 @@
 @public
 }
 - (instancetype) init;
-+ (void) init_:(ViewPositionFactoryInterface*)viewPositionFactoryInterface;
++ (void) initMethod:(ViewPositionFactoryInterface*)viewPositionFactoryInterface;
 + (WeaponLayerCircularPool*) getInstance;
 @end
 

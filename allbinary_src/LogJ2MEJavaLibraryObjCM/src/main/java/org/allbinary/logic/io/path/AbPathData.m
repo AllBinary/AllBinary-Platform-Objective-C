@@ -1,6 +1,12 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/logic/io/path/AbPathData.h"
 #include "org/allbinary/string/CommonSeps.h"
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 static AbPathData* AbPathData_instance;
@@ -11,7 +17,7 @@ void AbPathData_staticInit(void) {
         return;
     }
     initialized = true;
-    AbPathData_instance = [((AbPathData*) [AbPathData alloc]) init];
+    AbPathData_instance = ((AbPathData*) [((AbPathData*) [AbPathData alloc]) init]);
 }
 
 @implementation AbPathData

@@ -8,6 +8,9 @@
 #include "org/allbinary/game/input/CompleteMotionGestureInputEventListener.h"
 #include "org/allbinary/game/input/CompleteMotionGestureInputEvent.h"
 #include "org/allbinary/game/input/CompleteMotionGestureInputEventListenerInterface.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 static CompleteMotionGestureInputEventHandler* CompleteMotionGestureInputEventHandler_SINGLETON;
@@ -18,13 +21,13 @@ void CompleteMotionGestureInputEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    CompleteMotionGestureInputEventHandler_SINGLETON = [((CompleteMotionGestureInputEventHandler*) [CompleteMotionGestureInputEventHandler alloc]) init];
+    CompleteMotionGestureInputEventHandler_SINGLETON = ((CompleteMotionGestureInputEventHandler*) [((CompleteMotionGestureInputEventHandler*) [CompleteMotionGestureInputEventHandler alloc]) init]);
 }
 
 @implementation CompleteMotionGestureInputEventHandler
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -76,7 +79,7 @@ void CompleteMotionGestureInputEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         CompleteMotionGestureInputEventListenerInterface* completeMotionGestureInputEventListenerInterface = ((CompleteMotionGestureInputEventListenerInterface*) eventListenerInterface);
-        [completeMotionGestureInputEventListenerInterface onCompleteMotionGestureInputEvent:((CompleteMotionGestureInputEvent*) eventObject)];
+        [((id<CompleteMotionGestureInputEventListenerInterface>) completeMotionGestureInputEventListenerInterface) onCompleteMotionGestureInputEvent:((CompleteMotionGestureInputEvent*) eventObject)];
 }
 
 @end

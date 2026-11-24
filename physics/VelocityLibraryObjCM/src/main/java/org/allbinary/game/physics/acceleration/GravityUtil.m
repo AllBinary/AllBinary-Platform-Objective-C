@@ -17,7 +17,7 @@ void GravityUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    GravityUtil_instance = [((GravityUtil*) [GravityUtil alloc]) init];
+    GravityUtil_instance = ((GravityUtil*) [((GravityUtil*) [GravityUtil alloc]) init]);
 }
 
 @implementation GravityUtil

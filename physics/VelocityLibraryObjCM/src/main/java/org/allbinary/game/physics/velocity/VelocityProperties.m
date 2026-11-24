@@ -12,7 +12,7 @@ void VelocityProperties_staticInit(void) {
         return;
     }
     initialized = true;
-    VelocityProperties_NULL_VELOCITY_PROPERTIES = [((VelocityProperties*) [VelocityProperties alloc]) init:0 :0];
+    VelocityProperties_NULL_VELOCITY_PROPERTIES = ((VelocityProperties*) [((VelocityProperties*) [VelocityProperties alloc]) init:0 :0]);
 }
 
 @implementation VelocityProperties

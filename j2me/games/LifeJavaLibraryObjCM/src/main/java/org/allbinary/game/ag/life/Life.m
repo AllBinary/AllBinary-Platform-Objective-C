@@ -25,7 +25,7 @@ void Life_staticInit(void) {
 
 + (Life*) createLife {
         JAVA_TRY {
-            return [((Life*) [Life alloc]) init:((int16_t) 0) :((int16_t) 0)];
+            return ((Life*) [((Life*) [Life alloc]) init:((int16_t) 0) :((int16_t) 0)]);
         } JAVA_CATCH(Exception, e) {
             java_throw(java_exception_new("RuntimeException", ""));
         } JAVA_END_TRY;

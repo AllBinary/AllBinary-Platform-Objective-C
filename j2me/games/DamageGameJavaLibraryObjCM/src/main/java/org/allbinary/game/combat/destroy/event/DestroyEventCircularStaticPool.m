@@ -15,13 +15,13 @@ void DestroyEventCircularStaticPool_staticInit(void) {
         return;
     }
     initialized = true;
-    DestroyEventCircularStaticPool_instance = [((DestroyEventCircularStaticPool*) [DestroyEventCircularStaticPool alloc]) init];
+    DestroyEventCircularStaticPool_instance = ((DestroyEventCircularStaticPool*) [((DestroyEventCircularStaticPool*) [DestroyEventCircularStaticPool alloc]) init]);
 }
 
 @implementation DestroyEventCircularStaticPool
 
 - (void) initFields {
-    self->EVENT_POOL = [((AllBinaryEventCircularPool*) [AllBinaryEventCircularPool alloc]) init:20];
+    self->EVENT_POOL = ((AllBinaryEventCircularPool*) [((AllBinaryEventCircularPool*) [AllBinaryEventCircularPool alloc]) init:20]);
 }
 
 
@@ -37,8 +37,8 @@ void DestroyEventCircularStaticPool_staticInit(void) {
 }
 
 
-- (void) init_:(AllBinaryGameCanvas*)combatGameCanvas {
-        [self->EVENT_POOL initAllBinaryEventCircularPool:[((DestroyEventFactory*) [DestroyEventFactory alloc]) init:combatGameCanvas]];
+- (void) initMethod:(AllBinaryGameCanvas*)combatGameCanvas {
+        [self->EVENT_POOL initAllBinaryEventCircularPool:((DestroyEventFactory*) [((DestroyEventFactory*) [DestroyEventFactory alloc]) init:combatGameCanvas])];
 }
 
 

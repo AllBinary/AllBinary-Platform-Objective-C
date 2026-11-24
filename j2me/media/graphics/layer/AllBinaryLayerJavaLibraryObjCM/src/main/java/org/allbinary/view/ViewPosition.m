@@ -21,7 +21,7 @@ void ViewPosition_staticInit(void) {
 
 
 + (ViewPosition*) getInstanceD {
-        return [((ViewPosition*) [ViewPosition alloc]) init:0 :0 :0];
+        return ((ViewPosition*) [((ViewPosition*) [ViewPosition alloc]) init:0 :0 :0]);
 }
 
 

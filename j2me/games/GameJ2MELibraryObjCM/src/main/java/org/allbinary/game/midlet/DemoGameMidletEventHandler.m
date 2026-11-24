@@ -14,7 +14,7 @@ void DemoGameMidletEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    DemoGameMidletEventHandler_gameKeyEventHandler = [((DemoGameMidletEventHandler*) [DemoGameMidletEventHandler alloc]) init];
+    DemoGameMidletEventHandler_gameKeyEventHandler = ((DemoGameMidletEventHandler*) [((DemoGameMidletEventHandler*) [DemoGameMidletEventHandler alloc]) init]);
 }
 
 @implementation DemoGameMidletEventHandler
@@ -34,7 +34,7 @@ void DemoGameMidletEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         DemoGameMidletEventListener* demoGameMidletEventListener = ((DemoGameMidletEventListener*) eventListenerInterface);
-        [demoGameMidletEventListener onDemoGameMidletEvent:((DemoGameMidletEvent*) eventObject)];
+        [((id<DemoGameMidletEventListener>) demoGameMidletEventListener) onDemoGameMidletEvent:((DemoGameMidletEvent*) eventObject)];
 }
 
 @end

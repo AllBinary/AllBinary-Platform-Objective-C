@@ -10,7 +10,7 @@ void TimeStampUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    TimeStampUtil_instance = [((TimeStampUtil*) [TimeStampUtil alloc]) init];
+    TimeStampUtil_instance = ((TimeStampUtil*) [((TimeStampUtil*) [TimeStampUtil alloc]) init]);
 }
 
 @implementation TimeStampUtil

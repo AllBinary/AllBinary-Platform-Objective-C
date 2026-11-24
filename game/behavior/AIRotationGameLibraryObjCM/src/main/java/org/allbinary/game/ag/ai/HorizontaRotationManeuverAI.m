@@ -244,22 +244,22 @@ void HorizontaRotationManeuverAI_staticInit(void) {
         self = [super init:ownerLayerInterface :gameInput];
         [self initFields];
         RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
-        self->rotationAnimationInterface = [rotationAnimationInterfaceCompositeInterface getRotationAnimationInterface];
+        self->rotationAnimationInterface = [((id<RotationAnimationInterfaceCompositeInterface>) rotationAnimationInterfaceCompositeInterface) getRotationAnimationInterface];
         VelocityInterfaceCompositeInterface* velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
-        self->baseVelocityInterface = [velocityInterfaceCompositeInterface getVelocityProperties];
+        self->baseVelocityInterface = [((id<VelocityInterfaceCompositeInterface>) velocityInterfaceCompositeInterface) getVelocityProperties];
         self->velocityInterface = ((VelocityInterface*) self->baseVelocityInterface);
         RotationAnimationInterface* rotationAnimationInterface = ((RotationAnimationInterface*) self->rotationAnimationInterface);
-        AngleIncrementInfo* angleIncrementInfo = [[rotationAnimationInterface getAngleInfoP] getAngleIncrementInfo];
-        [rotationAnimationInterfaceCompositeInterface setFrame:((int32_t) (angleIncrementInfo->RIGHT_FRAME))];
+        AngleIncrementInfo* angleIncrementInfo = [[((id<RotationAnimationInterface>) rotationAnimationInterface) getAngleInfoP] getAngleIncrementInfo];
+        [((id<RotationAnimationInterfaceCompositeInterface>) rotationAnimationInterfaceCompositeInterface) setFrame:((int32_t) (angleIncrementInfo->RIGHT_FRAME))];
     return self;
 }
 
 
 - (void) transition {
         RotationAnimationInterface* rotationAnimationInterface = ((RotationAnimationInterface*) self->rotationAnimationInterface);
-        AngleIncrementInfo* angleIncrementInfo = [[rotationAnimationInterface getAngleInfoP] getAngleIncrementInfo];
+        AngleIncrementInfo* angleIncrementInfo = [[((id<RotationAnimationInterface>) rotationAnimationInterface) getAngleInfoP] getAngleIncrementInfo];
         RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
-        [rotationAnimationInterfaceCompositeInterface setFrame:((int32_t) (angleIncrementInfo->RIGHT_FRAME))];
+        [((id<RotationAnimationInterfaceCompositeInterface>) rotationAnimationInterfaceCompositeInterface) setFrame:((int32_t) (angleIncrementInfo->RIGHT_FRAME))];
         AllBinaryLayer* allbinaryLayer = [self getOwnerLayerInterface];
         [allbinaryLayer setPosition:[allbinaryLayer getXP] :1 :[allbinaryLayer getZP]];
 }
@@ -268,7 +268,7 @@ void HorizontaRotationManeuverAI_staticInit(void) {
 // throws Exception
 - (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager {
         RotationAnimationInterface* rotationAnimationInterface = (((RotationAnimationInterface*) self->rotationAnimationInterface));
-        AngleIncrementInfo* angleIncrementInfo = [[rotationAnimationInterface getAngleInfoP] getAngleIncrementInfo];
+        AngleIncrementInfo* angleIncrementInfo = [[((id<RotationAnimationInterface>) rotationAnimationInterface) getAngleInfoP] getAngleIncrementInfo];
         int32_t frame = [self->rotationAnimationInterface getFrame];
         AllBinaryLayer* ownerLayerInterface = [self getOwnerLayerInterface];
         if ([ownerLayerInterface getXP] - [ownerLayerInterface getWidth] <= 0 && frame == ((int32_t) (angleIncrementInfo->LEFT_FRAME))) {
@@ -284,7 +284,7 @@ void HorizontaRotationManeuverAI_staticInit(void) {
         int32_t index = [self->circularIndexUtil getIndex];
         if (index % self->currentSpeedDivisor == 0 && index % 2 == 0) {
             [super processKeyAI:(Canvas_staticInit(), Canvas_UP)];
-            [self->velocityInterface limitMaxXYVelocity:[self->velocityInterface getMaxForwardVelocity] / self->currentSpeedDivisor];
+            [((id<VelocityInterface>) self->velocityInterface) limitMaxXYVelocity:[((id<VelocityInterface>) self->velocityInterface) getMaxForwardVelocity] / self->currentSpeedDivisor];
         }
         [self->circularIndexUtil next];
         if (frame == ((int32_t) (angleIncrementInfo->LEFT_FRAME))) {
@@ -297,15 +297,15 @@ void HorizontaRotationManeuverAI_staticInit(void) {
 
 - (void) reverse {
         RotationAnimationInterface* rotationAnimationInterface = ((RotationAnimationInterface*) self->rotationAnimationInterface);
-        AngleIncrementInfo* angleIncrementInfo = [[rotationAnimationInterface getAngleInfoP] getAngleIncrementInfo];
+        AngleIncrementInfo* angleIncrementInfo = [[((id<RotationAnimationInterface>) rotationAnimationInterface) getAngleInfoP] getAngleIncrementInfo];
         int32_t frame = [self->rotationAnimationInterface getFrame];
         if (frame == ((int32_t) (angleIncrementInfo->LEFT_FRAME))) {
             RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
-            [rotationAnimationInterfaceCompositeInterface setFrame:((int32_t) (angleIncrementInfo->RIGHT_FRAME))];
+            [((id<RotationAnimationInterfaceCompositeInterface>) rotationAnimationInterfaceCompositeInterface) setFrame:((int32_t) (angleIncrementInfo->RIGHT_FRAME))];
             [self->baseVelocityInterface zero];
         } else if (frame == ((int32_t) (angleIncrementInfo->RIGHT_FRAME))) {
             RotationAnimationInterfaceCompositeInterface* rotationAnimationInterfaceCompositeInterface = ((RotationAnimationInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
-            [rotationAnimationInterfaceCompositeInterface setFrame:((int32_t) (angleIncrementInfo->LEFT_FRAME))];
+            [((id<RotationAnimationInterfaceCompositeInterface>) rotationAnimationInterfaceCompositeInterface) setFrame:((int32_t) (angleIncrementInfo->LEFT_FRAME))];
             [self->baseVelocityInterface zero];
         }
 }

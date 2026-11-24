@@ -12,7 +12,7 @@ void ImageTypeUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageTypeUtil_SINGLETON = [((ImageTypeUtil*) [ImageTypeUtil alloc]) init];
+    ImageTypeUtil_SINGLETON = ((ImageTypeUtil*) [((ImageTypeUtil*) [ImageTypeUtil alloc]) init]);
 }
 
 @implementation ImageTypeUtil
@@ -21,7 +21,7 @@ void ImageTypeUtil_staticInit(void) {
     self->PNG = "png";
     self->JPG = "jpg";
     self->GIF = "gif";
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 

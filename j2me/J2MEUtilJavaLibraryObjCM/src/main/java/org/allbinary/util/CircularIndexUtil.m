@@ -2,6 +2,27 @@
 #include "org/allbinary/util/CircularIndexUtil.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonLabels.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
 
 
 CircularIndexUtil* CircularIndexUtil_NULL_CIRCULAR_INDEX_UTIL;
@@ -12,7 +33,7 @@ void CircularIndexUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    CircularIndexUtil_NULL_CIRCULAR_INDEX_UTIL = [((CircularIndexUtil*) [CircularIndexUtil alloc]) init:0 :0];
+    CircularIndexUtil_NULL_CIRCULAR_INDEX_UTIL = ((CircularIndexUtil*) [((CircularIndexUtil*) [CircularIndexUtil alloc]) init:0 :0]);
 }
 
 @implementation CircularIndexUtil
@@ -67,12 +88,12 @@ void CircularIndexUtil_staticInit(void) {
 
 
 + (CircularIndexUtil*) createInstance:(int32_t)max {
-        return [((CircularIndexUtil*) [CircularIndexUtil alloc]) init:0 :max];
+        return ((CircularIndexUtil*) [((CircularIndexUtil*) [CircularIndexUtil alloc]) init:0 :max]);
 }
 
 
 + (CircularIndexUtil*) createInstanceAt:(int32_t)index :(int32_t)max {
-        return [((CircularIndexUtil*) [CircularIndexUtil alloc]) init:index :max];
+        return ((CircularIndexUtil*) [((CircularIndexUtil*) [CircularIndexUtil alloc]) init:index :max]);
 }
 
 
@@ -89,7 +110,7 @@ void CircularIndexUtil_staticInit(void) {
 
 
 - (const char*) toString {
-        return [[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->INDEX_LABEL] appendint:self->index] append:"lastIndex: "] appendint:self->lastIndex] append:"size: "] appendint:self->size] toString];
+        return [[[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->INDEX_LABEL] appendint:self->index] append:"lastIndex: "] appendint:self->lastIndex] append:"size: "] appendint:self->size] toString];
 }
 
 @end

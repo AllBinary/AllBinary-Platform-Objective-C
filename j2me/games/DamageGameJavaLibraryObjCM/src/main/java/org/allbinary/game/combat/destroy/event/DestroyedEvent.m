@@ -6,6 +6,9 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/game/combat/destroy/event/DestroyedEventHandler.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -54,7 +57,7 @@ void DestroyedEvent_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"DestroyedEvent: \n"];
         [stringBuffer append:"AllBinaryLayerInterface: "];
         [stringBuffer append:[self->allBinaryLayerInterface toString]];

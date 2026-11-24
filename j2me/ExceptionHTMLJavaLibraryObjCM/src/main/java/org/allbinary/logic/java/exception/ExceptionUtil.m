@@ -11,7 +11,7 @@ void ExceptionUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ExceptionUtil_instance = [((ExceptionUtil*) [ExceptionUtil alloc]) init];
+    ExceptionUtil_instance = ((ExceptionUtil*) [((ExceptionUtil*) [ExceptionUtil alloc]) init]);
     ExceptionUtil_PRETEND_EXCEPTION = java_exception_new("Exception", "Not Really An Exception");
 }
 

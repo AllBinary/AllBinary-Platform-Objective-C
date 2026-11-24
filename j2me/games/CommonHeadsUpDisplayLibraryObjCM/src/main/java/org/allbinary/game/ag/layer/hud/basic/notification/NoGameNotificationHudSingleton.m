@@ -15,7 +15,7 @@ void NoGameNotificationHudSingleton_staticInit(void) {
         return;
     }
     initialized = true;
-    NoGameNotificationHudSingleton_instance = [((NoGameNotificationHudSingleton*) [NoGameNotificationHudSingleton alloc]) init];
+    NoGameNotificationHudSingleton_instance = ((NoGameNotificationHudSingleton*) [((NoGameNotificationHudSingleton*) [NoGameNotificationHudSingleton alloc]) init]);
 }
 
 @implementation NoGameNotificationHudSingleton
@@ -36,7 +36,7 @@ void NoGameNotificationHudSingleton_staticInit(void) {
     [self initFields];
         JAVA_TRY {
             BasicHudFactory* basicHudFactory = [BasicHudFactory getInstance];
-            self->gameNotificationHud = [((NoGameGameNotificationHud*) [NoGameGameNotificationHud alloc]) init];
+            self->gameNotificationHud = ((NoGameGameNotificationHud*) [((NoGameGameNotificationHud*) [NoGameGameNotificationHud alloc]) init]);
         } JAVA_CATCH(Exception, e) {
             CommonStrings* commonStrings = [CommonStrings getInstance];
             [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->CONSTRUCTOR :e];

@@ -5,6 +5,15 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/input/PlayerGameInput.h"
 #include "org/allbinary/game/input/GameInputProcessorInterface.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -26,7 +35,7 @@ void GameInputProcessorComposite_staticInit(void) {
 
 
 - (instancetype) init:(const char*)name :(GameInputProcessorInterface*)gameInputProcessorInterface {
-        self = [super init:[((BasicArrayListD*) [BasicArrayListD alloc]) init] :[((BasicArrayListD*) [BasicArrayListD alloc]) init] :-1];
+        self = [super init:((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :-1];
         [self initFields];
         self->name = name;
         self->gameInputProcessorInterface = gameInputProcessorInterface;
@@ -38,7 +47,7 @@ void GameInputProcessorComposite_staticInit(void) {
 - (void) update {
         JAVA_TRY {
             BasicArrayList* list = [self getGameKeyEventList];
-            [self->gameInputProcessorInterface onInput:list];
+            [((id<GameInputProcessorInterface>) self->gameInputProcessorInterface) onInput:list];
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->UPDATE :e];
         } JAVA_END_TRY;
@@ -46,7 +55,7 @@ void GameInputProcessorComposite_staticInit(void) {
 
 
 - (const char*) toString {
-        return [[[[[((StringMaker*) [StringMaker alloc]) init] append:[super toString]] append:self->NAME_LABEL] append:self->name] toString];
+        return [[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[super toString]] append:self->NAME_LABEL] append:self->name] toString];
 }
 
 @end

@@ -12,7 +12,7 @@ void FireworksSound_staticInit(void) {
         return;
     }
     initialized = true;
-    FireworksSound_soundInterface = [((FireworksSound*) [FireworksSound alloc]) init];
+    FireworksSound_soundInterface = ((FireworksSound*) [((FireworksSound*) [FireworksSound alloc]) init]);
 }
 
 @implementation FireworksSound

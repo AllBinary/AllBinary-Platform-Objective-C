@@ -20,7 +20,7 @@ void SingleLayerLayerProcessor_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:[((SingleLayerLayerManager*) [SingleLayerLayerManager alloc]) init]];
+        self = [super init:((SingleLayerLayerManager*) [((SingleLayerLayerManager*) [SingleLayerLayerManager alloc]) init])];
     return self;
 }
 

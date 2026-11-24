@@ -60,7 +60,7 @@
 }
 - (instancetype) init:(SoundsFactoryInterface*)soundsFactoryInterface;
 - (void) initFields;
-- (void) init_;
+- (void) initMethod;
 - (void) stopAll;
 - (void) closeAll;
 @end

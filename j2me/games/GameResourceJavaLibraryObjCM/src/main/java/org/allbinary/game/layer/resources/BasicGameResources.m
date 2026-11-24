@@ -6,6 +6,21 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/layer/resources/GameGraphicsResourceUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/GameConfigurationCentral.h")
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 StringMaker* BasicGameResources_stringBuffer;
@@ -16,7 +31,7 @@ void BasicGameResources_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicGameResources_stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+    BasicGameResources_stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
 }
 
 @implementation BasicGameResources
@@ -35,13 +50,13 @@ void BasicGameResources_staticInit(void) {
 }
 
 
-- (void) init_:(const char*)ROOT :(const char**)SIZE {
+- (void) initMethod:(const char*)ROOT :(const char**)SIZE {
         JAVA_TRY {
             int32_t scale = ((int32_t) ([[GameConfigurationCentral getInstance]->SCALE getValue]));
             if (scale > 1 && scale - 1 < java_array_length(SIZE)) {
                 [self append:ROOT :SIZE[scale - 1]];
             } else {
-                java_throw(java_exception_new("Exception", [[[[((StringMaker*) [StringMaker alloc]) init] append:"Invalid Value: "] appendint:scale] toString]));
+                java_throw(java_exception_new("Exception", [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Invalid Value: "] appendint:scale] toString]));
             }
         } JAVA_CATCH(Exception, e) {
             CommonStrings* commonStrings = [CommonStrings getInstance];

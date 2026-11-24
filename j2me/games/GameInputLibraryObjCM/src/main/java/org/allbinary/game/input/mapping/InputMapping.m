@@ -11,6 +11,12 @@
 #include "org/allbinary/logic/StdUtil.h"
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/game/input/mapping/InputToGameKeyMapping.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
 
 
 
@@ -28,7 +34,7 @@ void InputMapping_staticInit(void) {
     self->logUtil = [LogUtil getInstance];
     self->commonStrings = [CommonStrings getInstance];
     self->hashtable = [[StdUtil getInstance] createHashtable];
-    self->mappedList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->mappedList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -61,7 +67,7 @@ void InputMapping_staticInit(void) {
 
 
 - (void) remove:(Input*)input :(Input*)mappedToInput {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         StringUtil* stringUtil = [StringUtil getInstance];
         [stringBuffer append:[CommonLabels getInstance]->START_LABEL];
         [stringBuffer append:[stringUtil toString:input]];
@@ -112,7 +118,7 @@ void InputMapping_staticInit(void) {
 - (BasicArrayList*) getMappedInput:(Input*)id_ {
         id mappingInputCanBeNullList = [self->hashtable get:JAVA_BOX(id_)];
         if (mappingInputCanBeNullList == nil) {
-            BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            BasicArrayList* list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             [self->hashtable put:JAVA_BOX(id_) :JAVA_BOX(list)];
             return list;
         }

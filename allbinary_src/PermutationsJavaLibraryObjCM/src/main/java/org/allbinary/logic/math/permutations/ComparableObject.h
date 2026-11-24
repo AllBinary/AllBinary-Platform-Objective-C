@@ -27,7 +27,7 @@
 #include "ABObject.h"
 @class ComparableObject;
 @class TsUtil;
-#include "org/allbinary/logic/math/permutations/Comparable.h"
+#include "java/lang/Comparable.h"
 
 @interface ComparableObject : ABObject <Comparable> {
 @public

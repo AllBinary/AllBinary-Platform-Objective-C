@@ -34,6 +34,21 @@
 #if __has_include("org/allbinary/util/AngleIncrementInfo.h")
 #include "org/allbinary/util/AngleIncrementInfo.h"
 #endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -134,7 +149,7 @@ void RotationAnimation_staticInit(void) {
 
 
 - (const char*) toString {
-        return [[[[[[[((StringMaker*) [StringMaker alloc]) init] append:[super toString]] append:"circularIndexUtil: "] append:[self->circularIndexUtil toString]] append:"angleInfo: "] append:[self->angleInfo toString]] toString];
+        return [[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[super toString]] append:"circularIndexUtil: "] append:[self->circularIndexUtil toString]] append:"angleInfo: "] append:[self->angleInfo toString]] toString];
 }
 
 @end

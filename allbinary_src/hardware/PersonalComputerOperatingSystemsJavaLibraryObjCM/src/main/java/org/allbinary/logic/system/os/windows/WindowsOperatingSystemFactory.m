@@ -9,6 +9,12 @@
 #include "org/allbinary/logic/system/os/SystemProperties.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/logic/system/os/windows/WindowsOS.h"
+#if __has_include("org/allbinary/logic/system/os/SystemProperties.h")
+#include "org/allbinary/logic/system/os/SystemProperties.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h")
+#include "org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h"
+#endif
 
 
 static WindowsOperatingSystemFactory* WindowsOperatingSystemFactory_instance;
@@ -19,7 +25,7 @@ void WindowsOperatingSystemFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    WindowsOperatingSystemFactory_instance = [((WindowsOperatingSystemFactory*) [WindowsOperatingSystemFactory alloc]) init];
+    WindowsOperatingSystemFactory_instance = ((WindowsOperatingSystemFactory*) [((WindowsOperatingSystemFactory*) [WindowsOperatingSystemFactory alloc]) init]);
 }
 
 @implementation WindowsOperatingSystemFactory
@@ -47,20 +53,20 @@ void WindowsOperatingSystemFactory_staticInit(void) {
             const char* osName = [[SystemProperties getInstance] getName];
             GenericOperatingSystem* operatingSystemInterface = nullptr;
             if (strcmp(osName, operatingSystems->WINDOWS_NT) == 0) {
-                operatingSystemInterface = [((WindowsOS*) [WindowsOS alloc]) init];
+                operatingSystemInterface = ((WindowsOS*) [((WindowsOS*) [WindowsOS alloc]) init]);
             } else if (strcmp(osName, operatingSystems->WINDOWS_10) == 0) {
-                operatingSystemInterface = [((WindowsOS*) [WindowsOS alloc]) init];
+                operatingSystemInterface = ((WindowsOS*) [((WindowsOS*) [WindowsOS alloc]) init]);
             } else if (strcmp(osName, operatingSystems->WINDOWS_11) == 0) {
-                operatingSystemInterface = [((WindowsOS*) [WindowsOS alloc]) init];
+                operatingSystemInterface = ((WindowsOS*) [((WindowsOS*) [WindowsOS alloc]) init]);
             } else if (strcmp(osName, operatingSystems->WINDOWS2000) == 0) {
-                operatingSystemInterface = [((WindowsOS*) [WindowsOS alloc]) init];
+                operatingSystemInterface = ((WindowsOS*) [((WindowsOS*) [WindowsOS alloc]) init]);
             } else if (strcmp(osName, operatingSystems->WINDOWS_XP) == 0) {
-                operatingSystemInterface = [((WindowsOS*) [WindowsOS alloc]) init];
+                operatingSystemInterface = ((WindowsOS*) [((WindowsOS*) [WindowsOS alloc]) init]);
             } else if (strcmp(osName, operatingSystems->WINDOWS_VISTA) == 0) {
-                operatingSystemInterface = [((WindowsOS*) [WindowsOS alloc]) init];
+                operatingSystemInterface = ((WindowsOS*) [((WindowsOS*) [WindowsOS alloc]) init]);
             } else {
                 if ([operatingSystems isUnknownSpecificOSAllowed]) {
-                    operatingSystemInterface = [((WindowsOS*) [WindowsOS alloc]) init];
+                    operatingSystemInterface = ((WindowsOS*) [((WindowsOS*) [WindowsOS alloc]) init]);
                 } else {
                     java_throw(java_exception_new("Exception", java_concat("Specific Windows OS Not Supported: ", osName)));
                 }

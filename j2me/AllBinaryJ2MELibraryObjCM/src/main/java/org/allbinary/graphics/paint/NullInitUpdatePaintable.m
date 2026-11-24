@@ -11,7 +11,7 @@ void NullInitUpdatePaintable_staticInit(void) {
         return;
     }
     initialized = true;
-    NullInitUpdatePaintable_SINGLETON = [((NullInitUpdatePaintable*) [NullInitUpdatePaintable alloc]) init];
+    NullInitUpdatePaintable_SINGLETON = ((NullInitUpdatePaintable*) [((NullInitUpdatePaintable*) [NullInitUpdatePaintable alloc]) init]);
 }
 
 @implementation NullInitUpdatePaintable

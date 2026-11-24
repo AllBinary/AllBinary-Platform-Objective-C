@@ -14,13 +14,13 @@ void DropLayerFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    DropLayerFactory_DROP_LAYER_FACTORY = [((DropLayerFactory*) [DropLayerFactory alloc]) init];
+    DropLayerFactory_DROP_LAYER_FACTORY = ((DropLayerFactory*) [((DropLayerFactory*) [DropLayerFactory alloc]) init]);
 }
 
 @implementation DropLayerFactory
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->basicArrayListUtil = [BasicArrayListUtil getInstance];
 }
 

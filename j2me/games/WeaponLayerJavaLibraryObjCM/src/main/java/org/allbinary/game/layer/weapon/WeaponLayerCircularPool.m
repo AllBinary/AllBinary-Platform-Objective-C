@@ -28,7 +28,7 @@ void WeaponLayerCircularPool_staticInit(void) {
 - (WeaponLayer*) getInstanceWeaponLayer:(AllBinaryLayer*)sourceLayerInterface :(int32_t)x :(int32_t)y :(int32_t)z :(int32_t)angle :(int32_t)otherAngle :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreable {
         WeaponLayer* weaponLayer = ((WeaponLayer*) [super getNextInstance]);
         [weaponLayer initXYZ:x :y :z];
-        [weaponLayer init_:sourceLayerInterface :angle :otherAngle :weaponProperties :scoreable];
+        [weaponLayer initMethod:sourceLayerInterface :angle :otherAngle :weaponProperties :scoreable];
         return weaponLayer;
 }
 

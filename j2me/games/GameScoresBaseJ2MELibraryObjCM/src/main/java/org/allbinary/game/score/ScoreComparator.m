@@ -35,10 +35,10 @@ void ScoreComparator_staticInit(void) {
 
 
 - (int32_t) compare:(int8_t*)recordOne :(int8_t*)recordTwo {
-        ByteArrayInputStream* byteArrayInputStreamOne = [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordOne];
-        DataInputStream* inputStreamOne = [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStreamOne];
-        ByteArrayInputStream* byteArrayInputStreamTwo = [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordTwo];
-        DataInputStream* inputStreamTwo = [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStreamTwo];
+        ByteArrayInputStream* byteArrayInputStreamOne = ((ByteArrayInputStream*) [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordOne]);
+        DataInputStream* inputStreamOne = ((DataInputStream*) [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStreamOne]);
+        ByteArrayInputStream* byteArrayInputStreamTwo = ((ByteArrayInputStream*) [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordTwo]);
+        DataInputStream* inputStreamTwo = ((DataInputStream*) [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStreamTwo]);
         int64_t scoreOne = 0LL;
         int64_t scoreTwo = 0LL;
         JAVA_TRY {

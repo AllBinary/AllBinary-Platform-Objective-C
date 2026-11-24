@@ -33,7 +33,7 @@
 }
 - (instancetype) init;
 + (LicenseUtil*) getInstance;
-- (void) init_;
+- (void) initMethod;
 - (bool) isRunning;
 - (void) setRunning:(bool)running;
 - (bool) shouldWait:(CommandListener*)commandListener;

@@ -43,7 +43,7 @@
 - (instancetype) init:(int32_t)GL_VERTEX_SHADER :(int32_t)GL_FRAGMENT_SHADER;
 - (void) initFields;
 + (ShaderManager*) getInstance;
-- (int32_t) load_:(GL10*)gl :(const char*)resource :(const char**)shaderAsStringArray :(int32_t)shaderType;
+- (int32_t) loadMethod:(GL10*)gl :(const char*)resource :(const char**)shaderAsStringArray :(int32_t)shaderType;
 - (int32_t) loadShader:(GL10*)gl :(const char*)resource :(BasicArrayList*)stringList :(int32_t)shaderType;
 @end
 

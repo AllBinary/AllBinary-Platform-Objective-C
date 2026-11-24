@@ -90,6 +90,564 @@
 #include "org/allbinary/game/midlet/GameMidletEventHandler.h"
 #include "org/allbinary/game/midlet/DemoGameMidletEvent.h"
 #include "org/allbinary/game/midlet/DemoGameMidletStateFactory.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/GameFeatureEventHandler.h")
+#include "org/allbinary/game/configuration/event/GameFeatureEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/persistance/GamePersistanceSingleton.h")
+#include "org/allbinary/game/configuration/persistance/GamePersistanceSingleton.h"
+#endif
+#if __has_include("org/allbinary/game/midlet/Advertisements.h")
+#include "org/allbinary/game/midlet/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Advertisements.h")
+#include "javax/microedition/lcdui/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Advertisements.h")
+#include "javax/microedition/lcdui/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Advertisements.h")
+#include "javax/microedition/lcdui/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Advertisements.h")
+#include "javax/microedition/lcdui/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Advertisements.h")
+#include "javax/microedition/lcdui/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/midlet/Advertisements.h")
+#include "javax/microedition/midlet/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/Advertisements.h")
+#include "org/allbinary/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/Advertisements.h")
+#include "org/allbinary/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/business/advertisement/Advertisements.h")
+#include "org/allbinary/business/advertisement/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/canvas/Advertisements.h")
+#include "org/allbinary/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/canvas/Advertisements.h")
+#include "org/allbinary/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/debug/Advertisements.h")
+#include "org/allbinary/debug/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/debug/Advertisements.h")
+#include "org/allbinary/debug/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/commands/Advertisements.h")
+#include "org/allbinary/game/commands/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/Advertisements.h")
+#include "org/allbinary/game/configuration/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/Advertisements.h")
+#include "org/allbinary/game/configuration/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
+#include "org/allbinary/game/configuration/feature/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
+#include "org/allbinary/game/configuration/feature/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
+#include "org/allbinary/game/configuration/feature/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/persistance/Advertisements.h")
+#include "org/allbinary/game/configuration/persistance/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/persistance/Advertisements.h")
+#include "org/allbinary/game/configuration/persistance/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/input/Advertisements.h")
+#include "org/allbinary/game/input/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/layer/Advertisements.h")
+#include "org/allbinary/game/layer/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/layer/hud/event/Advertisements.h")
+#include "org/allbinary/game/layer/hud/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/paint/help/Advertisements.h")
+#include "org/allbinary/game/paint/help/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/score/Advertisements.h")
+#include "org/allbinary/game/score/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/score/Advertisements.h")
+#include "org/allbinary/game/score/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
+#include "org/allbinary/game/score/displayable/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
+#include "org/allbinary/game/score/displayable/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
+#include "org/allbinary/game/score/displayable/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/state/Advertisements.h")
+#include "org/allbinary/game/state/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/Advertisements.h")
+#include "org/allbinary/graphics/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/Advertisements.h")
+#include "org/allbinary/graphics/canvas/transition/progress/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/Advertisements.h")
+#include "org/allbinary/graphics/canvas/transition/progress/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/Advertisements.h")
+#include "org/allbinary/graphics/color/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/Advertisements.h")
+#include "org/allbinary/graphics/color/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/Advertisements.h")
+#include "org/allbinary/graphics/displayable/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/Advertisements.h")
+#include "org/allbinary/graphics/displayable/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/command/Advertisements.h")
+#include "org/allbinary/graphics/displayable/command/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
+#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
+#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
+#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
+#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/input/Advertisements.h")
+#include "org/allbinary/input/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/input/event/Advertisements.h")
+#include "org/allbinary/input/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/observer/Advertisements.h")
+#include "org/allbinary/input/motion/gesture/observer/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/Advertisements.h")
+#include "org/allbinary/logic/communication/log/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/Advertisements.h")
+#include "org/allbinary/logic/communication/log/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/math/Advertisements.h")
+#include "org/allbinary/logic/math/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/string/Advertisements.h")
+#include "org/allbinary/logic/string/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
+#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
+#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
+#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
+#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/Advertisements.h")
+#include "org/allbinary/logic/util/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/Advertisements.h")
+#include "org/allbinary/logic/util/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/media/audio/Advertisements.h")
+#include "org/allbinary/media/audio/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/midlet/Advertisements.h")
+#include "org/allbinary/midlet/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/midlet/Advertisements.h")
+#include "org/allbinary/midlet/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/thread/Advertisements.h")
+#include "org/allbinary/thread/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/thread/Advertisements.h")
+#include "org/allbinary/thread/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/thread/Advertisements.h")
+#include "org/allbinary/thread/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/time/Advertisements.h")
+#include "org/allbinary/time/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/util/Advertisements.h")
+#include "org/allbinary/util/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/util/Advertisements.h")
+#include "org/allbinary/util/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/Advertisements.h")
+#include "org/allbinary/logic/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/util/Advertisements.h")
+#include "org/allbinary/util/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/input/AllBinarySensorManager.h")
+#include "org/allbinary/input/AllBinarySensorManager.h"
+#endif
+#if __has_include("org/allbinary/game/midlet/Advertisements.h")
+#include "org/allbinary/game/midlet/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Advertisements.h")
+#include "javax/microedition/lcdui/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Advertisements.h")
+#include "javax/microedition/lcdui/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Advertisements.h")
+#include "javax/microedition/lcdui/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Advertisements.h")
+#include "javax/microedition/lcdui/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Advertisements.h")
+#include "javax/microedition/lcdui/Advertisements.h"
+#endif
+#if __has_include("javax/microedition/midlet/Advertisements.h")
+#include "javax/microedition/midlet/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/Advertisements.h")
+#include "org/allbinary/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/Advertisements.h")
+#include "org/allbinary/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/business/advertisement/Advertisements.h")
+#include "org/allbinary/business/advertisement/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/canvas/Advertisements.h")
+#include "org/allbinary/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/canvas/Advertisements.h")
+#include "org/allbinary/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/debug/Advertisements.h")
+#include "org/allbinary/debug/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/debug/Advertisements.h")
+#include "org/allbinary/debug/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/Advertisements.h")
+#include "org/allbinary/game/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/commands/Advertisements.h")
+#include "org/allbinary/game/commands/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/Advertisements.h")
+#include "org/allbinary/game/configuration/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/Advertisements.h")
+#include "org/allbinary/game/configuration/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/Advertisements.h")
+#include "org/allbinary/game/configuration/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
+#include "org/allbinary/game/configuration/feature/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
+#include "org/allbinary/game/configuration/feature/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
+#include "org/allbinary/game/configuration/feature/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/persistance/Advertisements.h")
+#include "org/allbinary/game/configuration/persistance/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/persistance/Advertisements.h")
+#include "org/allbinary/game/configuration/persistance/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
+#include "org/allbinary/game/displayable/canvas/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/input/Advertisements.h")
+#include "org/allbinary/game/input/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/layer/Advertisements.h")
+#include "org/allbinary/game/layer/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/layer/hud/event/Advertisements.h")
+#include "org/allbinary/game/layer/hud/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/paint/help/Advertisements.h")
+#include "org/allbinary/game/paint/help/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/score/Advertisements.h")
+#include "org/allbinary/game/score/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/score/Advertisements.h")
+#include "org/allbinary/game/score/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
+#include "org/allbinary/game/score/displayable/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
+#include "org/allbinary/game/score/displayable/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
+#include "org/allbinary/game/score/displayable/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/game/state/Advertisements.h")
+#include "org/allbinary/game/state/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/Advertisements.h")
+#include "org/allbinary/graphics/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/Advertisements.h")
+#include "org/allbinary/graphics/canvas/transition/progress/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/Advertisements.h")
+#include "org/allbinary/graphics/canvas/transition/progress/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/Advertisements.h")
+#include "org/allbinary/graphics/color/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/Advertisements.h")
+#include "org/allbinary/graphics/color/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/Advertisements.h")
+#include "org/allbinary/graphics/displayable/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/Advertisements.h")
+#include "org/allbinary/graphics/displayable/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/command/Advertisements.h")
+#include "org/allbinary/graphics/displayable/command/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
+#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
+#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
+#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
+#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/input/Advertisements.h")
+#include "org/allbinary/input/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/input/event/Advertisements.h")
+#include "org/allbinary/input/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/observer/Advertisements.h")
+#include "org/allbinary/input/motion/gesture/observer/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/Advertisements.h")
+#include "org/allbinary/logic/communication/log/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/Advertisements.h")
+#include "org/allbinary/logic/communication/log/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/math/Advertisements.h")
+#include "org/allbinary/logic/math/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/string/Advertisements.h")
+#include "org/allbinary/logic/string/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
+#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
+#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
+#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
+#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/Advertisements.h")
+#include "org/allbinary/logic/util/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/Advertisements.h")
+#include "org/allbinary/logic/util/event/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/media/audio/Advertisements.h")
+#include "org/allbinary/media/audio/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/midlet/Advertisements.h")
+#include "org/allbinary/midlet/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/midlet/Advertisements.h")
+#include "org/allbinary/midlet/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/thread/Advertisements.h")
+#include "org/allbinary/thread/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/thread/Advertisements.h")
+#include "org/allbinary/thread/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/thread/Advertisements.h")
+#include "org/allbinary/thread/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/time/Advertisements.h")
+#include "org/allbinary/time/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/util/Advertisements.h")
+#include "org/allbinary/util/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/util/Advertisements.h")
+#include "org/allbinary/util/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/logic/Advertisements.h")
+#include "org/allbinary/logic/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/util/Advertisements.h")
+#include "org/allbinary/util/Advertisements.h"
+#endif
+#if __has_include("org/allbinary/input/AllBinarySensorManager.h")
+#include "org/allbinary/input/AllBinarySensorManager.h"
+#endif
+#if __has_include("org/allbinary/canvas/GameStatisticsFactory.h")
+#include "org/allbinary/canvas/GameStatisticsFactory.h"
+#endif
 #if __has_include("org/allbinary/game/midlet/Advertisements.h")
 #include "org/allbinary/game/midlet/Advertisements.h"
 #endif
@@ -624,539 +1182,59 @@
 #if __has_include("org/allbinary/util/Advertisements.h")
 #include "org/allbinary/util/Advertisements.h"
 #endif
-#if __has_include("org/allbinary/game/midlet/Advertisements.h")
-#include "org/allbinary/game/midlet/Advertisements.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
 #endif
-#if __has_include("javax/microedition/lcdui/Advertisements.h")
-#include "javax/microedition/lcdui/Advertisements.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
 #endif
-#if __has_include("javax/microedition/lcdui/Advertisements.h")
-#include "javax/microedition/lcdui/Advertisements.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
 #endif
-#if __has_include("javax/microedition/lcdui/Advertisements.h")
-#include "javax/microedition/lcdui/Advertisements.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
 #endif
-#if __has_include("javax/microedition/lcdui/Advertisements.h")
-#include "javax/microedition/lcdui/Advertisements.h"
+#if __has_include("org/allbinary/game/score/HighScoreCommandsFactory.h")
+#include "org/allbinary/game/score/HighScoreCommandsFactory.h"
 #endif
-#if __has_include("javax/microedition/lcdui/Advertisements.h")
-#include "javax/microedition/lcdui/Advertisements.h"
+#if __has_include("org/allbinary/game/score/HighScoreCommands.h")
+#include "org/allbinary/game/score/HighScoreCommands.h"
 #endif
-#if __has_include("javax/microedition/midlet/Advertisements.h")
-#include "javax/microedition/midlet/Advertisements.h"
+#if __has_include("org/allbinary/graphics/displayable/screen/CommandForm.h")
+#include "org/allbinary/graphics/displayable/screen/CommandForm.h"
 #endif
-#if __has_include("org/allbinary/Advertisements.h")
-#include "org/allbinary/Advertisements.h"
+#if __has_include("org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.h")
+#include "org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.h"
 #endif
-#if __has_include("org/allbinary/Advertisements.h")
-#include "org/allbinary/Advertisements.h"
+#if __has_include("org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.h")
+#include "org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.h"
 #endif
-#if __has_include("org/allbinary/business/advertisement/Advertisements.h")
-#include "org/allbinary/business/advertisement/Advertisements.h"
+#if __has_include("org/allbinary/graphics/displayable/screen/CommandForm.h")
+#include "org/allbinary/graphics/displayable/screen/CommandForm.h"
 #endif
-#if __has_include("org/allbinary/canvas/Advertisements.h")
-#include "org/allbinary/canvas/Advertisements.h"
+#if __has_include("org/allbinary/graphics/ResizableListenerHandler.h")
+#include "org/allbinary/graphics/ResizableListenerHandler.h"
 #endif
-#if __has_include("org/allbinary/canvas/Advertisements.h")
-#include "org/allbinary/canvas/Advertisements.h"
+#if __has_include("org/allbinary/graphics/ResizableListenerHandler.h")
+#include "org/allbinary/graphics/ResizableListenerHandler.h"
 #endif
-#if __has_include("org/allbinary/debug/Advertisements.h")
-#include "org/allbinary/debug/Advertisements.h"
+#if __has_include("org/allbinary/game/configuration/InGameOptionsFormFactory.h")
+#include "org/allbinary/game/configuration/InGameOptionsFormFactory.h"
 #endif
-#if __has_include("org/allbinary/debug/Advertisements.h")
-#include "org/allbinary/debug/Advertisements.h"
+#if __has_include("org/allbinary/game/configuration/feature/GameFeatureFormUtil.h")
+#include "org/allbinary/game/configuration/feature/GameFeatureFormUtil.h"
 #endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
+#if __has_include("org/allbinary/game/configuration/feature/GameFeatureFormUtil.h")
+#include "org/allbinary/game/configuration/feature/GameFeatureFormUtil.h"
 #endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
+#if __has_include("org/allbinary/logic/system/security/licensing/LockableFeatureFactory.h")
+#include "org/allbinary/logic/system/security/licensing/LockableFeatureFactory.h"
 #endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
+#if __has_include("org/allbinary/game/input/TextNotificationUtil.h")
+#include "org/allbinary/game/input/TextNotificationUtil.h"
 #endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/commands/Advertisements.h")
-#include "org/allbinary/game/commands/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/event/Advertisements.h")
-#include "org/allbinary/game/configuration/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/event/Advertisements.h")
-#include "org/allbinary/game/configuration/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
-#include "org/allbinary/game/configuration/feature/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
-#include "org/allbinary/game/configuration/feature/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
-#include "org/allbinary/game/configuration/feature/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/persistance/Advertisements.h")
-#include "org/allbinary/game/configuration/persistance/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/persistance/Advertisements.h")
-#include "org/allbinary/game/configuration/persistance/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/input/Advertisements.h")
-#include "org/allbinary/game/input/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/layer/Advertisements.h")
-#include "org/allbinary/game/layer/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/layer/hud/event/Advertisements.h")
-#include "org/allbinary/game/layer/hud/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/paint/help/Advertisements.h")
-#include "org/allbinary/game/paint/help/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/score/Advertisements.h")
-#include "org/allbinary/game/score/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/score/Advertisements.h")
-#include "org/allbinary/game/score/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
-#include "org/allbinary/game/score/displayable/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
-#include "org/allbinary/game/score/displayable/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
-#include "org/allbinary/game/score/displayable/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/state/Advertisements.h")
-#include "org/allbinary/game/state/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/Advertisements.h")
-#include "org/allbinary/graphics/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/canvas/transition/progress/Advertisements.h")
-#include "org/allbinary/graphics/canvas/transition/progress/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/canvas/transition/progress/Advertisements.h")
-#include "org/allbinary/graphics/canvas/transition/progress/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/color/Advertisements.h")
-#include "org/allbinary/graphics/color/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/color/Advertisements.h")
-#include "org/allbinary/graphics/color/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/Advertisements.h")
-#include "org/allbinary/graphics/displayable/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/Advertisements.h")
-#include "org/allbinary/graphics/displayable/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/command/Advertisements.h")
-#include "org/allbinary/graphics/displayable/command/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
-#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
-#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
-#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
-#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/input/Advertisements.h")
-#include "org/allbinary/input/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/input/event/Advertisements.h")
-#include "org/allbinary/input/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/input/motion/gesture/observer/Advertisements.h")
-#include "org/allbinary/input/motion/gesture/observer/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/communication/log/Advertisements.h")
-#include "org/allbinary/logic/communication/log/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/communication/log/Advertisements.h")
-#include "org/allbinary/logic/communication/log/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/math/Advertisements.h")
-#include "org/allbinary/logic/math/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/string/Advertisements.h")
-#include "org/allbinary/logic/string/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
-#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
-#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
-#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
-#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/util/event/Advertisements.h")
-#include "org/allbinary/logic/util/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/util/event/Advertisements.h")
-#include "org/allbinary/logic/util/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/media/audio/Advertisements.h")
-#include "org/allbinary/media/audio/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/midlet/Advertisements.h")
-#include "org/allbinary/midlet/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/midlet/Advertisements.h")
-#include "org/allbinary/midlet/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/thread/Advertisements.h")
-#include "org/allbinary/thread/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/thread/Advertisements.h")
-#include "org/allbinary/thread/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/thread/Advertisements.h")
-#include "org/allbinary/thread/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/time/Advertisements.h")
-#include "org/allbinary/time/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/util/Advertisements.h")
-#include "org/allbinary/util/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/util/Advertisements.h")
-#include "org/allbinary/util/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/Advertisements.h")
-#include "org/allbinary/logic/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/util/Advertisements.h")
-#include "org/allbinary/util/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/midlet/Advertisements.h")
-#include "org/allbinary/game/midlet/Advertisements.h"
-#endif
-#if __has_include("javax/microedition/lcdui/Advertisements.h")
-#include "javax/microedition/lcdui/Advertisements.h"
-#endif
-#if __has_include("javax/microedition/lcdui/Advertisements.h")
-#include "javax/microedition/lcdui/Advertisements.h"
-#endif
-#if __has_include("javax/microedition/lcdui/Advertisements.h")
-#include "javax/microedition/lcdui/Advertisements.h"
-#endif
-#if __has_include("javax/microedition/lcdui/Advertisements.h")
-#include "javax/microedition/lcdui/Advertisements.h"
-#endif
-#if __has_include("javax/microedition/lcdui/Advertisements.h")
-#include "javax/microedition/lcdui/Advertisements.h"
-#endif
-#if __has_include("javax/microedition/midlet/Advertisements.h")
-#include "javax/microedition/midlet/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/Advertisements.h")
-#include "org/allbinary/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/Advertisements.h")
-#include "org/allbinary/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/business/advertisement/Advertisements.h")
-#include "org/allbinary/business/advertisement/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/canvas/Advertisements.h")
-#include "org/allbinary/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/canvas/Advertisements.h")
-#include "org/allbinary/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/debug/Advertisements.h")
-#include "org/allbinary/debug/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/debug/Advertisements.h")
-#include "org/allbinary/debug/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/Advertisements.h")
-#include "org/allbinary/game/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/commands/Advertisements.h")
-#include "org/allbinary/game/commands/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/Advertisements.h")
-#include "org/allbinary/game/configuration/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/event/Advertisements.h")
-#include "org/allbinary/game/configuration/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/event/Advertisements.h")
-#include "org/allbinary/game/configuration/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
-#include "org/allbinary/game/configuration/feature/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
-#include "org/allbinary/game/configuration/feature/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/Advertisements.h")
-#include "org/allbinary/game/configuration/feature/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/persistance/Advertisements.h")
-#include "org/allbinary/game/configuration/persistance/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/persistance/Advertisements.h")
-#include "org/allbinary/game/configuration/persistance/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/displayable/canvas/Advertisements.h")
-#include "org/allbinary/game/displayable/canvas/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/input/Advertisements.h")
-#include "org/allbinary/game/input/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/layer/Advertisements.h")
-#include "org/allbinary/game/layer/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/layer/hud/event/Advertisements.h")
-#include "org/allbinary/game/layer/hud/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/paint/help/Advertisements.h")
-#include "org/allbinary/game/paint/help/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/score/Advertisements.h")
-#include "org/allbinary/game/score/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/score/Advertisements.h")
-#include "org/allbinary/game/score/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
-#include "org/allbinary/game/score/displayable/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
-#include "org/allbinary/game/score/displayable/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/score/displayable/Advertisements.h")
-#include "org/allbinary/game/score/displayable/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/game/state/Advertisements.h")
-#include "org/allbinary/game/state/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/Advertisements.h")
-#include "org/allbinary/graphics/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/canvas/transition/progress/Advertisements.h")
-#include "org/allbinary/graphics/canvas/transition/progress/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/canvas/transition/progress/Advertisements.h")
-#include "org/allbinary/graphics/canvas/transition/progress/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/color/Advertisements.h")
-#include "org/allbinary/graphics/color/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/color/Advertisements.h")
-#include "org/allbinary/graphics/color/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/Advertisements.h")
-#include "org/allbinary/graphics/displayable/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/Advertisements.h")
-#include "org/allbinary/graphics/displayable/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/command/Advertisements.h")
-#include "org/allbinary/graphics/displayable/command/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
-#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
-#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
-#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/screen/Advertisements.h")
-#include "org/allbinary/graphics/displayable/screen/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/input/Advertisements.h")
-#include "org/allbinary/input/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/input/event/Advertisements.h")
-#include "org/allbinary/input/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/input/motion/gesture/observer/Advertisements.h")
-#include "org/allbinary/input/motion/gesture/observer/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/communication/log/Advertisements.h")
-#include "org/allbinary/logic/communication/log/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/communication/log/Advertisements.h")
-#include "org/allbinary/logic/communication/log/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/math/Advertisements.h")
-#include "org/allbinary/logic/math/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/string/Advertisements.h")
-#include "org/allbinary/logic/string/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
-#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
-#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
-#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/system/security/licensing/Advertisements.h")
-#include "org/allbinary/logic/system/security/licensing/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/util/event/Advertisements.h")
-#include "org/allbinary/logic/util/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/util/event/Advertisements.h")
-#include "org/allbinary/logic/util/event/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/media/audio/Advertisements.h")
-#include "org/allbinary/media/audio/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/midlet/Advertisements.h")
-#include "org/allbinary/midlet/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/midlet/Advertisements.h")
-#include "org/allbinary/midlet/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/thread/Advertisements.h")
-#include "org/allbinary/thread/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/thread/Advertisements.h")
-#include "org/allbinary/thread/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/thread/Advertisements.h")
-#include "org/allbinary/thread/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/time/Advertisements.h")
-#include "org/allbinary/time/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/util/Advertisements.h")
-#include "org/allbinary/util/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/util/Advertisements.h")
-#include "org/allbinary/util/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/logic/Advertisements.h")
-#include "org/allbinary/logic/Advertisements.h"
-#endif
-#if __has_include("org/allbinary/util/Advertisements.h")
-#include "org/allbinary/util/Advertisements.h"
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
 #endif
 #if __has_include("org/allbinary/game/midlet/Display.h")
 #include "org/allbinary/game/midlet/Display.h"
@@ -1425,6 +1503,15 @@
 #if __has_include("org/allbinary/util/Display.h")
 #include "org/allbinary/util/Display.h"
 #endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/game/commands/GameCommandsFactory.h")
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#endif
 #if __has_include("org/allbinary/game/midlet/Display.h")
 #include "org/allbinary/game/midlet/Display.h"
 #endif
@@ -1691,6 +1778,54 @@
 #endif
 #if __has_include("org/allbinary/util/Display.h")
 #include "org/allbinary/util/Display.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/CanvasStrings.h")
+#include "org/allbinary/graphics/displayable/CanvasStrings.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/screen/AboutPaintableFactory.h")
+#include "org/allbinary/graphics/displayable/screen/AboutPaintableFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/game/layer/hud/event/GameNotificationEventHandler.h")
+#include "org/allbinary/game/layer/hud/event/GameNotificationEventHandler.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/ColorChangeEventHandler.h")
+#include "org/allbinary/graphics/color/ColorChangeEventHandler.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/thread/ThreadUtil.h")
+#include "org/allbinary/thread/ThreadUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/MainFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/GameTypeFactory.h")
+#include "org/allbinary/game/GameTypeFactory.h"
+#endif
+#if __has_include("org/allbinary/game/PlayerTypesFactory.h")
+#include "org/allbinary/game/PlayerTypesFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/GameOptionsFormFactory.h")
+#include "org/allbinary/game/configuration/GameOptionsFormFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/persistance/GamePersistanceSingleton.h")
+#include "org/allbinary/game/configuration/persistance/GamePersistanceSingleton.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
 #endif
 #if __has_include("org/allbinary/game/midlet/Display.h")
 #include "org/allbinary/game/midlet/Display.h"
@@ -1986,13 +2121,13 @@ void GameMidlet_staticInit(void) {
     self->COMMAND_NAME = "command Name/Label: ";
     self->NO_COMMAND = "No Command";
     self->NO_DISPLAYABLE = "No Displayable";
-    self->COMMAND_ACTION = [[[[((StringMaker*) [StringMaker alloc]) init] append:"GameMidlet::"] append:self->midletStrings->COMMAND_ACTION] toString];
+    self->COMMAND_ACTION = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"GameMidlet::"] append:self->midletStrings->COMMAND_ACTION] toString];
     self->PAUSE_APP_BACKGROUND = "pauseAppBackground";
     self->UN_PAUSE_APP_BACKGROUND = "unPauseAppBackground";
     self->aboutCommandProcessor = [AboutCommandProcessor getInstance];
     self->webCommandProcessor = [WebCommandProcessor getInstance];
     self->gameMidletStateFactory = [GameMidletStateFactory getInstance];
-    self->gameStartTimeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:240];
+    self->gameStartTimeHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:240]);
     self->fullScreenUtil = [FullScreenUtil getInstance];
     
     self->allbinaryGameCanvasRunnableInterface = (NullGameCanvasRunnable_staticInit(), NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE);
@@ -2010,16 +2145,16 @@ void GameMidlet_staticInit(void) {
         [[SmallIntegerSingletonFactory getInstance] initWithRange:0x291 :6];
         self->loadGameForm = [CommandForm getNullCommandForm];
         ProgressCanvas* progressCanvas = [ProgressCanvasFactory getInstance];
-        [progressCanvas init_:self];
+        [progressCanvas initMethod:self];
         [[GameFeatureEventHandler getInstance] addListenerInterface:[ChangedGameFeatureListener getInstance]];
         [[GamePersistanceSingleton getInstance] clear];
         self->debugInterface = [DebugFactory getInstance];
-        [self init_];
+        [self initMethod];
     return self;
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 
@@ -2055,7 +2190,7 @@ void GameMidlet_staticInit(void) {
 - (void) pauseAppBackground:(bool)background {
         [self->logUtil putF:self->commonStrings->START :self :self->PAUSE_APP_BACKGROUND];
         if (self->allbinaryGameCanvasRunnableInterface != (NullGameCanvasRunnable_staticInit(), NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE)) {
-            [self->allbinaryGameCanvasRunnableInterface pause];
+            [((id<GameCanvasRunnableInterface>) self->allbinaryGameCanvasRunnableInterface) pause];
         } else {
             [self->logUtil putF:"<<<<<< Null" :self :self->PAUSE_APP_BACKGROUND];
         }
@@ -2072,10 +2207,10 @@ void GameMidlet_staticInit(void) {
 
 - (void) unPauseAppBackground:(bool)background {
         [self->logUtil putF:self->commonStrings->START :self :self->UN_PAUSE_APP_BACKGROUND];
-        [[AllBinarySensorManager getInstance] init_];
+        [[AllBinarySensorManager getInstance] initMethod];
         GameCanvasRunnableInterface* gameCanvasRunnableInterface = self->allbinaryGameCanvasRunnableInterface;
         if (gameCanvasRunnableInterface != (NullGameCanvasRunnable_staticInit(), NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE)) {
-            [gameCanvasRunnableInterface unPause];
+            [((id<GameCanvasRunnableInterface>) gameCanvasRunnableInterface) unPause];
         } else {
             [self->logUtil putF:"<<<<<< Null" :self :self->UN_PAUSE_APP_BACKGROUND];
         }
@@ -2155,25 +2290,25 @@ void GameMidlet_staticInit(void) {
             if (command != nil) {
                 label = [command getLabel];
             }
-            [PreLogUtil put:[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->COMMAND_NAME] append:label] append:self->DISPLAYABLE] append:displayableAsString] toString] :self :self->COMMAND_ACTION];
+            [PreLogUtil put:[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->COMMAND_NAME] append:label] append:self->DISPLAYABLE] append:displayableAsString] toString] :self :self->COMMAND_ACTION];
             GameCommandsFactory* gameCommandsFactory = [GameCommandsFactory getInstance];
             GameCanvasRunnableInterface* allbinaryGameCanvasRunnableInterface = self->allbinaryGameCanvasRunnableInterface;
             id gameCanvasRunnableInterface = allbinaryGameCanvasRunnableInterface;
             if (command == gameCommandsFactory->SHOW_GAME_CANVAS) {
-                if ([[self getDisplay] getCurrent] != gameCanvasRunnableInterface && [allbinaryGameCanvasRunnableInterface getType] != [(NullGameCanvasRunnable_staticInit(), NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE) getType]) {
+                if ([[self getDisplay] getCurrent] != gameCanvasRunnableInterface && [((id<GameCanvasRunnableInterface>) allbinaryGameCanvasRunnableInterface) getType] != [(NullGameCanvasRunnable_staticInit(), NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE) getType]) {
                     [self setDisplay:((Displayable*) gameCanvasRunnableInterface)];
                 }
                 [self unPauseAppBackground:false];
             } else if (command == gameCommandsFactory->CLOSE_AND_SHOW_GAME_CANVAS) {
                 MenuListener* menuListener = ((MenuListener*) displayable);
-                [menuListener close];
+                [((id<MenuListener>) menuListener) close];
                 [self setDisplay:((Displayable*) gameCanvasRunnableInterface)];
                 [self unPauseAppBackground:false];
             } else if (command == gameCommandsFactory->EXIT_COMMAND) {
                 if ([[[GameMidletEventHandler getInstance] getEventListenerInterfaceListP] size] == 0) {
                     [self exitProgress:true];
                 }
-                [[GameMidletEventHandler getInstance] fireEvent:[((DemoGameMidletEvent*) [DemoGameMidletEvent alloc]) init:self :[DemoGameMidletStateFactory getInstance]->NONE]];
+                [[GameMidletEventHandler getInstance] fireEvent:((DemoGameMidletEvent*) [((DemoGameMidletEvent*) [DemoGameMidletEvent alloc]) init:self :[DemoGameMidletStateFactory getInstance]->NONE])];
             } else if (command == gameCommandsFactory->EXIT_WITHOUT_PROGRESS_COMMAND) {
                 [self exitProgress:false];
             } else if (command == gameCommandsFactory->START_COMMAND || command == gameCommandsFactory->RESTART_COMMAND || command == gameCommandsFactory->CONTINUE_COMMAND) {
@@ -2205,7 +2340,7 @@ void GameMidlet_staticInit(void) {
                 if ([self->gameStartTimeHelper isTimeTNT]) {
                     if (java_objc_instanceof(displayable, [HighScoreTextBox class])) {
                         MenuListener* menuListener = ((MenuListener*) displayable);
-                        [menuListener close];
+                        [((id<MenuListener>) menuListener) close];
                     }
                     [self stopGameCanvasRunnableInterface];
                     [self->gameMidletStateFactory setCurrentGameState:self->gameStateFactory->NO_GAME_STATE];
@@ -2221,16 +2356,16 @@ void GameMidlet_staticInit(void) {
             } else if (command == gameCommandsFactory->SET_MENU_DISPLAYABLE) {
                 [self pauseAppBackground:false];
                 MenuListener* menuListener = ((MenuListener*) displayable);
-                [menuListener open];
+                [((id<MenuListener>) menuListener) open];
                 [self setDisplay:displayable];
             } else if (command == gameCommandsFactory->START_TRACE) {
-                [self->debugInterface start];
+                [((id<DebugInterface>) self->debugInterface) start];
                 AllBinaryGameCanvas* gameCanvas = ((AllBinaryGameCanvas*) allbinaryGameCanvasRunnableInterface);
                 [gameCanvas addCommand:gameCommandsFactory->STOP_TRACE];
                 [gameCanvas removeCommand:gameCommandsFactory->START_TRACE];
             } else if (command == gameCommandsFactory->STOP_TRACE) {
                 [self pauseAppBackground:false];
-                [self->debugInterface stop];
+                [((id<DebugInterface>) self->debugInterface) stop];
                 [self unPauseAppBackground:false];
                 AllBinaryGameCanvas* gameCanvas = ((AllBinaryGameCanvas*) allbinaryGameCanvasRunnableInterface);
                 [gameCanvas addCommand:gameCommandsFactory->START_TRACE];
@@ -2257,7 +2392,7 @@ void GameMidlet_staticInit(void) {
                 [self commandAction:gameCommandsFactory->SET_MENU_DISPLAYABLE :[self createHighScoresCanvas]];
             } else if (command == (GameInputMappingInstructionsCanvas_staticInit(), GameInputMappingInstructionsCanvas_CLOSE)) {
                 MenuListener* menuListener = ((MenuListener*) displayable);
-                [menuListener close];
+                [((id<MenuListener>) menuListener) close];
                 [self commandAction:(GameInputMappingCanvas_staticInit(), GameInputMappingCanvas_DISPLAY) :(NullCanvas_staticInit(), NullCanvas_NULL_CANVAS)];
             } else if (command == (GameInputMappingCanvas_staticInit(), GameInputMappingCanvas_DISPLAY)) {
                 if ([J2MEUtil isHTML]) {
@@ -2276,7 +2411,7 @@ void GameMidlet_staticInit(void) {
                 [progressCanvas addNormalPortion:50 :"In Game Options"];
                 AllBinaryGameLayerManager* layerManager = [self createGameLayerManager];
                 InGameOptionsFormFactory* inGameOptionsFormFactory = [InGameOptionsFormFactory getInstance];
-                [inGameOptionsFormFactory init_:self :[((InGameFeatures*) [InGameFeatures alloc]) init] :"Options In Game" :[layerManager getBackgroundBasicColor] :[layerManager getForegroundBasicColor]];
+                [inGameOptionsFormFactory initMethod:self :((InGameFeatures*) [((InGameFeatures*) [InGameFeatures alloc]) init]) :"Options In Game" :[layerManager getBackgroundBasicColor] :[layerManager getForegroundBasicColor]];
                 CommandForm* inGameOptionsForm = [inGameOptionsFormFactory get];
                 [inGameOptionsForm setItemStateListener:allbinaryGameCanvasRunnableInterface];
                 [self commandAction:gameCommandsFactory->SET_MENU_DISPLAYABLE :inGameOptionsForm];
@@ -2294,7 +2429,7 @@ void GameMidlet_staticInit(void) {
             } else if (command == gameCommandsFactory->CLOSE_OPTIONS) {
                 [[ResizableListenerHandler getInstance] fireEvent:false];
                 [self commandAction:gameCommandsFactory->CLOSE_AND_SHOW_GAME_CANVAS :displayable];
-                StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+                StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
                 [stringBuffer append:"Close isFullScreen/change: "];
                 [stringBuffer appendboolean:self->isFullScreen];
                 [stringBuffer appendboolean:[self->fullScreenUtil isScreenChange:self->isFullScreen]];
@@ -2312,7 +2447,7 @@ void GameMidlet_staticInit(void) {
                 [keyValuePersistance loadAll:self->abeClientInformation];
                 if ([self getLoadGameForm] == [CommandForm getNullCommandForm]) {
                     AllBinaryGameLayerManager* layerManager = [self createGameLayerManager];
-                    [self setLoadGameForm:[((LoadGameForm*) [LoadGameForm alloc]) init:self :"Load Game" :[layerManager getBackgroundBasicColor] :[layerManager getForegroundBasicColor]]];
+                    [self setLoadGameForm:((LoadGameForm*) [((LoadGameForm*) [LoadGameForm alloc]) init:self :"Load Game" :[layerManager getBackgroundBasicColor] :[layerManager getForegroundBasicColor]])];
                 } else {
                     [[self getLoadGameForm] update];
                 }
@@ -2324,7 +2459,7 @@ void GameMidlet_staticInit(void) {
                     KeyValuePersistance* keyValuePersistance = [GamePersistanceSingleton getInstance];
                     [self setStartStateHashtable:[keyValuePersistance get:index]];
                     MenuListener* menuListener = [self getLoadGameForm];
-                    [menuListener close];
+                    [((id<MenuListener>) menuListener) close];
                     [PreLogUtil put:[[BasicMotionGesturesHandler getInstance] toString] :self :self->COMMAND_ACTION];
                     [self commandAction:gameCommandsFactory->START_COMMAND :(NullCanvas_staticInit(), NullCanvas_NULL_CANVAS)];
                     [PreLogUtil put:[[BasicMotionGesturesHandler getInstance] toString] :self :self->COMMAND_ACTION];
@@ -2350,7 +2485,7 @@ void GameMidlet_staticInit(void) {
                     HighScoreTextBox* highScoreTextBox = ((HighScoreTextBox*) displayable);
                     highScoreTextBox->submitted = true;
                 }
-                [allbinaryGameCanvasRunnableInterface setHighScoreSubmitted:true];
+                [((id<GameCanvasRunnableInterface>) allbinaryGameCanvasRunnableInterface) setHighScoreSubmitted:true];
                 [self commandAction:gameCommandsFactory->CLOSE_AND_SHOW_GAME_CANVAS :displayable];
             } else if (command == gameCommandsFactory->DISPLAY_ABOUT) {
                 [self->aboutCommandProcessor process:self :gameCommandsFactory->SET_MENU_DISPLAYABLE :[self getAboutCanvas]];
@@ -2370,7 +2505,7 @@ void GameMidlet_staticInit(void) {
                 [self updateFullScreen];
             }
         } JAVA_CATCH(Exception, e) {
-            [self->logUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->EXCEPTION_LABEL] append:[command getLabel]] toString] :self :self->midletStrings->COMMAND_ACTION :e];
+            [self->logUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->EXCEPTION_LABEL] append:[command getLabel]] toString] :self :self->midletStrings->COMMAND_ACTION :e];
             if (command != [GameCommandsFactory getInstance]->EXIT_COMMAND) {
                 [self exitProgress:false];
             }
@@ -2396,19 +2531,19 @@ void GameMidlet_staticInit(void) {
 
 // throws Exception
 - (MyCanvas*) getInputMappingInstructionsCanvas {
-        return [((GameInputMappingInstructionsCanvas*) [GameInputMappingInstructionsCanvas alloc]) init:self :[self createGameLayerManager]];
+        return ((GameInputMappingInstructionsCanvas*) [((GameInputMappingInstructionsCanvas*) [GameInputMappingInstructionsCanvas alloc]) init:self :[self createGameLayerManager]]);
 }
 
 
 // throws Exception
 - (MyCanvas*) getInputMappingCanvas {
-        return [((GameInputMappingCanvas*) [GameInputMappingCanvas alloc]) init:self->abeClientInformation :self :[self createGameLayerManager] :[self getHelpPaintable]];
+        return ((GameInputMappingCanvas*) [((GameInputMappingCanvas*) [GameInputMappingCanvas alloc]) init:self->abeClientInformation :self :[self createGameLayerManager] :[self getHelpPaintable]]);
 }
 
 
 // throws Exception
 - (MyCanvas*) getAboutCanvas {
-        return [((BasicPaintablesCanvas*) [BasicPaintablesCanvas alloc]) init:self :[CanvasStrings getInstance]->ABOUT :[self createGameLayerManager] :[AboutPaintableFactory getInstance]->paintableArray];
+        return ((BasicPaintablesCanvas*) [((BasicPaintablesCanvas*) [BasicPaintablesCanvas alloc]) init:self :[CanvasStrings getInstance]->ABOUT :[self createGameLayerManager] :[AboutPaintableFactory getInstance]->paintableArray]);
 }
 
 
@@ -2428,8 +2563,8 @@ void GameMidlet_staticInit(void) {
 - (void) startGameCanvasRunnableInterface {
         ThreadFactoryUtil* threadFactoryUtil = [ThreadFactoryUtil getInstance];
         self->thread = [threadFactoryUtil getInstanceGameCanvasRunnable:self->allbinaryGameCanvasRunnableInterface];
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Thread Priority: "] appendint:((int32_t) [self->thread getPriority])] toString] :self :"startGameCanvasRunnableInterface"];
-        [self->allbinaryGameCanvasRunnableInterface setThread:self->thread];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Thread Priority: "] appendint:[self->thread getPriority]] toString] :self :"startGameCanvasRunnableInterface"];
+        [((id<GameCanvasRunnableInterface>) self->allbinaryGameCanvasRunnableInterface) setThread:self->thread];
         [threadFactoryUtil start:self->thread];
 }
 
@@ -2442,8 +2577,8 @@ void GameMidlet_staticInit(void) {
         [GameEventHandlerUtil removeAllListeners];
         GameCanvasRunnableInterface* gameCanvasRunnableInterface = self->allbinaryGameCanvasRunnableInterface;
         if (gameCanvasRunnableInterface != (NullGameCanvasRunnable_staticInit(), NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE)) {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Set Running False: "] append:[gameCanvasRunnableInterface toString]] toString] :self :self->gameStrings->STOP_GAME_CANVAS_RUNNABLE_INTERFACE];
-            [gameCanvasRunnableInterface setRunning:false];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Set Running False: "] append:[((id<GameCanvasRunnableInterface>) gameCanvasRunnableInterface) toString]] toString] :self :self->gameStrings->STOP_GAME_CANVAS_RUNNABLE_INTERFACE];
+            [((id<GameCanvasRunnableInterface>) gameCanvasRunnableInterface) setRunning:false];
         } else {
             [self->logUtil putF:"StopGame - Could Not Stop" :self :self->gameStrings->STOP_GAME_CANVAS_RUNNABLE_INTERFACE];
         }
@@ -2469,14 +2604,14 @@ void GameMidlet_staticInit(void) {
 
 
 - (AllBinaryGameLayerManager*) createGameLayerManager {
-        GameInfo* gameInfo = [((GameInfo*) [GameInfo alloc]) init:[GameTypeFactory getInstance]->SINGLE_PLAYER :(GameMode_staticInit(), GameMode_SERVER) :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :1 :1];
-        return [((AllBinaryGameLayerManager*) [AllBinaryGameLayerManager alloc]) init:self->basicColorFactory->BLACK :self->basicColorFactory->WHITE :gameInfo];
+        GameInfo* gameInfo = ((GameInfo*) [((GameInfo*) [GameInfo alloc]) init:[GameTypeFactory getInstance]->SINGLE_PLAYER :(GameMode_staticInit(), GameMode_SERVER) :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :1 :1]);
+        return ((AllBinaryGameLayerManager*) [((AllBinaryGameLayerManager*) [AllBinaryGameLayerManager alloc]) init:self->basicColorFactory->BLACK :self->basicColorFactory->WHITE :gameInfo]);
 }
 
 
 - (CommandForm*) getGameOptionsForm {
         AllBinaryGameLayerManager* layerManager = [self createGameLayerManager];
-        return [[GameOptionsFormFactory getInstance] init_:self :"Game Options" :[layerManager getBackgroundBasicColor] :[layerManager getForegroundBasicColor]];
+        return [[GameOptionsFormFactory getInstance] initMethod:self :"Game Options" :[layerManager getBackgroundBasicColor] :[layerManager getForegroundBasicColor]];
 }
 
 
@@ -2493,7 +2628,7 @@ void GameMidlet_staticInit(void) {
         [self->logUtil putF:self->commonStrings->START :self :"getCurrentStateHashtable"];
         ABHashtable* hashtable = [[StdUtil getInstance] createHashtable];
         if (self->allbinaryGameCanvasRunnableInterface != (NullGameCanvasRunnable_staticInit(), NullGameCanvasRunnable_NULL_GAME_CANVAS_RUNNABLE)) {
-            ABHashtable* currentHashtable = [self->allbinaryGameCanvasRunnableInterface getCurrentStateHashtable];
+            ABHashtable* currentHashtable = [((id<GameCanvasRunnableInterface>) self->allbinaryGameCanvasRunnableInterface) getCurrentStateHashtable];
             Enumeration* enumeration = [currentHashtable keys];
             id key = nullptr;
             while ([self->enumerationUtil hasMoreElements:enumeration]) {

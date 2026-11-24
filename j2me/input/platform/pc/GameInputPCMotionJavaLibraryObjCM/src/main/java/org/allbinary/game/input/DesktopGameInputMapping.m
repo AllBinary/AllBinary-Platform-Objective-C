@@ -23,7 +23,7 @@ void DesktopGameInputMapping_staticInit(void) {
 
 
 - (InputToGameKeyMapping*) getDefault {
-        return [[((DesktopDefaultGameInputMapping*) [DesktopDefaultGameInputMapping alloc]) init] getInputMapping];
+        return [((DesktopDefaultGameInputMapping*) [((DesktopDefaultGameInputMapping*) [DesktopDefaultGameInputMapping alloc]) init]) getInputMapping];
 }
 
 @end

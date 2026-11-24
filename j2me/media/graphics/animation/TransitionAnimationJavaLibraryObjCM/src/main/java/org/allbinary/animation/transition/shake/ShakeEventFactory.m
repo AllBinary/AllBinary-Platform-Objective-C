@@ -11,16 +11,16 @@ void ShakeEventFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ShakeEventFactory_instance = [((ShakeEventFactory*) [ShakeEventFactory alloc]) init];
+    ShakeEventFactory_instance = ((ShakeEventFactory*) [((ShakeEventFactory*) [ShakeEventFactory alloc]) init]);
 }
 
 @implementation ShakeEventFactory
 
 - (void) initFields {
-    self->MICRO = [((ShakeEvent*) [ShakeEvent alloc]) init];
-    self->SMALL = [((ShakeEvent*) [ShakeEvent alloc]) init];
-    self->MEDIUM = [((ShakeEvent*) [ShakeEvent alloc]) init];
-    self->LARGE = [((ShakeEvent*) [ShakeEvent alloc]) init];
+    self->MICRO = ((ShakeEvent*) [((ShakeEvent*) [ShakeEvent alloc]) init]);
+    self->SMALL = ((ShakeEvent*) [((ShakeEvent*) [ShakeEvent alloc]) init]);
+    self->MEDIUM = ((ShakeEvent*) [((ShakeEvent*) [ShakeEvent alloc]) init]);
+    self->LARGE = ((ShakeEvent*) [((ShakeEvent*) [ShakeEvent alloc]) init]);
 }
 
 - (instancetype) init {
@@ -35,7 +35,7 @@ void ShakeEventFactory_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 @end

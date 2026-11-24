@@ -24,6 +24,18 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/thread/SecondaryThreadPool.h"
 #include "org/allbinary/game/score/displayable/HighScoreRunnable.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/game/score/HighScoresPaintable.h")
+#include "org/allbinary/game/score/HighScoresPaintable.h"
+#endif
+#if __has_include("org/allbinary/game/paint/ColorFillPaintableFactory.h")
+#include "org/allbinary/game/paint/ColorFillPaintableFactory.h"
+#endif
+#if __has_include("org/allbinary/game/score/NoHighScoresFactory.h")
+#include "org/allbinary/game/score/NoHighScoresFactory.h"
+#endif
 #if __has_include("org/allbinary/game/score/displayable/ThreadPool.h")
 #include "org/allbinary/game/score/displayable/ThreadPool.h"
 #endif
@@ -108,6 +120,27 @@
 #if __has_include("org/allbinary/thread/ThreadPool.h")
 #include "org/allbinary/thread/ThreadPool.h"
 #endif
+#if __has_include("org/allbinary/game/commands/GameCommandsFactory.h")
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/game/score/HighScoresPaintable.h")
+#include "org/allbinary/game/score/HighScoresPaintable.h"
+#endif
+#if __has_include("org/allbinary/game/score/HighScoresPaintable.h")
+#include "org/allbinary/game/score/HighScoresPaintable.h"
+#endif
 
 
 const char* HighScoresCanvas_NAME = "HighScoresCanvas";
@@ -125,11 +158,11 @@ void HighScoresCanvas_staticInit(void) {
 - (void) initFields {
     self->paintable = [NullPaintable getInstance];
     self->highScoreCommandsFactory = [HighScoreCommandsFactory getInstance];
-    self->waitPaintable = [((SimpleTextPaintable*) [SimpleTextPaintable alloc]) init:self->commonStrings->PLEASE_WAIT_FOR_SERVER :[BasicColorFactory getInstance]->WHITE];
+    self->waitPaintable = ((SimpleTextPaintable*) [((SimpleTextPaintable*) [SimpleTextPaintable alloc]) init:self->commonStrings->PLEASE_WAIT_FOR_SERVER :[BasicColorFactory getInstance]->WHITE]);
     
     
     
-    self->highScoresHelper = [((HighScoresHelperBase*) [HighScoresHelperBase alloc]) init];
+    self->highScoresHelper = ((HighScoresHelperBase*) [((HighScoresHelperBase*) [HighScoresHelperBase alloc]) init]);
     
     
     self->currentCommand = self->highScoreCommandsFactory->HIGH_SCORE_COMMANDS[0];
@@ -143,7 +176,7 @@ void HighScoresCanvas_staticInit(void) {
         [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->CONSTRUCTOR];
         self->highScoresPaintable = paintable;
         self->highScoresFactoryInterface = highScoresFactoryInterface;
-        self->highScoresCanvasInputProcessor = [highScoresCanvasInputProcessorFactoryInterface getInstance:self];
+        self->highScoresCanvasInputProcessor = [((id<HighScoresCanvasInputProcessorFactoryInterface>) highScoresCanvasInputProcessorFactoryInterface) getInstance:self];
         self->gameInfo = gameInfo;
         [self->waitPaintable setBasicColorP:[allBinaryGameLayerManager getForegroundBasicColor]];
         [[self getHighScoresPaintable] setBasicColorP:[allBinaryGameLayerManager getForegroundBasicColor]];
@@ -155,7 +188,7 @@ void HighScoresCanvas_staticInit(void) {
             [self updateCommand:self->currentCommand];
             [self setPaintable:[self getHighScoresPaintable]];
         }
-        [[SecondaryThreadPool getInstance] runTask:[((HighScoreRunnable*) [HighScoreRunnable alloc]) init:self]];
+        [[SecondaryThreadPool getInstance] runTask:((HighScoreRunnable*) [((HighScoreRunnable*) [HighScoreRunnable alloc]) init:self])];
     return self;
 }
 
@@ -193,7 +226,7 @@ void HighScoresCanvas_staticInit(void) {
 
 - (void) executeUpdate {
         JAVA_TRY {
-            [self->highScoresFactoryInterface fetchHighScores:[self getGameInfo] :self];
+            [((id<HighScoresFactoryInterface>) self->highScoresFactoryInterface) fetchHighScores:[self getGameInfo] :self];
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->UPDATE :e];
         } JAVA_END_TRY;
@@ -208,7 +241,7 @@ void HighScoresCanvas_staticInit(void) {
 - (void) setHighScoresArray:(HighScores**)highScoresArray {
         JAVA_TRY {
             if (highScoresArray != nil) {
-                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->START] appendint:java_array_length(highScoresArray)] toString] :self :"setHighScoresArray"];
+                [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->START] appendint:java_array_length(highScoresArray)] toString] :self :"setHighScoresArray"];
             } else {
                 [self->logUtil putF:self->commonStrings->START :self :"setHighScoresArray"];
             }
@@ -223,7 +256,7 @@ void HighScoresCanvas_staticInit(void) {
 
 // throws Exception
 - (void) updateCommand:(Command*)command {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->START] append:[self->stringUtil toString:command]] toString] :self :self->commonStrings->UPDATE];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->START] append:[self->stringUtil toString:command]] toString] :self :self->commonStrings->UPDATE];
         GameCommandsFactory* gameCommandsFactory = [GameCommandsFactory getInstance];
         if ([self->highScoreCommandsFactory isHighScoreCommand:command]) {
             int32_t index = [self->highScoreCommandsFactory getIndex:command];

@@ -11,7 +11,7 @@ void OpenGLESNullGraphicsFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLESNullGraphicsFactory_instance = [((OpenGLESGraphics*) [OpenGLESGraphics alloc]) init];
+    OpenGLESNullGraphicsFactory_instance = ((OpenGLESGraphics*) [((OpenGLESGraphics*) [OpenGLESGraphics alloc]) init]);
 }
 
 @implementation OpenGLESNullGraphicsFactory

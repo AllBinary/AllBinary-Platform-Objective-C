@@ -9,6 +9,9 @@
 #include "org/allbinary/media/ScaleProperties.h"
 #include "org/allbinary/animation/text/CustomTextAnimation.h"
 #include "org/allbinary/animation/text/AdjustCustomTextAnimation.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 
@@ -36,7 +39,7 @@ void CustomTextAnimationFactory_staticInit(void) {
 
 
 + (CustomTextAnimationFactory*) createDXY:(const char*)text :(int32_t)fontSize :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory {
-        CustomTextAnimationFactory* customTextAnimationFactory = [((CustomTextAnimationFactory*) [CustomTextAnimationFactory alloc]) init:text :fontSize :animationBehaviorFactory];
+        CustomTextAnimationFactory* customTextAnimationFactory = ((CustomTextAnimationFactory*) [((CustomTextAnimationFactory*) [CustomTextAnimationFactory alloc]) init:text :fontSize :animationBehaviorFactory]);
         customTextAnimationFactory->dx = dx;
         customTextAnimationFactory->dy = dy;
         return customTextAnimationFactory;
@@ -46,7 +49,7 @@ void CustomTextAnimationFactory_staticInit(void) {
 - (instancetype) init:(const char*)text :(int32_t)fontSize :(AnimationBehaviorFactory*)animationBehaviorFactory {
     self = [super init];
     [self initFields];
-        self->scaleProperties = [((ScaleProperties*) [ScaleProperties alloc]) init];
+        self->scaleProperties = ((ScaleProperties*) [((ScaleProperties*) [ScaleProperties alloc]) init]);
         self->text = text;
         self->scaleProperties->scaleHeight = fontSize - (fontSize / 4);
         self->initScaleHeight = self->scaleProperties->scaleHeight;
@@ -60,9 +63,9 @@ void CustomTextAnimationFactory_staticInit(void) {
 - (Animation*) getInstance:(int32_t)instanceId {
         CustomTextAnimation* customTextAnimation = nullptr;
         if (self->dx != 0 || self->dy != 0) {
-            customTextAnimation = [((AdjustCustomTextAnimation*) [AdjustCustomTextAnimation alloc]) init:self->text :self->scaleProperties->scaleHeight :self->dx :self->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+            customTextAnimation = ((AdjustCustomTextAnimation*) [((AdjustCustomTextAnimation*) [AdjustCustomTextAnimation alloc]) init:self->text :self->scaleProperties->scaleHeight :self->dx :self->dy :[self->animationBehaviorFactory getOrCreateInstance]]);
         } else {
-            customTextAnimation = [((CustomTextAnimation*) [CustomTextAnimation alloc]) init:self->text :self->scaleProperties->scaleHeight :[self->animationBehaviorFactory getOrCreateInstance]];
+            customTextAnimation = ((CustomTextAnimation*) [((CustomTextAnimation*) [CustomTextAnimation alloc]) init:self->text :self->scaleProperties->scaleHeight :[self->animationBehaviorFactory getOrCreateInstance]]);
         }
         [customTextAnimation setBasicColorP:self->basicColor];
         return customTextAnimation;

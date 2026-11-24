@@ -4,6 +4,12 @@
 #include "org/allbinary/graphics/paint/NullPaintable.h"
 #include "org/allbinary/graphics/paint/Paintable.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/paint/AboutPaintable.h")
+#include "org/allbinary/game/paint/AboutPaintable.h"
+#endif
 
 
 static AboutPaintableFactory* AboutPaintableFactory_instance;
@@ -14,7 +20,7 @@ void AboutPaintableFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    AboutPaintableFactory_instance = [((AboutPaintableFactory*) [AboutPaintableFactory alloc]) init];
+    AboutPaintableFactory_instance = ((AboutPaintableFactory*) [((AboutPaintableFactory*) [AboutPaintableFactory alloc]) init]);
 }
 
 @implementation AboutPaintableFactory

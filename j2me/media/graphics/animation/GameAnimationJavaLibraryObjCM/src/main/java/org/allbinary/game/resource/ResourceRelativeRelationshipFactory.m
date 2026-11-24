@@ -7,6 +7,9 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/util/BasicArrayListUtil.h"
 #include "org/allbinary/game/resource/ResourceRelativeRelationshipFactoryInterface.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
 
 
 
@@ -34,7 +37,7 @@ void ResourceRelativeRelationshipFactory_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(int32_t)level {
+- (void) initMethod:(int32_t)level {
         [self setInitialized:true];
 }
 
@@ -53,7 +56,7 @@ void ResourceRelativeRelationshipFactory_staticInit(void) {
 - (void) addResourceRelativeRelationship:(const char*)resource :(RelativeRelationship*)hardPoint {
         BasicArrayList* list = [self getResourceRelativeRelationshipList:resource];
         if (list == [self->basicArrayListUtil getImmutableInstance]) {
-            list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         }
         [list add:hardPoint];
         [self->hashtable put:JAVA_BOX(resource) :JAVA_BOX(list)];

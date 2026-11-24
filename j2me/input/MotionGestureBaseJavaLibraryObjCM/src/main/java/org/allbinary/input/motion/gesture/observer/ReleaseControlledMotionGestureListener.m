@@ -13,6 +13,27 @@
 #include "org/allbinary/input/motion/gesture/observer/MotionGestureEventListener.h"
 #include "org/allbinary/input/motion/gesture/observer/CompleteMotionGestureListenerInterface.h"
 #include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
+#if __has_include("org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#endif
 
 
 
@@ -31,7 +52,7 @@ void ReleaseControlledMotionGestureListener_staticInit(void) {
     self->commonStrings = [CommonStrings getInstance];
     self->currentMotionGesture = [TouchMotionGestureFactory getInstance]->NO_MOTION;
     self->isMouseGestureOccurring = false;
-    self->motionGestureCollection = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->motionGestureCollection = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     
 }
 
@@ -107,10 +128,10 @@ void ReleaseControlledMotionGestureListener_staticInit(void) {
                 return;
             }
             self->isMouseGestureOccurring = false;
-            [self->signed_ onMotionGestureCompleted:self->motionGestureCollection];
+            [((id<CompleteMotionGestureListenerInterface>) self->signed_) onMotionGestureCompleted:self->motionGestureCollection];
             [self->motionGestureCollection clear];
         } JAVA_CATCH(Exception, e) {
-            [self->logUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->EXCEPTION_LABEL] append:[[StringUtil getInstance] toString:[ev getMotionGesture]]] toString] :self :"release" :e];
+            [self->logUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->EXCEPTION_LABEL] append:[[StringUtil getInstance] toString:[ev getMotionGesture]]] toString] :self :"release" :e];
         } JAVA_END_TRY;
 }
 

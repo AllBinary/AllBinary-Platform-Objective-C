@@ -11,7 +11,7 @@ void TouchButtonGenericActionResource_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchButtonGenericActionResource_instance = [((TouchButtonGenericActionResource*) [TouchButtonGenericActionResource alloc]) init];
+    TouchButtonGenericActionResource_instance = ((TouchButtonGenericActionResource*) [((TouchButtonGenericActionResource*) [TouchButtonGenericActionResource alloc]) init]);
 }
 
 @implementation TouchButtonGenericActionResource

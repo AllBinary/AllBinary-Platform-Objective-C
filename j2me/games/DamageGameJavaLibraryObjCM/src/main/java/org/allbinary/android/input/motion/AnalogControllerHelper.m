@@ -19,10 +19,10 @@ void AnalogControllerHelper_staticInit(void) {
 - (void) initFields {
     
     self->SCALE_VALUE = [AnalogControllerConfigurationFactory getInstance]->SCALE_VALUE;
-    self->rightTimeElapsedHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
-    self->leftTimeElapsedHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
-    self->downTimeElapsedHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
-    self->upTimeElapsedHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
+    self->rightTimeElapsedHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0]);
+    self->leftTimeElapsedHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0]);
+    self->downTimeElapsedHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0]);
+    self->upTimeElapsedHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0]);
 }
 
 

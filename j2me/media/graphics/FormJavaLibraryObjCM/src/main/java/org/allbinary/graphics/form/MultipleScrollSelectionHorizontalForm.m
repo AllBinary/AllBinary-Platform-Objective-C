@@ -21,6 +21,15 @@
 #include "org/allbinary/graphics/form/FormTypeFactory.h"
 #include "org/allbinary/graphics/form/MultipleScrollSelectionFormVerticalPaintable.h"
 #include "org/allbinary/graphics/form/MultipleScrollSelectionFormHorizontalPaintable.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -38,7 +47,7 @@ void MultipleScrollSelectionHorizontalForm_staticInit(void) {
     self->rectPaintable = [NullPaintable getInstance];
     self->multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = [ItemIndexPaintable getInstance];
     self->backgroundColor = [[BasicColorFactory getInstance]->TRANSPARENT_GREY intValue];
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->logged = false;
     self->fontHeight = 0;
 }
@@ -46,8 +55,8 @@ void MultipleScrollSelectionHorizontalForm_staticInit(void) {
 
 // throws Exception
 + (ScrollSelectionForm*) createForm:(const char*)title :(ABCustomItem**)items :(Rectangle*)rectangle :(FormType*)formType :(int32_t)border :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor {
-        ScrollSelectionForm* scrollSelectionForm = [((MultipleScrollSelectionHorizontalForm*) [MultipleScrollSelectionHorizontalForm alloc]) init:title :items :[ItemPaintableFactory getInstance] :border :backgroundBasicColor :foregroundBasicColor];
-        [scrollSelectionForm init_:rectangle :formType];
+        ScrollSelectionForm* scrollSelectionForm = ((MultipleScrollSelectionHorizontalForm*) [((MultipleScrollSelectionHorizontalForm*) [MultipleScrollSelectionHorizontalForm alloc]) init:title :items :[ItemPaintableFactory getInstance] :border :backgroundBasicColor :foregroundBasicColor]);
+        [scrollSelectionForm initMethod:rectangle :formType];
         return scrollSelectionForm;
 }
 
@@ -57,7 +66,7 @@ void MultipleScrollSelectionHorizontalForm_staticInit(void) {
         [self initFields];
         if ([J2MEUtil isJ2ME] || [J2MEUtil isHTML]) {
         } else {
-            self->rectPaintable = [((MultipleScrollSelectionFormRectPaintable*) [MultipleScrollSelectionFormRectPaintable alloc]) init:self];
+            self->rectPaintable = ((MultipleScrollSelectionFormRectPaintable*) [((MultipleScrollSelectionFormRectPaintable*) [MultipleScrollSelectionFormRectPaintable alloc]) init:self]);
         }
     return self;
 }
@@ -70,13 +79,13 @@ void MultipleScrollSelectionHorizontalForm_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(Rectangle*)rectangle :(FormType*)formType {
-        [super init_:rectangle :formType];
+- (void) initMethod:(Rectangle*)rectangle :(FormType*)formType {
+        [super initMethod:rectangle :formType];
         FormTypeFactory* formTypeFactory = [FormTypeFactory getInstance];
         if (formType == formTypeFactory->HORIZONTAL_FORM) {
-            self->multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = [((MultipleScrollSelectionFormHorizontalPaintable*) [MultipleScrollSelectionFormHorizontalPaintable alloc]) init:self];
+            self->multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = ((MultipleScrollSelectionFormHorizontalPaintable*) [((MultipleScrollSelectionFormHorizontalPaintable*) [MultipleScrollSelectionFormHorizontalPaintable alloc]) init:self]);
         } else if (formType == formTypeFactory->VERTICAL_CENTER_FORM) {
-            self->multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = [((MultipleScrollSelectionFormVerticalPaintable*) [MultipleScrollSelectionFormVerticalPaintable alloc]) init:self];
+            self->multipleScrollSelectionHorizontalFormTypeItemIndexPaintable = ((MultipleScrollSelectionFormVerticalPaintable*) [((MultipleScrollSelectionFormVerticalPaintable*) [MultipleScrollSelectionFormVerticalPaintable alloc]) init:self]);
         } else if (formType == formTypeFactory->NULL_FORM_TYPE) {
         } else {
             java_throw(java_exception_new("Exception", formTypeFactory->UNK));
@@ -129,7 +138,7 @@ void MultipleScrollSelectionHorizontalForm_staticInit(void) {
                     if (self->logged) {
                     } else {
                         self->logged = true;
-                        [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:"painting beyond maxx: "] appendint:[self->rectangle getMaxX]] toString] :self :self->canvasStrings->PAINT];
+                        [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"painting beyond maxx: "] appendint:[self->rectangle getMaxX]] toString] :self :self->canvasStrings->PAINT];
                     }
                 }
                 dx = [self->multipleScrollSelectionHorizontalFormTypeItemIndexPaintable paint:graphics :index :item :dx :dy];

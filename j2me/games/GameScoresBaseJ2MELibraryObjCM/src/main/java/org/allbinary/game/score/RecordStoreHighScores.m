@@ -24,6 +24,45 @@
 #include "org/allbinary/game/score/HighScores.h"
 #include "org/allbinary/game/score/HighScore.h"
 #include "org/allbinary/game/score/ScoreComparator.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 static ABHashtable* RecordStoreHighScores_hashTable;
@@ -58,7 +97,7 @@ void RecordStoreHighScores_staticInit(void) {
         self->abeClientInformation = abeClientInformation;
         self->gameInfo = gameInfo;
         self->recordComparatorInterface = recordComparatorInterface;
-        [self load_];
+        [self loadMethod];
     return self;
 }
 
@@ -67,7 +106,7 @@ void RecordStoreHighScores_staticInit(void) {
 + (HighScores*) getInstance:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo :(const char*)highScoreName :(const char*)heading :(const char*)columnTwoHeading :(RecordComparator*)recordComparatorInterface {
         id highScoresCanBeNull = [(RecordStoreHighScores_staticInit(), RecordStoreHighScores_hashTable) get:JAVA_BOX(((id) highScoreName))];
         if (highScoresCanBeNull == nil) {
-            HighScores* highScores = [((RecordStoreHighScores*) [RecordStoreHighScores alloc]) init:abeClientInformation :gameInfo :highScoreName :heading :columnTwoHeading :recordComparatorInterface];
+            HighScores* highScores = ((RecordStoreHighScores*) [((RecordStoreHighScores*) [RecordStoreHighScores alloc]) init:abeClientInformation :gameInfo :highScoreName :heading :columnTwoHeading :recordComparatorInterface]);
             [(RecordStoreHighScores_staticInit(), RecordStoreHighScores_hashTable) put:JAVA_BOX([highScores getName]) :JAVA_BOX(highScores)];
             return highScores;
         }
@@ -76,7 +115,7 @@ void RecordStoreHighScores_staticInit(void) {
 
 
 - (const char*) getRecordId:(AbeClientInformationInterface*)abeClientInformation {
-        return [self->platformRecordIdUtil getRecordId:abeClientInformation :[[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonSeps getInstance]->UNDERSCORE] append:[self getName]] append:self->RECORD_ID] toString]];
+        return [self->platformRecordIdUtil getRecordId:abeClientInformation :[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonSeps getInstance]->UNDERSCORE] append:[self getName]] append:self->RECORD_ID] toString]];
 }
 
 
@@ -84,7 +123,7 @@ void RecordStoreHighScores_staticInit(void) {
 - (void) addHighScore:(HighScore*)newHighScore {
         RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
         JAVA_TRY {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Adding HighScore: "] appendlong:[newHighScore getScore]] toString] :self :self->commonStrings->ADD];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Adding HighScore: "] appendlong:[newHighScore getScore]] toString] :self :self->commonStrings->ADD];
             if ([self isTooManyHighScores]) {
                 [self->logUtil putF:"Removing Lowest Score" :self :self->commonStrings->ADD];
                 [self removeLowestHighScore];
@@ -92,7 +131,7 @@ void RecordStoreHighScores_staticInit(void) {
             recordStore = [RecordStore openRecordStore:[self getRecordId:self->abeClientInformation] :true];
             int8_t* highScoreBytes = [newHighScore getAsBytes];
             int32_t recordId = [recordStore addRecord:highScoreBytes :0 :java_array_length(highScoreBytes)];
-            [self load_];
+            [self loadMethod];
         } JAVA_CATCH(RecordStoreException, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->ADD :e];
         } JAVA_CATCH(IOException, e) {
@@ -118,26 +157,26 @@ void RecordStoreHighScores_staticInit(void) {
             recordStore = [RecordStore openRecordStore:[self getRecordId:self->abeClientInformation] :true];
             RecordEnumeration* recordEnum = [recordStore enumerateRecords:(NullRecordFilter_staticInit(), NullRecordFilter_NULL_RECORD_FILTER) :(NullRecordComparator_staticInit(), NullRecordComparator_NULL_RECORD_COMPARATOR) :true];
             ScoreComparator* scoreComparator = (((ScoreComparator*) self->recordComparatorInterface));
-            HighScore* bestHighScore = [((HighScore*) [HighScore alloc]) init:-1 :"none" :(GameInfo_staticInit(), GameInfo_NONE) :[scoreComparator getBestScore]];
+            HighScore* bestHighScore = ((HighScore*) [((HighScore*) [HighScore alloc]) init:-1 :"none" :(GameInfo_staticInit(), GameInfo_NONE) :[scoreComparator getBestScore]]);
             int8_t* recordAsBytes = nullptr;
             ByteArrayInputStream* byteArrayInputStream = nullptr;
             DataInputStream* inputStream = nullptr;
-            while ([recordEnum hasNextElement]) {
-                int32_t id_ = [recordEnum nextRecordId];
+            while ([((id<RecordEnumeration>) recordEnum) hasNextElement]) {
+                int32_t id_ = [((id<RecordEnumeration>) recordEnum) nextRecordId];
                 recordAsBytes = [self->tsUtil getRecord:recordStore :id_];
                 if (recordAsBytes != nil) {
-                    byteArrayInputStream = [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes];
-                    inputStream = [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream];
+                    byteArrayInputStream = ((ByteArrayInputStream*) [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes]);
+                    inputStream = ((DataInputStream*) [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream]);
                     const char* name = [inputStream readUTF];
                     int64_t nextScore = [inputStream readLong];
-                    HighScore* nextCurrentHighScore = [((HighScore*) [HighScore alloc]) init:id_ :name :(GameInfo_staticInit(), GameInfo_NONE) :nextScore];
-                    if ([self->recordComparatorInterface compare:[nextCurrentHighScore getAsBytes] :[bestHighScore getAsBytes]] == (RecordComparator_staticInit(), RecordComparator_FOLLOWS)) {
+                    HighScore* nextCurrentHighScore = ((HighScore*) [((HighScore*) [HighScore alloc]) init:id_ :name :(GameInfo_staticInit(), GameInfo_NONE) :nextScore]);
+                    if ([((id<RecordComparator>) self->recordComparatorInterface) compare:[nextCurrentHighScore getAsBytes] :[bestHighScore getAsBytes]] == (RecordComparator_staticInit(), RecordComparator_FOLLOWS)) {
                         bestHighScore = nextCurrentHighScore;
                     }
                 }
             }
             if ([bestHighScore getId] != -1) {
-                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Removing Lowest HighScore: "] appendlong:[bestHighScore getScore]] toString] :self :self->commonStrings->LOAD];
+                [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Removing Lowest HighScore: "] appendlong:[bestHighScore getScore]] toString] :self :self->commonStrings->LOAD];
                 [recordStore deleteRecord:[bestHighScore getId]];
             }
         } JAVA_CATCH(RecordStoreException, e) {
@@ -157,31 +196,31 @@ void RecordStoreHighScores_staticInit(void) {
 }
 
 
-- (void) load_ {
+- (void) loadMethod {
         RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
         JAVA_TRY {
             recordStore = [RecordStore openRecordStore:[self getRecordId:self->abeClientInformation] :true];
-            [self setList:[((BasicArrayListD*) [BasicArrayListD alloc]) init]];
+            [self setList:((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init])];
             RecordEnumeration* recordEnum = [recordStore enumerateRecords:(NullRecordFilter_staticInit(), NullRecordFilter_NULL_RECORD_FILTER) :(NullRecordComparator_staticInit(), NullRecordComparator_NULL_RECORD_COMPARATOR) :true];
             int8_t* recordAsBytes = nullptr;
             ByteArrayInputStream* byteArrayInputStream = nullptr;
             DataInputStream* inputStream = nullptr;
-            while ([recordEnum hasNextElement]) {
-                int32_t id_ = [recordEnum nextRecordId];
+            while ([((id<RecordEnumeration>) recordEnum) hasNextElement]) {
+                int32_t id_ = [((id<RecordEnumeration>) recordEnum) nextRecordId];
                 recordAsBytes = [self->tsUtil getRecord:recordStore :id_];
                 if (recordAsBytes != nil) {
-                    byteArrayInputStream = [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes];
-                    inputStream = [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream];
+                    byteArrayInputStream = ((ByteArrayInputStream*) [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes]);
+                    inputStream = ((DataInputStream*) [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream]);
                     JAVA_TRY {
                         const char* name = [inputStream readUTF];
                         int64_t score = [inputStream readLong];
-                        HighScore* newHighScore = [((HighScore*) [HighScore alloc]) init:id_ :name :(GameInfo_staticInit(), GameInfo_NONE) :score];
+                        HighScore* newHighScore = ((HighScore*) [((HighScore*) [HighScore alloc]) init:id_ :name :(GameInfo_staticInit(), GameInfo_NONE) :score]);
                         BasicArrayList* list = [self getList];
                         int32_t size = [list size];
                         int32_t lastIndex = size;
                         for (int32_t index = 0; index < size; index++) {
                             HighScore* highScore = ((HighScore*) list->objectArray[index]);
-                            if ([self->recordComparatorInterface compare:[newHighScore getAsBytes] :[highScore getAsBytes]] == (RecordComparator_staticInit(), RecordComparator_PRECEDES)) {
+                            if ([((id<RecordComparator>) self->recordComparatorInterface) compare:[newHighScore getAsBytes] :[highScore getAsBytes]] == (RecordComparator_staticInit(), RecordComparator_PRECEDES)) {
                                 lastIndex = index;
                                 break;
                             }
@@ -218,7 +257,7 @@ void RecordStoreHighScores_staticInit(void) {
         if ([self getList] != nil && [[self getList] size] < self->MAXHIGHSCORES) {
             return false;
         } else {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"HighScores RecordStore Max Reached: "] appendint:self->MAXHIGHSCORES] toString] :self :"isTooManyHighScores"];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"HighScores RecordStore Max Reached: "] appendint:self->MAXHIGHSCORES] toString] :self :"isTooManyHighScores"];
             return true;
         }
 }
@@ -236,7 +275,7 @@ void RecordStoreHighScores_staticInit(void) {
                 int32_t size = [list size];
                 for (int32_t index = 0; index < size; index++) {
                     HighScore* highScore = ((HighScore*) list->objectArray[index]);
-                    if ([self->recordComparatorInterface compare:[newHighScore getAsBytes] :[highScore getAsBytes]] == (RecordComparator_staticInit(), RecordComparator_FOLLOWS)) {
+                    if ([((id<RecordComparator>) self->recordComparatorInterface) compare:[newHighScore getAsBytes] :[highScore getAsBytes]] == (RecordComparator_staticInit(), RecordComparator_FOLLOWS)) {
                         [self->logUtil putF:"Obtained a High Score" :self :"isBestScore"];
                         return true;
                     }
@@ -252,7 +291,7 @@ void RecordStoreHighScores_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:[super toString]];
         BasicArrayList* list = [self getList];
         int32_t size = [list size];

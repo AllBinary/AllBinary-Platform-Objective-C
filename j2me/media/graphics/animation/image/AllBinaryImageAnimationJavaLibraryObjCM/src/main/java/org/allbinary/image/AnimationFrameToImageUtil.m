@@ -38,7 +38,7 @@ void AnimationFrameToImageUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    AnimationFrameToImageUtil_instance = [((AnimationFrameToImageUtil*) [AnimationFrameToImageUtil alloc]) init];
+    AnimationFrameToImageUtil_instance = ((AnimationFrameToImageUtil*) [((AnimationFrameToImageUtil*) [AnimationFrameToImageUtil alloc]) init]);
 }
 
 @implementation AnimationFrameToImageUtil

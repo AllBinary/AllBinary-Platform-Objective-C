@@ -11,7 +11,7 @@ void NullDisplayable_staticInit(void) {
         return;
     }
     initialized = true;
-    NullDisplayable_SINGLETON = [((NullDisplayable*) [NullDisplayable alloc]) init];
+    NullDisplayable_SINGLETON = ((NullDisplayable*) [((NullDisplayable*) [NullDisplayable alloc]) init]);
 }
 
 @implementation NullDisplayable

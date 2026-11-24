@@ -9,6 +9,9 @@
 #include "org/allbinary/graphics/font/MyFontProcessor.h"
 #include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
 #include "org/allbinary/logic/communication/log/LogUtil.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 
@@ -25,7 +28,7 @@ void OwnershipPaintable_staticInit(void) {
 - (void) initFields {
     self->logUtil = [LogUtil getInstance];
     self->displayInfo = [DisplayInfoSingleton getInstance];
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->COPYRIGHT = "AllBinary Copyright (c) 2011";
     self->basicColor = [BasicColorFactory getInstance]->WHITE;
     self->color = [self->basicColor intValue];
@@ -36,7 +39,7 @@ void OwnershipPaintable_staticInit(void) {
 
 
 + (OwnershipPaintable*) getInstance {
-        return [((OwnershipPaintable*) [OwnershipPaintable alloc]) init];
+        return ((OwnershipPaintable*) [((OwnershipPaintable*) [OwnershipPaintable alloc]) init]);
 }
 
 

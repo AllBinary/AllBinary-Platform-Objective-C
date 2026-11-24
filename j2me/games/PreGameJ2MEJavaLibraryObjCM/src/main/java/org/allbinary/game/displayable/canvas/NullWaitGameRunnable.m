@@ -11,7 +11,7 @@ void NullWaitGameRunnable_staticInit(void) {
         return;
     }
     initialized = true;
-    NullWaitGameRunnable_instance = [((NullWaitGameRunnable*) [NullWaitGameRunnable alloc]) init];
+    NullWaitGameRunnable_instance = ((NullWaitGameRunnable*) [((NullWaitGameRunnable*) [NullWaitGameRunnable alloc]) init]);
 }
 
 @implementation NullWaitGameRunnable

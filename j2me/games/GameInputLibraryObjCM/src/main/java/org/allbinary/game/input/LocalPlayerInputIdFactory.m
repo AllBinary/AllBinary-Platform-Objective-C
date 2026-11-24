@@ -3,6 +3,48 @@
 #include "org/allbinary/game/input/analog/AnalogLocationInputFactory.h"
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/logic/string/StringMaker.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/game/input/analog/AnalogLocationInputFactory.h")
+#include "org/allbinary/game/input/analog/AnalogLocationInputFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static LocalPlayerInputIdFactory* LocalPlayerInputIdFactory_instance;
@@ -13,7 +55,7 @@ void LocalPlayerInputIdFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    LocalPlayerInputIdFactory_instance = [((LocalPlayerInputIdFactory*) [LocalPlayerInputIdFactory alloc]) init];
+    LocalPlayerInputIdFactory_instance = ((LocalPlayerInputIdFactory*) [((LocalPlayerInputIdFactory*) [LocalPlayerInputIdFactory alloc]) init]);
 }
 
 @implementation LocalPlayerInputIdFactory
@@ -67,12 +109,12 @@ void LocalPlayerInputIdFactory_staticInit(void) {
         if (deviceId < self->MAX_FAST_DEVICEID) {
             self->deviceIdToplayerId[deviceId] = index;
         } else {
-            [self->logUtil putF:[[[[[((StringMaker*) [StringMaker alloc]) init] append:"Added DeviceId: "] appendint:deviceId] append:" beyond fast Id list"] toString] :self :"getPlayerForDevice"];
+            [self->logUtil putF:[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Added DeviceId: "] appendint:deviceId] append:" beyond fast Id list"] toString] :self :"getPlayerForDevice"];
         }
         self->playerIdToDeviceId[index] = deviceId;
         [[AnalogLocationInputFactory getInstance] addPlayer:self->totalDevicesMapped];
         self->totalDevicesMapped++;
-        [self->logUtil putF:[[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:"Added DeviceId: "] appendint:deviceId] append:" at: "] appendint:index] append:" Total: "] appendint:self->totalDevicesMapped] toString] :self :"getPlayerForDevice"];
+        [self->logUtil putF:[[[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Added DeviceId: "] appendint:deviceId] append:" at: "] appendint:index] append:" Total: "] appendint:self->totalDevicesMapped] toString] :self :"getPlayerForDevice"];
         return index;
 }
 
@@ -94,13 +136,13 @@ void LocalPlayerInputIdFactory_staticInit(void) {
 
 
 - (void) setPlayerInPlay:(int32_t)playerInputId {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Setting PlayerInPlay with playerInputId: "] appendint:playerInputId] toString] :self :"setPlayerInPlay"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Setting PlayerInPlay with playerInputId: "] appendint:playerInputId] toString] :self :"setPlayerInPlay"];
         self->playersInPlay[playerInputId] = true;
 }
 
 
 - (void) setPlayerOutOfPlay:(int32_t)playerInputId {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Setting PlayerOutOfPlay with playerInputId: "] appendint:playerInputId] toString] :self :"setPlayerOutOfPlay"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Setting PlayerOutOfPlay with playerInputId: "] appendint:playerInputId] toString] :self :"setPlayerOutOfPlay"];
         self->playersInPlay[playerInputId] = false;
 }
 

@@ -9,6 +9,12 @@
 #include "org/allbinary/graphics/form/CommandCurrentSelectionForm.h"
 #include "org/allbinary/graphics/form/ScrollSelectionForm.h"
 #include "org/allbinary/graphics/form/FormType.h"
+#if __has_include("org/allbinary/game/configuration/feature/Features.h")
+#include "org/allbinary/game/configuration/feature/Features.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/TouchFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/TouchFeatureFactory.h"
+#endif
 
 
 
@@ -31,8 +37,8 @@ void CommandCurrentSelectionFormFactory_staticInit(void) {
 // throws Exception
 + (ScrollSelectionForm*) getInstance:(const char*)title :(ABCustomItem**)items :(Rectangle*)rectangle :(FormType*)formType :(int32_t)border :(bool)moveForSmallScreen :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor {
         if ([[Features getInstance] isFeature:[TouchFeatureFactory getInstance]->TOUCH_ENABLED]) {
-            ScrollSelectionForm* scrollSelectionForm = [((CommandCurrentSelectionForm*) [CommandCurrentSelectionForm alloc]) init:title :items :border :moveForSmallScreen :backgroundBasicColor :foregroundBasicColor];
-            [scrollSelectionForm init_:rectangle :formType];
+            ScrollSelectionForm* scrollSelectionForm = ((CommandCurrentSelectionForm*) [((CommandCurrentSelectionForm*) [CommandCurrentSelectionForm alloc]) init:title :items :border :moveForSmallScreen :backgroundBasicColor :foregroundBasicColor]);
+            [scrollSelectionForm initMethod:rectangle :formType];
             return scrollSelectionForm;
         } else {
             return [ScrollSelectionFormNoneFactory getInstance];

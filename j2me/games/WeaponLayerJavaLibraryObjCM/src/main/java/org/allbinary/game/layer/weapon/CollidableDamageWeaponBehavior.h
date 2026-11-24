@@ -47,7 +47,7 @@
 }
 - (instancetype) init:(bool)collidable;
 - (void) initFields;
-- (void) init_:(AllBinaryLayer*)sourceLayerInterface;
+- (void) initMethod:(AllBinaryLayer*)sourceLayerInterface;
 - (bool) isCollision:(CollidableCompositeLayer*)ownerLayer :(CollidableCompositeLayer*)collisionLayer;
 - (void) collide:(CollidableCompositeLayer*)ownerLayer :(CollidableCompositeLayer*)collisionLayer;
 - (bool) isCollisionInterface:(CollidableCompositeLayer*)ownerLayer :(CollidableInterfaceCompositeInterface*)collidableInterfaceCompositeInterface;

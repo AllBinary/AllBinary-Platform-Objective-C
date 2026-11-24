@@ -25,7 +25,7 @@ void HorizontalManeuverAIFactory_staticInit(void) {
 
 
 - (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
-        return [((HorizontalManeuverAI*) [HorizontalManeuverAI alloc]) init:ownerLayerInterface :gameInput];
+        return ((HorizontalManeuverAI*) [((HorizontalManeuverAI*) [HorizontalManeuverAI alloc]) init:ownerLayerInterface :gameInput]);
 }
 
 @end

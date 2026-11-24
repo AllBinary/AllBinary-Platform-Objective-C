@@ -11,7 +11,7 @@ void DropWeaponSound_staticInit(void) {
         return;
     }
     initialized = true;
-    DropWeaponSound_soundInterface = [((DropWeaponSound*) [DropWeaponSound alloc]) init];
+    DropWeaponSound_soundInterface = ((DropWeaponSound*) [((DropWeaponSound*) [DropWeaponSound alloc]) init]);
 }
 
 @implementation DropWeaponSound

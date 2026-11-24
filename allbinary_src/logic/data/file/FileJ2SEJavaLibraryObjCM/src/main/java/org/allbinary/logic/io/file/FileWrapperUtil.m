@@ -25,7 +25,7 @@ void FileWrapperUtil_staticInit(void) {
         JAVA_TRY {
             AbFile** abFileArray = ((AbFile**) java_array_new(sizeof(AbFile*), java_array_length(files)));
             for (int32_t index = java_array_length(files) - 1; index >= 0; index--) {
-                abFileArray[index] = [((AbFile*) [AbFile alloc]) init:((File*) files[index])];
+                abFileArray[index] = ((AbFile*) [((AbFile*) [AbFile alloc]) init:((File*) files[index])]);
             }
             return abFileArray;
         } JAVA_CATCH(Exception, e) {
@@ -37,7 +37,7 @@ void FileWrapperUtil_staticInit(void) {
 
 + (AbFile*) wrapFile:(File*)file {
         JAVA_TRY {
-            return [((AbFile*) [AbFile alloc]) init:file];
+            return ((AbFile*) [((AbFile*) [AbFile alloc]) init:file]);
         } JAVA_CATCH(Exception, e) {
             [PreLogUtil putSE:"Exception Wrapping File" :"FileWrapperUtil" :"wrapFile" :e];
             return (AbFile_staticInit(), AbFile_NULL_FILE);

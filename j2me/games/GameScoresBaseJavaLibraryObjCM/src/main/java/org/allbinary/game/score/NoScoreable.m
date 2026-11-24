@@ -11,7 +11,7 @@ void NoScoreable_staticInit(void) {
         return;
     }
     initialized = true;
-    NoScoreable_SINGLETON = [((NoScoreable*) [NoScoreable alloc]) init];
+    NoScoreable_SINGLETON = ((NoScoreable*) [((NoScoreable*) [NoScoreable alloc]) init]);
 }
 
 @implementation NoScoreable

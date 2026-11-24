@@ -33,13 +33,13 @@ void BasicEventHandler_staticInit(void) {
 - (instancetype) init {
     self = [super init];
     [self initFields];
-        self->eventListenerInterfaceList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->eventListenerInterfaceList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     return self;
 }
 
 
 - (void) removeAllListeners {
-        self->eventListenerInterfaceList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->eventListenerInterfaceList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -105,7 +105,7 @@ void BasicEventHandler_staticInit(void) {
 
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
-        [eventListenerInterface onEvent:eventObject];
+        [((id<EventListenerInterface>) eventListenerInterface) onEvent:eventObject];
 }
 
 
@@ -115,7 +115,7 @@ void BasicEventHandler_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:self->eventStrings->TOTAL_LISTENERS];
         [stringBuffer appendint:[self->eventListenerInterfaceList size]];
         EventListenerInterface* eventListenerInterface = nullptr;
@@ -124,7 +124,7 @@ void BasicEventHandler_staticInit(void) {
             JAVA_TRY {
                 eventListenerInterface = ((EventListenerInterface*) [self->eventListenerInterfaceList get:index]);
                 [stringBuffer append:self->eventStrings->LISTENER_LABEL];
-                [stringBuffer append:[eventListenerInterface toString]];
+                [stringBuffer append:[((id<EventListenerInterface>) eventListenerInterface) toString]];
             } JAVA_CATCH(Exception, e) {
                 [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->TOSTRING :e];
             } JAVA_END_TRY;

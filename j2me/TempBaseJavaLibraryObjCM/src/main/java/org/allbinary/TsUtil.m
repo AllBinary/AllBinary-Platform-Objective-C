@@ -10,7 +10,7 @@ void TsUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    TsUtil_instance = [((TsUtil*) [TsUtil alloc]) init];
+    TsUtil_instance = ((TsUtil*) [((TsUtil*) [TsUtil alloc]) init]);
 }
 
 @implementation TsUtil

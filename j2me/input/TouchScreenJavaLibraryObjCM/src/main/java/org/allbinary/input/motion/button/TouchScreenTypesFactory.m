@@ -11,16 +11,16 @@ void TouchScreenTypesFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchScreenTypesFactory_instance = [((TouchScreenTypesFactory*) [TouchScreenTypesFactory alloc]) init];
+    TouchScreenTypesFactory_instance = ((TouchScreenTypesFactory*) [((TouchScreenTypesFactory*) [TouchScreenTypesFactory alloc]) init]);
 }
 
 @implementation TouchScreenTypesFactory
 
 - (void) initFields {
-    self->FINGER = [((TouchScreenType*) [TouchScreenType alloc]) init:"Finger"];
-    self->NOTOUCH = [((TouchScreenType*) [TouchScreenType alloc]) init:"No Touch"];
-    self->STYLUS = [((TouchScreenType*) [TouchScreenType alloc]) init:"Stylus"];
-    self->UNDEFINED = [((TouchScreenType*) [TouchScreenType alloc]) init:"Undefined"];
+    self->FINGER = ((TouchScreenType*) [((TouchScreenType*) [TouchScreenType alloc]) init:"Finger"]);
+    self->NOTOUCH = ((TouchScreenType*) [((TouchScreenType*) [TouchScreenType alloc]) init:"No Touch"]);
+    self->STYLUS = ((TouchScreenType*) [((TouchScreenType*) [TouchScreenType alloc]) init:"Stylus"]);
+    self->UNDEFINED = ((TouchScreenType*) [((TouchScreenType*) [TouchScreenType alloc]) init:"Undefined"]);
 }
 
 - (instancetype) init {

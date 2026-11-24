@@ -1,6 +1,18 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/logic/string/StringMaker.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static CommonSeps* CommonSeps_instance;
@@ -11,7 +23,7 @@ void CommonSeps_staticInit(void) {
         return;
     }
     initialized = true;
-    CommonSeps_instance = [((CommonSeps*) [CommonSeps alloc]) init];
+    CommonSeps_instance = ((CommonSeps*) [((CommonSeps*) [CommonSeps alloc]) init]);
 }
 
 @implementation CommonSeps
@@ -25,8 +37,8 @@ void CommonSeps_staticInit(void) {
     self->COLON = ":";
     self->PERIOD = ".";
     self->UNDERSCORE = "_";
-    self->COLON_SEP = [[[[((StringMaker*) [StringMaker alloc]) init] append:self->COLON] append:self->SPACE] toString];
-    self->COMMA_SEP = [[[[((StringMaker*) [StringMaker alloc]) init] append:self->COMMA] append:self->SPACE] toString];
+    self->COLON_SEP = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->COLON] append:self->SPACE] toString];
+    self->COMMA_SEP = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->COMMA] append:self->SPACE] toString];
     self->PARENTHESIS_OPEN = "(";
     self->PARENTHESIS_CLOSE = ")";
     self->BRACE_OPEN = "{";

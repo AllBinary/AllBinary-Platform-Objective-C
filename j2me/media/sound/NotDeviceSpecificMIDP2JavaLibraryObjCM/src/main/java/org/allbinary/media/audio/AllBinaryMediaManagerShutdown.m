@@ -14,7 +14,7 @@ void AllBinaryMediaManagerShutdown_staticInit(void) {
         return;
     }
     initialized = true;
-    AllBinaryMediaManagerShutdown_instance = [((AllBinaryMediaManagerShutdown*) [AllBinaryMediaManagerShutdown alloc]) init];
+    AllBinaryMediaManagerShutdown_instance = ((AllBinaryMediaManagerShutdown*) [((AllBinaryMediaManagerShutdown*) [AllBinaryMediaManagerShutdown alloc]) init]);
 }
 
 @implementation AllBinaryMediaManagerShutdown

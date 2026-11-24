@@ -3,6 +3,9 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/apache/xmlrpc/XmlRpcHandler.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 NullXmlRpcHandler* NullXmlRpcHandler_NULL_XML_RPC_HANDLER;
@@ -13,7 +16,7 @@ void NullXmlRpcHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    NullXmlRpcHandler_NULL_XML_RPC_HANDLER = [((NullXmlRpcHandler*) [NullXmlRpcHandler alloc]) init];
+    NullXmlRpcHandler_NULL_XML_RPC_HANDLER = ((NullXmlRpcHandler*) [((NullXmlRpcHandler*) [NullXmlRpcHandler alloc]) init]);
 }
 
 @implementation NullXmlRpcHandler

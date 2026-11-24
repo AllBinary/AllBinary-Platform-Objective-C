@@ -27,6 +27,7 @@
 #include "ABObject.h"
 @class WebappClassLoaderInfo;
 @class NullUtil;
+#include "java/lang/ClassLoader.h"
 
 @interface WebappClassLoaderInfo : ABObject {
 @public

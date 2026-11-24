@@ -10,7 +10,7 @@ void ExplosionResources_staticInit(void) {
         return;
     }
     initialized = true;
-    ExplosionResources_instance = [((ExplosionResources*) [ExplosionResources alloc]) init];
+    ExplosionResources_instance = ((ExplosionResources*) [((ExplosionResources*) [ExplosionResources alloc]) init]);
 }
 
 @implementation ExplosionResources

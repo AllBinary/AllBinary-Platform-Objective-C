@@ -53,7 +53,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (IndexedBasicArrayListCache*) createCache:(int32_t)size;
-- (void) init_:(int32_t)size;
+- (void) initMethod:(int32_t)size;
 - (id) getAt:(int32_t)index;
 - (void) addDefault;
 - (void) addObject:(id)anyType;

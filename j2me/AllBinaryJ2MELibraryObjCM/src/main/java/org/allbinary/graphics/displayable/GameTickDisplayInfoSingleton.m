@@ -11,7 +11,7 @@ void GameTickDisplayInfoSingleton_staticInit(void) {
         return;
     }
     initialized = true;
-    GameTickDisplayInfoSingleton_instance = [((GameTickDisplayInfoSingleton*) [GameTickDisplayInfoSingleton alloc]) init];
+    GameTickDisplayInfoSingleton_instance = ((GameTickDisplayInfoSingleton*) [((GameTickDisplayInfoSingleton*) [GameTickDisplayInfoSingleton alloc]) init]);
 }
 
 @implementation GameTickDisplayInfoSingleton

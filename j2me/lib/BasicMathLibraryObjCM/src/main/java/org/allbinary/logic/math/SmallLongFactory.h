@@ -42,7 +42,7 @@
 - (void) initFields;
 + (SmallLongFactory*) getInstance;
 - (void) initWithRange:(int32_t)value :(int32_t)negativeValue;
-- (void) init_;
+- (void) initMethod;
 - (int64_t) getInstanceNoThrow:(int64_t)index;
 - (const char*) getString:(int32_t)index;
 @end

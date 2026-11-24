@@ -11,7 +11,7 @@ void ProcessPaintableSingletonFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ProcessPaintableSingletonFactory_SINGLETON = [((ProcessPaintable*) [ProcessPaintable alloc]) init];
+    ProcessPaintableSingletonFactory_SINGLETON = ((ProcessPaintable*) [((ProcessPaintable*) [ProcessPaintable alloc]) init]);
 }
 
 @implementation ProcessPaintableSingletonFactory

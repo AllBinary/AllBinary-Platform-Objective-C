@@ -19,62 +19,11 @@
 #include "org/allbinary/input/motion/button/CancelTouchButtonInputFactory.h"
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
 #include "org/allbinary/game/init/GameInitializationInterface.h"
-#if __has_include("org/allbinary/game/init/PersistentInputMapping.h")
-#include "org/allbinary/game/init/PersistentInputMapping.h"
+#if __has_include("org/allbinary/game/configuration/event/ChangedGameFeatureListener.h")
+#include "org/allbinary/game/configuration/event/ChangedGameFeatureListener.h"
 #endif
-#if __has_include("javax/microedition/lcdui/PersistentInputMapping.h")
-#include "javax/microedition/lcdui/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/animation/PersistentInputMapping.h")
-#include "org/allbinary/animation/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/PersistentInputMapping.h")
-#include "org/allbinary/game/configuration/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/event/PersistentInputMapping.h")
-#include "org/allbinary/game/configuration/event/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/PersistentInputMapping.h")
-#include "org/allbinary/game/configuration/feature/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/PersistentInputMapping.h")
-#include "org/allbinary/game/configuration/feature/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/game/input/PersistentInputMapping.h")
-#include "org/allbinary/game/input/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/game/input/event/PersistentInputMapping.h")
-#include "org/allbinary/game/input/event/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/game/resource/PersistentInputMapping.h")
-#include "org/allbinary/game/resource/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/game/resource/PersistentInputMapping.h")
-#include "org/allbinary/game/resource/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/game/resource/PersistentInputMapping.h")
-#include "org/allbinary/game/resource/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/graphics/canvas/transition/progress/PersistentInputMapping.h")
-#include "org/allbinary/graphics/canvas/transition/progress/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/graphics/canvas/transition/progress/PersistentInputMapping.h")
-#include "org/allbinary/graphics/canvas/transition/progress/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/image/PersistentInputMapping.h")
-#include "org/allbinary/image/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/input/motion/PersistentInputMapping.h")
-#include "org/allbinary/input/motion/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/input/motion/button/PersistentInputMapping.h")
-#include "org/allbinary/input/motion/button/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/input/motion/button/PersistentInputMapping.h")
-#include "org/allbinary/input/motion/button/PersistentInputMapping.h"
-#endif
-#if __has_include("org/allbinary/logic/system/security/licensing/PersistentInputMapping.h")
-#include "org/allbinary/logic/system/security/licensing/PersistentInputMapping.h"
+#if __has_include("org/allbinary/game/configuration/feature/InputFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/InputFeatureFactory.h"
 #endif
 #if __has_include("org/allbinary/game/init/PersistentInputMapping.h")
 #include "org/allbinary/game/init/PersistentInputMapping.h"
@@ -132,6 +81,93 @@
 #endif
 #if __has_include("org/allbinary/logic/system/security/licensing/PersistentInputMapping.h")
 #include "org/allbinary/logic/system/security/licensing/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/PlatformInputMappingFactory.h")
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h")
+#include "org/allbinary/graphics/canvas/transition/progress/ProgressCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/ChangedGameFeatureListener.h")
+#include "org/allbinary/game/configuration/event/ChangedGameFeatureListener.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/InputFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/InputFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/GameKeyEventFactory.h")
+#include "org/allbinary/game/input/event/GameKeyEventFactory.h"
+#endif
+#if __has_include("org/allbinary/input/motion/button/BasicTouchInputFactory.h")
+#include "org/allbinary/input/motion/button/BasicTouchInputFactory.h"
+#endif
+#if __has_include("org/allbinary/game/init/PersistentInputMapping.h")
+#include "org/allbinary/game/init/PersistentInputMapping.h"
+#endif
+#if __has_include("javax/microedition/lcdui/PersistentInputMapping.h")
+#include "javax/microedition/lcdui/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/animation/PersistentInputMapping.h")
+#include "org/allbinary/animation/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/PersistentInputMapping.h")
+#include "org/allbinary/game/configuration/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/PersistentInputMapping.h")
+#include "org/allbinary/game/configuration/event/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/PersistentInputMapping.h")
+#include "org/allbinary/game/configuration/feature/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/PersistentInputMapping.h")
+#include "org/allbinary/game/configuration/feature/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/PersistentInputMapping.h")
+#include "org/allbinary/game/input/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/PersistentInputMapping.h")
+#include "org/allbinary/game/input/event/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/resource/PersistentInputMapping.h")
+#include "org/allbinary/game/resource/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/resource/PersistentInputMapping.h")
+#include "org/allbinary/game/resource/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/resource/PersistentInputMapping.h")
+#include "org/allbinary/game/resource/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/PersistentInputMapping.h")
+#include "org/allbinary/graphics/canvas/transition/progress/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/PersistentInputMapping.h")
+#include "org/allbinary/graphics/canvas/transition/progress/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/image/PersistentInputMapping.h")
+#include "org/allbinary/image/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/input/motion/PersistentInputMapping.h")
+#include "org/allbinary/input/motion/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/input/motion/button/PersistentInputMapping.h")
+#include "org/allbinary/input/motion/button/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/input/motion/button/PersistentInputMapping.h")
+#include "org/allbinary/input/motion/button/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/PersistentInputMapping.h")
+#include "org/allbinary/logic/system/security/licensing/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/PlatformInputMappingFactory.h")
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
+#endif
+#if __has_include("org/allbinary/input/motion/CompleteMotionGestureInputToGameMotionGestureInput.h")
+#include "org/allbinary/input/motion/CompleteMotionGestureInputToGameMotionGestureInput.h"
+#endif
+#if __has_include("org/allbinary/game/resource/ResourceInitialization.h")
+#include "org/allbinary/game/resource/ResourceInitialization.h"
+#endif
+#if __has_include("org/allbinary/game/resource/ResourceInitialization.h")
+#include "org/allbinary/game/resource/ResourceInitialization.h"
 #endif
 #if __has_include("org/allbinary/game/init/BasicArrayList.h")
 #include "org/allbinary/game/init/BasicArrayList.h"
@@ -190,6 +226,24 @@
 #if __has_include("org/allbinary/logic/system/security/licensing/BasicArrayList.h")
 #include "org/allbinary/logic/system/security/licensing/BasicArrayList.h"
 #endif
+#if __has_include("org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h")
+#include "org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h"
+#endif
+#if __has_include("org/allbinary/game/resource/ResourceInitialization.h")
+#include "org/allbinary/game/resource/ResourceInitialization.h"
+#endif
+#if __has_include("org/allbinary/game/resource/ResourceInitialization.h")
+#include "org/allbinary/game/resource/ResourceInitialization.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/ChangedGameFeatureListener.h")
+#include "org/allbinary/game/configuration/event/ChangedGameFeatureListener.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/MainFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/resource/FeaturedResourceRelativeRelationshipFactory.h")
+#include "org/allbinary/game/resource/FeaturedResourceRelativeRelationshipFactory.h"
+#endif
 
 
 BaseGameInitialization* BaseGameInitialization_NULL_BASE_GAME_INITIALIZATION;
@@ -200,7 +254,7 @@ void BaseGameInitialization_staticInit(void) {
         return;
     }
     initialized = true;
-    BaseGameInitialization_NULL_BASE_GAME_INITIALIZATION = [((BaseGameInitialization*) [BaseGameInitialization alloc]) init:((ResourceInitialization**) java_array_new(sizeof(ResourceInitialization*), 0)) :0];
+    BaseGameInitialization_NULL_BASE_GAME_INITIALIZATION = ((BaseGameInitialization*) [((BaseGameInitialization*) [BaseGameInitialization alloc]) init:((ResourceInitialization**) java_array_new(sizeof(ResourceInitialization*), 0)) :0]);
 }
 
 @implementation BaseGameInitialization
@@ -235,7 +289,7 @@ void BaseGameInitialization_staticInit(void) {
 // throws Exception
 - (void) initKeyMapping:(AbeClientInformationInterface*)abeClientInformation :(int32_t)portion {
         if ([[ChangedGameFeatureListener getInstance] isChangedFeature:[InputFeatureFactory getInstance]->INPUT_MAPPING]) {
-            [[[PlatformInputMappingFactory getInstance] getPersistentInputMappingInstance] init_:abeClientInformation];
+            [[[PlatformInputMappingFactory getInstance] getPersistentInputMappingInstance] initMethod:abeClientInformation];
             [[ProgressCanvasFactory getInstance] addNormalPortion:50 :"Game Keys"];
             [[ChangedGameFeatureListener getInstance] remove:[InputFeatureFactory getInstance]->INPUT_MAPPING];
         }
@@ -243,7 +297,7 @@ void BaseGameInitialization_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(AbeClientInformationInterface*)abeClientInformation :(CommandListener*)commandListener :(int32_t)level {
+- (void) initMethod:(AbeClientInformationInterface*)abeClientInformation :(CommandListener*)commandListener :(int32_t)level {
         ResourceLoadingLevelFactory* resourceLoadingLevelFactory = [ResourceLoadingLevelFactory getInstance];
         if (![self isInitialized] && (level == [resourceLoadingLevelFactory->LOAD_ALL getLevel] || level == [resourceLoadingLevelFactory->LOAD_EARLY getLevel])) {
             int32_t localPortion = 40;
@@ -253,17 +307,17 @@ void BaseGameInitialization_staticInit(void) {
             [self setInitialized:true];
             [self initKey:[self getPortion]];
             [self initKeyMapping:abeClientInformation :[self getPortion]];
-            [[GameKeyEventFactory getInstance] init_];
+            [[GameKeyEventFactory getInstance] initMethod];
             ProgressCanvas* progressCanvas = [ProgressCanvasFactory getInstance];
             [progressCanvas addNormalPortion:localPortion :"Game Key Events"];
-            [[BasicTouchInputFactory getInstance] init_:[[[PlatformInputMappingFactory getInstance] getPersistentInputMappingInstance] getInputMapping]];
+            [[BasicTouchInputFactory getInstance] initMethod:[[[PlatformInputMappingFactory getInstance] getPersistentInputMappingInstance] getInputMapping]];
             [CancelTouchButtonInputFactory getInstance];
             [progressCanvas addNormalPortion:localPortion :"Touch Input"];
-            [[CompleteMotionGestureInputToGameMotionGestureInput getInstance] init_];
+            [[CompleteMotionGestureInputToGameMotionGestureInput getInstance] initMethod];
             [progressCanvas addNormalPortion:localPortion :"Motion Input"];
-            [GameFeatureImageCacheFactory init_];
+            [GameFeatureImageCacheFactory initMethod];
             [progressCanvas addNormalPortion:localPortion :"Image Cache"];
-            [self->resourceInitializationArray[self->EARLY_RESOURCES] init_];
+            [self->resourceInitializationArray[self->EARLY_RESOURCES] initMethod];
         }
 }
 
@@ -273,16 +327,16 @@ void BaseGameInitialization_staticInit(void) {
         ResourceLoadingLevelFactory* resourceLoadingLevelFactory = [ResourceLoadingLevelFactory getInstance];
         if ([self resourceAnimationChange] && level == [resourceLoadingLevelFactory->LOAD_EARLY getLevel]) {
             [self clearResources];
-            [self->resourceInitializationArray[self->EARLY_CHANGABLE_RESOURCES] init_];
+            [self->resourceInitializationArray[self->EARLY_CHANGABLE_RESOURCES] initMethod];
         }
         if ([self resourceAnimationChange] && level == [resourceLoadingLevelFactory->LOAD_ALL getLevel]) {
             if (self->allLoaded) {
                 [self clearResources];
             }
             if ([[[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] getList] size] == 0) {
-                [self->resourceInitializationArray[self->EARLY_CHANGABLE_RESOURCES] init_];
+                [self->resourceInitializationArray[self->EARLY_CHANGABLE_RESOURCES] initMethod];
             }
-            [self->resourceInitializationArray[self->GAME_CHANGABLE_RESOURCES] init_];
+            [self->resourceInitializationArray[self->GAME_CHANGABLE_RESOURCES] initMethod];
             self->allLoaded = true;
         }
 }

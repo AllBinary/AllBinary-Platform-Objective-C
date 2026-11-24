@@ -85,7 +85,7 @@
 - (instancetype) init:(Rectangle*)rectangle :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor;
 - (void) initFields;
 - (void) updateMeasurement:(Graphics*)graphics;
-- (void) init_:(Rectangle*)rectangle;
+- (void) initMethod:(Rectangle*)rectangle;
 - (void) paint:(Graphics*)graphics;
 @end
 

@@ -11,7 +11,7 @@ void RendererInitializedStupidTimerFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    RendererInitializedStupidTimerFactory_instance = [((StupidTimer*) [StupidTimer alloc]) init];
+    RendererInitializedStupidTimerFactory_instance = ((StupidTimer*) [((StupidTimer*) [StupidTimer alloc]) init]);
 }
 
 @implementation RendererInitializedStupidTimerFactory

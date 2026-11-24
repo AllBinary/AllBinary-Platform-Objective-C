@@ -14,7 +14,7 @@ void AllBinaryOrientationSensor_staticInit(void) {
         return;
     }
     initialized = true;
-    AllBinaryOrientationSensor_NULL_ALLBINARY_ORIENTATION_SENSOR = [((AllBinaryOrientationSensor*) [AllBinaryOrientationSensor alloc]) init];
+    AllBinaryOrientationSensor_NULL_ALLBINARY_ORIENTATION_SENSOR = ((AllBinaryOrientationSensor*) [((AllBinaryOrientationSensor*) [AllBinaryOrientationSensor alloc]) init]);
 }
 
 @implementation AllBinaryOrientationSensor

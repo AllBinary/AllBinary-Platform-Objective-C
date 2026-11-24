@@ -14,7 +14,7 @@ void ShaderUpdater_staticInit(void) {
         return;
     }
     initialized = true;
-    ShaderUpdater_instance = [((ShaderUpdater*) [ShaderUpdater alloc]) init];
+    ShaderUpdater_instance = ((ShaderUpdater*) [((ShaderUpdater*) [ShaderUpdater alloc]) init]);
 }
 
 @implementation ShaderUpdater

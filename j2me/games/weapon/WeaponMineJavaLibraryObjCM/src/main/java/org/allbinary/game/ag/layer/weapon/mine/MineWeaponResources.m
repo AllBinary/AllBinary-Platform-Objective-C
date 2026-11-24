@@ -1,6 +1,12 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/game/ag/layer/weapon/mine/MineWeaponResources.h"
 #include "org/allbinary/logic/NullUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static id MineWeaponResources_instance;
@@ -25,7 +31,7 @@ void MineWeaponResources_staticInit(void) {
 
 + (MineWeaponResources*) getInstance {
         if ((MineWeaponResources_staticInit(), MineWeaponResources_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            MineWeaponResources_instance = [((MineWeaponResources*) [MineWeaponResources alloc]) init];
+            MineWeaponResources_instance = ((MineWeaponResources*) [((MineWeaponResources*) [MineWeaponResources alloc]) init]);
         }
         return ((MineWeaponResources*) (MineWeaponResources_staticInit(), MineWeaponResources_instance));
 }
@@ -41,7 +47,7 @@ void MineWeaponResources_staticInit(void) {
         const char* SIZE_FIVE = SMALL;
         const char* SIZE_SIX = SMALL;
         const char** SIZE = ((const char**) java_array_from(sizeof(const char*), sizeof((const char*[]){ SMALL, MEDIUM, SIZE_FOUR, SIZE_FIVE, SIZE_SIX }) / sizeof(const char*), (const char*[]){ SMALL, MEDIUM, SIZE_FOUR, SIZE_FIVE, SIZE_SIX }));
-        [super init_:ROOT :SIZE];
+        [super initMethod:ROOT :SIZE];
     return self;
 }
 

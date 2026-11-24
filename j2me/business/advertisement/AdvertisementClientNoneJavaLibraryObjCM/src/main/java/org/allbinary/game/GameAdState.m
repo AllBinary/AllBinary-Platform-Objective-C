@@ -4,6 +4,9 @@
 #include "org/allbinary/input/event/VirtualKeyboardEvent.h"
 #include "org/allbinary/input/event/VirtualKeyboardEventHandler.h"
 #include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
+#if __has_include("org/allbinary/input/event/VirtualKeyboardEventHandler.h")
+#include "org/allbinary/input/event/VirtualKeyboardEventHandler.h"
+#endif
 
 
 

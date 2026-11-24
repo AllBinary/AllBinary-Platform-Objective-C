@@ -12,7 +12,7 @@ void LocationPaintable_staticInit(void) {
         return;
     }
     initialized = true;
-    LocationPaintable_instance = [((LocationPaintable*) [LocationPaintable alloc]) init];
+    LocationPaintable_instance = ((LocationPaintable*) [((LocationPaintable*) [LocationPaintable alloc]) init]);
 }
 
 @implementation LocationPaintable

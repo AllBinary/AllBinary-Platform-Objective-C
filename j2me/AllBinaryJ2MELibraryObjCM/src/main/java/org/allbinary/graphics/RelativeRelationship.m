@@ -4,6 +4,9 @@
 #include "org/allbinary/util/BasicArrayListUtil.h"
 #include "org/allbinary/graphics/PointFactory.h"
 #include "org/allbinary/graphics/GPoint.h"
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
 
 
 RelativeRelationship* RelativeRelationship_NULL_RELATIVE_RELATIONSHIP;
@@ -14,7 +17,7 @@ void RelativeRelationship_staticInit(void) {
         return;
     }
     initialized = true;
-    RelativeRelationship_NULL_RELATIVE_RELATIONSHIP = [((RelativeRelationship*) [RelativeRelationship alloc]) init:[PointFactory getInstance]->ZERO_ZERO :[[BasicArrayListUtil getInstance] getImmutableInstance]];
+    RelativeRelationship_NULL_RELATIVE_RELATIONSHIP = ((RelativeRelationship*) [((RelativeRelationship*) [RelativeRelationship alloc]) init:[PointFactory getInstance]->ZERO_ZERO :[[BasicArrayListUtil getInstance] getImmutableInstance]]);
 }
 
 @implementation RelativeRelationship

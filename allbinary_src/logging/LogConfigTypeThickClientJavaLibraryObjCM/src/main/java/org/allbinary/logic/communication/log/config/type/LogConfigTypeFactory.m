@@ -12,21 +12,21 @@ void LogConfigTypeFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    LogConfigTypeFactory_instance = [((LogConfigTypeFactory*) [LogConfigTypeFactory alloc]) init];
+    LogConfigTypeFactory_instance = ((LogConfigTypeFactory*) [((LogConfigTypeFactory*) [LogConfigTypeFactory alloc]) init]);
 }
 
 @implementation LogConfigTypeFactory
 
 - (void) initFields {
     self->NO_DESCRIPTION = "No Description";
-    self->OS = [((LogConfigType*) [LogConfigType alloc]) init:"Operating System" :self->NO_DESCRIPTION];
-    self->FACTORYERROR = [((LogConfigType*) [LogConfigType alloc]) init:"Factory Error" :self->NO_DESCRIPTION];
-    self->FILE = [((LogConfigType*) [LogConfigType alloc]) init:"File" :self->NO_DESCRIPTION];
-    self->FILEERROR = [((LogConfigType*) [LogConfigType alloc]) init:"File Error" :self->NO_DESCRIPTION];
-    self->IDLOGGING = [((LogConfigType*) [LogConfigType alloc]) init:"ID Logging" :self->NO_DESCRIPTION];
-    self->REPLACE = [((LogConfigType*) [LogConfigType alloc]) init:"Replace" :self->NO_DESCRIPTION];
-    self->REPLACE_INFO = [((LogConfigType*) [LogConfigType alloc]) init:"Replace Info" :self->NO_DESCRIPTION];
-    self->REPLACEERROR = [((LogConfigType*) [LogConfigType alloc]) init:"Replace Error" :self->NO_DESCRIPTION];
+    self->OS = ((LogConfigType*) [((LogConfigType*) [LogConfigType alloc]) init:"Operating System" :self->NO_DESCRIPTION]);
+    self->FACTORYERROR = ((LogConfigType*) [((LogConfigType*) [LogConfigType alloc]) init:"Factory Error" :self->NO_DESCRIPTION]);
+    self->FILE = ((LogConfigType*) [((LogConfigType*) [LogConfigType alloc]) init:"File" :self->NO_DESCRIPTION]);
+    self->FILEERROR = ((LogConfigType*) [((LogConfigType*) [LogConfigType alloc]) init:"File Error" :self->NO_DESCRIPTION]);
+    self->IDLOGGING = ((LogConfigType*) [((LogConfigType*) [LogConfigType alloc]) init:"ID Logging" :self->NO_DESCRIPTION]);
+    self->REPLACE = ((LogConfigType*) [((LogConfigType*) [LogConfigType alloc]) init:"Replace" :self->NO_DESCRIPTION]);
+    self->REPLACE_INFO = ((LogConfigType*) [((LogConfigType*) [LogConfigType alloc]) init:"Replace Info" :self->NO_DESCRIPTION]);
+    self->REPLACEERROR = ((LogConfigType*) [((LogConfigType*) [LogConfigType alloc]) init:"Replace Error" :self->NO_DESCRIPTION]);
 }
 
 

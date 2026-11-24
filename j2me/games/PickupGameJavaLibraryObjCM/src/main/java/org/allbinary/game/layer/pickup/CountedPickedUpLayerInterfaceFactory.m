@@ -12,6 +12,12 @@
 #include "org/allbinary/game/layer/pickup/IconLayer.h"
 #include "org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactoryPool.h"
 #include "org/allbinary/game/layer/pickup/PickedUpLayerType.h"
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
 
 
 CountedPickedUpLayerInterfaceFactory* CountedPickedUpLayerInterfaceFactory_NULL_COUNTED_PICKUP_LAYER_FACTORY;
@@ -22,7 +28,7 @@ void CountedPickedUpLayerInterfaceFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    CountedPickedUpLayerInterfaceFactory_NULL_COUNTED_PICKUP_LAYER_FACTORY = [((CountedPickedUpLayerInterfaceFactory*) [CountedPickedUpLayerInterfaceFactory alloc]) init:[PickedUpLayerTypeFactory getInstance]->NONE :(IconLayer_staticInit(), IconLayer_NULL_ICON_LAYER) :[[NullAnimationFactory getFactoryInstance] getInstance:0]];
+    CountedPickedUpLayerInterfaceFactory_NULL_COUNTED_PICKUP_LAYER_FACTORY = ((CountedPickedUpLayerInterfaceFactory*) [((CountedPickedUpLayerInterfaceFactory*) [CountedPickedUpLayerInterfaceFactory alloc]) init:[PickedUpLayerTypeFactory getInstance]->NONE :(IconLayer_staticInit(), IconLayer_NULL_ICON_LAYER) :[[NullAnimationFactory getFactoryInstance] getInstance:0]]);
 }
 
 @implementation CountedPickedUpLayerInterfaceFactory

@@ -29,7 +29,7 @@ void TerrainEvent_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"TerrainEvent: \n"];
         [stringBuffer append:"LayerInterface: "];
         [stringBuffer append:[self->basicTerrainInfo toString]];

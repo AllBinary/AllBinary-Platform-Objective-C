@@ -7,6 +7,42 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonLabels.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/io/path/AbPathData.h")
+#include "org/allbinary/logic/io/path/AbPathData.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/io/path/AbPathData.h")
+#include "org/allbinary/logic/io/path/AbPathData.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static BufferedWriterUtil* BufferedWriterUtil_instance;
@@ -17,7 +53,7 @@ void BufferedWriterUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    BufferedWriterUtil_instance = [((BufferedWriterUtil*) [BufferedWriterUtil alloc]) init];
+    BufferedWriterUtil_instance = ((BufferedWriterUtil*) [((BufferedWriterUtil*) [BufferedWriterUtil alloc]) init]);
 }
 
 @implementation BufferedWriterUtil
@@ -52,7 +88,7 @@ void BufferedWriterUtil_staticInit(void) {
             AbFile* abFileDirectory = [AbFile createAbFile:name];
             if ([abFileDirectory exists]) {
             } else {
-                StringMaker* stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
+                StringMaker* stringBuilder = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
                 [self->logUtil putF:[[[[stringBuilder append:self->commonStrings->CREATE] append:self->commonLabels->COLON_SEP] append:name] toString] :self :self->commonStrings->CREATE];
                 bool result = [abFileDirectory mkdirs];
                 [stringBuilder delete:0 :[stringBuilder length]];
@@ -73,7 +109,7 @@ void BufferedWriterUtil_staticInit(void) {
             AbFile* abFileDirectory = [AbFile createAbFile:name];
             if ([abFileDirectory exists]) {
             } else {
-                StringMaker* stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
+                StringMaker* stringBuilder = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
                 [self->logUtil putF:[[[[stringBuilder append:self->commonStrings->CREATE] append:self->commonLabels->COLON_SEP] append:name] toString] :self :self->commonStrings->CREATE];
                 bool result = [abFileDirectory mkdirs];
                 [stringBuilder delete:0 :[stringBuilder length]];
@@ -86,7 +122,7 @@ void BufferedWriterUtil_staticInit(void) {
 
 // throws Exception
 - (void) write:(AbFile*)abFile :(const char*)data {
-        BufferedWriter* fileOut = [((BufferedWriter*) [BufferedWriter alloc]) init:[((FileWriter*) [FileWriter alloc]) init:[AbFileNativeUtil get:abFile]]];
+        BufferedWriter* fileOut = ((BufferedWriter*) [((BufferedWriter*) [BufferedWriter alloc]) init:((FileWriter*) [((FileWriter*) [FileWriter alloc]) init:[AbFileNativeUtil get:abFile]])]);
         [fileOut write:data :0 :((int32_t) strlen(data))];
         [fileOut newLine];
         [fileOut flush];

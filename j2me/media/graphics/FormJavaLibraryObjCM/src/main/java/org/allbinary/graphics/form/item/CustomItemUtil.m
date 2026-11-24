@@ -11,7 +11,7 @@ void CustomItemUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    CustomItemUtil_instance = [((CustomItemUtil*) [CustomItemUtil alloc]) init];
+    CustomItemUtil_instance = ((CustomItemUtil*) [((CustomItemUtil*) [CustomItemUtil alloc]) init]);
 }
 
 @implementation CustomItemUtil

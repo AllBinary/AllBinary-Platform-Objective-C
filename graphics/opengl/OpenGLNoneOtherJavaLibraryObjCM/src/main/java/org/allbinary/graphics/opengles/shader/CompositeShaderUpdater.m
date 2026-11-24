@@ -6,6 +6,18 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/graphics/opengles/shader/ShaderUpdater.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static CompositeShaderUpdater* CompositeShaderUpdater_instanceC;
@@ -16,7 +28,7 @@ void CompositeShaderUpdater_staticInit(void) {
         return;
     }
     initialized = true;
-    CompositeShaderUpdater_instanceC = [((CompositeShaderUpdater*) [CompositeShaderUpdater alloc]) init:[[StringUtil getInstance] getArrayInstance] :[[StringUtil getInstance] getArrayInstance] :[[StringUtil getInstance] getArrayInstance] :[NullUtil getInstance]->NULL_INT_ARRAY];
+    CompositeShaderUpdater_instanceC = ((CompositeShaderUpdater*) [((CompositeShaderUpdater*) [CompositeShaderUpdater alloc]) init:[[StringUtil getInstance] getArrayInstance] :[[StringUtil getInstance] getArrayInstance] :[[StringUtil getInstance] getArrayInstance] :[NullUtil getInstance]->NULL_INT_ARRAY]);
 }
 
 @implementation CompositeShaderUpdater

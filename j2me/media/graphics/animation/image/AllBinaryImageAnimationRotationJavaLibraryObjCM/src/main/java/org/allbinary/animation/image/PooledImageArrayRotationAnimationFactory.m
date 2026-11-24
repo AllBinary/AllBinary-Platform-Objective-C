@@ -10,6 +10,27 @@
 #include "org/allbinary/media/image/ImageToRotationImageArrayUtil.h"
 #include "org/allbinary/animation/image/ImageArrayRotationAnimationInfo.h"
 #include "org/allbinary/animation/image/AdjustedImageArrayRotationAnimation.h"
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/GameConfigurationCentral.h")
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#endif
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/GameConfigurationCentral.h")
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
+#if __has_include("org/allbinary/media/image/ImageToRotationImageArrayUtil.h")
+#include "org/allbinary/media/image/ImageToRotationImageArrayUtil.h"
+#endif
 
 
 
@@ -33,7 +54,7 @@ void PooledImageArrayRotationAnimationFactory_staticInit(void) {
 + (PooledImageArrayRotationAnimationFactory*) createFactory:(Image*)image :(AnimationBehaviorFactory*)animationBehaviorFactory {
         int32_t totalAngle = ((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE);
         int32_t angleIncrement = (totalAngle / [[GameConfigurationCentral getInstance] getGameControlFidelity]);
-        return [((PooledImageArrayRotationAnimationFactory*) [PooledImageArrayRotationAnimationFactory alloc]) init:image :[image getWidth] :[image getHeight] :-([image getWidth] >> 2) :-([image getHeight] >> 2) :angleIncrement :animationBehaviorFactory];
+        return ((PooledImageArrayRotationAnimationFactory*) [((PooledImageArrayRotationAnimationFactory*) [PooledImageArrayRotationAnimationFactory alloc]) init:image :[image getWidth] :[image getHeight] :-([image getWidth] >> 2) :-([image getHeight] >> 2) :angleIncrement :animationBehaviorFactory]);
 }
 
 
@@ -41,7 +62,7 @@ void PooledImageArrayRotationAnimationFactory_staticInit(void) {
 + (PooledImageArrayRotationAnimationFactory*) createDXY:(Image*)image :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory {
         int32_t totalAngle = ((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE);
         int32_t angleIncrement = (totalAngle / [[GameConfigurationCentral getInstance] getGameControlFidelity]);
-        return [((PooledImageArrayRotationAnimationFactory*) [PooledImageArrayRotationAnimationFactory alloc]) init:image :[image getWidth] :[image getHeight] :dx :dy :angleIncrement :animationBehaviorFactory];
+        return ((PooledImageArrayRotationAnimationFactory*) [((PooledImageArrayRotationAnimationFactory*) [PooledImageArrayRotationAnimationFactory alloc]) init:image :[image getWidth] :[image getHeight] :dx :dy :angleIncrement :animationBehaviorFactory]);
 }
 
 
@@ -51,7 +72,7 @@ void PooledImageArrayRotationAnimationFactory_staticInit(void) {
         self->animationBehaviorFactory = animationBehaviorFactory;
         int32_t totalAngle = ((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE);
         Image** imageArray = [[ImageToRotationImageArrayUtil getInstance] generate:image :angleIncrement :totalAngle];
-        self->allBinaryImageRotationAnimationInfo = [((ImageArrayRotationAnimationInfo*) [ImageArrayRotationAnimationInfo alloc]) init:imageArray :angleIncrement :totalAngle :dx :dy];
+        self->allBinaryImageRotationAnimationInfo = ((ImageArrayRotationAnimationInfo*) [((ImageArrayRotationAnimationInfo*) [ImageArrayRotationAnimationInfo alloc]) init:imageArray :angleIncrement :totalAngle :dx :dy]);
     return self;
 }
 

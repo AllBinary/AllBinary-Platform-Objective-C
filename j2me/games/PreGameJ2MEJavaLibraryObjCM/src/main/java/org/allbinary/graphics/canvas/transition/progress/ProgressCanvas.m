@@ -23,6 +23,33 @@
 #include "org/allbinary/thread/ThreadPool.h"
 #include "org/allbinary/graphics/canvas/transition/progress/ProgressPaintable.h"
 #include "org/allbinary/graphics/canvas/transition/progress/ProgressEndListener.h"
+#if __has_include("org/allbinary/graphics/displayable/CanvasStrings.h")
+#include "org/allbinary/graphics/displayable/CanvasStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/commands/GameCommandsFactory.h")
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
 
 
 
@@ -39,11 +66,11 @@ void ProgressCanvas_staticInit(void) {
 - (void) initFields {
     self->hasPainted = false;
     
-    self->GAUGE_PAINTABLE = [((ProgressPaintable*) [ProgressPaintable alloc]) init:self];
+    self->GAUGE_PAINTABLE = ((ProgressPaintable*) [((ProgressPaintable*) [ProgressPaintable alloc]) init:self]);
     self->maxValue = 100.0f;
     
     self->TEXT = self->commonStrings->LOADING;
-    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->updateMyFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->myFontProcessor = self->updateMyFontProcessor;
     self->allbinaryMidlet = [AllBinaryMidlet getNullInstance];
     self->value = 0.0f;
@@ -51,7 +78,7 @@ void ProgressCanvas_staticInit(void) {
     self->background = true;
     self->paintable = self->GAUGE_PAINTABLE;
     self->inProgress = false;
-    self->IN_GAME_PROCESSOR = [((Processor*) [Processor alloc]) init]
+    self->IN_GAME_PROCESSOR = ((Processor*) [((Processor*) [Processor alloc]) init])
 #if 0 /* Java anonymous class body: implement it as a named subclass */
         self->pathFindingThreadPool = [PathFindingThreadPool getInstance];
         
@@ -75,7 +102,7 @@ void ProgressCanvas_staticInit(void) {
         self = [super init:(NullCommandListener_staticInit(), NullCommandListener_NULL_COMMAND_LISTENER) :[CanvasStrings getInstance]->EMPTY_CHILD_NAME_LIST :false];
         [self initFields];
         self->backgroundBasicColor = backgroundBasicColor;
-        self->gauge = [((ABCustomGaugeItem*) [ABCustomGaugeItem alloc]) init:[StringUtil getInstance]->EMPTY_STRING :((int32_t) self->maxValue) :0 :backgroundBasicColor :foregroundBasicColor];
+        self->gauge = ((ABCustomGaugeItem*) [((ABCustomGaugeItem*) [ABCustomGaugeItem alloc]) init:[StringUtil getInstance]->EMPTY_STRING :((int32_t) self->maxValue) :0 :backgroundBasicColor :foregroundBasicColor]);
     return self;
 }
 
@@ -87,7 +114,7 @@ void ProgressCanvas_staticInit(void) {
 }
 
 
-- (void) init_:(AllBinaryMidlet*)gameMidlet {
+- (void) initMethod:(AllBinaryMidlet*)gameMidlet {
         self->allbinaryMidlet = gameMidlet;
 }
 
@@ -172,13 +199,13 @@ void ProgressCanvas_staticInit(void) {
 
 
 - (void) addEarlyPortion:(int32_t)value :(const char*)text :(int32_t)index {
-        [self setText:[[[[((StringMaker*) [StringMaker alloc]) init] append:text] append:[[[SmallIntegerSingletonFactory getInstance] getAt:index] toString]] toString]];
+        [self setText:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:text] append:[[[SmallIntegerSingletonFactory getInstance] getAt:index] toString]] toString]];
         [self->gauge setValue:[self->gauge getValue] + [self getMaxValue] / ((float) value)];
 }
 
 
 - (void) addPortion:(int32_t)value :(const char*)text :(int32_t)index {
-        [self setText:[[[[((StringMaker*) [StringMaker alloc]) init] append:text] append:[[[SmallIntegerSingletonFactory getInstance] getAt:index] toString]] toString]];
+        [self setText:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:text] append:[[[SmallIntegerSingletonFactory getInstance] getAt:index] toString]] toString]];
         [PreLogUtil put:self->text :self :self->ADD_PORTION];
         [self->gauge setValue:[self->gauge getValue] + [self getMaxValue] / ((float) value)];
 }
@@ -200,7 +227,7 @@ void ProgressCanvas_staticInit(void) {
 
 
 - (void) paint:(Graphics*)graphics {
-        [self->paintable paint:graphics];
+        [((id<PaintableInterface>) self->paintable) paint:graphics];
 }
 
 

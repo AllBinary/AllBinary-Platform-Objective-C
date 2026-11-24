@@ -48,7 +48,7 @@
 - (int32_t) getMin;
 - (int32_t) getMinAllowed;
 - (void) initWithRange:(int32_t)value :(int32_t)negativeValue;
-- (void) init_;
+- (void) initMethod;
 - (int32_t) getAt:(int32_t)index;
 - (int32_t) getAtNoThrow:(int32_t)index;
 - (int32_t) createInstance:(int32_t)index;

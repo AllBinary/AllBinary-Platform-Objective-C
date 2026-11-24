@@ -36,17 +36,17 @@ void RectangleLayerBounds_staticInit(void) {
 
 
 - (void) visit:(BoundsVisitorInterface*)boundsVisitorInterface {
-        if ([boundsVisitorInterface getX] > [self->rectangle getMaxX]) {
-            [boundsVisitorInterface maxX];
+        if ([((id<BoundsVisitorInterface>) boundsVisitorInterface) getX] > [self->rectangle getMaxX]) {
+            [((id<BoundsVisitorInterface>) boundsVisitorInterface) maxX];
         }
-        if ([boundsVisitorInterface getY] > [self->rectangle getMaxY]) {
-            [boundsVisitorInterface maxY];
+        if ([((id<BoundsVisitorInterface>) boundsVisitorInterface) getY] > [self->rectangle getMaxY]) {
+            [((id<BoundsVisitorInterface>) boundsVisitorInterface) maxY];
         }
-        if ([boundsVisitorInterface getX] < [[self->rectangle getPoint] getX]) {
-            [boundsVisitorInterface minX];
+        if ([((id<BoundsVisitorInterface>) boundsVisitorInterface) getX] < [[self->rectangle getPoint] getX]) {
+            [((id<BoundsVisitorInterface>) boundsVisitorInterface) minX];
         }
-        if ([boundsVisitorInterface getY] < [[self->rectangle getPoint] getY]) {
-            [boundsVisitorInterface minY];
+        if ([((id<BoundsVisitorInterface>) boundsVisitorInterface) getY] < [[self->rectangle getPoint] getY]) {
+            [((id<BoundsVisitorInterface>) boundsVisitorInterface) minY];
         }
 }
 

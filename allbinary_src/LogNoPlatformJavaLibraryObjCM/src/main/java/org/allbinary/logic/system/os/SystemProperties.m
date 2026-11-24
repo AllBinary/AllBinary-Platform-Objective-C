@@ -10,7 +10,7 @@ void SystemProperties_staticInit(void) {
         return;
     }
     initialized = true;
-    SystemProperties_instance = [((SystemProperties*) [SystemProperties alloc]) init];
+    SystemProperties_instance = ((SystemProperties*) [((SystemProperties*) [SystemProperties alloc]) init]);
 }
 
 @implementation SystemProperties

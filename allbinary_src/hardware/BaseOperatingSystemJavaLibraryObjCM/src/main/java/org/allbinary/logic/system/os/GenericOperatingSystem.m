@@ -7,6 +7,15 @@
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/logic/system/os/OperatingSystemInterface.h"
 #include "org/allbinary/logic/system/os/SystemProperties.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -24,7 +33,7 @@ void GenericOperatingSystem_staticInit(void) {
     self->osName = nullptr;
     self->osArch = nullptr;
     self->osVersion = nullptr;
-    self->characterSet = [((CharacterSet*) [CharacterSet alloc]) init];
+    self->characterSet = ((CharacterSet*) [((CharacterSet*) [CharacterSet alloc]) init]);
     self->scalable = false;
 }
 
@@ -101,7 +110,7 @@ void GenericOperatingSystem_staticInit(void) {
 
 - (const char*) toString {
         const char* NEW_LINE = [CommonSeps getInstance]->NEW_LINE;
-        StringMaker* osBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* osBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [osBuffer append:"Operating System Info: \n"];
         [osBuffer append:[self getName]];
         [osBuffer append:NEW_LINE];

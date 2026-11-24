@@ -11,6 +11,12 @@
 #include "org/allbinary/media/audio/SoundStrings.h"
 #include "org/allbinary/media/audio/SoundsFactoryInterface.h"
 #include "org/allbinary/media/audio/Sound.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -41,16 +47,16 @@ void Sounds_staticInit(void) {
 
 
 // throws Exception
-- (void) init_ {
+- (void) initMethod {
         [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->INIT];
         CommonLabels* commonLabels = [CommonLabels getInstance];
         ProgressCanvas* progressCanvas = [ProgressCanvasFactory getInstance];
-        [self->soundsFactoryInterface init_];
-        Sound** soundInterfaceArray = [self->soundsFactoryInterface getSoundInterfaceArray];
+        [((id<SoundsFactoryInterface>) self->soundsFactoryInterface) initMethod];
+        Sound** soundInterfaceArray = [((id<SoundsFactoryInterface>) self->soundsFactoryInterface) getSoundInterfaceArray];
         SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
         int32_t indexInteger = 0;
         const char* indexString = nullptr;
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         for (int32_t i = 0; i < java_array_length(soundInterfaceArray); i++) {
             Sound* soundInterface = soundInterfaceArray[i];
             if (soundInterface != nil) {
@@ -62,11 +68,11 @@ void Sounds_staticInit(void) {
                 [stringBuffer append:self->soundStrings->SOUND];
                 [stringBuffer append:java_objc_class_name(soundInterface)];
                 [self->logUtil putF:[stringBuffer toString] :self :self->commonStrings->INIT];
-                [soundInterface init_];
-                [progressCanvas addNormalPortion:100 :[[[[((StringMaker*) [StringMaker alloc]) init] append:self->soundStrings->INIT_SOUND] append:indexString] toString]];
+                [soundInterface initMethod];
+                [progressCanvas addNormalPortion:100 :[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->soundStrings->INIT_SOUND] append:indexString] toString]];
             }
         }
-        [self->soundsFactoryInterface setInitialized:true];
+        [((id<SoundsFactoryInterface>) self->soundsFactoryInterface) setInitialized:true];
         [self->logUtil putF:self->commonStrings->END :self :self->commonStrings->INIT];
 }
 
@@ -74,14 +80,14 @@ void Sounds_staticInit(void) {
 // throws Exception
 - (void) stopAll {
         [self->logUtil putF:self->commonStrings->START :self :self->soundStrings->STOP_ALL];
-        Sound** soundInterfaceArray = [self->soundsFactoryInterface getSoundInterfaceArray];
+        Sound** soundInterfaceArray = [((id<SoundsFactoryInterface>) self->soundsFactoryInterface) getSoundInterfaceArray];
         ProgressCanvas* progressCanvas = [ProgressCanvasFactory getInstance];
         Player* player = nullptr;
         for (int32_t index = 0; index < java_array_length(soundInterfaceArray); index++) {
             if (soundInterfaceArray[index] != nil) {
                 player = [soundInterfaceArray[index] getPlayerP];
                 if (player != nil) {
-                    [player stop];
+                    [((id<Player>) player) stop];
                     [progressCanvas addPortion:100 :self->soundStrings->STOPPING_SOUND :index];
                 }
             }
@@ -92,14 +98,14 @@ void Sounds_staticInit(void) {
 // throws Exception
 - (void) closeAll {
         [self->logUtil putF:self->commonStrings->START :self :self->soundStrings->CLOSE_ALL];
-        Sound** soundInterfaceArray = [self->soundsFactoryInterface getSoundInterfaceArray];
+        Sound** soundInterfaceArray = [((id<SoundsFactoryInterface>) self->soundsFactoryInterface) getSoundInterfaceArray];
         ProgressCanvas* progressCanvas = [ProgressCanvasFactory getInstance];
         Player* player = nullptr;
         for (int32_t index = 0; index < java_array_length(soundInterfaceArray); index++) {
             if (soundInterfaceArray[index] != nil) {
                 player = [soundInterfaceArray[index] getPlayerP];
                 if (player != nil) {
-                    [player close];
+                    [((id<Player>) player) close];
                     [progressCanvas addPortion:100 :self->soundStrings->CLOSING_SOUND :index];
                 }
             }

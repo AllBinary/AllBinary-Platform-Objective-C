@@ -16,7 +16,7 @@ void LevelLayersFinder_staticInit(void) {
         return;
     }
     initialized = true;
-    LevelLayersFinder_instance = [((LevelLayersFinder*) [LevelLayersFinder alloc]) init];
+    LevelLayersFinder_instance = ((LevelLayersFinder*) [((LevelLayersFinder*) [LevelLayersFinder alloc]) init]);
 }
 
 @implementation LevelLayersFinder
@@ -39,7 +39,7 @@ void LevelLayersFinder_staticInit(void) {
 
 - (BasicArrayList*) get:(ABHashtable*)hashtable {
         SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
-        BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         Enumeration* enumeration = [hashtable keys];
         ABHashtable* layerHashtableCanBeNull = nullptr;
         int32_t integerCanBeNull = 0;
@@ -48,8 +48,8 @@ void LevelLayersFinder_staticInit(void) {
             layerHashtableCanBeNull = ((ABHashtable*) [hashtable get:JAVA_BOX(((id) [self->enumerationUtil nextElement:enumeration]))]);
             integerCanBeNull = ((int32_t) [layerHashtableCanBeNull get:JAVA_BOX(((id) (Layer_staticInit(), Layer_ID)))]);
             cachedIntegerCanBeNull = [smallIntegerSingletonFactory getAt:((int32_t) (integerCanBeNull))];
-            if (![list contains:cachedIntegerCanBeNull]) {
-                [list add:cachedIntegerCanBeNull];
+            if (![list contains:JAVA_BOX(cachedIntegerCanBeNull)]) {
+                [list add:JAVA_BOX(cachedIntegerCanBeNull)];
             }
         }
         return list;

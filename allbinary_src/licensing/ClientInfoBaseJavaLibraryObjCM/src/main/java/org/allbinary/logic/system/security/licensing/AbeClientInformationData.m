@@ -10,7 +10,7 @@ void AbeClientInformationData_staticInit(void) {
         return;
     }
     initialized = true;
-    AbeClientInformationData_instance = [((AbeClientInformationData*) [AbeClientInformationData alloc]) init];
+    AbeClientInformationData_instance = ((AbeClientInformationData*) [((AbeClientInformationData*) [AbeClientInformationData alloc]) init]);
 }
 
 @implementation AbeClientInformationData

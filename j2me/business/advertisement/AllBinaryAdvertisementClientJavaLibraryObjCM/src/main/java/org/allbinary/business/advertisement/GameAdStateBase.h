@@ -50,7 +50,7 @@
 - (void) initFields;
 - (void) initViewArray:(id*)viewArray;
 - (void) onStart:(id)anyType;
-- (void) init_;
+- (void) initMethod;
 - (bool) isShowingAtLocation:(int32_t)location;
 - (bool) isShowingAt;
 - (void) show;

@@ -3,6 +3,9 @@
 #include "org/allbinary/logic/io/path/AbPathData.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
 
 
 static PATH_GLOBALS* PATH_GLOBALS_instance;
@@ -13,7 +16,7 @@ void PATH_GLOBALS_staticInit(void) {
         return;
     }
     initialized = true;
-    PATH_GLOBALS_instance = [((PATH_GLOBALS*) [PATH_GLOBALS alloc]) init];
+    PATH_GLOBALS_instance = ((PATH_GLOBALS*) [((PATH_GLOBALS*) [PATH_GLOBALS alloc]) init]);
 }
 
 @implementation PATH_GLOBALS
@@ -35,7 +38,7 @@ void PATH_GLOBALS_staticInit(void) {
 - (instancetype) init {
     self = [super init];
     [self initFields];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         AbPathData* abPathData = [AbPathData getInstance];
         [stringBuffer append:"data"];
         [stringBuffer append:abPathData->SEPARATOR];

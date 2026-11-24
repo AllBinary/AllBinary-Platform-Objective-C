@@ -14,6 +14,9 @@
 #include "org/allbinary/input/motion/button/TouchButtonDownResource.h"
 #include "org/allbinary/input/motion/button/TouchButtonTurnLeftResource.h"
 #include "org/allbinary/input/motion/button/TouchButtonTurnRightResource.h"
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
 
 
 
@@ -41,10 +44,10 @@ void BasicTouchButtonsBuilder_staticInit(void) {
 - (BasicArrayList*) getList {
         JAVA_TRY {
             [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->CONSTRUCTOR];
-            BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            BasicArrayList* list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             CommonButtons* commonButtons = [CommonButtons getInstance];
-            TouchButtonLocationHelper* touchButtonLocationHelper = [((TouchButtonLocationHelper*) [TouchButtonLocationHelper alloc]) init];
-            BasicTouchButtonCellPositionFactory* basicTouchButtonCellPositionFactory = [((BasicTouchButtonCellPositionFactory*) [BasicTouchButtonCellPositionFactory alloc]) init];
+            TouchButtonLocationHelper* touchButtonLocationHelper = ((TouchButtonLocationHelper*) [((TouchButtonLocationHelper*) [TouchButtonLocationHelper alloc]) init]);
+            BasicTouchButtonCellPositionFactory* basicTouchButtonCellPositionFactory = ((BasicTouchButtonCellPositionFactory*) [((BasicTouchButtonCellPositionFactory*) [BasicTouchButtonCellPositionFactory alloc]) init]);
             TouchButton* UP = [TouchButton createButton:[BasicTouchInputFactory getInstance]->UP :[TouchButtonUpResource getInstance] :commonButtons->NORMAL_BUTTON :basicTouchButtonCellPositionFactory->SECOND_FROM_BOTTOM_LEFT :[touchButtonLocationHelper getColumnsRemainderHalf] :[touchButtonLocationHelper getRowsRemainderHalf]];
             TouchButton* DOWN = [TouchButton createButton:[BasicTouchInputFactory getInstance]->DOWN :[TouchButtonDownResource getInstance] :commonButtons->NORMAL_BUTTON :basicTouchButtonCellPositionFactory->BOTTOM_LEFT :[touchButtonLocationHelper getColumnsRemainderHalf] :[touchButtonLocationHelper getRowsRemainderHalf]];
             TouchButton* LEFT = [TouchButton createButton:[BasicTouchInputFactory getInstance]->SPECIAL_BUTTON_FOUR :[TouchButtonTurnLeftResource getInstance] :commonButtons->NORMAL_BUTTON :basicTouchButtonCellPositionFactory->BOTTOM_SECOND_FROM_RIGHT :[touchButtonLocationHelper getColumnsRemainderHalf] :[touchButtonLocationHelper getRowsRemainderHalf]];

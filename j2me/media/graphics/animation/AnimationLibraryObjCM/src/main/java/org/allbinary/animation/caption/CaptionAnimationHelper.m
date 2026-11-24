@@ -11,6 +11,12 @@
 #include "org/allbinary/time/TimeDelayHelper.h"
 #include "org/allbinary/animation/caption/CaptionAnimationHelperBase.h"
 #include "org/allbinary/animation/caption/CaptionAnimation.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
 #if __has_include("org/allbinary/animation/caption/GameTickTimeDelayHelper.h")
 #include "org/allbinary/animation/caption/GameTickTimeDelayHelper.h"
 #endif
@@ -41,6 +47,9 @@
 #if __has_include("org/allbinary/time/GameTickTimeDelayHelper.h")
 #include "org/allbinary/time/GameTickTimeDelayHelper.h"
 #endif
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
 
 
 
@@ -55,8 +64,8 @@ void CaptionAnimationHelper_staticInit(void) {
 @implementation CaptionAnimationHelper
 
 - (void) initFields {
-    self->timeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:620];
-    self->textAnimation = [((TextAnimation*) [TextAnimation alloc]) init:[StringUtil getInstance]->EMPTY_STRING :[AnimationBehavior getInstance]];
+    self->timeHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:620]);
+    self->textAnimation = ((TextAnimation*) [((TextAnimation*) [TextAnimation alloc]) init:[StringUtil getInstance]->EMPTY_STRING :[AnimationBehavior getInstance]]);
     
     self->animation = [[NullAnimationFactory getFactoryInstance] getInstance:0];
 }
@@ -65,7 +74,7 @@ void CaptionAnimationHelper_staticInit(void) {
 - (instancetype) init:(Animation*)captionAnimation :(int32_t)captionDx :(int32_t)captionDy :(int32_t)dx :(int32_t)dy {
     self = [super init];
     [self initFields];
-        self->captionAnimation = [((CaptionAnimation*) [CaptionAnimation alloc]) init:captionAnimation :self->textAnimation :captionDx :captionDy :dx :dy];
+        self->captionAnimation = ((CaptionAnimation*) [((CaptionAnimation*) [CaptionAnimation alloc]) init:captionAnimation :self->textAnimation :captionDx :captionDy :dx :dy]);
     return self;
 }
 

@@ -13,7 +13,7 @@ void NullInputMappingEventListener_staticInit(void) {
         return;
     }
     initialized = true;
-    NullInputMappingEventListener_NULL_INPUT_MAPPING_EVENT_LISTENER = [((NullInputMappingEventListener*) [NullInputMappingEventListener alloc]) init];
+    NullInputMappingEventListener_NULL_INPUT_MAPPING_EVENT_LISTENER = ((NullInputMappingEventListener*) [((NullInputMappingEventListener*) [NullInputMappingEventListener alloc]) init]);
 }
 
 @implementation NullInputMappingEventListener

@@ -43,7 +43,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (GameOptionsFormFactory*) getInstance;
-- (CommandForm*) init_:(CommandListener*)commandListener :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor;
+- (CommandForm*) initMethod:(CommandListener*)commandListener :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

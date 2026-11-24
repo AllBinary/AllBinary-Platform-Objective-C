@@ -10,6 +10,48 @@
 #include "org/allbinary/graphics/draw/DrawStringUtil.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/game/displayable/canvas/GameCommandCanvas.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/paint/ColorFillPaintableFactory.h")
+#include "org/allbinary/game/paint/ColorFillPaintableFactory.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/canvas/Font.h")
+#include "org/allbinary/game/displayable/canvas/Font.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
+#if __has_include("org/allbinary/game/layer/Font.h")
+#include "org/allbinary/game/layer/Font.h"
+#endif
+#if __has_include("org/allbinary/game/paint/Font.h")
+#include "org/allbinary/game/paint/Font.h"
+#endif
+#if __has_include("org/allbinary/game/paint/Font.h")
+#include "org/allbinary/game/paint/Font.h"
+#endif
+#if __has_include("org/allbinary/graphics/Font.h")
+#include "org/allbinary/graphics/Font.h"
+#endif
+#if __has_include("org/allbinary/graphics/draw/Font.h")
+#include "org/allbinary/graphics/draw/Font.h"
+#endif
+#if __has_include("org/allbinary/logic/string/Font.h")
+#include "org/allbinary/logic/string/Font.h"
+#endif
 
 
 Command* GameInputMappingInstructionsCanvas_DISPLAY;
@@ -22,8 +64,8 @@ void GameInputMappingInstructionsCanvas_staticInit(void) {
         return;
     }
     initialized = true;
-    GameInputMappingInstructionsCanvas_DISPLAY = [((Command*) [Command alloc]) init:"Help" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1];
-    GameInputMappingInstructionsCanvas_CLOSE = [((Command*) [Command alloc]) init:"Close" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1];
+    GameInputMappingInstructionsCanvas_DISPLAY = ((Command*) [((Command*) [Command alloc]) init:"Help" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1]);
+    GameInputMappingInstructionsCanvas_CLOSE = ((Command*) [((Command*) [Command alloc]) init:"Close" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1]);
 }
 
 @implementation GameInputMappingInstructionsCanvas

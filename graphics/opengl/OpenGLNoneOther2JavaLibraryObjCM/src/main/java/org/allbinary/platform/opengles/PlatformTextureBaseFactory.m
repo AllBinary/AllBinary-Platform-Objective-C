@@ -13,7 +13,7 @@ void PlatformTextureBaseFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    PlatformTextureBaseFactory_NULL_PLATFORM_TEXTURE_BASE_FACTORY = [((PlatformTextureBaseFactory*) [PlatformTextureBaseFactory alloc]) init];
+    PlatformTextureBaseFactory_NULL_PLATFORM_TEXTURE_BASE_FACTORY = ((PlatformTextureBaseFactory*) [((PlatformTextureBaseFactory*) [PlatformTextureBaseFactory alloc]) init]);
 }
 
 @implementation PlatformTextureBaseFactory
@@ -29,7 +29,7 @@ void PlatformTextureBaseFactory_staticInit(void) {
 }
 
 
-- (void) load_:(GL10*)gl :(int32_t)target :(int32_t)level :(Image*)image :(int32_t)border :(bool)flip {
+- (void) loadMethod:(GL10*)gl :(int32_t)target :(int32_t)level :(Image*)image :(int32_t)border :(bool)flip {
 }
 
 @end

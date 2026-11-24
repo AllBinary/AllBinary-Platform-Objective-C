@@ -6,6 +6,45 @@
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/combat/weapon/SimpleWeaponProperties.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 WeaponProperties* WeaponProperties_NULL_WEAPON_PROPERTIES;
@@ -20,7 +59,7 @@ void WeaponProperties_staticInit(void) {
         return;
     }
     initialized = true;
-    WeaponProperties_NULL_WEAPON_PROPERTIES = [((WeaponProperties*) [WeaponProperties alloc]) init:0LL :0LL :0LL :0 :((int16_t) 0)];
+    WeaponProperties_NULL_WEAPON_PROPERTIES = ((WeaponProperties*) [((WeaponProperties*) [WeaponProperties alloc]) init:0LL :0LL :0LL :0 :((int16_t) 0)]);
 }
 
 @implementation WeaponProperties
@@ -40,14 +79,14 @@ void WeaponProperties_staticInit(void) {
         if (speed < self->MAX && speed != 0LL && !WeaponProperties_messageSent) {
             const char* MESSAGE = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
             CommonStrings* commonStrings = [CommonStrings getInstance];
-            [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:MESSAGE] appendlong:speed] toString] :self :commonStrings->CONSTRUCTOR];
+            [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:MESSAGE] appendlong:speed] toString] :self :commonStrings->CONSTRUCTOR];
             WeaponProperties_messageSent = true;
         }
         [self setReloadTime:reloadTime];
         [self setTargetingTime:targetingTime];
         [self setDamage:damage];
         [self setDissipation:dissipation];
-        [self setSpeed:[((BasicDecimal*) [BasicDecimal alloc]) init:speed]];
+        [self setSpeed:((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:speed])];
         if (dissipation != self->ZERO) {
             int64_t unscaledDamage = [self->speed getUnscaled] * ((int64_t) damage);
             int32_t scaledDissipation = ((int32_t) dissipation) * [self->speed getScaledFactorValue];
@@ -89,17 +128,17 @@ void WeaponProperties_staticInit(void) {
 
 
 - (int32_t) getDamageI:(int32_t)range {
-        return [self getDamage] - (([self getDissipation] * range) / [self->speed getScaled]);
+        return [self getDamage] - ((((int32_t) [self getDissipation]) * range) / [self->speed getScaled]);
 }
 
 
 - (const char**) toStringArray {
         int32_t index = 0;
         const char** stringArray = ((const char**) java_array_new(sizeof(const char*), 3));
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
-        stringArray[index++] = [[[stringBuffer append:WeaponProperties_DAMAGE] appendint:((int32_t) [self getDamage])] toString];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
+        stringArray[index++] = [[[stringBuffer append:WeaponProperties_DAMAGE] appendint:[self getDamage]] toString];
         [stringBuffer delete:0 :[stringBuffer length]];
-        stringArray[index++] = [[[stringBuffer append:WeaponProperties_RANGE] appendint:((int32_t) [self getRange])] toString];
+        stringArray[index++] = [[[stringBuffer append:WeaponProperties_RANGE] appendint:[self getRange]] toString];
         [stringBuffer delete:0 :[stringBuffer length]];
         stringArray[index++] = [[[stringBuffer append:WeaponProperties_RELOAD] appendlong:[self getReloadTime]] toString];
         return stringArray;
@@ -107,10 +146,10 @@ void WeaponProperties_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
-        [[stringBuffer append:WeaponProperties_DAMAGE] appendint:((int32_t) [self getDamage])];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
+        [[stringBuffer append:WeaponProperties_DAMAGE] appendint:[self getDamage]];
         [stringBuffer append:[CommonSeps getInstance]->SPACE];
-        [[stringBuffer append:WeaponProperties_RANGE] appendint:((int32_t) [self getRange])];
+        [[stringBuffer append:WeaponProperties_RANGE] appendint:[self getRange]];
         [stringBuffer append:[CommonSeps getInstance]->SPACE];
         [[stringBuffer append:WeaponProperties_RELOAD] appendlong:[self getReloadTime]];
         return [stringBuffer toString];

@@ -13,7 +13,7 @@ void ShaderManager_staticInit(void) {
         return;
     }
     initialized = true;
-    ShaderManager_instance = [((ShaderManager*) [ShaderManager alloc]) init:-1 :-1];
+    ShaderManager_instance = ((ShaderManager*) [((ShaderManager*) [ShaderManager alloc]) init:-1 :-1]);
 }
 
 @implementation ShaderManager
@@ -40,7 +40,7 @@ void ShaderManager_staticInit(void) {
 }
 
 
-- (int32_t) load_:(GL10*)gl :(const char*)resource :(const char**)shaderAsStringArray :(int32_t)shaderType {
+- (int32_t) loadMethod:(GL10*)gl :(const char*)resource :(const char**)shaderAsStringArray :(int32_t)shaderType {
         return -1;
 }
 

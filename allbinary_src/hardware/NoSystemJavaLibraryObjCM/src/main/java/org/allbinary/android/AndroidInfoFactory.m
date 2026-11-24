@@ -10,7 +10,7 @@ void AndroidInfoFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    AndroidInfoFactory_instance = [((AndroidInfoFactory*) [AndroidInfoFactory alloc]) init];
+    AndroidInfoFactory_instance = ((AndroidInfoFactory*) [((AndroidInfoFactory*) [AndroidInfoFactory alloc]) init]);
 }
 
 @implementation AndroidInfoFactory

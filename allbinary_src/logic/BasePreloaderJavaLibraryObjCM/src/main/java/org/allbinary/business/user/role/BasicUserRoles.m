@@ -13,13 +13,13 @@ void BasicUserRoles_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicUserRoles_instance = [((BasicUserRoles*) [BasicUserRoles alloc]) init];
+    BasicUserRoles_instance = ((BasicUserRoles*) [((BasicUserRoles*) [BasicUserRoles alloc]) init]);
 }
 
 @implementation BasicUserRoles
 
 - (void) initFields {
-    self->roleVector = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->roleVector = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 - (instancetype) init {

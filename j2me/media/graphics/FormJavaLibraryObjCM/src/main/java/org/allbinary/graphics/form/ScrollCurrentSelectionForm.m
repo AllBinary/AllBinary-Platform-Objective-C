@@ -33,7 +33,7 @@ void ScrollCurrentSelectionForm_staticInit(void) {
 
 - (void) initFields {
     
-    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->updateMyFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->myFontProcessor = self->updateMyFontProcessor;
     self->processor = [Processor getInstance];
     self->preItemIndexDx = [ItemIndexDx getInstance];
@@ -52,18 +52,18 @@ void ScrollCurrentSelectionForm_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(Rectangle*)rectangle :(FormType*)formType {
-        [super init_:rectangle :formType];
+- (void) initMethod:(Rectangle*)rectangle :(FormType*)formType {
+        [super initMethod:rectangle :formType];
         FormTypeFactory* formTypeFactory = [FormTypeFactory getInstance];
         if (formType == formTypeFactory->TEMP_HORIZONTAL_FORM) {
-            self->processor = [((TempHorizontalFormProcessor*) [TempHorizontalFormProcessor alloc]) init:self];
-            self->preItemIndexDx = [((TempHorizontalItemIndexDx*) [TempHorizontalItemIndexDx alloc]) init:self];
+            self->processor = ((TempHorizontalFormProcessor*) [((TempHorizontalFormProcessor*) [TempHorizontalFormProcessor alloc]) init:self]);
+            self->preItemIndexDx = ((TempHorizontalItemIndexDx*) [((TempHorizontalItemIndexDx*) [TempHorizontalItemIndexDx alloc]) init:self]);
         } else if (formType == formTypeFactory->HORIZONTAL_FORM) {
-            self->processor = [((HorizontalFormProcessor*) [HorizontalFormProcessor alloc]) init:self];
-            self->preItemIndexDx = [((HorizontalItemIndexDx*) [HorizontalItemIndexDx alloc]) init:self];
+            self->processor = ((HorizontalFormProcessor*) [((HorizontalFormProcessor*) [HorizontalFormProcessor alloc]) init:self]);
+            self->preItemIndexDx = ((HorizontalItemIndexDx*) [((HorizontalItemIndexDx*) [HorizontalItemIndexDx alloc]) init:self]);
         } else if (formType == formTypeFactory->VERTICAL_CENTER_FORM) {
-            self->processor = [((VerticalFormProcessor*) [VerticalFormProcessor alloc]) init:self];
-            self->preItemIndexDx = [((VerticalItemIndexDx*) [VerticalItemIndexDx alloc]) init:self];
+            self->processor = ((VerticalFormProcessor*) [((VerticalFormProcessor*) [VerticalFormProcessor alloc]) init:self]);
+            self->preItemIndexDx = ((VerticalItemIndexDx*) [((VerticalItemIndexDx*) [VerticalItemIndexDx alloc]) init:self]);
         } else if (formType == formTypeFactory->NULL_FORM_TYPE) {
         } else {
             [self->logUtil putF:formTypeFactory->UNK :self :self->commonStrings->INIT];

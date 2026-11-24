@@ -5,6 +5,24 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static id ResourceUtil_classLoader;
@@ -17,7 +35,7 @@ void ResourceUtil_staticInit(void) {
     }
     initialized = true;
     ResourceUtil_classLoader = [NullUtil getInstance]->NULL_OBJECT;
-    ResourceUtil_instance = [((ResourceUtil*) [ResourceUtil alloc]) init];
+    ResourceUtil_instance = ((ResourceUtil*) [((ResourceUtil*) [ResourceUtil alloc]) init]);
 }
 
 @implementation ResourceUtil
@@ -45,7 +63,7 @@ void ResourceUtil_staticInit(void) {
 
 
 - (void) setClassLoader:(ClassLoader*)classLoader {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Resource Loader: "] append:java_objc_class_name(classLoader)] toString] :self :"setClassLoader"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Resource Loader: "] append:java_objc_class_name(classLoader)] toString] :self :"setClassLoader"];
         ResourceUtil_classLoader = classLoader;
 }
 
@@ -56,7 +74,7 @@ void ResourceUtil_staticInit(void) {
         if (inputStream == nil) {
             inputStream = [self getResourceAsStreamAtStart:resource :1];
             if (inputStream == nil) {
-                java_throw(java_exception_new("Exception", [[[[((StringMaker*) [StringMaker alloc]) init] append:"Unable to obtain: "] append:resource] toString]));
+                java_throw(java_exception_new("Exception", [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Unable to obtain: "] append:resource] toString]));
             }
         }
         return inputStream;

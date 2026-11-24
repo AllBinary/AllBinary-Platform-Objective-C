@@ -8,6 +8,24 @@
 #include "org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.h"
 #include "org/allbinary/graphics/color/BasicColor.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.h")
+#include "org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.h")
+#include "org/allbinary/game/configuration/feature/InGameFeatureChoiceGroups.h"
+#endif
+#if __has_include("org/allbinary/game/commands/GameCommandsFactory.h")
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#endif
 
 
 Command* InGameOptionsForm_DISPLAY;
@@ -20,9 +38,9 @@ void InGameOptionsForm_staticInit(void) {
         return;
     }
     initialized = true;
-    InGameOptionsForm_DISPLAY = [((Command*) [Command alloc]) init:"Options In Game" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1];
-    InGameOptionsForm_SAVE = [((Command*) [Command alloc]) init:"Save" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1];
-    InGameOptionsForm_DEFAULT = [((Command*) [Command alloc]) init:"Default" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1];
+    InGameOptionsForm_DISPLAY = ((Command*) [((Command*) [Command alloc]) init:"Options In Game" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1]);
+    InGameOptionsForm_SAVE = ((Command*) [((Command*) [Command alloc]) init:"Save" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1]);
+    InGameOptionsForm_DEFAULT = ((Command*) [((Command*) [Command alloc]) init:"Default" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1]);
 }
 
 @implementation InGameOptionsForm

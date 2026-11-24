@@ -1,6 +1,9 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/graphics/form/item/validation/AllCommandsVisitor.h"
 #include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
 
 
 
@@ -22,7 +25,7 @@ void AllCommandsVisitor_staticInit(void) {
 
 
 - (id) visit:(id)anyType {
-        return [BooleanFactory getInstance]->TRUE;
+        return JAVA_BOX([BooleanFactory getInstance]->TRUE);
 }
 
 @end

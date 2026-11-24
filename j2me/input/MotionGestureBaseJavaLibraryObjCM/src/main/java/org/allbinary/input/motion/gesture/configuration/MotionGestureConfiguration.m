@@ -7,6 +7,12 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 
@@ -28,7 +34,7 @@ void MotionGestureConfiguration_staticInit(void) {
     self->color = [BasicColorFactory getInstance]->BLUE;
     self->executingActions = true;
     self->mouseButtonMask = 0;
-    self->activeCommands = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->activeCommands = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -40,7 +46,7 @@ void MotionGestureConfiguration_staticInit(void) {
 
 
 - (void) addMotionGestureAction:(BasicArrayList*)list :(CompleteMotionGestureInputEvent*)commandAction {
-        [self->activeCommands add:[((MotionGestureToMotionGestureActionAssociation*) [MotionGestureToMotionGestureActionAssociation alloc]) init:list :commandAction]];
+        [self->activeCommands add:((MotionGestureToMotionGestureActionAssociation*) [((MotionGestureToMotionGestureActionAssociation*) [MotionGestureToMotionGestureActionAssociation alloc]) init:list :commandAction])];
 }
 
 

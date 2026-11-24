@@ -14,6 +14,36 @@
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
+#if __has_include("org/allbinary/layer/event/LayerManagerEventHandler.h")
+#include "org/allbinary/layer/event/LayerManagerEventHandler.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/game/identification/Group.h")
+#include "org/allbinary/game/identification/Group.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/game/identification/Group.h")
+#include "org/allbinary/game/identification/Group.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
 
 
 static GroupLayerManagerListener* GroupLayerManagerListener_SINGLETON;
@@ -24,14 +54,14 @@ void GroupLayerManagerListener_staticInit(void) {
         return;
     }
     initialized = true;
-    GroupLayerManagerListener_SINGLETON = [((GroupLayerManagerListener*) [GroupLayerManagerListener alloc]) init];
+    GroupLayerManagerListener_SINGLETON = ((GroupLayerManagerListener*) [((GroupLayerManagerListener*) [GroupLayerManagerListener alloc]) init]);
 }
 
 @implementation GroupLayerManagerListener
 
 - (void) initFields {
     self->logUtil = [LogUtil getInstance];
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -59,7 +89,7 @@ void GroupLayerManagerListener_staticInit(void) {
 
 
 - (int32_t) getGroupSizeFromInterface:(GroupInterfaceCompositeInterface*)groupInterfaceCompositeInterface {
-        Group** groupInterfaceArray = [groupInterfaceCompositeInterface getGroupInterface];
+        Group** groupInterfaceArray = [((id<GroupInterfaceCompositeInterface>) groupInterfaceCompositeInterface) getGroupInterface];
         return [self getGroupSize:groupInterfaceArray[0]];
 }
 
@@ -96,7 +126,7 @@ void GroupLayerManagerListener_staticInit(void) {
             if (id_ != index) {
                 int32_t groupSize = [self getGroupSizeById:index];
                 if (groupSize != 0) {
-                    [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Group Size: "] appendint:groupSize] toString] :self :"areAllOtherGroupsEmpty"];
+                    [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Group Size: "] appendint:groupSize] toString] :self :"areAllOtherGroupsEmpty"];
                     return false;
                 }
             }
@@ -139,9 +169,9 @@ void GroupLayerManagerListener_staticInit(void) {
 }
 
 
-- (void) init_:(int32_t)total {
+- (void) initMethod:(int32_t)total {
         while ([self->list size] <= total + 1) {
-            [self->list add:[((BasicArrayListD*) [BasicArrayListD alloc]) init]];
+            [self->list add:((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init])];
         }
 }
 
@@ -162,7 +192,7 @@ void GroupLayerManagerListener_staticInit(void) {
             id_ = ((int32_t) [groupInterfaceArray[index] getGroupId]);
             groupList = ((BasicArrayList*) self->list->objectArray[id_]);
             if (groupList == nil) {
-                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"id: "] appendint:id_] toString] :self :"onCreateLayerManagerEvent"];
+                [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"id: "] appendint:id_] toString] :self :"onCreateLayerManagerEvent"];
             }
             if (![groupList contains:layerInterface]) {
                 [groupList add:layerInterface];
@@ -188,7 +218,7 @@ void GroupLayerManagerListener_staticInit(void) {
 
 
 - (void) log {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         const char* GROUP = "Group: ";
         const char* SPACE = [CommonSeps getInstance]->SPACE;
         const char* TOTAL_LABEL = [CommonLabels getInstance]->TOTAL_LABEL;

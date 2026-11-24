@@ -51,7 +51,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-+ (void) init_;
++ (void) initMethod;
 + (TerrainEventHandler*) getInstance:(id)anyType;
 - (void) addListener:(TerrainEventListener*)terrainEventListener;
 - (void) removeAllListeners;

@@ -17,6 +17,36 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/time/TimeDelayHelper.h"
 #include "org/allbinary/input/motion/button/TouchButtonsMappingPaintable.h"
+#if __has_include("org/allbinary/game/input/CompleteMotionGestureInputEventHandler.h")
+#include "org/allbinary/game/input/CompleteMotionGestureInputEventHandler.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TouchMotionGestureFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/input/CompleteMotionGestureInputEventHandler.h")
+#include "org/allbinary/game/input/CompleteMotionGestureInputEventHandler.h"
+#endif
 
 
 
@@ -35,7 +65,7 @@ void TouchButtonsPaintableComposite_staticInit(void) {
     self->commonStrings = [CommonStrings getInstance];
     
     
-    self->timeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:250];
+    self->timeHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:250]);
     self->released = true;
     self->METHOD_NAME = "onCompleteMotionGestureInputEvent";
     self->RELEASE = "Ignoring: MotionGestureInput Release";
@@ -49,7 +79,7 @@ void TouchButtonsPaintableComposite_staticInit(void) {
     [self initFields];
         self->inputMappingInterface = inputMappingInterface;
         [[CompleteMotionGestureInputEventHandler getInstance] addListenerInterface:self];
-        self->touchButtonsPaintable = [((TouchButtonsMappingPaintable*) [TouchButtonsMappingPaintable alloc]) init:basicColor];
+        self->touchButtonsPaintable = ((TouchButtonsMappingPaintable*) [((TouchButtonsMappingPaintable*) [TouchButtonsMappingPaintable alloc]) init:basicColor]);
     return self;
 }
 
@@ -80,8 +110,8 @@ void TouchButtonsPaintableComposite_staticInit(void) {
                 return;
             }
             self->released = false;
-            [self->logUtil putF:[[[[[[((StringMaker*) [StringMaker alloc]) init] append:"GameKey: "] append:[[StringUtil getInstance] toString:gameKey]] append:" MotionGestureInput: "] append:[[StringUtil getInstance] toString:motionGestureInput]] toString] :self :self->METHOD_NAME];
-            [self->inputMappingInterface processInputMapping:gameKey :motionGestureInput];
+            [self->logUtil putF:[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"GameKey: "] append:[[StringUtil getInstance] toString:gameKey]] append:" MotionGestureInput: "] append:[[StringUtil getInstance] toString:motionGestureInput]] toString] :self :self->METHOD_NAME];
+            [((id<InputMappingInterface>) self->inputMappingInterface) processInputMapping:gameKey :motionGestureInput];
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :self->METHOD_NAME :e];
         } JAVA_END_TRY;

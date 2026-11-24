@@ -12,15 +12,15 @@ void LogConfigTypeFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    LogConfigTypeFactory_instance = [((LogConfigTypeFactory*) [LogConfigTypeFactory alloc]) init];
+    LogConfigTypeFactory_instance = ((LogConfigTypeFactory*) [((LogConfigTypeFactory*) [LogConfigTypeFactory alloc]) init]);
 }
 
 @implementation LogConfigTypeFactory
 
 - (void) initFields {
     self->NO_DESCRIPTION = "No Description";
-    self->OS = [((LogConfigType*) [LogConfigType alloc]) init:"Operating System" :self->NO_DESCRIPTION];
-    self->FACTORYERROR = [((LogConfigType*) [LogConfigType alloc]) init:"Factory Error" :self->NO_DESCRIPTION];
+    self->OS = ((LogConfigType*) [((LogConfigType*) [LogConfigType alloc]) init:"Operating System" :self->NO_DESCRIPTION]);
+    self->FACTORYERROR = ((LogConfigType*) [((LogConfigType*) [LogConfigType alloc]) init:"Factory Error" :self->NO_DESCRIPTION]);
 }
 
 

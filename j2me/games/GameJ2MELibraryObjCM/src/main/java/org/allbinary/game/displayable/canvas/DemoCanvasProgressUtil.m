@@ -35,7 +35,7 @@ void DemoCanvasProgressUtil_staticInit(void) {
         PaintableInterface** paintableArray = ((PaintableInterface**) java_array_new(sizeof(PaintableInterface*), 2));
         paintableArray[0] = progressCanvas;
         paintableArray[1] = [demoCanvas getDefaultPaintableInterface];
-        [demoCanvas setDefaultPaintableInterface:[((PaintableComposite*) [PaintableComposite alloc]) init:paintableArray]];
+        [demoCanvas setDefaultPaintableInterface:((PaintableComposite*) [((PaintableComposite*) [PaintableComposite alloc]) init:paintableArray])];
         [demoCanvas setPaintableInterface:[demoCanvas getDefaultPaintableInterface]];
 }
 

@@ -11,7 +11,7 @@ void ScreenCaptureNoneFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ScreenCaptureNoneFactory_instance = [((ScreenCapture*) [ScreenCapture alloc]) init];
+    ScreenCaptureNoneFactory_instance = ((ScreenCapture*) [((ScreenCapture*) [ScreenCapture alloc]) init]);
 }
 
 @implementation ScreenCaptureNoneFactory

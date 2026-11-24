@@ -45,7 +45,7 @@
 + (bool) isMuted;
 + (void) setMuted:(bool)aMuted;
 + (bool) update;
-+ (void) init_:(SoundsFactoryInterface*)soundsFactoryInterface;
++ (void) initMethod:(SoundsFactoryInterface*)soundsFactoryInterface;
 + (void) shutdown:(SoundsFactoryInterface*)soundsFactoryInterface;
 + (Player*) createPlayerFromInputStream:(InputStream*)stream :(const char*)type;
 + (Player*) createPlayer:(const char*)locator;

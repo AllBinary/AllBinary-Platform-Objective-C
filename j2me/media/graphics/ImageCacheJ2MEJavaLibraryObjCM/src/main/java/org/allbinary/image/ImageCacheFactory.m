@@ -11,7 +11,7 @@ void ImageCacheFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageCacheFactory_IMAGE_CACHE = [((ImageCache*) [ImageCache alloc]) init];
+    ImageCacheFactory_IMAGE_CACHE = ((ImageCache*) [((ImageCache*) [ImageCache alloc]) init]);
 }
 
 @implementation ImageCacheFactory
@@ -27,7 +27,7 @@ void ImageCacheFactory_staticInit(void) {
 }
 
 
-+ (void) init_ {
++ (void) initMethod {
 }
 
 @end

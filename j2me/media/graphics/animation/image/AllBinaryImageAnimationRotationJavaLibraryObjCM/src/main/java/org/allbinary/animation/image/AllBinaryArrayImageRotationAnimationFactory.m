@@ -12,6 +12,24 @@
 #include "org/allbinary/animation/image/BaseImageAnimationFactory.h"
 #include "org/allbinary/animation/image/ImageArrayRotationAnimation.h"
 #include "org/allbinary/animation/image/AdjustedImageArrayRotationAnimation.h"
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/GameConfigurationCentral.h")
+#include "org/allbinary/game/configuration/GameConfigurationCentral.h"
+#endif
+#if __has_include("org/allbinary/media/image/ImageToRotationImageArrayUtil.h")
+#include "org/allbinary/media/image/ImageToRotationImageArrayUtil.h"
+#endif
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
 
 
 
@@ -33,7 +51,7 @@ void AllBinaryArrayImageRotationAnimationFactory_staticInit(void) {
 
 // throws Exception
 + (AllBinaryArrayImageRotationAnimationFactory*) createFactory:(Image*)image :(int32_t)dx :(int32_t)dy {
-        AllBinaryArrayImageRotationAnimationFactory* arrayImageRotationAnimationFactory = [((AllBinaryArrayImageRotationAnimationFactory*) [AllBinaryArrayImageRotationAnimationFactory alloc]) init:image :[image getWidth] :[image getHeight] :((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE) / [[GameConfigurationCentral getInstance] getGameControlFidelity] :[AnimationBehaviorFactory getInstance]];
+        AllBinaryArrayImageRotationAnimationFactory* arrayImageRotationAnimationFactory = ((AllBinaryArrayImageRotationAnimationFactory*) [((AllBinaryArrayImageRotationAnimationFactory*) [AllBinaryArrayImageRotationAnimationFactory alloc]) init:image :[image getWidth] :[image getHeight] :((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE) / [[GameConfigurationCentral getInstance] getGameControlFidelity] :[AnimationBehaviorFactory getInstance]]);
         [arrayImageRotationAnimationFactory initDXY:dx :dy];
         return arrayImageRotationAnimationFactory;
 }
@@ -41,7 +59,7 @@ void AllBinaryArrayImageRotationAnimationFactory_staticInit(void) {
 
 // throws Exception
 + (AllBinaryArrayImageRotationAnimationFactory*) createFactoryA:(Image*)image :(int32_t)dx :(int32_t)dy :(int32_t)angleIncrement {
-        AllBinaryArrayImageRotationAnimationFactory* arrayImageRotationAnimationFactory = [((AllBinaryArrayImageRotationAnimationFactory*) [AllBinaryArrayImageRotationAnimationFactory alloc]) init:image :[image getWidth] :[image getHeight] :angleIncrement :[AnimationBehaviorFactory getInstance]];
+        AllBinaryArrayImageRotationAnimationFactory* arrayImageRotationAnimationFactory = ((AllBinaryArrayImageRotationAnimationFactory*) [((AllBinaryArrayImageRotationAnimationFactory*) [AllBinaryArrayImageRotationAnimationFactory alloc]) init:image :[image getWidth] :[image getHeight] :angleIncrement :[AnimationBehaviorFactory getInstance]]);
         [arrayImageRotationAnimationFactory initDXY:dx :dy];
         return arrayImageRotationAnimationFactory;
 }
@@ -51,13 +69,13 @@ void AllBinaryArrayImageRotationAnimationFactory_staticInit(void) {
         self = [super init:image :[PrimitiveIntUtil getArrayInstance] :width :height :0 :0 :animationBehaviorFactory];
         [self initFields];
         self->angleIncrement = angleIncrement;
-        [self init_];
+        [self initMethod];
     return self;
 }
 
 
 // throws Exception
-- (void) init_ {
+- (void) initMethod {
         [self setImageArray:[[ImageToRotationImageArrayUtil getInstance] generate:[self getImage] :[self getAngleIncrement] :((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE)]];
 }
 
@@ -80,9 +98,9 @@ void AllBinaryArrayImageRotationAnimationFactory_staticInit(void) {
         }
         if (self->animationFactoryInitializationVisitor->dx != 0 || self->animationFactoryInitializationVisitor->dy != 0) {
             [self->animationFactoryImageScaleUtil processAdjust:self];
-            return [((AdjustedImageArrayRotationAnimation*) [AdjustedImageArrayRotationAnimation alloc]) init:scaledImageArray :[AngleInfo getInstance:((int16_t) [self getAngleIncrement])] :((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE) :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((AdjustedImageArrayRotationAnimation*) [((AdjustedImageArrayRotationAnimation*) [AdjustedImageArrayRotationAnimation alloc]) init:scaledImageArray :[AngleInfo getInstance:((int16_t) [self getAngleIncrement])] :((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE) :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]]);
         } else {
-            return [((ImageArrayRotationAnimation*) [ImageArrayRotationAnimation alloc]) init:scaledImageArray :[AngleInfo getInstance:((int16_t) [self getAngleIncrement])] :((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE) :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((ImageArrayRotationAnimation*) [((ImageArrayRotationAnimation*) [ImageArrayRotationAnimation alloc]) init:scaledImageArray :[AngleInfo getInstance:((int16_t) [self getAngleIncrement])] :((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE) :[self->animationBehaviorFactory getOrCreateInstance]]);
         }
 }
 

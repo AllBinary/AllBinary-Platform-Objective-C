@@ -33,9 +33,11 @@
 @class CommonSeps;
 @class CommonStrings;
 @class AppUrlGlobals;
+@class URLGLOBALS;
 #if __has_include("org/allbinary/logic/communication/log/LogUtil.h")
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #endif
+#include "java/lang/ClassLoader.h"
 
 @interface Globals : ABObject {
 @public
@@ -44,7 +46,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (Globals*) getInstance;
-- (void) init_:(ClassLoader*)classLoader :(const char*)pathString;
+- (void) initMethod:(ClassLoader*)classLoader :(const char*)pathString;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

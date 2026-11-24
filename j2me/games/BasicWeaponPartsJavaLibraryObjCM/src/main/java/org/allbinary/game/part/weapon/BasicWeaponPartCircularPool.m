@@ -16,7 +16,7 @@ void BasicWeaponPartCircularPool_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicWeaponPartCircularPool_NULL_BASIC_WEAPON_PART_CIRCULAR_POOL = [((BasicWeaponPartCircularPool*) [BasicWeaponPartCircularPool alloc]) init];
+    BasicWeaponPartCircularPool_NULL_BASIC_WEAPON_PART_CIRCULAR_POOL = ((BasicWeaponPartCircularPool*) [((BasicWeaponPartCircularPool*) [BasicWeaponPartCircularPool alloc]) init]);
 }
 
 @implementation BasicWeaponPartCircularPool
@@ -33,15 +33,15 @@ void BasicWeaponPartCircularPool_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(BasicWeaponPartFactoryInterface*)basicWeaponPartFactoryInterface {
-        self->basicWeaponPart = [basicWeaponPartFactoryInterface getInstance];
+- (void) initMethod:(BasicWeaponPartFactoryInterface*)basicWeaponPartFactoryInterface {
+        self->basicWeaponPart = [((id<BasicWeaponPartFactoryInterface>) basicWeaponPartFactoryInterface) getInstance];
 }
 
 
 // throws Exception
 // synchronized
 - (BasicWeaponPart*) getInstance:(AllBinaryLayer*)sourceLayerInterface :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreableInterface :(RelativeRelationship*)relativeRelationship {
-        [self->basicWeaponPart init_:sourceLayerInterface :weaponProperties :scoreableInterface :relativeRelationship];
+        [self->basicWeaponPart initMethod:sourceLayerInterface :weaponProperties :scoreableInterface :relativeRelationship];
         return self->basicWeaponPart;
 }
 

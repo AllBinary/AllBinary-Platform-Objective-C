@@ -10,7 +10,7 @@ void GDResources_staticInit(void) {
         return;
     }
     initialized = true;
-    GDResources_instance = [((GDResources*) [GDResources alloc]) init];
+    GDResources_instance = ((GDResources*) [((GDResources*) [GDResources alloc]) init]);
 }
 
 @implementation GDResources

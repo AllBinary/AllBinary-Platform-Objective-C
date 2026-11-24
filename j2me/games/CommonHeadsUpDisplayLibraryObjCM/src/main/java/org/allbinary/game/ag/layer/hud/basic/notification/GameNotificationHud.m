@@ -9,6 +9,18 @@
 #include "org/allbinary/logic/util/event/AllBinaryEventObject.h"
 #include "org/allbinary/logic/util/event/EventStrings.h"
 #include "org/allbinary/game/ag/layer/hud/basic/notification/GameNotification.h"
+#if __has_include("org/allbinary/game/graphics/hud/BasicHudFactory.h")
+#include "org/allbinary/game/graphics/hud/BasicHudFactory.h"
+#endif
+#if __has_include("org/allbinary/game/graphics/hud/BasicHudFactory.h")
+#include "org/allbinary/game/graphics/hud/BasicHudFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 GameNotificationHud* GameNotificationHud_NULL_GAME_NOTIFICATION;
@@ -19,7 +31,7 @@ void GameNotificationHud_staticInit(void) {
         return;
     }
     initialized = true;
-    GameNotificationHud_NULL_GAME_NOTIFICATION = [((GameNotificationHud*) [GameNotificationHud alloc]) init:[BasicHudFactory getInstance]->TOPCENTER :[BasicHudFactory getInstance]->HORIZONTAL :0 :[BasicColorFactory getInstance]->RED];
+    GameNotificationHud_NULL_GAME_NOTIFICATION = ((GameNotificationHud*) [((GameNotificationHud*) [GameNotificationHud alloc]) init:[BasicHudFactory getInstance]->TOPCENTER :[BasicHudFactory getInstance]->HORIZONTAL :0 :[BasicColorFactory getInstance]->RED]);
 }
 
 @implementation GameNotificationHud

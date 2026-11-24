@@ -10,7 +10,7 @@ void Processor_staticInit(void) {
         return;
     }
     initialized = true;
-    Processor_SINGLETON = [((Processor*) [Processor alloc]) init];
+    Processor_SINGLETON = ((Processor*) [((Processor*) [Processor alloc]) init]);
 }
 
 @implementation Processor

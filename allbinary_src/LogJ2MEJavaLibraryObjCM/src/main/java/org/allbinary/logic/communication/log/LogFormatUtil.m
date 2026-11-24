@@ -7,6 +7,12 @@
 #include "org/allbinary/string/CommonLabels.h"
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/time/TimeStampUtil.h"
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static LogFormatUtil* LogFormatUtil_instance;
@@ -17,7 +23,7 @@ void LogFormatUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    LogFormatUtil_instance = [((LogFormatUtil*) [LogFormatUtil alloc]) init];
+    LogFormatUtil_instance = ((LogFormatUtil*) [((LogFormatUtil*) [LogFormatUtil alloc]) init]);
 }
 
 @implementation LogFormatUtil
@@ -71,7 +77,7 @@ void LogFormatUtil_staticInit(void) {
 
 
 - (StringMaker*) getF:(const char*)className :(const char*)functionName {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:self->TIME];
         [stringBuffer append:[self->timeStampUtil getAsString]];
         [stringBuffer append:self->CLASS_NAME];
@@ -84,7 +90,7 @@ void LogFormatUtil_staticInit(void) {
 
 - (const char*) getO:(id)exception {
         if (exception != self->nullUtil->NULL_OBJECT) {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:self->LOG_ERROR];
             const char* exceptionAsString = [exception toString];
             [stringBuffer append:exceptionAsString];

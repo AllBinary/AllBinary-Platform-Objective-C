@@ -5,6 +5,9 @@
 #include "org/allbinary/layer/AllBinaryLayerManager.h"
 #include "org/allbinary/android/input/motion/AnalogControllerVisitor.h"
 #include "org/allbinary/android/input/motion/AnalogLocationInputProcessor.h"
+#if __has_include("org/allbinary/game/input/analog/AnalogLocationInputFactory.h")
+#include "org/allbinary/game/input/analog/AnalogLocationInputFactory.h"
+#endif
 
 
 

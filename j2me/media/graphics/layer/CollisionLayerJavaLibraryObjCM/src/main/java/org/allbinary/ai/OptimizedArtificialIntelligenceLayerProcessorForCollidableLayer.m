@@ -34,7 +34,7 @@ void OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer_staticInit(
 
 
 - (instancetype) init {
-        self = [super init:[((OptimizedArtificialIntelligenceLayerManager*) [OptimizedArtificialIntelligenceLayerManager alloc]) init]];
+        self = [super init:((OptimizedArtificialIntelligenceLayerManager*) [((OptimizedArtificialIntelligenceLayerManager*) [OptimizedArtificialIntelligenceLayerManager alloc]) init])];
     return self;
 }
 
@@ -42,7 +42,7 @@ void OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer_staticInit(
 // throws Exception
 - (void) processAt:(AllBinaryLayerManager*)allBinaryLayerManager :(AllBinaryLayer*)layerInterface :(int32_t)index {
         CollidableCompositeLayer* artificialIntelligenceCompositeInterface = ((CollidableCompositeLayer*) layerInterface);
-        [[artificialIntelligenceCompositeInterface getArtificialIntelligenceInterface] processAI:allBinaryLayerManager];
+        [((id<ArtificialIntelligenceInterface>) [artificialIntelligenceCompositeInterface getArtificialIntelligenceInterface]) processAI:allBinaryLayerManager];
 }
 
 

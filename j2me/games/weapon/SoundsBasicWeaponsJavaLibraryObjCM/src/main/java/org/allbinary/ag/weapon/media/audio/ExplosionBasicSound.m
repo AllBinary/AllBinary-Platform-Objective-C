@@ -11,7 +11,7 @@ void ExplosionBasicSound_staticInit(void) {
         return;
     }
     initialized = true;
-    ExplosionBasicSound_soundInterface = [((ExplosionBasicSound*) [ExplosionBasicSound alloc]) init];
+    ExplosionBasicSound_soundInterface = ((ExplosionBasicSound*) [((ExplosionBasicSound*) [ExplosionBasicSound alloc]) init]);
 }
 
 @implementation ExplosionBasicSound

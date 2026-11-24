@@ -10,7 +10,7 @@ void PersistanceStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    PersistanceStrings_instance = [((PersistanceStrings*) [PersistanceStrings alloc]) init];
+    PersistanceStrings_instance = ((PersistanceStrings*) [((PersistanceStrings*) [PersistanceStrings alloc]) init]);
 }
 
 @implementation PersistanceStrings

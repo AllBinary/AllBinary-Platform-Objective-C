@@ -12,7 +12,7 @@ void CountedPickedUpLayerInterfaceFactoryPool_staticInit(void) {
         return;
     }
     initialized = true;
-    CountedPickedUpLayerInterfaceFactoryPool_SINGLETON = [((CountedPickedUpLayerInterfaceFactoryPool*) [CountedPickedUpLayerInterfaceFactoryPool alloc]) init];
+    CountedPickedUpLayerInterfaceFactoryPool_SINGLETON = ((CountedPickedUpLayerInterfaceFactoryPool*) [((CountedPickedUpLayerInterfaceFactoryPool*) [CountedPickedUpLayerInterfaceFactoryPool alloc]) init]);
 }
 
 @implementation CountedPickedUpLayerInterfaceFactoryPool
@@ -25,7 +25,7 @@ void CountedPickedUpLayerInterfaceFactoryPool_staticInit(void) {
 - (instancetype) init {
     self = [super init];
     [self initFields];
-        self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     return self;
 }
 
@@ -40,8 +40,8 @@ void CountedPickedUpLayerInterfaceFactoryPool_staticInit(void) {
 }
 
 
-+ (void) init_ {
-        CountedPickedUpLayerInterfaceFactoryPool_SINGLETON = [((CountedPickedUpLayerInterfaceFactoryPool*) [CountedPickedUpLayerInterfaceFactoryPool alloc]) init];
++ (void) initMethod {
+        CountedPickedUpLayerInterfaceFactoryPool_SINGLETON = ((CountedPickedUpLayerInterfaceFactoryPool*) [((CountedPickedUpLayerInterfaceFactoryPool*) [CountedPickedUpLayerInterfaceFactoryPool alloc]) init]);
 }
 
 @end

@@ -29,7 +29,7 @@
 @class Sound;
 
 @protocol SoundsFactoryInterface
-- (void) init_;
+- (void) initMethod;
 - (Sound**) getSoundInterfaceArray;
 - (void) setInitialized:(bool)initialized;
 - (bool) isInitialized;

@@ -4,6 +4,15 @@
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static AbFileSystem* AbFileSystem_instance;
@@ -14,7 +23,7 @@ void AbFileSystem_staticInit(void) {
         return;
     }
     initialized = true;
-    AbFileSystem_instance = [((AbFileSystem*) [AbFileSystem alloc]) init];
+    AbFileSystem_instance = ((AbFileSystem*) [((AbFileSystem*) [AbFileSystem alloc]) init]);
 }
 
 @implementation AbFileSystem
@@ -37,18 +46,18 @@ void AbFileSystem_staticInit(void) {
 
 
 - (bool) isDirectoryOrFile:(const char*)path {
-        File* file = [((File*) [File alloc]) init:path];
+        File* file = ((File*) [((File*) [File alloc]) init:path]);
         return [file isDirectory] || [file isFile];
 }
 
 
 - (bool) isDirectory:(const char*)path {
-        return [[((File*) [File alloc]) init:path] isDirectory];
+        return [((File*) [((File*) [File alloc]) init:path]) isDirectory];
 }
 
 
 - (const char**) getFilesAsStringArrayForPath:(const char*)currentDirPath {
-        File* file = [((File*) [File alloc]) init:currentDirPath];
+        File* file = ((File*) [((File*) [File alloc]) init:currentDirPath]);
         if ([file exists]) {
             return [file list];
         } else {
@@ -66,7 +75,7 @@ void AbFileSystem_staticInit(void) {
 - (const char*) readAsString:(const char*)fileName :(int8_t*)bytes {
         id closeable = [NullUtil getInstance]->NULL_OBJECT;
         JAVA_TRY {
-            InputStream* idFile = [((FileInputStream*) [FileInputStream alloc]) init:fileName];
+            InputStream* idFile = ((FileInputStream*) [((FileInputStream*) [FileInputStream alloc]) init:fileName]);
             closeable = idFile;
             int32_t size = [idFile read:bytes];
             if (size > 0) {

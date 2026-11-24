@@ -10,7 +10,7 @@ void OrientationData_staticInit(void) {
         return;
     }
     initialized = true;
-    OrientationData_SINGLETON = [((OrientationData*) [OrientationData alloc]) init];
+    OrientationData_SINGLETON = ((OrientationData*) [((OrientationData*) [OrientationData alloc]) init]);
 }
 
 @implementation OrientationData

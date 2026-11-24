@@ -30,7 +30,7 @@ void UpdateMyFontProcessor_staticInit(void) {
 
 
 - (void) process:(Graphics*)graphics {
-        [self->updateMeasurementProcessor updateMeasurement:graphics];
+        [((id<UpdateMyFontInterface>) self->updateMeasurementProcessor) updateMeasurement:graphics];
 }
 
 @end

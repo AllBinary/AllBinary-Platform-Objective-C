@@ -6,6 +6,12 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/logic/util/visitor/Visitor.h"
 #include "org/allbinary/graphics/form/item/ABTextItem.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 

@@ -7,6 +7,12 @@
 #include "org/allbinary/game/score/LastFetchHighScoresFactory.h"
 #include "org/allbinary/game/score/HighScores.h"
 #include "org/allbinary/game/score/NullHighScoresSingletonFactory.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -35,7 +41,7 @@ void HighScoresHelperBase_staticInit(void) {
 - (void) setHighScoresArray:(HighScores**)highScoresArrayP {
         if (highScoresArrayP != nil) {
             CommonStrings* commonStrings = [CommonStrings getInstance];
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:commonStrings->START] appendint:java_array_length(highScoresArrayP)] toString] :self :"setHighScoresArray"];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:commonStrings->START] appendint:java_array_length(highScoresArrayP)] toString] :self :"setHighScoresArray"];
         } else {
             CommonStrings* commonStrings = [CommonStrings getInstance];
             [self->logUtil putF:commonStrings->START :self :"setHighScoresArray"];

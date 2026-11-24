@@ -28,6 +28,60 @@
 #include "org/allbinary/time/TimeDelayHelper.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
+#if __has_include("org/allbinary/direction/DirectionFactory.h")
+#include "org/allbinary/direction/DirectionFactory.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/event/DestroyedEventHandler.h")
+#include "org/allbinary/game/combat/destroy/event/DestroyedEventHandler.h"
+#endif
+#if __has_include("org/allbinary/direction/DirectionFactory.h")
+#include "org/allbinary/direction/DirectionFactory.h"
+#endif
+#if __has_include("org/allbinary/game/tracking/TrackingEventHandler.h")
+#include "org/allbinary/game/tracking/TrackingEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/tracking/TrackingEventHandler.h")
+#include "org/allbinary/game/tracking/TrackingEventHandler.h"
+#endif
+#if __has_include("org/allbinary/layer/AllBinaryLayer.h")
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#endif
+#if __has_include("org/allbinary/layer/AllBinaryLayer.h")
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#endif
+#if __has_include("org/allbinary/layer/AllBinaryLayer.h")
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#endif
+#if __has_include("org/allbinary/layer/AllBinaryLayer.h")
+#include "org/allbinary/layer/AllBinaryLayer.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/game/tracking/TrackingEventHandler.h")
+#include "org/allbinary/game/tracking/TrackingEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/combat/destroy/event/DestroyedEventHandler.h")
+#include "org/allbinary/game/combat/destroy/event/DestroyedEventHandler.h"
+#endif
+#if __has_include("org/allbinary/direction/Direction.h")
+#include "org/allbinary/direction/Direction.h"
+#endif
+#if __has_include("org/allbinary/direction/DirectionFactory.h")
+#include "org/allbinary/direction/DirectionFactory.h"
+#endif
+#if __has_include("org/allbinary/direction/DirectionFactory.h")
+#include "org/allbinary/direction/DirectionFactory.h"
+#endif
+#if __has_include("org/allbinary/direction/DirectionFactory.h")
+#include "org/allbinary/direction/DirectionFactory.h"
+#endif
+#if __has_include("org/allbinary/direction/DirectionFactory.h")
+#include "org/allbinary/direction/DirectionFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -45,8 +99,8 @@ void DiveAndDirectionalTrackingAI_staticInit(void) {
     self->mathUtil = [MathUtil getInstance];
     self->directionFactory = [DirectionFactory getInstance];
     self->gameTickTimeDelayHelper = [GameTickTimeDelayHelperFactory getInstance];
-    self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:500];
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->timeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:500]);
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     
     
     self->directionToKeyMap = ((int32_t*) java_array_from(sizeof(int32_t), sizeof((int32_t[]){ (Canvas_staticInit(), Canvas_LEFT), (Canvas_staticInit(), Canvas_DOWN), (Canvas_staticInit(), Canvas_UP), (Canvas_staticInit(), Canvas_RIGHT) }) / sizeof(int32_t), (int32_t[]){ (Canvas_staticInit(), Canvas_LEFT), (Canvas_staticInit(), Canvas_DOWN), (Canvas_staticInit(), Canvas_UP), (Canvas_staticInit(), Canvas_RIGHT) }));
@@ -67,11 +121,11 @@ void DiveAndDirectionalTrackingAI_staticInit(void) {
         self->aiVistor = visitor;
         self->artificialIntelligenceInterface = artificialIntelligenceInterface;
         DirectionalCompositeInterface* directionalCompositeInterface = ((DirectionalCompositeInterface*) [self getOwnerLayerInterface]);
-        self->directionalInterface = [directionalCompositeInterface getDirectionalInterface];
+        self->directionalInterface = [((id<DirectionalCompositeInterface>) directionalCompositeInterface) getDirectionalInterface];
         VelocityInterfaceCompositeInterface* velocityInterfaceCompositeInterface = ((VelocityInterfaceCompositeInterface*) [self getOwnerLayerInterface]);
-        self->velocityInterface = [velocityInterfaceCompositeInterface getVelocityProperties];
+        self->velocityInterface = [((id<VelocityInterfaceCompositeInterface>) velocityInterfaceCompositeInterface) getVelocityProperties];
         [[DestroyedEventHandler getInstance] addListenerInterface:self];
-        [self init_];
+        [self initMethod];
     return self;
 }
 
@@ -79,7 +133,7 @@ void DiveAndDirectionalTrackingAI_staticInit(void) {
 // throws Exception
 - (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager {
         if ([self isBeyondTarget]) {
-            [self init_];
+            [self initMethod];
             [self->velocityInterface zero];
         }
         if (!self->diveP) {
@@ -92,7 +146,7 @@ void DiveAndDirectionalTrackingAI_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         self->diveP = false;
         self->directionOfTarget = [DirectionFactory getInstance]->NOT_BORDERED_WITH;
         [[TrackingEventHandler getInstance] addListenerInterface:self];
@@ -140,7 +194,7 @@ void DiveAndDirectionalTrackingAI_staticInit(void) {
             } else if (self->directionOfTarget == directionFactory->LEFT || self->directionOfTarget == directionFactory->RIGHT) {
                 [self horizontalTargeting:y];
             } else {
-                [self->artificialIntelligenceInterface processAI:allBinaryLayerManager];
+                [((id<ArtificialIntelligenceInterface>) self->artificialIntelligenceInterface) processAI:allBinaryLayerManager];
             }
         }
 }
@@ -186,7 +240,7 @@ void DiveAndDirectionalTrackingAI_staticInit(void) {
 // throws Exception
 - (void) moveRight {
         [self setLastDirection:self->directionFactory->RIGHT];
-        [self->directionalInterface setFrameByDirection:self->lastDirection];
+        [((id<DirectionalInterface>) self->directionalInterface) setFrameByDirection:self->lastDirection];
         [self->aiVistor visit:self];
 }
 
@@ -194,7 +248,7 @@ void DiveAndDirectionalTrackingAI_staticInit(void) {
 // throws Exception
 - (void) moveLeft {
         [self setLastDirection:self->directionFactory->LEFT];
-        [self->directionalInterface setFrameByDirection:self->lastDirection];
+        [((id<DirectionalInterface>) self->directionalInterface) setFrameByDirection:self->lastDirection];
         [self->aiVistor visit:self];
 }
 
@@ -202,7 +256,7 @@ void DiveAndDirectionalTrackingAI_staticInit(void) {
 // throws Exception
 - (void) moveDown {
         [self setLastDirection:self->directionFactory->DOWN];
-        [self->directionalInterface setFrameByDirection:self->lastDirection];
+        [((id<DirectionalInterface>) self->directionalInterface) setFrameByDirection:self->lastDirection];
         [self->aiVistor visit:self];
 }
 
@@ -210,14 +264,14 @@ void DiveAndDirectionalTrackingAI_staticInit(void) {
 // throws Exception
 - (void) moveUp {
         [self setLastDirection:self->directionFactory->UP];
-        [self->directionalInterface setFrameByDirection:self->lastDirection];
+        [((id<DirectionalInterface>) self->directionalInterface) setFrameByDirection:self->lastDirection];
         [self->aiVistor visit:self];
 }
 
 
 // throws Exception
 - (void) dive {
-        [self->directionalInterface setFrameByDirection:self->directionOfTarget];
+        [((id<DirectionalInterface>) self->directionalInterface) setFrameByDirection:self->directionOfTarget];
         [self->aiVistor visit:self];
 }
 
@@ -315,7 +369,7 @@ void DiveAndDirectionalTrackingAI_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:[super toString]];
         [stringBuffer append:" LastDirection: "];
         [stringBuffer append:[[StringUtil getInstance] toString:[self getLastDirection]]];

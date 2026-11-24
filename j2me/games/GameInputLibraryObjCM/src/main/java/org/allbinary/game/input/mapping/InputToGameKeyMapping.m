@@ -14,6 +14,54 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/input/mapping/InputMapping.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/game/input/InputFactory.h")
+#include "org/allbinary/game/input/InputFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameKey.h")
+#include "org/allbinary/game/input/GameKey.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameKey.h")
+#include "org/allbinary/game/input/GameKey.h"
+#endif
 
 
 static id InputToGameKeyMapping_instance;
@@ -39,7 +87,7 @@ void InputToGameKeyMapping_staticInit(void) {
 
 + (InputToGameKeyMapping*) getNullInstance {
         if ((InputToGameKeyMapping_staticInit(), InputToGameKeyMapping_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            InputToGameKeyMapping_instance = [((InputToGameKeyMapping*) [InputToGameKeyMapping alloc]) init];
+            InputToGameKeyMapping_instance = ((InputToGameKeyMapping*) [((InputToGameKeyMapping*) [InputToGameKeyMapping alloc]) init]);
         }
         return ((InputToGameKeyMapping*) (InputToGameKeyMapping_staticInit(), InputToGameKeyMapping_instance));
 }
@@ -92,7 +140,7 @@ void InputToGameKeyMapping_staticInit(void) {
 
 
 - (void) remove:(Input*)input :(Input*)mappedToInput {
-        [self->logUtil putF:[[[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->START_LABEL] append:[[StringUtil getInstance] toString:input]] append:" == "] append:[[StringUtil getInstance] toString:mappedToInput]] toString] :self :"InputToGameKeyMapping::remove"];
+        [self->logUtil putF:[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->START_LABEL] append:[[StringUtil getInstance] toString:input]] append:" == "] append:[[StringUtil getInstance] toString:mappedToInput]] toString] :self :"InputToGameKeyMapping::remove"];
         [super remove:input :mappedToInput];
         [self set:input :self->gameKeyFactory->NONE];
 }
@@ -112,7 +160,7 @@ void InputToGameKeyMapping_staticInit(void) {
 
 
 - (BasicArrayList*) getReverseInstance:(int32_t)id_ {
-        BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         InputFactory* inputFactory = [InputFactory getInstance];
         for (int32_t index = 0; index < java_array_length(self->platformToGameKeyMapping); index++) {
             if ([self->platformToGameKeyMapping[index] getId] == id_) {
@@ -136,7 +184,7 @@ void InputToGameKeyMapping_staticInit(void) {
                 self->platformToGameKeyMapping[key] = gameKey;
             }
         } else {
-            [PreLogUtil putOE:[[[[[((StringMaker*) [StringMaker alloc]) init] append:[gameKey toString]] append:[CommonSeps getInstance]->COLON_SEP] appendint:key] toString] :self :self->commonStrings->INIT :java_exception_new("Exception", "")];
+            [PreLogUtil putOE:[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[gameKey toString]] append:[CommonSeps getInstance]->COLON_SEP] appendint:key] toString] :self :self->commonStrings->INIT :java_exception_new("Exception", "")];
         }
 }
 
@@ -155,7 +203,7 @@ void InputToGameKeyMapping_staticInit(void) {
 }
 
 
-- (void) init_:(Canvas*)canvas {
+- (void) initMethod:(Canvas*)canvas {
         JAVA_TRY {
             GameKey** negativePlatformToGameKeyMapping = ((GameKey**) java_array_new(sizeof(GameKey*), 0));
             int32_t smallestKey = [self getSmallestCanvasGameKeyCode:canvas];

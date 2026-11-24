@@ -2,6 +2,18 @@
 #include "org/allbinary/graphics/form/item/ABStringComponent.h"
 #include "org/allbinary/graphics/color/BasicColor.h"
 #include "org/allbinary/graphics/color/BasicColorFactory.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 ABStringComponent* ABStringComponent_NULL_STRING_COMPONENT;
@@ -12,7 +24,7 @@ void ABStringComponent_staticInit(void) {
         return;
     }
     initialized = true;
-    ABStringComponent_NULL_STRING_COMPONENT = [((ABStringComponent*) [ABStringComponent alloc]) init:[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE];
+    ABStringComponent_NULL_STRING_COMPONENT = ((ABStringComponent*) [((ABStringComponent*) [ABStringComponent alloc]) init:[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE]);
 }
 
 @implementation ABStringComponent

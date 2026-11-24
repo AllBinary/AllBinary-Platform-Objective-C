@@ -13,7 +13,7 @@ void OrderedIntArrayPermutationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    OrderedIntArrayPermutationUtil_instance = [((OrderedIntArrayPermutationUtil*) [OrderedIntArrayPermutationUtil alloc]) init];
+    OrderedIntArrayPermutationUtil_instance = ((OrderedIntArrayPermutationUtil*) [((OrderedIntArrayPermutationUtil*) [OrderedIntArrayPermutationUtil alloc]) init]);
 }
 
 @implementation OrderedIntArrayPermutationUtil
@@ -93,10 +93,10 @@ void OrderedIntArrayPermutationUtil_staticInit(void) {
         for (int32_t i = 0; i < TOTAL; i++) {
             data[i] = i;
         }
-        IntPermutationVisitor* permutationVisitor = [((IntPermutationVisitor*) [IntPermutationVisitor alloc]) init:data];
+        IntPermutationVisitor* permutationVisitor = ((IntPermutationVisitor*) [((IntPermutationVisitor*) [IntPermutationVisitor alloc]) init:data]);
         const char* ORIGINAL_DATA_LABEL = "Original Data: ";
         fputs(java_string_of(ORIGINAL_DATA_LABEL), stdout);
-        [permutationVisitor print:data :[((StringMaker*) [StringMaker alloc]) init]];
+        [permutationVisitor print:data :((StringMaker*) [((StringMaker*) [StringMaker alloc]) init])];
         [[OrderedIntArrayPermutationUtil getInstance] generate:data :permutationVisitor];
 }
 

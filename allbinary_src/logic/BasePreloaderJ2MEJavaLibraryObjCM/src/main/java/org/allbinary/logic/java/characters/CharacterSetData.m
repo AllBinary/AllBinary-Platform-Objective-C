@@ -10,7 +10,7 @@ void CharacterSetData_staticInit(void) {
         return;
     }
     initialized = true;
-    CharacterSetData_instance = [((CharacterSetData*) [CharacterSetData alloc]) init];
+    CharacterSetData_instance = ((CharacterSetData*) [((CharacterSetData*) [CharacterSetData alloc]) init]);
 }
 
 @implementation CharacterSetData

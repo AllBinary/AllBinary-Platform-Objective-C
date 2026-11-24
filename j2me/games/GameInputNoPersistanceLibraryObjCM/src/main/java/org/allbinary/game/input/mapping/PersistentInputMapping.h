@@ -85,7 +85,7 @@
 - (void) setDefault:(AbeClientInformationInterface*)abeClientInformation;
 - (void) update:(AbeClientInformationInterface*)abeClientInformation;
 - (void) save:(AbeClientInformationInterface*)abeClientInformation;
-- (void) init_:(AbeClientInformationInterface*)abeClientInformation;
+- (void) initMethod:(AbeClientInformationInterface*)abeClientInformation;
 - (void) setInputMappingEventListenerInterface:(InputMappingEventListenerInterface*)inputMappingEventListenerInterface;
 - (InputMappingEventListenerInterface*) getInputMappingEventListenerInterface;
 - (InputToGameKeyMapping*) getInputMapping;

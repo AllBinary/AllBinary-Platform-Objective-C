@@ -14,6 +14,24 @@
 #include "org/allbinary/thread/ABRunnable.h"
 #include "org/allbinary/thread/PrimaryThreadPool.h"
 #include "org/allbinary/thread/ThreadPool.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static ThreadFactoryUtil* ThreadFactoryUtil_instance;
@@ -24,7 +42,7 @@ void ThreadFactoryUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ThreadFactoryUtil_instance = [((ThreadFactoryUtil*) [ThreadFactoryUtil alloc]) init];
+    ThreadFactoryUtil_instance = ((ThreadFactoryUtil*) [((ThreadFactoryUtil*) [ThreadFactoryUtil alloc]) init]);
 }
 
 @implementation ThreadFactoryUtil
@@ -46,7 +64,7 @@ void ThreadFactoryUtil_staticInit(void) {
 
 
 - (Thread*) getInstanceGameCanvasRunnable:(GameCanvasRunnableInterface*)runnable {
-        return [self getInstanceType:runnable :[runnable getType]];
+        return [self getInstanceType:runnable :[((id<GameCanvasRunnableInterface>) runnable) getType]];
 }
 
 
@@ -59,17 +77,17 @@ void ThreadFactoryUtil_staticInit(void) {
         CommonStrings* commonStrings = [CommonStrings getInstance];
         if ([J2MEUtil isHTML]) {
             if (type == (DemoCanvas_staticInit(), DemoCanvas_TYPE) || type == (AllBinaryGameCanvas_staticInit(), AllBinaryGameCanvas_TYPE)) {
-                RunnableCanvasSingleThreadStartRunnable* demoGameSingleThreadStartRunnable = [((RunnableCanvasSingleThreadStartRunnable*) [RunnableCanvasSingleThreadStartRunnable alloc]) init:((RunnableCanvas*) runnable)];
-                [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: "] append:[[StringUtil getInstance] toString:runnable]] toString] :self :commonStrings->CONSTRUCTOR];
+                RunnableCanvasSingleThreadStartRunnable* demoGameSingleThreadStartRunnable = ((RunnableCanvasSingleThreadStartRunnable*) [((RunnableCanvasSingleThreadStartRunnable*) [RunnableCanvasSingleThreadStartRunnable alloc]) init:((RunnableCanvas*) runnable)]);
+                [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: "] append:[[StringUtil getInstance] toString:runnable]] toString] :self :commonStrings->CONSTRUCTOR];
                 ThreadPool* primaryThreadPool = [PrimaryThreadPool getInstance];
                 [primaryThreadPool runTask:demoGameSingleThreadStartRunnable];
             } else {
-                [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Using Pseudo Thread for Runnable under PlayN/HTML5: "] append:[[StringUtil getInstance] toString:runnable]] toString] :self :commonStrings->CONSTRUCTOR];
+                [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Using Pseudo Thread for Runnable under PlayN/HTML5: "] append:[[StringUtil getInstance] toString:runnable]] toString] :self :commonStrings->CONSTRUCTOR];
                 ThreadPool* primaryThreadPool = [PrimaryThreadPool getInstance];
                 [primaryThreadPool runTask:runnable];
             }
         }
-        Thread* thread = [((Thread*) [Thread alloc]) init:runnable :[runnable toString]];
+        Thread* thread = ((Thread*) [((Thread*) [Thread alloc]) init:runnable :[runnable toString]]);
         [self->logUtil putF:[thread toString] :self :commonStrings->CONSTRUCTOR];
         return thread;
 }

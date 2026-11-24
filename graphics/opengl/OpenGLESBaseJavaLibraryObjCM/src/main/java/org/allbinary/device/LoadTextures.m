@@ -21,7 +21,7 @@ void LoadTextures_staticInit(void) {
 
 
 // throws Exception
-- (void) load_:(GL10*)gl {
+- (void) loadMethod:(GL10*)gl {
 }
 
 @end

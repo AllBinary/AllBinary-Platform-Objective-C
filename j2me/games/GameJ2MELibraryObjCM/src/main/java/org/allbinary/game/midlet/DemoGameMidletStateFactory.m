@@ -11,16 +11,16 @@ void DemoGameMidletStateFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    DemoGameMidletStateFactory_STATE = [((DemoGameMidletStateFactory*) [DemoGameMidletStateFactory alloc]) init];
+    DemoGameMidletStateFactory_STATE = ((DemoGameMidletStateFactory*) [((DemoGameMidletStateFactory*) [DemoGameMidletStateFactory alloc]) init]);
 }
 
 @implementation DemoGameMidletStateFactory
 
 - (void) initFields {
-    self->NONE = [((DemoGameMidletState*) [DemoGameMidletState alloc]) init];
-    self->START_DEMO = [((DemoGameMidletState*) [DemoGameMidletState alloc]) init];
-    self->START_GAME = [((DemoGameMidletState*) [DemoGameMidletState alloc]) init];
-    self->START_INPUT_MAPPING = [((DemoGameMidletState*) [DemoGameMidletState alloc]) init];
+    self->NONE = ((DemoGameMidletState*) [((DemoGameMidletState*) [DemoGameMidletState alloc]) init]);
+    self->START_DEMO = ((DemoGameMidletState*) [((DemoGameMidletState*) [DemoGameMidletState alloc]) init]);
+    self->START_GAME = ((DemoGameMidletState*) [((DemoGameMidletState*) [DemoGameMidletState alloc]) init]);
+    self->START_INPUT_MAPPING = ((DemoGameMidletState*) [((DemoGameMidletState*) [DemoGameMidletState alloc]) init]);
 }
 
 

@@ -4,6 +4,9 @@
 #include "org/allbinary/game/input/GameInput.h"
 #include "org/allbinary/layer/AllBinaryLayer.h"
 #include "org/allbinary/layer/AllBinaryLayerManager.h"
+#if __has_include("org/allbinary/ai/ArtificialIntelligenceInterface.h")
+#include "org/allbinary/ai/ArtificialIntelligenceInterface.h"
+#endif
 
 
 
@@ -34,7 +37,7 @@ void ArrayAI_staticInit(void) {
 - (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager {
         int32_t size = java_array_length(self->artificialIntelligenceInterfaceArray);
         for (int32_t index = 0; index < size; index++) {
-            [self->artificialIntelligenceInterfaceArray[index] processAI:allBinaryLayerManager];
+            [((id<ArtificialIntelligenceInterface>) self->artificialIntelligenceInterfaceArray[index]) processAI:allBinaryLayerManager];
         }
 }
 

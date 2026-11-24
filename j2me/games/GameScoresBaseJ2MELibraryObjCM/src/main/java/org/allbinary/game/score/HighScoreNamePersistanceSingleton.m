@@ -19,6 +19,42 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/java/exception/ExceptionUtil.h")
+#include "org/allbinary/logic/java/exception/ExceptionUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static HighScoreNamePersistanceSingleton* HighScoreNamePersistanceSingleton_SINGLETON;
@@ -29,7 +65,7 @@ void HighScoreNamePersistanceSingleton_staticInit(void) {
         return;
     }
     initialized = true;
-    HighScoreNamePersistanceSingleton_SINGLETON = [((HighScoreNamePersistanceSingleton*) [HighScoreNamePersistanceSingleton alloc]) init];
+    HighScoreNamePersistanceSingleton_SINGLETON = ((HighScoreNamePersistanceSingleton*) [((HighScoreNamePersistanceSingleton*) [HighScoreNamePersistanceSingleton alloc]) init]);
 }
 
 @implementation HighScoreNamePersistanceSingleton
@@ -41,7 +77,7 @@ void HighScoreNamePersistanceSingleton_staticInit(void) {
     self->platformRecordIdUtil = [PlatformRecordIdUtil getInstance];
     self->RECORD_ID = "_SN";
     self->name = [StringUtil getInstance]->EMPTY_STRING;
-    self->nameBasicArrayList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->nameBasicArrayList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 - (instancetype) init {
@@ -81,7 +117,7 @@ void HighScoreNamePersistanceSingleton_staticInit(void) {
 - (void) delete:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo :(int32_t)deleteId {
         RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
         JAVA_TRY {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Deleting: "] appendint:deleteId] toString] :self :self->commonStrings->delete];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Deleting: "] appendint:deleteId] toString] :self :self->commonStrings->delete];
             recordStore = [RecordStore openRecordStore:[self getRecordId:abeClientInformation] :true];
             [recordStore deleteRecord:deleteId];
         } JAVA_CATCH(Exception, e) {
@@ -100,7 +136,7 @@ void HighScoreNamePersistanceSingleton_staticInit(void) {
 }
 
 
-- (const char*) load_:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo {
+- (const char*) loadMethod:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo {
         RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
         JAVA_TRY {
             if (self->name == [StringUtil getInstance]->EMPTY_STRING) {
@@ -111,12 +147,12 @@ void HighScoreNamePersistanceSingleton_staticInit(void) {
                 int8_t* recordAsBytes = nullptr;
                 ByteArrayInputStream* byteArrayInputStream = nullptr;
                 DataInputStream* inputStream = nullptr;
-                while ([recordEnum hasNextElement]) {
-                    int32_t id_ = [recordEnum nextRecordId];
-                    [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:LOADING_ID] appendint:id_] toString] :self :self->commonStrings->LOAD];
+                while ([((id<RecordEnumeration>) recordEnum) hasNextElement]) {
+                    int32_t id_ = [((id<RecordEnumeration>) recordEnum) nextRecordId];
+                    [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:LOADING_ID] appendint:id_] toString] :self :self->commonStrings->LOAD];
                     recordAsBytes = [self->tsUtil getRecord:recordStore :id_];
-                    byteArrayInputStream = [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes];
-                    inputStream = [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream];
+                    byteArrayInputStream = ((ByteArrayInputStream*) [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes]);
+                    inputStream = ((DataInputStream*) [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream]);
                     while ([inputStream available] > 0) {
                         self->name = [inputStream readUTF];
                     }
@@ -125,7 +161,7 @@ void HighScoreNamePersistanceSingleton_staticInit(void) {
             }
         } JAVA_CATCH(Exception, e) {
             [self save:abeClientInformation :gameInfo :self->name];
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->EXCEPTION_LABEL] append:[[ExceptionUtil getInstance] getStackTrace:e]] toString] :self :self->commonStrings->LOAD];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->EXCEPTION_LABEL] append:[[ExceptionUtil getInstance] getStackTrace:e]] toString] :self :self->commonStrings->LOAD];
         } JAVA_FINALLY {
             JAVA_TRY {
                 if (recordStore != nil) {
@@ -143,10 +179,10 @@ void HighScoreNamePersistanceSingleton_staticInit(void) {
 - (void) save:(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo :(const char*)name {
         RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
         JAVA_TRY {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Saving: "] append:name] toString] :self :self->commonStrings->SAVE];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Saving: "] append:name] toString] :self :self->commonStrings->SAVE];
             recordStore = [RecordStore openRecordStore:[self getRecordId:abeClientInformation] :true];
-            ByteArrayOutputStream* byteArrayOutputStream = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init];
-            DataOutputStream* outputStream = [((DataOutputStream*) [DataOutputStream alloc]) init:byteArrayOutputStream];
+            ByteArrayOutputStream* byteArrayOutputStream = ((ByteArrayOutputStream*) [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init]);
+            DataOutputStream* outputStream = ((DataOutputStream*) [((DataOutputStream*) [DataOutputStream alloc]) init:byteArrayOutputStream]);
             [outputStream writeUTF:name];
             int8_t* savedGameBytes = [byteArrayOutputStream toByteArray];
             [recordStore addRecord:savedGameBytes :0 :java_array_length(savedGameBytes)];

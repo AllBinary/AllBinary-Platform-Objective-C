@@ -34,7 +34,7 @@
 }
 - (instancetype) init;
 + (InApplicationPurchaseFactory*) getInstance;
-- (void) init_:(id)anyType :(id)stateObject;
+- (void) initMethod:(id)anyType :(id)stateObject;
 - (void) onCreate:(id)anyType :(id)stateObject;
 - (void) onStart;
 - (void) onResult:(int32_t)requestCode :(int32_t)resultCode :(id)data;

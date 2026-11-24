@@ -25,7 +25,7 @@ void TimedVectorAnimationFactory_staticInit(void) {
 
 
 - (VectorAnimation*) getInstance:(int32_t***)points :(BasicColor*)basicColor {
-        return [((TimedVectorAnimation*) [TimedVectorAnimation alloc]) init:points :basicColor :[AnimationBehavior getInstance]];
+        return ((TimedVectorAnimation*) [((TimedVectorAnimation*) [TimedVectorAnimation alloc]) init:points :basicColor :[AnimationBehavior getInstance]]);
 }
 
 @end

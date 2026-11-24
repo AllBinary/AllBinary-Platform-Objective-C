@@ -42,7 +42,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (DestroyEventCircularStaticPool*) getInstance;
-- (void) init_:(AllBinaryGameCanvas*)combatGameCanvas;
+- (void) initMethod:(AllBinaryGameCanvas*)combatGameCanvas;
 - (DestroyedEvent*) getInstanceForLayer:(AllBinaryLayer*)layerInterface;
 @end
 

@@ -11,7 +11,7 @@ void NullOpenGLTextureProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    NullOpenGLTextureProcessor_instance = [((OpenGLObject3dProcessor*) [OpenGLObject3dProcessor alloc]) init];
+    NullOpenGLTextureProcessor_instance = ((OpenGLObject3dProcessor*) [((OpenGLObject3dProcessor*) [OpenGLObject3dProcessor alloc]) init]);
 }
 
 @implementation NullOpenGLTextureProcessor

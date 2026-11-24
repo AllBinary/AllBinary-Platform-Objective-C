@@ -2,6 +2,9 @@
 #include "org/allbinary/logic/system/hardware/components/interfaces/NoHardwareComponent.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/logic/system/hardware/components/interfaces/HardwareComponentInterface.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static NoHardwareComponent* NoHardwareComponent_instance;
@@ -12,7 +15,7 @@ void NoHardwareComponent_staticInit(void) {
         return;
     }
     initialized = true;
-    NoHardwareComponent_instance = [((NoHardwareComponent*) [NoHardwareComponent alloc]) init];
+    NoHardwareComponent_instance = ((NoHardwareComponent*) [((NoHardwareComponent*) [NoHardwareComponent alloc]) init]);
 }
 
 @implementation NoHardwareComponent

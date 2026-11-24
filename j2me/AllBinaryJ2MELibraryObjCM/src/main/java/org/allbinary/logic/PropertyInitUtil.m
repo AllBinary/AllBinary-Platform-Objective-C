@@ -3,6 +3,12 @@
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static PropertyInitUtil* PropertyInitUtil_instance;
@@ -13,7 +19,7 @@ void PropertyInitUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    PropertyInitUtil_instance = [((PropertyInitUtil*) [PropertyInitUtil alloc]) init];
+    PropertyInitUtil_instance = ((PropertyInitUtil*) [((PropertyInitUtil*) [PropertyInitUtil alloc]) init]);
 }
 
 @implementation PropertyInitUtil
@@ -27,7 +33,7 @@ void PropertyInitUtil_staticInit(void) {
 + (PropertyInitUtil*) getInstance:(int32_t)value {
         CommonStrings* commonStrings = [CommonStrings getInstance];
         LogUtil* logUtil = [LogUtil getInstance];
-        [logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"PropertyInitUtil: "] appendint:value] toString] :logUtil :commonStrings->CONSTRUCTOR];
+        [logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"PropertyInitUtil: "] appendint:value] toString] :logUtil :commonStrings->CONSTRUCTOR];
         return (PropertyInitUtil_staticInit(), PropertyInitUtil_instance);
 }
 

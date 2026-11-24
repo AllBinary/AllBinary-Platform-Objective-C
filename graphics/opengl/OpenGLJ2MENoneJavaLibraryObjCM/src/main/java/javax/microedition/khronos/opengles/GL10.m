@@ -1,5 +1,6 @@
 // Generated Code Do Not Modify
 #include "javax/microedition/khronos/opengles/GL10.h"
+#include "javax/microedition/khronos/opengles/GL.h"
 
 
 

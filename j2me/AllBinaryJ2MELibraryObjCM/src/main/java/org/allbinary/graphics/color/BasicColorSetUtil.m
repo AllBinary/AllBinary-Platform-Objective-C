@@ -12,7 +12,7 @@ void BasicColorSetUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicColorSetUtil_instance = [((BasicColorSetUtil*) [BasicColorSetUtil alloc]) init];
+    BasicColorSetUtil_instance = ((BasicColorSetUtil*) [((BasicColorSetUtil*) [BasicColorSetUtil alloc]) init]);
 }
 
 @implementation BasicColorSetUtil

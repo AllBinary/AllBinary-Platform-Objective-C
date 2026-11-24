@@ -31,7 +31,7 @@ void TrackingEvent_staticInit(void) {
 }
 
 
-- (void) init_:(id)anyType {
+- (void) initMethod:(id)anyType {
         [self setSource:anyType];
 }
 
@@ -52,7 +52,7 @@ void TrackingEvent_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"TrackingEvent: \n"];
         [stringBuffer append:"LayerInterface: "];
         [stringBuffer append:[self->layerInterface toString]];

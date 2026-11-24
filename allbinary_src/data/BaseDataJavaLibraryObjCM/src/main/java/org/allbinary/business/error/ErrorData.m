@@ -10,7 +10,7 @@ void ErrorData_staticInit(void) {
         return;
     }
     initialized = true;
-    ErrorData_instance = [((ErrorData*) [ErrorData alloc]) init];
+    ErrorData_instance = ((ErrorData*) [((ErrorData*) [ErrorData alloc]) init]);
 }
 
 @implementation ErrorData

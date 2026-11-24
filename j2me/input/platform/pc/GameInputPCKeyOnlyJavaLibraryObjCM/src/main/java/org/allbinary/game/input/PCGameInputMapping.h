@@ -37,7 +37,7 @@
 @public
 }
 - (instancetype) init;
-- (void) init_:(AbeClientInformationInterface*)abeClientInformation;
+- (void) initMethod:(AbeClientInformationInterface*)abeClientInformation;
 - (bool) isDelete:(Input*)input;
 - (bool) isSystemInput:(Input*)input;
 @end

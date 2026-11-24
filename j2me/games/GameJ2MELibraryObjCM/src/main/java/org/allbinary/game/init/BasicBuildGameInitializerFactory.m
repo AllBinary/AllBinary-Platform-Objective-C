@@ -13,7 +13,7 @@ void BasicBuildGameInitializerFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicBuildGameInitializerFactory_NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = [((BasicBuildGameInitializerFactory*) [BasicBuildGameInitializerFactory alloc]) init];
+    BasicBuildGameInitializerFactory_NULL_BASE_BUILD_GMAE_INITIALIZER_FACTORY = ((BasicBuildGameInitializerFactory*) [((BasicBuildGameInitializerFactory*) [BasicBuildGameInitializerFactory alloc]) init]);
 }
 
 @implementation BasicBuildGameInitializerFactory

@@ -19,7 +19,7 @@ void GameInputLayerProcessor_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:[((GameInputLayerManager*) [GameInputLayerManager alloc]) init]];
+        self = [super init:((GameInputLayerManager*) [((GameInputLayerManager*) [GameInputLayerManager alloc]) init])];
     return self;
 }
 
@@ -27,7 +27,7 @@ void GameInputLayerProcessor_staticInit(void) {
 // throws Exception
 - (void) processAt:(AllBinaryLayerManager*)allBinaryLayerManager :(AllBinaryLayer*)layerInterface :(int32_t)index {
         GameInputInterface* gameInputInterface = ((GameInputInterface*) layerInterface);
-        [gameInputInterface processInput:allBinaryLayerManager];
+        [((id<GameInputInterface>) gameInputInterface) processInput:allBinaryLayerManager];
 }
 
 

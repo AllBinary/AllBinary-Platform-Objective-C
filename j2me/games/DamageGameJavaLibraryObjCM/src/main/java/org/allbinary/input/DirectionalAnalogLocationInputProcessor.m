@@ -9,6 +9,42 @@
 #include "org/allbinary/layer/AllBinaryLayerManager.h"
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/game/input/event/GameKeyEventFactory.h")
+#include "org/allbinary/game/input/event/GameKeyEventFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/GameKeyEventFactory.h")
+#include "org/allbinary/game/input/event/GameKeyEventFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/GameKeyEventFactory.h")
+#include "org/allbinary/game/input/event/GameKeyEventFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/GameKeyEventFactory.h")
+#include "org/allbinary/game/input/event/GameKeyEventFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/GameKeyEventFactory.h")
+#include "org/allbinary/game/input/event/GameKeyEventFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/GameKeyEventFactory.h")
+#include "org/allbinary/game/input/event/GameKeyEventFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameInputProcessor.h")
+#include "org/allbinary/game/input/GameInputProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameInputProcessor.h")
+#include "org/allbinary/game/input/GameInputProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameInputProcessor.h")
+#include "org/allbinary/game/input/GameInputProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameInputProcessor.h")
+#include "org/allbinary/game/input/GameInputProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameInputProcessor.h")
+#include "org/allbinary/game/input/GameInputProcessor.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameInputProcessor.h")
+#include "org/allbinary/game/input/GameInputProcessor.h"
+#endif
 
 
 

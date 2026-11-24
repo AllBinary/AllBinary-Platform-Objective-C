@@ -8,6 +8,12 @@
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/configuration/InGameOptionsForm.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static id InGameOptionsFormFactory_instance;
@@ -37,17 +43,17 @@ void InGameOptionsFormFactory_staticInit(void) {
 
 + (InGameOptionsFormFactory*) getInstance {
         if ((InGameOptionsFormFactory_staticInit(), InGameOptionsFormFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            InGameOptionsFormFactory_instance = [((InGameOptionsFormFactory*) [InGameOptionsFormFactory alloc]) init];
+            InGameOptionsFormFactory_instance = ((InGameOptionsFormFactory*) [((InGameOptionsFormFactory*) [InGameOptionsFormFactory alloc]) init]);
         }
         return ((InGameOptionsFormFactory*) (InGameOptionsFormFactory_staticInit(), InGameOptionsFormFactory_instance));
 }
 
 
-- (void) init_:(CommandListener*)commandListener :(Init*)initInterface :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor {
+- (void) initMethod:(CommandListener*)commandListener :(Init*)initInterface :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor {
         JAVA_TRY {
             if (self->SINGLETON == [CommandForm getNullCommandForm]) {
-                [initInterface init_];
-                self->SINGLETON = [((InGameOptionsForm*) [InGameOptionsForm alloc]) init:commandListener :title :backgrounBasicColor :foregroundBasicColor];
+                [initInterface initMethod];
+                self->SINGLETON = ((InGameOptionsForm*) [((InGameOptionsForm*) [InGameOptionsForm alloc]) init:commandListener :title :backgrounBasicColor :foregroundBasicColor]);
             }
         } JAVA_CATCH(Exception, e) {
             CommonStrings* commonStrings = [CommonStrings getInstance];

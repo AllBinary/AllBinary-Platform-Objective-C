@@ -10,6 +10,9 @@
 #include "org/allbinary/input/motion/button/TouchButton.h"
 #include "org/allbinary/input/motion/button/BasicTouchInputFactory.h"
 #include "org/allbinary/input/motion/button/TouchButtonBlankResource.h"
+#if __has_include("org/allbinary/graphics/paint/Paintable.h")
+#include "org/allbinary/graphics/paint/Paintable.h"
+#endif
 
 
 
@@ -27,7 +30,7 @@ void TouchButtonsMappingPaintable_staticInit(void) {
     self->logUtil = [LogUtil getInstance];
     
     self->paintableTable = ((Paintable***) java_array_new2(sizeof(Paintable*), 0, 0));
-    self->touchButtonLocationHelper = [((TouchButtonLocationHelper*) [TouchButtonLocationHelper alloc]) init];
+    self->touchButtonLocationHelper = ((TouchButtonLocationHelper*) [((TouchButtonLocationHelper*) [TouchButtonLocationHelper alloc]) init]);
 }
 
 
@@ -35,12 +38,12 @@ void TouchButtonsMappingPaintable_staticInit(void) {
     self = [super init];
     [self initFields];
         self->foregroundColor = [basicColor intValue];
-        [self init_];
+        [self initMethod];
     return self;
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         JAVA_TRY {
             self->paintableTable = [self createPaintableTable];
         } JAVA_CATCH(Exception, e) {

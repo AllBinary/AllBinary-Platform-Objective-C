@@ -5,6 +5,33 @@
 #include "org/allbinary/logic/communication/log/PreLogUtil.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
 
 
 static DrawStringUtil* DrawStringUtil_instance;
@@ -15,7 +42,7 @@ void DrawStringUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    DrawStringUtil_instance = [((DrawStringUtil*) [DrawStringUtil alloc]) init];
+    DrawStringUtil_instance = ((DrawStringUtil*) [((DrawStringUtil*) [DrawStringUtil alloc]) init]);
 }
 
 @implementation DrawStringUtil
@@ -42,7 +69,7 @@ void DrawStringUtil_staticInit(void) {
         JAVA_TRY {
             [graphics drawSubstring:string :offset :length :x - width :y :self->anchor];
         } JAVA_CATCH(Exception, e) {
-            [PreLogUtil put:[[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:"Exception: stringLength: "] appendint:((int32_t) strlen(string))] append:" offset: "] appendint:offset] append:" currentLength: "] appendint:length] toString] :self :"drawCenterString"];
+            [PreLogUtil put:[[[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Exception: stringLength: "] appendint:((int32_t) strlen(string))] append:" offset: "] appendint:offset] append:" currentLength: "] appendint:length] toString] :self :"drawCenterString"];
         } JAVA_END_TRY;
 }
 

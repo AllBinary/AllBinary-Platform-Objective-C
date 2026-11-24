@@ -29,9 +29,9 @@ void RandomPatrolFlockingFiringAIFactory_staticInit(void) {
 // throws Exception
 - (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
         ArtificialIntelligenceInterface** artificialIntelligenceInterface = ((ArtificialIntelligenceInterface**) java_array_new(sizeof(ArtificialIntelligenceInterface*), 2));
-        artificialIntelligenceInterface[0] = [((RandomPatrolAI*) [RandomPatrolAI alloc]) init:hashtable :ownerLayerInterface :gameInput];
-        artificialIntelligenceInterface[1] = [((TimedFireAI*) [TimedFireAI alloc]) init:1800 :ownerLayerInterface :gameInput];
-        return [((ArrayAI*) [ArrayAI alloc]) init:artificialIntelligenceInterface :ownerLayerInterface :gameInput];
+        artificialIntelligenceInterface[0] = ((RandomPatrolAI*) [((RandomPatrolAI*) [RandomPatrolAI alloc]) init:hashtable :ownerLayerInterface :gameInput]);
+        artificialIntelligenceInterface[1] = ((TimedFireAI*) [((TimedFireAI*) [TimedFireAI alloc]) init:1800 :ownerLayerInterface :gameInput]);
+        return ((ArrayAI*) [((ArrayAI*) [ArrayAI alloc]) init:artificialIntelligenceInterface :ownerLayerInterface :gameInput]);
 }
 
 @end

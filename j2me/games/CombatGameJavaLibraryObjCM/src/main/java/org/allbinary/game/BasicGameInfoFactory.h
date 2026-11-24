@@ -22,7 +22,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (BasicGameInfoFactory*) getInstance;
-- (void) init_:(int32_t)total;
+- (void) initMethod:(int32_t)total;
 - (bool) isPeaked;
 - (int32_t) howManyLeft;
 @end

@@ -10,7 +10,7 @@ void ByteUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ByteUtil_instance = [((ByteUtil*) [ByteUtil alloc]) init];
+    ByteUtil_instance = ((ByteUtil*) [((ByteUtil*) [ByteUtil alloc]) init]);
 }
 
 @implementation ByteUtil

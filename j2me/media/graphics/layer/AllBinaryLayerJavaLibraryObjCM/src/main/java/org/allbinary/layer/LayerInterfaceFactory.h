@@ -54,7 +54,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (LayerInterfaceFactory*) getInstance;
-- (void) init_;
+- (void) initMethod;
 - (AllBinaryLayer*) getNexInstance:(ABHashtable*)hashtable :(int32_t)x :(int32_t)y :(int32_t)z;
 - (void) add:(LayerInterfaceFactoryInterface*)layerInterfaceFactoryInterface;
 @end

@@ -25,7 +25,7 @@ void LurchRotationAIFactory_staticInit(void) {
 
 
 - (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
-        return [((LurchRotationAI*) [LurchRotationAI alloc]) init:ownerLayerInterface :gameInput];
+        return ((LurchRotationAI*) [((LurchRotationAI*) [LurchRotationAI alloc]) init:ownerLayerInterface :gameInput]);
 }
 
 @end

@@ -13,6 +13,12 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/input/motion/button/TouchButtonInput.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -51,7 +57,7 @@ void TouchButton_staticInit(void) {
         self->xBorder = xBorder;
         self->yBorder = yBorder;
         [self updateRectangle];
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Created: "] append:[self toString]] toString] :self :self->commonStrings->CONSTRUCTOR];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Created: "] append:[self toString]] toString] :self :self->commonStrings->CONSTRUCTOR];
     return self;
 }
 
@@ -66,7 +72,7 @@ void TouchButton_staticInit(void) {
             int32_t x = [self->rawRectangle getWidth] * [self->cellPosition getColumn];
             int32_t y = [self->rawRectangle getHeight] * [self->cellPosition getRow];
             PointFactory* pointFactory = [PointFactory getInstance];
-            self->rectangle = [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:x + self->xBorder :y + self->yBorder] :[self->rawRectangle getWidth] :[self->rawRectangle getHeight]];
+            self->rectangle = ((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:x + self->xBorder :y + self->yBorder] :[self->rawRectangle getWidth] :[self->rawRectangle getHeight]]);
             GPoint* point = [self->rectangle getPoint];
             self->animationX = [point getX];
             self->animationY = [point getY];
@@ -92,7 +98,7 @@ void TouchButton_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         StringUtil* stringUtil = [StringUtil getInstance];
         [stringBuffer append:"TouchButton: "];
         [stringBuffer append:[stringUtil toString:self->rectangle]];

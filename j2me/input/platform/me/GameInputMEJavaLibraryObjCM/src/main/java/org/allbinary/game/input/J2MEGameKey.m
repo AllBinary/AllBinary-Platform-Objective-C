@@ -4,6 +4,15 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/game/input/Input.h"
 #include "org/allbinary/game/input/InputFactory.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -30,7 +39,7 @@ void J2MEGameKey_staticInit(void) {
 
 
 - (const char*) toString {
-        return [[[[((StringMaker*) [StringMaker alloc]) init] append:"J2MEGameKey: "] append:[super toString]] toString];
+        return [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"J2MEGameKey: "] append:[super toString]] toString];
 }
 
 

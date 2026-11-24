@@ -8,6 +8,9 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListS.h"
 #include "org/allbinary/animation/VectorAnimationUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static VectorMirrorGenerator* VectorMirrorGenerator_instance;
@@ -18,7 +21,7 @@ void VectorMirrorGenerator_staticInit(void) {
         return;
     }
     initialized = true;
-    VectorMirrorGenerator_instance = [((VectorMirrorGenerator*) [VectorMirrorGenerator alloc]) init];
+    VectorMirrorGenerator_instance = ((VectorMirrorGenerator*) [((VectorMirrorGenerator*) [VectorMirrorGenerator alloc]) init]);
 }
 
 @implementation VectorMirrorGenerator
@@ -48,11 +51,11 @@ void VectorMirrorGenerator_staticInit(void) {
             int32_t** nextPoints = nullptr;
             int32_t size2 = 0;
             int32_t size = java_array_length(points);
-            BasicArrayList* pointsBasicArrayList = [((BasicArrayListS*) [BasicArrayListS alloc]) init:size];
+            BasicArrayList* pointsBasicArrayList = ((BasicArrayListS*) [((BasicArrayListS*) [BasicArrayListS alloc]) init:size]);
             for (int32_t frame = 0; frame < size; frame++) {
                 nextPoints = points[frame];
                 size2 = java_array_length(nextPoints);
-                pointBasicArrayList = [((BasicArrayListS*) [BasicArrayListS alloc]) init:size2];
+                pointBasicArrayList = ((BasicArrayListS*) [((BasicArrayListS*) [BasicArrayListS alloc]) init:size2]);
                 for (int32_t index = 0; index < size2; index++) {
                     [pointBasicArrayList add:[pointFactory createXY:nextPoints[index][0] :nextPoints[index][1]]];
                 }
@@ -73,7 +76,7 @@ void VectorMirrorGenerator_staticInit(void) {
 
 // throws Exception
 - (BasicArrayList*) getInstance_2:(BasicArrayList*)pointBasicArrayList :(int32_t)width {
-        BasicGraphicsPipeline* graphicsPipe = [((BasicGraphicsPipeline*) [BasicGraphicsPipeline alloc]) init:pointBasicArrayList];
+        BasicGraphicsPipeline* graphicsPipe = ((BasicGraphicsPipeline*) [((BasicGraphicsPipeline*) [BasicGraphicsPipeline alloc]) init:pointBasicArrayList]);
         [graphicsPipe createMatrix];
         [graphicsPipe mirror:width];
         return [graphicsPipe getMatrix];

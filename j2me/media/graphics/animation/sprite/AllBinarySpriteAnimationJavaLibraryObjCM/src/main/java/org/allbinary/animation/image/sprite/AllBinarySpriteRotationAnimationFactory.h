@@ -55,7 +55,7 @@
 + (AllBinarySpriteRotationAnimationFactory*) createDXYQ:(Image*)image :(int32_t)dx :(int32_t)dy :(AnimationBehaviorFactory*)animationBehaviorFactory;
 + (AllBinarySpriteRotationAnimationFactory*) createQ:(Image*)image :(AnimationBehaviorFactory*)animationBehaviorFactory;
 + (AllBinarySpriteRotationAnimationFactory*) createWHF:(Image*)image :(AnimationBehaviorFactory*)animationBehaviorFactory;
-- (void) init_:(int32_t)dx :(int32_t)dy;
+- (void) initMethod:(int32_t)dx :(int32_t)dy;
 - (void) initWH:(int32_t)dx :(int32_t)dy;
 - (Animation*) getInstance:(int32_t)instanceId;
 - (Animation*) getInstanceAnimation:(Animation*)animationInterface;

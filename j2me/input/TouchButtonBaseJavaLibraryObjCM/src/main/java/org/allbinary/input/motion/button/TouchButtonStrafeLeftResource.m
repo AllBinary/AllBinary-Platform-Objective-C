@@ -11,7 +11,7 @@ void TouchButtonStrafeLeftResource_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchButtonStrafeLeftResource_instance = [((TouchButtonStrafeLeftResource*) [TouchButtonStrafeLeftResource alloc]) init];
+    TouchButtonStrafeLeftResource_instance = ((TouchButtonStrafeLeftResource*) [((TouchButtonStrafeLeftResource*) [TouchButtonStrafeLeftResource alloc]) init]);
 }
 
 @implementation TouchButtonStrafeLeftResource

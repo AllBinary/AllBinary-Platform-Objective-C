@@ -24,7 +24,7 @@ void OnlyTouchButtonRecognizer_staticInit(void) {
 - (instancetype) init {
     self = [super init];
     [self initFields];
-        self->touchButtonRecognizer = [((TouchButtonRecognizer*) [TouchButtonRecognizer alloc]) init];
+        self->touchButtonRecognizer = ((TouchButtonRecognizer*) [((TouchButtonRecognizer*) [TouchButtonRecognizer alloc]) init]);
     return self;
 }
 

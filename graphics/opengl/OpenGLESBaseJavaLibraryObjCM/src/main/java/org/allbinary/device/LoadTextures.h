@@ -32,7 +32,7 @@
 @public
 }
 - (instancetype) init;
-- (void) load_:(GL10*)gl;
+- (void) loadMethod:(GL10*)gl;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

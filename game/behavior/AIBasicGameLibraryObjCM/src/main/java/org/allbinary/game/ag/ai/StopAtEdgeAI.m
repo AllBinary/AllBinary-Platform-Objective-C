@@ -222,7 +222,7 @@ void StopAtEdgeAI_staticInit(void) {
 - (void) processAI:(AllBinaryLayerManager*)allBinaryLayerManager {
         AllBinaryLayer* ownerLayerInterface = [self getOwnerLayerInterface];
         VelocityInterfaceCompositeInterface* velocityInterfaceCompositeInterface = (((VelocityInterfaceCompositeInterface*) ownerLayerInterface));
-        BasicVelocityProperties* velocityProperties = [velocityInterfaceCompositeInterface getVelocityProperties];
+        BasicVelocityProperties* velocityProperties = [((id<VelocityInterfaceCompositeInterface>) velocityInterfaceCompositeInterface) getVelocityProperties];
         int32_t x = [ownerLayerInterface getXP];
         int32_t y = [ownerLayerInterface getYP];
         int32_t x2 = [ownerLayerInterface getX2];

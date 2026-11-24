@@ -23,7 +23,7 @@ void HighScoresCanvasNoInputProcessorFactory_staticInit(void) {
 
 
 - (HighScoresCanvasInputProcessor*) getInstance:(HighScoresCanvas*)highScoresCanvas {
-        return [((HighScoresCanvasInputProcessor*) [HighScoresCanvasInputProcessor alloc]) init:highScoresCanvas];
+        return ((HighScoresCanvasInputProcessor*) [((HighScoresCanvasInputProcessor*) [HighScoresCanvasInputProcessor alloc]) init:highScoresCanvas]);
 }
 
 @end

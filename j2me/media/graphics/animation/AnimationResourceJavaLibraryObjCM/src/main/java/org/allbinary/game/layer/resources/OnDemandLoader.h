@@ -56,7 +56,7 @@
 }
 - (instancetype) init:(OnDemandResourcesFactory*)onDemandResourcesFactory :(GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory*)gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory :(BaseResourceAnimationInterfaceFactoryInterfaceFactory*)resourceAnimationInterfaceFactoryInterfaceFactory;
 - (void) initFields;
-- (void) init_:(ImageCache*)imageCache :(int32_t)level :(const char*)loadingString;
+- (void) initMethod:(ImageCache*)imageCache :(int32_t)level :(const char*)loadingString;
 - (void) initAll:(ImageCache*)imageCache :(const char*)loadingString;
 - (void) initLevel:(LayerPlacementInterfaceBasicArrayListFactoryInterface*)layerPlacementInterfaceBasicArrayListFactoryInterface :(ImageCache*)imageCache :(int32_t)level :(const char*)loadingString;
 @end

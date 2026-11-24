@@ -12,7 +12,7 @@ void TouchButtonsBuilderFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchButtonsBuilderFactory_NO_TOUCH_BUTTON_BUILDER_FACTORY = [((TouchButtonsBuilderFactory*) [TouchButtonsBuilderFactory alloc]) init];
+    TouchButtonsBuilderFactory_NO_TOUCH_BUTTON_BUILDER_FACTORY = ((TouchButtonsBuilderFactory*) [((TouchButtonsBuilderFactory*) [TouchButtonsBuilderFactory alloc]) init]);
 }
 
 @implementation TouchButtonsBuilderFactory

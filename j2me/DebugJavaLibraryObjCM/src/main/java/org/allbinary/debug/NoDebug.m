@@ -11,7 +11,7 @@ void NoDebug_staticInit(void) {
         return;
     }
     initialized = true;
-    NoDebug_SINGLETON = [((NoDebug*) [NoDebug alloc]) init];
+    NoDebug_SINGLETON = ((NoDebug*) [((NoDebug*) [NoDebug alloc]) init]);
 }
 
 @implementation NoDebug

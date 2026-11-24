@@ -26,7 +26,7 @@ void SpecialDownGameInputInterfaceProcessor_staticInit(void) {
 
 // throws Exception
 - (void) processEvent:(AllBinaryLayerManager*)allbinaryLayerManager :(GameKeyEvent*)gameKeyEvent {
-        [self->specialGameInputInterface down];
+        [((id<SpecialGameInputInterface>) self->specialGameInputInterface) down];
 }
 
 @end

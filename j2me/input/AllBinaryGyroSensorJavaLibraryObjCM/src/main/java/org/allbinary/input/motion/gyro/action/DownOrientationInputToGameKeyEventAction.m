@@ -3,6 +3,15 @@
 #include "org/allbinary/game/input/PlatformInputMappingFactory.h"
 #include "org/allbinary/input/gyro/OrientationMotionGestureFactory.h"
 #include "org/allbinary/logic/NullUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/input/gyro/OrientationMotionGestureFactory.h")
+#include "org/allbinary/input/gyro/OrientationMotionGestureFactory.h"
+#endif
 #if __has_include("org/allbinary/input/motion/gyro/action/PersistentInputMapping.h")
 #include "org/allbinary/input/motion/gyro/action/PersistentInputMapping.h"
 #endif
@@ -17,6 +26,9 @@
 #endif
 #if __has_include("org/allbinary/logic/PersistentInputMapping.h")
 #include "org/allbinary/logic/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/PlatformInputMappingFactory.h")
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
 #endif
 
 
@@ -36,7 +48,7 @@ void DownOrientationInputToGameKeyEventAction_staticInit(void) {
 
 + (GameKeyCompleteMotionGestureInputEvent*) getInstance {
         if ((DownOrientationInputToGameKeyEventAction_staticInit(), DownOrientationInputToGameKeyEventAction_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            DownOrientationInputToGameKeyEventAction_instance = [((DownOrientationInputToGameKeyEventAction*) [DownOrientationInputToGameKeyEventAction alloc]) init];
+            DownOrientationInputToGameKeyEventAction_instance = ((DownOrientationInputToGameKeyEventAction*) [((DownOrientationInputToGameKeyEventAction*) [DownOrientationInputToGameKeyEventAction alloc]) init]);
         }
         return ((GameKeyCompleteMotionGestureInputEvent*) (DownOrientationInputToGameKeyEventAction_staticInit(), DownOrientationInputToGameKeyEventAction_instance));
 }

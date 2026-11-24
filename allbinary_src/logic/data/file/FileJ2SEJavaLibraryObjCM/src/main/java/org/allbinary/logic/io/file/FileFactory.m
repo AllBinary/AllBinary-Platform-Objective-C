@@ -11,7 +11,7 @@ void FileFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    FileFactory_instance = [((FileFactory*) [FileFactory alloc]) init];
+    FileFactory_instance = ((FileFactory*) [((FileFactory*) [FileFactory alloc]) init]);
 }
 
 @implementation FileFactory

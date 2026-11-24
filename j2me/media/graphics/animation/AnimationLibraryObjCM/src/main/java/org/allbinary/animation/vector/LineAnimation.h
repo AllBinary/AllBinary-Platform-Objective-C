@@ -44,7 +44,7 @@
 }
 - (instancetype) init:(BasicColor*)basicColor;
 - (void) initFields;
-- (void) init_:(int32_t)x :(int32_t)y;
+- (void) initMethod:(int32_t)x :(int32_t)y;
 - (void) setPosition:(int32_t)x :(int32_t)y :(int32_t)z;
 - (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y;
 - (void) nextFrame;

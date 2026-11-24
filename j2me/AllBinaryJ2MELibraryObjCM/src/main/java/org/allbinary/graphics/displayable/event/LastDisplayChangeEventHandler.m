@@ -14,7 +14,7 @@ void LastDisplayChangeEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    LastDisplayChangeEventHandler_SINGLETON = [((LastDisplayChangeEventHandler*) [LastDisplayChangeEventHandler alloc]) init];
+    LastDisplayChangeEventHandler_SINGLETON = ((LastDisplayChangeEventHandler*) [((LastDisplayChangeEventHandler*) [LastDisplayChangeEventHandler alloc]) init]);
 }
 
 @implementation LastDisplayChangeEventHandler
@@ -34,7 +34,7 @@ void LastDisplayChangeEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         DisplayChangeEventListener* displayChangeEventListener = (((DisplayChangeEventListener*) eventListenerInterface));
-        [displayChangeEventListener onDisplayChangeEvent:((DisplayChangeEvent*) eventObject)];
+        [((id<DisplayChangeEventListener>) displayChangeEventListener) onDisplayChangeEvent:((DisplayChangeEvent*) eventObject)];
 }
 
 @end

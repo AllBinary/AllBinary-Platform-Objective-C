@@ -14,7 +14,7 @@ void SpriteFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    SpriteFactory_instance = [((SpriteFactory*) [SpriteFactory alloc]) init];
+    SpriteFactory_instance = ((SpriteFactory*) [((SpriteFactory*) [SpriteFactory alloc]) init]);
 }
 
 @implementation SpriteFactory
@@ -36,7 +36,7 @@ void SpriteFactory_staticInit(void) {
 
 
 - (Sprite*) createSprite:(Image*)image :(int32_t)frameWidth :(int32_t)frameHeight {
-        return [((Sprite*) [Sprite alloc]) init:image :frameWidth :frameHeight];
+        return ((Sprite*) [((Sprite*) [Sprite alloc]) init:image :frameWidth :frameHeight]);
 }
 
 @end

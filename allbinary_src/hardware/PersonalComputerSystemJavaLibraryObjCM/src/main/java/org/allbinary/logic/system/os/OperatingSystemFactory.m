@@ -15,6 +15,42 @@
 #include "org/allbinary/logic/system/os/GenericOperatingSystem.h"
 #include "org/allbinary/logic/system/os/OperatingSystems.h"
 #include "org/allbinary/logic/system/os/SystemProperties.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h")
+#include "org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/solaris/SolarisOperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/solaris/SolarisOperatingSystemFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h")
+#include "org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/windows/WindowsOperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/windows/WindowsOperatingSystemFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h")
+#include "org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/linux/LinuxOperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/linux/LinuxOperatingSystemFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h")
+#include "org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h"
+#endif
 
 
 static OperatingSystemFactory* OperatingSystemFactory_instance;
@@ -25,7 +61,7 @@ void OperatingSystemFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    OperatingSystemFactory_instance = [((OperatingSystemFactory*) [OperatingSystemFactory alloc]) init];
+    OperatingSystemFactory_instance = ((OperatingSystemFactory*) [((OperatingSystemFactory*) [OperatingSystemFactory alloc]) init]);
 }
 
 @implementation OperatingSystemFactory
@@ -77,9 +113,9 @@ void OperatingSystemFactory_staticInit(void) {
                     }
                     self->genericOperatingSystem = [[SolarisOperatingSystemFactory getInstance] getOperatingSystemInstance];
                 } else {
-                    java_throw(java_exception_new("Exception", [[[[((StringMaker*) [StringMaker alloc]) init] append:"OS Not Supported: "] append:osName] toString]));
+                    java_throw(java_exception_new("Exception", [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"OS Not Supported: "] append:osName] toString]));
                 }
-                Log* log = [LogFactory getInstanceF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"OperatingSystem Info: "] append:[[StringUtil getInstance] toString:self->genericOperatingSystem]] toString] :self :self->commonStrings->GET_INSTANCE];
+                Log* log = [LogFactory getInstanceF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"OperatingSystem Info: "] append:[[StringUtil getInstance] toString:self->genericOperatingSystem]] toString] :self :self->commonStrings->GET_INSTANCE];
                 puts(java_string_of([log toString]));
                 [self->logUtil putL:log];
             }

@@ -6,6 +6,9 @@
 #include "org/allbinary/game/health/HealthInterface.h"
 #include "org/allbinary/game/health/NullHealthListener.h"
 #include "org/allbinary/game/health/HealthListenerInterface.h"
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 Health* Health_NULL_HEALTH;
@@ -19,7 +22,7 @@ void Health_staticInit(void) {
         return;
     }
     initialized = true;
-    Health_NULL_HEALTH = [((Health*) [Health alloc]) init:0];
+    Health_NULL_HEALTH = ((Health*) [((Health*) [Health alloc]) init:0]);
 }
 
 @implementation Health
@@ -66,7 +69,7 @@ void Health_staticInit(void) {
 
 - (void) damage:(int32_t)ahealth {
         if (ahealth < 0) {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:"******* Trying to heal when damaging. Damage: "];
             [stringBuffer appendint:ahealth];
             [stringBuffer append:[CommonSeps getInstance]->SPACE];
@@ -107,7 +110,7 @@ void Health_staticInit(void) {
             self->health = health;
         }
         if (self->healthListenerInterface != nil) {
-            [self->healthListenerInterface onHealthChange];
+            [((id<HealthListenerInterface>) self->healthListenerInterface) onHealthChange];
         }
 }
 
@@ -123,7 +126,7 @@ void Health_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:Health_HEALTH_LABEL];
         [stringBuffer appendint:self->health];
         [stringBuffer append:Health_MAX_HEALTH_LABEL];

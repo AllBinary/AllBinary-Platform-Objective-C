@@ -27,9 +27,9 @@ void MotionGestureReceiveInterfaceFactory_staticInit(void) {
 + (CompleteMotionGestureListenerInterface*) getInstance {
         MotionGestureConfiguration* configuration = [MotionGestureConfigurationFactory getInstance];
         if (![configuration isExecutingActionsAllowed]) {
-            return [((NullCompleteMotionGestureReceiver*) [NullCompleteMotionGestureReceiver alloc]) init];
+            return ((NullCompleteMotionGestureReceiver*) [((NullCompleteMotionGestureReceiver*) [NullCompleteMotionGestureReceiver alloc]) init]);
         } else {
-            return [((ResolveCompleteMotionGestureListener*) [ResolveCompleteMotionGestureListener alloc]) init];
+            return ((ResolveCompleteMotionGestureListener*) [((ResolveCompleteMotionGestureListener*) [ResolveCompleteMotionGestureListener alloc]) init]);
         }
 }
 

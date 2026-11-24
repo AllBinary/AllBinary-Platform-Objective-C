@@ -36,6 +36,7 @@
 #include "java/lang/System.h"
 #include "java/lang/Float.h"
 #include "java/lang/Double.h"
+#include "java/lang/ClassLoader.h"
 
 //J2SE
 @interface TsUtil : ABObject {

@@ -13,7 +13,7 @@ void OnDemandResources_staticInit(void) {
         return;
     }
     initialized = true;
-    OnDemandResources_NULL_ON_DEMAND_RESOURCES = [((OnDemandResources*) [OnDemandResources alloc]) init];
+    OnDemandResources_NULL_ON_DEMAND_RESOURCES = ((OnDemandResources*) [((OnDemandResources*) [OnDemandResources alloc]) init]);
 }
 
 @implementation OnDemandResources
@@ -36,7 +36,7 @@ void OnDemandResources_staticInit(void) {
 
 
 // throws Exception
-- (void) init_ {
+- (void) initMethod {
 }
 
 

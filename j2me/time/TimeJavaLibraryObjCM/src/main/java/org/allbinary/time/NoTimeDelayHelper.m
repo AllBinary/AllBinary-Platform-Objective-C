@@ -11,7 +11,7 @@ void NoTimeDelayHelper_staticInit(void) {
         return;
     }
     initialized = true;
-    NoTimeDelayHelper_SINGLETON = [((NoTimeDelayHelper*) [NoTimeDelayHelper alloc]) init];
+    NoTimeDelayHelper_SINGLETON = ((NoTimeDelayHelper*) [((NoTimeDelayHelper*) [NoTimeDelayHelper alloc]) init]);
 }
 
 @implementation NoTimeDelayHelper

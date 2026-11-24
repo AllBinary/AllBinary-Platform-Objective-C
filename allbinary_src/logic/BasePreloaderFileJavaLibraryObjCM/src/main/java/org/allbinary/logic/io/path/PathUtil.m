@@ -6,6 +6,9 @@
 #include "org/allbinary/logic/io/path/AbPathData.h"
 #include "org/allbinary/logic/io/path/AbFilePath.h"
 #include "org/allbinary/logic/io/path/AbPath.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static PathUtil* PathUtil_instance;
@@ -16,7 +19,7 @@ void PathUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    PathUtil_instance = [((PathUtil*) [PathUtil alloc]) init];
+    PathUtil_instance = ((PathUtil*) [((PathUtil*) [PathUtil alloc]) init]);
 }
 
 @implementation PathUtil
@@ -145,7 +148,7 @@ void PathUtil_staticInit(void) {
             return [self removeNameFromPath:java_substring(path, 0, endIndex - 1)];
         } else {
             const char* pathWithoutName = java_substring(path, 0, endIndex);
-            return [((AbPath*) [AbPath alloc]) init:pathWithoutName :[StringUtil getInstance]->EMPTY_STRING];
+            return ((AbPath*) [((AbPath*) [AbPath alloc]) init:pathWithoutName :[StringUtil getInstance]->EMPTY_STRING]);
         }
 }
 

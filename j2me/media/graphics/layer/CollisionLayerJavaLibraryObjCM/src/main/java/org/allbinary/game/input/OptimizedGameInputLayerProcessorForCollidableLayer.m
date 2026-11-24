@@ -19,7 +19,7 @@ void OptimizedGameInputLayerProcessorForCollidableLayer_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:[((OptimizedGameInputLayerManager*) [OptimizedGameInputLayerManager alloc]) init]];
+        self = [super init:((OptimizedGameInputLayerManager*) [((OptimizedGameInputLayerManager*) [OptimizedGameInputLayerManager alloc]) init])];
     return self;
 }
 

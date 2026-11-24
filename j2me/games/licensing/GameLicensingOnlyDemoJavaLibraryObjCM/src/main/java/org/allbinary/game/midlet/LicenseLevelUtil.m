@@ -10,7 +10,7 @@ void LicenseLevelUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    LicenseLevelUtil_instance = [((LicenseLevelUtil*) [LicenseLevelUtil alloc]) init];
+    LicenseLevelUtil_instance = ((LicenseLevelUtil*) [((LicenseLevelUtil*) [LicenseLevelUtil alloc]) init]);
 }
 
 @implementation LicenseLevelUtil

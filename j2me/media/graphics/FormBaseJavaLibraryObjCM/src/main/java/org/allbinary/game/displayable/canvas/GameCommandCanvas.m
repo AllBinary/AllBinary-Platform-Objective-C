@@ -52,6 +52,9 @@
 #include "org/allbinary/game/displayable/canvas/NoMenuInputProcessor.h"
 #include "org/allbinary/game/displayable/canvas/BasicMenuInputProcessor.h"
 #include "org/allbinary/game/displayable/canvas/ImmediateCommandFormInputProcessor.h"
+#if __has_include("org/allbinary/graphics/displayable/screen/ScreenRepaintProcessorFactory.h")
+#include "org/allbinary/graphics/displayable/screen/ScreenRepaintProcessorFactory.h"
+#endif
 #if __has_include("org/allbinary/game/displayable/canvas/PersistentInputMapping.h")
 #include "org/allbinary/game/displayable/canvas/PersistentInputMapping.h"
 #endif
@@ -208,6 +211,90 @@
 #if __has_include("org/allbinary/util/PersistentInputMapping.h")
 #include "org/allbinary/util/PersistentInputMapping.h"
 #endif
+#if __has_include("org/allbinary/game/input/PlatformInputMappingFactory.h")
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Features.h")
+#include "org/allbinary/game/configuration/feature/Features.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/InputFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/InputFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/CanvasStrings.h")
+#include "org/allbinary/graphics/displayable/CanvasStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/FormTypeFactory.h")
+#include "org/allbinary/graphics/form/FormTypeFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/DisplayInfoSingleton.h")
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#endif
+#if __has_include("org/allbinary/game/commands/GameCommandsFactory.h")
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/FormTypeFactory.h")
+#include "org/allbinary/graphics/form/FormTypeFactory.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.h")
+#include "org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/GameKeyEventHandler.h")
+#include "org/allbinary/game/input/event/GameKeyEventHandler.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h")
+#include "org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.h")
+#include "org/allbinary/input/motion/gesture/observer/BasicMotionGesturesHandler.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/GameKeyEventHandler.h")
+#include "org/allbinary/game/input/event/GameKeyEventHandler.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h")
+#include "org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 #if __has_include("org/allbinary/game/displayable/canvas/DownGameKeyEventHandlerBase.h")
 #include "org/allbinary/game/displayable/canvas/DownGameKeyEventHandlerBase.h"
 #endif
@@ -363,6 +450,12 @@
 #endif
 #if __has_include("org/allbinary/util/DownGameKeyEventHandlerBase.h")
 #include "org/allbinary/util/DownGameKeyEventHandlerBase.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
 #endif
 #if __has_include("org/allbinary/game/displayable/canvas/UpGameKeyEventHandlerBase.h")
 #include "org/allbinary/game/displayable/canvas/UpGameKeyEventHandlerBase.h"
@@ -545,7 +638,7 @@ void GameCommandCanvas_staticInit(void) {
     self->downGameKeyEventHandler = [DownGameKeyEventHandler getInstance];
     self->upGameKeyEventHandler = [UpGameKeyEventHandler getInstance];
     
-    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->updateMyFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->myFontProcessor = self->updateMyFontProcessor;
     
     
@@ -581,10 +674,10 @@ void GameCommandCanvas_staticInit(void) {
 - (void) updateMeasurement:(Graphics*)graphics {
         JAVA_TRY {
             Font* font = [graphics getFont];
-            [self->logUtil putF:[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->START] append:self->canvasStrings->FD_WIDTH] appendint:[MyFontProcessor defaultCharWidth:font]] append:self->canvasStrings->FD_HEIGHT] appendint:[font getHeight]] toString] :self :self->canvasStrings->UPDATE_MEASUREMENT];
+            [self->logUtil putF:[[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->START] append:self->canvasStrings->FD_WIDTH] appendint:[MyFontProcessor defaultCharWidth:font]] append:self->canvasStrings->FD_HEIGHT] appendint:[font getHeight]] toString] :self :self->canvasStrings->UPDATE_MEASUREMENT];
             self->fontHeight = [font getHeight];
             Rectangle* rectangle = [self createRectangle:[self->menuForm size]];
-            [self->menuForm init_:rectangle :[FormTypeFactory getInstance]->VERTICAL_CENTER_FORM];
+            [self->menuForm initMethod:rectangle :[FormTypeFactory getInstance]->VERTICAL_CENTER_FORM];
             [self update];
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :self->canvasStrings->ON_DISPLAY_CHANGE_EVENT :e];
@@ -599,7 +692,7 @@ void GameCommandCanvas_staticInit(void) {
 
 
 - (void) onDisplayChangeEvent:(DisplayChangeEvent*)displayChangeEvent {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->START] append:[[DisplayInfoSingleton getInstance] toString]] toString] :self :self->canvasStrings->ON_DISPLAY_CHANGE_EVENT];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->START] append:[[DisplayInfoSingleton getInstance] toString]] toString] :self :self->canvasStrings->ON_DISPLAY_CHANGE_EVENT];
         self->myFontProcessor = self->updateMyFontProcessor;
 }
 
@@ -616,8 +709,8 @@ void GameCommandCanvas_staticInit(void) {
         ScrollSelectionForm* form = [self createForm];
         self->menuForm = form;
         if (form != [ScrollSelectionFormNoneFactory getInstance]) {
-            [self setMenuInputProcessor:[((ImmediateCommandFormInputProcessor*) [ImmediateCommandFormInputProcessor alloc]) init:[((BasicArrayListD*) [BasicArrayListD alloc]) init] :-1 :self :form]];
-            self->menuPaintable = [((FormPaintable*) [FormPaintable alloc]) init:form];
+            [self setMenuInputProcessor:((ImmediateCommandFormInputProcessor*) [((ImmediateCommandFormInputProcessor*) [ImmediateCommandFormInputProcessor alloc]) init:((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :-1 :self :form])];
+            self->menuPaintable = ((FormPaintable*) [((FormPaintable*) [FormPaintable alloc]) init:form]);
         }
         [self->repaintBehavior onChangeRepaint:self];
 }
@@ -625,7 +718,7 @@ void GameCommandCanvas_staticInit(void) {
 
 // throws Exception
 - (ScrollSelectionForm*) createForm {
-        ABCustomItem** items = [[((CommandTextItemArrayFactory*) [CommandTextItemArrayFactory alloc]) init:[((AllCommandsVisitor*) [AllCommandsVisitor alloc]) init]] getInstance:[self getCommandStack] :self->backgroundBasicColor :self->foregroundBasicColor];
+        ABCustomItem** items = [((CommandTextItemArrayFactory*) [((CommandTextItemArrayFactory*) [CommandTextItemArrayFactory alloc]) init:((AllCommandsVisitor*) [((AllCommandsVisitor*) [AllCommandsVisitor alloc]) init])]) getInstance:[self getCommandStack] :self->backgroundBasicColor :self->foregroundBasicColor];
         Rectangle* rectangle = [self createRectangle:java_array_length(items)];
         return [CommandCurrentSelectionFormFactory getInstance:[StringUtil getInstance]->EMPTY_STRING :items :rectangle :[FormTypeFactory getInstance]->VERTICAL_CENTER_FORM :15 :false :self->backgroundBasicColor :self->foregroundBasicColor];
 }
@@ -635,7 +728,7 @@ void GameCommandCanvas_staticInit(void) {
         int32_t height = size * self->fontHeight;
         int32_t startY = ([self->displayInfo getLastHeight] * 2 / 3) - height;
         PointFactory* pointFactory = [PointFactory getInstance];
-        Rectangle* rectangle = [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:30 :startY] :[self->displayInfo getLastWidth] - 30 :startY];
+        Rectangle* rectangle = ((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:30 :startY] :[self->displayInfo getLastWidth] - 30 :startY]);
         return rectangle;
 }
 
@@ -684,7 +777,7 @@ void GameCommandCanvas_staticInit(void) {
 
 
 - (void) keyPressedByDevice:(int32_t)keyCode :(int32_t)deviceId {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonSeps getInstance]->SPACE] appendint:keyCode] toString] :self :self->gameInputStrings->KEY_PRESSED];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonSeps getInstance]->SPACE] appendint:keyCode] toString] :self :self->gameInputStrings->KEY_PRESSED];
         [self addGameKeyEvent:keyCode :0 :false];
 }
 
@@ -709,7 +802,7 @@ void GameCommandCanvas_staticInit(void) {
                 [self->downGameKeyEventHandler fireEvent:gameKeyEvent];
                 [[self->downGameKeyEventHandler getInstanceForDevice:deviceId] fireEvent:gameKeyEvent];
             } else {
-                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->gameInputStrings->NO_KEY] appendint:keyCode] toString] :self :self->gameInputStrings->ADD_KEY_EVENT];
+                [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->gameInputStrings->NO_KEY] appendint:keyCode] toString] :self :self->gameInputStrings->ADD_KEY_EVENT];
             }
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:"Key Event Error" :self :self->gameInputStrings->ADD_KEY_EVENT :e];
@@ -725,7 +818,7 @@ void GameCommandCanvas_staticInit(void) {
                 [self->upGameKeyEventHandler fireEvent:gameKeyEvent];
                 [[self->upGameKeyEventHandler getInstanceForDevice:deviceId] fireEvent:gameKeyEvent];
             } else {
-                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->gameInputStrings->NO_KEY] appendint:keyCode] toString] :self :self->gameInputStrings->REMOVE_KEY_EVENT];
+                [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->gameInputStrings->NO_KEY] appendint:keyCode] toString] :self :self->gameInputStrings->REMOVE_KEY_EVENT];
             }
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:"Key Event Error" :self :self->gameInputStrings->REMOVE_KEY_EVENT :e];

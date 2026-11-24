@@ -13,7 +13,7 @@ void NullCommandListener_staticInit(void) {
         return;
     }
     initialized = true;
-    NullCommandListener_NULL_COMMAND_LISTENER = [((NullCommandListener*) [NullCommandListener alloc]) init];
+    NullCommandListener_NULL_COMMAND_LISTENER = ((NullCommandListener*) [((NullCommandListener*) [NullCommandListener alloc]) init]);
 }
 
 @implementation NullCommandListener

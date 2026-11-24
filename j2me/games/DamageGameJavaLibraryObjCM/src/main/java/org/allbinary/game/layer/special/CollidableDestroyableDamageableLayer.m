@@ -21,6 +21,21 @@
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/view/ViewPositionBase.h"
 #include "org/allbinary/game/layer/special/SpecialGameInputInterface.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/game/identification/BasicGroupFactory.h")
+#include "org/allbinary/game/identification/BasicGroupFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/identification/Group.h")
+#include "org/allbinary/game/identification/Group.h"
+#endif
 
 
 static id CollidableDestroyableDamageableLayer_NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER;
@@ -56,7 +71,7 @@ void CollidableDestroyableDamageableLayer_staticInit(void) {
 
 + (CollidableDestroyableDamageableLayer*) getNullInstance {
         if ((CollidableDestroyableDamageableLayer_staticInit(), CollidableDestroyableDamageableLayer_NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER) == [NullUtil getInstance]->NULL_OBJECT) {
-            CollidableDestroyableDamageableLayer_NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = [((CollidableDestroyableDamageableLayer*) [CollidableDestroyableDamageableLayer alloc]) init:[BasicGroupFactory getInstance]->NONE_ARRAY :[StringUtil getInstance]->EMPTY_STRING :(RectangleFactory_staticInit(), RectangleFactory_SINGLETON) :(ViewPositionBase_staticInit(), ViewPositionBase_NULL_VIEW_POSITION)];
+            CollidableDestroyableDamageableLayer_NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER = ((CollidableDestroyableDamageableLayer*) [((CollidableDestroyableDamageableLayer*) [CollidableDestroyableDamageableLayer alloc]) init:[BasicGroupFactory getInstance]->NONE_ARRAY :[StringUtil getInstance]->EMPTY_STRING :(RectangleFactory_staticInit(), RectangleFactory_SINGLETON) :(ViewPositionBase_staticInit(), ViewPositionBase_NULL_VIEW_POSITION)]);
         }
         return ((CollidableDestroyableDamageableLayer*) (CollidableDestroyableDamageableLayer_staticInit(), CollidableDestroyableDamageableLayer_NULL_COLLIDABLE_DESTROYABLE_DAMAGE_LAYER));
 }
@@ -310,7 +325,7 @@ void CollidableDestroyableDamageableLayer_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [self toStringAppend:stringBuffer];
         return [stringBuffer toString];
 }

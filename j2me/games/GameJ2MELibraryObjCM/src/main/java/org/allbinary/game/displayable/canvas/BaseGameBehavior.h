@@ -41,7 +41,7 @@
 }
 - (instancetype) init;
 + (DemoGameBehavior*) getInstance;
-- (void) init_;
+- (void) initMethod;
 - (void) pause:(AllBinaryGameCanvas*)allBinaryGameCanvas;
 - (void) unPause:(AllBinaryGameCanvas*)allBinaryGameCanvas;
 - (void) updateTouch:(AllBinaryGameCanvas*)allBinaryGameCanvas;

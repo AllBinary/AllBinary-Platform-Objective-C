@@ -12,7 +12,7 @@ void LogConfigTypes_staticInit(void) {
         return;
     }
     initialized = true;
-    LogConfigTypes_LOGGING = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    LogConfigTypes_LOGGING = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 @implementation LogConfigTypes

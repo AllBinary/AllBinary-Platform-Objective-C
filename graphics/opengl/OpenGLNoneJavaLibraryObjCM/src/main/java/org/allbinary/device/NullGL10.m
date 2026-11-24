@@ -1,6 +1,9 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/device/NullGL10.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 NullGL10* NullGL10_NULL_GL10;
@@ -11,7 +14,7 @@ void NullGL10_staticInit(void) {
         return;
     }
     initialized = true;
-    NullGL10_NULL_GL10 = [((NullGL10*) [NullGL10 alloc]) init];
+    NullGL10_NULL_GL10 = ((NullGL10*) [((NullGL10*) [NullGL10 alloc]) init]);
 }
 
 @implementation NullGL10

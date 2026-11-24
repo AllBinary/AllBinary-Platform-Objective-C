@@ -16,6 +16,21 @@
 #include "org/allbinary/util/EnumerationUtil.h"
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/game/input/mapping/InputToGameKeyMapping.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/persistance/GamePersistanceStrings.h")
+#include "org/allbinary/game/configuration/persistance/GamePersistanceStrings.h"
+#endif
+#if __has_include("org/allbinary/util/ABHashtable.h")
+#include "org/allbinary/util/ABHashtable.h"
+#endif
+#if __has_include("org/allbinary/game/input/mapping/event/InputMappingEventListenerInterface.h")
+#include "org/allbinary/game/input/mapping/event/InputMappingEventListenerInterface.h"
+#endif
 
 
 id PersistentInputMapping_instance;
@@ -35,16 +50,16 @@ void PersistentInputMapping_staticInit(void) {
     self->logUtil = [LogUtil getInstance];
     self->commonStrings = [CommonStrings getInstance];
     self->enumerationUtil = [EnumerationUtil getInstance];
-    self->inputMapping = [((InputToGameKeyMapping*) [InputToGameKeyMapping alloc]) init];
+    self->inputMapping = ((InputToGameKeyMapping*) [((InputToGameKeyMapping*) [InputToGameKeyMapping alloc]) init]);
     self->inputMappingEventListenerInterface = (NullInputMappingEventListener_staticInit(), NullInputMappingEventListener_NULL_INPUT_MAPPING_EVENT_LISTENER);
     
-    self->inputMappingEvent = [((InputMappingEvent*) [InputMappingEvent alloc]) init:self];
+    self->inputMappingEvent = ((InputMappingEvent*) [((InputMappingEvent*) [InputMappingEvent alloc]) init:self]);
 }
 
 
 + (PersistentInputMapping*) getNullInstance {
         if ((PersistentInputMapping_staticInit(), PersistentInputMapping_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            PersistentInputMapping_instance = [((PersistentInputMapping*) [PersistentInputMapping alloc]) init:[GamePersistanceStrings getInstance]->SAVED_INPUT_CONFIGURATION_RECORD_ID];
+            PersistentInputMapping_instance = ((PersistentInputMapping*) [((PersistentInputMapping*) [PersistentInputMapping alloc]) init:[GamePersistanceStrings getInstance]->SAVED_INPUT_CONFIGURATION_RECORD_ID]);
         }
         return ((PersistentInputMapping*) (PersistentInputMapping_staticInit(), PersistentInputMapping_instance));
 }
@@ -53,7 +68,7 @@ void PersistentInputMapping_staticInit(void) {
 - (instancetype) init:(const char*)name {
     self = [super init];
     [self initFields];
-        self->inputPersistance = [((InputPersistance*) [InputPersistance alloc]) init:name];
+        self->inputPersistance = ((InputPersistance*) [((InputPersistance*) [InputPersistance alloc]) init:name]);
     return self;
 }
 
@@ -93,13 +108,13 @@ void PersistentInputMapping_staticInit(void) {
         [self->inputPersistance save:abeClientInformation :[[self getInputMapping] getHashtable]];
         [self->inputMappingEvent setInputToGameKeyMapping:[self getInputMapping]];
         if ([self getInputMappingEventListenerInterface] != nil) {
-            [[self getInputMappingEventListenerInterface] onInputMappingEvent:self->inputMappingEvent];
+            [((id<InputMappingEventListenerInterface>) [self getInputMappingEventListenerInterface]) onInputMappingEvent:self->inputMappingEvent];
         }
 }
 
 
 // throws Exception
-- (void) init_:(AbeClientInformationInterface*)abeClientInformation {
+- (void) initMethod:(AbeClientInformationInterface*)abeClientInformation {
         [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->INIT];
         JAVA_TRY {
             [self->inputPersistance loadAll:abeClientInformation];
@@ -126,7 +141,7 @@ void PersistentInputMapping_staticInit(void) {
                 [[self getInputMapping] add:gameActionInput :mappedToInput];
             }
         }
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"End - Total Loaded Keys Mapped: "];
         [stringBuffer appendint:[self getTotalMapped]];
         [stringBuffer append:" to: "];

@@ -12,6 +12,7 @@
 #include "allbinary_java.h"
 #include "ABObject.h"
 @class GL10;
+@class GL;
 #include "javax/microedition/khronos/opengles/GL.h"
 
 @protocol GL10 <GL>

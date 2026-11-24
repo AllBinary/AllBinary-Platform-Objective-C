@@ -24,7 +24,7 @@ void TouchButtonsPaintableCompositeFactory_staticInit(void) {
 
 
 + (ProcessPaintable*) getInstance:(InputMappingInterface*)inputMappingInterface :(BasicColor*)basicColor {
-        return [((TouchButtonsPaintableComposite*) [TouchButtonsPaintableComposite alloc]) init:inputMappingInterface :basicColor];
+        return ((TouchButtonsPaintableComposite*) [((TouchButtonsPaintableComposite*) [TouchButtonsPaintableComposite alloc]) init:inputMappingInterface :basicColor]);
 }
 
 @end

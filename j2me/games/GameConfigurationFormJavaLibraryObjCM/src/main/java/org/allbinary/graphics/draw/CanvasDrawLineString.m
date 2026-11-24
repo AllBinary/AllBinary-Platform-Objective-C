@@ -15,14 +15,14 @@ void CanvasDrawLineString_staticInit(void) {
         return;
     }
     initialized = true;
-    CanvasDrawLineString_NULL_CANVAS_DRAW_LINE_STRING = [((CanvasDrawLineString*) [CanvasDrawLineString alloc]) init:0 :0];
+    CanvasDrawLineString_NULL_CANVAS_DRAW_LINE_STRING = ((CanvasDrawLineString*) [((CanvasDrawLineString*) [CanvasDrawLineString alloc]) init:0 :0]);
 }
 
 @implementation CanvasDrawLineString
 
 - (void) initFields {
     self->drawStringUtil = [DrawStringUtil getInstance];
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     
     
     self->fontHeight = 0;

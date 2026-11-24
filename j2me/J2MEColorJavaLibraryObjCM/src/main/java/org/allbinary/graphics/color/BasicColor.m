@@ -72,7 +72,7 @@ void BasicColor_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"BasicColor: "];
         [stringBuffer append:"Alpha: "];
         [stringBuffer appendshort:self->alpha];

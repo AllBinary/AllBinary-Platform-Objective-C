@@ -8,6 +8,9 @@
 #include "org/allbinary/logic/system/hardware/NoHardware.h"
 #include "org/allbinary/logic/system/hardware/HardwareInterface.h"
 #include "org/allbinary/logic/system/hardware/HardwareFactory.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static SystemHardwareFactory* SystemHardwareFactory_instance;
@@ -18,7 +21,7 @@ void SystemHardwareFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    SystemHardwareFactory_instance = [((SystemHardwareFactory*) [SystemHardwareFactory alloc]) init];
+    SystemHardwareFactory_instance = ((SystemHardwareFactory*) [((SystemHardwareFactory*) [SystemHardwareFactory alloc]) init]);
 }
 
 @implementation SystemHardwareFactory
@@ -57,10 +60,10 @@ void SystemHardwareFactory_staticInit(void) {
 
 + (const char*) static_toString {
         SystemHardwareFactory* systemHardwareFactory = [SystemHardwareFactory getInstance];
-        StringMaker* osBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* osBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [osBuffer append:"Hardware Info: \n"];
         if (systemHardwareFactory->hardwareInterface != nil) {
-            [osBuffer append:[systemHardwareFactory->hardwareInterface toString]];
+            [osBuffer append:[((id<HardwareInterface>) systemHardwareFactory->hardwareInterface) toString]];
         } else {
             [osBuffer append:[StringUtil getInstance]->NULL_STRING];
         }

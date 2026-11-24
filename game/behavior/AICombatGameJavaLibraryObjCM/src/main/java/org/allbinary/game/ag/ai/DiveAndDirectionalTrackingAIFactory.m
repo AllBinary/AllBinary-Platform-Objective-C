@@ -36,10 +36,10 @@ void DiveAndDirectionalTrackingAIFactory_staticInit(void) {
         if (visitorCanBeNull == nil) {
             visitorCanBeNull = [ThrustAIVisitorFactory getInstance];
         }
-        ABHashtable* hashtable2 = [[((BasicProbabilityAIDataFactory*) [BasicProbabilityAIDataFactory alloc]) init] getInstance];
+        ABHashtable* hashtable2 = [((BasicProbabilityAIDataFactory*) [((BasicProbabilityAIDataFactory*) [BasicProbabilityAIDataFactory alloc]) init]) getInstance];
         [hashtable2 put:JAVA_BOX((BasicAI_staticInit(), BasicAI_AI_VISITOR)) :JAVA_BOX([LastKeyAIVisitorFactory getInstance])];
-        ArtificialIntelligenceInterface* artificialIntelligenceInterface = [[((BasicRandomAIFactory*) [BasicRandomAIFactory alloc]) init] getInstance:hashtable2 :ownerLayerInterface :gameInput];
-        return [((DiveAndDirectionalTrackingAI*) [DiveAndDirectionalTrackingAI alloc]) init:ownerLayerInterface :artificialIntelligenceInterface :gameInput :((Visitor*) visitorCanBeNull)];
+        ArtificialIntelligenceInterface* artificialIntelligenceInterface = [((BasicRandomAIFactory*) [((BasicRandomAIFactory*) [BasicRandomAIFactory alloc]) init]) getInstance:hashtable2 :ownerLayerInterface :gameInput];
+        return ((DiveAndDirectionalTrackingAI*) [((DiveAndDirectionalTrackingAI*) [DiveAndDirectionalTrackingAI alloc]) init:ownerLayerInterface :artificialIntelligenceInterface :gameInput :((Visitor*) visitorCanBeNull)]);
 }
 
 @end

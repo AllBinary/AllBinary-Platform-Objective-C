@@ -13,7 +13,7 @@ void LayerDistanceUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    LayerDistanceUtil_instance = [((LayerDistanceUtil*) [LayerDistanceUtil alloc]) init];
+    LayerDistanceUtil_instance = ((LayerDistanceUtil*) [((LayerDistanceUtil*) [LayerDistanceUtil alloc]) init]);
 }
 
 @implementation LayerDistanceUtil

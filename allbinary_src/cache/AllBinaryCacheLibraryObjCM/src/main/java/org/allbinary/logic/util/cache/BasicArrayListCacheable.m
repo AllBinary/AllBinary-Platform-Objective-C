@@ -2,6 +2,9 @@
 #include "org/allbinary/logic/util/cache/BasicArrayListCacheable.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/logic/util/cache/CacheableInterface.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 

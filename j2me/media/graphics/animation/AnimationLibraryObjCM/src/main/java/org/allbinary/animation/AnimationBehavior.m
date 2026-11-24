@@ -10,7 +10,7 @@ void AnimationBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    AnimationBehavior_instance = [((AnimationBehavior*) [AnimationBehavior alloc]) init];
+    AnimationBehavior_instance = ((AnimationBehavior*) [((AnimationBehavior*) [AnimationBehavior alloc]) init]);
 }
 
 @implementation AnimationBehavior

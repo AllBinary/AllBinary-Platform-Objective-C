@@ -44,7 +44,7 @@ void BasicGraphicsPipeline_staticInit(void) {
 
 // throws Exception
 - (void) translate:(int32_t)x :(int32_t)y {
-        BasicArrayList* newBasicArrayList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* newBasicArrayList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         int32_t size = [self->pointBasicArrayList size];
         PointFactory* pointFactory = [PointFactory getInstance];
         GPoint* secondPoint = nullptr;
@@ -68,7 +68,7 @@ void BasicGraphicsPipeline_staticInit(void) {
 
 // throws Exception
 - (void) rotate:(int32_t)angle {
-        BasicArrayList* newBasicArrayList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* newBasicArrayList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         GPoint* secondPoint = nullptr;
         int64_t y = 0;
         int64_t secondX = 0;
@@ -100,7 +100,7 @@ void BasicGraphicsPipeline_staticInit(void) {
 - (void) mirror:(int32_t)width {
         PointFactory* pointFactory = [PointFactory getInstance];
         int32_t halfWidth = (width >> 1);
-        BasicArrayList* newBasicArrayList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* newBasicArrayList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         GPoint* secondPoint = nullptr;
         int32_t newX = 0;
         GPoint* point = nullptr;

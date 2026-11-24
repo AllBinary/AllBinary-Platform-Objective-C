@@ -10,7 +10,7 @@ void GenericTrackingLayerCircularStaticPool_staticInit(void) {
         return;
     }
     initialized = true;
-    GenericTrackingLayerCircularStaticPool_SINGLETON = [((GenericTrackingLayerCircularStaticPool*) [GenericTrackingLayerCircularStaticPool alloc]) init];
+    GenericTrackingLayerCircularStaticPool_SINGLETON = ((GenericTrackingLayerCircularStaticPool*) [((GenericTrackingLayerCircularStaticPool*) [GenericTrackingLayerCircularStaticPool alloc]) init]);
 }
 
 @implementation GenericTrackingLayerCircularStaticPool

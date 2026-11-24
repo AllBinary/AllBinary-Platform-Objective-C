@@ -15,7 +15,7 @@ void MidletExitProcessorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    MidletExitProcessorFactory_instance = [((MidletExitProcessorFactory*) [MidletExitProcessorFactory alloc]) init];
+    MidletExitProcessorFactory_instance = ((MidletExitProcessorFactory*) [((MidletExitProcessorFactory*) [MidletExitProcessorFactory alloc]) init]);
 }
 
 @implementation MidletExitProcessorFactory
@@ -35,7 +35,7 @@ void MidletExitProcessorFactory_staticInit(void) {
         if ([AppletUtil isAppletLoader:midlet] || [J2MEUtil isJ2ME]) {
             return [Processor getInstance];
         } else {
-            return [((MidletExitProcessor*) [MidletExitProcessor alloc]) init:midlet];
+            return ((MidletExitProcessor*) [((MidletExitProcessor*) [MidletExitProcessor alloc]) init:midlet]);
         }
 }
 

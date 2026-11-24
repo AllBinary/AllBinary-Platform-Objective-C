@@ -10,7 +10,7 @@ void CommonLabels_staticInit(void) {
         return;
     }
     initialized = true;
-    CommonLabels_instance = [((CommonLabels*) [CommonLabels alloc]) init];
+    CommonLabels_instance = ((CommonLabels*) [((CommonLabels*) [CommonLabels alloc]) init]);
 }
 
 @implementation CommonLabels

@@ -35,7 +35,7 @@
 @public
 }
 - (instancetype) init:(const char*)resource;
-- (void) init_;
+- (void) initMethod;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

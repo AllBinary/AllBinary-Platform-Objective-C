@@ -26,7 +26,7 @@ void BaseSoundsFactory_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 

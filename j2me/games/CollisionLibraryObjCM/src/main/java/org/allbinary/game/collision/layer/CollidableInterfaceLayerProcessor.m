@@ -39,7 +39,7 @@ void CollidableInterfaceLayerProcessor_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:[((CollidableInterfaceLayerManager*) [CollidableInterfaceLayerManager alloc]) init]];
+        self = [super init:((CollidableInterfaceLayerManager*) [((CollidableInterfaceLayerManager*) [CollidableInterfaceLayerManager alloc]) init])];
     return self;
 }
 
@@ -47,7 +47,7 @@ void CollidableInterfaceLayerProcessor_staticInit(void) {
 // throws Exception
 - (void) processAt:(AllBinaryLayerManager*)allBinaryLayerManager :(AllBinaryLayer*)layerInterface :(int32_t)index {
         CollidableInterfaceCompositeInterface* collidableInterfaceCompositeInterface = ((CollidableInterfaceCompositeInterface*) layerInterface);
-        if ([[collidableInterfaceCompositeInterface getCollidableInferface] isCollidable:((CollidableCompositeLayer*) collidableInterfaceCompositeInterface)]) {
+        if ([[((id<CollidableInterfaceCompositeInterface>) collidableInterfaceCompositeInterface) getCollidableInferface] isCollidable:((CollidableCompositeLayer*) collidableInterfaceCompositeInterface)]) {
             [[AllBinaryCollisionManager getInstance] process:[self getLayerManager] :collidableInterfaceCompositeInterface :index];
         }
 }

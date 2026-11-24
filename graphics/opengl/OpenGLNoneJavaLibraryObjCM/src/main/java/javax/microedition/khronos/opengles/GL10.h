@@ -12,6 +12,7 @@
 #include "allbinary_java.h"
 #include "ABObject.h"
 @class GL10;
+@class GL;
 #include "java/nio/Buffer.h"
 #include "java/nio/FloatBuffer.h"
 #include "java/nio/IntBuffer.h"

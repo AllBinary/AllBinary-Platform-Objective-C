@@ -21,6 +21,21 @@
 #include "org/allbinary/util/CircularIndexUtil.h"
 #include "org/allbinary/game/ag/layer/hud/basic/SetAndRemoveProcessor.h"
 #include "org/allbinary/game/ag/layer/hud/basic/NextUnremoveableProcessor.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/business/advertisement/GameAdStateFactory.h")
+#include "org/allbinary/business/advertisement/GameAdStateFactory.h"
+#endif
 
 
 
@@ -38,12 +53,12 @@ void PlayerGameNotificationHud_staticInit(void) {
     self->gameTickTimeDelayHelper = [GameTickTimeDelayHelperFactory getInstance];
     self->EMPTY_STRING = [StringUtil getInstance]->EMPTY_STRING;
     self->displayInfo = [DisplayInfoSingleton getInstance];
-    self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
+    self->timeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0]);
     
-    self->gameNotification = [((GameNotification*) [GameNotification alloc]) init];
-    self->permanentGameNotification = [((GameNotification*) [GameNotification alloc]) init];
-    self->setAndRemoveProcessor = [((SetAndRemoveProcessor*) [SetAndRemoveProcessor alloc]) init:self];
-    self->nextUnremoveableProcessor = [((NextUnremoveableProcessor*) [NextUnremoveableProcessor alloc]) init:self];
+    self->gameNotification = ((GameNotification*) [((GameNotification*) [GameNotification alloc]) init]);
+    self->permanentGameNotification = ((GameNotification*) [((GameNotification*) [GameNotification alloc]) init]);
+    self->setAndRemoveProcessor = ((SetAndRemoveProcessor*) [((SetAndRemoveProcessor*) [SetAndRemoveProcessor alloc]) init:self]);
+    self->nextUnremoveableProcessor = ((NextUnremoveableProcessor*) [((NextUnremoveableProcessor*) [NextUnremoveableProcessor alloc]) init:self]);
     self->processor = [Processor getInstance];
     self->PERMANENT_GAME_NOTIFICATION = "Permanent Game Notification: ";
     self->lastString = [StringUtil getInstance]->EMPTY_STRING;
@@ -91,7 +106,7 @@ void PlayerGameNotificationHud_staticInit(void) {
         if (((bool) (permanent))) {
             if (self->lastString != string) {
                 self->lastString = string;
-                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->PERMANENT_GAME_NOTIFICATION] append:string] toString] :self :self->commonStrings->ADD];
+                [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->PERMANENT_GAME_NOTIFICATION] append:string] toString] :self :self->commonStrings->ADD];
             }
             [self->permanentGameNotification add:string :seconds :basicColor];
             [self->circularIndexUtil setSize:[self->permanentGameNotification getSize]];

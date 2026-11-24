@@ -6,6 +6,9 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/layer/AllBinaryLayer.h"
 #include "org/allbinary/layer/AllBinaryLayerManager.h"
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
 
 
 BasicLayerProcessor* BasicLayerProcessor_NULL_LAYER_PROCESSOR;
@@ -16,14 +19,14 @@ void BasicLayerProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicLayerProcessor_NULL_LAYER_PROCESSOR = [((BasicLayerProcessor*) [BasicLayerProcessor alloc]) init];
+    BasicLayerProcessor_NULL_LAYER_PROCESSOR = ((BasicLayerProcessor*) [((BasicLayerProcessor*) [BasicLayerProcessor alloc]) init]);
 }
 
 @implementation BasicLayerProcessor
 
 - (void) initFields {
     self->logUtil = [LogUtil getInstance];
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 

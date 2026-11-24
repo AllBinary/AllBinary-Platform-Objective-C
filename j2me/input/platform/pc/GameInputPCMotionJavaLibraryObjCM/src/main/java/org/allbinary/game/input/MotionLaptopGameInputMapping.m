@@ -23,7 +23,7 @@ void MotionLaptopGameInputMapping_staticInit(void) {
 
 
 - (InputToGameKeyMapping*) getDefault {
-        return [[((MotionLaptopDefaultGameInputMapping*) [MotionLaptopDefaultGameInputMapping alloc]) init] getInputMapping];
+        return [((MotionLaptopDefaultGameInputMapping*) [((MotionLaptopDefaultGameInputMapping*) [MotionLaptopDefaultGameInputMapping alloc]) init]) getInputMapping];
 }
 
 @end

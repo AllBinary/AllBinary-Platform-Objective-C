@@ -1,6 +1,12 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/graphics/opengles/OpenGLCapabilities.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static OpenGLCapabilities* OpenGLCapabilities_instance;
@@ -11,7 +17,7 @@ void OpenGLCapabilities_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLCapabilities_instance = [((OpenGLCapabilities*) [OpenGLCapabilities alloc]) init];
+    OpenGLCapabilities_instance = ((OpenGLCapabilities*) [((OpenGLCapabilities*) [OpenGLCapabilities alloc]) init]);
 }
 
 @implementation OpenGLCapabilities

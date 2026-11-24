@@ -3,6 +3,9 @@
 #include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/graphics/form/FormType.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static FormTypeFactory* FormTypeFactory_instance;
@@ -13,17 +16,17 @@ void FormTypeFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    FormTypeFactory_instance = [((FormTypeFactory*) [FormTypeFactory alloc]) init];
+    FormTypeFactory_instance = ((FormTypeFactory*) [((FormTypeFactory*) [FormTypeFactory alloc]) init]);
 }
 
 @implementation FormTypeFactory
 
 - (void) initFields {
     self->UNK = "Unknown FormType";
-    self->NULL_FORM_TYPE = [((FormType*) [FormType alloc]) init:[StringUtil getInstance]->NULL_STRING];
-    self->TEMP_HORIZONTAL_FORM = [((FormType*) [FormType alloc]) init:"TempHorizontal"];
-    self->HORIZONTAL_FORM = [((FormType*) [FormType alloc]) init:"Horizontal"];
-    self->VERTICAL_CENTER_FORM = [((FormType*) [FormType alloc]) init:"Vertical"];
+    self->NULL_FORM_TYPE = ((FormType*) [((FormType*) [FormType alloc]) init:[StringUtil getInstance]->NULL_STRING]);
+    self->TEMP_HORIZONTAL_FORM = ((FormType*) [((FormType*) [FormType alloc]) init:"TempHorizontal"]);
+    self->HORIZONTAL_FORM = ((FormType*) [((FormType*) [FormType alloc]) init:"Horizontal"]);
+    self->VERTICAL_CENTER_FORM = ((FormType*) [((FormType*) [FormType alloc]) init:"Vertical"]);
 }
 
 - (instancetype) init {

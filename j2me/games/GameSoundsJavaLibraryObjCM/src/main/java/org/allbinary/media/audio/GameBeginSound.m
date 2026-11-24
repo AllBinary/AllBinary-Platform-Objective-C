@@ -12,7 +12,7 @@ void GameBeginSound_staticInit(void) {
         return;
     }
     initialized = true;
-    GameBeginSound_soundInterface = [((GameBeginSound*) [GameBeginSound alloc]) init];
+    GameBeginSound_soundInterface = ((GameBeginSound*) [((GameBeginSound*) [GameBeginSound alloc]) init]);
 }
 
 @implementation GameBeginSound

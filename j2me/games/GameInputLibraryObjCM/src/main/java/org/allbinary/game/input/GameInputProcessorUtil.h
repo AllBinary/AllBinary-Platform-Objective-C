@@ -33,7 +33,7 @@
 @public
 }
 - (instancetype) init;
-+ (void) init_:(GameInputProcessor**)inputProcessorArray;
++ (void) initMethod:(GameInputProcessor**)inputProcessorArray;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

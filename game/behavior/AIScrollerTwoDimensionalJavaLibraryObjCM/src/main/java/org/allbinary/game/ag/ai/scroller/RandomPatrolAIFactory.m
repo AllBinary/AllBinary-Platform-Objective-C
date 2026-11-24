@@ -26,7 +26,7 @@ void RandomPatrolAIFactory_staticInit(void) {
 
 // throws Exception
 - (ArtificialIntelligenceInterface*) getInstance:(ABHashtable*)hashtable :(AllBinaryLayer*)ownerLayerInterface :(GameInput*)gameInput {
-        return [((RandomPatrolAI*) [RandomPatrolAI alloc]) init:hashtable :ownerLayerInterface :gameInput];
+        return ((RandomPatrolAI*) [((RandomPatrolAI*) [RandomPatrolAI alloc]) init:hashtable :ownerLayerInterface :gameInput]);
 }
 
 @end

@@ -11,20 +11,20 @@ void SensorFeatureFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    SensorFeatureFactory_instance = [((SensorFeatureFactory*) [SensorFeatureFactory alloc]) init];
+    SensorFeatureFactory_instance = ((SensorFeatureFactory*) [((SensorFeatureFactory*) [SensorFeatureFactory alloc]) init]);
 }
 
 @implementation SensorFeatureFactory
 
 - (void) initFields {
-    self->NO_ORIENTATION = [((SensorFeature*) [SensorFeature alloc]) init:"No Orientation"];
-    self->ORIENTATION_SENSORS = [((SensorFeature*) [SensorFeature alloc]) init:"Orientation Sensors"];
-    self->SIMULATED_ORIENTATION_SENSORS = [((SensorFeature*) [SensorFeature alloc]) init:"Simulated Orientation Sensors"];
-    self->YAW = [((SensorFeature*) [SensorFeature alloc]) init:"Yaw"];
-    self->YAW_MINUS_RIGHT_PLUS_LEFT = [((SensorFeature*) [SensorFeature alloc]) init:"Yaw -Right +Left"];
-    self->YAW_MINUS_LEFT_PLUS_RIGHT = [((SensorFeature*) [SensorFeature alloc]) init:"Yaw -Left +Right "];
-    self->PITCH = [((SensorFeature*) [SensorFeature alloc]) init:"Pitch"];
-    self->ROLL = [((SensorFeature*) [SensorFeature alloc]) init:"Roll"];
+    self->NO_ORIENTATION = ((SensorFeature*) [((SensorFeature*) [SensorFeature alloc]) init:"No Orientation"]);
+    self->ORIENTATION_SENSORS = ((SensorFeature*) [((SensorFeature*) [SensorFeature alloc]) init:"Orientation Sensors"]);
+    self->SIMULATED_ORIENTATION_SENSORS = ((SensorFeature*) [((SensorFeature*) [SensorFeature alloc]) init:"Simulated Orientation Sensors"]);
+    self->YAW = ((SensorFeature*) [((SensorFeature*) [SensorFeature alloc]) init:"Yaw"]);
+    self->YAW_MINUS_RIGHT_PLUS_LEFT = ((SensorFeature*) [((SensorFeature*) [SensorFeature alloc]) init:"Yaw -Right +Left"]);
+    self->YAW_MINUS_LEFT_PLUS_RIGHT = ((SensorFeature*) [((SensorFeature*) [SensorFeature alloc]) init:"Yaw -Left +Right "]);
+    self->PITCH = ((SensorFeature*) [((SensorFeature*) [SensorFeature alloc]) init:"Pitch"]);
+    self->ROLL = ((SensorFeature*) [((SensorFeature*) [SensorFeature alloc]) init:"Roll"]);
 }
 
 

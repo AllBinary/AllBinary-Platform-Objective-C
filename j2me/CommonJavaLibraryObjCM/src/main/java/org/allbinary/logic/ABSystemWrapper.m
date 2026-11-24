@@ -10,7 +10,7 @@ void ABSystemWrapper_staticInit(void) {
         return;
     }
     initialized = true;
-    ABSystemWrapper_instance = [((ABSystemWrapper*) [ABSystemWrapper alloc]) init];
+    ABSystemWrapper_instance = ((ABSystemWrapper*) [((ABSystemWrapper*) [ABSystemWrapper alloc]) init]);
 }
 
 @implementation ABSystemWrapper

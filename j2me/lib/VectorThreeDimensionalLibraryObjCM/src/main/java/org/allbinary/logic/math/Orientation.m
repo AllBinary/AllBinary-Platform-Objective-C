@@ -13,16 +13,16 @@ void Orientation_staticInit(void) {
         return;
     }
     initialized = true;
-    Orientation_NONE = [((Orientation*) [Orientation alloc]) init:0 :0 :0];
-    Orientation_SINGLETON = [((Orientation*) [Orientation alloc]) init:0 :0 :0];
+    Orientation_NONE = ((Orientation*) [((Orientation*) [Orientation alloc]) init:0 :0 :0]);
+    Orientation_SINGLETON = ((Orientation*) [((Orientation*) [Orientation alloc]) init:0 :0 :0]);
 }
 
 @implementation Orientation
 
 - (void) initFields {
-    self->yaw = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
-    self->pitch = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
-    self->roll = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
+    self->yaw = ((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:0]);
+    self->pitch = ((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:0]);
+    self->roll = ((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:0]);
 }
 
 
@@ -45,7 +45,7 @@ void Orientation_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"Y: "];
         [stringBuffer append:[self->yaw toString]];
         [stringBuffer append:" P: "];

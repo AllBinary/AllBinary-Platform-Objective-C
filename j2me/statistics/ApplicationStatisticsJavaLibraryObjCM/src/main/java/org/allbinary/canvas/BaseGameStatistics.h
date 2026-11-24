@@ -65,7 +65,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-- (void) init_;
+- (void) initMethod;
 - (void) add:(const char*)string;
 - (void) process;
 - (void) nextFrame;

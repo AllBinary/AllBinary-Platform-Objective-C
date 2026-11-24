@@ -10,7 +10,7 @@ void ScaleFactorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ScaleFactorFactory_instance = [((ScaleFactorFactory*) [ScaleFactorFactory alloc]) init];
+    ScaleFactorFactory_instance = ((ScaleFactorFactory*) [((ScaleFactorFactory*) [ScaleFactorFactory alloc]) init]);
 }
 
 @implementation ScaleFactorFactory

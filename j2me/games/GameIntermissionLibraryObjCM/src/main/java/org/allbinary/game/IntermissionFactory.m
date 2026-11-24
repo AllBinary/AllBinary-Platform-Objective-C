@@ -2,6 +2,18 @@
 #include "org/allbinary/game/IntermissionFactory.h"
 #include "org/allbinary/game/state/GameState.h"
 #include "org/allbinary/game/state/GameStateFactory.h"
+#if __has_include("org/allbinary/game/state/GameStateFactory.h")
+#include "org/allbinary/game/state/GameStateFactory.h"
+#endif
+#if __has_include("org/allbinary/game/state/GameStateFactory.h")
+#include "org/allbinary/game/state/GameStateFactory.h"
+#endif
+#if __has_include("org/allbinary/game/state/GameStateFactory.h")
+#include "org/allbinary/game/state/GameStateFactory.h"
+#endif
+#if __has_include("org/allbinary/game/state/GameStateFactory.h")
+#include "org/allbinary/game/state/GameStateFactory.h"
+#endif
 
 
 static IntermissionFactory* IntermissionFactory_instance;
@@ -12,7 +24,7 @@ void IntermissionFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    IntermissionFactory_instance = [((IntermissionFactory*) [IntermissionFactory alloc]) init];
+    IntermissionFactory_instance = ((IntermissionFactory*) [((IntermissionFactory*) [IntermissionFactory alloc]) init]);
 }
 
 @implementation IntermissionFactory

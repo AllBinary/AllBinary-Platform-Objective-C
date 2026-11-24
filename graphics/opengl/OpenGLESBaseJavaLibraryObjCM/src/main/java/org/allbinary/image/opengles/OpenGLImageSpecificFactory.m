@@ -4,6 +4,15 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/image/opengles/OpenGLImageFactory.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static OpenGLImageSpecificFactory* OpenGLImageSpecificFactory_instance;
@@ -14,7 +23,7 @@ void OpenGLImageSpecificFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLImageSpecificFactory_instance = [((OpenGLImageSpecificFactory*) [OpenGLImageSpecificFactory alloc]) init];
+    OpenGLImageSpecificFactory_instance = ((OpenGLImageSpecificFactory*) [((OpenGLImageSpecificFactory*) [OpenGLImageSpecificFactory alloc]) init]);
 }
 
 @implementation OpenGLImageSpecificFactory
@@ -38,7 +47,7 @@ void OpenGLImageSpecificFactory_staticInit(void) {
 
 - (void) setImageFactory:(OpenGLImageFactory*)imageFactory {
         self->imageFactory = imageFactory;
-        [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Selected Image Factory: "] append:[[StringUtil getInstance] toString:self->imageFactory]] toString] :self :"setImageFactory"];
+        [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Selected Image Factory: "] append:[[StringUtil getInstance] toString:self->imageFactory]] toString] :self :"setImageFactory"];
 }
 
 

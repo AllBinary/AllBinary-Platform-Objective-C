@@ -13,7 +13,7 @@ void FormUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    FormUtil_instance = [((FormUtil*) [FormUtil alloc]) init];
+    FormUtil_instance = ((FormUtil*) [((FormUtil*) [FormUtil alloc]) init]);
 }
 
 @implementation FormUtil
@@ -32,7 +32,7 @@ void FormUtil_staticInit(void) {
 - (Rectangle*) createFormRectangle {
         DisplayInfoSingleton* displayInfo = [DisplayInfoSingleton getInstance];
         PointFactory* pointFactory = [PointFactory getInstance];
-        Rectangle* rectangle = [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:30 :10] :[displayInfo getLastWidth] - 30 :[displayInfo getLastHeight] - 35];
+        Rectangle* rectangle = ((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[pointFactory createXY:30 :10] :[displayInfo getLastWidth] - 30 :[displayInfo getLastHeight] - 35]);
         return rectangle;
 }
 

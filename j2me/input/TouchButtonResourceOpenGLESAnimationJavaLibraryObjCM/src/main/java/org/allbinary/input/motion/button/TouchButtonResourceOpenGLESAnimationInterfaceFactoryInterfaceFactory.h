@@ -36,7 +36,7 @@
 @public
 }
 - (instancetype) init;
-- (void) init_:(int32_t)level;
+- (void) initMethod:(int32_t)level;
 - (bool) isFeature;
 @end
 

@@ -23,7 +23,7 @@ void DamageWeaponLayer_staticInit(void) {
 
 - (instancetype) init:(const char*)name :(RemoteInfo*)remoteInfo :(Movement*)movement :(Animation*)animationInterface :(Animation*)destroyedAnimationInterface :(Rectangle*)rectangle :(ViewPositionBase*)viewPosition :(const char*)username :(int32_t)actorSessionId :(int32_t)id_ :(int32_t)multiPlayerType {
         self = [super init:name :remoteInfo :multiPlayerType :movement :animationInterface :destroyedAnimationInterface :rectangle :viewPosition];
-        [self setCollidableInferface:[((CollidableDamageWeaponBehavior*) [CollidableDamageWeaponBehavior alloc]) init:true]];
+        [self setCollidableInferface:((CollidableDamageWeaponBehavior*) [((CollidableDamageWeaponBehavior*) [CollidableDamageWeaponBehavior alloc]) init:true])];
     return self;
 }
 

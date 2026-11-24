@@ -11,7 +11,7 @@ void TouchButtonTurnLeftResource_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchButtonTurnLeftResource_instance = [((TouchButtonTurnLeftResource*) [TouchButtonTurnLeftResource alloc]) init];
+    TouchButtonTurnLeftResource_instance = ((TouchButtonTurnLeftResource*) [((TouchButtonTurnLeftResource*) [TouchButtonTurnLeftResource alloc]) init]);
 }
 
 @implementation TouchButtonTurnLeftResource

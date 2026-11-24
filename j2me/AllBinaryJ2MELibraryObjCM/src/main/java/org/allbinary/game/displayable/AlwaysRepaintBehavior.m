@@ -6,6 +6,9 @@
 #include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
 #include "org/allbinary/game/displayable/RepaintBehavior.h"
 #include "org/allbinary/game/displayable/RepaintRunnable.h"
+#if __has_include("org/allbinary/graphics/displayable/DisplayInfoSingleton.h")
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#endif
 
 
 static AlwaysRepaintBehavior* AlwaysRepaintBehavior_instanceC;
@@ -16,7 +19,7 @@ void AlwaysRepaintBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    AlwaysRepaintBehavior_instanceC = [((AlwaysRepaintBehavior*) [AlwaysRepaintBehavior alloc]) init];
+    AlwaysRepaintBehavior_instanceC = ((AlwaysRepaintBehavior*) [((AlwaysRepaintBehavior*) [AlwaysRepaintBehavior alloc]) init]);
 }
 
 @implementation AlwaysRepaintBehavior
@@ -43,7 +46,7 @@ void AlwaysRepaintBehavior_staticInit(void) {
         if ([features isFeature:openGLFeatureFactory->OPENGL]) {
             [[DisplayInfoSingleton getInstance] process];
         } else {
-            Thread* thread = [((Thread*) [Thread alloc]) init:[((RepaintRunnable*) [RepaintRunnable alloc]) init:canvas] :self->NAME];
+            Thread* thread = ((Thread*) [((Thread*) [Thread alloc]) init:((RepaintRunnable*) [((RepaintRunnable*) [RepaintRunnable alloc]) init:canvas]) :self->NAME]);
             [thread start];
         }
 }

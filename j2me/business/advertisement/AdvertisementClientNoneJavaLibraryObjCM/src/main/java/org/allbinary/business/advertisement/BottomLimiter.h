@@ -40,7 +40,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (BottomLimiter*) getInstance;
-- (void) init_:(int32_t)lower :(int32_t)higher;
+- (void) initMethod:(int32_t)lower :(int32_t)higher;
 - (void) update;
 - (int32_t) getDeltaY;
 - (int32_t) getBottom;

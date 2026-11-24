@@ -44,7 +44,7 @@
 @public
 }
 - (instancetype) init;
-+ (void) init_;
++ (void) initMethod;
 + (BasicLayerProcessor*) getInstance;
 - (void) process:(AllBinaryLayerManager*)allBinaryLayerManager;
 @end

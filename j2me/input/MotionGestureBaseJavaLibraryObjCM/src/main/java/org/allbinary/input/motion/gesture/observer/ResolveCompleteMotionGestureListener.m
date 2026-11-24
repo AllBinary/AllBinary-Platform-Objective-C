@@ -10,6 +10,12 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/input/motion/gesture/observer/CompleteMotionGestureListenerInterface.h"
+#if __has_include("org/allbinary/game/input/CompleteMotionGestureInputEventHandler.h")
+#include "org/allbinary/game/input/CompleteMotionGestureInputEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/input/CompleteMotionGestureInputEventHandler.h")
+#include "org/allbinary/game/input/CompleteMotionGestureInputEventHandler.h"
+#endif
 
 
 
@@ -33,7 +39,7 @@ void ResolveCompleteMotionGestureListener_staticInit(void) {
     [self initFields];
         CommonStrings* commonStrings = [CommonStrings getInstance];
         [self->logUtil putF:"MotionGesture to CompleteMotionGesture Reciever" :self :commonStrings->CONSTRUCTOR];
-        [[CompleteMotionGestureInputEventHandler getInstance] addListener:[((GameKeyFromMotionGestureEventListener*) [GameKeyFromMotionGestureEventListener alloc]) init]];
+        [[CompleteMotionGestureInputEventHandler getInstance] addListener:((GameKeyFromMotionGestureEventListener*) [((GameKeyFromMotionGestureEventListener*) [GameKeyFromMotionGestureEventListener alloc]) init])];
     return self;
 }
 

@@ -17,6 +17,69 @@
 #include "org/allbinary/system/Memory.h"
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/util/ABHashtable.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Display.h")
+#include "javax/microedition/lcdui/Display.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
 
 
 static id AllBinaryMidlet_NULL_ALLBINARY_MIDLET;
@@ -46,7 +109,7 @@ void AllBinaryMidlet_staticInit(void) {
 
 + (AllBinaryMidlet*) getNullInstance {
         if ((AllBinaryMidlet_staticInit(), AllBinaryMidlet_NULL_ALLBINARY_MIDLET) == [NullUtil getInstance]->NULL_OBJECT) {
-            AllBinaryMidlet_NULL_ALLBINARY_MIDLET = [((AllBinaryMidlet*) [AllBinaryMidlet alloc]) init];
+            AllBinaryMidlet_NULL_ALLBINARY_MIDLET = ((AllBinaryMidlet*) [((AllBinaryMidlet*) [AllBinaryMidlet alloc]) init]);
         }
         return ((AllBinaryMidlet*) (AllBinaryMidlet_staticInit(), AllBinaryMidlet_NULL_ALLBINARY_MIDLET));
 }
@@ -64,7 +127,7 @@ void AllBinaryMidlet_staticInit(void) {
         const char* title = [StringUtil getInstance]->EMPTY_STRING;
         if (newDisplay != (NullCanvas_staticInit(), NullCanvas_NULL_CANVAS)) {
             title = [newDisplay getTitle];
-            [self->logUtil putF:[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->SETTING_] append:title] append:self->_DISPLAY__] append:[[StringUtil getInstance] toString:newDisplay]] toString] :self :self->SET_DISPLAY];
+            [self->logUtil putF:[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->SETTING_] append:title] append:self->_DISPLAY__] append:[[StringUtil getInstance] toString:newDisplay]] toString] :self :self->SET_DISPLAY];
         }
         Display* display = [self getDisplay];
         [display setCurrent:newDisplay];
@@ -120,14 +183,14 @@ void AllBinaryMidlet_staticInit(void) {
 
 // throws Exception
 - (void) setStartStateHashtable:(ABHashtable*)hashtable {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->START_LABEL] append:[[StringUtil getInstance] toString:hashtable]] toString] :self :"setStartStateHashtable"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->START_LABEL] append:[[StringUtil getInstance] toString:hashtable]] toString] :self :"setStartStateHashtable"];
         self->hashtable = hashtable;
 }
 
 
 // throws Exception
 - (ABHashtable*) getStartStateHashtable {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->START_LABEL] append:[[StringUtil getInstance] toString:self->hashtable]] toString] :self :"getStartStateHashtable"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->START_LABEL] append:[[StringUtil getInstance] toString:self->hashtable]] toString] :self :"getStartStateHashtable"];
         return self->hashtable;
 }
 

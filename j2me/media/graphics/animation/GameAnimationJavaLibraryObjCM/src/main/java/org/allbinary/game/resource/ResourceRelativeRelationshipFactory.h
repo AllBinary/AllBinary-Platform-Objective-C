@@ -49,7 +49,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-- (void) init_:(int32_t)level;
+- (void) initMethod:(int32_t)level;
 - (BasicArrayList*) getResourceRelativeRelationshipList:(const char*)resource;
 - (void) addResourceRelativeRelationship:(const char*)resource :(RelativeRelationship*)hardPoint;
 - (bool) isLoadingLevel:(int32_t)level;

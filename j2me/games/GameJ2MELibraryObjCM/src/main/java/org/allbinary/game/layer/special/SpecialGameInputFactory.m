@@ -11,7 +11,7 @@ void SpecialGameInputFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    SpecialGameInputFactory_NO_SPECIAL_GAME_INPUT = [((SpecialGameInput*) [SpecialGameInput alloc]) init];
+    SpecialGameInputFactory_NO_SPECIAL_GAME_INPUT = ((SpecialGameInput*) [((SpecialGameInput*) [SpecialGameInput alloc]) init]);
 }
 
 @implementation SpecialGameInputFactory

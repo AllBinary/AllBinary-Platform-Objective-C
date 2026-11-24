@@ -207,7 +207,7 @@
 }
 - (instancetype) init:(ClientInformationFactory*)clientInformationFactory;
 - (void) initFields;
-- (void) init_;
+- (void) initMethod;
 - (void) setDemo;
 - (void) createGame;
 - (void) mediaShutdown;

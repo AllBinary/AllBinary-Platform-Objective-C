@@ -6,6 +6,9 @@
 #include "org/allbinary/game/paint/ColorFillPaintable.h"
 #include "org/allbinary/game/paint/OverScanColorFillPaintable.h"
 #include "org/allbinary/game/paint/ColorFillBasePaintable.h"
+#if __has_include("org/allbinary/logic/system/os/OperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
+#endif
 
 
 static ColorFillPaintableFactory* ColorFillPaintableFactory_instance;
@@ -16,7 +19,7 @@ void ColorFillPaintableFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ColorFillPaintableFactory_instance = [((ColorFillPaintableFactory*) [ColorFillPaintableFactory alloc]) init];
+    ColorFillPaintableFactory_instance = ((ColorFillPaintableFactory*) [((ColorFillPaintableFactory*) [ColorFillPaintableFactory alloc]) init]);
 }
 
 @implementation ColorFillPaintableFactory
@@ -35,9 +38,9 @@ void ColorFillPaintableFactory_staticInit(void) {
 - (ColorFillBasePaintable*) getInstance:(BasicColor*)basicColor :(bool)forThreedCanvas {
         GenericOperatingSystem* operatingSystem = [[OperatingSystemFactory getInstance] getOperatingSystemInstance];
         if ([operatingSystem isOverScan]) {
-            return [((OverScanColorFillPaintable*) [OverScanColorFillPaintable alloc]) init:basicColor];
+            return ((OverScanColorFillPaintable*) [((OverScanColorFillPaintable*) [OverScanColorFillPaintable alloc]) init:basicColor]);
         } else {
-            return [((ColorFillPaintable*) [ColorFillPaintable alloc]) init:basicColor];
+            return ((ColorFillPaintable*) [((ColorFillPaintable*) [ColorFillPaintable alloc]) init:basicColor]);
         }
 }
 

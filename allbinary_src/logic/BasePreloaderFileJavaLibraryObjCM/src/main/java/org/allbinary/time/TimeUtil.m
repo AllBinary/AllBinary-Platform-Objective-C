@@ -11,7 +11,7 @@ void TimeUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    TimeUtil_instance = [((TimeUtil*) [TimeUtil alloc]) init];
+    TimeUtil_instance = ((TimeUtil*) [((TimeUtil*) [TimeUtil alloc]) init]);
     TimeUtil_calendar = [Calendar getInstance];
 }
 

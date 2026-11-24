@@ -12,7 +12,7 @@ void ImageToRotationImageArrayUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageToRotationImageArrayUtil_instance = [((ImageToRotationImageArrayUtil*) [ImageToRotationImageArrayUtil alloc]) init];
+    ImageToRotationImageArrayUtil_instance = ((ImageToRotationImageArrayUtil*) [((ImageToRotationImageArrayUtil*) [ImageToRotationImageArrayUtil alloc]) init]);
 }
 
 @implementation ImageToRotationImageArrayUtil

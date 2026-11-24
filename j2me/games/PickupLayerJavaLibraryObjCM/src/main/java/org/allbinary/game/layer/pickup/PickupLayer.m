@@ -15,6 +15,15 @@
 #include "org/allbinary/game/layer/pickup/PickupableInterface.h"
 #include "org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.h"
 #include "org/allbinary/game/layer/pickup/PickedUpLayerInterfaceFactoryInterface.h"
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
+#if __has_include("org/allbinary/game/identification/BasicGroupFactory.h")
+#include "org/allbinary/game/identification/BasicGroupFactory.h"
+#endif
+#if __has_include("org/allbinary/game/collision/CollidableAlwaysPickupNeverCollideBehaviorFactory.h")
+#include "org/allbinary/game/collision/CollidableAlwaysPickupNeverCollideBehaviorFactory.h"
+#endif
 #if __has_include("org/allbinary/game/layer/pickup/BasicLayerProcessor.h")
 #include "org/allbinary/game/layer/pickup/BasicLayerProcessor.h"
 #endif
@@ -80,12 +89,12 @@ void PickupLayer_staticInit(void) {
         [self setCollidableInferface:[[CollidableAlwaysPickupNeverCollideBehaviorFactory getInstance] createBehavior]];
         [self setLayerWidth:10];
         [self setLayerHeight:10];
-        [self init_:pickedUpLayerInterfaceFactoryInterface :animationInterface];
+        [self initMethod:pickedUpLayerInterfaceFactoryInterface :animationInterface];
     return self;
 }
 
 
-- (void) init_:(PickedUpLayerInterfaceFactoryInterface*)pickedUpLayerInterfaceFactoryInterface :(Animation*)animationInterface {
+- (void) initMethod:(PickedUpLayerInterfaceFactoryInterface*)pickedUpLayerInterfaceFactoryInterface :(Animation*)animationInterface {
         self->pickedUpLayerInterfaceFactoryInterface = pickedUpLayerInterfaceFactoryInterface;
         self->animationInterface = animationInterface;
         [self setDestroyed:false];
@@ -148,7 +157,7 @@ void PickupLayer_staticInit(void) {
 // throws Exception
 - (void) set:(GL*)gl {
         OpenGLSurfaceChangedInterface* openGLSurfaceChangedInterface = ((OpenGLSurfaceChangedInterface*) self->animationInterface);
-        [openGLSurfaceChangedInterface set:gl];
+        [((id<OpenGLSurfaceChangedInterface>) openGLSurfaceChangedInterface) set:gl];
 }
 
 @end

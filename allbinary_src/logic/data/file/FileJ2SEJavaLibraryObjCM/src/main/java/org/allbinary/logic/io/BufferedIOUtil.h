@@ -38,7 +38,7 @@
 @public
 }
 - (instancetype) init;
-+ (void) copy_:(AbFile*)backupFile :(AbFile*)backupFileBak;
++ (void) copyMethod:(AbFile*)backupFile :(AbFile*)backupFileBak;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

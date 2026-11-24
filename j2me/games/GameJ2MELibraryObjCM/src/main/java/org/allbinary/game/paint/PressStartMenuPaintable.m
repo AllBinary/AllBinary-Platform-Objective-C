@@ -10,6 +10,15 @@
 #include "org/allbinary/input/motion/button/TouchScreenFactory.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/time/TimeDelayHelper.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/input/motion/button/TouchScreenFactory.h")
+#include "org/allbinary/input/motion/button/TouchScreenFactory.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
 
 
 
@@ -28,9 +37,9 @@ void PressStartMenuPaintable_staticInit(void) {
     self->PRESS_START = "Press Screen To Start";
     self->KEY_START = "Press or Click F2 To Begin";
     self->MENU_START = "Press Start From The Menu To Begin";
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->startString = [StringUtil getInstance]->EMPTY_STRING;
-    self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:1100];
+    self->timeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:1100]);
     self->flash = false;
     self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
     self->beginWidth = 0;

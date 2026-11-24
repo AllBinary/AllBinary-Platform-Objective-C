@@ -15,7 +15,7 @@ void AllBinarySensor_staticInit(void) {
         return;
     }
     initialized = true;
-    AllBinarySensor_NULL_ALLBINARY_SENSOR = [((AllBinarySensor*) [AllBinarySensor alloc]) init];
+    AllBinarySensor_NULL_ALLBINARY_SENSOR = ((AllBinarySensor*) [((AllBinarySensor*) [AllBinarySensor alloc]) init]);
 }
 
 @implementation AllBinarySensor
@@ -33,7 +33,7 @@ void AllBinarySensor_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
 }
 
 

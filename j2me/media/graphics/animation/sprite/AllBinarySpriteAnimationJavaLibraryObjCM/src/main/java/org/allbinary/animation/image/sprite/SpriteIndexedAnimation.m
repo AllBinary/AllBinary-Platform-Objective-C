@@ -9,6 +9,24 @@
 #include "org/allbinary/logic/math/PrimitiveIntUtil.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonLabels.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 
@@ -36,7 +54,7 @@ void SpriteIndexedAnimation_staticInit(void) {
         self->image = image;
         self->basicColorArray = basicColorArray;
         if (java_array_length(self->basicColorArray) != 0 && [self getSize] != java_array_length(self->basicColorArray)) {
-            java_throw(java_exception_new("Exception", [[[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->TOTAL_LABEL] appendint:[self getSize]] append:"!="] appendint:java_array_length(self->basicColorArray)] toString]));
+            java_throw(java_exception_new("Exception", [[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->TOTAL_LABEL] appendint:[self getSize]] append:"!="] appendint:java_array_length(self->basicColorArray)] toString]));
         }
     return self;
 }

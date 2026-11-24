@@ -5,6 +5,9 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -20,7 +23,7 @@ void LicenseInitInfo_staticInit(void) {
 
 - (void) initFields {
     self->id_ = [StringUtil getInstance]->EMPTY_STRING;
-    self->serverList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->serverList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 

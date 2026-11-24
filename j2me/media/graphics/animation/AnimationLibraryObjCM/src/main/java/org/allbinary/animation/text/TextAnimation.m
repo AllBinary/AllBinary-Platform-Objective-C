@@ -11,6 +11,15 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/animation/text/TextChangeListener.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/threed/SWTJOGLProcessor.h")
+#include "org/allbinary/graphics/threed/SWTJOGLProcessor.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -25,7 +34,7 @@ void TextAnimation_staticInit(void) {
 @implementation TextAnimation
 
 - (void) initFields {
-    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->updateMyFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->myFontProcessor = self->updateMyFontProcessor;
     self->textArrayP = [StringUtil getInstance]->ONE_EMPTY_STRING_ARRAY;
     self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
@@ -81,7 +90,7 @@ void TextAnimation_staticInit(void) {
 
 
 - (void) setText:(const char*)text {
-        BasicArrayList* list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        BasicArrayList* list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         if (((int32_t) strlen(text)) > 0) {
             int32_t index = 0;
             int32_t startIndex = 0;

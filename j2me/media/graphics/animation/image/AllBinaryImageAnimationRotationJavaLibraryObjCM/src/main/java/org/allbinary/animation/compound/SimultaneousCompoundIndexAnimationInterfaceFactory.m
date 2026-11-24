@@ -5,6 +5,9 @@
 #include "org/allbinary/animation/IndexedAnimation.h"
 #include "org/allbinary/media/ScaleProperties.h"
 #include "org/allbinary/animation/compound/SimultaneousCompoundIndexAnimation.h"
+#if __has_include("org/allbinary/animation/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
+#endif
 
 
 
@@ -38,14 +41,14 @@ void SimultaneousCompoundIndexAnimationInterfaceFactory_staticInit(void) {
         int32_t size = java_array_length(self->basicAnimationInterfaceFactoryInterfaceArray);
         IndexedAnimation** animationInterfaceArray = ((IndexedAnimation**) java_array_new(sizeof(IndexedAnimation*), size));
         for (int32_t index = 0; index < size; index++) {
-            animationInterfaceArray[index] = ((IndexedAnimation*) [self->basicAnimationInterfaceFactoryInterfaceArray[index] getInstance:instanceId]);
+            animationInterfaceArray[index] = ((IndexedAnimation*) [((id<AnimationInterfaceFactoryInterface>) self->basicAnimationInterfaceFactoryInterfaceArray[index]) getInstance:instanceId]);
         }
         return [self getOrCreate:animationInterfaceArray];
 }
 
 
 - (Animation*) getOrCreate:(IndexedAnimation**)animationInterfaceArray {
-        return [((SimultaneousCompoundIndexAnimation*) [SimultaneousCompoundIndexAnimation alloc]) init:animationInterfaceArray :[self->animationBehaviorFactory getOrCreateInstance]];
+        return ((SimultaneousCompoundIndexAnimation*) [((SimultaneousCompoundIndexAnimation*) [SimultaneousCompoundIndexAnimation alloc]) init:animationInterfaceArray :[self->animationBehaviorFactory getOrCreateInstance]]);
 }
 
 

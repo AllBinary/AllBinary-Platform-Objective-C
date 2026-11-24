@@ -11,6 +11,12 @@
 #include "org/allbinary/media/ScaleProperties.h"
 #include "org/allbinary/animation/text/CustomTextBox2.h"
 #include "org/allbinary/animation/text/CustomTextBoxIndexedAnimation.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 #if __has_include("org/allbinary/animation/text/AllBinaryGameLayerManager.h")
 #include "org/allbinary/animation/text/AllBinaryGameLayerManager.h"
 #endif
@@ -106,7 +112,7 @@ void CustomTextBoxIndexedAnimationFactory_staticInit(void) {
 - (instancetype) init:(int32_t)fontSize :(int32_t)maxLength {
     self = [super init];
     [self initFields];
-        self->scaleProperties = [((ScaleProperties*) [ScaleProperties alloc]) init];
+        self->scaleProperties = ((ScaleProperties*) [((ScaleProperties*) [ScaleProperties alloc]) init]);
         self->scaleProperties->scaleHeight = fontSize;
         self->maxLength = maxLength;
     return self;
@@ -118,8 +124,8 @@ void CustomTextBoxIndexedAnimationFactory_staticInit(void) {
         ABToGBUtil* abToGBUtil = [ABToGBUtil getInstance];
         AllBinaryGameCanvas* abCanvas = ((AllBinaryGameCanvas*) abToGBUtil->abCanvas);
         Font* font = [Font getFont:(Font_staticInit(), Font_FACE_SYSTEM) :(Font_staticInit(), Font_STYLE_PLAIN) :self->scaleProperties->scaleHeight];
-        CustomTextBox* customTextBox = [((CustomTextBox2*) [CustomTextBox2 alloc]) init:[abCanvas getCustomCommandListener] :[StringUtil getInstance]->EMPTY_STRING :[StringUtil getInstance]->EMPTY_STRING :self->maxLength :(TextField_staticInit(), TextField_ANY) :font :[[abCanvas getLayerManager] getBackgroundBasicColor] :[[abCanvas getLayerManager] getForegroundBasicColor]];
-        return [((CustomTextBoxIndexedAnimation*) [CustomTextBoxIndexedAnimation alloc]) init:customTextBox];
+        CustomTextBox* customTextBox = ((CustomTextBox2*) [((CustomTextBox2*) [CustomTextBox2 alloc]) init:[abCanvas getCustomCommandListener] :[StringUtil getInstance]->EMPTY_STRING :[StringUtil getInstance]->EMPTY_STRING :self->maxLength :(TextField_staticInit(), TextField_ANY) :font :[[abCanvas getLayerManager] getBackgroundBasicColor] :[[abCanvas getLayerManager] getForegroundBasicColor]]);
+        return ((CustomTextBoxIndexedAnimation*) [((CustomTextBoxIndexedAnimation*) [CustomTextBoxIndexedAnimation alloc]) init:customTextBox]);
 }
 
 

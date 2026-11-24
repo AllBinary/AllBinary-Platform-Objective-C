@@ -12,7 +12,7 @@ void GameYouLoseSound_staticInit(void) {
         return;
     }
     initialized = true;
-    GameYouLoseSound_soundInterface = [((GameYouLoseSound*) [GameYouLoseSound alloc]) init];
+    GameYouLoseSound_soundInterface = ((GameYouLoseSound*) [((GameYouLoseSound*) [GameYouLoseSound alloc]) init]);
 }
 
 @implementation GameYouLoseSound

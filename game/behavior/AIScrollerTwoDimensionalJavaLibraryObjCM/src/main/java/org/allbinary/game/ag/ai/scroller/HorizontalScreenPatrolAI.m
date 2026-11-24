@@ -13,6 +13,15 @@
 #include "org/allbinary/media/audio/Sound.h"
 #include "org/allbinary/time/TimeDelayHelper.h"
 #include "org/allbinary/util/ABHashtable.h"
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
+#if __has_include("org/allbinary/game/rand/MyRandomFactory.h")
+#include "org/allbinary/game/rand/MyRandomFactory.h"
+#endif
+#if __has_include("org/allbinary/game/rand/MyRandomFactory.h")
+#include "org/allbinary/game/rand/MyRandomFactory.h"
+#endif
 #if __has_include("org/allbinary/game/ag/ai/scroller/GameInfo.h")
 #include "org/allbinary/game/ag/ai/scroller/GameInfo.h"
 #endif
@@ -79,7 +88,7 @@ void HorizontalScreenPatrolAI_staticInit(void) {
     self->firingX = [self->displayInfoSingleton getLastHalfWidth];
     self->firedIndex = 0;
     self->MAX_FIRE = 28;
-    self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:240];
+    self->timeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:240]);
     self->secondaryPlayerQueue = [SecondaryPlayerQueueFactory getInstance];
     
 }

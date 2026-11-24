@@ -8,6 +8,9 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/combat/destroy/event/DestroyedEvent.h"
 #include "org/allbinary/game/combat/destroy/event/DestroyedEventListenerInterface.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 static DestroyedEventHandler* DestroyedEventHandler_instance;
@@ -18,13 +21,13 @@ void DestroyedEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    DestroyedEventHandler_instance = [((DestroyedEventHandler*) [DestroyedEventHandler alloc]) init];
+    DestroyedEventHandler_instance = ((DestroyedEventHandler*) [((DestroyedEventHandler*) [DestroyedEventHandler alloc]) init]);
 }
 
 @implementation DestroyedEventHandler
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -79,7 +82,7 @@ void DestroyedEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         DestroyedEventListenerInterface* destroyedEventListenerInterface = ((DestroyedEventListenerInterface*) eventListenerInterface);
-        [destroyedEventListenerInterface onDestroyed:((DestroyedEvent*) eventObject)];
+        [((id<DestroyedEventListenerInterface>) destroyedEventListenerInterface) onDestroyed:((DestroyedEvent*) eventObject)];
 }
 
 @end

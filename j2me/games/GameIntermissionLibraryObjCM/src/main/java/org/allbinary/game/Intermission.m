@@ -4,6 +4,9 @@
 #include "org/allbinary/game/IntermissionInterface.h"
 #include "org/allbinary/game/NullIntermissionEnableListener.h"
 #include "org/allbinary/game/IntermissionEnableListenerInterface.h"
+#if __has_include("org/allbinary/time/TimeDelayHelper.h")
+#include "org/allbinary/time/TimeDelayHelper.h"
+#endif
 
 
 
@@ -19,7 +22,7 @@ void Intermission_staticInit(void) {
 
 - (void) initFields {
     self->enabled = false;
-    self->timeElapsedHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
+    self->timeElapsedHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0]);
     self->intermissionEnableListener = [NullIntermissionEnableListener getInstance];
 }
 
@@ -46,7 +49,7 @@ void Intermission_staticInit(void) {
         if ([self isEnabled]) {
             [[self getTimeDelayHelper] setStartTimeTNT];
         }
-        [self->intermissionEnableListener notifyIntermission:enabled];
+        [((id<IntermissionEnableListenerInterface>) self->intermissionEnableListener) notifyIntermission:enabled];
 }
 
 

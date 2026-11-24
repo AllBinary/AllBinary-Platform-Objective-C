@@ -11,7 +11,7 @@ void AxisMathVectorUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    AxisMathVectorUtil_instance = [((AxisMathVectorUtil*) [AxisMathVectorUtil alloc]) init];
+    AxisMathVectorUtil_instance = ((AxisMathVectorUtil*) [((AxisMathVectorUtil*) [AxisMathVectorUtil alloc]) init]);
 }
 
 @implementation AxisMathVectorUtil

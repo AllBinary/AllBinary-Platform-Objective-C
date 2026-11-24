@@ -24,7 +24,7 @@ void SimpleGravityVelocityMovement_staticInit(void) {
 
 
 - (instancetype) init:(BasicDecimal*)speedBasicDecimal {
-        self = [super init:speedBasicDecimal :[((VelocityProperties*) [VelocityProperties alloc]) init:((int32_t) [speedBasicDecimal getUnscaled]) :((int32_t) [speedBasicDecimal getUnscaled])]];
+        self = [super init:speedBasicDecimal :((VelocityProperties*) [((VelocityProperties*) [VelocityProperties alloc]) init:((int32_t) [speedBasicDecimal getUnscaled]) :((int32_t) [speedBasicDecimal getUnscaled])])];
         [self initFields];
     return self;
 }

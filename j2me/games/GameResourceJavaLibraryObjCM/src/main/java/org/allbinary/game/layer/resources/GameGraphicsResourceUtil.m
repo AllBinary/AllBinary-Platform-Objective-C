@@ -10,6 +10,21 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureUtil.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/CanvasStrings.h")
+#include "org/allbinary/graphics/displayable/CanvasStrings.h"
+#endif
 
 
 static id GameGraphicsResourceUtil_instance;
@@ -35,7 +50,7 @@ void GameGraphicsResourceUtil_staticInit(void) {
 
 + (GameGraphicsResourceUtil*) getInstance {
         if ((GameGraphicsResourceUtil_staticInit(), GameGraphicsResourceUtil_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            GameGraphicsResourceUtil_instance = [((GameGraphicsResourceUtil*) [GameGraphicsResourceUtil alloc]) init];
+            GameGraphicsResourceUtil_instance = ((GameGraphicsResourceUtil*) [((GameGraphicsResourceUtil*) [GameGraphicsResourceUtil alloc]) init]);
         }
         return ((GameGraphicsResourceUtil*) (GameGraphicsResourceUtil_staticInit(), GameGraphicsResourceUtil_instance));
 }
@@ -74,7 +89,7 @@ void GameGraphicsResourceUtil_staticInit(void) {
 
 // throws Exception
 - (const char*) getStringForFeature:(GraphicsFeature*)graphicsFeature {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         GraphicsFeatureFactory* graphicsFeatureFactory = [GraphicsFeatureFactory getInstance];
         [stringBuffer delete:0 :[stringBuffer length]];
         Features* features = [Features getInstance];

@@ -30,7 +30,7 @@ void HealLayerCircularStaticPool_staticInit(void) {
 - (void) visit:(AllBinaryLayer*)sourceLayerInterface {
         HealLayer* healLayer = ((HealLayer*) [self getNextInstance]);
         HealthInterfaceCompositeInterface* healthInterfaceCompositeInterface = ((HealthInterfaceCompositeInterface*) sourceLayerInterface);
-        HealthInterface* healthInterface = [healthInterfaceCompositeInterface getHealthInterface];
+        HealthInterface* healthInterface = [((id<HealthInterfaceCompositeInterface>) healthInterfaceCompositeInterface) getHealthInterface];
         [healLayer visit:healthInterface];
 }
 

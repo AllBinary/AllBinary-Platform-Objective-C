@@ -3,6 +3,15 @@
 #include "org/allbinary/game/input/PlatformInputMappingFactory.h"
 #include "org/allbinary/input/motion/gesture/TrackballMotionGestureFactory.h"
 #include "org/allbinary/logic/NullUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/input/motion/gesture/TrackballMotionGestureFactory.h")
+#include "org/allbinary/input/motion/gesture/TrackballMotionGestureFactory.h"
+#endif
 #if __has_include("org/allbinary/input/motion/trackball/action/PersistentInputMapping.h")
 #include "org/allbinary/input/motion/trackball/action/PersistentInputMapping.h"
 #endif
@@ -17,6 +26,9 @@
 #endif
 #if __has_include("org/allbinary/logic/PersistentInputMapping.h")
 #include "org/allbinary/logic/PersistentInputMapping.h"
+#endif
+#if __has_include("org/allbinary/game/input/PlatformInputMappingFactory.h")
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
 #endif
 
 
@@ -36,7 +48,7 @@ void RightTrackballInputToGameKeyEventAction_staticInit(void) {
 
 + (GameKeyCompleteMotionGestureInputEvent*) getInstance {
         if ((RightTrackballInputToGameKeyEventAction_staticInit(), RightTrackballInputToGameKeyEventAction_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            RightTrackballInputToGameKeyEventAction_instance = [((RightTrackballInputToGameKeyEventAction*) [RightTrackballInputToGameKeyEventAction alloc]) init];
+            RightTrackballInputToGameKeyEventAction_instance = ((RightTrackballInputToGameKeyEventAction*) [((RightTrackballInputToGameKeyEventAction*) [RightTrackballInputToGameKeyEventAction alloc]) init]);
         }
         return ((GameKeyCompleteMotionGestureInputEvent*) (RightTrackballInputToGameKeyEventAction_staticInit(), RightTrackballInputToGameKeyEventAction_instance));
 }

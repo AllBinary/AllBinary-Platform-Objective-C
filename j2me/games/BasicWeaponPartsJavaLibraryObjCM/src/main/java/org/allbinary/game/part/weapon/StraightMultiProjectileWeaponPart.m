@@ -32,7 +32,7 @@ void StraightMultiProjectileWeaponPart_staticInit(void) {
 
 
 + (StraightMultiProjectileWeaponPart*) createStraightMultiProjectileWeaponPart:(Animation*)animationInterface :(WeaponLayerCircularPool*)weaponLayerCircularStaticPool {
-        return [((StraightMultiProjectileWeaponPart*) [StraightMultiProjectileWeaponPart alloc]) init:animationInterface :(AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER) :weaponLayerCircularStaticPool :2 :(WeaponProperties_staticInit(), WeaponProperties_NULL_WEAPON_PROPERTIES) :[NoScoreable getInstance] :(RelativeRelationship_staticInit(), RelativeRelationship_NULL_RELATIVE_RELATIONSHIP)];
+        return ((StraightMultiProjectileWeaponPart*) [((StraightMultiProjectileWeaponPart*) [StraightMultiProjectileWeaponPart alloc]) init:animationInterface :(AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER) :weaponLayerCircularStaticPool :2 :(WeaponProperties_staticInit(), WeaponProperties_NULL_WEAPON_PROPERTIES) :[NoScoreable getInstance] :(RelativeRelationship_staticInit(), RelativeRelationship_NULL_RELATIVE_RELATIONSHIP)]);
 }
 
 

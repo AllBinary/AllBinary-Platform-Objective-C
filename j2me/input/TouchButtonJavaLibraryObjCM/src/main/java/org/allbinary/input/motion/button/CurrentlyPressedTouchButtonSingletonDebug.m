@@ -6,6 +6,69 @@
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/input/motion/button/CurrentlyPressedTouchButtonSingleton.h"
 #include "org/allbinary/input/motion/button/TouchButtonInput.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static CurrentlyPressedTouchButtonSingletonDebug* CurrentlyPressedTouchButtonSingletonDebug_instanceC;
@@ -16,7 +79,7 @@ void CurrentlyPressedTouchButtonSingletonDebug_staticInit(void) {
         return;
     }
     initialized = true;
-    CurrentlyPressedTouchButtonSingletonDebug_instanceC = [((CurrentlyPressedTouchButtonSingletonDebug*) [CurrentlyPressedTouchButtonSingletonDebug alloc]) init];
+    CurrentlyPressedTouchButtonSingletonDebug_instanceC = ((CurrentlyPressedTouchButtonSingletonDebug*) [((CurrentlyPressedTouchButtonSingletonDebug*) [CurrentlyPressedTouchButtonSingletonDebug alloc]) init]);
 }
 
 @implementation CurrentlyPressedTouchButtonSingletonDebug
@@ -46,24 +109,24 @@ void CurrentlyPressedTouchButtonSingletonDebug_staticInit(void) {
 
 
 - (void) appendTouchButtonInput:(const char*)append :(TouchButtonInput*)touchButtonInput {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:[touchButtonInput toString]];
         [stringBuffer append:[CommonSeps getInstance]->SPACE];
         [stringBuffer append:append];
         self->appendText = [stringBuffer toString];
-        self->string = [[[[((StringMaker*) [StringMaker alloc]) init] append:self->listString] append:self->appendText] toString];
+        self->string = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->listString] append:self->appendText] toString];
 }
 
 
 - (void) append:(const char*)append {
-        self->appendText = [[[[((StringMaker*) [StringMaker alloc]) init] append:self->appendText] append:append] toString];
-        self->string = [[[[((StringMaker*) [StringMaker alloc]) init] append:self->listString] append:self->appendText] toString];
+        self->appendText = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->appendText] append:append] toString];
+        self->string = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->listString] append:self->appendText] toString];
 }
 
 
 - (void) clearLog:(int32_t)x :(int32_t)y {
-        self->appendText = [[[[((StringMaker*) [StringMaker alloc]) init] append:[GPoint toStringStatic:x :y :0]] append:[CommonSeps getInstance]->SPACE] toString];
-        self->string = [[[[((StringMaker*) [StringMaker alloc]) init] append:self->listString] append:self->appendText] toString];
+        self->appendText = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[GPoint toStringStatic:x :y :0]] append:[CommonSeps getInstance]->SPACE] toString];
+        self->string = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->listString] append:self->appendText] toString];
 }
 
 
@@ -100,7 +163,7 @@ void CurrentlyPressedTouchButtonSingletonDebug_staticInit(void) {
 - (TouchButtonInput*) removeAt:(int32_t)index {
         TouchButtonInput* touchButtonInput = [super removeAt:index];
         self->listString = [self->list toString];
-        self->string = [[[[((StringMaker*) [StringMaker alloc]) init] append:self->listString] append:self->appendText] toString];
+        self->string = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->listString] append:self->appendText] toString];
         return touchButtonInput;
 }
 
@@ -108,7 +171,7 @@ void CurrentlyPressedTouchButtonSingletonDebug_staticInit(void) {
 - (bool) remove:(TouchButtonInput*)touchButtonInput {
         bool isRemoved = [super remove:touchButtonInput];
         self->listString = [self->list toString];
-        self->string = [[[[((StringMaker*) [StringMaker alloc]) init] append:self->listString] append:self->appendText] toString];
+        self->string = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->listString] append:self->appendText] toString];
         return isRemoved;
 }
 
@@ -116,7 +179,7 @@ void CurrentlyPressedTouchButtonSingletonDebug_staticInit(void) {
 - (void) add:(TouchButtonInput*)touchButtonInput {
         [super add:touchButtonInput];
         self->listString = [self->list toString];
-        self->string = [[[[((StringMaker*) [StringMaker alloc]) init] append:self->listString] append:self->appendText] toString];
+        self->string = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->listString] append:self->appendText] toString];
 }
 
 

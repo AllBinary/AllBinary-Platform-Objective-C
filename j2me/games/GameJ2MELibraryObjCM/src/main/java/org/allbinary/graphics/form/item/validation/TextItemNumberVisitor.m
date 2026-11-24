@@ -5,6 +5,18 @@
 #include "org/allbinary/logic/java/bool/BooleanFactory.h"
 #include "org/allbinary/logic/string/StringValidationUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/TextNotificationUtil.h")
+#include "org/allbinary/game/input/TextNotificationUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
 
 
 
@@ -35,7 +47,7 @@ void TextItemNumberVisitor_staticInit(void) {
         if (((int32_t) strlen(value)) < 2) {
             StringValidationUtil* stringValidationUtil = [StringValidationUtil getInstance];
             if ([stringValidationUtil isNumber:value]) {
-                return [BooleanFactory getInstance]->TRUE;
+                return JAVA_BOX([BooleanFactory getInstance]->TRUE);
             } else {
                 JAVA_TRY {
                     [[TextNotificationUtil getInstance] fireError:"Numbers Only"];
@@ -43,10 +55,10 @@ void TextItemNumberVisitor_staticInit(void) {
                     CommonStrings* commonStrings = [CommonStrings getInstance];
                     [self->logUtil put:commonStrings->EXCEPTION :self :commonStrings->VISIT :e];
                 } JAVA_END_TRY;
-                return [BooleanFactory getInstance]->FALSE;
+                return JAVA_BOX([BooleanFactory getInstance]->FALSE);
             }
         } else {
-            return [BooleanFactory getInstance]->FALSE;
+            return JAVA_BOX([BooleanFactory getInstance]->FALSE);
         }
 }
 

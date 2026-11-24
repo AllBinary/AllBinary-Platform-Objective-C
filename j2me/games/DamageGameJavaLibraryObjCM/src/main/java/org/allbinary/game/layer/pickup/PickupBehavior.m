@@ -17,6 +17,12 @@
 #include "org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactoryInterface.h"
 #include "org/allbinary/game/layer/pickup/PickedUpLayerInterface.h"
 #include "org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 #if __has_include("org/allbinary/game/layer/pickup/Health.h")
 #include "org/allbinary/game/layer/pickup/Health.h"
 #endif
@@ -71,7 +77,7 @@ void PickupBehavior_staticInit(void) {
 
 + (PickupBehavior*) getNullInstance {
         if ((PickupBehavior_staticInit(), PickupBehavior_NULL_PICKUP_BEHAVIOR) == [NullUtil getInstance]->NULL_OBJECT) {
-            PickupBehavior_NULL_PICKUP_BEHAVIOR = [((PickupBehavior*) [PickupBehavior alloc]) init:[CollidableCompositeLayer getNullInstance] :0];
+            PickupBehavior_NULL_PICKUP_BEHAVIOR = ((PickupBehavior*) [((PickupBehavior*) [PickupBehavior alloc]) init:[CollidableCompositeLayer getNullInstance] :0]);
         }
         return ((PickupBehavior*) (PickupBehavior_staticInit(), PickupBehavior_NULL_PICKUP_BEHAVIOR));
 }
@@ -89,8 +95,8 @@ void PickupBehavior_staticInit(void) {
 - (void) doPickup:(PickupProcessorInterface*)pickupProcessorInterface {
         JAVA_TRY {
             HealthInterfaceCompositeInterface* healthInterfaceCompositeInterface = ((HealthInterfaceCompositeInterface*) self->ownerLayerInterface);
-            if ([[healthInterfaceCompositeInterface getHealthInterface] isAlive]) {
-                [pickupProcessorInterface process:self->ownerLayerInterface];
+            if ([[((id<HealthInterfaceCompositeInterface>) healthInterfaceCompositeInterface) getHealthInterface] isAlive]) {
+                [((id<PickupProcessorInterface>) pickupProcessorInterface) process:self->ownerLayerInterface];
             }
         } JAVA_CATCH(Exception, e) {
             CommonStrings* commonStrings = [CommonStrings getInstance];
@@ -101,12 +107,12 @@ void PickupBehavior_staticInit(void) {
 
 - (void) doPickupLayer:(PickedUpLayerInterface*)pickupLayerInterface {
         JAVA_TRY {
-            PickedUpLayerInterfaceFactoryInterface* pickedUpLayerInterfaceFactoryInterface = [pickupLayerInterface getPickedUpLayerInterfaceFactoryInterface];
-            PickedUpLayerType* pickedUpLayerType = [pickedUpLayerInterfaceFactoryInterface getPickedUpLayerType];
+            PickedUpLayerInterfaceFactoryInterface* pickedUpLayerInterfaceFactoryInterface = [((id<PickedUpLayerInterface>) pickupLayerInterface) getPickedUpLayerInterfaceFactoryInterface];
+            PickedUpLayerType* pickedUpLayerType = [((id<PickedUpLayerInterfaceFactoryInterface>) pickedUpLayerInterfaceFactoryInterface) getPickedUpLayerType];
             PickedUpLayerTypeFactory* pickedUpLayerTypeFactory = [PickedUpLayerTypeFactory getInstance];
             if (pickedUpLayerType == pickedUpLayerTypeFactory->BEAM || pickedUpLayerType == pickedUpLayerTypeFactory->MINE || pickedUpLayerType == pickedUpLayerTypeFactory->PROJECTILE || pickedUpLayerType == pickedUpLayerTypeFactory->ENHANCEMENT) {
                 [self add:((CountedPickedUpLayerInterfaceFactoryInterface*) pickedUpLayerInterfaceFactoryInterface)];
-            } else if ([pickedUpLayerInterfaceFactoryInterface getPickedUpLayerType] == pickedUpLayerTypeFactory->PART) {
+            } else if ([((id<PickedUpLayerInterfaceFactoryInterface>) pickedUpLayerInterfaceFactoryInterface) getPickedUpLayerType] == pickedUpLayerTypeFactory->PART) {
                 CollidableDestroyableDamageableLayer* collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer*) self->ownerLayerInterface);
                 [collidableDestroyableDamageableLayer addPart:pickedUpLayerInterfaceFactoryInterface];
             } else if (pickedUpLayerType == pickedUpLayerTypeFactory->NONE) {
@@ -114,7 +120,7 @@ void PickupBehavior_staticInit(void) {
                 PickupProcessorInterface* pickupProcessorInterface = ((PickupProcessorInterface*) pickedUpLayerInterfaceFactoryInterface);
                 [self doPickup:pickupProcessorInterface];
             }
-            [pickupLayerInterface setPickedUp];
+            [((id<PickedUpLayerInterface>) pickupLayerInterface) setPickedUp];
         } JAVA_CATCH(Exception, e) {
             CommonStrings* commonStrings = [CommonStrings getInstance];
             [PreLogUtil putOE:commonStrings->EXCEPTION :self :"doPickup" :e];
@@ -123,7 +129,7 @@ void PickupBehavior_staticInit(void) {
 
 
 - (void) add:(CountedPickedUpLayerInterfaceFactoryInterface*)countedPickedUpLayerInterfaceFactoryInterface {
-        int32_t partIndex = [countedPickedUpLayerInterfaceFactoryInterface getId] + self->countedIndex;
+        int32_t partIndex = [((id<CountedPickedUpLayerInterfaceFactoryInterface>) countedPickedUpLayerInterfaceFactoryInterface) getId] + self->countedIndex;
         [self addAt:countedPickedUpLayerInterfaceFactoryInterface :partIndex];
 }
 
@@ -131,7 +137,7 @@ void PickupBehavior_staticInit(void) {
 - (void) addAt:(CountedPickedUpLayerInterfaceFactoryInterface*)countedPickedUpLayerInterfaceFactoryInterface :(int32_t)partIndex {
         CollidableDestroyableDamageableLayer* collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer*) self->ownerLayerInterface);
         CountedLayerInterfaceFactoryPart* countedLayerInterfaceFactory = ((CountedLayerInterfaceFactoryPart*) [collidableDestroyableDamageableLayer getPartInterfaceArray][partIndex]);
-        [countedLayerInterfaceFactory setTotal:[countedLayerInterfaceFactory getTotal] + [countedPickedUpLayerInterfaceFactoryInterface getTotal]];
+        [countedLayerInterfaceFactory setTotal:[countedLayerInterfaceFactory getTotal] + [((id<CountedPickedUpLayerInterfaceFactoryInterface>) countedPickedUpLayerInterfaceFactoryInterface) getTotal]];
 }
 
 

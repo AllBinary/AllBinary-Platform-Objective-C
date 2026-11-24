@@ -43,7 +43,7 @@ void ProgressMidlet_staticInit(void) {
         Processor* processor = [[MidletExitProcessorFactory getInstance] getExitInstance:self];
         JAVA_TRY {
             ThreadPool* primaryThreadPool = [PrimaryThreadPool getInstance];
-            Runnable* runnable = [((ExitRunnable*) [ExitRunnable alloc]) init:self :processor :isProgress];
+            Runnable* runnable = ((ExitRunnable*) [((ExitRunnable*) [ExitRunnable alloc]) init:self :processor :isProgress]);
             [primaryThreadPool runTask:runnable];
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :"exit" :e];

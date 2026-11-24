@@ -87,7 +87,7 @@
 + (PaintableForm*) createForm:(const char*)title :(ABCustomItem**)items :(ItemPaintableFactory*)formPaintableFactory :(int32_t)border :(BasicColor*)backgroundBasicColor :(BasicColor*)foregroundBasicColor;
 + (ScrollSelectionForm*) getNullScrollSelectionForm;
 + (ScrollSelectionForm*) getNullScrollSelectionFormHorizontal;
-- (void) init_:(Rectangle*)rectangle :(FormType*)formType;
+- (void) initMethod:(Rectangle*)rectangle :(FormType*)formType;
 - (int32_t) paintItemHorizontal:(Graphics*)graphics :(int32_t)index :(ABCustomItem*)item :(int32_t)x :(int32_t)y;
 - (int32_t) paintItemVertical:(Graphics*)graphics :(int32_t)index :(ABCustomItem*)item :(int32_t)x :(int32_t)y;
 - (int32_t) paintItemTempHorizontal:(Graphics*)graphics :(int32_t)index :(ABCustomItem*)item :(int32_t)x :(int32_t)y;

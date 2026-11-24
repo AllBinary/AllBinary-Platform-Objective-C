@@ -49,9 +49,9 @@ void BasicTouchButtonCellPositionFactory_staticInit(void) {
     self = [super init];
     [self initFields];
         [self->logUtil putF:self->commonStrings->START :self :self->commonStrings->CONSTRUCTOR];
-        TouchButtonLocationHelper* touchButtonLocationHelper = [((TouchButtonLocationHelper*) [TouchButtonLocationHelper alloc]) init];
+        TouchButtonLocationHelper* touchButtonLocationHelper = ((TouchButtonLocationHelper*) [((TouchButtonLocationHelper*) [TouchButtonLocationHelper alloc]) init]);
         CellPositionFactory* cellPositionFactory = [CellPositionFactory getInstance];
-        [cellPositionFactory init_:[touchButtonLocationHelper getTotalColumns] :[touchButtonLocationHelper getTotalRows]];
+        [cellPositionFactory initMethod:[touchButtonLocationHelper getTotalColumns] :[touchButtonLocationHelper getTotalRows]];
         self->TOP_LEFT = [cellPositionFactory getInstanceColRow:0 :0];
         self->TOP_RIGHT = [cellPositionFactory getInstanceColRow:[touchButtonLocationHelper getTotalColumns] - 1 :0];
         self->BOTTOM_LEFT = [cellPositionFactory getInstanceColRow:0 :[touchButtonLocationHelper getTotalRows] - 1];

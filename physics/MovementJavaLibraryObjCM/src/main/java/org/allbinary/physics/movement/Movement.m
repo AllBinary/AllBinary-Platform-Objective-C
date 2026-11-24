@@ -23,7 +23,7 @@ void Movement_staticInit(void) {
 }
 
 
-- (void) init_:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle {
+- (void) initMethod:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle {
 }
 
 

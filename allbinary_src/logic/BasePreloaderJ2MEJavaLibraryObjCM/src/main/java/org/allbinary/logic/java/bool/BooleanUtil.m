@@ -14,7 +14,7 @@ void BooleanUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    BooleanUtil_instance = [((BooleanUtil*) [BooleanUtil alloc]) init];
+    BooleanUtil_instance = ((BooleanUtil*) [((BooleanUtil*) [BooleanUtil alloc]) init]);
 }
 
 @implementation BooleanUtil
@@ -66,7 +66,7 @@ void BooleanUtil_staticInit(void) {
 
 
 - (const char*) toStringFromBooleanArray:(bool*)booleanArray {
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         int32_t size = java_array_length(booleanArray);
         for (int32_t index = 0; index < size; index++) {
             [stringMaker appendboolean:booleanArray[index]];

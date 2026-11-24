@@ -13,7 +13,7 @@ void ABToGBUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ABToGBUtil_instance = [((ABToGBUtil*) [ABToGBUtil alloc]) init];
+    ABToGBUtil_instance = ((ABToGBUtil*) [((ABToGBUtil*) [ABToGBUtil alloc]) init]);
 }
 
 @implementation ABToGBUtil

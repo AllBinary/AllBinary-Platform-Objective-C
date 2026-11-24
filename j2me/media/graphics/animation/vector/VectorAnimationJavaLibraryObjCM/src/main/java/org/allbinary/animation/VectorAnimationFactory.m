@@ -24,7 +24,7 @@ void VectorAnimationFactory_staticInit(void) {
 
 
 - (VectorAnimation*) getInstance:(int32_t***)points :(BasicColor*)basicColor {
-        return [((VectorAnimation*) [VectorAnimation alloc]) init:points :basicColor :[AnimationBehavior getInstance]];
+        return ((VectorAnimation*) [((VectorAnimation*) [VectorAnimation alloc]) init:points :basicColor :[AnimationBehavior getInstance]]);
 }
 
 @end

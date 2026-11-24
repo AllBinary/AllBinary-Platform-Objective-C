@@ -20,7 +20,7 @@ void BasicTouchButtonCellPositionFactory_staticInit(void) {
 }
 
 
-+ (void) init_ {
++ (void) initMethod {
 }
 
 @end

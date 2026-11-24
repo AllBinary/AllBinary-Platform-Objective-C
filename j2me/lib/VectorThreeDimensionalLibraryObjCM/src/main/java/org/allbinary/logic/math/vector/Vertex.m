@@ -4,6 +4,12 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/math/PositionStrings.h"
 #include "org/allbinary/string/CommonSeps.h"
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 
@@ -18,9 +24,9 @@ void Vertex_staticInit(void) {
 @implementation Vertex
 
 - (void) initFields {
-    self->x = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
-    self->y = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
-    self->z = [((BasicDecimal*) [BasicDecimal alloc]) init:0];
+    self->x = ((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:0]);
+    self->y = ((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:0]);
+    self->z = ((BasicDecimal*) [((BasicDecimal*) [BasicDecimal alloc]) init:0]);
 }
 
 
@@ -32,7 +38,7 @@ void Vertex_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         PositionStrings* positionStrings = [PositionStrings getInstance];
         [stringBuffer append:positionStrings->X_LABEL];
         [stringBuffer append:[self->x toString]];

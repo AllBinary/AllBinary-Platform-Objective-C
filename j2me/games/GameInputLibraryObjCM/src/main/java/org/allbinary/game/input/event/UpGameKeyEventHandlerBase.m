@@ -9,6 +9,9 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/input/event/GameKeyEvent.h"
 #include "org/allbinary/game/input/event/UpGameKeyEventListenerInterface.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 static const char* UpGameKeyEventHandlerBase_TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
@@ -25,7 +28,7 @@ void UpGameKeyEventHandlerBase_staticInit(void) {
 @implementation UpGameKeyEventHandlerBase
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -79,12 +82,12 @@ void UpGameKeyEventHandlerBase_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         UpGameKeyEventListenerInterface* upGameKeyEventListenerInterface = ((UpGameKeyEventListenerInterface*) eventListenerInterface);
-        [upGameKeyEventListenerInterface onUpGameKeyEvent:((GameKeyEvent*) eventObject)];
+        [((id<UpGameKeyEventListenerInterface>) upGameKeyEventListenerInterface) onUpGameKeyEvent:((GameKeyEvent*) eventObject)];
 }
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         int32_t size = [self->list size];
         [stringBuffer append:[super toString]];
         [stringBuffer append:UpGameKeyEventHandlerBase_TOTAL_LISTENERS];
@@ -93,7 +96,7 @@ void UpGameKeyEventHandlerBase_staticInit(void) {
             JAVA_TRY {
                 EventListenerInterface* eventListenerInterface = ((EventListenerInterface*) [self->list get:index]);
                 [stringBuffer append:UpGameKeyEventHandlerBase_LISTENER_LABEL];
-                [stringBuffer append:[eventListenerInterface toString]];
+                [stringBuffer append:[((id<EventListenerInterface>) eventListenerInterface) toString]];
             } JAVA_CATCH(Exception, e) {
                 [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->TOSTRING :e];
             } JAVA_END_TRY;

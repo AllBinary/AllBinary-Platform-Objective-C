@@ -49,7 +49,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (InGameOptionsFormFactory*) getInstance;
-- (void) init_:(CommandListener*)commandListener :(Init*)initInterface :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor;
+- (void) initMethod:(CommandListener*)commandListener :(Init*)initInterface :(const char*)title :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor;
 - (CommandForm*) get;
 @end
 

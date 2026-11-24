@@ -13,13 +13,13 @@ void AnalogLocationInputFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    AnalogLocationInputFactory_instance = [((AnalogLocationInputFactory*) [AnalogLocationInputFactory alloc]) init];
+    AnalogLocationInputFactory_instance = ((AnalogLocationInputFactory*) [((AnalogLocationInputFactory*) [AnalogLocationInputFactory alloc]) init]);
 }
 
 @implementation AnalogLocationInputFactory
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -41,7 +41,7 @@ void AnalogLocationInputFactory_staticInit(void) {
             analogLocationInput = ((AnalogLocationInput*) [self->list get:playerInputId]);
         }
         if (analogLocationInput == (AnalogLocationInput_staticInit(), AnalogLocationInput_NULL_ANALOG_LOCATION_INPUT)) {
-            analogLocationInput = [((AnalogLocationInput*) [AnalogLocationInput alloc]) init:playerInputId];
+            analogLocationInput = ((AnalogLocationInput*) [((AnalogLocationInput*) [AnalogLocationInput alloc]) init:playerInputId]);
             [self->list add:analogLocationInput];
         }
 }

@@ -15,6 +15,24 @@
 #include "org/allbinary/game/configuration/persistance/NullRecordStore.h"
 #include "org/allbinary/game/configuration/persistance/NullRecordFilter.h"
 #include "org/allbinary/game/configuration/persistance/NullRecordComparator.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/util/HashtableUtil.h")
+#include "org/allbinary/util/HashtableUtil.h"
+#endif
 
 
 
@@ -56,19 +74,19 @@ void KeyValuePersistance_staticInit(void) {
             const char* name = nullptr;
             const char* value = nullptr;
             SmallIntegerSingletonFactory* smallIntegerSingletonFactory = [SmallIntegerSingletonFactory getInstance];
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             int8_t* recordAsBytes = nullptr;
             ByteArrayInputStream* byteArrayInputStream = nullptr;
             DataInputStream* inputStream = nullptr;
-            while ([recordEnum hasNextElement]) {
-                int32_t id_ = [recordEnum nextRecordId];
+            while ([((id<RecordEnumeration>) recordEnum) hasNextElement]) {
+                int32_t id_ = [((id<RecordEnumeration>) recordEnum) nextRecordId];
                 [stringBuffer delete:0 :[stringBuffer length]];
                 [self->logUtil putF:[[[stringBuffer append:self->persistanceStrings->LOADING_ID] appendint:id_] toString] :self :self->persistanceStrings->LOAD_ALL];
                 recordAsBytes = [self->tsUtil getRecord:recordStore :id_];
                 if (recordAsBytes != nil) {
-                    byteArrayInputStream = [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes];
-                    inputStream = [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream];
-                    hashtable = [((ABHashtable*) [ABHashtable alloc]) init];
+                    byteArrayInputStream = ((ByteArrayInputStream*) [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:recordAsBytes]);
+                    inputStream = ((DataInputStream*) [((DataInputStream*) [DataInputStream alloc]) init:byteArrayInputStream]);
+                    hashtable = ((ABHashtable*) [((ABHashtable*) [ABHashtable alloc]) init]);
                     for (int32_t index = 0; index < size; index++) {
                         name = [inputStream readUTF];
                         [inputStream readUTF];
@@ -94,10 +112,10 @@ void KeyValuePersistance_staticInit(void) {
 - (void) save:(AbeClientInformationInterface*)abeClientInformation :(ABHashtable*)hashtable {
         RecordStore* recordStore = (NullRecordStore_staticInit(), NullRecordStore_NULL_RECORD_STORE);
         JAVA_TRY {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->persistanceStrings->SAVING] append:[[StringUtil getInstance] toString:hashtable]] toString] :self :self->commonStrings->SAVE];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->persistanceStrings->SAVING] append:[[StringUtil getInstance] toString:hashtable]] toString] :self :self->commonStrings->SAVE];
             recordStore = [RecordStore openRecordStore:[self getRecordId:abeClientInformation] :true];
-            ByteArrayOutputStream* byteArrayOutputStream = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init];
-            DataOutputStream* outputStream = [((DataOutputStream*) [DataOutputStream alloc]) init:byteArrayOutputStream];
+            ByteArrayOutputStream* byteArrayOutputStream = ((ByteArrayOutputStream*) [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init]);
+            DataOutputStream* outputStream = ((DataOutputStream*) [((DataOutputStream*) [DataOutputStream alloc]) init:byteArrayOutputStream]);
             const char* value = nullptr;
             CommonSeps* commonSeps = [CommonSeps getInstance];
             id* objectArray = [[HashtableUtil getInstance] getKeysAsArray:hashtable];

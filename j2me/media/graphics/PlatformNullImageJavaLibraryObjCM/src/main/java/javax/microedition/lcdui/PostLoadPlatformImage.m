@@ -11,7 +11,7 @@ void PostLoadPlatformImage_staticInit(void) {
         return;
     }
     initialized = true;
-    PostLoadPlatformImage_instance = [((PostLoadPlatformImage*) [PostLoadPlatformImage alloc]) init];
+    PostLoadPlatformImage_instance = ((PostLoadPlatformImage*) [((PostLoadPlatformImage*) [PostLoadPlatformImage alloc]) init]);
 }
 
 @implementation PostLoadPlatformImage

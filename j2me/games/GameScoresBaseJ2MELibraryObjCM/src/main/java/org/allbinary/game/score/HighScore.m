@@ -3,6 +3,21 @@
 #include "org/allbinary/game/GameInfo.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonSeps.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -54,8 +69,8 @@ void HighScore_staticInit(void) {
 
 // throws Exception
 - (int8_t*) getAsBytes {
-        ByteArrayOutputStream* byteArrayOutputStream = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init];
-        DataOutputStream* outputStream = [((DataOutputStream*) [DataOutputStream alloc]) init:byteArrayOutputStream];
+        ByteArrayOutputStream* byteArrayOutputStream = ((ByteArrayOutputStream*) [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init]);
+        DataOutputStream* outputStream = ((DataOutputStream*) [((DataOutputStream*) [DataOutputStream alloc]) init:byteArrayOutputStream]);
         [outputStream writeUTF:[self getName]];
         [outputStream writeLong:[self getScore]];
         return [byteArrayOutputStream toByteArray];
@@ -79,7 +94,7 @@ void HighScore_staticInit(void) {
 
 - (const char*) toString {
         CommonSeps* commonSeps = [CommonSeps getInstance];
-        return [[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->name] append:commonSeps->COLON] appendlong:self->score] append:commonSeps->FORWARD_SLASH] append:self->scoreString] toString];
+        return [[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->name] append:commonSeps->COLON] appendlong:self->score] append:commonSeps->FORWARD_SLASH] append:self->scoreString] toString];
 }
 
 @end

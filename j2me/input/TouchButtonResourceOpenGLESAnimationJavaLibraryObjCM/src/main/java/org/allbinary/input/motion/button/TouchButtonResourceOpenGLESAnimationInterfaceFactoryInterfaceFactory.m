@@ -4,6 +4,12 @@
 #include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
 #include "org/allbinary/image/opengles/OpenGLImageCacheFactory.h"
 #include "org/allbinary/input/motion/button/TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory.h"
+#if __has_include("org/allbinary/game/configuration/feature/Features.h")
+#include "org/allbinary/game/configuration/feature/Features.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureFactory.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
+#endif
 
 
 
@@ -25,7 +31,7 @@ void TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory_static
 
 
 // throws Exception
-- (void) init_:(int32_t)level {
+- (void) initMethod:(int32_t)level {
         [super initImageCache:[OpenGLImageCacheFactory getInstance] :level];
 }
 

@@ -10,7 +10,7 @@ void CommonStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    CommonStrings_instance = [((CommonStrings*) [CommonStrings alloc]) init];
+    CommonStrings_instance = ((CommonStrings*) [((CommonStrings*) [CommonStrings alloc]) init]);
 }
 
 @implementation CommonStrings

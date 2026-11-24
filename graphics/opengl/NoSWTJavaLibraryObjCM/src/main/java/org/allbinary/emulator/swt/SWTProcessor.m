@@ -12,7 +12,7 @@ void SWTProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    SWTProcessor_instance = [((SWTProcessor*) [SWTProcessor alloc]) init];
+    SWTProcessor_instance = ((SWTProcessor*) [((SWTProcessor*) [SWTProcessor alloc]) init]);
 }
 
 @implementation SWTProcessor

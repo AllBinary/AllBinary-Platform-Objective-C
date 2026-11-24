@@ -29,7 +29,7 @@ void BasicProjectileWeaponPart_staticInit(void) {
 
 
 + (BasicProjectileWeaponPart*) createBasicProjectileWeaponPart:(Animation*)animationInterface :(WeaponLayerCircularPool*)weaponLayerCircularStaticPool {
-        return [((BasicProjectileWeaponPart*) [BasicProjectileWeaponPart alloc]) init:animationInterface :(AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER) :weaponLayerCircularStaticPool :(WeaponProperties_staticInit(), WeaponProperties_NULL_WEAPON_PROPERTIES) :[NoScoreable getInstance] :(RelativeRelationship_staticInit(), RelativeRelationship_NULL_RELATIVE_RELATIONSHIP)];
+        return ((BasicProjectileWeaponPart*) [((BasicProjectileWeaponPart*) [BasicProjectileWeaponPart alloc]) init:animationInterface :(AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER) :weaponLayerCircularStaticPool :(WeaponProperties_staticInit(), WeaponProperties_NULL_WEAPON_PROPERTIES) :[NoScoreable getInstance] :(RelativeRelationship_staticInit(), RelativeRelationship_NULL_RELATIVE_RELATIONSHIP)]);
 }
 
 

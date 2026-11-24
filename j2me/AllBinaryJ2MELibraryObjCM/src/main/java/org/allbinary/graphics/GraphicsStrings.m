@@ -10,7 +10,7 @@ void GraphicsStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    GraphicsStrings_instance = [((GraphicsStrings*) [GraphicsStrings alloc]) init];
+    GraphicsStrings_instance = ((GraphicsStrings*) [((GraphicsStrings*) [GraphicsStrings alloc]) init]);
 }
 
 @implementation GraphicsStrings

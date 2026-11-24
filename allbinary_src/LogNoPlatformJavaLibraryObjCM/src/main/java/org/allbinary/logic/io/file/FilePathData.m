@@ -10,7 +10,7 @@ void FilePathData_staticInit(void) {
         return;
     }
     initialized = true;
-    FilePathData_instance = [((FilePathData*) [FilePathData alloc]) init];
+    FilePathData_instance = ((FilePathData*) [((FilePathData*) [FilePathData alloc]) init]);
 }
 
 @implementation FilePathData

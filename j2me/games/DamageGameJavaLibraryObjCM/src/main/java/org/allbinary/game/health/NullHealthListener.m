@@ -11,7 +11,7 @@ void NullHealthListener_staticInit(void) {
         return;
     }
     initialized = true;
-    NullHealthListener_NULL_HEALTH_LISTENER = [((NullHealthListener*) [NullHealthListener alloc]) init];
+    NullHealthListener_NULL_HEALTH_LISTENER = ((NullHealthListener*) [((NullHealthListener*) [NullHealthListener alloc]) init]);
 }
 
 @implementation NullHealthListener

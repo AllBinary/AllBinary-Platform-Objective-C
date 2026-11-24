@@ -13,6 +13,24 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/graphics/form/item/ABTextFieldItem.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
 
 
 
@@ -36,7 +54,7 @@ void CustomTextBox_staticInit(void) {
         self = [super init:cmdListener :label :backgroundBasicColor :foregroundBasicColor];
         [self initFields];
         StringUtil* stringUtil = [StringUtil getInstance];
-        ABTextFieldItem* textFieldItem = [((ABTextFieldItem*) [ABTextFieldItem alloc]) init:self :[((TextItemVisitor*) [TextItemVisitor alloc]) init] :stringUtil->EMPTY_STRING :stringUtil->EMPTY_STRING :maxSize :0 :stringUtil->EMPTY_STRING :font :backgroundBasicColor :foregroundBasicColor];
+        ABTextFieldItem* textFieldItem = ((ABTextFieldItem*) [((ABTextFieldItem*) [ABTextFieldItem alloc]) init:self :((TextItemVisitor*) [((TextItemVisitor*) [TextItemVisitor alloc]) init]) :stringUtil->EMPTY_STRING :stringUtil->EMPTY_STRING :maxSize :0 :stringUtil->EMPTY_STRING :font :backgroundBasicColor :foregroundBasicColor]);
         [textFieldItem setString:text];
         self->textFieldItem = textFieldItem;
         [self setTitle:label];
@@ -49,7 +67,7 @@ void CustomTextBox_staticInit(void) {
 
 
 - (void) onEventRaw:(int32_t)keyCode :(int32_t)deviceId :(bool)repeated {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->START] appendint:keyCode] toString] :self :"onEvent"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->START] appendint:keyCode] toString] :self :"onEvent"];
         [self keyPressedByDevice:keyCode :deviceId];
 }
 
@@ -71,7 +89,7 @@ void CustomTextBox_staticInit(void) {
 
 - (void) keyPressedByDevice:(int32_t)keyCode :(int32_t)deviceId {
         JAVA_TRY {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonSeps getInstance]->SPACE] appendint:keyCode] toString] :self :self->gameInputStrings->KEY_PRESSED];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonSeps getInstance]->SPACE] appendint:keyCode] toString] :self :self->gameInputStrings->KEY_PRESSED];
             PlatformKeyFactory* platformKeyFactory = [PlatformKeyFactory getInstance];
             Input* input = [self->inputFactory getInstanceById:keyCode];
             if ([platformKeyFactory isSubmission:input]) {

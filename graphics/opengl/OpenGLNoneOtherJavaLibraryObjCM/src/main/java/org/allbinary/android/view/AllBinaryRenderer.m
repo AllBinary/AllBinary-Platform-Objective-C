@@ -10,7 +10,7 @@ void AllBinaryRenderer_staticInit(void) {
         return;
     }
     initialized = true;
-    AllBinaryRenderer_instance = [((AllBinaryRenderer*) [AllBinaryRenderer alloc]) init];
+    AllBinaryRenderer_instance = ((AllBinaryRenderer*) [((AllBinaryRenderer*) [AllBinaryRenderer alloc]) init]);
 }
 
 @implementation AllBinaryRenderer

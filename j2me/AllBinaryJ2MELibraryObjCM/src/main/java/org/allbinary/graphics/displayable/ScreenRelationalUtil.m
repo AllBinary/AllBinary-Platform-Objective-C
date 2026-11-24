@@ -12,7 +12,7 @@ void ScreenRelationalUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ScreenRelationalUtil_instance = [((ScreenRelationalUtil*) [ScreenRelationalUtil alloc]) init];
+    ScreenRelationalUtil_instance = ((ScreenRelationalUtil*) [((ScreenRelationalUtil*) [ScreenRelationalUtil alloc]) init]);
 }
 
 @implementation ScreenRelationalUtil

@@ -3,6 +3,9 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/media/audio/Sound.h"
 #include "org/allbinary/media/audio/NoPlayer.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static NoSound* NoSound_instance;
@@ -13,7 +16,7 @@ void NoSound_staticInit(void) {
         return;
     }
     initialized = true;
-    NoSound_instance = [((NoSound*) [NoSound alloc]) init];
+    NoSound_instance = ((NoSound*) [((NoSound*) [NoSound alloc]) init]);
 }
 
 @implementation NoSound

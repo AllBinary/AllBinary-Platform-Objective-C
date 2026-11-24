@@ -9,6 +9,9 @@
 #include "org/allbinary/animation/VectorExplosionGenerator.h"
 #include "org/allbinary/animation/IndexedAnimation.h"
 #include "org/allbinary/animation/Animation.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 
@@ -37,13 +40,13 @@ void IndependentVectorExplosionRotationAnimationFactory_staticInit(void) {
         self->vectorInfo = vectorInfo;
         self->basicColor = basicColor;
         self->vectorAnimationFactoryInterface = vectorAnimationFactoryInterface;
-        [self init_];
+        [self initMethod];
     return self;
 }
 
 
 // throws Exception
-- (void) init_ {
+- (void) initMethod {
         self->framePoints = [[VectorRotationGenerator getInstance] getInstance:self->vectorInfo];
 }
 
@@ -56,7 +59,7 @@ void IndependentVectorExplosionRotationAnimationFactory_staticInit(void) {
             frame = [rotationAnimationInterface getFrame];
         }
         int32_t*** points = [self->vectorExplosionGenerator getInstance:self->framePoints[frame] :6 :self->vectorExplosionGenerator->ROTATION];
-        return [self->vectorAnimationFactoryInterface getInstance:points :self->basicColor];
+        return [((id<VectorAnimationFactoryInterface>) self->vectorAnimationFactoryInterface) getInstance:points :self->basicColor];
 }
 
 @end

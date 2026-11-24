@@ -11,7 +11,7 @@ void ResizableListenerHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    ResizableListenerHandler_instance = [((ResizableListenerHandler*) [ResizableListenerHandler alloc]) init];
+    ResizableListenerHandler_instance = ((ResizableListenerHandler*) [((ResizableListenerHandler*) [ResizableListenerHandler alloc]) init]);
 }
 
 @implementation ResizableListenerHandler

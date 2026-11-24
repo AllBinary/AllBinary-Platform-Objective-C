@@ -20,6 +20,24 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/graphics/hud/HudGraphicsPosition.h"
 #include "org/allbinary/game/graphics/hud/BasicHudFactory.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/DisplayInfoSingleton.h")
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#endif
+#if __has_include("org/allbinary/graphics/GPoint.h")
+#include "org/allbinary/graphics/GPoint.h"
+#endif
+#if __has_include("org/allbinary/graphics/GPoint.h")
+#include "org/allbinary/graphics/GPoint.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
+#endif
 
 
 
@@ -39,7 +57,7 @@ void BasicHud_staticInit(void) {
     self->canvasStrings = [CanvasStrings getInstance];
     self->basicSetColorUtil = [BasicColorSetUtil getInstance];
     self->displayInfo = [DisplayInfoSingleton getInstance];
-    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->updateMyFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->myFontProcessor = self->updateMyFontProcessor;
     self->location = 0;
     self->direction = 0;
@@ -127,7 +145,7 @@ void BasicHud_staticInit(void) {
             y = maxWidth;
             anchor = 0;
         }
-        return [((HudGraphicsPosition*) [HudGraphicsPosition alloc]) init:[self getPoint:x :y] :anchor];
+        return ((HudGraphicsPosition*) [((HudGraphicsPosition*) [HudGraphicsPosition alloc]) init:[self getPoint:x :y] :anchor]);
 }
 
 

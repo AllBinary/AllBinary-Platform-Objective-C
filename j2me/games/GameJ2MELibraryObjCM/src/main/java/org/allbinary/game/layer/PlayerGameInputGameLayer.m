@@ -10,6 +10,12 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/view/StaticViewPosition.h"
 #include "org/allbinary/game/layer/AllBinaryGameLayer.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
+#endif
 
 
 
@@ -29,9 +35,9 @@ void PlayerGameInputGameLayer_staticInit(void) {
 
 
 - (instancetype) init:(int32_t)playerInputId {
-        self = [super init:[StringUtil getInstance]->EMPTY_STRING :[((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :0 :0] :[((StaticViewPosition*) [StaticViewPosition alloc]) init:0 :0 :0]];
+        self = [super init:[StringUtil getInstance]->EMPTY_STRING :((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :0 :0]) :((StaticViewPosition*) [((StaticViewPosition*) [StaticViewPosition alloc]) init:0 :0 :0])];
         [self initFields];
-        self->playerGameInput = [((PlayerGameInput*) [PlayerGameInput alloc]) init:[self getGameKeyEventList] :[((BasicArrayListD*) [BasicArrayListD alloc]) init] :playerInputId];
+        self->playerGameInput = ((PlayerGameInput*) [((PlayerGameInput*) [PlayerGameInput alloc]) init:[self getGameKeyEventList] :((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :playerInputId]);
         CanvasStrings* canvasStrings = [CanvasStrings getInstance];
         [self->logUtil putF:"Danger Danger Danger: Should Not Be Called Except For Testing Input" :self :canvasStrings->PAINT];
     return self;

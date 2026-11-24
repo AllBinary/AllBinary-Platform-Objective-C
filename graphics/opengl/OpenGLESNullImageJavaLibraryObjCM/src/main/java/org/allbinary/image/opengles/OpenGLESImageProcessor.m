@@ -11,7 +11,7 @@ void OpenGLESImageProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLESImageProcessor_instance = [((OpenGLESImageProcessor*) [OpenGLESImageProcessor alloc]) init];
+    OpenGLESImageProcessor_instance = ((OpenGLESImageProcessor*) [((OpenGLESImageProcessor*) [OpenGLESImageProcessor alloc]) init]);
 }
 
 @implementation OpenGLESImageProcessor

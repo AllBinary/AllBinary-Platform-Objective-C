@@ -11,13 +11,13 @@ void InputProcessorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    InputProcessorFactory_instance = [((InputProcessorFactory*) [InputProcessorFactory alloc]) init];
+    InputProcessorFactory_instance = ((InputProcessorFactory*) [((InputProcessorFactory*) [InputProcessorFactory alloc]) init]);
 }
 
 @implementation InputProcessorFactory
 
 - (void) initFields {
-    self->inputProcessor = [((InputProcessor*) [InputProcessor alloc]) init];
+    self->inputProcessor = ((InputProcessor*) [((InputProcessor*) [InputProcessor alloc]) init]);
 }
 
 - (instancetype) init {

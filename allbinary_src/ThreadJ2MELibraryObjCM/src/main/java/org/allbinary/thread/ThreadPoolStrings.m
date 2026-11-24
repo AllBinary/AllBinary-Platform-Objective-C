@@ -10,7 +10,7 @@ void ThreadPoolStrings_staticInit(void) {
         return;
     }
     initialized = true;
-    ThreadPoolStrings_instance = [((ThreadPoolStrings*) [ThreadPoolStrings alloc]) init];
+    ThreadPoolStrings_instance = ((ThreadPoolStrings*) [((ThreadPoolStrings*) [ThreadPoolStrings alloc]) init]);
 }
 
 @implementation ThreadPoolStrings

@@ -12,6 +12,18 @@
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/layer/resources/OnDemandResourcesFactory.h"
 #include "org/allbinary/game/layer/resources/OnDemandResources.h"
+#if __has_include("org/allbinary/game/configuration/feature/Features.h")
+#include "org/allbinary/game/configuration/feature/Features.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/MainFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -43,7 +55,7 @@ void OnDemandLoader_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(ImageCache*)imageCache :(int32_t)level :(const char*)loadingString {
+- (void) initMethod:(ImageCache*)imageCache :(int32_t)level :(const char*)loadingString {
         ResourceLoadingLevelFactory* resourceLoadingLevelFactory = [ResourceLoadingLevelFactory getInstance];
         if ([[Features getInstance] isFeature:[MainFeatureFactory getInstance]->LOAD_ALL]) {
             if ([self->resourceAnimationInterfaceFactoryInterfaceFactory isInitialized]) {
@@ -51,7 +63,7 @@ void OnDemandLoader_staticInit(void) {
             }
             [self initAll:imageCache :loadingString];
         } else if (level != [resourceLoadingLevelFactory->LOAD_ALL getLevel]) {
-            LayerPlacementInterfaceBasicArrayListFactoryInterface* layerPlacementInterfaceBasicArrayListFactoryInterface = [self->gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory getInstance:level];
+            LayerPlacementInterfaceBasicArrayListFactoryInterface* layerPlacementInterfaceBasicArrayListFactoryInterface = [((id<GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory>) self->gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory) getInstance:level];
             [self initLevel:layerPlacementInterfaceBasicArrayListFactoryInterface :imageCache :level :loadingString];
         }
 }
@@ -76,8 +88,8 @@ void OnDemandLoader_staticInit(void) {
         CommonStrings* commonStrings = [CommonStrings getInstance];
         int32_t portion = 120;
         int32_t index = 0;
-        int32_t* onDemandArray = [layerPlacementInterfaceBasicArrayListFactoryInterface getOnDemandResources];
-        [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:commonStrings->START] appendint:java_array_length(onDemandArray)] toString] :self :"initLevel"];
+        int32_t* onDemandArray = [((id<LayerPlacementInterfaceBasicArrayListFactoryInterface>) layerPlacementInterfaceBasicArrayListFactoryInterface) getOnDemandResources];
+        [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:commonStrings->START] appendint:java_array_length(onDemandArray)] toString] :self :"initLevel"];
         OnDemandResources* onDemandResources = nullptr;
         for (int32_t onDemandIndex = java_array_length(onDemandArray); --onDemandIndex >= 0; ) {
             onDemandResources = [self->onDemandResourcesFactory remove:onDemandArray[onDemandIndex]];

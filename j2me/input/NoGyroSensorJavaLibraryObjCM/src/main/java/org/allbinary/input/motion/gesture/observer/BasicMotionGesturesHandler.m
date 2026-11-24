@@ -14,7 +14,7 @@ void BasicMotionGesturesHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicMotionGesturesHandler_SINGLETON = [((BasicMotionGesturesHandler*) [BasicMotionGesturesHandler alloc]) init];
+    BasicMotionGesturesHandler_SINGLETON = ((BasicMotionGesturesHandler*) [((BasicMotionGesturesHandler*) [BasicMotionGesturesHandler alloc]) init]);
 }
 
 @implementation BasicMotionGesturesHandler
@@ -34,7 +34,7 @@ void BasicMotionGesturesHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         BaseMotionGestureEventListener* baseMotionGestureEventListener = ((BaseMotionGestureEventListener*) eventListenerInterface);
-        [baseMotionGestureEventListener onMotionGestureEvent:((MotionGestureEvent*) eventObject)];
+        [((id<BaseMotionGestureEventListener>) baseMotionGestureEventListener) onMotionGestureEvent:((MotionGestureEvent*) eventObject)];
 }
 
 @end

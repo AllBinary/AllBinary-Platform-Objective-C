@@ -4,6 +4,72 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 static ResourceUtil* ResourceUtil_instance;
@@ -14,7 +80,7 @@ void ResourceUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ResourceUtil_instance = [((ResourceUtil*) [ResourceUtil alloc]) init];
+    ResourceUtil_instance = ((ResourceUtil*) [((ResourceUtil*) [ResourceUtil alloc]) init]);
 }
 
 @implementation ResourceUtil
@@ -49,7 +115,7 @@ void ResourceUtil_staticInit(void) {
             if (inputStream == nil) {
                 inputStream = [self getResourceAsStreamAtStart:resource :1];
                 if (inputStream == nil) {
-                    StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+                    StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
                     int32_t index = java_string_lastIndexOf(resource, u'/');
                     const char* resourcePath = java_substring(resource, index + 1, (int32_t) strlen(resource));
                     inputStream = [java_objc_class_name(resource) getResourceAsStream:resourcePath];
@@ -102,7 +168,7 @@ void ResourceUtil_staticInit(void) {
 
 // throws Exception
 - (InputStream*) getResourceAsStreamAtStart:(const char*)resource :(int32_t)startIndex {
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         int32_t index = java_string_indexOf(resource, [CommonSeps getInstance]->COLON);
         const char* resourcePath = java_substring(resource, index + startIndex, (int32_t) strlen(resource));
         InputStream* inputStream = [java_objc_class_name(resource) getResourceAsStream:resourcePath];

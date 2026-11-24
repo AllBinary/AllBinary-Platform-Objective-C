@@ -10,6 +10,21 @@
 #include "org/allbinary/logic/communication/log/LogUtil.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
+#if __has_include("org/allbinary/logic/communication/log/LogUtil.h")
+#include "org/allbinary/logic/communication/log/LogUtil.h"
+#endif
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 static id NullGameCanvas_instance;
@@ -34,7 +49,7 @@ void NullGameCanvas_staticInit(void) {
 
 + (NullGameCanvas*) createNull {
         JAVA_TRY {
-            return [((NullGameCanvas*) [NullGameCanvas alloc]) init:[AllBinaryGameLayerManager getNullInstance]];
+            return ((NullGameCanvas*) [((NullGameCanvas*) [NullGameCanvas alloc]) init:[AllBinaryGameLayerManager getNullInstance]]);
         } JAVA_CATCH(Exception, e) {
             [[LogUtil getInstance] put:[CommonStrings getInstance]->EXCEPTION :"NullGameCanvas" :[CommonStrings getInstance]->GET_INSTANCE :e];
             java_throw(java_exception_new("RuntimeException", ""));
@@ -52,7 +67,7 @@ void NullGameCanvas_staticInit(void) {
 
 // throws Exception
 + (NullGameCanvas*) createCanvas:(AllBinaryGameLayerManager*)gameLayerManager {
-        NullGameCanvas* nullGameCanvas = [((NullGameCanvas*) [NullGameCanvas alloc]) init:gameLayerManager];
+        NullGameCanvas* nullGameCanvas = ((NullGameCanvas*) [((NullGameCanvas*) [NullGameCanvas alloc]) init:gameLayerManager]);
         [nullGameCanvas setInitialized:true];
         [nullGameCanvas setTitle:NullGameCanvas_NO_GAME];
         return nullGameCanvas;

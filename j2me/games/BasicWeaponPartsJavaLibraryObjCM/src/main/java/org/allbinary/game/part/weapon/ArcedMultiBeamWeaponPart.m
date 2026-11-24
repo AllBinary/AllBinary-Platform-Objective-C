@@ -10,6 +10,9 @@
 #include "org/allbinary/layer/AllBinaryLayerManager.h"
 #include "org/allbinary/math/AngleFactory.h"
 #include "org/allbinary/game/part/weapon/BasicWeaponPart.h"
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
 
 
 

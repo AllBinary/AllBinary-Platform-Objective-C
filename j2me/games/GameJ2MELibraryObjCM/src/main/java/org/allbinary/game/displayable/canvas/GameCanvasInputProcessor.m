@@ -63,6 +63,18 @@
 #if __has_include("org/allbinary/logic/string/PersistentInputMapping.h")
 #include "org/allbinary/logic/string/PersistentInputMapping.h"
 #endif
+#if __has_include("org/allbinary/game/input/PlatformInputMappingFactory.h")
+#include "org/allbinary/game/input/PlatformInputMappingFactory.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameKeyFactory.h")
+#include "org/allbinary/game/input/GameKeyFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 #if __has_include("org/allbinary/game/displayable/canvas/DownGameKeyEventHandlerBase.h")
 #include "org/allbinary/game/displayable/canvas/DownGameKeyEventHandlerBase.h"
 #endif
@@ -159,6 +171,12 @@
 #if __has_include("org/allbinary/logic/string/DownKeyEventHandlerBase.h")
 #include "org/allbinary/logic/string/DownKeyEventHandlerBase.h"
 #endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 #if __has_include("org/allbinary/game/displayable/canvas/UpGameKeyEventHandlerBase.h")
 #include "org/allbinary/game/displayable/canvas/UpGameKeyEventHandlerBase.h"
 #endif
@@ -237,7 +255,7 @@ void GameCanvasInputProcessor_staticInit(void) {
     self = [super init];
     [self initFields];
         self->allBinaryGameCanvas = allBinaryGameCanvas;
-        [self->inputToGameKeyMapping init_:self->allBinaryGameCanvas];
+        [self->inputToGameKeyMapping initMethod:self->allBinaryGameCanvas];
     return self;
 }
 
@@ -250,7 +268,7 @@ void GameCanvasInputProcessor_staticInit(void) {
                 [self->downGameKeyEventHandler fireEvent:gameKeyEvent];
                 [[self->downGameKeyEventHandler getInstanceForDevice:deviceId] fireEvent:gameKeyEvent];
             } else {
-                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->gameInputStrings->NO_KEY] appendint:keyCode] toString] :self :self->gameInputStrings->ADD_KEY_EVENT];
+                [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->gameInputStrings->NO_KEY] appendint:keyCode] toString] :self :self->gameInputStrings->ADD_KEY_EVENT];
             }
             int32_t keyCodeAsInteger = [self->smallIntegerSingletonFactory getAtNoThrow:keyCode];
             [self->downKeyEventHandler fireEventI:keyCodeAsInteger];
@@ -275,7 +293,7 @@ void GameCanvasInputProcessor_staticInit(void) {
                 [self->upGameKeyEventHandler fireEvent:gameKeyEvent];
                 [[self->upGameKeyEventHandler getInstanceForDevice:deviceId] fireEvent:gameKeyEvent];
             } else {
-                [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->gameInputStrings->NO_KEY] appendint:keyCode] toString] :self :self->gameInputStrings->REMOVE_KEY_EVENT];
+                [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->gameInputStrings->NO_KEY] appendint:keyCode] toString] :self :self->gameInputStrings->REMOVE_KEY_EVENT];
             }
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:"Key Event Error" :self :self->gameInputStrings->REMOVE_KEY_EVENT :e];

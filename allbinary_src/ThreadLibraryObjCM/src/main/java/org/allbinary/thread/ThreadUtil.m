@@ -11,7 +11,7 @@ void ThreadUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ThreadUtil_instance = [((ThreadUtil*) [ThreadUtil alloc]) init];
+    ThreadUtil_instance = ((ThreadUtil*) [((ThreadUtil*) [ThreadUtil alloc]) init]);
 }
 
 @implementation ThreadUtil

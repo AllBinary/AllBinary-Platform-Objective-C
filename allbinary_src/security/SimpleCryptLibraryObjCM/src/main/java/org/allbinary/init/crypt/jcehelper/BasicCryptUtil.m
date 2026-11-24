@@ -13,7 +13,7 @@ void BasicCryptUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicCryptUtil_instance = [((BasicCryptUtil*) [BasicCryptUtil alloc]) init];
+    BasicCryptUtil_instance = ((BasicCryptUtil*) [((BasicCryptUtil*) [BasicCryptUtil alloc]) init]);
 }
 
 @implementation BasicCryptUtil
@@ -38,7 +38,7 @@ void BasicCryptUtil_staticInit(void) {
 
 // throws Exception
 - (InputStream*) getDecryptedInputStream:(InputStream*)inputStream :(CryptInterface*)cryptInterface {
-        ByteArrayOutputStream* buffer = [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init];
+        ByteArrayOutputStream* buffer = ((ByteArrayOutputStream*) [((ByteArrayOutputStream*) [ByteArrayOutputStream alloc]) init]);
         int32_t ch = 0;
         while (true) {
             ch = [inputStream read];
@@ -47,13 +47,13 @@ void BasicCryptUtil_staticInit(void) {
             }
             [buffer write:ch];
         }
-        int8_t* decrypted = [cryptInterface decrypt:[buffer toByteArray]];
+        int8_t* decrypted = [((id<CryptInterface>) cryptInterface) decrypt:[buffer toByteArray]];
         const char* decryptedString = java_string_new(decrypted);
         int32_t index = java_string_indexOf(decryptedString, self->XML_START);
         if (index > 0) {
             decryptedString = java_substring(decryptedString, index, (int32_t) strlen(decryptedString));
         }
-        return [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:[self->tsUtil getByteArray:decryptedString]];
+        return ((ByteArrayInputStream*) [((ByteArrayInputStream*) [ByteArrayInputStream alloc]) init:[self->tsUtil getByteArray:decryptedString]]);
 }
 
 @end

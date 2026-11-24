@@ -13,6 +13,21 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/configuration/event/GameFeatureListenerInterface.h"
 #include "org/allbinary/game/configuration/event/GameFeatureEvent.h"
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Features.h")
+#include "org/allbinary/game/configuration/feature/Features.h"
+#endif
 
 
 
@@ -29,7 +44,7 @@ void BaseChangedGameFeatureListener_staticInit(void) {
 - (void) initFields {
     self->logUtil = [LogUtil getInstance];
     self->gameFeatureUtil = [GameFeatureUtil getInstance];
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->changed = true;
 }
 
@@ -46,7 +61,7 @@ void BaseChangedGameFeatureListener_staticInit(void) {
 
 
 - (void) onGameFeatureChange:(GameFeatureEvent*)gameFeatureEvent {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->gameFeatureUtil->GAME_FEATURE_CHANGED] append:[gameFeatureEvent getWhatChanged]] toString] :self :self->gameFeatureUtil->ON_GAME_FEATURE_CHANGE];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->gameFeatureUtil->GAME_FEATURE_CHANGED] append:[gameFeatureEvent getWhatChanged]] toString] :self :self->gameFeatureUtil->ON_GAME_FEATURE_CHANGE];
         [self->list add:[gameFeatureEvent getGameOption]];
         [self setChanged:true];
 }
@@ -72,7 +87,7 @@ void BaseChangedGameFeatureListener_staticInit(void) {
 
 - (bool) isChangedFeature:(Feature*)gameFeature {
         bool isChanged = [self->list contains:gameFeature];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"GameFeature: "];
         [stringBuffer append:[[StringUtil getInstance] toString:gameFeature]];
         [stringBuffer append:" isFeature: "];

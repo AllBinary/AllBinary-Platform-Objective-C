@@ -9,6 +9,12 @@
 #include "org/allbinary/logic/system/os/SystemProperties.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/logic/system/os/solaris/SolarisOS.h"
+#if __has_include("org/allbinary/logic/system/os/SystemProperties.h")
+#include "org/allbinary/logic/system/os/SystemProperties.h"
+#endif
+#if __has_include("org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h")
+#include "org/allbinary/logic/communication/log/config/type/LogConfigTypeFactory.h"
+#endif
 
 
 static SolarisOperatingSystemFactory* SolarisOperatingSystemFactory_instance;
@@ -19,7 +25,7 @@ void SolarisOperatingSystemFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    SolarisOperatingSystemFactory_instance = [((SolarisOperatingSystemFactory*) [SolarisOperatingSystemFactory alloc]) init];
+    SolarisOperatingSystemFactory_instance = ((SolarisOperatingSystemFactory*) [((SolarisOperatingSystemFactory*) [SolarisOperatingSystemFactory alloc]) init]);
 }
 
 @implementation SolarisOperatingSystemFactory
@@ -47,10 +53,10 @@ void SolarisOperatingSystemFactory_staticInit(void) {
             const char* osName = [[SystemProperties getInstance] getName];
             GenericOperatingSystem* operatingSystemInterface = nullptr;
             if (strcmp(osName, operatingSystems->SOLARIS) == 0) {
-                operatingSystemInterface = [((SolarisOS*) [SolarisOS alloc]) init];
+                operatingSystemInterface = ((SolarisOS*) [((SolarisOS*) [SolarisOS alloc]) init]);
             } else {
                 if ([operatingSystems isUnknownSpecificOSAllowed]) {
-                    operatingSystemInterface = [((SolarisOS*) [SolarisOS alloc]) init];
+                    operatingSystemInterface = ((SolarisOS*) [((SolarisOS*) [SolarisOS alloc]) init]);
                 } else {
                     java_throw(java_exception_new("Exception", java_concat("Specific Solaris OS Not Supported: ", osName)));
                 }

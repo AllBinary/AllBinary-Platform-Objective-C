@@ -12,13 +12,13 @@ void DemoLimitedCommandTextItemArrayFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    DemoLimitedCommandTextItemArrayFactory_instance = [((DemoLimitedCommandTextItemArrayFactory*) [DemoLimitedCommandTextItemArrayFactory alloc]) init];
+    DemoLimitedCommandTextItemArrayFactory_instance = ((DemoLimitedCommandTextItemArrayFactory*) [((DemoLimitedCommandTextItemArrayFactory*) [DemoLimitedCommandTextItemArrayFactory alloc]) init]);
 }
 
 @implementation DemoLimitedCommandTextItemArrayFactory
 
 - (void) initFields {
-    self->commandTextItemArrayFactory = [((CommandTextItemArrayFactory*) [CommandTextItemArrayFactory alloc]) init:[((LimitCommandsVisitor*) [LimitCommandsVisitor alloc]) init]];
+    self->commandTextItemArrayFactory = ((CommandTextItemArrayFactory*) [((CommandTextItemArrayFactory*) [CommandTextItemArrayFactory alloc]) init:((LimitCommandsVisitor*) [((LimitCommandsVisitor*) [LimitCommandsVisitor alloc]) init])]);
 }
 
 - (instancetype) init {

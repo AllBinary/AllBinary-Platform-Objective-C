@@ -6,6 +6,21 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/input/Input.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static id InputFactory_instance;
@@ -28,13 +43,13 @@ void InputFactory_staticInit(void) {
     self->DEVICE_ID_LABEL = "DeviceId: ";
     self->MAX = [[SmallIntegerSingletonFactory getInstance] getMin];
     self->inputIntegerArray = ((Input**) java_array_new(sizeof(Input*), self->MAX));
-    self->NO_INPUT = [((Input*) [Input alloc]) init:0 :self->commonStrings->UNKNOWN];
+    self->NO_INPUT = ((Input*) [((Input*) [Input alloc]) init:0 :self->commonStrings->UNKNOWN]);
 }
 
 
 + (InputFactory*) getInstance {
         if ((InputFactory_staticInit(), InputFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            InputFactory_instance = [((InputFactory*) [InputFactory alloc]) init];
+            InputFactory_instance = ((InputFactory*) [((InputFactory*) [InputFactory alloc]) init]);
         }
         return ((InputFactory*) (InputFactory_staticInit(), InputFactory_instance));
 }
@@ -61,7 +76,7 @@ void InputFactory_staticInit(void) {
             id_ = -id_;
         }
         if (id_ > java_array_length(self->inputIntegerArray)) {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Warning id: "] appendint:id_] toString] :self :self->commonStrings->GET_INSTANCE];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Warning id: "] appendint:id_] toString] :self :self->commonStrings->GET_INSTANCE];
             return self->NO_INPUT;
         }
         return self->inputIntegerArray[id_];

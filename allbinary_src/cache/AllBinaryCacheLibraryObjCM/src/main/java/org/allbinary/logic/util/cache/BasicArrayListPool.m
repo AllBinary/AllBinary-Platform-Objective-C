@@ -36,7 +36,7 @@ void BasicArrayListPool_staticInit(void) {
         if (size > 0) {
             return ((CacheableInterface*) [self->buffers removeAt:size - 1]);
         } else {
-            return [self->cacheableInterfaceFactoryInterface getInstance:key];
+            return [((id<CacheableInterfaceFactoryInterface>) self->cacheableInterfaceFactoryInterface) getInstance:key];
         }
 }
 

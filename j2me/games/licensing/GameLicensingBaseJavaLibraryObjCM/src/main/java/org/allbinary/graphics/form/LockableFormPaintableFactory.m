@@ -32,7 +32,7 @@ void LockableFormPaintableFactory_staticInit(void) {
 
 // throws Exception
 - (ItemPaintable*) getInstanceItemPaintable:(PaintableForm*)paintableForm {
-        return [((LockablePaintable*) [LockablePaintable alloc]) init:self->lockedIndex];
+        return ((LockablePaintable*) [((LockablePaintable*) [LockablePaintable alloc]) init:self->lockedIndex]);
 }
 
 @end

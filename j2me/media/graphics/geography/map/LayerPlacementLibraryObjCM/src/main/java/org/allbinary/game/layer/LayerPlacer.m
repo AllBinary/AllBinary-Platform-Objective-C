@@ -55,7 +55,7 @@ void LayerPlacer_staticInit(void) {
 - (void) process:(LayerPlacementInterface*)layerPlacementInterface {
         GPoint* relativePoint = [self getPoint:layerPlacementInterface];
         LayerInterfaceFactory* layerInterfaceFactory = [LayerInterfaceFactory getInstance];
-        ABHashtable* hashtable = [layerPlacementInterface getInstance];
+        ABHashtable* hashtable = [((id<LayerPlacementInterface>) layerPlacementInterface) getInstance];
         Enumeration* enumeration = [hashtable keys];
         GPoint* point = nullptr;
         ABHashtable* layerHashtable = nullptr;
@@ -70,7 +70,7 @@ void LayerPlacer_staticInit(void) {
             y = [point getY] + [relativePoint getY];
             z = [point getZ] + [relativePoint getZ];
             layerInterface = [layerInterfaceFactory getNexInstance:layerHashtable :x :y :z];
-            [self->layerInterfaceVisitor visit:layerInterface];
+            [((id<LayerInterfaceVisitor>) self->layerInterfaceVisitor) visit:layerInterface];
         }
 }
 
@@ -78,16 +78,16 @@ void LayerPlacer_staticInit(void) {
 // throws Exception
 - (GPoint*) getPoint:(LayerPlacementInterface*)layerPlacementInterface {
         PointFactory* pointFactory = [PointFactory getInstance];
-        LayerPlacementType* layerPlacementType = [layerPlacementInterface getLayerType];
+        LayerPlacementType* layerPlacementType = [((id<LayerPlacementInterface>) layerPlacementInterface) getLayerType];
         if (layerPlacementType == [LayerPlacementTypeFactory getInstance]->MAP) {
-            int32_t width = [layerPlacementInterface getWidth];
-            int32_t height = [layerPlacementInterface getHeight];
+            int32_t width = [((id<LayerPlacementInterface>) layerPlacementInterface) getWidth];
+            int32_t height = [((id<LayerPlacementInterface>) layerPlacementInterface) getHeight];
             int32_t x = (([self->dimension getX] - width) / 2);
             int32_t y = (([self->dimension getY] - height) / 2);
             return [pointFactory createXY:x :y];
         } else if (layerPlacementType == [LayerPlacementTypeFactory getInstance]->UP) {
-            int32_t width = [layerPlacementInterface getWidth];
-            int32_t height = [layerPlacementInterface getHeight];
+            int32_t width = [((id<LayerPlacementInterface>) layerPlacementInterface) getWidth];
+            int32_t height = [((id<LayerPlacementInterface>) layerPlacementInterface) getHeight];
             int32_t x = (([self->dimension getX] - width) / 2);
             int32_t y = -height;
             return [pointFactory createXY:x :y];

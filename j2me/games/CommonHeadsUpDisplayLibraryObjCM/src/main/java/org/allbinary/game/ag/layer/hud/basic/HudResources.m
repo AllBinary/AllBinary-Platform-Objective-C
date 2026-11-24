@@ -10,7 +10,7 @@ void HudResources_staticInit(void) {
         return;
     }
     initialized = true;
-    HudResources_instance = [((HudResources*) [HudResources alloc]) init];
+    HudResources_instance = ((HudResources*) [((HudResources*) [HudResources alloc]) init]);
 }
 
 @implementation HudResources

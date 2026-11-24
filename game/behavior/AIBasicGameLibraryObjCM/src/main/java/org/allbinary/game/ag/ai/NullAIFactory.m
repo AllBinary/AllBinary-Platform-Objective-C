@@ -15,7 +15,7 @@ void NullAIFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    NullAIFactory_NULL_AI = [((NullAI*) [NullAI alloc]) init];
+    NullAIFactory_NULL_AI = ((NullAI*) [((NullAI*) [NullAI alloc]) init]);
 }
 
 @implementation NullAIFactory

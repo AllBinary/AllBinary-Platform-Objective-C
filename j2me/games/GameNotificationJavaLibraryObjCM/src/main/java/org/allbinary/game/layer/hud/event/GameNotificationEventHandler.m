@@ -16,7 +16,7 @@ void GameNotificationEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    GameNotificationEventHandler_instance = [((GameNotificationEventHandler*) [GameNotificationEventHandler alloc]) init];
+    GameNotificationEventHandler_instance = ((GameNotificationEventHandler*) [((GameNotificationEventHandler*) [GameNotificationEventHandler alloc]) init]);
 }
 
 @implementation GameNotificationEventHandler
@@ -58,7 +58,7 @@ void GameNotificationEventHandler_staticInit(void) {
             return;
         }
         GameNotificationListenerInterface* gameNotificationListenerInterface = ((GameNotificationListenerInterface*) eventListenerInterface);
-        [gameNotificationListenerInterface onGameNotificationEvent:((GameNotificationEvent*) eventObject)];
+        [((id<GameNotificationListenerInterface>) gameNotificationListenerInterface) onGameNotificationEvent:((GameNotificationEvent*) eventObject)];
 }
 
 @end

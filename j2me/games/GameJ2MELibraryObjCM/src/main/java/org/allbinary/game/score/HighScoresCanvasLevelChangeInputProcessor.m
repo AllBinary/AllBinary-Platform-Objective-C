@@ -12,44 +12,11 @@
 #include "org/allbinary/graphics/font/UpdateMyFontProcessor.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/game/score/HighScoresCanvasInputProcessor.h"
-#if __has_include("org/allbinary/game/score/GameInfo.h")
-#include "org/allbinary/game/score/GameInfo.h"
+#if __has_include("org/allbinary/game/input/event/GameKeyEventHandler.h")
+#include "org/allbinary/game/input/event/GameKeyEventHandler.h"
 #endif
-#if __has_include("javax/microedition/lcdui/GameInfo.h")
-#include "javax/microedition/lcdui/GameInfo.h"
-#endif
-#if __has_include("javax/microedition/lcdui/GameInfo.h")
-#include "javax/microedition/lcdui/GameInfo.h"
-#endif
-#if __has_include("javax/microedition/lcdui/GameInfo.h")
-#include "javax/microedition/lcdui/GameInfo.h"
-#endif
-#if __has_include("org/allbinary/game/input/event/GameInfo.h")
-#include "org/allbinary/game/input/event/GameInfo.h"
-#endif
-#if __has_include("org/allbinary/game/input/event/GameInfo.h")
-#include "org/allbinary/game/input/event/GameInfo.h"
-#endif
-#if __has_include("org/allbinary/game/score/displayable/GameInfo.h")
-#include "org/allbinary/game/score/displayable/GameInfo.h"
-#endif
-#if __has_include("org/allbinary/graphics/GameInfo.h")
-#include "org/allbinary/graphics/GameInfo.h"
-#endif
-#if __has_include("org/allbinary/graphics/displayable/GameInfo.h")
-#include "org/allbinary/graphics/displayable/GameInfo.h"
-#endif
-#if __has_include("org/allbinary/graphics/font/GameInfo.h")
-#include "org/allbinary/graphics/font/GameInfo.h"
-#endif
-#if __has_include("org/allbinary/graphics/font/GameInfo.h")
-#include "org/allbinary/graphics/font/GameInfo.h"
-#endif
-#if __has_include("org/allbinary/graphics/font/GameInfo.h")
-#include "org/allbinary/graphics/font/GameInfo.h"
-#endif
-#if __has_include("org/allbinary/util/GameInfo.h")
-#include "org/allbinary/util/GameInfo.h"
+#if __has_include("org/allbinary/game/input/event/GameKeyEventHandler.h")
+#include "org/allbinary/game/input/event/GameKeyEventHandler.h"
 #endif
 #if __has_include("org/allbinary/game/score/GameInfo.h")
 #include "org/allbinary/game/score/GameInfo.h"
@@ -89,6 +56,57 @@
 #endif
 #if __has_include("org/allbinary/util/GameInfo.h")
 #include "org/allbinary/util/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/game/score/displayable/HighScoresCanvas.h")
+#include "org/allbinary/game/score/displayable/HighScoresCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/score/GameInfo.h")
+#include "org/allbinary/game/score/GameInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/GameInfo.h")
+#include "javax/microedition/lcdui/GameInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/GameInfo.h")
+#include "javax/microedition/lcdui/GameInfo.h"
+#endif
+#if __has_include("javax/microedition/lcdui/GameInfo.h")
+#include "javax/microedition/lcdui/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/GameInfo.h")
+#include "org/allbinary/game/input/event/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/GameInfo.h")
+#include "org/allbinary/game/input/event/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/game/score/displayable/GameInfo.h")
+#include "org/allbinary/game/score/displayable/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/GameInfo.h")
+#include "org/allbinary/graphics/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/GameInfo.h")
+#include "org/allbinary/graphics/displayable/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/font/GameInfo.h")
+#include "org/allbinary/graphics/font/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/font/GameInfo.h")
+#include "org/allbinary/graphics/font/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/font/GameInfo.h")
+#include "org/allbinary/graphics/font/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/util/GameInfo.h")
+#include "org/allbinary/util/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/game/score/displayable/HighScoresCanvas.h")
+#include "org/allbinary/game/score/displayable/HighScoresCanvas.h"
+#endif
+#if __has_include("org/allbinary/game/score/displayable/HighScoresCanvas.h")
+#include "org/allbinary/game/score/displayable/HighScoresCanvas.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
 #endif
 
 
@@ -106,7 +124,7 @@ void HighScoresCanvasLevelChangeInputProcessor_staticInit(void) {
 - (void) initFields {
     self->displayInfoSingleton = [DisplayInfoSingleton getInstance];
     self->INSTRUCTIONS = "(Right = Next Track, Left = Previous Track)";
-    self->myFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->myFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->anchor = (Anchor_staticInit(), Anchor_TOP_LEFT);
     self->fontHeight = 0;
 }

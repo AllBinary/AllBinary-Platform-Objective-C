@@ -5,6 +5,12 @@
 #include "org/allbinary/layer/AllBinaryLayer.h"
 #include "org/allbinary/game/collision/SourceCollisionHelper.h"
 #include "org/allbinary/game/collision/CollisionHelper.h"
+#if __has_include("org/allbinary/game/configuration/feature/Features.h")
+#include "org/allbinary/game/configuration/feature/Features.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/GameFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/GameFeatureFactory.h"
+#endif
 
 
 
@@ -26,9 +32,9 @@ void CollidableHelperFactory_staticInit(void) {
 
 + (CollisionHelper*) getInstance {
         if ([[Features getInstance] isFeature:[GameFeatureFactory getInstance]->COLLISIONS_WITH_SOURCE]) {
-            return [((CollisionHelper*) [CollisionHelper alloc]) init:(AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER)];
+            return ((CollisionHelper*) [((CollisionHelper*) [CollisionHelper alloc]) init:(AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER)]);
         } else {
-            return [((SourceCollisionHelper*) [SourceCollisionHelper alloc]) init:(AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER)];
+            return ((SourceCollisionHelper*) [((SourceCollisionHelper*) [SourceCollisionHelper alloc]) init:(AllBinaryLayer_staticInit(), AllBinaryLayer_NULL_ALLBINARY_LAYER)]);
         }
 }
 

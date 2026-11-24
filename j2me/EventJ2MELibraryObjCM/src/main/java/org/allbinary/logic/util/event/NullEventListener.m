@@ -12,7 +12,7 @@ void NullEventListener_staticInit(void) {
         return;
     }
     initialized = true;
-    NullEventListener_NULL_EVENT_LISTENER = [((NullEventListener*) [NullEventListener alloc]) init];
+    NullEventListener_NULL_EVENT_LISTENER = ((NullEventListener*) [((NullEventListener*) [NullEventListener alloc]) init]);
 }
 
 @implementation NullEventListener

@@ -12,7 +12,7 @@ void StreamUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    StreamUtil_instance = [((StreamUtil*) [StreamUtil alloc]) init];
+    StreamUtil_instance = ((StreamUtil*) [((StreamUtil*) [StreamUtil alloc]) init]);
 }
 
 @implementation StreamUtil

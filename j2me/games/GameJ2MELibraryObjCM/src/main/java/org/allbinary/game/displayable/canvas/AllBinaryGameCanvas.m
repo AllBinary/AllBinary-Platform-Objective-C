@@ -150,6 +150,93 @@
 #include "org/allbinary/game/displayable/canvas/GameCanvasInputProcessor.h"
 #include "org/allbinary/game/displayable/canvas/FormInputProcessor.h"
 #include "org/allbinary/game/displayable/canvas/SaveHighScoreRunnable.h"
+#if __has_include("org/allbinary/game/paint/ColorFillPaintableFactory.h")
+#include "org/allbinary/game/paint/ColorFillPaintableFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/CanvasStrings.h")
+#include "org/allbinary/graphics/displayable/CanvasStrings.h"
+#endif
+#if __has_include("org/allbinary/game/GameInfo.h")
+#include "org/allbinary/game/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/game/GameInfo.h")
+#include "org/allbinary/game/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h")
+#include "org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/DisplayInfoSingleton.h")
+#include "org/allbinary/graphics/displayable/DisplayInfoSingleton.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/FormTypeFactory.h")
+#include "org/allbinary/graphics/form/FormTypeFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/FormTypeFactory.h")
+#include "org/allbinary/graphics/form/FormTypeFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/form/FormTypeFactory.h")
+#include "org/allbinary/graphics/form/FormTypeFactory.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/CurrentDisplayableFactory.h")
+#include "org/allbinary/graphics/opengles/CurrentDisplayableFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/GameFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/GameFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/game/IntermissionInterface.h")
+#include "org/allbinary/game/IntermissionInterface.h"
+#endif
+#if __has_include("org/allbinary/game/init/GameInitializationUtil.h")
+#include "org/allbinary/game/init/GameInitializationUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/game/init/GameInitializationUtil.h")
+#include "org/allbinary/game/init/GameInitializationUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/GameInitializedEventHandler.h")
+#include "org/allbinary/game/configuration/event/GameInitializedEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/GameInfo.h")
+#include "org/allbinary/game/GameInfo.h"
+#endif
 #if __has_include("org/allbinary/game/displayable/canvas/GenericOperatingSystem.h")
 #include "org/allbinary/game/displayable/canvas/GenericOperatingSystem.h"
 #endif
@@ -536,6 +623,102 @@
 #endif
 #if __has_include("org/allbinary/util/GenericOperatingSystem.h")
 #include "org/allbinary/util/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/OperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
+#endif
+#if __has_include("org/allbinary/input/motion/button/TouchScreenFactory.h")
+#include "org/allbinary/input/motion/button/TouchScreenFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/game/GameInfo.h")
+#include "org/allbinary/game/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/game/GameInfo.h")
+#include "org/allbinary/game/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/GameLevelDisplayChangeEventListenersFactory.h")
+#include "org/allbinary/game/displayable/GameLevelDisplayChangeEventListenersFactory.h"
+#endif
+#if __has_include("org/allbinary/game/init/GameInitializationUtil.h")
+#include "org/allbinary/game/init/GameInitializationUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/GameInitializedEventHandler.h")
+#include "org/allbinary/game/configuration/event/GameInitializedEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/init/GameInitializationUtil.h")
+#include "org/allbinary/game/init/GameInitializationUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/event/GameInitializedEventHandler.h")
+#include "org/allbinary/game/configuration/event/GameInitializedEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/layer/AllBinaryGameLayerManager.h")
+#include "org/allbinary/game/layer/AllBinaryGameLayerManager.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/InputFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/InputFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/paint/InitUpdatePaintable.h")
+#include "org/allbinary/graphics/paint/InitUpdatePaintable.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/MainFeatureFactory.h")
+#include "org/allbinary/game/configuration/feature/MainFeatureFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/game/input/event/GameKeyEventHandler.h")
+#include "org/allbinary/game/input/event/GameKeyEventHandler.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/game/GameInfo.h")
+#include "org/allbinary/game/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("javax/microedition/lcdui/CommandListener.h")
+#include "javax/microedition/lcdui/CommandListener.h"
 #endif
 #if __has_include("org/allbinary/game/displayable/canvas/AllBinarySensor.h")
 #include "org/allbinary/game/displayable/canvas/AllBinarySensor.h"
@@ -924,6 +1107,42 @@
 #if __has_include("org/allbinary/util/AllBinarySensor.h")
 #include "org/allbinary/util/AllBinarySensor.h"
 #endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLThreadUtil.h")
+#include "org/allbinary/graphics/opengles/OpenGLThreadUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/GraphicsStrings.h")
+#include "org/allbinary/graphics/GraphicsStrings.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLThreadUtil.h")
+#include "org/allbinary/graphics/opengles/OpenGLThreadUtil.h"
+#endif
+#if __has_include("org/allbinary/game/GameInfo.h")
+#include "org/allbinary/game/GameInfo.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h")
+#include "org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h"
+#endif
+#if __has_include("org/allbinary/game/displayable/GameLevelDisplayChangeEventListenersFactory.h")
+#include "org/allbinary/game/displayable/GameLevelDisplayChangeEventListenersFactory.h"
+#endif
+#if __has_include("org/allbinary/game/PlayerTypesFactory.h")
+#include "org/allbinary/game/PlayerTypesFactory.h"
+#endif
+#if __has_include("javax/microedition/lcdui/CommandListener.h")
+#include "javax/microedition/lcdui/CommandListener.h"
+#endif
+#if __has_include("org/allbinary/game/commands/GameCommandsFactory.h")
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#endif
 #if __has_include("org/allbinary/game/displayable/canvas/ThreadPool.h")
 #include "org/allbinary/game/displayable/canvas/ThreadPool.h"
 #endif
@@ -1311,6 +1530,9 @@
 #if __has_include("org/allbinary/util/ThreadPool.h")
 #include "org/allbinary/util/ThreadPool.h"
 #endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureUtil.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureUtil.h"
+#endif
 
 
 static constexpr int32_t AllBinaryGameCanvas_id_ = 0;
@@ -1338,27 +1560,27 @@ void AllBinaryGameCanvas_staticInit(void) {
     self->gameStateFactory = [GameStateFactory getInstance];
     self->gameTickTimeDelayHelper = [GameTickTimeDelayHelperFactory getInstance];
     self->gameTickDisplayInfoSingleton = [GameTickDisplayInfoSingleton getInstance];
-    self->gameRunnable = [((GameCanvasRunnable*) [GameCanvasRunnable alloc]) init:self];
-    self->gamePauseRunnable = [((GameCanvasPauseRunnable*) [GameCanvasPauseRunnable alloc]) init:self];
+    self->gameRunnable = ((GameCanvasRunnable*) [((GameCanvasRunnable*) [GameCanvasRunnable alloc]) init:self]);
+    self->gamePauseRunnable = ((GameCanvasPauseRunnable*) [((GameCanvasPauseRunnable*) [GameCanvasPauseRunnable alloc]) init:self]);
     self->formUtil = [FormUtil getInstance];
     self->myFormUtil = [MyFormUtil getInstance];
-    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->updateMyFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->myFontProcessor = self->updateMyFontProcessor;
     self->gameSpecificPaintable = [NullPaintable getInstance];
-    self->sensorGameUpdateProcessor = [((SingleSensorGameUpdateProcessor*) [SingleSensorGameUpdateProcessor alloc]) init];
-    self->endGameInfo = [((EndGameInfo*) [EndGameInfo alloc]) init];
-    self->startIntermissionInterface = [((Intermission*) [Intermission alloc]) init];
-    self->endLevelIntermissionInterface = [((Intermission*) [Intermission alloc]) init];
+    self->sensorGameUpdateProcessor = ((SingleSensorGameUpdateProcessor*) [((SingleSensorGameUpdateProcessor*) [SingleSensorGameUpdateProcessor alloc]) init]);
+    self->endGameInfo = ((EndGameInfo*) [((EndGameInfo*) [EndGameInfo alloc]) init]);
+    self->startIntermissionInterface = ((Intermission*) [((Intermission*) [Intermission alloc]) init]);
+    self->endLevelIntermissionInterface = ((Intermission*) [((Intermission*) [Intermission alloc]) init]);
     self->gameLayerManager = [AllBinaryGameLayerManager getNullInstance];
     self->gameState = self->gameStateFactory->NO_GAME_STATE;
     self->gameOver = false;
     self->initialized = false;
-    self->gameStateTimeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
+    self->gameStateTimeHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0]);
     
     self->highScoreSubmitted = false;
-    self->realHighScoresPaintable = [((HighScoresPaintable*) [HighScoresPaintable alloc]) init];
+    self->realHighScoresPaintable = ((HighScoresPaintable*) [((HighScoresPaintable*) [HighScoresPaintable alloc]) init]);
     self->highScoresPaintable = [NullPaintable getInstance];
-    self->localPlayerGameInputList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->localPlayerGameInputList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->isCheating = false;
     self->hashtable = self->stdUtil->NULL_TABLE;
     self->isSingleKeyRepeatableProcessing = false;
@@ -1402,8 +1624,8 @@ void AllBinaryGameCanvas_staticInit(void) {
     self->progressPaintable = [ProgressCanvasFactory getLazyInstance];
     self->fontHeightP = 0;
     self->gameCanvasStartListener = (NullDemoPaintable_staticInit(), NullDemoPaintable_NULL_DEMO_PAINTABLE);
-    self->rawGameInputProcessor = [((GameCanvasInputProcessor*) [GameCanvasInputProcessor alloc]) init:self];
-    self->rawInputProcessor = [((FormInputProcessor*) [FormInputProcessor alloc]) init:self];
+    self->rawGameInputProcessor = ((GameCanvasInputProcessor*) [((GameCanvasInputProcessor*) [GameCanvasInputProcessor alloc]) init:self]);
+    self->rawInputProcessor = ((FormInputProcessor*) [((FormInputProcessor*) [FormInputProcessor alloc]) init:self]);
     self->inputProcessor = [self getRawGameInputProcessor];
     self->YIELD_SLEEP = 100LL;
 }
@@ -1412,9 +1634,9 @@ void AllBinaryGameCanvas_staticInit(void) {
 - (instancetype) init:(CommandListener*)commandListener :(AllBinaryGameLayerManager*)gameLayerManager :(HighScoresFactoryInterface*)highScoresFactoryInterface :(BasicBuildGameInitializerFactory*)gameInitializationInterfaceFactoryInterface :(bool)buffered {
         self = [super init:commandListener :[CanvasStrings getInstance]->EMPTY_CHILD_NAME_LIST :true];
         [self initFields];
-        self->highScoresHelper = [highScoresFactoryInterface createHighScoresHelper];
+        self->highScoresHelper = [((id<HighScoresFactoryInterface>) highScoresFactoryInterface) createHighScoresHelper];
         self->gameInitializationInterfaceFactoryInterface = gameInitializationInterfaceFactoryInterface;
-        [self init_:gameLayerManager :buffered];
+        [self initMethod:gameLayerManager :buffered];
         self->highScoresFactoryInterface = highScoresFactoryInterface;
         if ([[self->gameLayerManager getGameInfo] getGameType] == self->gameTypeFactory->BOT || [[self->gameLayerManager getGameInfo] getGameType] == self->gameTypeFactory->NONE) {
             self->gameBehavior = [DemoGameBehavior getInstance];
@@ -1434,15 +1656,15 @@ void AllBinaryGameCanvas_staticInit(void) {
 - (void) updateMeasurement:(Graphics*)graphics {
         JAVA_TRY {
             Font* font = [graphics getFont];
-            [self->logUtil putF:[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->START] append:self->canvasStrings->FD_WIDTH] appendint:[MyFontProcessor defaultCharWidth:font]] append:self->canvasStrings->FD_HEIGHT] appendint:[font getHeight]] toString] :self :self->canvasStrings->UPDATE_MEASUREMENT];
+            [self->logUtil putF:[[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->START] append:self->canvasStrings->FD_WIDTH] appendint:[MyFontProcessor defaultCharWidth:font]] append:self->canvasStrings->FD_HEIGHT] appendint:[font getHeight]] toString] :self :self->canvasStrings->UPDATE_MEASUREMENT];
             self->fontHeightP = [font getHeight];
             [self->myFormUtil updateMeasurement:graphics];
             Rectangle* popupMenuRectangle = [self->myFormUtil getPopupMenuRectangle];
             BasicPopupMenuPaintable* basicPopupMenuPaintable = (((BasicPopupMenuPaintable*) [self getOpenMenuPaintable]));
-            [basicPopupMenuPaintable init_:popupMenuRectangle];
+            [basicPopupMenuPaintable initMethod:popupMenuRectangle];
             if ([self getPopupMenuInputProcessor] != [NoMenuInputProcessor getInstance]) {
                 PopupMenuInputProcessor* popupMenuInputProcessor = (((PopupMenuInputProcessor*) [self getPopupMenuInputProcessor]));
-                [popupMenuInputProcessor init_:popupMenuRectangle];
+                [popupMenuInputProcessor initMethod:popupMenuRectangle];
             }
             self->myFontProcessor = [MyFontProcessor getInstance];
         } JAVA_CATCH(Exception, e) {
@@ -1472,7 +1694,7 @@ void AllBinaryGameCanvas_staticInit(void) {
 
 - (void) onDisplayChangeEvent:(DisplayChangeEvent*)displayChangeEvent {
         JAVA_TRY {
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->START] append:[[DisplayInfoSingleton getInstance] toString]] toString] :self :self->canvasStrings->UPDATE_MEASUREMENT];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->START] append:[[DisplayInfoSingleton getInstance] toString]] toString] :self :self->canvasStrings->UPDATE_MEASUREMENT];
             self->myFontProcessor = self->updateMyFontProcessor;
             [self->menuBehavior onDisplayChangeEvent:self :displayChangeEvent];
         } JAVA_CATCH(Exception, e) {
@@ -1485,7 +1707,7 @@ void AllBinaryGameCanvas_staticInit(void) {
 - (void) updateMenuFromEvent:(DisplayChangeEvent*)displayChangeEvent {
         FormType* formType = [[FormTypeFactory getInstance] getFormType];
         Rectangle* rectangle = [self->formUtil createFormRectangle];
-        [self->menuForm init_:rectangle :formType];
+        [self->menuForm initMethod:rectangle :formType];
         if (self->currentTouchInputFactory != [NoButtonsTouchInputFactory getInstance]) {
             [self->touchButtonFactory toggle:[self isPaused] :[self->currentTouchInputFactory getList]];
         }
@@ -1513,8 +1735,8 @@ void AllBinaryGameCanvas_staticInit(void) {
             Features* features = [Features getInstance];
             Rectangle* popupMenuRectangle = [self->myFormUtil getPopupMenuRectangle];
             if ([features isFeature:self->touchFeatureFactory->TOUCH_ENABLED]) {
-                [self setOpenMenuPaintable:[((BasicPopupMenuPaintable*) [BasicPopupMenuPaintable alloc]) init:popupMenuRectangle :[self->gameLayerManager getBackgroundBasicColor] :[self->gameLayerManager getForegroundBasicColor]]];
-                [self setPopupMenuInputProcessor:[((PopupMenuInputProcessor*) [PopupMenuInputProcessor alloc]) init:[((BasicArrayListD*) [BasicArrayListD alloc]) init] :-1 :self :popupMenuRectangle]];
+                [self setOpenMenuPaintable:((BasicPopupMenuPaintable*) [((BasicPopupMenuPaintable*) [BasicPopupMenuPaintable alloc]) init:popupMenuRectangle :[self->gameLayerManager getBackgroundBasicColor] :[self->gameLayerManager getForegroundBasicColor]])];
+                [self setPopupMenuInputProcessor:((PopupMenuInputProcessor*) [((PopupMenuInputProcessor*) [PopupMenuInputProcessor alloc]) init:((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :-1 :self :popupMenuRectangle])];
             }
         } else {
         }
@@ -1542,12 +1764,12 @@ void AllBinaryGameCanvas_staticInit(void) {
         ScrollSelectionForm* scrollSelectionForm = [self getMenuForm];
         Features* features = [Features getInstance];
         if ([features isFeature:self->touchFeatureFactory->TOUCH_ENABLED]) {
-            self->mainMenuInputProcessor = [((PopupCommandFormInputProcessor*) [PopupCommandFormInputProcessor alloc]) init:[((BasicArrayListD*) [BasicArrayListD alloc]) init] :-1 :self :scrollSelectionForm :((PopupMenuInputProcessor*) [self getPopupMenuInputProcessor])];
+            self->mainMenuInputProcessor = ((PopupCommandFormInputProcessor*) [((PopupCommandFormInputProcessor*) [PopupCommandFormInputProcessor alloc]) init:((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]) :-1 :self :scrollSelectionForm :((PopupMenuInputProcessor*) [self getPopupMenuInputProcessor])]);
         } else {
         }
         [self setMenuInputProcessor:[self getPopupMenuInputProcessor]];
         if (scrollSelectionForm != [ScrollSelectionFormNoneFactory getInstance]) {
-            [self setFormPaintable:[((FormPaintable*) [FormPaintable alloc]) init:scrollSelectionForm]];
+            [self setFormPaintable:((FormPaintable*) [((FormPaintable*) [FormPaintable alloc]) init:scrollSelectionForm])];
         } else {
         }
         [self closeMenu];
@@ -1576,7 +1798,7 @@ void AllBinaryGameCanvas_staticInit(void) {
         }
         FormType* formType = [[FormTypeFactory getInstance] getFormType];
         Rectangle* rectangle = [self->formUtil createFormRectangle];
-        [scrollSelectionForm init_:rectangle :formType];
+        [scrollSelectionForm initMethod:rectangle :formType];
 }
 
 
@@ -1675,7 +1897,7 @@ void AllBinaryGameCanvas_staticInit(void) {
 
 
 - (void) setProcessGameProcessorInit {
-        [self setProcessGameProcessor:[((GameProcessor*) [GameProcessor alloc]) init:self]];
+        [self setProcessGameProcessor:((GameProcessor*) [((GameProcessor*) [GameProcessor alloc]) init:self])];
 }
 
 
@@ -1685,7 +1907,7 @@ void AllBinaryGameCanvas_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(AllBinaryGameLayerManager*)gameLayerManager :(bool)buffered {
+- (void) initMethod:(AllBinaryGameLayerManager*)gameLayerManager :(bool)buffered {
         [self->gameStateTimeHelper setStartTimeTNT];
         [self setHighScoreSubmitted:false];
         [self setLayerManager:gameLayerManager];
@@ -1699,20 +1921,20 @@ void AllBinaryGameCanvas_staticInit(void) {
         Features* features = [Features getInstance];
         if ([features isFeature:[GameFeatureFactory getInstance]->CHEATING]) {
             self->isCheating = true;
-            self->cheatProcessor = [((CheatGameInputProcessor*) [CheatGameInputProcessor alloc]) init:self];
+            self->cheatProcessor = ((CheatGameInputProcessor*) [((CheatGameInputProcessor*) [CheatGameInputProcessor alloc]) init:self]);
             [self->gameKeyEventHandler addListener:self->cheatProcessor];
         } else {
             self->isCheating = false;
             self->cheatProcessor = [NoPlayerGameInput getInstance];
         }
-        self->realEndGameProcessor = [((EndGameProcessor*) [EndGameProcessor alloc]) init:self];
+        self->realEndGameProcessor = ((EndGameProcessor*) [((EndGameProcessor*) [EndGameProcessor alloc]) init:self]);
         [self setEndGameProcessor:[Processor getInstance]];
-        self->realStartIntermissionProcessor = [((StartIntermissionProcessor*) [StartIntermissionProcessor alloc]) init:self];
+        self->realStartIntermissionProcessor = ((StartIntermissionProcessor*) [((StartIntermissionProcessor*) [StartIntermissionProcessor alloc]) init:self]);
         self->startIntermissionProcessor = [Processor getInstance];
-        [self setEndGameStatePaintable:[((EndGamePaintable*) [EndGamePaintable alloc]) init:self]];
+        [self setEndGameStatePaintable:((EndGamePaintable*) [((EndGamePaintable*) [EndGamePaintable alloc]) init:self])];
         [self setEndGamePaintable:[NullPaintable getInstance]];
         [self setIntermissionPaintable:[NullPaintable getInstance]];
-        [[self getStartIntermissionInterface] setListener:self];
+        [((id<IntermissionInterface>) [self getStartIntermissionInterface]) setListener:self];
 }
 
 
@@ -1746,7 +1968,7 @@ void AllBinaryGameCanvas_staticInit(void) {
         ChangedGameFeatureListener* changedGameFeatureListener = [ChangedGameFeatureListener getInstance];
         if ([changedGameFeatureListener isChangedFeature:gameFeatureFactory->SOUND]) {
             Features* features = [Features getInstance];
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Sound Changing To: "] appendboolean:[features isFeature:gameFeatureFactory->SOUND]] toString] :self :"initConfigurable"];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Sound Changing To: "] appendboolean:[features isFeature:gameFeatureFactory->SOUND]] toString] :self :"initConfigurable"];
             [self mediaInit];
             [changedGameFeatureListener remove:gameFeatureFactory->SOUND];
         }
@@ -1837,7 +2059,7 @@ void AllBinaryGameCanvas_staticInit(void) {
         if ([J2MEUtil isHTML]) {
         } else if ((SWTUtil_staticInit(), SWTUtil_isSWT)) {
         } else if (!isOverScan) {
-            if ([[TouchScreenFactory getInstance] isTouch] && [[((InGameFeatures*) [InGameFeatures alloc]) init] isAny]) {
+            if ([[TouchScreenFactory getInstance] isTouch] && [((InGameFeatures*) [((InGameFeatures*) [InGameFeatures alloc]) init]) isAny]) {
                 [self addCommand:(InGameOptionsForm_staticInit(), InGameOptionsForm_DISPLAY)];
             }
             [self addCommand:gameCommandsFactory->SAVE];
@@ -1849,7 +2071,7 @@ void AllBinaryGameCanvas_staticInit(void) {
 - (void) itemStateChanged:(Item*)item {
         JAVA_TRY {
             const char* itemLabel = [item getLabel];
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonLabels->ITEM_LABEL] append:itemLabel] toString] :self :"itemStateChanged"];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonLabels->ITEM_LABEL] append:itemLabel] toString] :self :"itemStateChanged"];
             if (java_objc_instanceof(item, [ChoiceGroup class])) {
                 GameFeatureUtil* gameFeatureUtil = [GameFeatureUtil getInstance];
                 if ([gameFeatureUtil isExclusive:itemLabel]) {
@@ -1930,9 +2152,9 @@ void AllBinaryGameCanvas_staticInit(void) {
 - (void) setHighScoreSubmitted:(bool)highScoreSubmitted {
         self->highScoreSubmitted = highScoreSubmitted;
         if (highScoreSubmitted) {
-            [self->highScoresHelper setSelectedHighScores:[NullHighScoresSingletonFactory getInstance]];
+            [((id<HighScoresHelperBaseInterface>) self->highScoresHelper) setSelectedHighScores:[NullHighScoresSingletonFactory getInstance]];
         }
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"isHighScoreSubmitted: "] appendboolean:highScoreSubmitted] toString] :self :"setHighScoreSubmitted"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"isHighScoreSubmitted: "] appendboolean:highScoreSubmitted] toString] :self :"setHighScoreSubmitted"];
 }
 
 
@@ -1943,7 +2165,7 @@ void AllBinaryGameCanvas_staticInit(void) {
 
 // throws Exception
 - (void) setGameState:(GameState*)gameState {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->gameStrings->GAME_STATE] append:[self->stringUtil toString:gameState]] toString] :self :self->gameStrings->SET_GAME_STATE];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->gameStrings->GAME_STATE] append:[self->stringUtil toString:gameState]] toString] :self :self->gameStrings->SET_GAME_STATE];
         self->gameState = gameState;
         [self->gameStateTimeHelper setStartTimeTNT];
         [self updateEndGameProcessor];
@@ -2057,7 +2279,7 @@ void AllBinaryGameCanvas_staticInit(void) {
         [self removeAllGameKeyInputListenersOnBuild];
         [self updateTouch];
         [progressCanvas addNormalPortion:portion :"High Scores"];
-        [self->highScoresFactoryInterface fetchHighScores:[self->gameLayerManager getGameInfo] :self->highScoresHelper];
+        [((id<HighScoresFactoryInterface>) self->highScoresFactoryInterface) fetchHighScores:[self->gameLayerManager getGameInfo] :self->highScoresHelper];
         [self setHighScoresPaintable:[NullPaintable getInstance]];
         [progressCanvas addNormalPortion:portion :"Finishing."];
         [[self getEndGameInfoP] update:[[self getLayerManager] getGameInfo] :self];
@@ -2082,7 +2304,7 @@ void AllBinaryGameCanvas_staticInit(void) {
         }
         if ([self getCustomCommandListener] == (NullCommandListener_staticInit(), NullCommandListener_NULL_COMMAND_LISTENER)) {
             [self->logUtil putF:"Show Game Paintable in DemoCanvas Thread" :self :self->BUILD_GAME];
-            [self->gameCanvasStartListener showGamePaintable];
+            [((id<DemoPaintableInterface>) self->gameCanvasStartListener) showGamePaintable];
         } else {
             [self->logUtil putF:"No GameCanvasStartListener" :self :self->BUILD_GAME];
         }
@@ -2092,11 +2314,11 @@ void AllBinaryGameCanvas_staticInit(void) {
 
 
 - (void) buildGame2 {
-        [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->gameInputStrings->ENABLE_PLAYER_GAME_INPUTS] appendint:[self->localPlayerGameInputList size]] toString] :self :self->BUILD_GAME];
+        [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->gameInputStrings->ENABLE_PLAYER_GAME_INPUTS] appendint:[self->localPlayerGameInputList size]] toString] :self :self->BUILD_GAME];
         PlayerGameInput* playerGameInput = nullptr;
         for (int32_t index = [self->localPlayerGameInputList size] - 1; index >= 0; index--) {
             playerGameInput = ((PlayerGameInput*) [self->localPlayerGameInputList get:index]);
-            [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->gameInputStrings->ENABLE_PLAYER_GAME_INPUT] append:[playerGameInput toString]] toString] :self :self->BUILD_GAME];
+            [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->gameInputStrings->ENABLE_PLAYER_GAME_INPUT] append:[playerGameInput toString]] toString] :self :self->BUILD_GAME];
             [playerGameInput removeNonAIInputGameKeyEvents];
             [self addKeyInputListener:playerGameInput];
         }
@@ -2128,13 +2350,13 @@ void AllBinaryGameCanvas_staticInit(void) {
 
 // throws Exception
 - (ABHashtable*) getLoadStateHashtable {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonLabels->START_LABEL] append:[self->stringUtil toString:self->hashtable]] toString] :self :"getLoadStateHashtable"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonLabels->START_LABEL] append:[self->stringUtil toString:self->hashtable]] toString] :self :"getLoadStateHashtable"];
         return self->hashtable;
 }
 
 
 - (void) setLoadStateHashtable:(ABHashtable*)hashtable {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonLabels->START_LABEL] append:[self->stringUtil toString:hashtable]] toString] :self :"setLoadStateHashtable"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonLabels->START_LABEL] append:[self->stringUtil toString:hashtable]] toString] :self :"setLoadStateHashtable"];
         self->hashtable = hashtable;
 }
 
@@ -2142,8 +2364,8 @@ void AllBinaryGameCanvas_staticInit(void) {
 - (ABHashtable*) getCurrentStateHashtable {
         ABHashtable* hashtable = [self->stdUtil createHashtable];
         int32_t level = [[self->gameLayerManager getGameInfo] getCurrentLevel];
-        [hashtable put:JAVA_BOX([(GameInfo_staticInit(), GameInfo_LEVEL_NAME) toString]) :JAVA_BOX(java_string_of(level))];
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"End: "] append:[self->stringUtil toString:hashtable]] toString] :self :"getCurrentStateHashtable"];
+        [hashtable put:JAVA_BOX((GameInfo_staticInit(), GameInfo_LEVEL_NAME)) :JAVA_BOX(java_string_of(level))];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"End: "] append:[self->stringUtil toString:hashtable]] toString] :self :"getCurrentStateHashtable"];
         return hashtable;
 }
 
@@ -2170,7 +2392,7 @@ void AllBinaryGameCanvas_staticInit(void) {
         [self->baseGameStatistics nextRefresh];
         [self draw:graphics];
         [self->menuPaintable paint:graphics];
-        [self->progressPaintable paint:graphics];
+        [((id<PaintableInterface>) self->progressPaintable) paint:graphics];
 }
 
 
@@ -2238,7 +2460,7 @@ void AllBinaryGameCanvas_staticInit(void) {
             MyCommandsFactory* myCommandsFactory = [MyCommandsFactory getInstance];
             ProgressCanvas* progressCanvas = [ProgressCanvasFactory getInstance];
             [progressCanvas start];
-            [[self getCustomCommandListener] commandAction:myCommandsFactory->SET_DISPLAYABLE :progressCanvas];
+            [((id<CommandListener>) [self getCustomCommandListener]) commandAction:myCommandsFactory->SET_DISPLAYABLE :progressCanvas];
             portion = 4;
         }
         return portion;
@@ -2317,7 +2539,7 @@ void AllBinaryGameCanvas_staticInit(void) {
             }
             [self open];
             GameAdState* gameAdState = [self->gameAdStateFactory getCurrentInstance];
-            [gameAdState init_];
+            [gameAdState initMethod];
             [gameAdState setGameIsReady:true];
             [self->gameBehavior run:self];
             [self->logUtil putF:self->commonStrings->END_RUNNABLE :self :self->commonStrings->RUN];
@@ -2390,8 +2612,8 @@ void AllBinaryGameCanvas_staticInit(void) {
 // throws Exception
 - (void) end {
         [self->screenCapture endRecording];
-        [self->baseGameStatistics add:[[[[((StringMaker*) [StringMaker alloc]) init] append:[self->baseGameStatistics toString]] append:[CommonSeps getInstance]->NEW_LINE] toString]];
-        [self->baseGameStatistics init_];
+        [self->baseGameStatistics add:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[self->baseGameStatistics toString]] append:[CommonSeps getInstance]->NEW_LINE] toString]];
+        [self->baseGameStatistics initMethod];
         [self->gameKeyEventHandler removeListener:self->cheatProcessor];
         [self close];
         [self removeAllGameKeyInputListeners];
@@ -2410,7 +2632,7 @@ void AllBinaryGameCanvas_staticInit(void) {
 
 - (HighScore*) createHighScore:(int64_t)score {
         GameInfo* gameInfo = [self->gameLayerManager getGameInfo];
-        return [((HighScore*) [HighScore alloc]) init:0 :"NONE" :[((GameInfo*) [GameInfo alloc]) init:[gameInfo getGameType] :[gameInfo getGameMode] :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :0 :0] :score];
+        return ((HighScore*) [((HighScore*) [HighScore alloc]) init:0 :"NONE" :((GameInfo*) [((GameInfo*) [GameInfo alloc]) init:[gameInfo getGameType] :[gameInfo getGameMode] :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :0 :0]) :score]);
 }
 
 
@@ -2423,12 +2645,12 @@ void AllBinaryGameCanvas_staticInit(void) {
 // throws Exception
 - (void) setHighScore2:(AbeClientInformationInterface*)abeClientInformation :(const char*)name :(int64_t)score :(bool)autoSubmit :(bool)isLast {
         HighScore* highScore = [self createHighScore:score];
-        HighScoreTextBox* textBox = [((HighScoreTextBox*) [HighScoreTextBox alloc]) init:self->highScoresFactoryInterface :self->highScoresHelper :abeClientInformation :[self->gameLayerManager getGameInfo] :[self getCustomCommandListener] :name :highScore :[self->gameLayerManager getBackgroundBasicColor] :[self->gameLayerManager getForegroundBasicColor]];
+        HighScoreTextBox* textBox = ((HighScoreTextBox*) [((HighScoreTextBox*) [HighScoreTextBox alloc]) init:self->highScoresFactoryInterface :self->highScoresHelper :abeClientInformation :[self->gameLayerManager getGameInfo] :[self getCustomCommandListener] :name :highScore :[self->gameLayerManager getBackgroundBasicColor] :[self->gameLayerManager getForegroundBasicColor]]);
         if (isLast) {
-            [[self getCustomCommandListener] commandAction:[GameCommandsFactory getInstance]->SET_MENU_DISPLAYABLE :textBox];
+            [((id<CommandListener>) [self getCustomCommandListener]) commandAction:[GameCommandsFactory getInstance]->SET_MENU_DISPLAYABLE :textBox];
         }
         if (autoSubmit) {
-            [[SecondaryThreadPool getInstance] runTask:[((SaveHighScoreRunnable*) [SaveHighScoreRunnable alloc]) init:isLast :textBox]];
+            [[SecondaryThreadPool getInstance] runTask:((SaveHighScoreRunnable*) [((SaveHighScoreRunnable*) [SaveHighScoreRunnable alloc]) init:isLast :textBox])];
         }
 }
 

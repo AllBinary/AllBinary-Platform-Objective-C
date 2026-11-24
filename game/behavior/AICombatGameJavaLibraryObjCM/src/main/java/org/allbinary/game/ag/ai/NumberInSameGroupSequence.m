@@ -30,7 +30,7 @@ void NumberInSameGroupSequence_staticInit(void) {
 
 
 + (NumberInSameGroupSequence*) getInstance {
-        return [((NumberInSameGroupSequence*) [NumberInSameGroupSequence alloc]) init];
+        return ((NumberInSameGroupSequence*) [((NumberInSameGroupSequence*) [NumberInSameGroupSequence alloc]) init]);
 }
 
 

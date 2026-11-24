@@ -4,17 +4,8 @@
 #include "org/allbinary/game/physics/velocity/VelocityProperties.h"
 #include "org/allbinary/logic/math/BasicDecimal.h"
 #include "org/allbinary/physics/movement/BasicConstantVelocityMovement.h"
-#if __has_include("org/allbinary/physics/movement/BasicVelocityProperties.h")
-#include "org/allbinary/physics/movement/BasicVelocityProperties.h"
-#endif
-#if __has_include("org/allbinary/game/layer/BasicVelocityProperties.h")
-#include "org/allbinary/game/layer/BasicVelocityProperties.h"
-#endif
-#if __has_include("org/allbinary/game/physics/velocity/BasicVelocityProperties.h")
-#include "org/allbinary/game/physics/velocity/BasicVelocityProperties.h"
-#endif
-#if __has_include("org/allbinary/logic/math/BasicVelocityProperties.h")
-#include "org/allbinary/logic/math/BasicVelocityProperties.h"
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
 #endif
 #if __has_include("org/allbinary/physics/movement/BasicVelocityProperties.h")
 #include "org/allbinary/physics/movement/BasicVelocityProperties.h"
@@ -28,6 +19,9 @@
 #if __has_include("org/allbinary/logic/math/BasicVelocityProperties.h")
 #include "org/allbinary/logic/math/BasicVelocityProperties.h"
 #endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
 #if __has_include("org/allbinary/physics/movement/BasicVelocityProperties.h")
 #include "org/allbinary/physics/movement/BasicVelocityProperties.h"
 #endif
@@ -39,6 +33,24 @@
 #endif
 #if __has_include("org/allbinary/logic/math/BasicVelocityProperties.h")
 #include "org/allbinary/logic/math/BasicVelocityProperties.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/physics/movement/BasicVelocityProperties.h")
+#include "org/allbinary/physics/movement/BasicVelocityProperties.h"
+#endif
+#if __has_include("org/allbinary/game/layer/BasicVelocityProperties.h")
+#include "org/allbinary/game/layer/BasicVelocityProperties.h"
+#endif
+#if __has_include("org/allbinary/game/physics/velocity/BasicVelocityProperties.h")
+#include "org/allbinary/game/physics/velocity/BasicVelocityProperties.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicVelocityProperties.h")
+#include "org/allbinary/logic/math/BasicVelocityProperties.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
 #endif
 #if __has_include("org/allbinary/physics/movement/BasicVelocityProperties.h")
 #include "org/allbinary/physics/movement/BasicVelocityProperties.h"
@@ -74,7 +86,7 @@ void XYOscillateVelocityMovement_staticInit(void) {
 
 
 - (instancetype) init:(BasicDecimal*)speedBasicDecimal :(int32_t)oscillateMin :(int32_t)oscillateMax {
-        self = [super init:speedBasicDecimal :[((VelocityProperties*) [VelocityProperties alloc]) init:((int32_t) [speedBasicDecimal getUnscaled]) :((int32_t) [speedBasicDecimal getUnscaled])]];
+        self = [super init:speedBasicDecimal :((VelocityProperties*) [((VelocityProperties*) [VelocityProperties alloc]) init:((int32_t) [speedBasicDecimal getUnscaled]) :((int32_t) [speedBasicDecimal getUnscaled])])];
         [self initFields];
         self->oscillateMin = oscillateMin;
         self->oscillateMax = oscillateMax;

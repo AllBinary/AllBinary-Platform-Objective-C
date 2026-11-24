@@ -33,7 +33,6 @@
 }
 - (instancetype) init;
 + (TouchScreenTypeFactory*) getInstance;
-- (void) TouchScreenTypeFactory;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

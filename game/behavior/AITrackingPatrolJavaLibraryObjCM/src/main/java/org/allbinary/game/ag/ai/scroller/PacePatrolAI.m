@@ -17,6 +17,12 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/ag/ai/scroller/BasePatrolAI.h"
+#if __has_include("org/allbinary/game/tracking/TrackingEventHandler.h")
+#include "org/allbinary/game/tracking/TrackingEventHandler.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 
@@ -41,7 +47,7 @@ void PacePatrolAI_staticInit(void) {
         self = [super init:hashtable :ownerLayerInterface :gameInput];
         [self initFields];
         [[TrackingEventHandler getInstance] addListenerInterface:self];
-        self->trackingList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->trackingList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     return self;
 }
 
@@ -84,8 +90,8 @@ void PacePatrolAI_staticInit(void) {
         for (int32_t index = 0; index < size; index++) {
             lastTrackingEvent = ((TrackingEvent*) [self->trackingList get:0]);
             lastTrackingLayerInterface = [lastTrackingEvent getLayerInterface];
-            int32_t x = [lastTrackingLayerInterface getXP];
-            int32_t y = [lastTrackingLayerInterface getYP];
+            int32_t x = [((id<LayerInterface>) lastTrackingLayerInterface) getXP];
+            int32_t y = [((id<LayerInterface>) lastTrackingLayerInterface) getYP];
             int32_t yDistance = [ownerLayerInterface getYP] - y - [ownerLayerInterface getHeight];
             int32_t xDistance = [ownerLayerInterface getXP] - x - [ownerLayerInterface getWidth];
             int32_t absXDistance = ((xDistance) < 0 ? -(xDistance) : (xDistance));
@@ -93,9 +99,9 @@ void PacePatrolAI_staticInit(void) {
             if (absYDistance <= 100) {
                 if (absXDistance < [self getFiringDistance] / 2) {
                     directionCompositeInterface = ((DirectionCompositeInterface*) [self getOwnerLayerInterface]);
-                    if (xDistance < 0 && [directionCompositeInterface getDirection] == directionFactory->RIGHT) {
+                    if (xDistance < 0 && [((id<DirectionCompositeInterface>) directionCompositeInterface) getDirection] == directionFactory->RIGHT) {
                         direction = directionFactory->RIGHT;
-                    } else if (xDistance > 0 && [directionCompositeInterface getDirection] == directionFactory->LEFT) {
+                    } else if (xDistance > 0 && [((id<DirectionCompositeInterface>) directionCompositeInterface) getDirection] == directionFactory->LEFT) {
                         direction = directionFactory->LEFT;
                     }
                 }

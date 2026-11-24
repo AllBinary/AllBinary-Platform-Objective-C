@@ -4,6 +4,9 @@
 #include "javax/microedition/lcdui/NullImage.h"
 #include "javax/microedition/lcdui/Image.h"
 #include "javax/microedition/lcdui/Graphics.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
 
 
 

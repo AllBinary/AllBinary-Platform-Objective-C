@@ -47,7 +47,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-- (void) init_:(const char*)ROOT :(const char**)SIZE;
+- (void) initMethod:(const char*)ROOT :(const char**)SIZE;
 - (void) append:(const char*)ROOT :(const char*)sizeString;
 - (const char*) getString;
 @end

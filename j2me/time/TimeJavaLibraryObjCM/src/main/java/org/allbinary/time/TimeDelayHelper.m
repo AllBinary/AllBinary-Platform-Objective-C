@@ -3,6 +3,48 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/string/CommonLabels.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -143,7 +185,7 @@ void TimeDelayHelper_staticInit(void) {
         if (elapsed > 0LL) {
             CommonLabels* commonLabels = [CommonLabels getInstance];
             const char* elapsedAsString = java_string_of(elapsed);
-            return [[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:commonLabels->START] appendlong:self->startTime] append:commonLabels->CURRENT] appendlong:currentTime] append:commonLabels->ELAPSED] append:elapsedAsString] toString];
+            return [[[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:commonLabels->START] appendlong:self->startTime] append:commonLabels->CURRENT] appendlong:currentTime] append:commonLabels->ELAPSED] append:elapsedAsString] toString];
         } else {
             return [StringUtil getInstance]->EMPTY_STRING;
         }
@@ -156,7 +198,7 @@ void TimeDelayHelper_staticInit(void) {
         if (elapsed > 0LL) {
             CommonLabels* commonLabels = [CommonLabels getInstance];
             const char* elapsedAsString = java_string_of(elapsed);
-            return [[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:commonLabels->START] appendlong:self->startTime] append:commonLabels->CURRENT] appendlong:currentTime] append:commonLabels->ELAPSED] append:elapsedAsString] toString];
+            return [[[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:commonLabels->START] appendlong:self->startTime] append:commonLabels->CURRENT] appendlong:currentTime] append:commonLabels->ELAPSED] append:elapsedAsString] toString];
         } else {
             return [StringUtil getInstance]->EMPTY_STRING;
         }

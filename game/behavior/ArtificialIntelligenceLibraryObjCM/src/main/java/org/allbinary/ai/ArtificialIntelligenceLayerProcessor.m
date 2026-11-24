@@ -31,7 +31,7 @@ void ArtificialIntelligenceLayerProcessor_staticInit(void) {
 
 
 - (instancetype) init {
-        self = [super init:[((ArtificialIntelligenceLayerManager*) [ArtificialIntelligenceLayerManager alloc]) init]];
+        self = [super init:((ArtificialIntelligenceLayerManager*) [((ArtificialIntelligenceLayerManager*) [ArtificialIntelligenceLayerManager alloc]) init])];
     return self;
 }
 
@@ -39,7 +39,7 @@ void ArtificialIntelligenceLayerProcessor_staticInit(void) {
 // throws Exception
 - (void) processAt:(AllBinaryLayerManager*)allBinaryLayerManager :(AllBinaryLayer*)layerInterface :(int32_t)index {
         ArtificialIntelligenceCompositeInterface* artificialIntelligenceCompositeInterface = ((ArtificialIntelligenceCompositeInterface*) layerInterface);
-        [[artificialIntelligenceCompositeInterface getArtificialIntelligenceInterface] processAI:allBinaryLayerManager];
+        [((id<ArtificialIntelligenceInterface>) [((id<ArtificialIntelligenceCompositeInterface>) artificialIntelligenceCompositeInterface) getArtificialIntelligenceInterface]) processAI:allBinaryLayerManager];
 }
 
 

@@ -12,7 +12,7 @@ void DisposalUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    DisposalUtil_instance = [((DisposalUtil*) [DisposalUtil alloc]) init];
+    DisposalUtil_instance = ((DisposalUtil*) [((DisposalUtil*) [DisposalUtil alloc]) init]);
 }
 
 @implementation DisposalUtil

@@ -11,7 +11,7 @@ void NoOperatingSystem_staticInit(void) {
         return;
     }
     initialized = true;
-    NoOperatingSystem_NO_OPERATING_SYSTEM = [((GenericOperatingSystem*) [GenericOperatingSystem alloc]) init];
+    NoOperatingSystem_NO_OPERATING_SYSTEM = ((GenericOperatingSystem*) [((GenericOperatingSystem*) [GenericOperatingSystem alloc]) init]);
 }
 
 @implementation NoOperatingSystem

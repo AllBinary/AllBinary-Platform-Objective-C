@@ -11,7 +11,7 @@ void TouchButtonReverseResource_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchButtonReverseResource_instance = [((TouchButtonReverseResource*) [TouchButtonReverseResource alloc]) init];
+    TouchButtonReverseResource_instance = ((TouchButtonReverseResource*) [((TouchButtonReverseResource*) [TouchButtonReverseResource alloc]) init]);
 }
 
 @implementation TouchButtonReverseResource

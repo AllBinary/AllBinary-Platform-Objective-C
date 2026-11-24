@@ -14,7 +14,7 @@ void NullCanvas_staticInit(void) {
         return;
     }
     initialized = true;
-    NullCanvas_NULL_CANVAS = [((NullCanvas*) [NullCanvas alloc]) init];
+    NullCanvas_NULL_CANVAS = ((NullCanvas*) [((NullCanvas*) [NullCanvas alloc]) init]);
 }
 
 @implementation NullCanvas

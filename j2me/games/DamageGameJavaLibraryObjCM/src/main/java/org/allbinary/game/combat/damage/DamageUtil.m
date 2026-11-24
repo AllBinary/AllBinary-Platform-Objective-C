@@ -15,7 +15,7 @@ void DamageUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    DamageUtil_instance = [((DamageUtil*) [DamageUtil alloc]) init];
+    DamageUtil_instance = ((DamageUtil*) [((DamageUtil*) [DamageUtil alloc]) init]);
 }
 
 @implementation DamageUtil
@@ -40,7 +40,7 @@ void DamageUtil_staticInit(void) {
 
 // throws Exception
 - (void) process:(DamageableInterface*)damageableInterface :(DamageableInterface*)damageableInterface2 {
-        [damageableInterface damage:[damageableInterface2 getDamage:0] :0];
+        [((id<DamageableInterface>) damageableInterface) damage:[((id<DamageableInterface>) damageableInterface2) getDamage:0] :0];
 }
 
 
@@ -49,7 +49,7 @@ void DamageUtil_staticInit(void) {
         CollidableDestroyableDamageableLayer* collidableDestroyableDamageableLayer = ((CollidableDestroyableDamageableLayer*) collidableInterfaceCompositeInterface);
         int32_t damage = [collidableDestroyableDamageableLayer getDamage:0];
         if (damage > 20000) {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:"Collision "];
             [stringBuffer append:[collidableInterfaceCompositeInterface1 toString]];
             [stringBuffer append:" with: "];

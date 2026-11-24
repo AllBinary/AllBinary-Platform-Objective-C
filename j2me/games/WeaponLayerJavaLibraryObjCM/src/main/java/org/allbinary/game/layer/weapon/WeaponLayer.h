@@ -89,7 +89,7 @@
 - (void) initFields;
 - (void) setCollidableInferface:(CollidableBaseBehavior*)collidableInferface;
 - (void) initXYZ:(int32_t)x :(int32_t)y :(int32_t)z;
-- (void) init_:(AllBinaryLayer*)sourceLayerInterface :(int32_t)angle :(int32_t)otherAngle :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreable;
+- (void) initMethod:(AllBinaryLayer*)sourceLayerInterface :(int32_t)angle :(int32_t)otherAngle :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreable;
 - (void) setGroupInterfaces;
 - (void) processTick:(AllBinaryLayerManager*)allBinaryLayerManager;
 - (bool) isDestroyed;

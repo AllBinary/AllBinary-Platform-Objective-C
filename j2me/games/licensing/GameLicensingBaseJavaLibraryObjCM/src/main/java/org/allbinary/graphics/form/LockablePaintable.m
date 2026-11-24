@@ -24,6 +24,18 @@
 #if __has_include("org/allbinary/logic/system/security/licensing/AnimationInterfaceFactoryInterface.h")
 #include "org/allbinary/logic/system/security/licensing/AnimationInterfaceFactoryInterface.h"
 #endif
+#if __has_include("org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h")
+#include "org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/LockedResources.h")
+#include "org/allbinary/logic/system/security/licensing/LockedResources.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/LockedUtil.h")
+#include "org/allbinary/logic/system/security/licensing/LockedUtil.h"
+#endif
+#if __has_include("org/allbinary/animation/Animation.h")
+#include "org/allbinary/animation/Animation.h"
+#endif
 
 
 
@@ -38,7 +50,7 @@ void LockablePaintable_staticInit(void) {
 @implementation LockablePaintable
 
 - (void) initFields {
-    self->animation = [[[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[LockedResources getInstance]->LOCKED_DEMO_GAME_FEATURE_RESOURCE] getInstance:0];
+    self->animation = [((id<AnimationInterfaceFactoryInterface>) [[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[LockedResources getInstance]->LOCKED_DEMO_GAME_FEATURE_RESOURCE]) getInstance:0];
     
 }
 

@@ -14,6 +14,18 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Font.h")
+#include "javax/microedition/lcdui/Font.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 #if __has_include("org/allbinary/game/displayable/canvas/GameInfo.h")
 #include "org/allbinary/game/displayable/canvas/GameInfo.h"
 #endif
@@ -110,6 +122,12 @@
 #if __has_include("org/allbinary/logic/string/AllBinaryGameLayerManager.h")
 #include "org/allbinary/logic/string/AllBinaryGameLayerManager.h"
 #endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -131,7 +149,7 @@ void StartIntermissionPaintable_staticInit(void) {
     
     
     
-    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->updateMyFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->myFontProcessor = self->updateMyFontProcessor;
     self->basicColor = [BasicColorFactory getInstance]->BLACK;
     
@@ -186,7 +204,7 @@ void StartIntermissionPaintable_staticInit(void) {
 
 - (void) update {
         int32_t level = [[[self->gameCanvas getLayerManager] getGameInfo] getCurrentLevel];
-        self->stringArray[0] = [[[[((StringMaker*) [StringMaker alloc]) init] append:self->BEGIN_LEVEL] appendint:level] toString];
+        self->stringArray[0] = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->BEGIN_LEVEL] appendint:level] toString];
         for (int32_t index = java_array_length(self->stringArray) - 1; index >= 1; index--) {
             self->stringArray[index] = self->EMPTY_STRING;
         }

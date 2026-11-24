@@ -20,6 +20,135 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/graphics/displayable/BaseScalable.h"
 #include "org/allbinary/graphics/displayable/ScalableListener.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/OperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/graphics/threed/SWTJOGLProcessor.h")
+#include "org/allbinary/graphics/threed/SWTJOGLProcessor.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h")
+#include "org/allbinary/graphics/displayable/event/DisplayChangeEventHandler.h"
+#endif
+#if __has_include("org/allbinary/graphics/displayable/event/LastDisplayChangeEventHandler.h")
+#include "org/allbinary/graphics/displayable/event/LastDisplayChangeEventHandler.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/OperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/graphics/threed/SWTJOGLProcessor.h")
+#include "org/allbinary/graphics/threed/SWTJOGLProcessor.h"
+#endif
 
 
 static DisplayInfoSingleton* DisplayInfoSingleton_SINGLETON;
@@ -30,7 +159,7 @@ void DisplayInfoSingleton_staticInit(void) {
         return;
     }
     initialized = true;
-    DisplayInfoSingleton_SINGLETON = [((DisplayInfoSingleton*) [DisplayInfoSingleton alloc]) init];
+    DisplayInfoSingleton_SINGLETON = ((DisplayInfoSingleton*) [((DisplayInfoSingleton*) [DisplayInfoSingleton alloc]) init]);
 }
 
 @implementation DisplayInfoSingleton
@@ -55,7 +184,7 @@ void DisplayInfoSingleton_staticInit(void) {
     self->HEIGHT = 1;
     self->CUSTOM_WIDTH = 2;
     self->CUSTOM_HEIGHT = 3;
-    self->scalableListener = [((BaseScalable*) [BaseScalable alloc]) init];
+    self->scalableListener = ((BaseScalable*) [((BaseScalable*) [BaseScalable alloc]) init]);
     self->displayRatio = 0.0f;
     self->ratio = 1.0f;
     self->SET_LAST_SIZE_METHOD_NAME = "setLastSize";
@@ -65,11 +194,11 @@ void DisplayInfoSingleton_staticInit(void) {
     self->LAST_HEIGHT = " LastHeight: ";
     self->PORTRAIT = "Portrait";
     self->LANDSCAPE = "Landscape";
-    self->displayChangeEvent = [((DisplayChangeEvent*) [DisplayChangeEvent alloc]) init:self];
+    self->displayChangeEvent = ((DisplayChangeEvent*) [((DisplayChangeEvent*) [DisplayChangeEvent alloc]) init:self]);
     self->FIRE_METHOD_NAME = "fire";
     self->REASON = "reason: ";
     self->UPDATE_FROM_ORIENTATION_CHANGE = "Updating from Orientation Change ";
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->DISPLAY_INFO = "Display Info: ";
     self->FULL = "full";
     self->LAST = "last";
@@ -133,7 +262,7 @@ void DisplayInfoSingleton_staticInit(void) {
 
 
 - (void) setLastSizeForce:(int32_t)aLastWidth :(int32_t)aLastHeight :(const char*)reason {
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [self->logUtil putF:[[[stringMaker append:[CommonLabels getInstance]->START_LABEL] append:reason] toString] :self :self->SET_LAST_SIZE_METHOD_NAME];
         int32_t aFullWidth = aLastWidth;
         int32_t aFullHeight = aLastHeight;
@@ -205,7 +334,7 @@ void DisplayInfoSingleton_staticInit(void) {
 
 
 - (void) add:(const char*)reason {
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [self->logUtil putF:[[[stringMaker append:self->REASON] append:reason] toString] :self :self->FIRE_METHOD_NAME];
         [stringMaker delete:0 :[stringMaker length]];
         [self->logUtil putF:[self toStringAppend:stringMaker] :self :self->FIRE_METHOD_NAME];
@@ -243,7 +372,7 @@ void DisplayInfoSingleton_staticInit(void) {
         int32_t aLastHeight = [displayable getHeight];
         int32_t aFullWidth = aLastWidth;
         int32_t aFullHeight = aLastHeight;
-        StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [self->logUtil putF:[[[[[[[[[stringMaker append:[CommonLabels getInstance]->START_LABEL] append:reason] append:self->LAST_WIDTH] appendint:aLastWidth] append:self->LAST_HEIGHT] appendint:aLastHeight] append:self->commonSeps->SPACE] append:[self toString]] toString] :self :self->commonStrings->UPDATE];
         if (aLastWidth > 0 && aLastHeight > 0) {
             Features* features = [Features getInstance];
@@ -305,7 +434,7 @@ void DisplayInfoSingleton_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         return [self toStringAppend:stringBuffer];
 }
 

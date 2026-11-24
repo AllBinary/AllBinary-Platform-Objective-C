@@ -11,7 +11,7 @@ void StatePaintableFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    StatePaintableFactory_instance = [((StatePaintable*) [StatePaintable alloc]) init];
+    StatePaintableFactory_instance = ((StatePaintable*) [((StatePaintable*) [StatePaintable alloc]) init]);
 }
 
 @implementation StatePaintableFactory

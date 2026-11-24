@@ -28,7 +28,7 @@ void AllBinaryEventCircularPool_staticInit(void) {
         [self->circularIndexUtil setIndex:0];
         int32_t size = [self->circularIndexUtil getSize];
         for (int32_t index = 0; index < size; index++) {
-            self->OBJECT_ARRAY[index] = [allBinaryEventObjectFactoryInterface getInstance];
+            self->OBJECT_ARRAY[index] = [((id<AllBinaryEventObjectFactoryInterface>) allBinaryEventObjectFactoryInterface) getInstance];
         }
 }
 

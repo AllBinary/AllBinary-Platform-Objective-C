@@ -11,7 +11,7 @@ void CustomGPoint_staticInit(void) {
         return;
     }
     initialized = true;
-    CustomGPoint_NULL_CUSTOM_POINT = [((CustomGPoint*) [CustomGPoint alloc]) init:0 :0 :0];
+    CustomGPoint_NULL_CUSTOM_POINT = ((CustomGPoint*) [((CustomGPoint*) [CustomGPoint alloc]) init:0 :0 :0]);
 }
 
 @implementation CustomGPoint
@@ -24,12 +24,12 @@ void CustomGPoint_staticInit(void) {
 
 
 + (CustomGPoint*) getInstance:(GPoint*)point {
-        return [((CustomGPoint*) [CustomGPoint alloc]) init:[point getX] :[point getY] :[point getZ]];
+        return ((CustomGPoint*) [((CustomGPoint*) [CustomGPoint alloc]) init:[point getX] :[point getY] :[point getZ]]);
 }
 
 
 + (CustomGPoint*) getInstance3:(int32_t)x :(int32_t)y {
-        return [((CustomGPoint*) [CustomGPoint alloc]) init:x :y :3];
+        return ((CustomGPoint*) [((CustomGPoint*) [CustomGPoint alloc]) init:x :y :3]);
 }
 
 

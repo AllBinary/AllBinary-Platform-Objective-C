@@ -17,6 +17,9 @@
 #if __has_include("org/allbinary/util/AngleIncrementInfo.h")
 #include "org/allbinary/util/AngleIncrementInfo.h"
 #endif
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
 
 
 
@@ -32,12 +35,12 @@ void NullRotationAnimation_staticInit(void) {
 
 
 + (NullRotationAnimation*) createTotalAngle:(AngleInfo*)angleInfo :(int16_t)totalAngle :(AnimationBehavior*)animationBehavior {
-        return [((NullRotationAnimation*) [NullRotationAnimation alloc]) init:angleInfo :[CircularIndexUtil createInstance:totalAngle / [[angleInfo getAngleIncrementInfo] getAngleIncrement]] :animationBehavior];
+        return ((NullRotationAnimation*) [((NullRotationAnimation*) [NullRotationAnimation alloc]) init:angleInfo :[CircularIndexUtil createInstance:totalAngle / [[angleInfo getAngleIncrementInfo] getAngleIncrement]] :animationBehavior]);
 }
 
 
 + (NullRotationAnimation*) createQuarter:(AnimationBehavior*)animationBehavior {
-        return [((NullRotationAnimation*) [NullRotationAnimation alloc]) init:[AngleInfo getInstance:[AngleFactory getInstance]->QUARTER_TOTAL_ANGLE] :[CircularIndexUtil createInstance:4] :animationBehavior];
+        return ((NullRotationAnimation*) [((NullRotationAnimation*) [NullRotationAnimation alloc]) init:[AngleInfo getInstance:[AngleFactory getInstance]->QUARTER_TOTAL_ANGLE] :[CircularIndexUtil createInstance:4] :animationBehavior]);
 }
 
 

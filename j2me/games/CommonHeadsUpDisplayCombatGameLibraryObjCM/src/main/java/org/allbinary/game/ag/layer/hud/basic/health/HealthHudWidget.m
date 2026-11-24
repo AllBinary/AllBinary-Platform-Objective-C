@@ -8,6 +8,9 @@
 #include "org/allbinary/time/GameTickTimeDelayHelperFactory.h"
 #include "org/allbinary/time/NoTimeDelayHelper.h"
 #include "org/allbinary/time/TimeDelayHelper.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 
@@ -29,9 +32,9 @@ void HealthHudWidget_staticInit(void) {
     
     self->gameTickTimeDelayHelper = [GameTickTimeDelayHelperFactory getInstance];
     self->timeDelayHelper = (NoTimeDelayHelper_staticInit(), NoTimeDelayHelper_SINGLETON);
-    self->slowBeatTimeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:1280];
-    self->mediumBeatTimeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:640];
-    self->fastBeatTimeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:320];
+    self->slowBeatTimeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:1280]);
+    self->mediumBeatTimeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:640]);
+    self->fastBeatTimeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:320]);
 }
 
 

@@ -6,6 +6,21 @@
 #include "org/allbinary/image/ImageCache.h"
 #include "org/allbinary/image/ImageCacheFactory.h"
 #include "org/allbinary/logic/StdUtil.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Features.h")
+#include "org/allbinary/game/configuration/feature/Features.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureFactory.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
+#endif
 
 
 
@@ -21,7 +36,7 @@ void TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory_staticInit(voi
 
 
 + (TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory*) createFactory {
-        return [((TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory*) [TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory alloc]) init:"TouchButton Animations"];
+        return ((TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory*) [((TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory*) [TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory alloc]) init:"TouchButton Animations"]);
 }
 
 
@@ -32,7 +47,7 @@ void TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory_staticInit(voi
 
 
 // throws Exception
-- (void) init_:(int32_t)level {
+- (void) initMethod:(int32_t)level {
         [self initImageCache:[ImageCacheFactory getInstance] :level];
 }
 
@@ -42,7 +57,7 @@ void TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory_staticInit(voi
         if ([self isInitialized]) {
             return;
         }
-        [super init_:level];
+        [super initMethod:level];
 }
 
 

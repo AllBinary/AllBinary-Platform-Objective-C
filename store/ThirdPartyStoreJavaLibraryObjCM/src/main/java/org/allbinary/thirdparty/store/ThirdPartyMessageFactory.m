@@ -10,7 +10,7 @@ void ThirdPartyMessageFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ThirdPartyMessageFactory_instance = [((ThirdPartyMessageFactory*) [ThirdPartyMessageFactory alloc]) init];
+    ThirdPartyMessageFactory_instance = ((ThirdPartyMessageFactory*) [((ThirdPartyMessageFactory*) [ThirdPartyMessageFactory alloc]) init]);
 }
 
 @implementation ThirdPartyMessageFactory

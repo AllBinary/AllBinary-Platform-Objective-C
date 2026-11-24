@@ -13,23 +13,23 @@ void AdminRoleFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    AdminRoleFactory_instance = [((AdminRoleFactory*) [AdminRoleFactory alloc]) init];
+    AdminRoleFactory_instance = ((AdminRoleFactory*) [((AdminRoleFactory*) [AdminRoleFactory alloc]) init]);
 }
 
 @implementation AdminRoleFactory
 
 - (void) initFields {
-    self->adminRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->storeAdminRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->storeManagementRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->productManagementRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->reviewManagementRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->customerManagementRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->workflowManagementRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->orderManagementRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->adjusterManagementRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->shippingManagementRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
-    self->webManagementRoles = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->adminRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->storeAdminRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->storeManagementRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->productManagementRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->reviewManagementRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->customerManagementRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->workflowManagementRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->orderManagementRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->adjusterManagementRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->shippingManagementRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
+    self->webManagementRoles = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 

@@ -41,7 +41,7 @@ void CommandRunnable_staticInit(void) {
             [self->logUtil putF:self->commonStrings->START_RUNNABLE :self :self->commonStrings->RUN];
             MyCanvas* canvas = [self->commandFormInputProcessor getCanvas];
             CommandListener* commandListener = [canvas getCustomCommandListener];
-            [commandListener commandAction:self->command :canvas];
+            [((id<CommandListener>) commandListener) commandAction:self->command :canvas];
             [self->logUtil putF:self->commonStrings->END_RUNNABLE :self :self->commonStrings->RUN];
         } JAVA_CATCH(Exception, e) {
             [self->logUtil put:self->commonStrings->EXCEPTION :self :self->commonStrings->RUN :e];

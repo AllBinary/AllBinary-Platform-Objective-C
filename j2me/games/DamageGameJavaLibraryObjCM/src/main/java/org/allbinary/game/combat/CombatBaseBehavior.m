@@ -12,7 +12,7 @@ void CombatBaseBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    CombatBaseBehavior_NULL_COMBAT_BEHAVIOR = [((CombatBaseBehavior*) [CombatBaseBehavior alloc]) init:[DamageableBaseBehavior getInstance] :[DestroyableBaseBehavior getInstance]];
+    CombatBaseBehavior_NULL_COMBAT_BEHAVIOR = ((CombatBaseBehavior*) [((CombatBaseBehavior*) [CombatBaseBehavior alloc]) init:[DamageableBaseBehavior getInstance] :[DestroyableBaseBehavior getInstance]]);
 }
 
 @implementation CombatBaseBehavior

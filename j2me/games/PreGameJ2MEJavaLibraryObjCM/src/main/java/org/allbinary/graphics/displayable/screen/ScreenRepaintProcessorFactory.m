@@ -14,7 +14,7 @@ void ScreenRepaintProcessorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ScreenRepaintProcessorFactory_instance = [((ScreenRepaintProcessorFactory*) [ScreenRepaintProcessorFactory alloc]) init];
+    ScreenRepaintProcessorFactory_instance = ((ScreenRepaintProcessorFactory*) [((ScreenRepaintProcessorFactory*) [ScreenRepaintProcessorFactory alloc]) init]);
 }
 
 @implementation ScreenRepaintProcessorFactory
@@ -33,7 +33,7 @@ void ScreenRepaintProcessorFactory_staticInit(void) {
 
 - (Processor*) create:(Displayable*)displayable {
         if (![J2MEUtil isJ2ME]) {
-            return [((ScreenRepaintProcessor*) [ScreenRepaintProcessor alloc]) init:displayable];
+            return ((ScreenRepaintProcessor*) [((ScreenRepaintProcessor*) [ScreenRepaintProcessor alloc]) init:displayable]);
         } else {
             return [Processor getInstance];
         }

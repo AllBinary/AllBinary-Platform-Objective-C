@@ -7,6 +7,18 @@
 #include "org/allbinary/util/BasicArrayListUtil.h"
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/logic/control/validate/ValidatorBaseInterface.h"
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
 
 
 static ValidatorBase* ValidatorBase_instance;
@@ -17,7 +29,7 @@ void ValidatorBase_staticInit(void) {
         return;
     }
     initialized = true;
-    ValidatorBase_instance = [((ValidatorBase*) [ValidatorBase alloc]) init];
+    ValidatorBase_instance = ((ValidatorBase*) [((ValidatorBase*) [ValidatorBase alloc]) init]);
 }
 
 @implementation ValidatorBase

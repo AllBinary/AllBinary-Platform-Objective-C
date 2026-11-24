@@ -10,6 +10,18 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/game/input/GameInput.h"
 #include "org/allbinary/game/input/GameInputStrings.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 
@@ -59,7 +71,7 @@ void PlayerGameInput_staticInit(void) {
 
 // synchronized
 - (void) onDownKey:(int32_t)gameKeyEvent {
-        [PreLogUtil put:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->START_LABEL] append:[gameKeyEvent toString]] toString] :self :self->gameInputStrings->ON_DOWN_GAME_KEY];
+        [PreLogUtil put:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->START_LABEL] append:[gameKeyEvent toString]] toString] :self :self->gameInputStrings->ON_DOWN_GAME_KEY];
 }
 
 

@@ -3,6 +3,12 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/math/PositionStrings.h"
 #include "org/allbinary/string/CommonSeps.h"
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 static const char* GPoint_POINT_LABEL = "Point: ";
@@ -25,7 +31,7 @@ void GPoint_staticInit(void) {
 
 
 + (GPoint*) getInstance:(GPoint*)point {
-        return [((GPoint*) [GPoint alloc]) init:[point getX] :[point getY] :[point getZ]];
+        return ((GPoint*) [((GPoint*) [GPoint alloc]) init:[point getX] :[point getY] :[point getZ]]);
 }
 
 
@@ -75,7 +81,7 @@ void GPoint_staticInit(void) {
 
 
 + (const char*) toStringStatic:(int32_t)x :(int32_t)y :(int32_t)z {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         PositionStrings* positionStrings = [PositionStrings getInstance];
         [stringBuffer append:GPoint_POINT_LABEL];
         [stringBuffer append:positionStrings->X_LABEL];

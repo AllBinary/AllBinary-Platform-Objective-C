@@ -43,7 +43,7 @@ void TouchJ2ME_staticInit(void) {
 - (void) initFields {
     self->logUtil = [LogUtil getInstance];
     self->DEVICE_ID = 0;
-    self->motionRecognizer = [((AllMotionRecognizer*) [AllMotionRecognizer alloc]) init];
+    self->motionRecognizer = ((AllMotionRecognizer*) [((AllMotionRecognizer*) [AllMotionRecognizer alloc]) init]);
 }
 
 
@@ -51,7 +51,7 @@ void TouchJ2ME_staticInit(void) {
     self = [super init];
     [self initFields];
         BasicMotionGesturesHandler* motionGesturesHandler = [[self->motionRecognizer getMotionGestureRecognizer] getMotionGesturesHandler];
-        [motionGesturesHandler addListenerInterface:[((GameMotionGestureListener*) [GameMotionGestureListener alloc]) init:[MotionGestureReceiveInterfaceFactory getInstance]]];
+        [motionGesturesHandler addListenerInterface:((GameMotionGestureListener*) [((GameMotionGestureListener*) [GameMotionGestureListener alloc]) init:[MotionGestureReceiveInterfaceFactory getInstance]])];
     return self;
 }
 

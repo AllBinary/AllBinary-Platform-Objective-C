@@ -84,8 +84,8 @@ void TempExplosionWeaponLayer_staticInit(void) {
 @implementation TempExplosionWeaponLayer
 
 - (void) initFields {
-    self->weaponProperties = [((WeaponProperties*) [WeaponProperties alloc]) init:-1LL :-1LL :0 :1000 :((int16_t) 0)];
-    self->timeDelayHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0];
+    self->weaponProperties = ((WeaponProperties*) [((WeaponProperties*) [WeaponProperties alloc]) init:-1LL :-1LL :0 :1000 :((int16_t) 0)]);
+    self->timeDelayHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:0]);
 }
 
 

@@ -14,7 +14,7 @@ void EarlySoundsFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    EarlySoundsFactory_instance = [((EarlySoundsFactory*) [EarlySoundsFactory alloc]) init];
+    EarlySoundsFactory_instance = ((EarlySoundsFactory*) [((EarlySoundsFactory*) [EarlySoundsFactory alloc]) init]);
 }
 
 @implementation EarlySoundsFactory

@@ -40,7 +40,7 @@ void GameKeyEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    GameKeyEventHandler_instance = [((GameKeyEventHandler*) [GameKeyEventHandler alloc]) init];
+    GameKeyEventHandler_instance = ((GameKeyEventHandler*) [((GameKeyEventHandler*) [GameKeyEventHandler alloc]) init]);
 }
 
 @implementation GameKeyEventHandler
@@ -74,7 +74,7 @@ void GameKeyEventHandler_staticInit(void) {
 
 
 - (void) addListenerForPlayer:(EventListenerInterface*)eventListenerInterface :(int32_t)playerInputId {
-        [self->logUtil putF:[eventListenerInterface toString] :self :self->commonStrings->ADD_LISTENER];
+        [self->logUtil putF:[((id<EventListenerInterface>) eventListenerInterface) toString] :self :self->commonStrings->ADD_LISTENER];
         [self->pressGameKeyEventHandler addListenerSingleThreaded:eventListenerInterface];
         [[self->upGameKeyEventHandler getInstanceForPlayer:playerInputId] addListenerSingleThreaded:eventListenerInterface];
         [[self->downGameKeyEventHandler getInstanceForPlayer:playerInputId] addListenerSingleThreaded:eventListenerInterface];
@@ -82,7 +82,7 @@ void GameKeyEventHandler_staticInit(void) {
 
 
 - (void) addListener:(EventListenerInterface*)eventListenerInterface {
-        [self->logUtil putF:[eventListenerInterface toString] :self :self->commonStrings->ADD_LISTENER];
+        [self->logUtil putF:[((id<EventListenerInterface>) eventListenerInterface) toString] :self :self->commonStrings->ADD_LISTENER];
         [self->pressGameKeyEventHandler addListenerSingleThreaded:eventListenerInterface];
         [self->upGameKeyEventHandler addListenerSingleThreaded:eventListenerInterface];
         [self->downGameKeyEventHandler addListenerSingleThreaded:eventListenerInterface];
@@ -90,7 +90,7 @@ void GameKeyEventHandler_staticInit(void) {
 
 
 - (void) removeListener:(EventListenerInterface*)eventListenerInterface {
-        [self->logUtil putF:[eventListenerInterface toString] :self :self->commonStrings->REMOVE_LISTENER];
+        [self->logUtil putF:[((id<EventListenerInterface>) eventListenerInterface) toString] :self :self->commonStrings->REMOVE_LISTENER];
         [self->pressGameKeyEventHandler removeListenerSingleThreaded:eventListenerInterface];
         [self->upGameKeyEventHandler removeListenerSingleThreaded:eventListenerInterface];
         [self->downGameKeyEventHandler removeListenerSingleThreaded:eventListenerInterface];

@@ -59,7 +59,7 @@
 }
 - (instancetype) init:(VectorInfo*)vectorInfo :(BasicColor*)basicColor :(VectorAnimationFactoryInterface*)vectorAnimationFactoryInterface;
 - (void) initFields;
-- (void) init_;
+- (void) initMethod;
 - (Animation*) getInstanceAnimation:(Animation*)animationInterface;
 @end
 

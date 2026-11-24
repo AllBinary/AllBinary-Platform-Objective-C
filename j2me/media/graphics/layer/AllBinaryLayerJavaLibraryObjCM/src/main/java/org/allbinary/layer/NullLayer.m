@@ -12,7 +12,7 @@ void NullLayer_staticInit(void) {
         return;
     }
     initialized = true;
-    NullLayer_instance = [((NullLayer*) [NullLayer alloc]) init];
+    NullLayer_instance = ((NullLayer*) [((NullLayer*) [NullLayer alloc]) init]);
 }
 
 @implementation NullLayer

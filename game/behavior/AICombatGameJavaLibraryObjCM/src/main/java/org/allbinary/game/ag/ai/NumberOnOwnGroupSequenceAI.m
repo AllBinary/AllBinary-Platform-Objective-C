@@ -5,6 +5,9 @@
 #include "org/allbinary/game/layer/identification/GroupLayerManagerListener.h"
 #include "org/allbinary/layer/AllBinaryLayer.h"
 #include "org/allbinary/layer/AllBinaryLayerManager.h"
+#if __has_include("org/allbinary/game/layer/identification/GroupLayerManagerListener.h")
+#include "org/allbinary/game/layer/identification/GroupLayerManagerListener.h"
+#endif
 
 
 

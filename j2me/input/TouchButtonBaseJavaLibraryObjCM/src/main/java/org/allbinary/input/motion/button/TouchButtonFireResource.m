@@ -11,7 +11,7 @@ void TouchButtonFireResource_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchButtonFireResource_instance = [((TouchButtonFireResource*) [TouchButtonFireResource alloc]) init];
+    TouchButtonFireResource_instance = ((TouchButtonFireResource*) [((TouchButtonFireResource*) [TouchButtonFireResource alloc]) init]);
 }
 
 @implementation TouchButtonFireResource

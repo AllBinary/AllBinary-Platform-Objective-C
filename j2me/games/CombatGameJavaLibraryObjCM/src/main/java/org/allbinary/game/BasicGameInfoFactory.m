@@ -10,7 +10,7 @@ void BasicGameInfoFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    BasicGameInfoFactory_SINGLETON = [((BasicGameInfoFactory*) [BasicGameInfoFactory alloc]) init];
+    BasicGameInfoFactory_SINGLETON = ((BasicGameInfoFactory*) [((BasicGameInfoFactory*) [BasicGameInfoFactory alloc]) init]);
 }
 
 @implementation BasicGameInfoFactory
@@ -34,7 +34,7 @@ void BasicGameInfoFactory_staticInit(void) {
 }
 
 
-- (void) init_:(int32_t)total {
+- (void) initMethod:(int32_t)total {
         self->currentReleaseIndex = 0;
         self->currentDestroyIndex = 0;
         self->total = total;

@@ -10,6 +10,9 @@
 #include "org/allbinary/media/audio/TimeBaseInterface.h"
 #include "org/allbinary/media/audio/Controllable2.h"
 #include "org/allbinary/media/audio/NullControl.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 const char* BasicPlayer_CONTROL_TYPE = "ToneControl";
@@ -25,7 +28,7 @@ void BasicPlayer_staticInit(void) {
 @implementation BasicPlayer
 
 - (void) initFields {
-    self->listenersList = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->listenersList = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
     self->timeBase = nullptr;
     self->stateP = 0;
     self->loopCountP = 0;
@@ -47,7 +50,7 @@ void BasicPlayer_staticInit(void) {
 
 
 - (Control*) getControl:(const char*)controlType {
-        return [((NullControl*) [NullControl alloc]) init];
+        return ((NullControl*) [((NullControl*) [NullControl alloc]) init]);
 }
 
 

@@ -6,6 +6,9 @@
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
+#if __has_include("org/allbinary/game/GameTypeFactory.h")
+#include "org/allbinary/game/GameTypeFactory.h"
+#endif
 
 
 static DemoGameBehavior* DemoGameBehavior_instance;
@@ -16,7 +19,7 @@ void DemoGameBehavior_staticInit(void) {
         return;
     }
     initialized = true;
-    DemoGameBehavior_instance = [((DemoGameBehavior*) [DemoGameBehavior alloc]) init];
+    DemoGameBehavior_instance = ((DemoGameBehavior*) [((DemoGameBehavior*) [DemoGameBehavior alloc]) init]);
 }
 
 @implementation DemoGameBehavior
@@ -38,7 +41,7 @@ void DemoGameBehavior_staticInit(void) {
 
 
 // throws Exception
-- (void) init_ {
+- (void) initMethod {
 }
 
 

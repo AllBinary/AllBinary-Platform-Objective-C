@@ -12,7 +12,7 @@ void TouchScreenFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    TouchScreenFactory_SINGLETON = [((TouchScreenFactory*) [TouchScreenFactory alloc]) init];
+    TouchScreenFactory_SINGLETON = ((TouchScreenFactory*) [((TouchScreenFactory*) [TouchScreenFactory alloc]) init]);
 }
 
 @implementation TouchScreenFactory

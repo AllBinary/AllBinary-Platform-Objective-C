@@ -14,7 +14,7 @@ void DataOutputStreamFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    DataOutputStreamFactory_instance = [((DataOutputStreamFactory*) [DataOutputStreamFactory alloc]) init];
+    DataOutputStreamFactory_instance = ((DataOutputStreamFactory*) [((DataOutputStreamFactory*) [DataOutputStreamFactory alloc]) init]);
 }
 
 @implementation DataOutputStreamFactory
@@ -33,7 +33,7 @@ void DataOutputStreamFactory_staticInit(void) {
 // throws Exception
 - (AbDataOutputStream*) getInstanceForAbFile:(AbFile*)file {
         AbFileOutputStream* idFileOutputStream = [AbFileOutputStream createFromAbFile:file];
-        AbDataOutputStream* idOutData = [((AbDataOutputStream*) [AbDataOutputStream alloc]) init:idFileOutputStream];
+        AbDataOutputStream* idOutData = ((AbDataOutputStream*) [((AbDataOutputStream*) [AbDataOutputStream alloc]) init:idFileOutputStream]);
         return idOutData;
 }
 
@@ -42,7 +42,7 @@ void DataOutputStreamFactory_staticInit(void) {
 - (AbDataOutputStream*) getInstance:(const char*)filePath :(const char*)fileName {
         FileStreamFactory* fileStreamFactory = [FileStreamFactory getInstance];
         AbFileOutputStream* fileOutputStream = [fileStreamFactory getFileOutputStreamInstance:filePath :fileName];
-        AbDataOutputStream* idOutData = [((AbDataOutputStream*) [AbDataOutputStream alloc]) init:fileOutputStream];
+        AbDataOutputStream* idOutData = ((AbDataOutputStream*) [((AbDataOutputStream*) [AbDataOutputStream alloc]) init:fileOutputStream]);
         return idOutData;
 }
 

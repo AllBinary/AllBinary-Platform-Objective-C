@@ -11,6 +11,9 @@
 #include "org/allbinary/view/ViewPositionBase.h"
 #include "org/allbinary/view/event/ViewPositionEventHandler.h"
 #include "org/allbinary/game/ag/layer/weapon/mine/MineWeaponResources.h"
+#if __has_include("org/allbinary/physics/movement/NoMovementFactory.h")
+#include "org/allbinary/physics/movement/NoMovementFactory.h"
+#endif
 #if __has_include("org/allbinary/game/ag/layer/weapon/mine/AnimationInterfaceFactoryInterface.h")
 #include "org/allbinary/game/ag/layer/weapon/mine/AnimationInterfaceFactoryInterface.h"
 #endif
@@ -46,6 +49,12 @@
 #endif
 #if __has_include("org/allbinary/view/event/AnimationInterfaceFactoryInterface.h")
 #include "org/allbinary/view/event/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h")
+#include "org/allbinary/animation/FeaturedAnimationInterfaceFactoryInterfaceFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
 #endif
 #if __has_include("org/allbinary/game/ag/layer/weapon/mine/PlayerQueue.h")
 #include "org/allbinary/game/ag/layer/weapon/mine/PlayerQueue.h"
@@ -103,7 +112,7 @@ void MineLayer_staticInit(void) {
 
 
 - (instancetype) init:(ViewPositionBase*)viewPosition {
-        self = [super init:MineLayer_NAME :(RemoteInfo_staticInit(), RemoteInfo_REMOTE_INFO) :-1 :[[NoMovementFactory getInstance] getMovmentInstance] :[[[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[MineWeaponResources getInstance]->RESOURCE] getInstance:0] :[SimpleWeaponLayer createDestroyed] :[((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :10 :10] :viewPosition];
+        self = [super init:MineLayer_NAME :(RemoteInfo_staticInit(), RemoteInfo_REMOTE_INFO) :-1 :[[NoMovementFactory getInstance] getMovmentInstance] :[((id<AnimationInterfaceFactoryInterface>) [[FeaturedAnimationInterfaceFactoryInterfaceFactory getInstance] get:[MineWeaponResources getInstance]->RESOURCE]) getInstance:0] :[SimpleWeaponLayer createDestroyed] :((Rectangle*) [((Rectangle*) [Rectangle alloc]) init:[PointFactory getInstance]->ZERO_ZERO :10 :10]) :viewPosition];
         [self initFields];
     return self;
 }

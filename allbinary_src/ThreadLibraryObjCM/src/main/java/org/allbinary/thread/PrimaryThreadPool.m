@@ -3,6 +3,33 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/thread/ThreadPool.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static ThreadPool* PrimaryThreadPool_THREAD_POOL;
@@ -13,7 +40,7 @@ void PrimaryThreadPool_staticInit(void) {
         return;
     }
     initialized = true;
-    PrimaryThreadPool_THREAD_POOL = [((ThreadPool*) [ThreadPool alloc]) init:"Primary" :1 :(ThreadPool_staticInit(), ThreadPool_NORMAL_PRIORITY)];
+    PrimaryThreadPool_THREAD_POOL = ((ThreadPool*) [((ThreadPool*) [ThreadPool alloc]) init:"Primary" :1 :(ThreadPool_staticInit(), ThreadPool_NORMAL_PRIORITY)]);
 }
 
 @implementation PrimaryThreadPool
@@ -31,18 +58,18 @@ void PrimaryThreadPool_staticInit(void) {
 
 
 - (void) runTask:(Runnable*)task {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[[StringUtil getInstance] toString:task]] appendlong:java_current_time_millis()] toString] :self :self->threadPoolStrings->ADD_TASK];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[[StringUtil getInstance] toString:task]] appendlong:java_current_time_millis()] toString] :self :self->threadPoolStrings->ADD_TASK];
         [super runTask:task];
 }
 
 
 - (void) startTask:(Runnable*)task {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->threadPoolStrings->START_TASK] append:[[StringUtil getInstance] toString:task]] toString] :self :self->commonStrings->RUN];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->threadPoolStrings->START_TASK] append:[[StringUtil getInstance] toString:task]] toString] :self :self->commonStrings->RUN];
 }
 
 
 - (void) completedTask:(Runnable*)task {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->threadPoolStrings->COMPLETE_TASK] append:[[StringUtil getInstance] toString:task]] toString] :self :self->commonStrings->RUN];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->threadPoolStrings->COMPLETE_TASK] append:[[StringUtil getInstance] toString:task]] toString] :self :self->commonStrings->RUN];
 }
 
 @end

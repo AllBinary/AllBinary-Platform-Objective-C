@@ -10,7 +10,7 @@ void NullRecordComparator_staticInit(void) {
         return;
     }
     initialized = true;
-    NullRecordComparator_NULL_RECORD_COMPARATOR = [((NullRecordComparator*) [NullRecordComparator alloc]) init];
+    NullRecordComparator_NULL_RECORD_COMPARATOR = ((NullRecordComparator*) [((NullRecordComparator*) [NullRecordComparator alloc]) init]);
 }
 
 @implementation NullRecordComparator

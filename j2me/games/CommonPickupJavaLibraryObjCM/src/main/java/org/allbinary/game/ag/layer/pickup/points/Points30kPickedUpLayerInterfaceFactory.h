@@ -53,7 +53,7 @@
 }
 - (instancetype) init;
 - (void) initFields;
-+ (void) init_;
++ (void) initMethod;
 - (int32_t) getTotal;
 + (PickedUpLayerInterfaceFactoryInterface*) getInstance;
 - (void) process:(AllBinaryLayer*)sourceLayerInterface;

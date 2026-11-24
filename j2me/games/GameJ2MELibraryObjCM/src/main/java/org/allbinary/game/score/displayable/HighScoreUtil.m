@@ -14,6 +14,27 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/score/HighScoreNamePersistanceSingleton.h")
+#include "org/allbinary/game/score/HighScoreNamePersistanceSingleton.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 Command* HighScoreUtil_SUBMIT_TEXTBOX_COMMAND;
@@ -24,7 +45,7 @@ void HighScoreUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    HighScoreUtil_SUBMIT_TEXTBOX_COMMAND = [((Command*) [Command alloc]) init:"Submit" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1];
+    HighScoreUtil_SUBMIT_TEXTBOX_COMMAND = ((Command*) [((Command*) [Command alloc]) init:"Submit" :[StringUtil getInstance]->EMPTY_STRING :(Command_staticInit(), Command_SCREEN) :1]);
 }
 
 @implementation HighScoreUtil
@@ -47,7 +68,7 @@ void HighScoreUtil_staticInit(void) {
     [self initFields];
         self->highScoresFactoryInterface = highScoresFactoryInterface;
         self->highScoresHelper = highScoresHelper;
-        self->highScoresArray = [self->highScoresHelper getHighScoresArray];
+        self->highScoresArray = [((id<HighScoresHelperBaseInterface>) self->highScoresHelper) getHighScoresArray];
         self->highScore = highScore;
         self->abeClientInformation = abeClientInformation;
         self->gameInfo = gameInfo;
@@ -69,11 +90,11 @@ void HighScoreUtil_staticInit(void) {
 
 
 - (void) saveHighScore {
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->commonStrings->START] append:[[StringUtil getInstance] toString:self->highScore]] toString] :self :"saveHighScore"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->commonStrings->START] append:[[StringUtil getInstance] toString:self->highScore]] toString] :self :"saveHighScore"];
         int32_t size = java_array_length(self->highScoresArray);
         if (self->firstTime && size == 0) {
             [self->logUtil putF:"Games canvas did not give us any HighScores" :self :"saveHighScore"];
-            [self->highScoresFactoryInterface fetchHighScores:self->gameInfo :self];
+            [((id<HighScoresFactoryInterface>) self->highScoresFactoryInterface) fetchHighScores:self->gameInfo :self];
             return;
         }
         HighScores* highScores = nullptr;
@@ -82,15 +103,15 @@ void HighScoreUtil_staticInit(void) {
             highScores = self->highScoresArray[index];
             [highScores addHighScore:self->highScore];
             highScoresAsString = [highScores toString];
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Added/Adding Score: "] append:highScoresAsString] toString] :self :"saveHighScore"];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Added/Adding Score: "] append:highScoresAsString] toString] :self :"saveHighScore"];
         }
-        [self->highScoresHelper setHighScoresArray:self->highScoresArray];
+        [((id<HighScoresHelperBaseInterface>) self->highScoresHelper) setHighScoresArray:self->highScoresArray];
 }
 
 
 - (void) submit:(MyCanvas*)myCanvas {
         CommandListener* commandListener = [myCanvas getCustomCommandListener];
-        [commandListener commandAction:(HighScoreUtil_staticInit(), HighScoreUtil_SUBMIT_TEXTBOX_COMMAND) :myCanvas];
+        [((id<CommandListener>) commandListener) commandAction:(HighScoreUtil_staticInit(), HighScoreUtil_SUBMIT_TEXTBOX_COMMAND) :myCanvas];
 }
 
 @end

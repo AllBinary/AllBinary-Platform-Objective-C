@@ -5,6 +5,9 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/game/configuration/GameConfiguration.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
 
 
 static GameConfigurationSingleton* GameConfigurationSingleton_SINGLETON;
@@ -15,7 +18,7 @@ void GameConfigurationSingleton_staticInit(void) {
         return;
     }
     initialized = true;
-    GameConfigurationSingleton_SINGLETON = [((GameConfigurationSingleton*) [GameConfigurationSingleton alloc]) init];
+    GameConfigurationSingleton_SINGLETON = ((GameConfigurationSingleton*) [((GameConfigurationSingleton*) [GameConfigurationSingleton alloc]) init]);
 }
 
 @implementation GameConfigurationSingleton
@@ -34,7 +37,7 @@ void GameConfigurationSingleton_staticInit(void) {
 - (instancetype) init {
     self = [super init];
     [self initFields];
-        self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+        self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         self->hashtable = [[StdUtil getInstance] createHashtable];
     return self;
 }

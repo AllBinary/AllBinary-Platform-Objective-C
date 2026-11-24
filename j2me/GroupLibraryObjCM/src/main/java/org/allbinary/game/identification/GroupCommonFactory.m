@@ -2,6 +2,15 @@
 #include "org/allbinary/game/identification/GroupCommonFactory.h"
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
 
 
 static id GroupCommonFactory_instance;
@@ -34,7 +43,7 @@ void GroupCommonFactory_staticInit(void) {
 
 + (GroupCommonFactory*) getInstance {
         if ((GroupCommonFactory_staticInit(), GroupCommonFactory_instance) == [NullUtil getInstance]->NULL_OBJECT) {
-            GroupCommonFactory_instance = [((GroupCommonFactory*) [GroupCommonFactory alloc]) init];
+            GroupCommonFactory_instance = ((GroupCommonFactory*) [((GroupCommonFactory*) [GroupCommonFactory alloc]) init]);
         }
         return ((GroupCommonFactory*) (GroupCommonFactory_staticInit(), GroupCommonFactory_instance));
 }

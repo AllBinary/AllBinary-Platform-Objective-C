@@ -11,6 +11,18 @@
 #include "org/allbinary/thread/ThreadObjectUtil.h"
 #include "org/allbinary/thread/PooledThread.h"
 #include "org/allbinary/thread/PriorityRunnable.h"
+#if __has_include("org/allbinary/util/BasicArrayListUtil.h")
+#include "org/allbinary/util/BasicArrayListUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static const char* ThreadPool_ROOT_NAME = "-PooledThread-";
@@ -53,13 +65,13 @@ void ThreadPool_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         if (!self->isAlive) {
             self->isAlive = true;
-            self->taskQueue = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            self->taskQueue = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
             PooledThread* pooledThread = nullptr;
             for (int32_t i = 0; i < self->numThreads; i++) {
-                pooledThread = [((PooledThread*) [PooledThread alloc]) init:self];
+                pooledThread = ((PooledThread*) [((PooledThread*) [PooledThread alloc]) init:self]);
                 [pooledThread setPriority:self->priority];
                 [pooledThread start];
             }
@@ -77,7 +89,7 @@ void ThreadPool_staticInit(void) {
         java_monitor_enter(self);
         {
             if (!self->isAlive) {
-                [self init_];
+                [self initMethod];
             }
             if (task != nil) {
                 int32_t size = [self->taskQueue size];
@@ -85,7 +97,7 @@ void ThreadPool_staticInit(void) {
                 PriorityRunnable* lowerPriorityRunnable = self->threadObjectUtil->NULL_PRIORITY_RUNNABLE;
                 for (int32_t index = 0; index < size; index++) {
                     runnable = ((PriorityRunnable*) [self->taskQueue get:index]);
-                    if ([runnable getPriority] > [task getPriority]) {
+                    if ([((id<PriorityRunnable>) runnable) getPriority] > [((id<PriorityRunnable>) task) getPriority]) {
                         lowerPriorityRunnable = runnable;
                         break;
                     }
@@ -107,7 +119,7 @@ void ThreadPool_staticInit(void) {
         java_monitor_enter(self);
         {
             if (!self->isAlive) {
-                [self init_];
+                [self initMethod];
             }
             if (task != nil) {
                 [self->taskQueue add:task];
@@ -204,7 +216,7 @@ void ThreadPool_staticInit(void) {
 
 
 - (const char*) createName {
-        return [[[[[((StringMaker*) [StringMaker alloc]) init] append:self->poolName] append:ThreadPool_ROOT_NAME] appendint:self->threadID++] toString];
+        return [[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->poolName] append:ThreadPool_ROOT_NAME] appendint:self->threadID++] toString];
 }
 
 @end

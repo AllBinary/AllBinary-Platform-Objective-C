@@ -1,6 +1,9 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/game/multiplayer/layer/RemoteInfo.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 
@@ -12,7 +15,7 @@ void RemoteInfo_staticInit(void) {
         return;
     }
     initialized = true;
-    RemoteInfo_REMOTE_INFO = [((RemoteInfo*) [RemoteInfo alloc]) init:[StringUtil getInstance]->EMPTY_STRING :-1 :-1 :RemoteInfo_NEW_PLAYER_ID];
+    RemoteInfo_REMOTE_INFO = ((RemoteInfo*) [((RemoteInfo*) [RemoteInfo alloc]) init:[StringUtil getInstance]->EMPTY_STRING :-1 :-1 :RemoteInfo_NEW_PLAYER_ID]);
 }
 
 @implementation RemoteInfo

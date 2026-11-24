@@ -11,7 +11,7 @@ void PreLoadPlatformImage_staticInit(void) {
         return;
     }
     initialized = true;
-    PreLoadPlatformImage_instance = [((PreLoadPlatformImage*) [PreLoadPlatformImage alloc]) init];
+    PreLoadPlatformImage_instance = ((PreLoadPlatformImage*) [((PreLoadPlatformImage*) [PreLoadPlatformImage alloc]) init]);
 }
 
 @implementation PreLoadPlatformImage

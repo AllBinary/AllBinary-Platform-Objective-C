@@ -12,7 +12,7 @@ void ImageRotationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageRotationUtil_instance = [((ImageRotationUtil*) [ImageRotationUtil alloc]) init];
+    ImageRotationUtil_instance = ((ImageRotationUtil*) [((ImageRotationUtil*) [ImageRotationUtil alloc]) init]);
 }
 
 @implementation ImageRotationUtil

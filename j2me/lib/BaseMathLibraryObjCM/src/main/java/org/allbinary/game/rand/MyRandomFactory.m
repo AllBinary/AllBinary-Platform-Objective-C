@@ -3,6 +3,15 @@
 #include "org/allbinary/logic/math/MathUtil.h"
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonSeps.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static MyRandomFactory* MyRandomFactory_instance;
@@ -13,7 +22,7 @@ void MyRandomFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    MyRandomFactory_instance = [((MyRandomFactory*) [MyRandomFactory alloc]) init];
+    MyRandomFactory_instance = ((MyRandomFactory*) [((MyRandomFactory*) [MyRandomFactory alloc]) init]);
 }
 
 @implementation MyRandomFactory
@@ -32,13 +41,13 @@ void MyRandomFactory_staticInit(void) {
 - (instancetype) init {
     self = [super init];
     [self initFields];
-        self->rand = [((Random*) [Random alloc]) init:java_current_time_millis()];
+        self->rand = ((Random*) [((Random*) [Random alloc]) init:java_current_time_millis()]);
     return self;
 }
 
 
 - (void) setSeed:(int64_t)seed {
-        self->rand = [((Random*) [Random alloc]) init:seed];
+        self->rand = ((Random*) [((Random*) [Random alloc]) init:seed]);
 }
 
 
@@ -108,7 +117,7 @@ void MyRandomFactory_staticInit(void) {
 
 + (void) main:(const char**)args {
         MyRandomFactory* randomFactory = [MyRandomFactory getInstance];
-        StringMaker* stringBuilder = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuilder = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         CommonSeps* commonSeps = [CommonSeps getInstance];
         int32_t size2 = 100;
         for (int32_t index = 0; index < size2; index++) {

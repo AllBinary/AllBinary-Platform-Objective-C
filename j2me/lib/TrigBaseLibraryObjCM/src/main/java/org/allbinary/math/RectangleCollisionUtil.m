@@ -10,7 +10,7 @@ void RectangleCollisionUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    RectangleCollisionUtil_instance = [((RectangleCollisionUtil*) [RectangleCollisionUtil alloc]) init];
+    RectangleCollisionUtil_instance = ((RectangleCollisionUtil*) [((RectangleCollisionUtil*) [RectangleCollisionUtil alloc]) init]);
 }
 
 @implementation RectangleCollisionUtil

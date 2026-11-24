@@ -4,6 +4,18 @@
 #include "org/allbinary/graphics/PointFactory.h"
 #include "org/allbinary/input/motion/gesture/observer/MotionEventCircularPool.h"
 #include "org/allbinary/input/motion/gesture/observer/MotionGestureEvent.h"
+#if __has_include("org/allbinary/graphics/GPoint.h")
+#include "org/allbinary/graphics/GPoint.h"
+#endif
+#if __has_include("org/allbinary/graphics/GPoint.h")
+#include "org/allbinary/graphics/GPoint.h"
+#endif
+#if __has_include("org/allbinary/graphics/GPoint.h")
+#include "org/allbinary/graphics/GPoint.h"
+#endif
+#if __has_include("org/allbinary/graphics/GPoint.h")
+#include "org/allbinary/graphics/GPoint.h"
+#endif
 
 
 static MirrorMotionGestureEventUtil* MirrorMotionGestureEventUtil_instance;
@@ -14,7 +26,7 @@ void MirrorMotionGestureEventUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    MirrorMotionGestureEventUtil_instance = [((MirrorMotionGestureEventUtil*) [MirrorMotionGestureEventUtil alloc]) init];
+    MirrorMotionGestureEventUtil_instance = ((MirrorMotionGestureEventUtil*) [((MirrorMotionGestureEventUtil*) [MirrorMotionGestureEventUtil alloc]) init]);
 }
 
 @implementation MirrorMotionGestureEventUtil

@@ -11,7 +11,7 @@ void SWTProcessorUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    SWTProcessorUtil_instance = [((SWTProcessorUtil*) [SWTProcessorUtil alloc]) init];
+    SWTProcessorUtil_instance = ((SWTProcessorUtil*) [((SWTProcessorUtil*) [SWTProcessorUtil alloc]) init]);
 }
 
 @implementation SWTProcessorUtil

@@ -12,6 +12,15 @@
 #include "org/allbinary/logic/math/PrimitiveLongUtil.h"
 #include "org/allbinary/util/ABHashtable.h"
 #include "org/allbinary/game/part/PartInterface.h"
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.h")
+#include "org/allbinary/game/layer/pickup/CountedPickedUpLayerInterfaceFactory.h"
+#endif
 
 
 CountedLayerInterfaceFactoryPart* CountedLayerInterfaceFactoryPart_NULL_COUNTED_LAYER_INTERFACE_FACTORY;
@@ -22,13 +31,13 @@ void CountedLayerInterfaceFactoryPart_staticInit(void) {
         return;
     }
     initialized = true;
-    CountedLayerInterfaceFactoryPart_NULL_COUNTED_LAYER_INTERFACE_FACTORY = [((CountedLayerInterfaceFactoryPart*) [CountedLayerInterfaceFactoryPart alloc]) init:0 :(CountedPickedUpLayerInterfaceFactory_staticInit(), CountedPickedUpLayerInterfaceFactory_NULL_COUNTED_PICKUP_LAYER_FACTORY)];
+    CountedLayerInterfaceFactoryPart_NULL_COUNTED_LAYER_INTERFACE_FACTORY = ((CountedLayerInterfaceFactoryPart*) [((CountedLayerInterfaceFactoryPart*) [CountedLayerInterfaceFactoryPart alloc]) init:0 :(CountedPickedUpLayerInterfaceFactory_staticInit(), CountedPickedUpLayerInterfaceFactory_NULL_COUNTED_PICKUP_LAYER_FACTORY)]);
 }
 
 @implementation CountedLayerInterfaceFactoryPart
 
 - (void) initFields {
-    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->updateMyFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->myFontProcessor = self->updateMyFontProcessor;
     self->animationInterface = [[NullAnimationFactory getFactoryInstance] getInstance:0];
     self->total = 0;
@@ -43,7 +52,7 @@ void CountedLayerInterfaceFactoryPart_staticInit(void) {
     self = [super init];
     [self initFields];
         self->primitiveLongUtil = [PrimitiveLongUtil createPowerOfTen:1000];
-        [self init_:total :countedPickedUpLayerInterfaceFactory];
+        [self initMethod:total :countedPickedUpLayerInterfaceFactory];
     return self;
 }
 
@@ -55,7 +64,7 @@ void CountedLayerInterfaceFactoryPart_staticInit(void) {
 }
 
 
-- (void) init_:(int32_t)total :(CountedPickedUpLayerInterfaceFactory*)countedPickedUpLayerInterfaceFactory {
+- (void) initMethod:(int32_t)total :(CountedPickedUpLayerInterfaceFactory*)countedPickedUpLayerInterfaceFactory {
         [self setCountedPickedUpLayerInterfaceFactory:countedPickedUpLayerInterfaceFactory];
         self->total = total;
 }

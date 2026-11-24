@@ -7,6 +7,9 @@
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/android/input/motion/event/AnalogControllerConfigurationEventListenerInterface.h"
 #include "org/allbinary/android/input/motion/event/AnalogControllerConfigurationEvent.h"
+#if __has_include("org/allbinary/logic/util/event/EventStrings.h")
+#include "org/allbinary/logic/util/event/EventStrings.h"
+#endif
 
 
 static AnalogControllerConfigurationEventHandler* AnalogControllerConfigurationEventHandler_instance;
@@ -17,13 +20,13 @@ void AnalogControllerConfigurationEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    AnalogControllerConfigurationEventHandler_instance = [((AnalogControllerConfigurationEventHandler*) [AnalogControllerConfigurationEventHandler alloc]) init];
+    AnalogControllerConfigurationEventHandler_instance = ((AnalogControllerConfigurationEventHandler*) [((AnalogControllerConfigurationEventHandler*) [AnalogControllerConfigurationEventHandler alloc]) init]);
 }
 
 @implementation AnalogControllerConfigurationEventHandler
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 
@@ -63,7 +66,7 @@ void AnalogControllerConfigurationEventHandler_staticInit(void) {
         for (int32_t index = [self->list size]; --index >= 0; ) {
             JAVA_TRY {
                 AnalogControllerConfigurationEventListenerInterface* playerGameInput = ((AnalogControllerConfigurationEventListenerInterface*) self->list->objectArray[index]);
-                [playerGameInput onAnalogControllerConfigurationEvent:((AnalogControllerConfigurationEvent*) eventObject)];
+                [((id<AnalogControllerConfigurationEventListenerInterface>) playerGameInput) onAnalogControllerConfigurationEvent:((AnalogControllerConfigurationEvent*) eventObject)];
             } JAVA_CATCH(Exception, e) {
                 [self->logUtil put:self->commonStrings->EXCEPTION :self :[EventStrings getInstance]->FIRE_EVENT :e];
             } JAVA_END_TRY;
@@ -75,7 +78,7 @@ void AnalogControllerConfigurationEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         AnalogControllerConfigurationEventListenerInterface* analogControllerConfigurationEventListenerInterface = (((AnalogControllerConfigurationEventListenerInterface*) eventListenerInterface));
-        [analogControllerConfigurationEventListenerInterface onAnalogControllerConfigurationEvent:((AnalogControllerConfigurationEvent*) eventObject)];
+        [((id<AnalogControllerConfigurationEventListenerInterface>) analogControllerConfigurationEventListenerInterface) onAnalogControllerConfigurationEvent:((AnalogControllerConfigurationEvent*) eventObject)];
 }
 
 @end

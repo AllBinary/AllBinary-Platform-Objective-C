@@ -12,13 +12,13 @@ void GameLimitedCommandTextItemArrayFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    GameLimitedCommandTextItemArrayFactory_instance = [((GameLimitedCommandTextItemArrayFactory*) [GameLimitedCommandTextItemArrayFactory alloc]) init];
+    GameLimitedCommandTextItemArrayFactory_instance = ((GameLimitedCommandTextItemArrayFactory*) [((GameLimitedCommandTextItemArrayFactory*) [GameLimitedCommandTextItemArrayFactory alloc]) init]);
 }
 
 @implementation GameLimitedCommandTextItemArrayFactory
 
 - (void) initFields {
-    self->commandTextItemArrayFactory = [((CommandTextItemArrayFactory*) [CommandTextItemArrayFactory alloc]) init:[((LimitCommandsVisitor*) [LimitCommandsVisitor alloc]) init]];
+    self->commandTextItemArrayFactory = ((CommandTextItemArrayFactory*) [((CommandTextItemArrayFactory*) [CommandTextItemArrayFactory alloc]) init:((LimitCommandsVisitor*) [((LimitCommandsVisitor*) [LimitCommandsVisitor alloc]) init])]);
 }
 
 - (instancetype) init {

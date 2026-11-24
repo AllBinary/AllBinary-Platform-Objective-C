@@ -6,6 +6,24 @@
 #include "org/allbinary/graphics/color/BasicColorFactory.h"
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/logic/string/StringUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 id ABCustomItem_NULL_CUSTOM_ITEM;
@@ -24,7 +42,7 @@ void ABCustomItem_staticInit(void) {
 
 + (ABCustomItem*) getNullInstance {
         if ((ABCustomItem_staticInit(), ABCustomItem_NULL_CUSTOM_ITEM) == [NullUtil getInstance]->NULL_OBJECT) {
-            ABCustomItem_NULL_CUSTOM_ITEM = [((ABCustomItem*) [ABCustomItem alloc]) init:[StringUtil getInstance]->EMPTY_STRING :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE];
+            ABCustomItem_NULL_CUSTOM_ITEM = ((ABCustomItem*) [((ABCustomItem*) [ABCustomItem alloc]) init:[StringUtil getInstance]->EMPTY_STRING :[BasicColorFactory getInstance]->BLACK :[BasicColorFactory getInstance]->WHITE]);
         }
         return ((ABCustomItem*) (ABCustomItem_staticInit(), ABCustomItem_NULL_CUSTOM_ITEM));
 }

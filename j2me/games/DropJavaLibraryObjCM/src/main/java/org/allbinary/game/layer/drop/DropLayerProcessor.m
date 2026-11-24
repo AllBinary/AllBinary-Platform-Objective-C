@@ -14,7 +14,7 @@ void DropLayerProcessor_staticInit(void) {
         return;
     }
     initialized = true;
-    DropLayerProcessor_LAYER_PROCESSOR = [((DropLayerProcessor*) [DropLayerProcessor alloc]) init];
+    DropLayerProcessor_LAYER_PROCESSOR = ((DropLayerProcessor*) [((DropLayerProcessor*) [DropLayerProcessor alloc]) init]);
 }
 
 @implementation DropLayerProcessor
@@ -40,7 +40,7 @@ void DropLayerProcessor_staticInit(void) {
         for (int32_t index = 0; index < size; index++) {
             layerInterface = ((AllBinaryLayer*) list->objectArray[index]);
             dropLayerInterface = ((DropLayerInterface*) layerInterface);
-            layerInterface = ((AllBinaryLayer*) [dropLayerInterface getDroppedLayer]);
+            layerInterface = ((AllBinaryLayer*) [((id<DropLayerInterface>) dropLayerInterface) getDroppedLayer]);
             [allBinaryLayerManager append:layerInterface];
         }
         [list clear];

@@ -31,7 +31,7 @@ void SimultaneousCompoundIndexedAnimationInterfaceFactory_staticInit(void) {
 
 
 - (Animation*) createAnimation:(Animation**)animationArray {
-        return [((SimultaneousCompoundIndexedAnimation*) [SimultaneousCompoundIndexedAnimation alloc]) init:animationArray :[self->animationBehaviorFactory getOrCreateInstance]];
+        return ((SimultaneousCompoundIndexedAnimation*) [((SimultaneousCompoundIndexedAnimation*) [SimultaneousCompoundIndexedAnimation alloc]) init:animationArray :[self->animationBehaviorFactory getOrCreateInstance]]);
 }
 
 @end

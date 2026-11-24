@@ -40,7 +40,7 @@
 }
 - (instancetype) init:(const char*)name;
 + (TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory*) createFactory;
-- (void) init_:(int32_t)level;
+- (void) initMethod:(int32_t)level;
 - (void) initImageCache:(ImageCache*)imageCache :(int32_t)level;
 - (bool) isLoadingLevel:(int32_t)level;
 - (bool) isFeature;

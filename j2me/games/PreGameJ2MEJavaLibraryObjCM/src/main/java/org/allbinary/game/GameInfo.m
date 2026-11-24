@@ -13,6 +13,36 @@
 #include "org/allbinary/game/GameInfoData.h"
 #include "org/allbinary/game/GameType.h"
 #include "org/allbinary/game/PlayerType.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 GameInfo* GameInfo_NONE;
@@ -24,7 +54,7 @@ void GameInfo_staticInit(void) {
         return;
     }
     initialized = true;
-    GameInfo_NONE = [((GameInfo*) [GameInfo alloc]) init:[GameTypeFactory getInstance]->NONE :(GameMode_staticInit(), GameMode_NONE) :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :-1 :-1];
+    GameInfo_NONE = ((GameInfo*) [((GameInfo*) [GameInfo alloc]) init:[GameTypeFactory getInstance]->NONE :(GameMode_staticInit(), GameMode_NONE) :[PlayerTypesFactory getInstance]->PLAYER_TYPE_ONE :-1 :-1]);
 }
 
 @implementation GameInfo
@@ -87,7 +117,7 @@ void GameInfo_staticInit(void) {
 
 - (void) setCurrentLevel:(int32_t)currentLevel {
         self->currentLevel = currentLevel;
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->NEW_LEVEL] appendint:[self getCurrentLevel]] toString] :self :self->SET_CURRENT_LEVEL];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->NEW_LEVEL] appendint:[self getCurrentLevel]] toString] :self :self->SET_CURRENT_LEVEL];
 }
 
 
@@ -95,7 +125,7 @@ void GameInfo_staticInit(void) {
         if ([self getCurrentLevel] < [self getHighestLevel]) {
             self->currentLevel++;
         }
-        [self->logUtil putF:[[[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->NEXT] append:[CommonSeps getInstance]->SPACE] append:self->NEW_LEVEL] appendint:[self getCurrentLevel]] toString] :self :self->NEXT_GAME_LEVEL];
+        [self->logUtil putF:[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->NEXT] append:[CommonSeps getInstance]->SPACE] append:self->NEW_LEVEL] appendint:[self getCurrentLevel]] toString] :self :self->NEXT_GAME_LEVEL];
 }
 
 
@@ -127,7 +157,7 @@ void GameInfo_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         CommonSeps* commonSeps = [CommonSeps getInstance];
         [stringBuffer append:self->gameInfoData->GAME_TYPE];
         [stringBuffer append:commonSeps->EQUALS];

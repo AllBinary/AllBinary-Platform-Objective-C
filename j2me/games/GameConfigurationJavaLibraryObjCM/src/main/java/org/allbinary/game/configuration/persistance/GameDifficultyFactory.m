@@ -10,7 +10,7 @@ void GameDifficultyFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    GameDifficultyFactory_instance = [((GameDifficultyFactory*) [GameDifficultyFactory alloc]) init];
+    GameDifficultyFactory_instance = ((GameDifficultyFactory*) [((GameDifficultyFactory*) [GameDifficultyFactory alloc]) init]);
 }
 
 @implementation GameDifficultyFactory

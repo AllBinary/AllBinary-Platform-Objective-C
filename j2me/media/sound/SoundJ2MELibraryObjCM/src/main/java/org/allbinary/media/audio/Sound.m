@@ -48,7 +48,7 @@ void Sound_staticInit(void) {
 
 
 // throws Exception
-- (void) init_ {
+- (void) initMethod {
 }
 
 
@@ -59,7 +59,7 @@ void Sound_staticInit(void) {
 
 - (void) run {
         JAVA_TRY {
-            [self->player start];
+            [((id<Player>) self->player) start];
         } JAVA_CATCH(Exception, e) {
             CommonStrings* commonStrings = [CommonStrings getInstance];
             [PreLogUtil put:commonStrings->EXCEPTION :self :commonStrings->RUN];

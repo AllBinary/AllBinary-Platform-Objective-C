@@ -5,6 +5,12 @@
 #include "org/allbinary/animation/AnimationBehavior.h"
 #include "org/allbinary/util/CircularIndexUtil.h"
 #include "org/allbinary/animation/image/ImageAnimation.h"
+#if __has_include("javax/microedition/lcdui/Image.h")
+#include "javax/microedition/lcdui/Image.h"
+#endif
+#if __has_include("javax/microedition/lcdui/Image.h")
+#include "javax/microedition/lcdui/Image.h"
+#endif
 
 
 

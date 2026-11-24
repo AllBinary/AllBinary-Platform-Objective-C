@@ -13,7 +13,7 @@ void KeySpecFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    KeySpecFactory_instance = [((KeySpecFactory*) [KeySpecFactory alloc]) init];
+    KeySpecFactory_instance = ((KeySpecFactory*) [((KeySpecFactory*) [KeySpecFactory alloc]) init]);
 }
 
 @implementation KeySpecFactory
@@ -41,9 +41,9 @@ void KeySpecFactory_staticInit(void) {
         JAVA_TRY {
             TsUtil* tsUtil = [TsUtil getInstance];
             if ([tsUtil compareTo:algorithm :self->DES] == 0) {
-                return [((DESKeySpec*) [DESKeySpec alloc]) init:keyData];
+                return ((DESKeySpec*) [((DESKeySpec*) [DESKeySpec alloc]) init:keyData]);
             } else if ([tsUtil compareTo:algorithm :self->DESEDE] == 0) {
-                return [((DESedeKeySpec*) [DESedeKeySpec alloc]) init:keyData];
+                return ((DESedeKeySpec*) [((DESedeKeySpec*) [DESedeKeySpec alloc]) init:keyData]);
             } else {
                 java_throw(java_exception_new("RuntimeException", ""));
             }

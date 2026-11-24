@@ -11,7 +11,7 @@ void NullRunnable_staticInit(void) {
         return;
     }
     initialized = true;
-    NullRunnable_instance = [((NullRunnable*) [NullRunnable alloc]) init];
+    NullRunnable_instance = ((NullRunnable*) [((NullRunnable*) [NullRunnable alloc]) init]);
 }
 
 @implementation NullRunnable

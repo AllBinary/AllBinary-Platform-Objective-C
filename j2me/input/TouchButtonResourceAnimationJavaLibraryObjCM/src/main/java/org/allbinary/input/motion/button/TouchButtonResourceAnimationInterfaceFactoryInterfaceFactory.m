@@ -25,56 +25,20 @@
 #include "org/allbinary/input/motion/button/TouchButtonTurnRightResource.h"
 #include "org/allbinary/input/motion/button/TouchButtonStrafeLeftResource.h"
 #include "org/allbinary/input/motion/button/TouchButtonStrafeRightResource.h"
-#if __has_include("org/allbinary/input/motion/button/GenericOperatingSystem.h")
-#include "org/allbinary/input/motion/button/GenericOperatingSystem.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
 #endif
-#if __has_include("javax/microedition/lcdui/GenericOperatingSystem.h")
-#include "javax/microedition/lcdui/GenericOperatingSystem.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
 #endif
-#if __has_include("org/allbinary/animation/GenericOperatingSystem.h")
-#include "org/allbinary/animation/GenericOperatingSystem.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
 #endif
-#if __has_include("org/allbinary/animation/GenericOperatingSystem.h")
-#include "org/allbinary/animation/GenericOperatingSystem.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
 #endif
-#if __has_include("org/allbinary/animation/image/sprite/GenericOperatingSystem.h")
-#include "org/allbinary/animation/image/sprite/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/animation/resource/GenericOperatingSystem.h")
-#include "org/allbinary/animation/resource/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/game/configuration/feature/GenericOperatingSystem.h")
-#include "org/allbinary/game/configuration/feature/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/game/resource/GenericOperatingSystem.h")
-#include "org/allbinary/game/resource/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/graphics/canvas/transition/progress/GenericOperatingSystem.h")
-#include "org/allbinary/graphics/canvas/transition/progress/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/graphics/canvas/transition/progress/GenericOperatingSystem.h")
-#include "org/allbinary/graphics/canvas/transition/progress/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/graphics/opengles/GenericOperatingSystem.h")
-#include "org/allbinary/graphics/opengles/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/image/GenericOperatingSystem.h")
-#include "org/allbinary/image/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/image/GenericOperatingSystem.h")
-#include "org/allbinary/image/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/logic/GenericOperatingSystem.h")
-#include "org/allbinary/logic/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/logic/string/GenericOperatingSystem.h")
-#include "org/allbinary/logic/string/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/logic/system/os/GenericOperatingSystem.h")
-#include "org/allbinary/logic/system/os/GenericOperatingSystem.h"
-#endif
-#if __has_include("org/allbinary/media/image/GenericOperatingSystem.h")
-#include "org/allbinary/media/image/GenericOperatingSystem.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
 #endif
 #if __has_include("org/allbinary/input/motion/button/GenericOperatingSystem.h")
 #include "org/allbinary/input/motion/button/GenericOperatingSystem.h"
@@ -126,6 +90,69 @@
 #endif
 #if __has_include("org/allbinary/media/image/GenericOperatingSystem.h")
 #include "org/allbinary/media/image/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/OperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
+#endif
+#if __has_include("org/allbinary/input/motion/button/GenericOperatingSystem.h")
+#include "org/allbinary/input/motion/button/GenericOperatingSystem.h"
+#endif
+#if __has_include("javax/microedition/lcdui/GenericOperatingSystem.h")
+#include "javax/microedition/lcdui/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/animation/GenericOperatingSystem.h")
+#include "org/allbinary/animation/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/animation/GenericOperatingSystem.h")
+#include "org/allbinary/animation/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/animation/image/sprite/GenericOperatingSystem.h")
+#include "org/allbinary/animation/image/sprite/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/animation/resource/GenericOperatingSystem.h")
+#include "org/allbinary/animation/resource/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/GenericOperatingSystem.h")
+#include "org/allbinary/game/configuration/feature/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/game/resource/GenericOperatingSystem.h")
+#include "org/allbinary/game/resource/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/GenericOperatingSystem.h")
+#include "org/allbinary/graphics/canvas/transition/progress/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/graphics/canvas/transition/progress/GenericOperatingSystem.h")
+#include "org/allbinary/graphics/canvas/transition/progress/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/GenericOperatingSystem.h")
+#include "org/allbinary/graphics/opengles/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/image/GenericOperatingSystem.h")
+#include "org/allbinary/image/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/image/GenericOperatingSystem.h")
+#include "org/allbinary/image/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/logic/GenericOperatingSystem.h")
+#include "org/allbinary/logic/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/logic/string/GenericOperatingSystem.h")
+#include "org/allbinary/logic/string/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/GenericOperatingSystem.h")
+#include "org/allbinary/logic/system/os/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/media/image/GenericOperatingSystem.h")
+#include "org/allbinary/media/image/GenericOperatingSystem.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/OperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/feature/Features.h")
+#include "org/allbinary/game/configuration/feature/Features.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureFactory.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureFactory.h"
 #endif
 
 
@@ -142,7 +169,7 @@ void TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory_staticInit(voi
 
 
 + (TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory*) createFactory {
-        return [((TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory*) [TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory alloc]) init:"TouchButton Animations"];
+        return ((TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory*) [((TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory*) [TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory alloc]) init:"TouchButton Animations"]);
 }
 
 
@@ -153,7 +180,7 @@ void TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory_staticInit(voi
 
 
 // throws Exception
-- (void) init_:(int32_t)level {
+- (void) initMethod:(int32_t)level {
         [self initImageCache:[ImageCacheFactory getInstance] :level];
 }
 
@@ -164,7 +191,7 @@ void TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory_staticInit(voi
             return;
         }
         int32_t portion = 140;
-        const char* loadingString = [[[[((StringMaker*) [StringMaker alloc]) init] append:[self toString]] append:" Loading: "] toString];
+        const char* loadingString = [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[self toString]] append:" Loading: "] toString];
         int32_t index = 0;
         ProgressCanvas* progressCanvas = [ProgressCanvasFactory getInstance];
         [progressCanvas addPortion:portion :loadingString :index++];
@@ -233,7 +260,7 @@ void TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory_staticInit(voi
         } else {
             [self add:touchButtonStartResource->HINT :nullAnimationFactory];
         }
-        [super init_:level];
+        [super initMethod:level];
 }
 
 

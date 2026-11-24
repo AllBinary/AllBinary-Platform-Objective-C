@@ -18,8 +18,8 @@ void SingleSensorGameUpdateProcessor_staticInit(void) {
 @implementation SingleSensorGameUpdateProcessor
 
 - (void) initFields {
-    self->accelerometerSensorUpdateProcessor = [((AccelerometerSensorUpdateProcessor*) [AccelerometerSensorUpdateProcessor alloc]) init];
-    self->gyroSensorUpdateProcessor = [((GyroSensorUpdateProcessor*) [GyroSensorUpdateProcessor alloc]) init];
+    self->accelerometerSensorUpdateProcessor = ((AccelerometerSensorUpdateProcessor*) [((AccelerometerSensorUpdateProcessor*) [AccelerometerSensorUpdateProcessor alloc]) init]);
+    self->gyroSensorUpdateProcessor = ((GyroSensorUpdateProcessor*) [((GyroSensorUpdateProcessor*) [GyroSensorUpdateProcessor alloc]) init]);
 }
 
 - (instancetype) init {

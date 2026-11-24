@@ -11,18 +11,18 @@ void AudioContentTypeDataFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    AudioContentTypeDataFactory_instance = [((AudioContentTypeDataFactory*) [AudioContentTypeDataFactory alloc]) init];
+    AudioContentTypeDataFactory_instance = ((AudioContentTypeDataFactory*) [((AudioContentTypeDataFactory*) [AudioContentTypeDataFactory alloc]) init]);
 }
 
 @implementation AudioContentTypeDataFactory
 
 - (void) initFields {
-    self->MIME_AUDIO_TONE = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/x-tone-seq"];
-    self->MIME_AUDIO_AMR = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/amr"];
-    self->MIME_AUDIO_AMR_WB = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/amr-wb"];
-    self->MIME_AUDIO_WAV = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/x-wav"];
-    self->MIME_AUDIO_MIDI = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/midi"];
-    self->MIME_AUDIO_SP_MIDI = [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/sp-midi"];
+    self->MIME_AUDIO_TONE = ((AudioContentTypeData*) [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/x-tone-seq"]);
+    self->MIME_AUDIO_AMR = ((AudioContentTypeData*) [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/amr"]);
+    self->MIME_AUDIO_AMR_WB = ((AudioContentTypeData*) [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/amr-wb"]);
+    self->MIME_AUDIO_WAV = ((AudioContentTypeData*) [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/x-wav"]);
+    self->MIME_AUDIO_MIDI = ((AudioContentTypeData*) [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/midi"]);
+    self->MIME_AUDIO_SP_MIDI = ((AudioContentTypeData*) [((AudioContentTypeData*) [AudioContentTypeData alloc]) init:"audio/sp-midi"]);
 }
 
 

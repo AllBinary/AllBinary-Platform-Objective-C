@@ -30,7 +30,7 @@
 @class AbeClientInformationInterface;
 
 @protocol GameInitializationInterface
-- (void) init_:(AbeClientInformationInterface*)abeClientInformation :(CommandListener*)commandListener :(int32_t)level;
+- (void) initMethod:(AbeClientInformationInterface*)abeClientInformation :(CommandListener*)commandListener :(int32_t)level;
 @end
 
 // Runs the Java static initialization of the class once. Reads of its static fields call it first.

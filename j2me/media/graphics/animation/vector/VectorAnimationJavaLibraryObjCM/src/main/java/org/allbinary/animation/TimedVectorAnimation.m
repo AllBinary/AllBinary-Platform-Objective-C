@@ -31,7 +31,7 @@ void TimedVectorAnimation_staticInit(void) {
 @implementation TimedVectorAnimation
 
 - (void) initFields {
-    self->timeElapsedHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:200];
+    self->timeElapsedHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:200]);
 }
 
 

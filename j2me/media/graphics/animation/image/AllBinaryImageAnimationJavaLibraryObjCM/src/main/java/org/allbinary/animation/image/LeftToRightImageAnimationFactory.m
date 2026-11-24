@@ -31,9 +31,9 @@ void LeftToRightImageAnimationFactory_staticInit(void) {
         Image* scaledImage = [self->animationFactoryImageScaleUtil createImage:[self getImage] :self->animationFactoryInitializationVisitor->width :self->animationFactoryInitializationVisitor->height :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
         if (self->animationFactoryInitializationVisitor->dx != 0 || self->animationFactoryInitializationVisitor->dy != 0) {
             [self->animationFactoryImageScaleUtil processAdjust:self];
-            return [((AdjustedLeftToRightImageAnimation*) [AdjustedLeftToRightImageAnimation alloc]) init:scaledImage :[self getSequenceArray] :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((AdjustedLeftToRightImageAnimation*) [((AdjustedLeftToRightImageAnimation*) [AdjustedLeftToRightImageAnimation alloc]) init:scaledImage :[self getSequenceArray] :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]]);
         } else {
-            return [((LeftToRightImageAnimation*) [LeftToRightImageAnimation alloc]) init:scaledImage :[self getSequenceArray] :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((LeftToRightImageAnimation*) [((LeftToRightImageAnimation*) [LeftToRightImageAnimation alloc]) init:scaledImage :[self getSequenceArray] :[self->animationBehaviorFactory getOrCreateInstance]]);
         }
 }
 

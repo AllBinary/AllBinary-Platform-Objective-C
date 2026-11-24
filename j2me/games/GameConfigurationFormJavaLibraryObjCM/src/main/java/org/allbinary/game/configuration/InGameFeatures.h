@@ -41,7 +41,7 @@
 @public
 }
 - (instancetype) init;
-- (void) init_;
+- (void) initMethod;
 - (void) addToInGameMenu;
 - (bool) isAny;
 @end

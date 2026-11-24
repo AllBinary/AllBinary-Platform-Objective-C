@@ -16,7 +16,7 @@ void ImageArrayRotationAnimationPool_staticInit(void) {
         return;
     }
     initialized = true;
-    ImageArrayRotationAnimationPool_IMAGE_ROTATION_ANIMATION_POOL = [((ImageArrayRotationAnimationPool*) [ImageArrayRotationAnimationPool alloc]) init:[((ImageArrayRotationAnimationCacheableInterfaceFactory*) [ImageArrayRotationAnimationCacheableInterfaceFactory alloc]) init]];
+    ImageArrayRotationAnimationPool_IMAGE_ROTATION_ANIMATION_POOL = ((ImageArrayRotationAnimationPool*) [((ImageArrayRotationAnimationPool*) [ImageArrayRotationAnimationPool alloc]) init:((ImageArrayRotationAnimationCacheableInterfaceFactory*) [((ImageArrayRotationAnimationCacheableInterfaceFactory*) [ImageArrayRotationAnimationCacheableInterfaceFactory alloc]) init])]);
 }
 
 @implementation ImageArrayRotationAnimationPool

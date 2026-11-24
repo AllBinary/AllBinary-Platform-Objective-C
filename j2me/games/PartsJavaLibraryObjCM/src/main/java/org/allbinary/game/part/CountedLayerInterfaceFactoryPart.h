@@ -68,7 +68,7 @@
 - (instancetype) init:(int32_t)total :(CountedPickedUpLayerInterfaceFactory*)countedPickedUpLayerInterfaceFactory;
 - (void) initFields;
 - (void) updateMeasurement:(Graphics*)graphics;
-- (void) init_:(int32_t)total :(CountedPickedUpLayerInterfaceFactory*)countedPickedUpLayerInterfaceFactory;
+- (void) initMethod:(int32_t)total :(CountedPickedUpLayerInterfaceFactory*)countedPickedUpLayerInterfaceFactory;
 - (AllBinaryLayer*) getInstance:(ABHashtable*)hashtable :(int32_t)x :(int32_t)y :(int32_t)z;
 - (int32_t) getTotal;
 - (void) setTotal:(int32_t)total;

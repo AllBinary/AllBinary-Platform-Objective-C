@@ -11,7 +11,7 @@ void AnimationBehaviorFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    AnimationBehaviorFactory_instance = [((AnimationBehaviorFactory*) [AnimationBehaviorFactory alloc]) init];
+    AnimationBehaviorFactory_instance = ((AnimationBehaviorFactory*) [((AnimationBehaviorFactory*) [AnimationBehaviorFactory alloc]) init]);
 }
 
 @implementation AnimationBehaviorFactory

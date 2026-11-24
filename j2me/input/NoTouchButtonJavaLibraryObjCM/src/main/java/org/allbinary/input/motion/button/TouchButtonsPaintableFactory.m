@@ -22,7 +22,7 @@ void TouchButtonsPaintableFactory_staticInit(void) {
 
 
 + (Paintable*) getInstance:(BasicColor*)basicColor {
-        return [((Paintable*) [Paintable alloc]) init];
+        return ((Paintable*) [((Paintable*) [Paintable alloc]) init]);
 }
 
 @end

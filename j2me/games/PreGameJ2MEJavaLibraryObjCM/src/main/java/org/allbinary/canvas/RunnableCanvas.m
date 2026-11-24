@@ -67,6 +67,48 @@
 #if __has_include("org/allbinary/util/GameRunnable.h")
 #include "org/allbinary/util/GameRunnable.h"
 #endif
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -88,7 +130,7 @@ void RunnableCanvas_staticInit(void) {
     self->thread = (NullThread_staticInit(), NullThread_NULL_THREAD);
     self->currentThread = (NullThread_staticInit(), NullThread_NULL_THREAD);
     self->running = false;
-    self->loopTimeHelper = [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:[NullWaitGameRunnable getInstance]->WAIT];
+    self->loopTimeHelper = ((TimeDelayHelper*) [((TimeDelayHelper*) [TimeDelayHelper alloc]) init:[NullWaitGameRunnable getInstance]->WAIT]);
     self->runnableCanvasRefreshHelper = [Processor getInstance];
     self->commonLabels = [CommonLabels getInstance];
     self->threadObjectUtil = [ThreadObjectUtil getInstance];
@@ -108,8 +150,8 @@ void RunnableCanvas_staticInit(void) {
 - (instancetype) init:(CommandListener*)commandListener :(BasicArrayList*)childNameList :(bool)hasParam {
         self = [super init:[CommonStrings getInstance]->UNKNOWN :childNameList];
         [self initFields];
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"RunnableCanvas delay: "] appendint:self->loopTimeHelper->delay] toString] :self :self->commonStrings->CONSTRUCTOR];
-        self->runnableCanvasRefreshHelper = [((RunnableCanvasRefreshHelper*) [RunnableCanvasRefreshHelper alloc]) init:self];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"RunnableCanvas delay: "] appendint:self->loopTimeHelper->delay] toString] :self :self->commonStrings->CONSTRUCTOR];
+        self->runnableCanvasRefreshHelper = ((RunnableCanvasRefreshHelper*) [((RunnableCanvasRefreshHelper*) [RunnableCanvasRefreshHelper alloc]) init:self]);
         if (commandListener != nil) {
             [self initCommands:commandListener];
         } else if (hasParam) {
@@ -148,7 +190,7 @@ void RunnableCanvas_staticInit(void) {
             }
             java_monitor_exit(self);
         }
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:self->IS_RUNNING] appendboolean:self->running] toString] :self :self->SET_RUNNING];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->IS_RUNNING] appendboolean:self->running] toString] :self :self->SET_RUNNING];
 }
 
 
@@ -157,7 +199,7 @@ void RunnableCanvas_staticInit(void) {
         if (self->thread == self->currentThread) {
             return self->running;
         } else {
-            StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             [stringBuffer append:self->THREAD];
             if (self->thread != nil) {
                 [stringBuffer append:[self->thread toString]];
@@ -180,7 +222,7 @@ void RunnableCanvas_staticInit(void) {
 - (void) setWait:(int32_t)wait {
         self->loopTimeHelper->delay = wait;
         self->pauseWait = ((int64_t) wait) * 3LL;
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"setWait - delay: "] appendint:self->loopTimeHelper->delay] toString] :self :self->commonStrings->CONSTRUCTOR];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"setWait - delay: "] appendint:self->loopTimeHelper->delay] toString] :self :self->commonStrings->CONSTRUCTOR];
 }
 
 
@@ -254,7 +296,7 @@ void RunnableCanvas_staticInit(void) {
 - (void) processLoopSleep {
         [self->runnableCanvasRefreshHelper process];
         if ([self isPaused]) {
-            StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             if ([self isRunning] && ![self isSingleThread]) {
                 [stringMaker delete:0 :[stringMaker length]];
                 int64_t currentTimeMillis = [self->systemWrapper currentTimeMillis];

@@ -10,7 +10,7 @@ void OpenGLThreadUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLThreadUtil_instance = [((OpenGLThreadUtil*) [OpenGLThreadUtil alloc]) init];
+    OpenGLThreadUtil_instance = ((OpenGLThreadUtil*) [((OpenGLThreadUtil*) [OpenGLThreadUtil alloc]) init]);
 }
 
 @implementation OpenGLThreadUtil

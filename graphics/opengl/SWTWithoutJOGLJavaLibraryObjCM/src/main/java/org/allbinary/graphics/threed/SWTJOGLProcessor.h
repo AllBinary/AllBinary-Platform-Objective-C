@@ -43,7 +43,7 @@
 - (instancetype) init;
 - (void) initFields;
 + (SWTJOGLProcessor*) getInstance;
-- (void) init_:(id)display :(id)comp;
+- (void) initMethod:(id)display :(id)comp;
 - (bool) isHolderCreated;
 - (void) setRenderer:(id)renderer;
 - (bool) isJOGL;

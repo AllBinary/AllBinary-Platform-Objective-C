@@ -2,6 +2,12 @@
 #include "org/allbinary/game/graphics/hud/HudGraphicsPosition.h"
 #include "org/allbinary/graphics/GPoint.h"
 #include "org/allbinary/graphics/PointFactory.h"
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/PointFactory.h")
+#include "org/allbinary/graphics/PointFactory.h"
+#endif
 
 
 HudGraphicsPosition* HudGraphicsPosition_NULL_HUD_GRAPHICS_POSITION;
@@ -12,7 +18,7 @@ void HudGraphicsPosition_staticInit(void) {
         return;
     }
     initialized = true;
-    HudGraphicsPosition_NULL_HUD_GRAPHICS_POSITION = [((HudGraphicsPosition*) [HudGraphicsPosition alloc]) init:[PointFactory getInstance]->ZERO_ZERO :9];
+    HudGraphicsPosition_NULL_HUD_GRAPHICS_POSITION = ((HudGraphicsPosition*) [((HudGraphicsPosition*) [HudGraphicsPosition alloc]) init:[PointFactory getInstance]->ZERO_ZERO :9]);
 }
 
 @implementation HudGraphicsPosition

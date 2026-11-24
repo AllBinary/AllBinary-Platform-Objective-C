@@ -11,6 +11,36 @@
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/util/BasicArrayListD.h"
 #include "org/allbinary/image/ImageFactory.h"
+#if __has_include("org/allbinary/logic/StdUtil.h")
+#include "org/allbinary/logic/StdUtil.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
+#endif
+#if __has_include("org/allbinary/util/BasicArrayList.h")
+#include "org/allbinary/util/BasicArrayList.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
 
 
 
@@ -42,10 +72,10 @@ void ImageCacheBase_staticInit(void) {
     self = [super init];
     [self initFields];
         for (int32_t index = java_array_length(self->listOfList) - 1; index >= 0; index--) {
-            self->listOfList[index] = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            self->listOfList[index] = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         }
         for (int32_t index = java_array_length(self->availableListOfList) - 1; index >= 0; index--) {
-            self->availableListOfList[index] = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+            self->availableListOfList[index] = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
         }
     return self;
 }
@@ -65,7 +95,7 @@ void ImageCacheBase_staticInit(void) {
             [self->availableListOfList[index] clear];
             [self->availableListOfList[index] addAllList:self->listOfList[index]];
         }
-        [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"ImageCache: "] append:[self toString]] toString] :self :"releaseAll"];
+        [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"ImageCache: "] append:[self toString]] toString] :self :"releaseAll"];
 }
 
 
@@ -118,7 +148,7 @@ void ImageCacheBase_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         for (int32_t index = self->nextIndex - 1; index >= 0; index--) {
             int32_t width = self->widths[index];
             int32_t height = self->heights[index];
@@ -143,7 +173,7 @@ void ImageCacheBase_staticInit(void) {
 }
 
 
-- (void) init_:(Image*)image {
+- (void) initMethod:(Image*)image {
 }
 
 

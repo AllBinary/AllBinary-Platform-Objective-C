@@ -20,6 +20,15 @@
 #include "org/allbinary/logic/system/security/licensing/AbeClientInformationInterface.h"
 #include "org/allbinary/logic/system/security/licensing/InApplicationPurchaseFactory.h"
 #include "org/allbinary/game/score/displayable/HighScoreUtil.h"
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/system/os/OperatingSystemFactory.h")
+#include "org/allbinary/logic/system/os/OperatingSystemFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/system/security/licensing/InApplicationPurchaseFactory.h")
+#include "org/allbinary/logic/system/security/licensing/InApplicationPurchaseFactory.h"
+#endif
 #if __has_include("org/allbinary/game/score/displayable/ABTextFieldItem.h")
 #include "org/allbinary/game/score/displayable/ABTextFieldItem.h"
 #endif
@@ -82,6 +91,9 @@
 #endif
 #if __has_include("org/allbinary/logic/system/security/licensing/ABTextFieldItem.h")
 #include "org/allbinary/logic/system/security/licensing/ABTextFieldItem.h"
+#endif
+#if __has_include("org/allbinary/PostGameCommandFactory.h")
+#include "org/allbinary/PostGameCommandFactory.h"
 #endif
 #if __has_include("org/allbinary/game/score/displayable/ABTextFieldItem.h")
 #include "org/allbinary/game/score/displayable/ABTextFieldItem.h"
@@ -162,7 +174,7 @@ void HighScoreTextBox_staticInit(void) {
 - (void) initFields {
     self->virtualKeyboardEventHandler = [VirtualKeyboardEventHandler getInstance];
     
-    self->pleaseWait = [((SimpleTextPaintable*) [SimpleTextPaintable alloc]) init:self->commonStrings->PLEASE_WAIT :[BasicColorFactory getInstance]->WHITE];
+    self->pleaseWait = ((SimpleTextPaintable*) [((SimpleTextPaintable*) [SimpleTextPaintable alloc]) init:self->commonStrings->PLEASE_WAIT :[BasicColorFactory getInstance]->WHITE]);
     self->paintable = [NullPaintable getInstance];
     self->submitted = false;
 }
@@ -171,7 +183,7 @@ void HighScoreTextBox_staticInit(void) {
 - (instancetype) init:(HighScoresFactoryInterface*)highScoresFactoryInterface :(HighScoresHelperBaseInterface*)highScoresHelper :(AbeClientInformationInterface*)abeClientInformation :(GameInfo*)gameInfo :(CommandListener*)cmdListener :(const char*)name :(HighScore*)highScore :(BasicColor*)backgrounBasicColor :(BasicColor*)foregroundBasicColor {
         self = [super init:cmdListener :"New High Score Enter Name:" :name :12 :(TextField_staticInit(), TextField_ANY) :[Font getDefaultFont] :backgrounBasicColor :foregroundBasicColor];
         [self initFields];
-        self->highScoreUtil = [((HighScoreUtil*) [HighScoreUtil alloc]) init:highScoresFactoryInterface :highScoresHelper :abeClientInformation :gameInfo :cmdListener :name :highScore];
+        self->highScoreUtil = ((HighScoreUtil*) [((HighScoreUtil*) [HighScoreUtil alloc]) init:highScoresFactoryInterface :highScoresHelper :abeClientInformation :gameInfo :cmdListener :name :highScore]);
         GenericOperatingSystem* operatingSystemInterface = [[OperatingSystemFactory getInstance] getOperatingSystemInstance];
         if ([operatingSystemInterface isOverScan]) {
             const char* username = [[InApplicationPurchaseFactory getInstance] getUserName];

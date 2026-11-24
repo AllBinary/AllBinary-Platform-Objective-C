@@ -7,6 +7,15 @@
 #include "org/allbinary/logic/math/vector/AxisMathVectorUtil.h"
 #include "org/allbinary/math/AngleFactory.h"
 #include "org/allbinary/physics/movement/Movement.h"
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
+#if __has_include("org/allbinary/logic/math/BasicDecimal.h")
+#include "org/allbinary/logic/math/BasicDecimal.h"
+#endif
 
 
 
@@ -36,7 +45,7 @@ void BasicConstantVelocityMovement_staticInit(void) {
 }
 
 
-- (void) init_:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle {
+- (void) initMethod:(BasicDecimal*)speedBasicDecimal :(int32_t)angle :(int32_t)otherAngle {
         self->speedBasicDecimal = speedBasicDecimal;
         AngleFactory* angleFactory = [AngleFactory getInstance];
         [self->velocityProperties setVelocityWithBigDecimal:speedBasicDecimal :[angleFactory getAt:angle] :[angleFactory getAt:otherAngle]];

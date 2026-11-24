@@ -10,6 +10,9 @@
 #include "org/allbinary/game/midlet/DemoGameMidletEvent.h"
 #include "org/allbinary/game/midlet/DemoGameMidletStateFactory.h"
 #include "org/allbinary/game/midlet/DemoGameMidletEventHandler.h"
+#if __has_include("org/allbinary/graphics/displayable/command/MyCommandsFactory.h")
+#include "org/allbinary/graphics/displayable/command/MyCommandsFactory.h"
+#endif
 #if __has_include("org/allbinary/game/midlet/GameCanvasRunnableInterface.h")
 #include "org/allbinary/game/midlet/GameCanvasRunnableInterface.h"
 #endif
@@ -58,7 +61,7 @@ void CreateGameRunnable_staticInit(void) {
     [self initFields];
         self->demoGameMidlet = demoGameMidlet;
         self->hashtable = hashtable;
-        self->startGameMidletEvent = [((DemoGameMidletEvent*) [DemoGameMidletEvent alloc]) init:self :[DemoGameMidletStateFactory getInstance]->START_GAME];
+        self->startGameMidletEvent = ((DemoGameMidletEvent*) [((DemoGameMidletEvent*) [DemoGameMidletEvent alloc]) init:self :[DemoGameMidletStateFactory getInstance]->START_GAME]);
     return self;
 }
 
@@ -70,7 +73,7 @@ void CreateGameRunnable_staticInit(void) {
             [self->demoGameMidlet commandAction:[MyCommandsFactory getInstance]->SET_DISPLAYABLE :progressCanvas];
             [self->demoGameMidlet stopGameCanvasRunnableInterface];
             [self->demoGameMidlet setGameCanvasRunnableInterface:[self->demoGameMidlet createGameCanvasRunnableInterface]];
-            [[self->demoGameMidlet getGameCanvasRunnableInterface] setLoadStateHashtable:self->hashtable];
+            [((id<GameCanvasRunnableInterface>) [self->demoGameMidlet getGameCanvasRunnableInterface]) setLoadStateHashtable:self->hashtable];
             [self->demoGameMidlet startGameCanvasRunnableInterface];
             [[DemoGameMidletEventHandler getInstance] fireEvent:self->startGameMidletEvent];
             [self->logUtil putF:self->commonStrings->END_RUNNABLE :self :self->commonStrings->RUN];

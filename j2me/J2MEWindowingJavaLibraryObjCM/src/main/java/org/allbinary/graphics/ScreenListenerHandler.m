@@ -12,13 +12,13 @@ void ScreenListenerHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    ScreenListenerHandler_instance = [((ScreenListenerHandler*) [ScreenListenerHandler alloc]) init];
+    ScreenListenerHandler_instance = ((ScreenListenerHandler*) [((ScreenListenerHandler*) [ScreenListenerHandler alloc]) init]);
 }
 
 @implementation ScreenListenerHandler
 
 - (void) initFields {
-    self->screenListenerInterface = [((ScreenEmptyListener*) [ScreenEmptyListener alloc]) init];
+    self->screenListenerInterface = ((ScreenEmptyListener*) [((ScreenEmptyListener*) [ScreenEmptyListener alloc]) init]);
 }
 
 - (instancetype) init {
@@ -39,12 +39,12 @@ void ScreenListenerHandler_staticInit(void) {
 
 
 - (void) fireWithState:(bool)isFullScreen {
-        [self->screenListenerInterface onFullScreen:isFullScreen];
+        [((id<ScreenListenerInterface>) self->screenListenerInterface) onFullScreen:isFullScreen];
 }
 
 
 - (void) fire {
-        [self->screenListenerInterface onFullScreenDisplay];
+        [((id<ScreenListenerInterface>) self->screenListenerInterface) onFullScreenDisplay];
 }
 
 @end

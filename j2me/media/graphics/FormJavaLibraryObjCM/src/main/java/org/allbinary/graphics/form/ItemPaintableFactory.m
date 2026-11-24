@@ -12,7 +12,7 @@ void ItemPaintableFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    ItemPaintableFactory_instance = [((ItemPaintableFactory*) [ItemPaintableFactory alloc]) init];
+    ItemPaintableFactory_instance = ((ItemPaintableFactory*) [((ItemPaintableFactory*) [ItemPaintableFactory alloc]) init]);
 }
 
 @implementation ItemPaintableFactory

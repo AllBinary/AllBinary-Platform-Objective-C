@@ -14,7 +14,7 @@ void TrackingEventHandler_staticInit(void) {
         return;
     }
     initialized = true;
-    TrackingEventHandler_instance = [((TrackingEventHandler*) [TrackingEventHandler alloc]) init];
+    TrackingEventHandler_instance = ((TrackingEventHandler*) [((TrackingEventHandler*) [TrackingEventHandler alloc]) init]);
 }
 
 @implementation TrackingEventHandler
@@ -34,7 +34,7 @@ void TrackingEventHandler_staticInit(void) {
 // throws Exception
 - (void) process:(AllBinaryEventObject*)eventObject :(EventListenerInterface*)eventListenerInterface {
         TrackingEventListenerInterface* trackingEventListenerInterface = ((TrackingEventListenerInterface*) eventListenerInterface);
-        [trackingEventListenerInterface onMovement:((TrackingEvent*) eventObject)];
+        [((id<TrackingEventListenerInterface>) trackingEventListenerInterface) onMovement:((TrackingEvent*) eventObject)];
 }
 
 @end

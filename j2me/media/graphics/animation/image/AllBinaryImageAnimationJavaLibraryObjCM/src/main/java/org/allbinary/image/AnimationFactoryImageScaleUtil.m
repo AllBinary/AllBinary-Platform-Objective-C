@@ -15,7 +15,7 @@ void AnimationFactoryImageScaleUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    AnimationFactoryImageScaleUtil_instance = [((AnimationFactoryImageScaleUtil*) [AnimationFactoryImageScaleUtil alloc]) init];
+    AnimationFactoryImageScaleUtil_instance = ((AnimationFactoryImageScaleUtil*) [((AnimationFactoryImageScaleUtil*) [AnimationFactoryImageScaleUtil alloc]) init]);
 }
 
 @implementation AnimationFactoryImageScaleUtil

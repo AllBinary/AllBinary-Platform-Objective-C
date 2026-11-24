@@ -12,7 +12,7 @@ void ErrorSound_staticInit(void) {
         return;
     }
     initialized = true;
-    ErrorSound_soundInterface = [((ErrorSound*) [ErrorSound alloc]) init];
+    ErrorSound_soundInterface = ((ErrorSound*) [((ErrorSound*) [ErrorSound alloc]) init]);
 }
 
 @implementation ErrorSound

@@ -10,7 +10,7 @@ void J2SEUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    J2SEUtil_instance = [((J2SEUtil*) [J2SEUtil alloc]) init];
+    J2SEUtil_instance = ((J2SEUtil*) [((J2SEUtil*) [J2SEUtil alloc]) init]);
 }
 
 @implementation J2SEUtil

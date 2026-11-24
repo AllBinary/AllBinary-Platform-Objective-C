@@ -89,6 +89,15 @@
 #if __has_include("org/allbinary/media/audio/PlayerQueue.h")
 #include "org/allbinary/media/audio/PlayerQueue.h"
 #endif
+#if __has_include("org/allbinary/logic/math/SmallIntegerSingletonFactory.h")
+#include "org/allbinary/logic/math/SmallIntegerSingletonFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/java/bool/BooleanFactory.h")
+#include "org/allbinary/logic/java/bool/BooleanFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 static TextNotificationUtil* TextNotificationUtil_instance;
@@ -99,7 +108,7 @@ void TextNotificationUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    TextNotificationUtil_instance = [((TextNotificationUtil*) [TextNotificationUtil alloc]) init];
+    TextNotificationUtil_instance = ((TextNotificationUtil*) [((TextNotificationUtil*) [TextNotificationUtil alloc]) init]);
 }
 
 @implementation TextNotificationUtil
@@ -145,7 +154,7 @@ void TextNotificationUtil_staticInit(void) {
 
 // throws Exception
 - (void) fire:(const char*)message {
-        GameNotificationEvent* gameNotificationEvent = [((GameNotificationEvent*) [GameNotificationEvent alloc]) init:self :message :self->TWO :[BasicColorFactory getInstance]->RED :self->FALSE];
+        GameNotificationEvent* gameNotificationEvent = ((GameNotificationEvent*) [((GameNotificationEvent*) [GameNotificationEvent alloc]) init:self :message :self->TWO :[BasicColorFactory getInstance]->RED :self->FALSE]);
         [self->gameNotificationEventHandler fireEvent:gameNotificationEvent];
 }
 

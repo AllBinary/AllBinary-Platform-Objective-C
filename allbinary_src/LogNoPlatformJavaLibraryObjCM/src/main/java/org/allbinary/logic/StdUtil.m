@@ -14,7 +14,7 @@ void StdUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    StdUtil_instance = [((StdUtil*) [StdUtil alloc]) init];
+    StdUtil_instance = ((StdUtil*) [((StdUtil*) [StdUtil alloc]) init]);
 }
 
 @implementation StdUtil
@@ -38,22 +38,22 @@ void StdUtil_staticInit(void) {
 
 
 - (ABStack*) createStack {
-        return [((ABStack*) [ABStack alloc]) init];
+        return ((ABStack*) [((ABStack*) [ABStack alloc]) init]);
 }
 
 
 - (ABVector*) createVector {
-        return [((ABVector*) [ABVector alloc]) init];
+        return ((ABVector*) [((ABVector*) [ABVector alloc]) init]);
 }
 
 
 - (ABHashtable*) createHashtable {
-        return [((ABHashtable*) [ABHashtable alloc]) init];
+        return ((ABHashtable*) [((ABHashtable*) [ABHashtable alloc]) init]);
 }
 
 
 - (ABHashMap*) createHashMap {
-        return [((ABHashMap*) [ABHashMap alloc]) init];
+        return ((ABHashMap*) [((ABHashMap*) [ABHashMap alloc]) init]);
 }
 
 @end

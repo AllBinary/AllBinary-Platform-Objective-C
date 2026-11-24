@@ -19,6 +19,18 @@
 #include "org/allbinary/physics/movement/Movement.h"
 #include "org/allbinary/view/ViewPositionBase.h"
 #include "org/allbinary/game/layer/weapon/CollidableWeaponBehavior.h"
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
+#if __has_include("org/allbinary/game/identification/BasicGroupFactory.h")
+#include "org/allbinary/game/identification/BasicGroupFactory.h"
+#endif
+#if __has_include("org/allbinary/physics/movement/Movement.h")
+#include "org/allbinary/physics/movement/Movement.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/GameConfigurationUtil.h")
+#include "org/allbinary/game/configuration/GameConfigurationUtil.h"
+#endif
 #if __has_include("org/allbinary/game/layer/weapon/BasicLayerProcessor.h")
 #include "org/allbinary/game/layer/weapon/BasicLayerProcessor.h"
 #endif
@@ -141,12 +153,12 @@ void WeaponLayer_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(AllBinaryLayer*)sourceLayerInterface :(int32_t)angle :(int32_t)otherAngle :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreable {
+- (void) initMethod:(AllBinaryLayer*)sourceLayerInterface :(int32_t)angle :(int32_t)otherAngle :(WeaponProperties*)weaponProperties :(ScoreableInterface*)scoreable {
         [self setWeaponPropertiesP:weaponProperties];
         [self setReadyForExplosion:false];
         [self setAnimationInterface:[self getInitAnimationInterfaceP]];
         [self setOwnerLayerInterface:sourceLayerInterface];
-        [self->collidableWeaponBehavior init_:sourceLayerInterface];
+        [self->collidableWeaponBehavior initMethod:sourceLayerInterface];
         [self setGroupInterfaces];
         if (scoreable != nil) {
             self->scoreableInterface = scoreable;
@@ -154,7 +166,7 @@ void WeaponLayer_staticInit(void) {
         self->totalDamage = 0;
         self->initDamage = [weaponProperties getDamage];
         [self setDestroyed:false];
-        [self->movement init_:[weaponProperties getSpeed] :angle :otherAngle];
+        [self->movement initMethod:[weaponProperties getSpeed] :angle :otherAngle];
 }
 
 
@@ -206,7 +218,7 @@ void WeaponLayer_staticInit(void) {
 
 
 - (void) givePoints:(int32_t)total {
-        [self->scoreableInterface addPoints:[[GameConfigurationUtil getInstance] getCompetitionValue] * total];
+        [((id<ScoreableInterface>) self->scoreableInterface) addPoints:[[GameConfigurationUtil getInstance] getCompetitionValue] * total];
 }
 
 

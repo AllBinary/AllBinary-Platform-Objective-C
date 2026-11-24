@@ -14,6 +14,21 @@
 #include "org/allbinary/view/ViewPositionBase.h"
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/game/layer/AllBinaryGameLayer.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/collision/CollidableNeverCollideBehaviorFactory.h")
+#include "org/allbinary/game/collision/CollidableNeverCollideBehaviorFactory.h"
+#endif
+#if __has_include("org/allbinary/game/collision/CollidableBaseBehavior.h")
+#include "org/allbinary/game/collision/CollidableBaseBehavior.h"
+#endif
 
 
 static id CollidableCompositeLayer_NULL_COLLIDABLE_COMPOSITE_LAYER;
@@ -36,7 +51,7 @@ void CollidableCompositeLayer_staticInit(void) {
 
 + (CollidableCompositeLayer*) getNullInstance {
         if ((CollidableCompositeLayer_staticInit(), CollidableCompositeLayer_NULL_COLLIDABLE_COMPOSITE_LAYER) == [NullUtil getInstance]->NULL_OBJECT) {
-            CollidableCompositeLayer_NULL_COLLIDABLE_COMPOSITE_LAYER = [((CollidableCompositeLayer*) [CollidableCompositeLayer alloc]) init:[StringUtil getInstance]->EMPTY_STRING :(RectangleFactory_staticInit(), RectangleFactory_SINGLETON) :(ViewPositionBase_staticInit(), ViewPositionBase_NULL_VIEW_POSITION) :[CollidableNeverCollideBehaviorFactory getInstance]];
+            CollidableCompositeLayer_NULL_COLLIDABLE_COMPOSITE_LAYER = ((CollidableCompositeLayer*) [((CollidableCompositeLayer*) [CollidableCompositeLayer alloc]) init:[StringUtil getInstance]->EMPTY_STRING :(RectangleFactory_staticInit(), RectangleFactory_SINGLETON) :(ViewPositionBase_staticInit(), ViewPositionBase_NULL_VIEW_POSITION) :[CollidableNeverCollideBehaviorFactory getInstance]]);
         }
         return ((CollidableCompositeLayer*) (CollidableCompositeLayer_staticInit(), CollidableCompositeLayer_NULL_COLLIDABLE_COMPOSITE_LAYER));
 }
@@ -82,7 +97,7 @@ void CollidableCompositeLayer_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [self toStringAppend:stringBuffer];
         return [stringBuffer toString];
 }

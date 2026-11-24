@@ -12,7 +12,7 @@ void PathFindingThreadPool_staticInit(void) {
         return;
     }
     initialized = true;
-    PathFindingThreadPool_instance = [((PathFindingThreadPool*) [PathFindingThreadPool alloc]) init:"PathFinding" :1 :1];
+    PathFindingThreadPool_instance = ((PathFindingThreadPool*) [((PathFindingThreadPool*) [PathFindingThreadPool alloc]) init:"PathFinding" :1 :1]);
 }
 
 @implementation PathFindingThreadPool

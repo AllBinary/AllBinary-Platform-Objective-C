@@ -2,6 +2,12 @@
 #include "org/allbinary/game/score/RemoteErrorHighScoresSingletonFactory.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/score/HighScores.h"
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
+#if __has_include("org/allbinary/string/CommonStrings.h")
+#include "org/allbinary/string/CommonStrings.h"
+#endif
 
 
 static HighScores* RemoteErrorHighScoresSingletonFactory_SINGLETON;
@@ -12,7 +18,7 @@ void RemoteErrorHighScoresSingletonFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    RemoteErrorHighScoresSingletonFactory_SINGLETON = [((HighScores*) [HighScores alloc]) init:[CommonStrings getInstance]->LOADING :"Remote High Scores Did Not Load" :[CommonStrings getInstance]->PERIODS];
+    RemoteErrorHighScoresSingletonFactory_SINGLETON = ((HighScores*) [((HighScores*) [HighScores alloc]) init:[CommonStrings getInstance]->LOADING :"Remote High Scores Did Not Load" :[CommonStrings getInstance]->PERIODS]);
 }
 
 @implementation RemoteErrorHighScoresSingletonFactory

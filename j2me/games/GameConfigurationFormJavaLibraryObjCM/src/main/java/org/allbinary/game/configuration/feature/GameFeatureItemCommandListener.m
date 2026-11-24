@@ -10,6 +10,24 @@
 #include "org/allbinary/midlet/MidletStrings.h"
 #include "org/allbinary/string/CommonLabels.h"
 #include "org/allbinary/string/CommonStrings.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonLabels.h")
+#include "org/allbinary/string/CommonLabels.h"
+#endif
+#if __has_include("org/allbinary/midlet/MidletStrings.h")
+#include "org/allbinary/midlet/MidletStrings.h"
+#endif
+#if __has_include("org/allbinary/game/configuration/GameConfigurationUtil.h")
+#include "org/allbinary/game/configuration/GameConfigurationUtil.h"
+#endif
+#if __has_include("org/allbinary/midlet/MidletStrings.h")
+#include "org/allbinary/midlet/MidletStrings.h"
+#endif
 
 
 
@@ -40,7 +58,7 @@ void GameFeatureItemCommandListener_staticInit(void) {
 - (void) commandAction:(Command*)command :(Item*)item {
         JAVA_TRY {
             const char* itemLabel = [item getLabel];
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:[CommonLabels getInstance]->ITEM_LABEL] append:itemLabel] toString] :self :[MidletStrings getInstance]->COMMAND_ACTION];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:[CommonLabels getInstance]->ITEM_LABEL] append:itemLabel] toString] :self :[MidletStrings getInstance]->COMMAND_ACTION];
             if (java_objc_instanceof(item, [GameConfigurationGauge class])) {
                 [[GameConfigurationUtil getInstance] change:self->gameOptionsForm :((GameConfigurationGauge*) item)];
             }

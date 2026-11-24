@@ -4,6 +4,18 @@
 #include "org/allbinary/animation/AnimationBehaviorFactory.h"
 #include "org/allbinary/animation/NullAnimationFactory.h"
 #include "org/allbinary/media/ScaleProperties.h"
+#if __has_include("org/allbinary/animation/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
+#endif
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
+#if __has_include("org/allbinary/animation/NullAnimationFactory.h")
+#include "org/allbinary/animation/NullAnimationFactory.h"
+#endif
+#if __has_include("org/allbinary/animation/AnimationInterfaceFactoryInterface.h")
+#include "org/allbinary/animation/AnimationInterfaceFactoryInterface.h"
+#endif
 
 
 
@@ -37,7 +49,7 @@ void CompoundAnimationInterfaceFactory_staticInit(void) {
         int32_t size = java_array_length(self->basicAnimationInterfaceFactoryInterfaceArrayP);
         Animation** animationInterfaceArray = [self createArray:size];
         for (int32_t index = 0; index < size; index++) {
-            animationInterfaceArray[index] = [self->basicAnimationInterfaceFactoryInterfaceArrayP[index] getInstance:instanceId];
+            animationInterfaceArray[index] = [((id<AnimationInterfaceFactoryInterface>) self->basicAnimationInterfaceFactoryInterfaceArrayP[index]) getInstance:instanceId];
         }
         return [self createAnimation:animationInterfaceArray];
 }
@@ -61,7 +73,7 @@ void CompoundAnimationInterfaceFactory_staticInit(void) {
 - (void) setInitialScale:(ScaleProperties*)scaleProperties {
         int32_t size = java_array_length(self->basicAnimationInterfaceFactoryInterfaceArrayP);
         for (int32_t index = 0; index < size; index++) {
-            [self->basicAnimationInterfaceFactoryInterfaceArrayP[index] setInitialScale:scaleProperties];
+            [((id<AnimationInterfaceFactoryInterface>) self->basicAnimationInterfaceFactoryInterfaceArrayP[index]) setInitialScale:scaleProperties];
         }
 }
 

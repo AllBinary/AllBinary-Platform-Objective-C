@@ -13,13 +13,13 @@ void OpenGLESImageExclusionUtil_staticInit(void) {
         return;
     }
     initialized = true;
-    OpenGLESImageExclusionUtil_instance = [((OpenGLESImageExclusionUtil*) [OpenGLESImageExclusionUtil alloc]) init];
+    OpenGLESImageExclusionUtil_instance = ((OpenGLESImageExclusionUtil*) [((OpenGLESImageExclusionUtil*) [OpenGLESImageExclusionUtil alloc]) init]);
 }
 
 @implementation OpenGLESImageExclusionUtil
 
 - (void) initFields {
-    self->list = [((BasicArrayListD*) [BasicArrayListD alloc]) init];
+    self->list = ((BasicArrayListD*) [((BasicArrayListD*) [BasicArrayListD alloc]) init]);
 }
 
 - (instancetype) init {

@@ -24,15 +24,15 @@ void AdjustedCircleAnimation_staticInit(void) {
 
 
 + (AdjustedCircleAnimation*) createAnimation:(int32_t)width :(int32_t)height :(int32_t)xAdjustment :(int32_t)yAdjustment :(BasicColor*)basicColor {
-        AdjustedCircleAnimation* adjustedCircleAnimation = [((AdjustedCircleAnimation*) [AdjustedCircleAnimation alloc]) init:width :height :basicColor];
+        AdjustedCircleAnimation* adjustedCircleAnimation = ((AdjustedCircleAnimation*) [((AdjustedCircleAnimation*) [AdjustedCircleAnimation alloc]) init:width :height :basicColor]);
         [adjustedCircleAnimation initXY:xAdjustment :yAdjustment];
         return adjustedCircleAnimation;
 }
 
 
 + (AdjustedCircleAnimation*) createW:(int32_t)width :(int32_t)height :(int32_t)innerWidth :(BasicColor*)basicColor {
-        AdjustedCircleAnimation* adjustedCircleAnimation = [((AdjustedCircleAnimation*) [AdjustedCircleAnimation alloc]) init:width :height :basicColor];
-        [adjustedCircleAnimation init_:innerWidth];
+        AdjustedCircleAnimation* adjustedCircleAnimation = ((AdjustedCircleAnimation*) [((AdjustedCircleAnimation*) [AdjustedCircleAnimation alloc]) init:width :height :basicColor]);
+        [adjustedCircleAnimation initMethod:innerWidth];
         return adjustedCircleAnimation;
 }
 
@@ -50,7 +50,7 @@ void AdjustedCircleAnimation_staticInit(void) {
 }
 
 
-- (void) init_:(int32_t)innerWidth {
+- (void) initMethod:(int32_t)innerWidth {
         if ([AndroidUtil isAndroid]) {
             int32_t widthPortion = (((innerWidth / 3) * 10) / 7);
             self->xAdjustment = -((self->width >> 1) - widthPortion);

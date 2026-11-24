@@ -10,7 +10,7 @@ void AbIOSystem_staticInit(void) {
         return;
     }
     initialized = true;
-    AbIOSystem_instance = [((AbIOSystem*) [AbIOSystem alloc]) init];
+    AbIOSystem_instance = ((AbIOSystem*) [((AbIOSystem*) [AbIOSystem alloc]) init]);
 }
 
 @implementation AbIOSystem

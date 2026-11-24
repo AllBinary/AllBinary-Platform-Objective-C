@@ -10,7 +10,7 @@ void PointsResources_staticInit(void) {
         return;
     }
     initialized = true;
-    PointsResources_SINGLETON = [((PointsResources*) [PointsResources alloc]) init];
+    PointsResources_SINGLETON = ((PointsResources*) [((PointsResources*) [PointsResources alloc]) init]);
 }
 
 @implementation PointsResources

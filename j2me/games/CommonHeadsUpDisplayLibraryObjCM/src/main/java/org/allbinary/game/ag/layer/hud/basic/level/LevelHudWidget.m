@@ -5,6 +5,12 @@
 #include "org/allbinary/graphics/color/BasicColorFactory.h"
 #include "org/allbinary/logic/NullUtil.h"
 #include "org/allbinary/logic/math/PrimitiveLongUtil.h"
+#if __has_include("org/allbinary/logic/NullUtil.h")
+#include "org/allbinary/logic/NullUtil.h"
+#endif
+#if __has_include("org/allbinary/graphics/color/BasicColorFactory.h")
+#include "org/allbinary/graphics/color/BasicColorFactory.h"
+#endif
 
 
 
@@ -31,7 +37,7 @@ void LevelHudWidget_staticInit(void) {
 
 // throws Exception
 + (LevelHudWidget*) createHud:(int32_t)maxlevel :(int32_t)location :(int32_t)direction {
-        return [((LevelHudWidget*) [LevelHudWidget alloc]) init:maxlevel :location :direction];
+        return ((LevelHudWidget*) [((LevelHudWidget*) [LevelHudWidget alloc]) init:maxlevel :location :direction]);
 }
 
 

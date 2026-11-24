@@ -17,6 +17,45 @@
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/displayable/canvas/AllBinaryGameCanvas.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameKeyFactory.h")
+#include "org/allbinary/game/input/GameKeyFactory.h"
+#endif
 #if __has_include("org/allbinary/game/displayable/canvas/UpGameKeyEventHandlerBase.h")
 #include "org/allbinary/game/displayable/canvas/UpGameKeyEventHandlerBase.h"
 #endif
@@ -106,7 +145,7 @@ void FormInputProcessor_staticInit(void) {
 
 - (void) keyPressedByDevice:(int32_t)keyCode :(int32_t)deviceId {
         JAVA_TRY {
-            [PreLogUtil put:[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->inputFactory->KEY_CODE_LABEL] appendint:keyCode] append:[CommonSeps getInstance]->SPACE] append:self->inputFactory->DEVICE_ID_LABEL] appendint:deviceId] toString] :self :self->gameInputStrings->KEY_PRESSED];
+            [PreLogUtil put:[[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->inputFactory->KEY_CODE_LABEL] appendint:keyCode] append:[CommonSeps getInstance]->SPACE] append:self->inputFactory->DEVICE_ID_LABEL] appendint:deviceId] toString] :self :self->gameInputStrings->KEY_PRESSED];
             Input* input = [self->inputFactory getInstanceById:keyCode];
             GameKeyEvent* gameKeyEvent = [self->gameKeyEventFactory getInstanceForInput:self->allBinaryGameCanvas :input];
             [self->downKeyEventHandler fireEventForGameKeyEvent:gameKeyEvent];
@@ -120,7 +159,7 @@ void FormInputProcessor_staticInit(void) {
         JAVA_TRY {
             Input* input = [self->inputFactory getInstanceById:keyCode];
             if ([self->platformKeyFactory isEnter:input]) {
-                [PreLogUtil put:[[[[[[[((StringMaker*) [StringMaker alloc]) init] append:self->inputFactory->KEY_CODE_LABEL] appendint:keyCode] append:[CommonSeps getInstance]->SPACE] append:self->inputFactory->DEVICE_ID_LABEL] appendint:deviceId] toString] :self :self->gameInputStrings->KEY_RELEASED];
+                [PreLogUtil put:[[[[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:self->inputFactory->KEY_CODE_LABEL] appendint:keyCode] append:[CommonSeps getInstance]->SPACE] append:self->inputFactory->DEVICE_ID_LABEL] appendint:deviceId] toString] :self :self->gameInputStrings->KEY_RELEASED];
                 GameKey* gameKey = [GameKeyFactory getInstance]->KEY_NUM0;
                 GameKeyEventSourceInterface* gameKeyEventSourceInterface = ((GameKeyEventSourceInterface*) canvas);
                 GameKeyEvent* gameKeyEvent = [self->gameKeyEventFactory getInstanceForInput:gameKeyEventSourceInterface :gameKey];

@@ -25,7 +25,7 @@ void CenterStaticViewPositionFactory_staticInit(void) {
 
 - (ViewPositionBase*) getInstance:(int32_t)z {
         DisplayInfoSingleton* displayInfoSingleton = [DisplayInfoSingleton getInstance];
-        return [((StaticViewPosition*) [StaticViewPosition alloc]) init:([displayInfoSingleton getLastWidth] >> 1) :([displayInfoSingleton getLastHeight] >> 1) :z];
+        return ((StaticViewPosition*) [((StaticViewPosition*) [StaticViewPosition alloc]) init:([displayInfoSingleton getLastWidth] >> 1) :([displayInfoSingleton getLastHeight] >> 1) :z]);
 }
 
 @end

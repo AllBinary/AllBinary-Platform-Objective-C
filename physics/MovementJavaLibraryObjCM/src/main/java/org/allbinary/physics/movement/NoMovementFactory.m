@@ -11,13 +11,13 @@ void NoMovementFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    NoMovementFactory_instance = [((NoMovementFactory*) [NoMovementFactory alloc]) init];
+    NoMovementFactory_instance = ((NoMovementFactory*) [((NoMovementFactory*) [NoMovementFactory alloc]) init]);
 }
 
 @implementation NoMovementFactory
 
 - (void) initFields {
-    self->movement = [((Movement*) [Movement alloc]) init];
+    self->movement = ((Movement*) [((Movement*) [Movement alloc]) init]);
 }
 
 - (instancetype) init {

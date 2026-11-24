@@ -28,8 +28,8 @@
 @class SecretComposite;
 @class ByteUtil;
 @class BaseSecretComposite;
-// #include "javax/crypto/Cipher.h"
-// #include "javax/crypto/SecretKey.h"
+#include "javax/crypto/Cipher.h"
+#include "javax/crypto/SecretKey.h"
 #if __has_include("org/allbinary/logic/java/byteutil/ByteUtil.h")
 #include "org/allbinary/logic/java/byteutil/ByteUtil.h"
 #endif

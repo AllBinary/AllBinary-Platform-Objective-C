@@ -17,6 +17,30 @@
 #include "org/allbinary/view/event/ViewPositionEvent.h"
 #include "org/allbinary/layer/Layer.h"
 #include "org/allbinary/layer/LayerInterface.h"
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/TsUtil.h")
+#include "org/allbinary/TsUtil.h"
+#endif
+#if __has_include("org/allbinary/game/identification/BasicGroupFactory.h")
+#include "org/allbinary/game/identification/BasicGroupFactory.h"
+#endif
+#if __has_include("org/allbinary/graphics/opengles/OpenGLFeatureUtil.h")
+#include "org/allbinary/graphics/opengles/OpenGLFeatureUtil.h"
+#endif
 
 
 AllBinaryLayer* AllBinaryLayer_NULL_ALLBINARY_LAYER;
@@ -28,13 +52,13 @@ void AllBinaryLayer_staticInit(void) {
         return;
     }
     initialized = true;
-    AllBinaryLayer_NULL_ALLBINARY_LAYER = [((AllBinaryLayer*) [AllBinaryLayer alloc]) init:[StringUtil getInstance]->EMPTY_STRING :(RectangleFactory_staticInit(), RectangleFactory_SINGLETON) :(ViewPositionBase_staticInit(), ViewPositionBase_NULL_VIEW_POSITION)];
+    AllBinaryLayer_NULL_ALLBINARY_LAYER = ((AllBinaryLayer*) [((AllBinaryLayer*) [AllBinaryLayer alloc]) init:[StringUtil getInstance]->EMPTY_STRING :(RectangleFactory_staticInit(), RectangleFactory_SINGLETON) :(ViewPositionBase_staticInit(), ViewPositionBase_NULL_VIEW_POSITION)]);
 }
 
 @implementation AllBinaryLayer
 
 - (void) initFields {
-    self->viewPositionEvent = [((ViewPositionEvent*) [ViewPositionEvent alloc]) init:self];
+    self->viewPositionEvent = ((ViewPositionEvent*) [((ViewPositionEvent*) [ViewPositionEvent alloc]) init:self]);
     self->halfWidth = 0;
     self->halfHeight = 0;
     
@@ -46,7 +70,7 @@ void AllBinaryLayer_staticInit(void) {
         self = [super init:[rectangle getWidth] :[rectangle getHeight]];
         [self initFields];
         const char* localName = nullptr;
-        localName = [[[[[((StringMaker*) [StringMaker alloc]) init] append:name] append:[CommonSeps getInstance]->COLON] append:[Integer toHexString:[[TsUtil getInstance] hashCode:self]]] toString];
+        localName = [[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:name] append:[CommonSeps getInstance]->COLON] append:[Integer toHexString:[[TsUtil getInstance] hashCode:self]]] toString];
         self->name = localName;
         GPoint* point = [rectangle getPoint];
         [self setPosition:[point getX] :[point getY] :[point getZ]];
@@ -128,7 +152,7 @@ void AllBinaryLayer_staticInit(void) {
 
 
 - (int32_t) getZ2 {
-        return ((int32_t) ([self getZP] + [self getDepth]));
+        return ((int32_t) (((int64_t) [self getZP]) + [self getDepth]));
 }
 
 
@@ -239,7 +263,7 @@ void AllBinaryLayer_staticInit(void) {
 
 
 - (const char*) toString {
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [self toStringAppend:stringBuffer];
         return [stringBuffer toString];
 }

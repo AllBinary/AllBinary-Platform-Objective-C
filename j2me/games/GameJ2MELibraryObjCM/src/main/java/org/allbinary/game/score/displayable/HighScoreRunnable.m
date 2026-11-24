@@ -6,6 +6,18 @@
 #include "org/allbinary/logic/string/StringMaker.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/score/displayable/HighScoresCanvas.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 
@@ -43,7 +55,7 @@ void HighScoreRunnable_staticInit(void) {
                 }
                 highScoresCanvas->hasPainted = false;
             }
-            StringMaker* stringMaker = [((StringMaker*) [StringMaker alloc]) init];
+            StringMaker* stringMaker = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
             ABSystemWrapper* systemWrapper = [ABSystemWrapper getInstance];
             int64_t currentTimeMillis = [systemWrapper currentTimeMillis];
             [logUtil putF:[[[stringMaker append:"HighScoresCanvas - Request repaint to be sure: "] appendlong:currentTimeMillis] toString] :self :commonStrings->RUN];

@@ -11,7 +11,7 @@ void NullIntermissionEnableListener_staticInit(void) {
         return;
     }
     initialized = true;
-    NullIntermissionEnableListener_SINGLETON = [((NullIntermissionEnableListener*) [NullIntermissionEnableListener alloc]) init];
+    NullIntermissionEnableListener_SINGLETON = ((NullIntermissionEnableListener*) [((NullIntermissionEnableListener*) [NullIntermissionEnableListener alloc]) init]);
 }
 
 @implementation NullIntermissionEnableListener

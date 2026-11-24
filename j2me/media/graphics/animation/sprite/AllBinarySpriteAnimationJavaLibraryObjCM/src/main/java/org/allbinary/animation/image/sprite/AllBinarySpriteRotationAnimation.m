@@ -8,6 +8,9 @@
 #include "org/allbinary/math/AngleFactory.h"
 #include "org/allbinary/math/AngleInfo.h"
 #include "org/allbinary/animation/image/sprite/HackRotationSpriteIndexedAnimation.h"
+#if __has_include("org/allbinary/math/AngleFactory.h")
+#include "org/allbinary/math/AngleFactory.h"
+#endif
 #if __has_include("org/allbinary/animation/image/sprite/AngleIncrementInfo.h")
 #include "org/allbinary/animation/image/sprite/AngleIncrementInfo.h"
 #endif
@@ -47,7 +50,7 @@ void AllBinarySpriteRotationAnimation_staticInit(void) {
 
 
 - (instancetype) init:(Sprite*)sprite :(Image*)image :(AnimationBehavior*)animationBehavior {
-        self = [super init:sprite :image :[AngleInfo getInstance:((int16_t) ([AngleFactory getInstance]->TOTAL_ANGLE / [sprite getRawFrameCount]))] :animationBehavior];
+        self = [super init:sprite :image :[AngleInfo getInstance:((int16_t) (((int32_t) [AngleFactory getInstance]->TOTAL_ANGLE) / [sprite getRawFrameCount]))] :animationBehavior];
         [self->angleInfo adjustAngle:[self->sprite getFrame]];
     return self;
 }

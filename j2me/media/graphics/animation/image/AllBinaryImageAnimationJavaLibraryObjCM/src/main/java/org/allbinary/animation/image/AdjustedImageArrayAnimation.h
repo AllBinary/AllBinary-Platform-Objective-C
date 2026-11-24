@@ -39,7 +39,7 @@
 }
 - (instancetype) init:(Image**)imageArray :(int32_t)dx :(int32_t)dy :(AnimationBehavior*)animationBehavior;
 - (void) initFields;
-- (void) init_:(int32_t)dx :(int32_t)dy;
+- (void) initMethod:(int32_t)dx :(int32_t)dy;
 - (void) paintXY:(Graphics*)graphics :(int32_t)x :(int32_t)y;
 - (void) setDx:(int32_t)dx;
 - (int32_t) getDx;

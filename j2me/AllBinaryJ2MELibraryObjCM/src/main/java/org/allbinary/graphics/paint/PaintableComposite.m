@@ -31,14 +31,14 @@ void PaintableComposite_staticInit(void) {
 
 - (void) paint:(Graphics*)graphics {
         for (int32_t index = java_array_length(self->paintableArray) - 1; index >= 0; index--) {
-            [self->paintableArray[index] paint:graphics];
+            [((id<PaintableInterface>) self->paintableArray[index]) paint:graphics];
         }
 }
 
 
 - (void) paintThreed:(Graphics*)graphics {
         for (int32_t index = java_array_length(self->paintableArray) - 1; index >= 0; index--) {
-            [self->paintableArray[index] paintThreed:graphics];
+            [((id<PaintableInterface>) self->paintableArray[index]) paintThreed:graphics];
         }
 }
 

@@ -7,6 +7,16 @@
 #include "org/allbinary/string/CommonSeps.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/globals/AppUrlGlobals.h"
+#include "org/allbinary/globals/URLGLOBALS.h"
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
+#if __has_include("org/allbinary/string/CommonSeps.h")
+#include "org/allbinary/string/CommonSeps.h"
+#endif
 
 
 static Globals* Globals_instance;
@@ -17,7 +27,7 @@ void Globals_staticInit(void) {
         return;
     }
     initialized = true;
-    Globals_instance = [((Globals*) [Globals alloc]) init];
+    Globals_instance = ((Globals*) [((Globals*) [Globals alloc]) init]);
 }
 
 @implementation Globals
@@ -39,13 +49,13 @@ void Globals_staticInit(void) {
 }
 
 
-- (void) init_:(ClassLoader*)classLoader :(const char*)pathString {
+- (void) initMethod:(ClassLoader*)classLoader :(const char*)pathString {
         CommonStrings* commonStrings = [CommonStrings getInstance];
-        AppUrlGlobals* appUrlGlobals = [((AppUrlGlobals*) [AppUrlGlobals alloc]) init];
+        AppUrlGlobals* appUrlGlobals = ((AppUrlGlobals*) [((AppUrlGlobals*) [AppUrlGlobals alloc]) init]);
         [appUrlGlobals setWebappPath:pathString];
-        [_URLGLOBALS init_:appUrlGlobals];
+        [URLGLOBALS initMethod:appUrlGlobals];
         [WebappClassLoaderInfo setLoader:classLoader];
-        StringMaker* stringBuffer = [((StringMaker*) [StringMaker alloc]) init];
+        StringMaker* stringBuffer = ((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]);
         [stringBuffer append:"Setting Up AllBinary System Configuration Args: "];
         [stringBuffer append:pathString];
         [stringBuffer append:" ClassLoader: "];
@@ -59,12 +69,12 @@ void Globals_staticInit(void) {
             [stringBuffer append:[CommonSeps getInstance]->SPACE];
             [stringBuffer append:[CommonSeps getInstance]->EQUALS];
             [stringBuffer append:[CommonSeps getInstance]->SPACE];
-            [stringBuffer append:[_URLGLOBALS getWebappPath]];
+            [stringBuffer append:[URLGLOBALS getWebappPath]];
             [self->logUtil putF:[stringBuffer toString] :self :commonStrings->INIT];
         }
         [stringBuffer delete:0 :[stringBuffer length]];
         [stringBuffer append:"Webapp Path Set To: "];
-        [stringBuffer append:[_URLGLOBALS getWebappPath]];
+        [stringBuffer append:[URLGLOBALS getWebappPath]];
         [self->logUtil putF:[stringBuffer toString] :self :commonStrings->INIT];
 }
 

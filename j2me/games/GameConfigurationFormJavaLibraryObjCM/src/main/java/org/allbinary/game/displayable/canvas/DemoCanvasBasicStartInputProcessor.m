@@ -9,6 +9,18 @@
 #include "org/allbinary/logic/string/StringUtil.h"
 #include "org/allbinary/util/BasicArrayList.h"
 #include "org/allbinary/game/displayable/canvas/BasicMenuInputProcessor.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/game/input/GameInputStrings.h")
+#include "org/allbinary/game/input/GameInputStrings.h"
+#endif
 #if __has_include("org/allbinary/game/displayable/canvas/CommandListener.h")
 #include "org/allbinary/game/displayable/canvas/CommandListener.h"
 #endif
@@ -63,6 +75,9 @@
 #if __has_include("org/allbinary/util/MyCanvas.h")
 #include "org/allbinary/util/MyCanvas.h"
 #endif
+#if __has_include("org/allbinary/game/commands/GameCommandsFactory.h")
+#include "org/allbinary/game/commands/GameCommandsFactory.h"
+#endif
 
 
 
@@ -90,9 +105,9 @@ void DemoCanvasBasicStartInputProcessor_staticInit(void) {
         GameKeyEvent* gameKeyEvent = nullptr;
         for (int32_t index = 0; index < size; index++) {
             gameKeyEvent = ((GameKeyEvent*) list->objectArray[index]);
-            [self->logUtil putF:[[[[((StringMaker*) [StringMaker alloc]) init] append:"Start GameKey: "] append:[[StringUtil getInstance] toString:gameKeyEvent]] toString] :self :[GameInputStrings getInstance]->PROCESS_INPUT];
+            [self->logUtil putF:[[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"Start GameKey: "] append:[[StringUtil getInstance] toString:gameKeyEvent]] toString] :self :[GameInputStrings getInstance]->PROCESS_INPUT];
         }
-        [[[self getCanvas] getCustomCommandListener] commandAction:[GameCommandsFactory getInstance]->START_COMMAND :(NullCanvas_staticInit(), NullCanvas_NULL_CANVAS)];
+        [((id<CommandListener>) [[self getCanvas] getCustomCommandListener]) commandAction:[GameCommandsFactory getInstance]->START_COMMAND :(NullCanvas_staticInit(), NullCanvas_NULL_CANVAS)];
         return size;
 }
 

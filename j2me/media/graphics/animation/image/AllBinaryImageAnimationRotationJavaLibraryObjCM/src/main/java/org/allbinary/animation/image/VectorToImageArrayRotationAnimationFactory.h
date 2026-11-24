@@ -54,7 +54,7 @@
 }
 - (instancetype) init:(VectorInfo*)vectorInfo :(BasicColor*)basicColor :(AnimationBehaviorFactory*)animationBehaviorFactory;
 - (void) initFields;
-- (void) init_;
+- (void) initMethod;
 - (Animation*) getInstance:(int32_t)instanceId;
 - (int32_t) getAngleIncrement;
 - (void) setInitialScale:(ScaleProperties*)scaleProperties;

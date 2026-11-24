@@ -1,6 +1,12 @@
 // Generated Code Do Not Modify
 #include "org/allbinary/logic/math/PrimitiveLongSingleton.h"
 #include "org/allbinary/logic/string/StringMaker.h"
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringMaker.h")
+#include "org/allbinary/logic/string/StringMaker.h"
+#endif
 
 
 static PrimitiveLongSingleton* PrimitiveLongSingleton_instance;
@@ -11,7 +17,7 @@ void PrimitiveLongSingleton_staticInit(void) {
         return;
     }
     initialized = true;
-    PrimitiveLongSingleton_instance = [((PrimitiveLongSingleton*) [PrimitiveLongSingleton alloc]) init];
+    PrimitiveLongSingleton_instance = ((PrimitiveLongSingleton*) [((PrimitiveLongSingleton*) [PrimitiveLongSingleton alloc]) init]);
 }
 
 @implementation PrimitiveLongSingleton
@@ -44,7 +50,7 @@ void PrimitiveLongSingleton_staticInit(void) {
                 return self->NUMBER_ARRAY[index];
             }
         }
-        java_throw(java_exception_new("Exception", [[[[((StringMaker*) [StringMaker alloc]) init] append:"numberAsChar was not in array: "] appendchar:numberAsChar] toString]));
+        java_throw(java_exception_new("Exception", [[[((StringMaker*) [((StringMaker*) [StringMaker alloc]) init]) append:"numberAsChar was not in array: "] appendchar:numberAsChar] toString]));
 }
 
 @end

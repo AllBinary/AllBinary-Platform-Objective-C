@@ -32,9 +32,9 @@ void RightToLeftImageAnimationFactory_staticInit(void) {
         Image* scaledImage = [self->animationFactoryImageScaleUtil createImage:[self getImage] :self->animationFactoryInitializationVisitor->width :self->animationFactoryInitializationVisitor->height :self->scaleProperties->scaleWidth :self->scaleProperties->scaleHeight];
         if (self->animationFactoryInitializationVisitor->dx != 0 || self->animationFactoryInitializationVisitor->dy != 0) {
             [self->animationFactoryImageScaleUtil processAdjust:self];
-            return [((AdjustedRightToLeftImageAnimation*) [AdjustedRightToLeftImageAnimation alloc]) init:scaledImage :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((AdjustedRightToLeftImageAnimation*) [((AdjustedRightToLeftImageAnimation*) [AdjustedRightToLeftImageAnimation alloc]) init:scaledImage :self->animationFactoryInitializationVisitor->dx :self->animationFactoryInitializationVisitor->dy :[self->animationBehaviorFactory getOrCreateInstance]]);
         } else {
-            return [((RightToLeftImageAnimation*) [RightToLeftImageAnimation alloc]) init:scaledImage :[self->animationBehaviorFactory getOrCreateInstance]];
+            return ((RightToLeftImageAnimation*) [((RightToLeftImageAnimation*) [RightToLeftImageAnimation alloc]) init:scaledImage :[self->animationBehaviorFactory getOrCreateInstance]]);
         }
 }
 

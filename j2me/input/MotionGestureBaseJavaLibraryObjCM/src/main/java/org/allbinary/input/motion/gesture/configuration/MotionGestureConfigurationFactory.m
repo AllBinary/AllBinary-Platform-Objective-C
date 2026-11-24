@@ -11,7 +11,7 @@ void MotionGestureConfigurationFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    MotionGestureConfigurationFactory_config = [((MotionGestureConfiguration*) [MotionGestureConfiguration alloc]) init];
+    MotionGestureConfigurationFactory_config = ((MotionGestureConfiguration*) [((MotionGestureConfiguration*) [MotionGestureConfiguration alloc]) init]);
 }
 
 @implementation MotionGestureConfigurationFactory

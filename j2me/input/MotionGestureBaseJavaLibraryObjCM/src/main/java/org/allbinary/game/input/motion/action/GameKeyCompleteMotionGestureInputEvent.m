@@ -7,6 +7,9 @@
 #include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/game/input/motion/action/GameKeyCompleteMotionGestureInputEventFactory.h"
+#if __has_include("org/allbinary/input/motion/gesture/MotionGestureInput.h")
+#include "org/allbinary/input/motion/gesture/MotionGestureInput.h"
+#endif
 
 
 

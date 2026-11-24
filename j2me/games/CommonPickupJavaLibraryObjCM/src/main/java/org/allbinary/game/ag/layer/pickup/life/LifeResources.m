@@ -10,7 +10,7 @@ void LifeResources_staticInit(void) {
         return;
     }
     initialized = true;
-    LifeResources_SINGLETON = [((LifeResources*) [LifeResources alloc]) init];
+    LifeResources_SINGLETON = ((LifeResources*) [((LifeResources*) [LifeResources alloc]) init]);
 }
 
 @implementation LifeResources

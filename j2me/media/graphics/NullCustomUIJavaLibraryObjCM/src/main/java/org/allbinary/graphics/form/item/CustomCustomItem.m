@@ -19,7 +19,7 @@ void CustomCustomItem_staticInit(void) {
 @implementation CustomCustomItem
 
 - (void) initFields {
-    self->updateMyFontProcessor = [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self];
+    self->updateMyFontProcessor = ((UpdateMyFontProcessor*) [((UpdateMyFontProcessor*) [UpdateMyFontProcessor alloc]) init:self]);
     self->myFontProcessor = self->updateMyFontProcessor;
 }
 

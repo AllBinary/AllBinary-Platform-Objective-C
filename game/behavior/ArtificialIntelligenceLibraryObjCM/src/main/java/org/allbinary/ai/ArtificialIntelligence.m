@@ -13,7 +13,7 @@ void ArtificialIntelligence_staticInit(void) {
         return;
     }
     initialized = true;
-    ArtificialIntelligence_instance = [((ArtificialIntelligence*) [ArtificialIntelligence alloc]) init];
+    ArtificialIntelligence_instance = ((ArtificialIntelligence*) [((ArtificialIntelligence*) [ArtificialIntelligence alloc]) init]);
 }
 
 @implementation ArtificialIntelligence

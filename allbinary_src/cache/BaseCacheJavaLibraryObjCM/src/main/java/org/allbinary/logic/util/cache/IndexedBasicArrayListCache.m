@@ -26,8 +26,8 @@ void IndexedBasicArrayListCache_staticInit(void) {
 
 // throws Exception
 + (IndexedBasicArrayListCache*) createCache:(int32_t)size {
-        IndexedBasicArrayListCache* indexedBasicArrayListCache = [((IndexedBasicArrayListCache*) [IndexedBasicArrayListCache alloc]) init];
-        [indexedBasicArrayListCache init_:size];
+        IndexedBasicArrayListCache* indexedBasicArrayListCache = ((IndexedBasicArrayListCache*) [((IndexedBasicArrayListCache*) [IndexedBasicArrayListCache alloc]) init]);
+        [indexedBasicArrayListCache initMethod:size];
         return indexedBasicArrayListCache;
 }
 
@@ -40,7 +40,7 @@ void IndexedBasicArrayListCache_staticInit(void) {
 
 
 // throws Exception
-- (void) init_:(int32_t)size {
+- (void) initMethod:(int32_t)size {
         if (self->size < size) {
             [self->list ensureCapacity:size];
             for (int32_t index = size - 1; index >= self->size; index--) {

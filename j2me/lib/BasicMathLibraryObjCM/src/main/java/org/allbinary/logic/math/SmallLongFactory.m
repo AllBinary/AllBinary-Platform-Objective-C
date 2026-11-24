@@ -10,7 +10,7 @@ void SmallLongFactory_staticInit(void) {
         return;
     }
     initialized = true;
-    SmallLongFactory_instance = [((SmallLongFactory*) [SmallLongFactory alloc]) init];
+    SmallLongFactory_instance = ((SmallLongFactory*) [((SmallLongFactory*) [SmallLongFactory alloc]) init]);
 }
 
 @implementation SmallLongFactory
@@ -48,7 +48,7 @@ void SmallLongFactory_staticInit(void) {
 }
 
 
-- (void) init_ {
+- (void) initMethod {
         if (self->INTEGER_ARRAY[0] == nil) {
             if (self->lastMin < self->POSITIVE_MAX || self->lastNegativeMin < self->NEGATIVE_MAX) {
                 for (int32_t index = self->POSITIVE_MAX - 1; index >= self->lastMin; index--) {

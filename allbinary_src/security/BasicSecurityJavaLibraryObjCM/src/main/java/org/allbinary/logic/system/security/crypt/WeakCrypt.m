@@ -7,6 +7,15 @@
 #include "org/allbinary/logic/system/security/crypt/jcehelper/KeySpecFactory.h"
 #include "org/allbinary/string/CommonStrings.h"
 #include "org/allbinary/logic/system/security/crypt/DatabaseEncoder.h"
+#if __has_include("org/allbinary/logic/system/security/crypt/jcehelper/KeySpecFactory.h")
+#include "org/allbinary/logic/system/security/crypt/jcehelper/KeySpecFactory.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
+#if __has_include("org/allbinary/logic/string/StringUtil.h")
+#include "org/allbinary/logic/string/StringUtil.h"
+#endif
 
 
 static const char** WeakCrypt_keys;
@@ -26,7 +35,7 @@ void WeakCrypt_staticInit(void) {
 
 - (void) initFields {
     self->tsUtil = [TsUtil getInstance];
-    self->abCrypt = [((AbCrypt*) [AbCrypt alloc]) init:[KeySpecFactory getInstance]->DES];
+    self->abCrypt = ((AbCrypt*) [((AbCrypt*) [AbCrypt alloc]) init:[KeySpecFactory getInstance]->DES]);
 }
 
 
@@ -34,7 +43,7 @@ void WeakCrypt_staticInit(void) {
     self = [super init];
     [self initFields];
         JAVA_TRY {
-            [self->abCrypt init_:(WeakCrypt_staticInit(), WeakCrypt_keys)[key]];
+            [self->abCrypt initMethod:(WeakCrypt_staticInit(), WeakCrypt_keys)[key]];
         } JAVA_CATCH(Exception, e) {
             CommonStrings* commonStrings = [CommonStrings getInstance];
             [PreLogUtil putOE:commonStrings->EXCEPTION :self :"SuperCrypt(key)" :e];
